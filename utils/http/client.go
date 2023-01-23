@@ -15,7 +15,7 @@ import (
 	"github.com/deepfence/ThreatMapper/deepfence_utils/log"
 	rhttp "github.com/hashicorp/go-retryablehttp"
 
-	openapi "github.com/deepfence/ThreatMapper/deepfence_server_client"
+	openapi "github.com/deepfence/golang_deepfence_sdk/client"
 )
 
 const (
