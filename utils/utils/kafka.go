@@ -3,7 +3,7 @@ package utils
 import (
 	"context"
 
-	"github.com/deepfence/ThreatMapper/deepfence_utils/log"
+	"github.com/deepfence/golang_deepfence_sdk/utils/log"
 	"github.com/twmb/franz-go/pkg/kadm"
 	"github.com/twmb/franz-go/pkg/kgo"
 )

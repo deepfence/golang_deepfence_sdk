@@ -5,7 +5,7 @@ import (
 	"errors"
 	"net/http"
 
-	"github.com/deepfence/ThreatMapper/deepfence_utils/utils"
+	"github.com/deepfence/golang_deepfence_sdk/utils/utils"
 	"github.com/go-chi/jwtauth/v5"
 	"github.com/lestrrat-go/jwx/v2/jwt"
 )

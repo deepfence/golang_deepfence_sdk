@@ -3,7 +3,7 @@ package directory
 import (
 	"context"
 
-	postgresqlDb "github.com/deepfence/ThreatMapper/deepfence_utils/postgresql/postgresql-db"
+	postgresqlDb "github.com/deepfence/golang_deepfence_sdk/utils/postgresql/postgresql-db"
 	"github.com/minio/minio-go/v7"
 
 	"github.com/go-redis/redis/v9"

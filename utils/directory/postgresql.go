@@ -6,7 +6,7 @@ import (
 	"errors"
 	"fmt"
 
-	postgresqlDb "github.com/deepfence/ThreatMapper/deepfence_utils/postgresql/postgresql-db"
+	postgresqlDb "github.com/deepfence/golang_deepfence_sdk/utils/postgresql/postgresql-db"
 	_ "github.com/lib/pq"
 )
 
