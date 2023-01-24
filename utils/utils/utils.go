@@ -125,7 +125,7 @@ func IsJWTExpired(token string) bool {
 func GetInt64ValueFromInterfaceMap(claims map[string]interface{}, key string) (int64, error) {
 	val, ok := claims[key]
 	if !ok {
-		return 0, errors.New(fmt.Sprintf("key %s not found in JWT claims", key))
+		return 0, fmt.Errorf("key %s not found in JWT claims", key)
 	}
 	number, err := InterfaceToInt(val)
 	if err != nil {
@@ -137,7 +137,7 @@ func GetInt64ValueFromInterfaceMap(claims map[string]interface{}, key string) (i
 func GetStringValueFromInterfaceMap(claims map[string]interface{}, key string) (string, error) {
 	val, ok := claims[key]
 	if !ok {
-		return "", errors.New(fmt.Sprintf("key %s not found in JWT claims", key))
+		return "", fmt.Errorf("key %s not found in JWT claims", key)
 	}
 	return fmt.Sprintf("%v", val), nil
 }
