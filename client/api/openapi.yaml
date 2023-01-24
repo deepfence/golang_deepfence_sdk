@@ -1083,6 +1083,40 @@ paths:
       summary: Ingest Secrets
       tags:
       - Secret Scan
+  /deepfence/ingest/sync-report:
+    post:
+      description: Ingest data reported by one Agent
+      operationId: ingestSyncAgentReport
+      responses:
+        "200":
+          description: OK
+        "400":
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ApiDocsBadRequestResponse'
+          description: Bad Request
+        "401":
+          description: Unauthorized
+        "403":
+          description: Forbidden
+        "404":
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ApiDocsFailureResponse'
+          description: Not Found
+        "500":
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ApiDocsFailureResponse'
+          description: Internal Server Error
+      security:
+      - bearer_token: []
+      summary: Ingest Topology Data
+      tags:
+      - Topology
   /deepfence/ingest/vulnerabilities:
     post:
       description: Ingest vulnerabilities found while scanning the agent host or containers
