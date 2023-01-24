@@ -84,6 +84,8 @@ Class | Method | HTTP request | Description
 *AuthenticationApi* | [**Login**](docs/AuthenticationApi.md#login) | **Post** /deepfence/user/login | Login API
 *AuthenticationApi* | [**Logout**](docs/AuthenticationApi.md#logout) | **Post** /deepfence/user/logout | Logout API
 *CloudComplianceApi* | [**IngestCloudCompliances**](docs/CloudComplianceApi.md#ingestcloudcompliances) | **Post** /deepfence/ingest/cloud-compliance | Ingest Cloud Compliances
+*CloudNodesApi* | [**ListCloudNodeAccount**](docs/CloudNodesApi.md#listcloudnodeaccount) | **Post** /deepfence/cloud-node/accounts/list | List Cloud Node Accounts
+*CloudNodesApi* | [**RegisterCloudNodeAccount**](docs/CloudNodesApi.md#registercloudnodeaccount) | **Post** /deepfence/cloud-node/account | Register Cloud Node Account
 *CloudResourcesApi* | [**IngestCloudResources**](docs/CloudResourcesApi.md#ingestcloudresources) | **Post** /deepfence/ingest/cloud-resources | Ingest Cloud resources
 *ComplianceApi* | [**IngestCompliances**](docs/ComplianceApi.md#ingestcompliances) | **Post** /deepfence/ingest/compliance | Ingest Compliances
 *ComplianceApi* | [**ListComplianceScan**](docs/ComplianceApi.md#listcompliancescan) | **Post** /deepfence/scan/list/compliance | Get Compliance Scans List
@@ -105,6 +107,8 @@ Class | Method | HTTP request | Description
 *LookupApi* | [**GetKubernetesClusters**](docs/LookupApi.md#getkubernetesclusters) | **Post** /deepfence/lookup/kubernetesclusters | Retrieve K8S data
 *LookupApi* | [**GetPods**](docs/LookupApi.md#getpods) | **Post** /deepfence/lookup/pods | Retrieve Pods data
 *LookupApi* | [**GetProcesses**](docs/LookupApi.md#getprocesses) | **Post** /deepfence/lookup/processes | Retrieve Processes data
+*MalwareScanApi* | [**IngestMalware**](docs/MalwareScanApi.md#ingestmalware) | **Post** /deepfence/ingest/malware | Ingest Malware
+*MalwareScanApi* | [**IngestMalwareScanStatus**](docs/MalwareScanApi.md#ingestmalwarescanstatus) | **Post** /deepfence/ingest/malware-scan-logs | Ingest Malware Scan Status
 *MalwareScanApi* | [**ListMalwareScan**](docs/MalwareScanApi.md#listmalwarescan) | **Post** /deepfence/scan/list/malware | Get Malware Scans List
 *MalwareScanApi* | [**ResultsMalwareScan**](docs/MalwareScanApi.md#resultsmalwarescan) | **Post** /deepfence/scan/results/malware | Get Malware Scans Results
 *MalwareScanApi* | [**StartMalwareScan**](docs/MalwareScanApi.md#startmalwarescan) | **Post** /deepfence/scan/start/malware | Start Malware Scan
@@ -155,6 +159,8 @@ Class | Method | HTTP request | Description
  - [IngestersCloudCompliance](docs/IngestersCloudCompliance.md)
  - [IngestersCloudResource](docs/IngestersCloudResource.md)
  - [IngestersCompliance](docs/IngestersCompliance.md)
+ - [IngestersMalware](docs/IngestersMalware.md)
+ - [IngestersMalwareScanStatus](docs/IngestersMalwareScanStatus.md)
  - [IngestersSecret](docs/IngestersSecret.md)
  - [IngestersSecretMatch](docs/IngestersSecretMatch.md)
  - [IngestersSecretRule](docs/IngestersSecretRule.md)
@@ -164,6 +170,14 @@ Class | Method | HTTP request | Description
  - [ModelAgentId](docs/ModelAgentId.md)
  - [ModelAgentImageMetadata](docs/ModelAgentImageMetadata.md)
  - [ModelApiAuthRequest](docs/ModelApiAuthRequest.md)
+ - [ModelCloudComplianceScanDetails](docs/ModelCloudComplianceScanDetails.md)
+ - [ModelCloudNodeAccountInfo](docs/ModelCloudNodeAccountInfo.md)
+ - [ModelCloudNodeAccountRegisterReq](docs/ModelCloudNodeAccountRegisterReq.md)
+ - [ModelCloudNodeAccountRegisterResp](docs/ModelCloudNodeAccountRegisterResp.md)
+ - [ModelCloudNodeAccountRegisterRespData](docs/ModelCloudNodeAccountRegisterRespData.md)
+ - [ModelCloudNodeAccountsListReq](docs/ModelCloudNodeAccountsListReq.md)
+ - [ModelCloudNodeAccountsListResp](docs/ModelCloudNodeAccountsListResp.md)
+ - [ModelCloudNodeCloudtrailTrail](docs/ModelCloudNodeCloudtrailTrail.md)
  - [ModelComputeMetrics](docs/ModelComputeMetrics.md)
  - [ModelContainer](docs/ModelContainer.md)
  - [ModelContainerImage](docs/ModelContainerImage.md)
