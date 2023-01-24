@@ -929,11 +929,7 @@ paths:
         content:
           application/json:
             schema:
-              items:
-                minimum: 0
-                type: integer
-              nullable: true
-              type: array
+              $ref: '#/components/schemas/ModelRawReport'
       responses:
         "200":
           description: OK
@@ -5259,6 +5255,15 @@ components:
       - pid
       - ppid
       - threads
+      type: object
+    ModelRawReport:
+      example:
+        payload: payload
+      properties:
+        payload:
+          type: string
+      required:
+      - payload
       type: object
     ModelRegisterInvitedUserRequest:
       example:

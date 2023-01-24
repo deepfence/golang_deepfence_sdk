@@ -721,11 +721,11 @@ func (a *TopologyApiService) GetTopologyGraphExecute(r ApiGetTopologyGraphReques
 type ApiIngestAgentReportRequest struct {
 	ctx context.Context
 	ApiService *TopologyApiService
-	requestBody *[]int32
+	modelRawReport *ModelRawReport
 }
 
-func (r ApiIngestAgentReportRequest) RequestBody(requestBody []int32) ApiIngestAgentReportRequest {
-	r.requestBody = &requestBody
+func (r ApiIngestAgentReportRequest) ModelRawReport(modelRawReport ModelRawReport) ApiIngestAgentReportRequest {
+	r.modelRawReport = &modelRawReport
 	return r
 }
 
@@ -785,7 +785,7 @@ func (a *TopologyApiService) IngestAgentReportExecute(r ApiIngestAgentReportRequ
 		localVarHeaderParams["Accept"] = localVarHTTPHeaderAccept
 	}
 	// body params
-	localVarPostBody = r.requestBody
+	localVarPostBody = r.modelRawReport
 	req, err := a.client.prepareRequest(r.ctx, localVarPath, localVarHTTPMethod, localVarPostBody, localVarHeaderParams, localVarQueryParams, localVarFormParams, formFiles)
 	if err != nil {
 		return nil, err
