@@ -84,6 +84,7 @@ docs/ModelScanTriggerReq.md
 docs/ModelScanTriggerResp.md
 docs/ModelUser.md
 docs/ModelUserRegisterRequest.md
+docs/ModelVulnerabilityScanTriggerReq.md
 docs/ReportColumn.md
 docs/ReportMetadataRow.md
 docs/ReportRow.md
@@ -161,6 +162,7 @@ model_model_scan_trigger_req.go
 model_model_scan_trigger_resp.go
 model_model_user.go
 model_model_user_register_request.go
+model_model_vulnerability_scan_trigger_req.go
 model_report_column.go
 model_report_metadata_row.go
 model_report_row.go

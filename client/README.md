@@ -205,6 +205,7 @@ Class | Method | HTTP request | Description
  - [ModelScanTriggerResp](docs/ModelScanTriggerResp.md)
  - [ModelUser](docs/ModelUser.md)
  - [ModelUserRegisterRequest](docs/ModelUserRegisterRequest.md)
+ - [ModelVulnerabilityScanTriggerReq](docs/ModelVulnerabilityScanTriggerReq.md)
  - [ReportColumn](docs/ReportColumn.md)
  - [ReportMetadataRow](docs/ReportMetadataRow.md)
  - [ReportRow](docs/ReportRow.md)

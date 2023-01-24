@@ -1952,7 +1952,7 @@ paths:
         content:
           application/json:
             schema:
-              $ref: '#/components/schemas/ModelScanTriggerReq'
+              $ref: '#/components/schemas/ModelVulnerabilityScanTriggerReq'
       responses:
         "202":
           content:
@@ -5558,6 +5558,38 @@ components:
       - is_temporary_password
       - last_name
       - password
+      type: object
+    ModelVulnerabilityScanTriggerReq:
+      example:
+        node_type: image
+        scan_type: all
+        node_id: node_id
+      properties:
+        node_id:
+          type: string
+        node_type:
+          enum:
+          - image
+          - host
+          - container
+          type: string
+        scan_type:
+          enum:
+          - all
+          - base
+          - ruby
+          - python
+          - javascript
+          - php
+          - golang
+          - java
+          - rust
+          - dotnet
+          type: string
+      required:
+      - node_id
+      - node_type
+      - scan_type
       type: object
     PostgresqlDbApiToken:
       type: object
