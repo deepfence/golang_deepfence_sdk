@@ -128,6 +128,7 @@ Class | Method | HTTP request | Description
 *TopologyApi* | [**GetPodsTopologyGraph**](docs/TopologyApi.md#getpodstopologygraph) | **Post** /deepfence/graph/topology/pods | Get Pods Topology Graph
 *TopologyApi* | [**GetTopologyGraph**](docs/TopologyApi.md#gettopologygraph) | **Post** /deepfence/graph/topology/ | Get Topology Graph
 *TopologyApi* | [**IngestAgentReport**](docs/TopologyApi.md#ingestagentreport) | **Post** /deepfence/ingest/report | Ingest Topology Data
+*TopologyApi* | [**IngestSyncAgentReport**](docs/TopologyApi.md#ingestsyncagentreport) | **Post** /deepfence/ingest/sync-report | Ingest Topology Data
 *UserApi* | [**DeleteCurrentUser**](docs/UserApi.md#deletecurrentuser) | **Delete** /deepfence/user | Delete Current User
 *UserApi* | [**GetApiTokens**](docs/UserApi.md#getapitokens) | **Get** /deepfence/api-token | Get User&#39;s API Tokens
 *UserApi* | [**GetCurrentUser**](docs/UserApi.md#getcurrentuser) | **Get** /deepfence/user | Get Current User
@@ -137,7 +138,9 @@ Class | Method | HTTP request | Description
 *UserApi* | [**ResetPasswordRequest**](docs/UserApi.md#resetpasswordrequest) | **Post** /deepfence/user/reset-password/request | Reset Password Request
 *UserApi* | [**UpdateCurrentUser**](docs/UserApi.md#updatecurrentuser) | **Put** /deepfence/user | Update Current User
 *UserApi* | [**VerifyResetPasswordRequest**](docs/UserApi.md#verifyresetpasswordrequest) | **Post** /deepfence/user/reset-password/verify | Verify and Reset Password
+*VulnerabilityApi* | [**IngestSbom**](docs/VulnerabilityApi.md#ingestsbom) | **Post** /deepfence/ingest/sbom | Ingest SBOM from Scan
 *VulnerabilityApi* | [**IngestVulnerabilities**](docs/VulnerabilityApi.md#ingestvulnerabilities) | **Post** /deepfence/ingest/vulnerabilities | Ingest Vulnerabilities
+*VulnerabilityApi* | [**IngestVulnerabilitiesScanStatus**](docs/VulnerabilityApi.md#ingestvulnerabilitiesscanstatus) | **Post** /deepfence/ingest/vulnerabilities-scan-logs | Ingest Vulnerabilities Scan Status
 *VulnerabilityApi* | [**ListVulnerabilityScans**](docs/VulnerabilityApi.md#listvulnerabilityscans) | **Post** /deepfence/scan/list/vulnerability | Get Vulnerability Scans List
 *VulnerabilityApi* | [**ResultsVulnerabilityScans**](docs/VulnerabilityApi.md#resultsvulnerabilityscans) | **Post** /deepfence/scan/results/vulnerability | Get Vulnerability Scans Results
 *VulnerabilityApi* | [**StartVulnerabilityScan**](docs/VulnerabilityApi.md#startvulnerabilityscan) | **Post** /deepfence/scan/start/vulnerability | Start Vulnerability Scan
@@ -167,6 +170,7 @@ Class | Method | HTTP request | Description
  - [IngestersSecretScanStatus](docs/IngestersSecretScanStatus.md)
  - [IngestersSecretSeverity](docs/IngestersSecretSeverity.md)
  - [IngestersVulnerability](docs/IngestersVulnerability.md)
+ - [IngestersVulnerabilityScanStatus](docs/IngestersVulnerabilityScanStatus.md)
  - [ModelAgentId](docs/ModelAgentId.md)
  - [ModelAgentImageMetadata](docs/ModelAgentImageMetadata.md)
  - [ModelApiAuthRequest](docs/ModelApiAuthRequest.md)
@@ -205,6 +209,7 @@ Class | Method | HTTP request | Description
  - [ModelScanTriggerResp](docs/ModelScanTriggerResp.md)
  - [ModelUser](docs/ModelUser.md)
  - [ModelUserRegisterRequest](docs/ModelUserRegisterRequest.md)
+ - [ModelVulnerabilityScanTriggerReq](docs/ModelVulnerabilityScanTriggerReq.md)
  - [ReportColumn](docs/ReportColumn.md)
  - [ReportMetadataRow](docs/ReportMetadataRow.md)
  - [ReportRow](docs/ReportRow.md)
@@ -216,6 +221,7 @@ Class | Method | HTTP request | Description
  - [ReportersProviderThreatGraph](docs/ReportersProviderThreatGraph.md)
  - [ReportersThreatNodeInfo](docs/ReportersThreatNodeInfo.md)
  - [ReportersTopologyFilters](docs/ReportersTopologyFilters.md)
+ - [UtilsSbomRequest](docs/UtilsSbomRequest.md)
 
 
 ## Documentation For Authorization
