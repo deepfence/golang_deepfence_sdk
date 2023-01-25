@@ -40,7 +40,9 @@ paths:
           content:
             application/json:
               schema:
-                $ref: '#/components/schemas/ModelResponse'
+                items:
+                  $ref: '#/components/schemas/PostgresqlDbApiToken'
+                type: array
           description: OK
         "400":
           content:
@@ -84,7 +86,7 @@ paths:
           content:
             application/json:
               schema:
-                $ref: '#/components/schemas/ModelResponse'
+                $ref: '#/components/schemas/ModelResponseAccessToken'
           description: OK
         "400":
           content:
@@ -120,7 +122,7 @@ paths:
           content:
             application/json:
               schema:
-                $ref: '#/components/schemas/ModelResponse'
+                $ref: '#/components/schemas/ModelResponseAccessToken'
           description: OK
         "400":
           content:
@@ -510,7 +512,9 @@ paths:
           content:
             application/json:
               schema:
-                $ref: '#/components/schemas/ModelResponse'
+                items:
+                  $ref: '#/components/schemas/DiagnosisDiagnosticNotification'
+                type: array
           description: OK
         "400":
           content:
@@ -2459,7 +2463,7 @@ paths:
           content:
             application/json:
               schema:
-                $ref: '#/components/schemas/ModelResponse'
+                $ref: '#/components/schemas/ModelUser'
           description: OK
         "400":
           content:
@@ -2501,7 +2505,7 @@ paths:
           content:
             application/json:
               schema:
-                $ref: '#/components/schemas/ModelResponse'
+                $ref: '#/components/schemas/ModelUser'
           description: OK
         "400":
           content:
@@ -2544,7 +2548,7 @@ paths:
           content:
             application/json:
               schema:
-                $ref: '#/components/schemas/ModelResponse'
+                $ref: '#/components/schemas/ModelInviteUserResponse'
           description: OK
         "400":
           content:
@@ -2587,7 +2591,7 @@ paths:
           content:
             application/json:
               schema:
-                $ref: '#/components/schemas/ModelResponse'
+                $ref: '#/components/schemas/ModelResponseAccessToken'
           description: OK
         "400":
           content:
@@ -2628,7 +2632,7 @@ paths:
           content:
             application/json:
               schema:
-                $ref: '#/components/schemas/ModelResponse'
+                $ref: '#/components/schemas/ModelResponseAccessToken'
           description: OK
         "400":
           content:
@@ -2703,7 +2707,7 @@ paths:
           content:
             application/json:
               schema:
-                $ref: '#/components/schemas/ModelResponse'
+                $ref: '#/components/schemas/ModelResponseAccessToken'
           description: OK
         "400":
           content:
@@ -2744,7 +2748,7 @@ paths:
           content:
             application/json:
               schema:
-                $ref: '#/components/schemas/ModelResponse'
+                $ref: '#/components/schemas/ModelMessageResponse'
           description: OK
         "400":
           content:
@@ -2782,10 +2786,6 @@ paths:
               $ref: '#/components/schemas/ModelPasswordResetVerifyRequest'
       responses:
         "200":
-          content:
-            application/json:
-              schema:
-                $ref: '#/components/schemas/ModelResponse'
           description: OK
         "400":
           content:
@@ -3117,6 +3117,12 @@ components:
         $ref: '#/components/schemas/DetailedConnectionSummary'
       type: object
     DiagnosisDiagnosticNotification:
+      example:
+        expiry_in_secs: ""
+        follow_url: ""
+        updated_at: updated_at
+        source_application_id: source_application_id
+        content: content
       properties:
         content:
           type: string
@@ -4608,10 +4614,16 @@ components:
       - role
       type: object
     ModelInviteUserResponse:
+      example:
+        invite_expiry_hours: 0
+        invite_url: invite_url
+        message: message
       properties:
         invite_expiry_hours:
           type: integer
         invite_url:
+          type: string
+        message:
           type: string
       type: object
     ModelKubernetesCluster:
@@ -5409,6 +5421,15 @@ components:
       - email
       - password
       type: object
+    ModelMessageResponse:
+      example:
+        message: message
+      properties:
+        message:
+          type: string
+      required:
+      - message
+      type: object
     ModelMetadata:
       additionalProperties: {}
       type: object
@@ -5663,28 +5684,6 @@ components:
       - is_temporary_password
       - last_name
       - password
-      type: object
-    ModelResponse:
-      example:
-        data:
-          access_token: access_token
-          refresh_token: refresh_token
-        success: true
-        error_fields:
-          key: error_fields
-        message: message
-      properties:
-        data:
-          $ref: '#/components/schemas/ModelResponseAccessToken'
-        error_fields:
-          additionalProperties:
-            type: string
-          nullable: true
-          type: object
-        message:
-          type: string
-        success:
-          type: boolean
       type: object
     ModelResponseAccessToken:
       example:

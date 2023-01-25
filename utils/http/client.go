@@ -120,7 +120,7 @@ func (cl *OpenapiHttpClient) APITokenAuthenticate(api_token string) error {
 		return AuthError
 	}
 
-	return cl.updateHeaders(resp.GetData())
+	return cl.updateHeaders(*resp)
 }
 
 func (cl *OpenapiHttpClient) refreshToken() error {
@@ -132,7 +132,7 @@ func (cl *OpenapiHttpClient) refreshToken() error {
 		return err
 	}
 
-	return cl.updateHeaders(resp.GetData())
+	return cl.updateHeaders(*resp)
 }
 
 func (cl *OpenapiHttpClient) updateHeaders(tokens openapi.ModelResponseAccessToken) error {
