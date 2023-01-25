@@ -28,9 +28,9 @@ type UtilsSbomRequest struct {
 	Mode *string `json:"mode,omitempty"`
 	NodeId *string `json:"node_id,omitempty"`
 	NodeType *string `json:"node_type,omitempty"`
-	Sbom []int32 `json:"sbom,omitempty"`
+	Sbom string `json:"sbom"`
 	SbomFilePath *string `json:"sbom_file_path,omitempty"`
-	ScanId *string `json:"scan_id,omitempty"`
+	ScanId string `json:"scan_id"`
 	ScanType *string `json:"scan_type,omitempty"`
 }
 
@@ -38,8 +38,10 @@ type UtilsSbomRequest struct {
 // This constructor will assign default values to properties that have it defined,
 // and makes sure properties required by API are set, but the set of arguments
 // will change when the set of required properties is changed
-func NewUtilsSbomRequest() *UtilsSbomRequest {
+func NewUtilsSbomRequest(sbom string, scanId string) *UtilsSbomRequest {
 	this := UtilsSbomRequest{}
+	this.Sbom = sbom
+	this.ScanId = scanId
 	return &this
 }
 
@@ -307,35 +309,27 @@ func (o *UtilsSbomRequest) SetNodeType(v string) {
 	o.NodeType = &v
 }
 
-// GetSbom returns the Sbom field value if set, zero value otherwise.
-func (o *UtilsSbomRequest) GetSbom() []int32 {
-	if o == nil || isNil(o.Sbom) {
-		var ret []int32
+// GetSbom returns the Sbom field value
+func (o *UtilsSbomRequest) GetSbom() string {
+	if o == nil {
+		var ret string
 		return ret
 	}
+
 	return o.Sbom
 }
 
-// GetSbomOk returns a tuple with the Sbom field value if set, nil otherwise
+// GetSbomOk returns a tuple with the Sbom field value
 // and a boolean to check if the value has been set.
-func (o *UtilsSbomRequest) GetSbomOk() ([]int32, bool) {
-	if o == nil || isNil(o.Sbom) {
+func (o *UtilsSbomRequest) GetSbomOk() (*string, bool) {
+	if o == nil {
 		return nil, false
 	}
-	return o.Sbom, true
+	return &o.Sbom, true
 }
 
-// HasSbom returns a boolean if a field has been set.
-func (o *UtilsSbomRequest) HasSbom() bool {
-	if o != nil && !isNil(o.Sbom) {
-		return true
-	}
-
-	return false
-}
-
-// SetSbom gets a reference to the given []int32 and assigns it to the Sbom field.
-func (o *UtilsSbomRequest) SetSbom(v []int32) {
+// SetSbom sets field value
+func (o *UtilsSbomRequest) SetSbom(v string) {
 	o.Sbom = v
 }
 
@@ -371,36 +365,28 @@ func (o *UtilsSbomRequest) SetSbomFilePath(v string) {
 	o.SbomFilePath = &v
 }
 
-// GetScanId returns the ScanId field value if set, zero value otherwise.
+// GetScanId returns the ScanId field value
 func (o *UtilsSbomRequest) GetScanId() string {
-	if o == nil || isNil(o.ScanId) {
+	if o == nil {
 		var ret string
 		return ret
 	}
-	return *o.ScanId
+
+	return o.ScanId
 }
 
-// GetScanIdOk returns a tuple with the ScanId field value if set, nil otherwise
+// GetScanIdOk returns a tuple with the ScanId field value
 // and a boolean to check if the value has been set.
 func (o *UtilsSbomRequest) GetScanIdOk() (*string, bool) {
-	if o == nil || isNil(o.ScanId) {
+	if o == nil {
 		return nil, false
 	}
-	return o.ScanId, true
+	return &o.ScanId, true
 }
 
-// HasScanId returns a boolean if a field has been set.
-func (o *UtilsSbomRequest) HasScanId() bool {
-	if o != nil && !isNil(o.ScanId) {
-		return true
-	}
-
-	return false
-}
-
-// SetScanId gets a reference to the given string and assigns it to the ScanId field.
+// SetScanId sets field value
 func (o *UtilsSbomRequest) SetScanId(v string) {
-	o.ScanId = &v
+	o.ScanId = v
 }
 
 // GetScanType returns the ScanType field value if set, zero value otherwise.
@@ -469,15 +455,11 @@ func (o UtilsSbomRequest) ToMap() (map[string]interface{}, error) {
 	if !isNil(o.NodeType) {
 		toSerialize["node_type"] = o.NodeType
 	}
-	if !isNil(o.Sbom) {
-		toSerialize["sbom"] = o.Sbom
-	}
+	toSerialize["sbom"] = o.Sbom
 	if !isNil(o.SbomFilePath) {
 		toSerialize["sbom_file_path"] = o.SbomFilePath
 	}
-	if !isNil(o.ScanId) {
-		toSerialize["scan_id"] = o.ScanId
-	}
+	toSerialize["scan_id"] = o.ScanId
 	if !isNil(o.ScanType) {
 		toSerialize["scan_type"] = o.ScanType
 	}

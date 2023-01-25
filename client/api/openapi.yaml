@@ -5900,9 +5900,7 @@ components:
         node_type: node_type
         container_name: container_name
         kubernetes_cluster_name: kubernetes_cluster_name
-        sbom:
-        - 0
-        - 0
+        sbom: sbom
         scan_type: scan_type
         scan_id: scan_id
         image_id: image_id
@@ -5927,16 +5925,16 @@ components:
         node_type:
           type: string
         sbom:
-          items:
-            minimum: 0
-            type: integer
-          type: array
+          type: string
         sbom_file_path:
           type: string
         scan_id:
           type: string
         scan_type:
           type: string
+      required:
+      - sbom
+      - scan_id
       type: object
     IngestersSecret_Match:
       example:

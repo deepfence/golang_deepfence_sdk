@@ -12,16 +12,16 @@ Name | Type | Description | Notes
 **Mode** | Pointer to **string** |  | [optional] 
 **NodeId** | Pointer to **string** |  | [optional] 
 **NodeType** | Pointer to **string** |  | [optional] 
-**Sbom** | Pointer to **[]int32** |  | [optional] 
+**Sbom** | **string** |  | 
 **SbomFilePath** | Pointer to **string** |  | [optional] 
-**ScanId** | Pointer to **string** |  | [optional] 
+**ScanId** | **string** |  | 
 **ScanType** | Pointer to **string** |  | [optional] 
 
 ## Methods
 
 ### NewUtilsSbomRequest
 
-`func NewUtilsSbomRequest() *UtilsSbomRequest`
+`func NewUtilsSbomRequest(sbom string, scanId string, ) *UtilsSbomRequest`
 
 NewUtilsSbomRequest instantiates a new UtilsSbomRequest object
 This constructor will assign default values to properties that have it defined,
@@ -238,28 +238,23 @@ HasNodeType returns a boolean if a field has been set.
 
 ### GetSbom
 
-`func (o *UtilsSbomRequest) GetSbom() []int32`
+`func (o *UtilsSbomRequest) GetSbom() string`
 
 GetSbom returns the Sbom field if non-nil, zero value otherwise.
 
 ### GetSbomOk
 
-`func (o *UtilsSbomRequest) GetSbomOk() (*[]int32, bool)`
+`func (o *UtilsSbomRequest) GetSbomOk() (*string, bool)`
 
 GetSbomOk returns a tuple with the Sbom field if it's non-nil, zero value otherwise
 and a boolean to check if the value has been set.
 
 ### SetSbom
 
-`func (o *UtilsSbomRequest) SetSbom(v []int32)`
+`func (o *UtilsSbomRequest) SetSbom(v string)`
 
 SetSbom sets Sbom field to given value.
 
-### HasSbom
-
-`func (o *UtilsSbomRequest) HasSbom() bool`
-
-HasSbom returns a boolean if a field has been set.
 
 ### GetSbomFilePath
 
@@ -305,11 +300,6 @@ and a boolean to check if the value has been set.
 
 SetScanId sets ScanId field to given value.
 
-### HasScanId
-
-`func (o *UtilsSbomRequest) HasScanId() bool`
-
-HasScanId returns a boolean if a field has been set.
 
 ### GetScanType
 
