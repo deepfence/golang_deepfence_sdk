@@ -22,7 +22,6 @@ var _ MappedNullable = &ModelInviteUserResponse{}
 type ModelInviteUserResponse struct {
 	InviteExpiryHours *int32 `json:"invite_expiry_hours,omitempty"`
 	InviteUrl *string `json:"invite_url,omitempty"`
-	Message *string `json:"message,omitempty"`
 }
 
 // NewModelInviteUserResponse instantiates a new ModelInviteUserResponse object
@@ -106,38 +105,6 @@ func (o *ModelInviteUserResponse) SetInviteUrl(v string) {
 	o.InviteUrl = &v
 }
 
-// GetMessage returns the Message field value if set, zero value otherwise.
-func (o *ModelInviteUserResponse) GetMessage() string {
-	if o == nil || isNil(o.Message) {
-		var ret string
-		return ret
-	}
-	return *o.Message
-}
-
-// GetMessageOk returns a tuple with the Message field value if set, nil otherwise
-// and a boolean to check if the value has been set.
-func (o *ModelInviteUserResponse) GetMessageOk() (*string, bool) {
-	if o == nil || isNil(o.Message) {
-		return nil, false
-	}
-	return o.Message, true
-}
-
-// HasMessage returns a boolean if a field has been set.
-func (o *ModelInviteUserResponse) HasMessage() bool {
-	if o != nil && !isNil(o.Message) {
-		return true
-	}
-
-	return false
-}
-
-// SetMessage gets a reference to the given string and assigns it to the Message field.
-func (o *ModelInviteUserResponse) SetMessage(v string) {
-	o.Message = &v
-}
-
 func (o ModelInviteUserResponse) MarshalJSON() ([]byte, error) {
 	toSerialize,err := o.ToMap()
 	if err != nil {
@@ -153,9 +120,6 @@ func (o ModelInviteUserResponse) ToMap() (map[string]interface{}, error) {
 	}
 	if !isNil(o.InviteUrl) {
 		toSerialize["invite_url"] = o.InviteUrl
-	}
-	if !isNil(o.Message) {
-		toSerialize["message"] = o.Message
 	}
 	return toSerialize, nil
 }

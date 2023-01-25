@@ -28,7 +28,7 @@ type ApiDiagnosticNotificationRequest struct {
 	ApiService *DiagnosisApiService
 }
 
-func (r ApiDiagnosticNotificationRequest) Execute() ([]DiagnosisDiagnosticNotification, *http.Response, error) {
+func (r ApiDiagnosticNotificationRequest) Execute() (*ModelResponse, *http.Response, error) {
 	return r.ApiService.DiagnosticNotificationExecute(r)
 }
 
@@ -48,13 +48,13 @@ func (a *DiagnosisApiService) DiagnosticNotification(ctx context.Context) ApiDia
 }
 
 // Execute executes the request
-//  @return []DiagnosisDiagnosticNotification
-func (a *DiagnosisApiService) DiagnosticNotificationExecute(r ApiDiagnosticNotificationRequest) ([]DiagnosisDiagnosticNotification, *http.Response, error) {
+//  @return ModelResponse
+func (a *DiagnosisApiService) DiagnosticNotificationExecute(r ApiDiagnosticNotificationRequest) (*ModelResponse, *http.Response, error) {
 	var (
 		localVarHTTPMethod   = http.MethodGet
 		localVarPostBody     interface{}
 		formFiles            []formFile
-		localVarReturnValue  []DiagnosisDiagnosticNotification
+		localVarReturnValue  *ModelResponse
 	)
 
 	localBasePath, err := a.client.cfg.ServerURLWithContext(r.ctx, "DiagnosisApiService.DiagnosticNotification")

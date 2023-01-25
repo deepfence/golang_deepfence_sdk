@@ -13,7 +13,7 @@ Method | HTTP request | Description
 
 ## DiagnosticNotification
 
-> []DiagnosisDiagnosticNotification DiagnosticNotification(ctx).Execute()
+> ModelResponse DiagnosticNotification(ctx).Execute()
 
 Get Diagnostic Notification
 
@@ -40,7 +40,7 @@ func main() {
         fmt.Fprintf(os.Stderr, "Error when calling `DiagnosisApi.DiagnosticNotification``: %v\n", err)
         fmt.Fprintf(os.Stderr, "Full HTTP response: %v\n", r)
     }
-    // response from `DiagnosticNotification`: []DiagnosisDiagnosticNotification
+    // response from `DiagnosticNotification`: ModelResponse
     fmt.Fprintf(os.Stdout, "Response from `DiagnosisApi.DiagnosticNotification`: %v\n", resp)
 }
 ```
@@ -56,7 +56,7 @@ Other parameters are passed through a pointer to a apiDiagnosticNotificationRequ
 
 ### Return type
 
-[**[]DiagnosisDiagnosticNotification**](DiagnosisDiagnosticNotification.md)
+[**ModelResponse**](ModelResponse.md)
 
 ### Authorization
 

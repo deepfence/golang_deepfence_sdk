@@ -34,7 +34,7 @@ func (r ApiAuthTokenRequest) ModelApiAuthRequest(modelApiAuthRequest ModelApiAut
 	return r
 }
 
-func (r ApiAuthTokenRequest) Execute() (*ModelResponseAccessToken, *http.Response, error) {
+func (r ApiAuthTokenRequest) Execute() (*ModelResponse, *http.Response, error) {
 	return r.ApiService.AuthTokenExecute(r)
 }
 
@@ -54,13 +54,13 @@ func (a *AuthenticationApiService) AuthToken(ctx context.Context) ApiAuthTokenRe
 }
 
 // Execute executes the request
-//  @return ModelResponseAccessToken
-func (a *AuthenticationApiService) AuthTokenExecute(r ApiAuthTokenRequest) (*ModelResponseAccessToken, *http.Response, error) {
+//  @return ModelResponse
+func (a *AuthenticationApiService) AuthTokenExecute(r ApiAuthTokenRequest) (*ModelResponse, *http.Response, error) {
 	var (
 		localVarHTTPMethod   = http.MethodPost
 		localVarPostBody     interface{}
 		formFiles            []formFile
-		localVarReturnValue  *ModelResponseAccessToken
+		localVarReturnValue  *ModelResponse
 	)
 
 	localBasePath, err := a.client.cfg.ServerURLWithContext(r.ctx, "AuthenticationApiService.AuthToken")
@@ -167,7 +167,7 @@ type ApiAuthTokenRefreshRequest struct {
 	ApiService *AuthenticationApiService
 }
 
-func (r ApiAuthTokenRefreshRequest) Execute() (*ModelResponseAccessToken, *http.Response, error) {
+func (r ApiAuthTokenRefreshRequest) Execute() (*ModelResponse, *http.Response, error) {
 	return r.ApiService.AuthTokenRefreshExecute(r)
 }
 
@@ -187,13 +187,13 @@ func (a *AuthenticationApiService) AuthTokenRefresh(ctx context.Context) ApiAuth
 }
 
 // Execute executes the request
-//  @return ModelResponseAccessToken
-func (a *AuthenticationApiService) AuthTokenRefreshExecute(r ApiAuthTokenRefreshRequest) (*ModelResponseAccessToken, *http.Response, error) {
+//  @return ModelResponse
+func (a *AuthenticationApiService) AuthTokenRefreshExecute(r ApiAuthTokenRefreshRequest) (*ModelResponse, *http.Response, error) {
 	var (
 		localVarHTTPMethod   = http.MethodPost
 		localVarPostBody     interface{}
 		formFiles            []formFile
-		localVarReturnValue  *ModelResponseAccessToken
+		localVarReturnValue  *ModelResponse
 	)
 
 	localBasePath, err := a.client.cfg.ServerURLWithContext(r.ctx, "AuthenticationApiService.AuthTokenRefresh")
@@ -304,7 +304,7 @@ func (r ApiLoginRequest) ModelLoginRequest(modelLoginRequest ModelLoginRequest) 
 	return r
 }
 
-func (r ApiLoginRequest) Execute() (*ModelResponseAccessToken, *http.Response, error) {
+func (r ApiLoginRequest) Execute() (*ModelResponse, *http.Response, error) {
 	return r.ApiService.LoginExecute(r)
 }
 
@@ -324,13 +324,13 @@ func (a *AuthenticationApiService) Login(ctx context.Context) ApiLoginRequest {
 }
 
 // Execute executes the request
-//  @return ModelResponseAccessToken
-func (a *AuthenticationApiService) LoginExecute(r ApiLoginRequest) (*ModelResponseAccessToken, *http.Response, error) {
+//  @return ModelResponse
+func (a *AuthenticationApiService) LoginExecute(r ApiLoginRequest) (*ModelResponse, *http.Response, error) {
 	var (
 		localVarHTTPMethod   = http.MethodPost
 		localVarPostBody     interface{}
 		formFiles            []formFile
-		localVarReturnValue  *ModelResponseAccessToken
+		localVarReturnValue  *ModelResponse
 	)
 
 	localBasePath, err := a.client.cfg.ServerURLWithContext(r.ctx, "AuthenticationApiService.Login")

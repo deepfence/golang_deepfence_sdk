@@ -13,7 +13,7 @@ Method | HTTP request | Description
 
 ## AuthToken
 
-> ModelResponseAccessToken AuthToken(ctx).ModelApiAuthRequest(modelApiAuthRequest).Execute()
+> ModelResponse AuthToken(ctx).ModelApiAuthRequest(modelApiAuthRequest).Execute()
 
 Get Access Token for API Token
 
@@ -41,7 +41,7 @@ func main() {
         fmt.Fprintf(os.Stderr, "Error when calling `AuthenticationApi.AuthToken``: %v\n", err)
         fmt.Fprintf(os.Stderr, "Full HTTP response: %v\n", r)
     }
-    // response from `AuthToken`: ModelResponseAccessToken
+    // response from `AuthToken`: ModelResponse
     fmt.Fprintf(os.Stdout, "Response from `AuthenticationApi.AuthToken`: %v\n", resp)
 }
 ```
@@ -61,7 +61,7 @@ Name | Type | Description  | Notes
 
 ### Return type
 
-[**ModelResponseAccessToken**](ModelResponseAccessToken.md)
+[**ModelResponse**](ModelResponse.md)
 
 ### Authorization
 
@@ -79,7 +79,7 @@ No authorization required
 
 ## AuthTokenRefresh
 
-> ModelResponseAccessToken AuthTokenRefresh(ctx).Execute()
+> ModelResponse AuthTokenRefresh(ctx).Execute()
 
 Refresh access token
 
@@ -106,7 +106,7 @@ func main() {
         fmt.Fprintf(os.Stderr, "Error when calling `AuthenticationApi.AuthTokenRefresh``: %v\n", err)
         fmt.Fprintf(os.Stderr, "Full HTTP response: %v\n", r)
     }
-    // response from `AuthTokenRefresh`: ModelResponseAccessToken
+    // response from `AuthTokenRefresh`: ModelResponse
     fmt.Fprintf(os.Stdout, "Response from `AuthenticationApi.AuthTokenRefresh`: %v\n", resp)
 }
 ```
@@ -122,7 +122,7 @@ Other parameters are passed through a pointer to a apiAuthTokenRefreshRequest st
 
 ### Return type
 
-[**ModelResponseAccessToken**](ModelResponseAccessToken.md)
+[**ModelResponse**](ModelResponse.md)
 
 ### Authorization
 
@@ -140,7 +140,7 @@ Other parameters are passed through a pointer to a apiAuthTokenRefreshRequest st
 
 ## Login
 
-> ModelResponseAccessToken Login(ctx).ModelLoginRequest(modelLoginRequest).Execute()
+> ModelResponse Login(ctx).ModelLoginRequest(modelLoginRequest).Execute()
 
 Login API
 
@@ -168,7 +168,7 @@ func main() {
         fmt.Fprintf(os.Stderr, "Error when calling `AuthenticationApi.Login``: %v\n", err)
         fmt.Fprintf(os.Stderr, "Full HTTP response: %v\n", r)
     }
-    // response from `Login`: ModelResponseAccessToken
+    // response from `Login`: ModelResponse
     fmt.Fprintf(os.Stdout, "Response from `AuthenticationApi.Login`: %v\n", resp)
 }
 ```
@@ -188,7 +188,7 @@ Name | Type | Description  | Notes
 
 ### Return type
 
-[**ModelResponseAccessToken**](ModelResponseAccessToken.md)
+[**ModelResponse**](ModelResponse.md)
 
 ### Authorization
 
