@@ -6,8 +6,8 @@ import (
 	postgresqlDb "github.com/deepfence/golang_deepfence_sdk/utils/postgresql/postgresql-db"
 	"github.com/minio/minio-go/v7"
 
-	"github.com/go-redis/redis/v9"
 	"github.com/neo4j/neo4j-go-driver/v4/neo4j"
+	"github.com/redis/go-redis/v9"
 )
 
 func getClient[T *redis.Client | *neo4j.Driver | *postgresqlDb.Queries | *minio.Client](ctx context.Context, pool map[NamespaceID]T, newClient func(DBConfigs) (T, error)) (T, error) {

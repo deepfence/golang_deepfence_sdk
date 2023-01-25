@@ -2,23 +2,25 @@ module github.com/deepfence/golang_deepfence_sdk/utils
 
 go 1.19
 
+replace github.com/deepfence/golang_deepfence_sdk/client => ../client
+
 require (
-	github.com/deepfence/golang_deepfence_sdk/client v0.0.0-20230123091013-6f8a19aeeb9d
+	github.com/deepfence/golang_deepfence_sdk/client v0.0.0-00010101000000-000000000000
 	github.com/go-chi/jwtauth/v5 v5.1.0
-	github.com/go-redis/redis/v9 v9.0.0-rc.2
 	github.com/google/uuid v1.3.0
 	github.com/hashicorp/go-retryablehttp v0.7.2
 	github.com/lestrrat-go/jwx/v2 v2.0.8
 	github.com/lib/pq v1.10.7
 	github.com/minio/minio-go/v7 v7.0.47
 	github.com/neo4j/neo4j-go-driver/v4 v4.4.4
+	github.com/redis/go-redis/v9 v9.0.0-rc.4
 	github.com/rs/zerolog v1.28.0
-	github.com/twmb/franz-go v1.11.0
+	github.com/twmb/franz-go v1.11.3
 	github.com/twmb/franz-go/pkg/kadm v1.7.0
 )
 
 require (
-	github.com/cespare/xxhash/v2 v2.1.2 // indirect
+	github.com/cespare/xxhash/v2 v2.2.0 // indirect
 	github.com/decred/dcrd/dcrec/secp256k1/v4 v4.1.0 // indirect
 	github.com/dgryski/go-rendezvous v0.0.0-20200823014737-9f7001d12a5f // indirect
 	github.com/dustin/go-humanize v1.0.0 // indirect
@@ -43,8 +45,8 @@ require (
 	github.com/sirupsen/logrus v1.9.0 // indirect
 	github.com/twmb/franz-go/pkg/kmsg v1.2.0 // indirect
 	golang.org/x/crypto v0.3.0 // indirect
-	golang.org/x/net v0.2.0 // indirect
-	golang.org/x/sys v0.2.0 // indirect
-	golang.org/x/text v0.4.0 // indirect
+	golang.org/x/net v0.5.0 // indirect
+	golang.org/x/sys v0.4.0 // indirect
+	golang.org/x/text v0.6.0 // indirect
 	gopkg.in/ini.v1 v1.66.6 // indirect
 )
