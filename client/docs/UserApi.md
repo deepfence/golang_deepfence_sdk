@@ -77,7 +77,7 @@ Other parameters are passed through a pointer to a apiDeleteCurrentUserRequest s
 
 ## GetApiTokens
 
-> []map[string]interface{} GetApiTokens(ctx).Execute()
+> ModelResponse GetApiTokens(ctx).Execute()
 
 Get User's API Tokens
 
@@ -104,7 +104,7 @@ func main() {
         fmt.Fprintf(os.Stderr, "Error when calling `UserApi.GetApiTokens``: %v\n", err)
         fmt.Fprintf(os.Stderr, "Full HTTP response: %v\n", r)
     }
-    // response from `GetApiTokens`: []map[string]interface{}
+    // response from `GetApiTokens`: ModelResponse
     fmt.Fprintf(os.Stdout, "Response from `UserApi.GetApiTokens`: %v\n", resp)
 }
 ```
@@ -120,7 +120,7 @@ Other parameters are passed through a pointer to a apiGetApiTokensRequest struct
 
 ### Return type
 
-**[]map[string]interface{}**
+[**ModelResponse**](ModelResponse.md)
 
 ### Authorization
 
@@ -138,7 +138,7 @@ Other parameters are passed through a pointer to a apiGetApiTokensRequest struct
 
 ## GetCurrentUser
 
-> ModelUser GetCurrentUser(ctx).Execute()
+> ModelResponse GetCurrentUser(ctx).Execute()
 
 Get Current User
 
@@ -165,7 +165,7 @@ func main() {
         fmt.Fprintf(os.Stderr, "Error when calling `UserApi.GetCurrentUser``: %v\n", err)
         fmt.Fprintf(os.Stderr, "Full HTTP response: %v\n", r)
     }
-    // response from `GetCurrentUser`: ModelUser
+    // response from `GetCurrentUser`: ModelResponse
     fmt.Fprintf(os.Stdout, "Response from `UserApi.GetCurrentUser`: %v\n", resp)
 }
 ```
@@ -181,7 +181,7 @@ Other parameters are passed through a pointer to a apiGetCurrentUserRequest stru
 
 ### Return type
 
-[**ModelUser**](ModelUser.md)
+[**ModelResponse**](ModelResponse.md)
 
 ### Authorization
 
@@ -199,7 +199,7 @@ Other parameters are passed through a pointer to a apiGetCurrentUserRequest stru
 
 ## InviteUser
 
-> ModelInviteUserResponse InviteUser(ctx).ModelInviteUserRequest(modelInviteUserRequest).Execute()
+> ModelResponse InviteUser(ctx).ModelInviteUserRequest(modelInviteUserRequest).Execute()
 
 Invite User
 
@@ -227,7 +227,7 @@ func main() {
         fmt.Fprintf(os.Stderr, "Error when calling `UserApi.InviteUser``: %v\n", err)
         fmt.Fprintf(os.Stderr, "Full HTTP response: %v\n", r)
     }
-    // response from `InviteUser`: ModelInviteUserResponse
+    // response from `InviteUser`: ModelResponse
     fmt.Fprintf(os.Stdout, "Response from `UserApi.InviteUser`: %v\n", resp)
 }
 ```
@@ -247,7 +247,7 @@ Name | Type | Description  | Notes
 
 ### Return type
 
-[**ModelInviteUserResponse**](ModelInviteUserResponse.md)
+[**ModelResponse**](ModelResponse.md)
 
 ### Authorization
 
@@ -265,7 +265,7 @@ Name | Type | Description  | Notes
 
 ## RegisterInvitedUser
 
-> ModelResponseAccessToken RegisterInvitedUser(ctx).ModelRegisterInvitedUserRequest(modelRegisterInvitedUserRequest).Execute()
+> ModelResponse RegisterInvitedUser(ctx).ModelRegisterInvitedUserRequest(modelRegisterInvitedUserRequest).Execute()
 
 Register Invited User
 
@@ -293,7 +293,7 @@ func main() {
         fmt.Fprintf(os.Stderr, "Error when calling `UserApi.RegisterInvitedUser``: %v\n", err)
         fmt.Fprintf(os.Stderr, "Full HTTP response: %v\n", r)
     }
-    // response from `RegisterInvitedUser`: ModelResponseAccessToken
+    // response from `RegisterInvitedUser`: ModelResponse
     fmt.Fprintf(os.Stdout, "Response from `UserApi.RegisterInvitedUser`: %v\n", resp)
 }
 ```
@@ -313,7 +313,7 @@ Name | Type | Description  | Notes
 
 ### Return type
 
-[**ModelResponseAccessToken**](ModelResponseAccessToken.md)
+[**ModelResponse**](ModelResponse.md)
 
 ### Authorization
 
@@ -331,7 +331,7 @@ No authorization required
 
 ## RegisterUser
 
-> ModelResponseAccessToken RegisterUser(ctx).ModelUserRegisterRequest(modelUserRegisterRequest).Execute()
+> ModelResponse RegisterUser(ctx).ModelUserRegisterRequest(modelUserRegisterRequest).Execute()
 
 Register User
 
@@ -359,7 +359,7 @@ func main() {
         fmt.Fprintf(os.Stderr, "Error when calling `UserApi.RegisterUser``: %v\n", err)
         fmt.Fprintf(os.Stderr, "Full HTTP response: %v\n", r)
     }
-    // response from `RegisterUser`: ModelResponseAccessToken
+    // response from `RegisterUser`: ModelResponse
     fmt.Fprintf(os.Stdout, "Response from `UserApi.RegisterUser`: %v\n", resp)
 }
 ```
@@ -379,7 +379,7 @@ Name | Type | Description  | Notes
 
 ### Return type
 
-[**ModelResponseAccessToken**](ModelResponseAccessToken.md)
+[**ModelResponse**](ModelResponse.md)
 
 ### Authorization
 
@@ -397,7 +397,7 @@ No authorization required
 
 ## ResetPasswordRequest
 
-> ModelMessageResponse ResetPasswordRequest(ctx).ModelPasswordResetRequest(modelPasswordResetRequest).Execute()
+> ModelResponse ResetPasswordRequest(ctx).ModelPasswordResetRequest(modelPasswordResetRequest).Execute()
 
 Reset Password Request
 
@@ -425,7 +425,7 @@ func main() {
         fmt.Fprintf(os.Stderr, "Error when calling `UserApi.ResetPasswordRequest``: %v\n", err)
         fmt.Fprintf(os.Stderr, "Full HTTP response: %v\n", r)
     }
-    // response from `ResetPasswordRequest`: ModelMessageResponse
+    // response from `ResetPasswordRequest`: ModelResponse
     fmt.Fprintf(os.Stdout, "Response from `UserApi.ResetPasswordRequest`: %v\n", resp)
 }
 ```
@@ -445,7 +445,7 @@ Name | Type | Description  | Notes
 
 ### Return type
 
-[**ModelMessageResponse**](ModelMessageResponse.md)
+[**ModelResponse**](ModelResponse.md)
 
 ### Authorization
 
@@ -463,7 +463,7 @@ No authorization required
 
 ## UpdateCurrentUser
 
-> ModelUser UpdateCurrentUser(ctx).ModelUser(modelUser).Execute()
+> ModelResponse UpdateCurrentUser(ctx).ModelUser(modelUser).Execute()
 
 Update Current User
 
@@ -491,7 +491,7 @@ func main() {
         fmt.Fprintf(os.Stderr, "Error when calling `UserApi.UpdateCurrentUser``: %v\n", err)
         fmt.Fprintf(os.Stderr, "Full HTTP response: %v\n", r)
     }
-    // response from `UpdateCurrentUser`: ModelUser
+    // response from `UpdateCurrentUser`: ModelResponse
     fmt.Fprintf(os.Stdout, "Response from `UserApi.UpdateCurrentUser`: %v\n", resp)
 }
 ```
@@ -511,7 +511,7 @@ Name | Type | Description  | Notes
 
 ### Return type
 
-[**ModelUser**](ModelUser.md)
+[**ModelResponse**](ModelResponse.md)
 
 ### Authorization
 
@@ -529,7 +529,7 @@ Name | Type | Description  | Notes
 
 ## VerifyResetPasswordRequest
 
-> VerifyResetPasswordRequest(ctx).ModelPasswordResetVerifyRequest(modelPasswordResetVerifyRequest).Execute()
+> ModelResponse VerifyResetPasswordRequest(ctx).ModelPasswordResetVerifyRequest(modelPasswordResetVerifyRequest).Execute()
 
 Verify and Reset Password
 
@@ -557,6 +557,8 @@ func main() {
         fmt.Fprintf(os.Stderr, "Error when calling `UserApi.VerifyResetPasswordRequest``: %v\n", err)
         fmt.Fprintf(os.Stderr, "Full HTTP response: %v\n", r)
     }
+    // response from `VerifyResetPasswordRequest`: ModelResponse
+    fmt.Fprintf(os.Stdout, "Response from `UserApi.VerifyResetPasswordRequest`: %v\n", resp)
 }
 ```
 
@@ -575,7 +577,7 @@ Name | Type | Description  | Notes
 
 ### Return type
 
- (empty response body)
+[**ModelResponse**](ModelResponse.md)
 
 ### Authorization
 
