@@ -20,53 +20,53 @@ import (
 )
 
 
-// CloudComplianceApiService CloudComplianceApi service
-type CloudComplianceApiService service
+// KubernetesScannerApiService KubernetesScannerApi service
+type KubernetesScannerApiService service
 
-type ApiIngestCloudCompliancesRequest struct {
+type ApiRegisterKubernetesScannerRequest struct {
 	ctx context.Context
-	ApiService *CloudComplianceApiService
-	ingestersCloudCompliance *[]IngestersCloudCompliance
+	ApiService *KubernetesScannerApiService
+	ingestersRegisterKubernetesScannerRequest *[]IngestersRegisterKubernetesScannerRequest
 }
 
-func (r ApiIngestCloudCompliancesRequest) IngestersCloudCompliance(ingestersCloudCompliance []IngestersCloudCompliance) ApiIngestCloudCompliancesRequest {
-	r.ingestersCloudCompliance = &ingestersCloudCompliance
+func (r ApiRegisterKubernetesScannerRequest) IngestersRegisterKubernetesScannerRequest(ingestersRegisterKubernetesScannerRequest []IngestersRegisterKubernetesScannerRequest) ApiRegisterKubernetesScannerRequest {
+	r.ingestersRegisterKubernetesScannerRequest = &ingestersRegisterKubernetesScannerRequest
 	return r
 }
 
-func (r ApiIngestCloudCompliancesRequest) Execute() (*http.Response, error) {
-	return r.ApiService.IngestCloudCompliancesExecute(r)
+func (r ApiRegisterKubernetesScannerRequest) Execute() (*http.Response, error) {
+	return r.ApiService.RegisterKubernetesScannerExecute(r)
 }
 
 /*
-IngestCloudCompliances Ingest Cloud Compliances
+RegisterKubernetesScanner Register Kubernetes Scanner
 
-Ingest Cloud compliances found while scanning cloud provider
+Register Kubernetes Scanner
 
  @param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
- @return ApiIngestCloudCompliancesRequest
+ @return ApiRegisterKubernetesScannerRequest
 */
-func (a *CloudComplianceApiService) IngestCloudCompliances(ctx context.Context) ApiIngestCloudCompliancesRequest {
-	return ApiIngestCloudCompliancesRequest{
+func (a *KubernetesScannerApiService) RegisterKubernetesScanner(ctx context.Context) ApiRegisterKubernetesScannerRequest {
+	return ApiRegisterKubernetesScannerRequest{
 		ApiService: a,
 		ctx: ctx,
 	}
 }
 
 // Execute executes the request
-func (a *CloudComplianceApiService) IngestCloudCompliancesExecute(r ApiIngestCloudCompliancesRequest) (*http.Response, error) {
+func (a *KubernetesScannerApiService) RegisterKubernetesScannerExecute(r ApiRegisterKubernetesScannerRequest) (*http.Response, error) {
 	var (
 		localVarHTTPMethod   = http.MethodPost
 		localVarPostBody     interface{}
 		formFiles            []formFile
 	)
 
-	localBasePath, err := a.client.cfg.ServerURLWithContext(r.ctx, "CloudComplianceApiService.IngestCloudCompliances")
+	localBasePath, err := a.client.cfg.ServerURLWithContext(r.ctx, "KubernetesScannerApiService.RegisterKubernetesScanner")
 	if err != nil {
 		return nil, &GenericOpenAPIError{error: err.Error()}
 	}
 
-	localVarPath := localBasePath + "/deepfence/ingest/cloud-compliance"
+	localVarPath := localBasePath + "/deepfence/ingest/kubernetes-scanner"
 
 	localVarHeaderParams := make(map[string]string)
 	localVarQueryParams := url.Values{}
@@ -90,7 +90,7 @@ func (a *CloudComplianceApiService) IngestCloudCompliancesExecute(r ApiIngestClo
 		localVarHeaderParams["Accept"] = localVarHTTPHeaderAccept
 	}
 	// body params
-	localVarPostBody = r.ingestersCloudCompliance
+	localVarPostBody = r.ingestersRegisterKubernetesScannerRequest
 	req, err := a.client.prepareRequest(r.ctx, localVarPath, localVarHTTPMethod, localVarPostBody, localVarHeaderParams, localVarQueryParams, localVarFormParams, formFiles)
 	if err != nil {
 		return nil, err

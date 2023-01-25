@@ -40,7 +40,9 @@ paths:
           content:
             application/json:
               schema:
-                $ref: '#/components/schemas/ModelResponse'
+                items:
+                  $ref: '#/components/schemas/PostgresqlDbApiToken'
+                type: array
           description: OK
         "400":
           content:
@@ -84,7 +86,7 @@ paths:
           content:
             application/json:
               schema:
-                $ref: '#/components/schemas/ModelResponse'
+                $ref: '#/components/schemas/ModelResponseAccessToken'
           description: OK
         "400":
           content:
@@ -120,7 +122,7 @@ paths:
           content:
             application/json:
               schema:
-                $ref: '#/components/schemas/ModelResponse'
+                $ref: '#/components/schemas/ModelResponseAccessToken'
           description: OK
         "400":
           content:
@@ -399,6 +401,49 @@ paths:
       summary: Fetch latest agent version
       tags:
       - Controls
+  /deepfence/controls/kubernetes-scanner:
+    post:
+      description: Fetch actions for a given Kubernetes Cluster
+      operationId: getKubernetesScannerControls
+      requestBody:
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/ModelAgentId'
+      responses:
+        "200":
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ControlsKubernetesScannerControlResponse'
+          description: OK
+        "400":
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ApiDocsBadRequestResponse'
+          description: Bad Request
+        "401":
+          description: Unauthorized
+        "403":
+          description: Forbidden
+        "404":
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ApiDocsFailureResponse'
+          description: Not Found
+        "500":
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ApiDocsFailureResponse'
+          description: Internal Server Error
+      security:
+      - bearer_token: []
+      summary: Fetch Kubernetes Scanner Actions
+      tags:
+      - Controls
   /deepfence/diagnosis/agent-logs:
     post:
       description: Generate Agent Diagnostic Logs
@@ -510,7 +555,9 @@ paths:
           content:
             application/json:
               schema:
-                $ref: '#/components/schemas/ModelResponse'
+                items:
+                  $ref: '#/components/schemas/DiagnosisDiagnosticNotification'
+                type: array
           description: OK
         "400":
           content:
@@ -837,7 +884,7 @@ paths:
       - bearer_token: []
       summary: Ingest Cloud Compliances
       tags:
-      - Cloud Compliance
+      - Cloud Scanner
   /deepfence/ingest/cloud-resources:
     post:
       description: Ingest Clouds Resources found while scanning cloud provider
@@ -922,6 +969,48 @@ paths:
       summary: Ingest Compliances
       tags:
       - Compliance
+  /deepfence/ingest/kubernetes-scanner:
+    post:
+      description: Register Kubernetes Scanner
+      operationId: registerKubernetesScanner
+      requestBody:
+        content:
+          application/json:
+            schema:
+              items:
+                $ref: '#/components/schemas/IngestersRegisterKubernetesScannerRequest'
+              nullable: true
+              type: array
+      responses:
+        "204":
+          description: No Content
+        "400":
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ApiDocsBadRequestResponse'
+          description: Bad Request
+        "401":
+          description: Unauthorized
+        "403":
+          description: Forbidden
+        "404":
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ApiDocsFailureResponse'
+          description: Not Found
+        "500":
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ApiDocsFailureResponse'
+          description: Internal Server Error
+      security:
+      - bearer_token: []
+      summary: Register Kubernetes Scanner
+      tags:
+      - Kubernetes Scanner
   /deepfence/ingest/malware:
     post:
       description: Ingest malware found while scanning the agent
@@ -1426,6 +1515,51 @@ paths:
       summary: Retrieve Hosts data
       tags:
       - Lookup
+  /deepfence/lookup/kubernetes-scanners:
+    post:
+      description: Retrieve all the data associated with k8s scanners
+      operationId: getKubernetesScanners
+      requestBody:
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/ReportersLookupFilter'
+      responses:
+        "200":
+          content:
+            application/json:
+              schema:
+                items:
+                  $ref: '#/components/schemas/ModelKubernetesCluster'
+                type: array
+          description: OK
+        "400":
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ApiDocsBadRequestResponse'
+          description: Bad Request
+        "401":
+          description: Unauthorized
+        "403":
+          description: Forbidden
+        "404":
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ApiDocsFailureResponse'
+          description: Not Found
+        "500":
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ApiDocsFailureResponse'
+          description: Internal Server Error
+      security:
+      - bearer_token: []
+      summary: Retrieve K8s scanners data
+      tags:
+      - Lookup
   /deepfence/lookup/kubernetesclusters:
     post:
       description: Retrieve all the data associated with k8s clusters
@@ -1468,7 +1602,7 @@ paths:
           description: Internal Server Error
       security:
       - bearer_token: []
-      summary: Retrieve K8S data
+      summary: Retrieve K8s data
       tags:
       - Lookup
   /deepfence/lookup/pods:
@@ -2459,7 +2593,7 @@ paths:
           content:
             application/json:
               schema:
-                $ref: '#/components/schemas/ModelResponse'
+                $ref: '#/components/schemas/ModelUser'
           description: OK
         "400":
           content:
@@ -2501,7 +2635,7 @@ paths:
           content:
             application/json:
               schema:
-                $ref: '#/components/schemas/ModelResponse'
+                $ref: '#/components/schemas/ModelUser'
           description: OK
         "400":
           content:
@@ -2544,7 +2678,7 @@ paths:
           content:
             application/json:
               schema:
-                $ref: '#/components/schemas/ModelResponse'
+                $ref: '#/components/schemas/ModelInviteUserResponse'
           description: OK
         "400":
           content:
@@ -2587,7 +2721,7 @@ paths:
           content:
             application/json:
               schema:
-                $ref: '#/components/schemas/ModelResponse'
+                $ref: '#/components/schemas/ModelResponseAccessToken'
           description: OK
         "400":
           content:
@@ -2628,7 +2762,7 @@ paths:
           content:
             application/json:
               schema:
-                $ref: '#/components/schemas/ModelResponse'
+                $ref: '#/components/schemas/ModelResponseAccessToken'
           description: OK
         "400":
           content:
@@ -2703,7 +2837,7 @@ paths:
           content:
             application/json:
               schema:
-                $ref: '#/components/schemas/ModelResponse'
+                $ref: '#/components/schemas/ModelResponseAccessToken'
           description: OK
         "400":
           content:
@@ -2744,7 +2878,7 @@ paths:
           content:
             application/json:
               schema:
-                $ref: '#/components/schemas/ModelResponse'
+                $ref: '#/components/schemas/ModelMessageResponse'
           description: OK
         "400":
           content:
@@ -2782,10 +2916,6 @@ paths:
               $ref: '#/components/schemas/ModelPasswordResetVerifyRequest'
       responses:
         "200":
-          content:
-            application/json:
-              schema:
-                $ref: '#/components/schemas/ModelResponse'
           description: OK
         "400":
           content:
@@ -2965,6 +3095,66 @@ components:
       - beatrate
       - commands
       type: object
+    ControlsKubernetesScannerControlResponse:
+      example:
+        data:
+          scans:
+            key:
+              account_id: account_id
+              controls:
+              - controls
+              - controls
+              scan_type: scan_type
+              scan_id: scan_id
+          refresh: refresh
+      properties:
+        data:
+          $ref: '#/components/schemas/ControlsKubernetesScannerPendingScans'
+      type: object
+    ControlsKubernetesScannerPendingScan:
+      example:
+        account_id: account_id
+        controls:
+        - controls
+        - controls
+        scan_type: scan_type
+        scan_id: scan_id
+      properties:
+        account_id:
+          type: string
+        controls:
+          items:
+            type: string
+          nullable: true
+          type: array
+        scan_id:
+          type: string
+        scan_type:
+          type: string
+      type: object
+    ControlsKubernetesScannerPendingScanMap:
+      additionalProperties:
+        $ref: '#/components/schemas/ControlsKubernetesScannerPendingScan'
+      type: object
+    ControlsKubernetesScannerPendingScans:
+      example:
+        scans:
+          key:
+            account_id: account_id
+            controls:
+            - controls
+            - controls
+            scan_type: scan_type
+            scan_id: scan_id
+        refresh: refresh
+      properties:
+        refresh:
+          type: string
+        scans:
+          additionalProperties:
+            $ref: '#/components/schemas/ControlsKubernetesScannerPendingScan'
+          type: object
+      type: object
     DetailedConnectionSummary:
       example:
         source: source
@@ -3117,6 +3307,12 @@ components:
         $ref: '#/components/schemas/DetailedConnectionSummary'
       type: object
     DiagnosisDiagnosticNotification:
+      example:
+        expiry_in_secs: ""
+        follow_url: ""
+        updated_at: updated_at
+        source_application_id: source_application_id
+        content: content
       properties:
         content:
           type: string
@@ -3475,6 +3671,16 @@ components:
         scan_id:
           type: string
         scan_status:
+          type: string
+      type: object
+    IngestersRegisterKubernetesScannerRequest:
+      example:
+        kubernetes_cluster_name: kubernetes_cluster_name
+        node_id: node_id
+      properties:
+        kubernetes_cluster_name:
+          type: string
+        node_id:
           type: string
       type: object
     IngestersReportIngestionData:
@@ -4608,10 +4814,16 @@ components:
       - role
       type: object
     ModelInviteUserResponse:
+      example:
+        invite_expiry_hours: 0
+        invite_url: invite_url
+        message: message
       properties:
         invite_expiry_hours:
           type: integer
         invite_url:
+          type: string
+        message:
           type: string
       type: object
     ModelKubernetesCluster:
@@ -5409,6 +5621,15 @@ components:
       - email
       - password
       type: object
+    ModelMessageResponse:
+      example:
+        message: message
+      properties:
+        message:
+          type: string
+      required:
+      - message
+      type: object
     ModelMetadata:
       additionalProperties: {}
       type: object
@@ -5663,28 +5884,6 @@ components:
       - is_temporary_password
       - last_name
       - password
-      type: object
-    ModelResponse:
-      example:
-        data:
-          access_token: access_token
-          refresh_token: refresh_token
-        success: true
-        error_fields:
-          key: error_fields
-        message: message
-      properties:
-        data:
-          $ref: '#/components/schemas/ModelResponseAccessToken'
-        error_fields:
-          additionalProperties:
-            type: string
-          nullable: true
-          type: object
-        message:
-          type: string
-        success:
-          type: boolean
       type: object
     ModelResponseAccessToken:
       example:

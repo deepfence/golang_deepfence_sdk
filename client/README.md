@@ -83,10 +83,10 @@ Class | Method | HTTP request | Description
 *AuthenticationApi* | [**AuthTokenRefresh**](docs/AuthenticationApi.md#authtokenrefresh) | **Post** /deepfence/auth/token/refresh | Refresh access token
 *AuthenticationApi* | [**Login**](docs/AuthenticationApi.md#login) | **Post** /deepfence/user/login | Login API
 *AuthenticationApi* | [**Logout**](docs/AuthenticationApi.md#logout) | **Post** /deepfence/user/logout | Logout API
-*CloudComplianceApi* | [**IngestCloudCompliances**](docs/CloudComplianceApi.md#ingestcloudcompliances) | **Post** /deepfence/ingest/cloud-compliance | Ingest Cloud Compliances
 *CloudNodesApi* | [**ListCloudNodeAccount**](docs/CloudNodesApi.md#listcloudnodeaccount) | **Post** /deepfence/cloud-node/accounts/list | List Cloud Node Accounts
 *CloudNodesApi* | [**RegisterCloudNodeAccount**](docs/CloudNodesApi.md#registercloudnodeaccount) | **Post** /deepfence/cloud-node/account | Register Cloud Node Account
 *CloudResourcesApi* | [**IngestCloudResources**](docs/CloudResourcesApi.md#ingestcloudresources) | **Post** /deepfence/ingest/cloud-resources | Ingest Cloud resources
+*CloudScannerApi* | [**IngestCloudCompliances**](docs/CloudScannerApi.md#ingestcloudcompliances) | **Post** /deepfence/ingest/cloud-compliance | Ingest Cloud Compliances
 *ComplianceApi* | [**IngestCompliances**](docs/ComplianceApi.md#ingestcompliances) | **Post** /deepfence/ingest/compliance | Ingest Compliances
 *ComplianceApi* | [**ListComplianceScan**](docs/ComplianceApi.md#listcompliancescan) | **Post** /deepfence/scan/list/compliance | Get Compliance Scans List
 *ComplianceApi* | [**ResultsComplianceScan**](docs/ComplianceApi.md#resultscompliancescan) | **Post** /deepfence/scan/results/compliance | Get Compliance Scans Results
@@ -96,15 +96,18 @@ Class | Method | HTTP request | Description
 *ControlsApi* | [**AddAgentVersion**](docs/ControlsApi.md#addagentversion) | **Post** /deepfence/controls/agent-version | Push new agent version
 *ControlsApi* | [**GetAgentControls**](docs/ControlsApi.md#getagentcontrols) | **Post** /deepfence/controls/agent | Fetch Agent Actions
 *ControlsApi* | [**GetAgentInitControls**](docs/ControlsApi.md#getagentinitcontrols) | **Post** /deepfence/controls/agent-init | Fetch Agent Init Actions
+*ControlsApi* | [**GetKubernetesScannerControls**](docs/ControlsApi.md#getkubernetesscannercontrols) | **Post** /deepfence/controls/kubernetes-scanner | Fetch Kubernetes Scanner Actions
 *ControlsApi* | [**GetLatestAgentVersion**](docs/ControlsApi.md#getlatestagentversion) | **Get** /deepfence/controls/get-agent-version | Fetch latest agent version
 *DiagnosisApi* | [**DiagnosticNotification**](docs/DiagnosisApi.md#diagnosticnotification) | **Get** /deepfence/diagnosis/notification | Get Diagnostic Notification
 *DiagnosisApi* | [**GenerateAgentDiagnosticLogs**](docs/DiagnosisApi.md#generateagentdiagnosticlogs) | **Post** /deepfence/diagnosis/agent-logs | Generate Agent Diagnostic Logs
 *DiagnosisApi* | [**GenerateConsoleDiagnosticLogs**](docs/DiagnosisApi.md#generateconsolediagnosticlogs) | **Post** /deepfence/diagnosis/console-logs | Generate Console Diagnostic Logs
 *DiagnosisApi* | [**GetDiagnosticLogs**](docs/DiagnosisApi.md#getdiagnosticlogs) | **Get** /deepfence/diagnosis/diagnostic-logs | Get Diagnostic Logs
+*KubernetesScannerApi* | [**RegisterKubernetesScanner**](docs/KubernetesScannerApi.md#registerkubernetesscanner) | **Post** /deepfence/ingest/kubernetes-scanner | Register Kubernetes Scanner
 *LookupApi* | [**GetContainerImages**](docs/LookupApi.md#getcontainerimages) | **Post** /deepfence/lookup/containerimages | Retrieve Container Images data
 *LookupApi* | [**GetContainers**](docs/LookupApi.md#getcontainers) | **Post** /deepfence/lookup/containers | Retrieve Containers data
 *LookupApi* | [**GetHosts**](docs/LookupApi.md#gethosts) | **Post** /deepfence/lookup/hosts | Retrieve Hosts data
-*LookupApi* | [**GetKubernetesClusters**](docs/LookupApi.md#getkubernetesclusters) | **Post** /deepfence/lookup/kubernetesclusters | Retrieve K8S data
+*LookupApi* | [**GetKubernetesClusters**](docs/LookupApi.md#getkubernetesclusters) | **Post** /deepfence/lookup/kubernetesclusters | Retrieve K8s data
+*LookupApi* | [**GetKubernetesScanners**](docs/LookupApi.md#getkubernetesscanners) | **Post** /deepfence/lookup/kubernetes-scanners | Retrieve K8s scanners data
 *LookupApi* | [**GetPods**](docs/LookupApi.md#getpods) | **Post** /deepfence/lookup/pods | Retrieve Pods data
 *LookupApi* | [**GetProcesses**](docs/LookupApi.md#getprocesses) | **Post** /deepfence/lookup/processes | Retrieve Processes data
 *MalwareScanApi* | [**IngestMalware**](docs/MalwareScanApi.md#ingestmalware) | **Post** /deepfence/ingest/malware | Ingest Malware
@@ -155,6 +158,9 @@ Class | Method | HTTP request | Description
  - [ApiDocsGraphResult](docs/ApiDocsGraphResult.md)
  - [ControlsAction](docs/ControlsAction.md)
  - [ControlsAgentControls](docs/ControlsAgentControls.md)
+ - [ControlsKubernetesScannerControlResponse](docs/ControlsKubernetesScannerControlResponse.md)
+ - [ControlsKubernetesScannerPendingScan](docs/ControlsKubernetesScannerPendingScan.md)
+ - [ControlsKubernetesScannerPendingScans](docs/ControlsKubernetesScannerPendingScans.md)
  - [DetailedConnectionSummary](docs/DetailedConnectionSummary.md)
  - [DetailedNodeSummary](docs/DetailedNodeSummary.md)
  - [DetailedParent](docs/DetailedParent.md)
@@ -164,6 +170,7 @@ Class | Method | HTTP request | Description
  - [IngestersCompliance](docs/IngestersCompliance.md)
  - [IngestersMalware](docs/IngestersMalware.md)
  - [IngestersMalwareScanStatus](docs/IngestersMalwareScanStatus.md)
+ - [IngestersRegisterKubernetesScannerRequest](docs/IngestersRegisterKubernetesScannerRequest.md)
  - [IngestersReportIngestionData](docs/IngestersReportIngestionData.md)
  - [IngestersSecret](docs/IngestersSecret.md)
  - [IngestersSecretMatch](docs/IngestersSecretMatch.md)
@@ -192,13 +199,13 @@ Class | Method | HTTP request | Description
  - [ModelInviteUserResponse](docs/ModelInviteUserResponse.md)
  - [ModelKubernetesCluster](docs/ModelKubernetesCluster.md)
  - [ModelLoginRequest](docs/ModelLoginRequest.md)
+ - [ModelMessageResponse](docs/ModelMessageResponse.md)
  - [ModelPasswordResetRequest](docs/ModelPasswordResetRequest.md)
  - [ModelPasswordResetVerifyRequest](docs/ModelPasswordResetVerifyRequest.md)
  - [ModelPod](docs/ModelPod.md)
  - [ModelProcess](docs/ModelProcess.md)
  - [ModelRawReport](docs/ModelRawReport.md)
  - [ModelRegisterInvitedUserRequest](docs/ModelRegisterInvitedUserRequest.md)
- - [ModelResponse](docs/ModelResponse.md)
  - [ModelResponseAccessToken](docs/ModelResponseAccessToken.md)
  - [ModelScanInfo](docs/ModelScanInfo.md)
  - [ModelScanListReq](docs/ModelScanListReq.md)

@@ -53,17 +53,19 @@ type APIClient struct {
 
 	AuthenticationApi *AuthenticationApiService
 
-	CloudComplianceApi *CloudComplianceApiService
-
 	CloudNodesApi *CloudNodesApiService
 
 	CloudResourcesApi *CloudResourcesApiService
+
+	CloudScannerApi *CloudScannerApiService
 
 	ComplianceApi *ComplianceApiService
 
 	ControlsApi *ControlsApiService
 
 	DiagnosisApi *DiagnosisApiService
+
+	KubernetesScannerApi *KubernetesScannerApiService
 
 	LookupApi *LookupApiService
 
@@ -97,12 +99,13 @@ func NewAPIClient(cfg *Configuration) *APIClient {
 
 	// API Services
 	c.AuthenticationApi = (*AuthenticationApiService)(&c.common)
-	c.CloudComplianceApi = (*CloudComplianceApiService)(&c.common)
 	c.CloudNodesApi = (*CloudNodesApiService)(&c.common)
 	c.CloudResourcesApi = (*CloudResourcesApiService)(&c.common)
+	c.CloudScannerApi = (*CloudScannerApiService)(&c.common)
 	c.ComplianceApi = (*ComplianceApiService)(&c.common)
 	c.ControlsApi = (*ControlsApiService)(&c.common)
 	c.DiagnosisApi = (*DiagnosisApiService)(&c.common)
+	c.KubernetesScannerApi = (*KubernetesScannerApiService)(&c.common)
 	c.LookupApi = (*LookupApiService)(&c.common)
 	c.MalwareScanApi = (*MalwareScanApiService)(&c.common)
 	c.SecretScanApi = (*SecretScanApiService)(&c.common)
@@ -255,11 +258,7 @@ func parameterAddToQuery(queryParams interface{}, keyPrefix string, obj interfac
 
 	switch valuesMap := queryParams.(type) {
 		case url.Values:
-			if collectionType == "csv" && valuesMap.Get(keyPrefix) != "" {
-				valuesMap.Set(keyPrefix, valuesMap.Get(keyPrefix) + "," + value)
-			} else {
-				valuesMap.Add(keyPrefix, value)
-			}
+			valuesMap.Add( keyPrefix, value )
 			break
 		case map[string]string:
 			valuesMap[keyPrefix] = value

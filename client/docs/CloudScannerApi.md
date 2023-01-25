@@ -1,10 +1,10 @@
-# \CloudComplianceApi
+# \CloudScannerApi
 
 All URIs are relative to *http://localhost*
 
 Method | HTTP request | Description
 ------------- | ------------- | -------------
-[**IngestCloudCompliances**](CloudComplianceApi.md#IngestCloudCompliances) | **Post** /deepfence/ingest/cloud-compliance | Ingest Cloud Compliances
+[**IngestCloudCompliances**](CloudScannerApi.md#IngestCloudCompliances) | **Post** /deepfence/ingest/cloud-compliance | Ingest Cloud Compliances
 
 
 
@@ -33,9 +33,9 @@ func main() {
 
     configuration := openapiclient.NewConfiguration()
     apiClient := openapiclient.NewAPIClient(configuration)
-    resp, r, err := apiClient.CloudComplianceApi.IngestCloudCompliances(context.Background()).IngestersCloudCompliance(ingestersCloudCompliance).Execute()
+    resp, r, err := apiClient.CloudScannerApi.IngestCloudCompliances(context.Background()).IngestersCloudCompliance(ingestersCloudCompliance).Execute()
     if err != nil {
-        fmt.Fprintf(os.Stderr, "Error when calling `CloudComplianceApi.IngestCloudCompliances``: %v\n", err)
+        fmt.Fprintf(os.Stderr, "Error when calling `CloudScannerApi.IngestCloudCompliances``: %v\n", err)
         fmt.Fprintf(os.Stderr, "Full HTTP response: %v\n", r)
     }
 }
