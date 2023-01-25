@@ -1087,6 +1087,11 @@ paths:
     post:
       description: Ingest data reported by one Agent
       operationId: ingestSyncAgentReport
+      requestBody:
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/IngestersReportIngestionData'
       responses:
         "200":
           description: OK
@@ -3278,6 +3283,148 @@ components:
           type: integer
         type:
           type: string
+      type: object
+    IngestersReportIngestionData:
+      example:
+        hosts:
+        - key: hosts
+        - key: hosts
+        host_batch:
+        - key: host_batch
+        - key: host_batch
+        kubernetes_cluster_edge_batch:
+        - key: ""
+        - key: ""
+        process_batch:
+        - key: process_batch
+        - key: process_batch
+        container_image_edge_batch:
+        - key: ""
+        - key: ""
+        pod_batch:
+        - key: pod_batch
+        - key: pod_batch
+        process_edges_batch:
+        - key: ""
+        - key: ""
+        container_edges_batch:
+        - key: ""
+        - key: ""
+        container_batch:
+        - key: container_batch
+        - key: container_batch
+        container_image_batch:
+        - key: container_image_batch
+        - key: container_image_batch
+        kubernetes_cluster_batch:
+        - key: kubernetes_cluster_batch
+        - key: kubernetes_cluster_batch
+        pod_edges_batch:
+        - key: ""
+        - key: ""
+        endpoint_edges_batch:
+        - key: ""
+        - key: ""
+      properties:
+        container_batch:
+          items:
+            additionalProperties:
+              type: string
+            type: object
+          nullable: true
+          type: array
+        container_edges_batch:
+          items:
+            additionalProperties: {}
+            type: object
+          nullable: true
+          type: array
+        container_image_batch:
+          items:
+            additionalProperties:
+              type: string
+            type: object
+          nullable: true
+          type: array
+        container_image_edge_batch:
+          items:
+            additionalProperties: {}
+            type: object
+          nullable: true
+          type: array
+        endpoint_edges_batch:
+          items:
+            additionalProperties: {}
+            type: object
+          nullable: true
+          type: array
+        host_batch:
+          items:
+            additionalProperties:
+              type: string
+            type: object
+          nullable: true
+          type: array
+        hosts:
+          items:
+            additionalProperties:
+              type: string
+            type: object
+          nullable: true
+          type: array
+        kubernetes_cluster_batch:
+          items:
+            additionalProperties:
+              type: string
+            type: object
+          nullable: true
+          type: array
+        kubernetes_cluster_edge_batch:
+          items:
+            additionalProperties: {}
+            type: object
+          nullable: true
+          type: array
+        pod_batch:
+          items:
+            additionalProperties:
+              type: string
+            type: object
+          nullable: true
+          type: array
+        pod_edges_batch:
+          items:
+            additionalProperties: {}
+            type: object
+          nullable: true
+          type: array
+        process_batch:
+          items:
+            additionalProperties:
+              type: string
+            type: object
+          nullable: true
+          type: array
+        process_edges_batch:
+          items:
+            additionalProperties: {}
+            type: object
+          nullable: true
+          type: array
+      required:
+      - container_batch
+      - container_edges_batch
+      - container_image_batch
+      - container_image_edge_batch
+      - endpoint_edges_batch
+      - host_batch
+      - hosts
+      - kubernetes_cluster_batch
+      - kubernetes_cluster_edge_batch
+      - pod_batch
+      - pod_edges_batch
+      - process_batch
+      - process_edges_batch
       type: object
     IngestersSecret:
       example:

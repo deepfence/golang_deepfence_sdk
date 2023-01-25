@@ -849,6 +849,12 @@ func (a *TopologyApiService) IngestAgentReportExecute(r ApiIngestAgentReportRequ
 type ApiIngestSyncAgentReportRequest struct {
 	ctx context.Context
 	ApiService *TopologyApiService
+	ingestersReportIngestionData *IngestersReportIngestionData
+}
+
+func (r ApiIngestSyncAgentReportRequest) IngestersReportIngestionData(ingestersReportIngestionData IngestersReportIngestionData) ApiIngestSyncAgentReportRequest {
+	r.ingestersReportIngestionData = &ingestersReportIngestionData
+	return r
 }
 
 func (r ApiIngestSyncAgentReportRequest) Execute() (*http.Response, error) {
@@ -890,7 +896,7 @@ func (a *TopologyApiService) IngestSyncAgentReportExecute(r ApiIngestSyncAgentRe
 	localVarFormParams := url.Values{}
 
 	// to determine the Content-Type header
-	localVarHTTPContentTypes := []string{}
+	localVarHTTPContentTypes := []string{"application/json"}
 
 	// set Content-Type header
 	localVarHTTPContentType := selectHeaderContentType(localVarHTTPContentTypes)
@@ -906,6 +912,8 @@ func (a *TopologyApiService) IngestSyncAgentReportExecute(r ApiIngestSyncAgentRe
 	if localVarHTTPHeaderAccept != "" {
 		localVarHeaderParams["Accept"] = localVarHTTPHeaderAccept
 	}
+	// body params
+	localVarPostBody = r.ingestersReportIngestionData
 	req, err := a.client.prepareRequest(r.ctx, localVarPath, localVarHTTPMethod, localVarPostBody, localVarHeaderParams, localVarQueryParams, localVarFormParams, formFiles)
 	if err != nil {
 		return nil, err

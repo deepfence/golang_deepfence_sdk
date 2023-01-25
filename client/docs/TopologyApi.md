@@ -410,7 +410,7 @@ Name | Type | Description  | Notes
 
 ## IngestSyncAgentReport
 
-> IngestSyncAgentReport(ctx).Execute()
+> IngestSyncAgentReport(ctx).IngestersReportIngestionData(ingestersReportIngestionData).Execute()
 
 Ingest Topology Data
 
@@ -429,10 +429,11 @@ import (
 )
 
 func main() {
+    ingestersReportIngestionData := *openapiclient.NewIngestersReportIngestionData([]map[string]string{map[string]string{"key": "Inner_example"}}, []map[string]interface{}{map[string]interface{}{"key": interface{}(123)}}, []map[string]string{map[string]string{"key": "Inner_example"}}, []map[string]interface{}{map[string]interface{}{"key": interface{}(123)}}, []map[string]interface{}{map[string]interface{}{"key": interface{}(123)}}, []map[string]string{map[string]string{"key": "Inner_example"}}, []map[string]string{map[string]string{"key": "Inner_example"}}, []map[string]string{map[string]string{"key": "Inner_example"}}, []map[string]interface{}{map[string]interface{}{"key": interface{}(123)}}, []map[string]string{map[string]string{"key": "Inner_example"}}, []map[string]interface{}{map[string]interface{}{"key": interface{}(123)}}, []map[string]string{map[string]string{"key": "Inner_example"}}, []map[string]interface{}{map[string]interface{}{"key": interface{}(123)}}) // IngestersReportIngestionData |  (optional)
 
     configuration := openapiclient.NewConfiguration()
     apiClient := openapiclient.NewAPIClient(configuration)
-    resp, r, err := apiClient.TopologyApi.IngestSyncAgentReport(context.Background()).Execute()
+    resp, r, err := apiClient.TopologyApi.IngestSyncAgentReport(context.Background()).IngestersReportIngestionData(ingestersReportIngestionData).Execute()
     if err != nil {
         fmt.Fprintf(os.Stderr, "Error when calling `TopologyApi.IngestSyncAgentReport``: %v\n", err)
         fmt.Fprintf(os.Stderr, "Full HTTP response: %v\n", r)
@@ -442,12 +443,16 @@ func main() {
 
 ### Path Parameters
 
-This endpoint does not need any parameter.
+
 
 ### Other Parameters
 
 Other parameters are passed through a pointer to a apiIngestSyncAgentReportRequest struct via the builder pattern
 
+
+Name | Type | Description  | Notes
+------------- | ------------- | ------------- | -------------
+ **ingestersReportIngestionData** | [**IngestersReportIngestionData**](IngestersReportIngestionData.md) |  | 
 
 ### Return type
 
@@ -459,7 +464,7 @@ Other parameters are passed through a pointer to a apiIngestSyncAgentReportReque
 
 ### HTTP request headers
 
-- **Content-Type**: Not defined
+- **Content-Type**: application/json
 - **Accept**: application/json
 
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints)

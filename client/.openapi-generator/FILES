@@ -37,6 +37,7 @@ docs/DiagnosisDiagnosticNotification.md
 docs/IngestersCloudCompliance.md
 docs/IngestersCloudResource.md
 docs/IngestersCompliance.md
+docs/IngestersReportIngestionData.md
 docs/IngestersSecret.md
 docs/IngestersSecretMatch.md
 docs/IngestersSecretRule.md
@@ -117,6 +118,7 @@ model_diagnosis_diagnostic_notification.go
 model_ingesters_cloud_compliance.go
 model_ingesters_cloud_resource.go
 model_ingesters_compliance.go
+model_ingesters_report_ingestion_data.go
 model_ingesters_secret.go
 model_ingesters_secret_match.go
 model_ingesters_secret_rule.go

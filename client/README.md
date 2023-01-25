@@ -160,6 +160,7 @@ Class | Method | HTTP request | Description
  - [IngestersCloudCompliance](docs/IngestersCloudCompliance.md)
  - [IngestersCloudResource](docs/IngestersCloudResource.md)
  - [IngestersCompliance](docs/IngestersCompliance.md)
+ - [IngestersReportIngestionData](docs/IngestersReportIngestionData.md)
  - [IngestersSecret](docs/IngestersSecret.md)
  - [IngestersSecretMatch](docs/IngestersSecretMatch.md)
  - [IngestersSecretRule](docs/IngestersSecretRule.md)
