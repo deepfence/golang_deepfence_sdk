@@ -28,6 +28,7 @@ tags:
 - name: Compliance
 - name: Topology
 - name: Secret Scan
+- name: Malware Scan
 - name: Vulnerability
 paths:
   /deepfence/api-token:
@@ -39,7 +40,9 @@ paths:
           content:
             application/json:
               schema:
-                $ref: '#/components/schemas/ModelResponse'
+                items:
+                  $ref: '#/components/schemas/PostgresqlDbApiToken'
+                type: array
           description: OK
         "400":
           content:
@@ -83,7 +86,7 @@ paths:
           content:
             application/json:
               schema:
-                $ref: '#/components/schemas/ModelResponse'
+                $ref: '#/components/schemas/ModelResponseAccessToken'
           description: OK
         "400":
           content:
@@ -119,7 +122,7 @@ paths:
           content:
             application/json:
               schema:
-                $ref: '#/components/schemas/ModelResponse'
+                $ref: '#/components/schemas/ModelResponseAccessToken'
           description: OK
         "400":
           content:
@@ -509,7 +512,9 @@ paths:
           content:
             application/json:
               schema:
-                $ref: '#/components/schemas/ModelResponse'
+                items:
+                  $ref: '#/components/schemas/DiagnosisDiagnosticNotification'
+                type: array
           description: OK
         "400":
           content:
@@ -921,6 +926,90 @@ paths:
       summary: Ingest Compliances
       tags:
       - Compliance
+  /deepfence/ingest/malware:
+    post:
+      description: Ingest malware found while scanning the agent
+      operationId: ingestMalware
+      requestBody:
+        content:
+          application/json:
+            schema:
+              items:
+                $ref: '#/components/schemas/IngestersMalware'
+              nullable: true
+              type: array
+      responses:
+        "200":
+          description: OK
+        "400":
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ApiDocsBadRequestResponse'
+          description: Bad Request
+        "401":
+          description: Unauthorized
+        "403":
+          description: Forbidden
+        "404":
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ApiDocsFailureResponse'
+          description: Not Found
+        "500":
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ApiDocsFailureResponse'
+          description: Internal Server Error
+      security:
+      - bearer_token: []
+      summary: Ingest Malware
+      tags:
+      - Malware Scan
+  /deepfence/ingest/malware-scan-logs:
+    post:
+      description: Ingest malware scan status from the agent
+      operationId: ingestMalwareScanStatus
+      requestBody:
+        content:
+          application/json:
+            schema:
+              items:
+                $ref: '#/components/schemas/IngestersMalwareScanStatus'
+              nullable: true
+              type: array
+      responses:
+        "200":
+          description: OK
+        "400":
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ApiDocsBadRequestResponse'
+          description: Bad Request
+        "401":
+          description: Unauthorized
+        "403":
+          description: Forbidden
+        "404":
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ApiDocsFailureResponse'
+          description: Not Found
+        "500":
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ApiDocsFailureResponse'
+          description: Internal Server Error
+      security:
+      - bearer_token: []
+      summary: Ingest Malware Scan Status
+      tags:
+      - Malware Scan
   /deepfence/ingest/report:
     post:
       description: Ingest data reported by one Agent
@@ -2374,7 +2463,7 @@ paths:
           content:
             application/json:
               schema:
-                $ref: '#/components/schemas/ModelResponse'
+                $ref: '#/components/schemas/ModelUser'
           description: OK
         "400":
           content:
@@ -2416,7 +2505,7 @@ paths:
           content:
             application/json:
               schema:
-                $ref: '#/components/schemas/ModelResponse'
+                $ref: '#/components/schemas/ModelUser'
           description: OK
         "400":
           content:
@@ -2459,7 +2548,7 @@ paths:
           content:
             application/json:
               schema:
-                $ref: '#/components/schemas/ModelResponse'
+                $ref: '#/components/schemas/ModelInviteUserResponse'
           description: OK
         "400":
           content:
@@ -2502,7 +2591,7 @@ paths:
           content:
             application/json:
               schema:
-                $ref: '#/components/schemas/ModelResponse'
+                $ref: '#/components/schemas/ModelResponseAccessToken'
           description: OK
         "400":
           content:
@@ -2543,7 +2632,7 @@ paths:
           content:
             application/json:
               schema:
-                $ref: '#/components/schemas/ModelResponse'
+                $ref: '#/components/schemas/ModelResponseAccessToken'
           description: OK
         "400":
           content:
@@ -2618,7 +2707,7 @@ paths:
           content:
             application/json:
               schema:
-                $ref: '#/components/schemas/ModelResponse'
+                $ref: '#/components/schemas/ModelResponseAccessToken'
           description: OK
         "400":
           content:
@@ -2659,7 +2748,7 @@ paths:
           content:
             application/json:
               schema:
-                $ref: '#/components/schemas/ModelResponse'
+                $ref: '#/components/schemas/ModelMessageResponse'
           description: OK
         "400":
           content:
@@ -2697,10 +2786,6 @@ paths:
               $ref: '#/components/schemas/ModelPasswordResetVerifyRequest'
       responses:
         "200":
-          content:
-            application/json:
-              schema:
-                $ref: '#/components/schemas/ModelResponse'
           description: OK
         "400":
           content:
@@ -3032,6 +3117,12 @@ components:
         $ref: '#/components/schemas/DetailedConnectionSummary'
       type: object
     DiagnosisDiagnosticNotification:
+      example:
+        expiry_in_secs: ""
+        follow_url: ""
+        updated_at: updated_at
+        source_application_id: source_application_id
+        content: content
       properties:
         content:
           type: string
@@ -3282,6 +3373,114 @@ components:
         time_stamp:
           type: integer
         type:
+          type: string
+      type: object
+    IngestersMalware:
+      example:
+        Meta:
+        - Meta
+        - Meta
+        ImageLayerId: ImageLayerId
+        SeverityScore: 6.027456183070403
+        FileSevScore: 0.8008281904610115
+        StringsToMatch:
+        - StringsToMatch
+        - StringsToMatch
+        kubernetes_cluster_name: kubernetes_cluster_name
+        masked: masked
+        FileSeverity: FileSeverity
+        Meta Rules:
+          key: Meta Rules
+        '@timestamp': 2000-01-23T04:56:07.000+00:00
+        CompleteFilename: CompleteFilename
+        node_type: node_type
+        container_name: container_name
+        Summary: Summary
+        Class: Class
+        scan_id: scan_id
+        RuleName: RuleName
+        host_name: host_name
+        node_id: node_id
+      properties:
+        '@timestamp':
+          format: date-time
+          type: string
+        Class:
+          type: string
+        CompleteFilename:
+          type: string
+        FileSevScore:
+          type: number
+        FileSeverity:
+          type: string
+        ImageLayerId:
+          type: string
+        Meta:
+          items:
+            type: string
+          type: array
+        Meta Rules:
+          additionalProperties:
+            type: string
+          type: object
+        RuleName:
+          type: string
+        SeverityScore:
+          type: number
+        StringsToMatch:
+          items:
+            type: string
+          type: array
+        Summary:
+          type: string
+        container_name:
+          type: string
+        host_name:
+          type: string
+        kubernetes_cluster_name:
+          type: string
+        masked:
+          type: string
+        node_id:
+          type: string
+        node_type:
+          type: string
+        scan_id:
+          type: string
+      type: object
+    IngestersMalwareScanStatus:
+      example:
+        '@timestamp': 2000-01-23T04:56:07.000+00:00
+        node_type: node_type
+        container_name: container_name
+        scan_status: scan_status
+        kubernetes_cluster_name: kubernetes_cluster_name
+        masked: masked
+        node_name: node_name
+        scan_id: scan_id
+        host_name: host_name
+        node_id: node_id
+      properties:
+        '@timestamp':
+          format: date-time
+          type: string
+        container_name:
+          type: string
+        host_name:
+          type: string
+        kubernetes_cluster_name:
+          type: string
+        masked:
+          type: string
+        node_id:
+          type: string
+        node_name:
+          type: string
+        node_type:
+          type: string
+        scan_id:
+          type: string
+        scan_status:
           type: string
       type: object
     IngestersReportIngestionData:
@@ -4415,10 +4614,16 @@ components:
       - role
       type: object
     ModelInviteUserResponse:
+      example:
+        invite_expiry_hours: 0
+        invite_url: invite_url
+        message: message
       properties:
         invite_expiry_hours:
           type: integer
         invite_url:
+          type: string
+        message:
           type: string
       type: object
     ModelKubernetesCluster:
@@ -5216,6 +5421,15 @@ components:
       - email
       - password
       type: object
+    ModelMessageResponse:
+      example:
+        message: message
+      properties:
+        message:
+          type: string
+      required:
+      - message
+      type: object
     ModelMetadata:
       additionalProperties: {}
       type: object
@@ -5470,28 +5684,6 @@ components:
       - is_temporary_password
       - last_name
       - password
-      type: object
-    ModelResponse:
-      example:
-        data:
-          access_token: access_token
-          refresh_token: refresh_token
-        success: true
-        error_fields:
-          key: error_fields
-        message: message
-      properties:
-        data:
-          $ref: '#/components/schemas/ModelResponseAccessToken'
-        error_fields:
-          additionalProperties:
-            type: string
-          nullable: true
-          type: object
-        message:
-          type: string
-        success:
-          type: boolean
       type: object
     ModelResponseAccessToken:
       example:

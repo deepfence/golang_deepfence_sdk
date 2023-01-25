@@ -107,6 +107,8 @@ Class | Method | HTTP request | Description
 *LookupApi* | [**GetKubernetesClusters**](docs/LookupApi.md#getkubernetesclusters) | **Post** /deepfence/lookup/kubernetesclusters | Retrieve K8S data
 *LookupApi* | [**GetPods**](docs/LookupApi.md#getpods) | **Post** /deepfence/lookup/pods | Retrieve Pods data
 *LookupApi* | [**GetProcesses**](docs/LookupApi.md#getprocesses) | **Post** /deepfence/lookup/processes | Retrieve Processes data
+*MalwareScanApi* | [**IngestMalware**](docs/MalwareScanApi.md#ingestmalware) | **Post** /deepfence/ingest/malware | Ingest Malware
+*MalwareScanApi* | [**IngestMalwareScanStatus**](docs/MalwareScanApi.md#ingestmalwarescanstatus) | **Post** /deepfence/ingest/malware-scan-logs | Ingest Malware Scan Status
 *MalwareScanApi* | [**ListMalwareScan**](docs/MalwareScanApi.md#listmalwarescan) | **Post** /deepfence/scan/list/malware | Get Malware Scans List
 *MalwareScanApi* | [**ResultsMalwareScan**](docs/MalwareScanApi.md#resultsmalwarescan) | **Post** /deepfence/scan/results/malware | Get Malware Scans Results
 *MalwareScanApi* | [**StartMalwareScan**](docs/MalwareScanApi.md#startmalwarescan) | **Post** /deepfence/scan/start/malware | Start Malware Scan
@@ -160,6 +162,8 @@ Class | Method | HTTP request | Description
  - [IngestersCloudCompliance](docs/IngestersCloudCompliance.md)
  - [IngestersCloudResource](docs/IngestersCloudResource.md)
  - [IngestersCompliance](docs/IngestersCompliance.md)
+ - [IngestersMalware](docs/IngestersMalware.md)
+ - [IngestersMalwareScanStatus](docs/IngestersMalwareScanStatus.md)
  - [IngestersReportIngestionData](docs/IngestersReportIngestionData.md)
  - [IngestersSecret](docs/IngestersSecret.md)
  - [IngestersSecretMatch](docs/IngestersSecretMatch.md)
@@ -188,13 +192,13 @@ Class | Method | HTTP request | Description
  - [ModelInviteUserResponse](docs/ModelInviteUserResponse.md)
  - [ModelKubernetesCluster](docs/ModelKubernetesCluster.md)
  - [ModelLoginRequest](docs/ModelLoginRequest.md)
+ - [ModelMessageResponse](docs/ModelMessageResponse.md)
  - [ModelPasswordResetRequest](docs/ModelPasswordResetRequest.md)
  - [ModelPasswordResetVerifyRequest](docs/ModelPasswordResetVerifyRequest.md)
  - [ModelPod](docs/ModelPod.md)
  - [ModelProcess](docs/ModelProcess.md)
  - [ModelRawReport](docs/ModelRawReport.md)
  - [ModelRegisterInvitedUserRequest](docs/ModelRegisterInvitedUserRequest.md)
- - [ModelResponse](docs/ModelResponse.md)
  - [ModelResponseAccessToken](docs/ModelResponseAccessToken.md)
  - [ModelScanInfo](docs/ModelScanInfo.md)
  - [ModelScanListReq](docs/ModelScanListReq.md)

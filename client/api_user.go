@@ -148,7 +148,7 @@ type ApiGetApiTokensRequest struct {
 	ApiService *UserApiService
 }
 
-func (r ApiGetApiTokensRequest) Execute() (*ModelResponse, *http.Response, error) {
+func (r ApiGetApiTokensRequest) Execute() ([]map[string]interface{}, *http.Response, error) {
 	return r.ApiService.GetApiTokensExecute(r)
 }
 
@@ -168,13 +168,13 @@ func (a *UserApiService) GetApiTokens(ctx context.Context) ApiGetApiTokensReques
 }
 
 // Execute executes the request
-//  @return ModelResponse
-func (a *UserApiService) GetApiTokensExecute(r ApiGetApiTokensRequest) (*ModelResponse, *http.Response, error) {
+//  @return []map[string]interface{}
+func (a *UserApiService) GetApiTokensExecute(r ApiGetApiTokensRequest) ([]map[string]interface{}, *http.Response, error) {
 	var (
 		localVarHTTPMethod   = http.MethodGet
 		localVarPostBody     interface{}
 		formFiles            []formFile
-		localVarReturnValue  *ModelResponse
+		localVarReturnValue  []map[string]interface{}
 	)
 
 	localBasePath, err := a.client.cfg.ServerURLWithContext(r.ctx, "UserApiService.GetApiTokens")
@@ -279,7 +279,7 @@ type ApiGetCurrentUserRequest struct {
 	ApiService *UserApiService
 }
 
-func (r ApiGetCurrentUserRequest) Execute() (*ModelResponse, *http.Response, error) {
+func (r ApiGetCurrentUserRequest) Execute() (*ModelUser, *http.Response, error) {
 	return r.ApiService.GetCurrentUserExecute(r)
 }
 
@@ -299,13 +299,13 @@ func (a *UserApiService) GetCurrentUser(ctx context.Context) ApiGetCurrentUserRe
 }
 
 // Execute executes the request
-//  @return ModelResponse
-func (a *UserApiService) GetCurrentUserExecute(r ApiGetCurrentUserRequest) (*ModelResponse, *http.Response, error) {
+//  @return ModelUser
+func (a *UserApiService) GetCurrentUserExecute(r ApiGetCurrentUserRequest) (*ModelUser, *http.Response, error) {
 	var (
 		localVarHTTPMethod   = http.MethodGet
 		localVarPostBody     interface{}
 		formFiles            []formFile
-		localVarReturnValue  *ModelResponse
+		localVarReturnValue  *ModelUser
 	)
 
 	localBasePath, err := a.client.cfg.ServerURLWithContext(r.ctx, "UserApiService.GetCurrentUser")
@@ -416,7 +416,7 @@ func (r ApiInviteUserRequest) ModelInviteUserRequest(modelInviteUserRequest Mode
 	return r
 }
 
-func (r ApiInviteUserRequest) Execute() (*ModelResponse, *http.Response, error) {
+func (r ApiInviteUserRequest) Execute() (*ModelInviteUserResponse, *http.Response, error) {
 	return r.ApiService.InviteUserExecute(r)
 }
 
@@ -436,13 +436,13 @@ func (a *UserApiService) InviteUser(ctx context.Context) ApiInviteUserRequest {
 }
 
 // Execute executes the request
-//  @return ModelResponse
-func (a *UserApiService) InviteUserExecute(r ApiInviteUserRequest) (*ModelResponse, *http.Response, error) {
+//  @return ModelInviteUserResponse
+func (a *UserApiService) InviteUserExecute(r ApiInviteUserRequest) (*ModelInviteUserResponse, *http.Response, error) {
 	var (
 		localVarHTTPMethod   = http.MethodPost
 		localVarPostBody     interface{}
 		formFiles            []formFile
-		localVarReturnValue  *ModelResponse
+		localVarReturnValue  *ModelInviteUserResponse
 	)
 
 	localBasePath, err := a.client.cfg.ServerURLWithContext(r.ctx, "UserApiService.InviteUser")
@@ -555,7 +555,7 @@ func (r ApiRegisterInvitedUserRequest) ModelRegisterInvitedUserRequest(modelRegi
 	return r
 }
 
-func (r ApiRegisterInvitedUserRequest) Execute() (*ModelResponse, *http.Response, error) {
+func (r ApiRegisterInvitedUserRequest) Execute() (*ModelResponseAccessToken, *http.Response, error) {
 	return r.ApiService.RegisterInvitedUserExecute(r)
 }
 
@@ -575,13 +575,13 @@ func (a *UserApiService) RegisterInvitedUser(ctx context.Context) ApiRegisterInv
 }
 
 // Execute executes the request
-//  @return ModelResponse
-func (a *UserApiService) RegisterInvitedUserExecute(r ApiRegisterInvitedUserRequest) (*ModelResponse, *http.Response, error) {
+//  @return ModelResponseAccessToken
+func (a *UserApiService) RegisterInvitedUserExecute(r ApiRegisterInvitedUserRequest) (*ModelResponseAccessToken, *http.Response, error) {
 	var (
 		localVarHTTPMethod   = http.MethodPost
 		localVarPostBody     interface{}
 		formFiles            []formFile
-		localVarReturnValue  *ModelResponse
+		localVarReturnValue  *ModelResponseAccessToken
 	)
 
 	localBasePath, err := a.client.cfg.ServerURLWithContext(r.ctx, "UserApiService.RegisterInvitedUser")
@@ -694,7 +694,7 @@ func (r ApiRegisterUserRequest) ModelUserRegisterRequest(modelUserRegisterReques
 	return r
 }
 
-func (r ApiRegisterUserRequest) Execute() (*ModelResponse, *http.Response, error) {
+func (r ApiRegisterUserRequest) Execute() (*ModelResponseAccessToken, *http.Response, error) {
 	return r.ApiService.RegisterUserExecute(r)
 }
 
@@ -714,13 +714,13 @@ func (a *UserApiService) RegisterUser(ctx context.Context) ApiRegisterUserReques
 }
 
 // Execute executes the request
-//  @return ModelResponse
-func (a *UserApiService) RegisterUserExecute(r ApiRegisterUserRequest) (*ModelResponse, *http.Response, error) {
+//  @return ModelResponseAccessToken
+func (a *UserApiService) RegisterUserExecute(r ApiRegisterUserRequest) (*ModelResponseAccessToken, *http.Response, error) {
 	var (
 		localVarHTTPMethod   = http.MethodPost
 		localVarPostBody     interface{}
 		formFiles            []formFile
-		localVarReturnValue  *ModelResponse
+		localVarReturnValue  *ModelResponseAccessToken
 	)
 
 	localBasePath, err := a.client.cfg.ServerURLWithContext(r.ctx, "UserApiService.RegisterUser")
@@ -833,7 +833,7 @@ func (r ApiResetPasswordRequestRequest) ModelPasswordResetRequest(modelPasswordR
 	return r
 }
 
-func (r ApiResetPasswordRequestRequest) Execute() (*ModelResponse, *http.Response, error) {
+func (r ApiResetPasswordRequestRequest) Execute() (*ModelMessageResponse, *http.Response, error) {
 	return r.ApiService.ResetPasswordRequestExecute(r)
 }
 
@@ -853,13 +853,13 @@ func (a *UserApiService) ResetPasswordRequest(ctx context.Context) ApiResetPassw
 }
 
 // Execute executes the request
-//  @return ModelResponse
-func (a *UserApiService) ResetPasswordRequestExecute(r ApiResetPasswordRequestRequest) (*ModelResponse, *http.Response, error) {
+//  @return ModelMessageResponse
+func (a *UserApiService) ResetPasswordRequestExecute(r ApiResetPasswordRequestRequest) (*ModelMessageResponse, *http.Response, error) {
 	var (
 		localVarHTTPMethod   = http.MethodPost
 		localVarPostBody     interface{}
 		formFiles            []formFile
-		localVarReturnValue  *ModelResponse
+		localVarReturnValue  *ModelMessageResponse
 	)
 
 	localBasePath, err := a.client.cfg.ServerURLWithContext(r.ctx, "UserApiService.ResetPasswordRequest")
@@ -972,7 +972,7 @@ func (r ApiUpdateCurrentUserRequest) ModelUser(modelUser ModelUser) ApiUpdateCur
 	return r
 }
 
-func (r ApiUpdateCurrentUserRequest) Execute() (*ModelResponse, *http.Response, error) {
+func (r ApiUpdateCurrentUserRequest) Execute() (*ModelUser, *http.Response, error) {
 	return r.ApiService.UpdateCurrentUserExecute(r)
 }
 
@@ -992,13 +992,13 @@ func (a *UserApiService) UpdateCurrentUser(ctx context.Context) ApiUpdateCurrent
 }
 
 // Execute executes the request
-//  @return ModelResponse
-func (a *UserApiService) UpdateCurrentUserExecute(r ApiUpdateCurrentUserRequest) (*ModelResponse, *http.Response, error) {
+//  @return ModelUser
+func (a *UserApiService) UpdateCurrentUserExecute(r ApiUpdateCurrentUserRequest) (*ModelUser, *http.Response, error) {
 	var (
 		localVarHTTPMethod   = http.MethodPut
 		localVarPostBody     interface{}
 		formFiles            []formFile
-		localVarReturnValue  *ModelResponse
+		localVarReturnValue  *ModelUser
 	)
 
 	localBasePath, err := a.client.cfg.ServerURLWithContext(r.ctx, "UserApiService.UpdateCurrentUser")
@@ -1111,7 +1111,7 @@ func (r ApiVerifyResetPasswordRequestRequest) ModelPasswordResetVerifyRequest(mo
 	return r
 }
 
-func (r ApiVerifyResetPasswordRequestRequest) Execute() (*ModelResponse, *http.Response, error) {
+func (r ApiVerifyResetPasswordRequestRequest) Execute() (*http.Response, error) {
 	return r.ApiService.VerifyResetPasswordRequestExecute(r)
 }
 
@@ -1131,18 +1131,16 @@ func (a *UserApiService) VerifyResetPasswordRequest(ctx context.Context) ApiVeri
 }
 
 // Execute executes the request
-//  @return ModelResponse
-func (a *UserApiService) VerifyResetPasswordRequestExecute(r ApiVerifyResetPasswordRequestRequest) (*ModelResponse, *http.Response, error) {
+func (a *UserApiService) VerifyResetPasswordRequestExecute(r ApiVerifyResetPasswordRequestRequest) (*http.Response, error) {
 	var (
 		localVarHTTPMethod   = http.MethodPost
 		localVarPostBody     interface{}
 		formFiles            []formFile
-		localVarReturnValue  *ModelResponse
 	)
 
 	localBasePath, err := a.client.cfg.ServerURLWithContext(r.ctx, "UserApiService.VerifyResetPasswordRequest")
 	if err != nil {
-		return localVarReturnValue, nil, &GenericOpenAPIError{error: err.Error()}
+		return nil, &GenericOpenAPIError{error: err.Error()}
 	}
 
 	localVarPath := localBasePath + "/deepfence/user/reset-password/verify"
@@ -1172,19 +1170,19 @@ func (a *UserApiService) VerifyResetPasswordRequestExecute(r ApiVerifyResetPassw
 	localVarPostBody = r.modelPasswordResetVerifyRequest
 	req, err := a.client.prepareRequest(r.ctx, localVarPath, localVarHTTPMethod, localVarPostBody, localVarHeaderParams, localVarQueryParams, localVarFormParams, formFiles)
 	if err != nil {
-		return localVarReturnValue, nil, err
+		return nil, err
 	}
 
 	localVarHTTPResponse, err := a.client.callAPI(req)
 	if err != nil || localVarHTTPResponse == nil {
-		return localVarReturnValue, localVarHTTPResponse, err
+		return localVarHTTPResponse, err
 	}
 
 	localVarBody, err := ioutil.ReadAll(localVarHTTPResponse.Body)
 	localVarHTTPResponse.Body.Close()
 	localVarHTTPResponse.Body = ioutil.NopCloser(bytes.NewBuffer(localVarBody))
 	if err != nil {
-		return localVarReturnValue, localVarHTTPResponse, err
+		return localVarHTTPResponse, err
 	}
 
 	if localVarHTTPResponse.StatusCode >= 300 {
@@ -1197,44 +1195,35 @@ func (a *UserApiService) VerifyResetPasswordRequestExecute(r ApiVerifyResetPassw
 			err = a.client.decode(&v, localVarBody, localVarHTTPResponse.Header.Get("Content-Type"))
 			if err != nil {
 				newErr.error = err.Error()
-				return localVarReturnValue, localVarHTTPResponse, newErr
+				return localVarHTTPResponse, newErr
 			}
 					newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
 					newErr.model = v
-			return localVarReturnValue, localVarHTTPResponse, newErr
+			return localVarHTTPResponse, newErr
 		}
 		if localVarHTTPResponse.StatusCode == 404 {
 			var v ApiDocsFailureResponse
 			err = a.client.decode(&v, localVarBody, localVarHTTPResponse.Header.Get("Content-Type"))
 			if err != nil {
 				newErr.error = err.Error()
-				return localVarReturnValue, localVarHTTPResponse, newErr
+				return localVarHTTPResponse, newErr
 			}
 					newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
 					newErr.model = v
-			return localVarReturnValue, localVarHTTPResponse, newErr
+			return localVarHTTPResponse, newErr
 		}
 		if localVarHTTPResponse.StatusCode == 500 {
 			var v ApiDocsFailureResponse
 			err = a.client.decode(&v, localVarBody, localVarHTTPResponse.Header.Get("Content-Type"))
 			if err != nil {
 				newErr.error = err.Error()
-				return localVarReturnValue, localVarHTTPResponse, newErr
+				return localVarHTTPResponse, newErr
 			}
 					newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
 					newErr.model = v
 		}
-		return localVarReturnValue, localVarHTTPResponse, newErr
+		return localVarHTTPResponse, newErr
 	}
 
-	err = a.client.decode(&localVarReturnValue, localVarBody, localVarHTTPResponse.Header.Get("Content-Type"))
-	if err != nil {
-		newErr := &GenericOpenAPIError{
-			body:  localVarBody,
-			error: err.Error(),
-		}
-		return localVarReturnValue, localVarHTTPResponse, newErr
-	}
-
-	return localVarReturnValue, localVarHTTPResponse, nil
+	return localVarHTTPResponse, nil
 }
