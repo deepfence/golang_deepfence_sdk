@@ -27,6 +27,7 @@ const (
 	CleanUpPostgresqlTask = "clean_up_postgresql"
 	RetryFailedScansTask  = "retry_failed_scans"
 	ParseSBOMTask         = "tasks_parse_sbom"
+	CheckAgentUpgradeTask = "tasks_check_agent_upgrade"
 )
 
 const (
