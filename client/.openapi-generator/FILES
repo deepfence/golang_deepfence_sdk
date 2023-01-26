@@ -56,7 +56,7 @@ docs/KubernetesScannerApi.md
 docs/LookupApi.md
 docs/MalwareScanApi.md
 docs/ModelAgentId.md
-docs/ModelAgentImageMetadata.md
+docs/ModelAgentUpgrade.md
 docs/ModelApiAuthRequest.md
 docs/ModelCloudComplianceScanDetails.md
 docs/ModelCloudNodeAccountInfo.md
@@ -80,6 +80,7 @@ docs/ModelPasswordResetRequest.md
 docs/ModelPasswordResetVerifyRequest.md
 docs/ModelPod.md
 docs/ModelProcess.md
+docs/ModelRawReport.md
 docs/ModelRegisterInvitedUserRequest.md
 docs/ModelResponseAccessToken.md
 docs/ModelScanInfo.md
@@ -95,7 +96,6 @@ docs/ModelUserRegisterRequest.md
 docs/ModelVulnerabilityScanTriggerReq.md
 docs/ReportColumn.md
 docs/ReportMetadataRow.md
-docs/ReportRawReport.md
 docs/ReportRow.md
 docs/ReportTable.md
 docs/ReportersContainsFilter.md
@@ -141,7 +141,7 @@ model_ingesters_secret_severity.go
 model_ingesters_vulnerability.go
 model_ingesters_vulnerability_scan_status.go
 model_model_agent_id.go
-model_model_agent_image_metadata.go
+model_model_agent_upgrade.go
 model_model_api_auth_request.go
 model_model_cloud_compliance_scan_details.go
 model_model_cloud_node_account_info.go
@@ -165,6 +165,7 @@ model_model_password_reset_request.go
 model_model_password_reset_verify_request.go
 model_model_pod.go
 model_model_process.go
+model_model_raw_report.go
 model_model_register_invited_user_request.go
 model_model_response_access_token.go
 model_model_scan_info.go
@@ -180,7 +181,6 @@ model_model_user_register_request.go
 model_model_vulnerability_scan_trigger_req.go
 model_report_column.go
 model_report_metadata_row.go
-model_report_raw_report.go
 model_report_row.go
 model_report_table.go
 model_reporters_contains_filter.go

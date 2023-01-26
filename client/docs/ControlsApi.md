@@ -4,76 +4,11 @@ All URIs are relative to *http://localhost*
 
 Method | HTTP request | Description
 ------------- | ------------- | -------------
-[**AddAgentVersion**](ControlsApi.md#AddAgentVersion) | **Post** /deepfence/controls/agent-version | Push new agent version
 [**GetAgentControls**](ControlsApi.md#GetAgentControls) | **Post** /deepfence/controls/agent | Fetch Agent Actions
 [**GetAgentInitControls**](ControlsApi.md#GetAgentInitControls) | **Post** /deepfence/controls/agent-init | Fetch Agent Init Actions
 [**GetKubernetesScannerControls**](ControlsApi.md#GetKubernetesScannerControls) | **Post** /deepfence/controls/kubernetes-scanner | Fetch Kubernetes Scanner Actions
-[**GetLatestAgentVersion**](ControlsApi.md#GetLatestAgentVersion) | **Get** /deepfence/controls/get-agent-version | Fetch latest agent version
+[**UpgradeAgentVersion**](ControlsApi.md#UpgradeAgentVersion) | **Post** /deepfence/controls/agent-upgrade | Schedule new agent version upgrade
 
-
-
-## AddAgentVersion
-
-> AddAgentVersion(ctx).ModelAgentImageMetadata(modelAgentImageMetadata).Execute()
-
-Push new agent version
-
-
-
-### Example
-
-```go
-package main
-
-import (
-    "context"
-    "fmt"
-    "os"
-    openapiclient "./openapi"
-)
-
-func main() {
-    modelAgentImageMetadata := *openapiclient.NewModelAgentImageMetadata("ImageName_example", "ImageTag_example", "Version_example") // ModelAgentImageMetadata |  (optional)
-
-    configuration := openapiclient.NewConfiguration()
-    apiClient := openapiclient.NewAPIClient(configuration)
-    resp, r, err := apiClient.ControlsApi.AddAgentVersion(context.Background()).ModelAgentImageMetadata(modelAgentImageMetadata).Execute()
-    if err != nil {
-        fmt.Fprintf(os.Stderr, "Error when calling `ControlsApi.AddAgentVersion``: %v\n", err)
-        fmt.Fprintf(os.Stderr, "Full HTTP response: %v\n", r)
-    }
-}
-```
-
-### Path Parameters
-
-
-
-### Other Parameters
-
-Other parameters are passed through a pointer to a apiAddAgentVersionRequest struct via the builder pattern
-
-
-Name | Type | Description  | Notes
-------------- | ------------- | ------------- | -------------
- **modelAgentImageMetadata** | [**ModelAgentImageMetadata**](ModelAgentImageMetadata.md) |  | 
-
-### Return type
-
- (empty response body)
-
-### Authorization
-
-[bearer_token](../README.md#bearer_token)
-
-### HTTP request headers
-
-- **Content-Type**: application/json
-- **Accept**: application/json
-
-[[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints)
-[[Back to Model list]](../README.md#documentation-for-models)
-[[Back to README]](../README.md)
 
 
 ## GetAgentControls
@@ -274,11 +209,11 @@ Name | Type | Description  | Notes
 [[Back to README]](../README.md)
 
 
-## GetLatestAgentVersion
+## UpgradeAgentVersion
 
-> ModelAgentImageMetadata GetLatestAgentVersion(ctx).Execute()
+> UpgradeAgentVersion(ctx).ModelAgentUpgrade(modelAgentUpgrade).Execute()
 
-Fetch latest agent version
+Schedule new agent version upgrade
 
 
 
@@ -295,31 +230,34 @@ import (
 )
 
 func main() {
+    modelAgentUpgrade := *openapiclient.NewModelAgentUpgrade("NodeId_example", "Version_example") // ModelAgentUpgrade |  (optional)
 
     configuration := openapiclient.NewConfiguration()
     apiClient := openapiclient.NewAPIClient(configuration)
-    resp, r, err := apiClient.ControlsApi.GetLatestAgentVersion(context.Background()).Execute()
+    resp, r, err := apiClient.ControlsApi.UpgradeAgentVersion(context.Background()).ModelAgentUpgrade(modelAgentUpgrade).Execute()
     if err != nil {
-        fmt.Fprintf(os.Stderr, "Error when calling `ControlsApi.GetLatestAgentVersion``: %v\n", err)
+        fmt.Fprintf(os.Stderr, "Error when calling `ControlsApi.UpgradeAgentVersion``: %v\n", err)
         fmt.Fprintf(os.Stderr, "Full HTTP response: %v\n", r)
     }
-    // response from `GetLatestAgentVersion`: ModelAgentImageMetadata
-    fmt.Fprintf(os.Stdout, "Response from `ControlsApi.GetLatestAgentVersion`: %v\n", resp)
 }
 ```
 
 ### Path Parameters
 
-This endpoint does not need any parameter.
+
 
 ### Other Parameters
 
-Other parameters are passed through a pointer to a apiGetLatestAgentVersionRequest struct via the builder pattern
+Other parameters are passed through a pointer to a apiUpgradeAgentVersionRequest struct via the builder pattern
 
+
+Name | Type | Description  | Notes
+------------- | ------------- | ------------- | -------------
+ **modelAgentUpgrade** | [**ModelAgentUpgrade**](ModelAgentUpgrade.md) |  | 
 
 ### Return type
 
-[**ModelAgentImageMetadata**](ModelAgentImageMetadata.md)
+ (empty response body)
 
 ### Authorization
 
@@ -327,7 +265,7 @@ Other parameters are passed through a pointer to a apiGetLatestAgentVersionReque
 
 ### HTTP request headers
 
-- **Content-Type**: Not defined
+- **Content-Type**: application/json
 - **Accept**: application/json
 
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints)

@@ -346,7 +346,7 @@ Name | Type | Description  | Notes
 
 ## IngestAgentReport
 
-> IngestAgentReport(ctx).ReportRawReport(reportRawReport).Execute()
+> IngestAgentReport(ctx).ModelRawReport(modelRawReport).Execute()
 
 Ingest Topology Data
 
@@ -365,11 +365,11 @@ import (
 )
 
 func main() {
-    reportRawReport := *openapiclient.NewReportRawReport("Payload_example") // ReportRawReport |  (optional)
+    modelRawReport := *openapiclient.NewModelRawReport("Payload_example") // ModelRawReport |  (optional)
 
     configuration := openapiclient.NewConfiguration()
     apiClient := openapiclient.NewAPIClient(configuration)
-    resp, r, err := apiClient.TopologyApi.IngestAgentReport(context.Background()).ReportRawReport(reportRawReport).Execute()
+    resp, r, err := apiClient.TopologyApi.IngestAgentReport(context.Background()).ModelRawReport(modelRawReport).Execute()
     if err != nil {
         fmt.Fprintf(os.Stderr, "Error when calling `TopologyApi.IngestAgentReport``: %v\n", err)
         fmt.Fprintf(os.Stderr, "Full HTTP response: %v\n", r)
@@ -388,7 +388,7 @@ Other parameters are passed through a pointer to a apiIngestAgentReportRequest s
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **reportRawReport** | [**ReportRawReport**](ReportRawReport.md) |  | 
+ **modelRawReport** | [**ModelRawReport**](ModelRawReport.md) |  | 
 
 ### Return type
 

@@ -93,11 +93,10 @@ Class | Method | HTTP request | Description
 *ComplianceApi* | [**StartComplianceScan**](docs/ComplianceApi.md#startcompliancescan) | **Post** /deepfence/scan/start/compliance | Start Compliance Scan
 *ComplianceApi* | [**StatusComplianceScan**](docs/ComplianceApi.md#statuscompliancescan) | **Get** /deepfence/scan/status/compliance | Get Compliance Scan Status
 *ComplianceApi* | [**StopComplianceScan**](docs/ComplianceApi.md#stopcompliancescan) | **Post** /deepfence/scan/stop/compliance | Stop Compliance Scan
-*ControlsApi* | [**AddAgentVersion**](docs/ControlsApi.md#addagentversion) | **Post** /deepfence/controls/agent-version | Push new agent version
 *ControlsApi* | [**GetAgentControls**](docs/ControlsApi.md#getagentcontrols) | **Post** /deepfence/controls/agent | Fetch Agent Actions
 *ControlsApi* | [**GetAgentInitControls**](docs/ControlsApi.md#getagentinitcontrols) | **Post** /deepfence/controls/agent-init | Fetch Agent Init Actions
 *ControlsApi* | [**GetKubernetesScannerControls**](docs/ControlsApi.md#getkubernetesscannercontrols) | **Post** /deepfence/controls/kubernetes-scanner | Fetch Kubernetes Scanner Actions
-*ControlsApi* | [**GetLatestAgentVersion**](docs/ControlsApi.md#getlatestagentversion) | **Get** /deepfence/controls/get-agent-version | Fetch latest agent version
+*ControlsApi* | [**UpgradeAgentVersion**](docs/ControlsApi.md#upgradeagentversion) | **Post** /deepfence/controls/agent-upgrade | Schedule new agent version upgrade
 *DiagnosisApi* | [**DiagnosticNotification**](docs/DiagnosisApi.md#diagnosticnotification) | **Get** /deepfence/diagnosis/notification | Get Diagnostic Notification
 *DiagnosisApi* | [**GenerateAgentDiagnosticLogs**](docs/DiagnosisApi.md#generateagentdiagnosticlogs) | **Post** /deepfence/diagnosis/agent-logs | Generate Agent Diagnostic Logs
 *DiagnosisApi* | [**GenerateConsoleDiagnosticLogs**](docs/DiagnosisApi.md#generateconsolediagnosticlogs) | **Post** /deepfence/diagnosis/console-logs | Generate Console Diagnostic Logs
@@ -180,7 +179,7 @@ Class | Method | HTTP request | Description
  - [IngestersVulnerability](docs/IngestersVulnerability.md)
  - [IngestersVulnerabilityScanStatus](docs/IngestersVulnerabilityScanStatus.md)
  - [ModelAgentId](docs/ModelAgentId.md)
- - [ModelAgentImageMetadata](docs/ModelAgentImageMetadata.md)
+ - [ModelAgentUpgrade](docs/ModelAgentUpgrade.md)
  - [ModelApiAuthRequest](docs/ModelApiAuthRequest.md)
  - [ModelCloudComplianceScanDetails](docs/ModelCloudComplianceScanDetails.md)
  - [ModelCloudNodeAccountInfo](docs/ModelCloudNodeAccountInfo.md)
@@ -204,6 +203,7 @@ Class | Method | HTTP request | Description
  - [ModelPasswordResetVerifyRequest](docs/ModelPasswordResetVerifyRequest.md)
  - [ModelPod](docs/ModelPod.md)
  - [ModelProcess](docs/ModelProcess.md)
+ - [ModelRawReport](docs/ModelRawReport.md)
  - [ModelRegisterInvitedUserRequest](docs/ModelRegisterInvitedUserRequest.md)
  - [ModelResponseAccessToken](docs/ModelResponseAccessToken.md)
  - [ModelScanInfo](docs/ModelScanInfo.md)
@@ -219,7 +219,6 @@ Class | Method | HTTP request | Description
  - [ModelVulnerabilityScanTriggerReq](docs/ModelVulnerabilityScanTriggerReq.md)
  - [ReportColumn](docs/ReportColumn.md)
  - [ReportMetadataRow](docs/ReportMetadataRow.md)
- - [ReportRawReport](docs/ReportRawReport.md)
  - [ReportRow](docs/ReportRow.md)
  - [ReportTable](docs/ReportTable.md)
  - [ReportersContainsFilter](docs/ReportersContainsFilter.md)
