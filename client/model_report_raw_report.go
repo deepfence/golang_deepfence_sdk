@@ -15,34 +15,34 @@ import (
 	"encoding/json"
 )
 
-// checks if the ApiDocsRawReport type satisfies the MappedNullable interface at compile time
-var _ MappedNullable = &ApiDocsRawReport{}
+// checks if the ReportRawReport type satisfies the MappedNullable interface at compile time
+var _ MappedNullable = &ReportRawReport{}
 
-// ApiDocsRawReport struct for ApiDocsRawReport
-type ApiDocsRawReport struct {
+// ReportRawReport struct for ReportRawReport
+type ReportRawReport struct {
 	Payload string `json:"payload"`
 }
 
-// NewApiDocsRawReport instantiates a new ApiDocsRawReport object
+// NewReportRawReport instantiates a new ReportRawReport object
 // This constructor will assign default values to properties that have it defined,
 // and makes sure properties required by API are set, but the set of arguments
 // will change when the set of required properties is changed
-func NewApiDocsRawReport(payload string) *ApiDocsRawReport {
-	this := ApiDocsRawReport{}
+func NewReportRawReport(payload string) *ReportRawReport {
+	this := ReportRawReport{}
 	this.Payload = payload
 	return &this
 }
 
-// NewApiDocsRawReportWithDefaults instantiates a new ApiDocsRawReport object
+// NewReportRawReportWithDefaults instantiates a new ReportRawReport object
 // This constructor will only assign default values to properties that have it defined,
 // but it doesn't guarantee that properties required by API are set
-func NewApiDocsRawReportWithDefaults() *ApiDocsRawReport {
-	this := ApiDocsRawReport{}
+func NewReportRawReportWithDefaults() *ReportRawReport {
+	this := ReportRawReport{}
 	return &this
 }
 
 // GetPayload returns the Payload field value
-func (o *ApiDocsRawReport) GetPayload() string {
+func (o *ReportRawReport) GetPayload() string {
 	if o == nil {
 		var ret string
 		return ret
@@ -53,7 +53,7 @@ func (o *ApiDocsRawReport) GetPayload() string {
 
 // GetPayloadOk returns a tuple with the Payload field value
 // and a boolean to check if the value has been set.
-func (o *ApiDocsRawReport) GetPayloadOk() (*string, bool) {
+func (o *ReportRawReport) GetPayloadOk() (*string, bool) {
 	if o == nil {
 		return nil, false
 	}
@@ -61,11 +61,11 @@ func (o *ApiDocsRawReport) GetPayloadOk() (*string, bool) {
 }
 
 // SetPayload sets field value
-func (o *ApiDocsRawReport) SetPayload(v string) {
+func (o *ReportRawReport) SetPayload(v string) {
 	o.Payload = v
 }
 
-func (o ApiDocsRawReport) MarshalJSON() ([]byte, error) {
+func (o ReportRawReport) MarshalJSON() ([]byte, error) {
 	toSerialize,err := o.ToMap()
 	if err != nil {
 		return []byte{}, err
@@ -73,44 +73,44 @@ func (o ApiDocsRawReport) MarshalJSON() ([]byte, error) {
 	return json.Marshal(toSerialize)
 }
 
-func (o ApiDocsRawReport) ToMap() (map[string]interface{}, error) {
+func (o ReportRawReport) ToMap() (map[string]interface{}, error) {
 	toSerialize := map[string]interface{}{}
 	toSerialize["payload"] = o.Payload
 	return toSerialize, nil
 }
 
-type NullableApiDocsRawReport struct {
-	value *ApiDocsRawReport
+type NullableReportRawReport struct {
+	value *ReportRawReport
 	isSet bool
 }
 
-func (v NullableApiDocsRawReport) Get() *ApiDocsRawReport {
+func (v NullableReportRawReport) Get() *ReportRawReport {
 	return v.value
 }
 
-func (v *NullableApiDocsRawReport) Set(val *ApiDocsRawReport) {
+func (v *NullableReportRawReport) Set(val *ReportRawReport) {
 	v.value = val
 	v.isSet = true
 }
 
-func (v NullableApiDocsRawReport) IsSet() bool {
+func (v NullableReportRawReport) IsSet() bool {
 	return v.isSet
 }
 
-func (v *NullableApiDocsRawReport) Unset() {
+func (v *NullableReportRawReport) Unset() {
 	v.value = nil
 	v.isSet = false
 }
 
-func NewNullableApiDocsRawReport(val *ApiDocsRawReport) *NullableApiDocsRawReport {
-	return &NullableApiDocsRawReport{value: val, isSet: true}
+func NewNullableReportRawReport(val *ReportRawReport) *NullableReportRawReport {
+	return &NullableReportRawReport{value: val, isSet: true}
 }
 
-func (v NullableApiDocsRawReport) MarshalJSON() ([]byte, error) {
+func (v NullableReportRawReport) MarshalJSON() ([]byte, error) {
 	return json.Marshal(v.value)
 }
 
-func (v *NullableApiDocsRawReport) UnmarshalJSON(src []byte) error {
+func (v *NullableReportRawReport) UnmarshalJSON(src []byte) error {
 	v.isSet = true
 	return json.Unmarshal(src, &v.value)
 }

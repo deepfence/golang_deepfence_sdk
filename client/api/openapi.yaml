@@ -1103,7 +1103,7 @@ paths:
         content:
           application/json:
             schema:
-              $ref: '#/components/schemas/ModelRawReport'
+              $ref: '#/components/schemas/ReportRawReport'
       responses:
         "200":
           description: OK
@@ -5851,15 +5851,6 @@ components:
       - ppid
       - threads
       type: object
-    ModelRawReport:
-      example:
-        payload: payload
-      properties:
-        payload:
-          type: string
-      required:
-      - payload
-      type: object
     ModelRegisterInvitedUserRequest:
       example:
         password: password
@@ -6172,6 +6163,15 @@ components:
           type: string
       type: object
     ReportMetricRow:
+      type: object
+    ReportRawReport:
+      example:
+        payload: payload
+      properties:
+        payload:
+          type: string
+      required:
+      - payload
       type: object
     ReportRow:
       example:
