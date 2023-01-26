@@ -309,3 +309,83 @@ LIMIT 1;
 DELETE
 FROM user_invite
 WHERE expiry >= $1;
+
+-- name: CreateContainerRegistry :one
+INSERT INTO container_registry (name, registry_type, encrypted_secret, non_secret, extras)
+VALUES ($1, $2, $3, $4, $5)
+RETURNING *;
+
+-- name: CountContainerRegistry :one
+SELECT count(*)
+FROM container_registry;
+
+-- name: GetContainerRegistry :one
+SELECT container_registry.id,
+       container_registry.name,
+       container_registry.registry_type,
+       container_registry.encrypted_secret,
+       container_registry.non_secret,
+       container_registry.created_at,
+       container_registry.updated_at
+FROM container_registry
+WHERE container_registry.id = $1
+LIMIT 1;
+
+-- name: GetContainerRegistrySafe :one
+SELECT container_registry.id,
+       container_registry.name,
+       container_registry.registry_type,
+       container_registry.non_secret,
+       container_registry.created_at,
+       container_registry.updated_at
+FROM container_registry
+WHERE container_registry.id = $1
+LIMIT 1;
+
+-- name: GetContainerRegistries :many
+SELECT container_registry.id,
+       container_registry.name,
+       container_registry.registry_type,
+       container_registry.encrypted_secret,
+       container_registry.non_secret,
+       container_registry.created_at,
+       container_registry.updated_at
+FROM container_registry;
+
+-- name: GetContainerRegistriesSafe :many
+SELECT container_registry.id,
+       container_registry.name,
+       container_registry.registry_type,
+       container_registry.non_secret,
+       container_registry.created_at,
+       container_registry.updated_at
+FROM container_registry;
+
+-- name: GetContainerRegistryByType :many
+SELECT container_registry.id,
+       container_registry.name,
+       container_registry.registry_type,
+       container_registry.encrypted_secret,
+       container_registry.non_secret,
+       container_registry.created_at,
+       container_registry.updated_at
+FROM container_registry
+WHERE container_registry.registry_type = $1;
+
+-- name: GetContainerRegistryByTypeAndName :one
+SELECT container_registry.id,
+       container_registry.name,
+       container_registry.registry_type,
+       container_registry.encrypted_secret,
+       container_registry.non_secret,
+       container_registry.created_at,
+       container_registry.updated_at
+FROM container_registry
+WHERE container_registry.registry_type = $1
+AND container_registry.name = $2
+LIMIT 1;
+
+-- name: DeleteContainerRegistry :exec
+DELETE
+FROM container_registry
+WHERE id = $1;

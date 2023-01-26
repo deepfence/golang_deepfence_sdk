@@ -25,6 +25,18 @@ func (q *Queries) CountCompanies(ctx context.Context) (int64, error) {
 	return count, err
 }
 
+const countContainerRegistry = `-- name: CountContainerRegistry :one
+SELECT count(*)
+FROM container_registry
+`
+
+func (q *Queries) CountContainerRegistry(ctx context.Context) (int64, error) {
+	row := q.db.QueryRowContext(ctx, countContainerRegistry)
+	var count int64
+	err := row.Scan(&count)
+	return count, err
+}
+
 const countUsers = `-- name: CountUsers :one
 SELECT count(*)
 FROM users
@@ -98,6 +110,42 @@ func (q *Queries) CreateCompany(ctx context.Context, arg CreateCompanyParams) (C
 		&i.CreatedAt,
 		&i.UpdatedAt,
 		&i.Namespace,
+	)
+	return i, err
+}
+
+const createContainerRegistry = `-- name: CreateContainerRegistry :one
+INSERT INTO container_registry (name, registry_type, encrypted_secret, non_secret, extras)
+VALUES ($1, $2, $3, $4, $5)
+RETURNING id, name, registry_type, encrypted_secret, non_secret, extras, created_at, updated_at
+`
+
+type CreateContainerRegistryParams struct {
+	Name            string
+	RegistryType    string
+	EncryptedSecret json.RawMessage
+	NonSecret       json.RawMessage
+	Extras          json.RawMessage
+}
+
+func (q *Queries) CreateContainerRegistry(ctx context.Context, arg CreateContainerRegistryParams) (ContainerRegistry, error) {
+	row := q.db.QueryRowContext(ctx, createContainerRegistry,
+		arg.Name,
+		arg.RegistryType,
+		arg.EncryptedSecret,
+		arg.NonSecret,
+		arg.Extras,
+	)
+	var i ContainerRegistry
+	err := row.Scan(
+		&i.ID,
+		&i.Name,
+		&i.RegistryType,
+		&i.EncryptedSecret,
+		&i.NonSecret,
+		&i.Extras,
+		&i.CreatedAt,
+		&i.UpdatedAt,
 	)
 	return i, err
 }
@@ -308,6 +356,17 @@ WHERE id = $1
 
 func (q *Queries) DeleteCompany(ctx context.Context, id int32) error {
 	_, err := q.db.ExecContext(ctx, deleteCompany, id)
+	return err
+}
+
+const deleteContainerRegistry = `-- name: DeleteContainerRegistry :exec
+DELETE
+FROM container_registry
+WHERE id = $1
+`
+
+func (q *Queries) DeleteContainerRegistry(ctx context.Context, id int32) error {
+	_, err := q.db.ExecContext(ctx, deleteContainerRegistry, id)
 	return err
 }
 
@@ -646,6 +705,277 @@ func (q *Queries) GetCompanyByDomain(ctx context.Context, emailDomain string) (C
 		&i.CreatedAt,
 		&i.UpdatedAt,
 		&i.Namespace,
+	)
+	return i, err
+}
+
+const getContainerRegistries = `-- name: GetContainerRegistries :many
+SELECT container_registry.id,
+       container_registry.name,
+       container_registry.registry_type,
+       container_registry.encrypted_secret,
+       container_registry.non_secret,
+       container_registry.created_at,
+       container_registry.updated_at
+FROM container_registry
+`
+
+type GetContainerRegistriesRow struct {
+	ID              int32
+	Name            string
+	RegistryType    string
+	EncryptedSecret json.RawMessage
+	NonSecret       json.RawMessage
+	CreatedAt       time.Time
+	UpdatedAt       time.Time
+}
+
+func (q *Queries) GetContainerRegistries(ctx context.Context) ([]GetContainerRegistriesRow, error) {
+	rows, err := q.db.QueryContext(ctx, getContainerRegistries)
+	if err != nil {
+		return nil, err
+	}
+	defer rows.Close()
+	var items []GetContainerRegistriesRow
+	for rows.Next() {
+		var i GetContainerRegistriesRow
+		if err := rows.Scan(
+			&i.ID,
+			&i.Name,
+			&i.RegistryType,
+			&i.EncryptedSecret,
+			&i.NonSecret,
+			&i.CreatedAt,
+			&i.UpdatedAt,
+		); err != nil {
+			return nil, err
+		}
+		items = append(items, i)
+	}
+	if err := rows.Close(); err != nil {
+		return nil, err
+	}
+	if err := rows.Err(); err != nil {
+		return nil, err
+	}
+	return items, nil
+}
+
+const getContainerRegistriesSafe = `-- name: GetContainerRegistriesSafe :many
+SELECT container_registry.id,
+       container_registry.name,
+       container_registry.registry_type,
+       container_registry.non_secret,
+       container_registry.created_at,
+       container_registry.updated_at
+FROM container_registry
+`
+
+type GetContainerRegistriesSafeRow struct {
+	ID           int32
+	Name         string
+	RegistryType string
+	NonSecret    json.RawMessage
+	CreatedAt    time.Time
+	UpdatedAt    time.Time
+}
+
+func (q *Queries) GetContainerRegistriesSafe(ctx context.Context) ([]GetContainerRegistriesSafeRow, error) {
+	rows, err := q.db.QueryContext(ctx, getContainerRegistriesSafe)
+	if err != nil {
+		return nil, err
+	}
+	defer rows.Close()
+	var items []GetContainerRegistriesSafeRow
+	for rows.Next() {
+		var i GetContainerRegistriesSafeRow
+		if err := rows.Scan(
+			&i.ID,
+			&i.Name,
+			&i.RegistryType,
+			&i.NonSecret,
+			&i.CreatedAt,
+			&i.UpdatedAt,
+		); err != nil {
+			return nil, err
+		}
+		items = append(items, i)
+	}
+	if err := rows.Close(); err != nil {
+		return nil, err
+	}
+	if err := rows.Err(); err != nil {
+		return nil, err
+	}
+	return items, nil
+}
+
+const getContainerRegistry = `-- name: GetContainerRegistry :one
+SELECT container_registry.id,
+       container_registry.name,
+       container_registry.registry_type,
+       container_registry.encrypted_secret,
+       container_registry.non_secret,
+       container_registry.created_at,
+       container_registry.updated_at
+FROM container_registry
+WHERE container_registry.id = $1
+LIMIT 1
+`
+
+type GetContainerRegistryRow struct {
+	ID              int32
+	Name            string
+	RegistryType    string
+	EncryptedSecret json.RawMessage
+	NonSecret       json.RawMessage
+	CreatedAt       time.Time
+	UpdatedAt       time.Time
+}
+
+func (q *Queries) GetContainerRegistry(ctx context.Context, id int32) (GetContainerRegistryRow, error) {
+	row := q.db.QueryRowContext(ctx, getContainerRegistry, id)
+	var i GetContainerRegistryRow
+	err := row.Scan(
+		&i.ID,
+		&i.Name,
+		&i.RegistryType,
+		&i.EncryptedSecret,
+		&i.NonSecret,
+		&i.CreatedAt,
+		&i.UpdatedAt,
+	)
+	return i, err
+}
+
+const getContainerRegistryByType = `-- name: GetContainerRegistryByType :many
+SELECT container_registry.id,
+       container_registry.name,
+       container_registry.registry_type,
+       container_registry.encrypted_secret,
+       container_registry.non_secret,
+       container_registry.created_at,
+       container_registry.updated_at
+FROM container_registry
+WHERE container_registry.registry_type = $1
+`
+
+type GetContainerRegistryByTypeRow struct {
+	ID              int32
+	Name            string
+	RegistryType    string
+	EncryptedSecret json.RawMessage
+	NonSecret       json.RawMessage
+	CreatedAt       time.Time
+	UpdatedAt       time.Time
+}
+
+func (q *Queries) GetContainerRegistryByType(ctx context.Context, registryType string) ([]GetContainerRegistryByTypeRow, error) {
+	rows, err := q.db.QueryContext(ctx, getContainerRegistryByType, registryType)
+	if err != nil {
+		return nil, err
+	}
+	defer rows.Close()
+	var items []GetContainerRegistryByTypeRow
+	for rows.Next() {
+		var i GetContainerRegistryByTypeRow
+		if err := rows.Scan(
+			&i.ID,
+			&i.Name,
+			&i.RegistryType,
+			&i.EncryptedSecret,
+			&i.NonSecret,
+			&i.CreatedAt,
+			&i.UpdatedAt,
+		); err != nil {
+			return nil, err
+		}
+		items = append(items, i)
+	}
+	if err := rows.Close(); err != nil {
+		return nil, err
+	}
+	if err := rows.Err(); err != nil {
+		return nil, err
+	}
+	return items, nil
+}
+
+const getContainerRegistryByTypeAndName = `-- name: GetContainerRegistryByTypeAndName :one
+SELECT container_registry.id,
+       container_registry.name,
+       container_registry.registry_type,
+       container_registry.encrypted_secret,
+       container_registry.non_secret,
+       container_registry.created_at,
+       container_registry.updated_at
+FROM container_registry
+WHERE container_registry.registry_type = $1
+AND container_registry.name = $2
+LIMIT 1
+`
+
+type GetContainerRegistryByTypeAndNameParams struct {
+	RegistryType string
+	Name         string
+}
+
+type GetContainerRegistryByTypeAndNameRow struct {
+	ID              int32
+	Name            string
+	RegistryType    string
+	EncryptedSecret json.RawMessage
+	NonSecret       json.RawMessage
+	CreatedAt       time.Time
+	UpdatedAt       time.Time
+}
+
+func (q *Queries) GetContainerRegistryByTypeAndName(ctx context.Context, arg GetContainerRegistryByTypeAndNameParams) (GetContainerRegistryByTypeAndNameRow, error) {
+	row := q.db.QueryRowContext(ctx, getContainerRegistryByTypeAndName, arg.RegistryType, arg.Name)
+	var i GetContainerRegistryByTypeAndNameRow
+	err := row.Scan(
+		&i.ID,
+		&i.Name,
+		&i.RegistryType,
+		&i.EncryptedSecret,
+		&i.NonSecret,
+		&i.CreatedAt,
+		&i.UpdatedAt,
+	)
+	return i, err
+}
+
+const getContainerRegistrySafe = `-- name: GetContainerRegistrySafe :one
+SELECT container_registry.id,
+       container_registry.name,
+       container_registry.registry_type,
+       container_registry.non_secret,
+       container_registry.created_at,
+       container_registry.updated_at
+FROM container_registry
+WHERE container_registry.id = $1
+LIMIT 1
+`
+
+type GetContainerRegistrySafeRow struct {
+	ID           int32
+	Name         string
+	RegistryType string
+	NonSecret    json.RawMessage
+	CreatedAt    time.Time
+	UpdatedAt    time.Time
+}
+
+func (q *Queries) GetContainerRegistrySafe(ctx context.Context, id int32) (GetContainerRegistrySafeRow, error) {
+	row := q.db.QueryRowContext(ctx, getContainerRegistrySafe, id)
+	var i GetContainerRegistrySafeRow
+	err := row.Scan(
+		&i.ID,
+		&i.Name,
+		&i.RegistryType,
+		&i.NonSecret,
+		&i.CreatedAt,
+		&i.UpdatedAt,
 	)
 	return i, err
 }
