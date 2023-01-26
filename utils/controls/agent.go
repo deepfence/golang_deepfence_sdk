@@ -11,6 +11,7 @@ const (
 	StartSecretScan
 	StartComplianceScan
 	StartMalwareScan
+	StartAgentUpgrade
 )
 
 type ScanResource int
@@ -79,6 +80,11 @@ type StartMalwareScanRequest struct {
 	NodeId   string            `json:"node_id" required:"true"`
 	NodeType ScanResource      `json:"node_type" required:"true"`
 	BinArgs  map[string]string `json:"bin_args" required:"true"`
+}
+
+type StartAgentUpgradeRequest struct {
+	HomeDirectoryUrl string `json:"home_directory_url" required:"true"`
+	Version          string `json:"version" required:"true"`
 }
 
 type Action struct {
