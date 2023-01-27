@@ -4,6 +4,7 @@ import (
 	"bytes"
 	"context"
 	"errors"
+	"net"
 	"net/http"
 	"net/url"
 	"path"
@@ -24,7 +25,7 @@ func init() {
 type FileManager interface {
 	UploadFile(context.Context, string, []byte, interface{}) (UploadResult, error)
 	DownloadFile(context.Context, string, string, interface{}) error
-	ExposeFile(context.Context, string, string) (string, error)
+	ExposeFile(context.Context, string) (string, error)
 	Client() interface{}
 	Bucket() string
 }
@@ -73,8 +74,22 @@ func (mfm *MinioFileManager) DownloadFile(ctx context.Context, remoteFile string
 	return mfm.client.FGetObject(ctx, mfm.namespace, path.Join(mfm.namespace, remoteFile), localFile, extra.(minio.GetObjectOptions))
 }
 
-func (mfm *MinioFileManager) ExposeFile(ctx context.Context, filepath, hostname string) (string, error) {
-	headers := http.Header{"Host": []string{hostname}}
+func (mfm *MinioFileManager) ExposeFile(ctx context.Context, filepath string) (string, error) {
+
+	ips := []string{}
+	netInterfaceAddresses, err := net.InterfaceAddrs()
+	if err != nil {
+		return "", err
+	}
+
+	for _, netInterfaceAddress := range netInterfaceAddresses {
+		networkIp, ok := netInterfaceAddress.(*net.IPNet)
+		if ok && !networkIp.IP.IsLoopback() && networkIp.IP.To4() != nil {
+			ips = append(ips, networkIp.IP.String())
+		}
+	}
+
+	headers := http.Header{"Host": ips}
 
 	url, err := mfm.client.PresignHeader(context.Background(),
 		"GET",
@@ -83,6 +98,7 @@ func (mfm *MinioFileManager) ExposeFile(ctx context.Context, filepath, hostname 
 		time.Hour*10,
 		url.Values{},
 		headers)
+
 	if err != nil {
 		return "", err
 	}
