@@ -4,6 +4,9 @@ import (
 	"bytes"
 	"context"
 	"errors"
+	"net/http"
+	"net/url"
+	"os"
 	"path"
 	"time"
 
@@ -22,6 +25,7 @@ func init() {
 type FileManager interface {
 	UploadFile(context.Context, string, []byte, interface{}) (UploadResult, error)
 	DownloadFile(context.Context, string, string, interface{}) error
+	ExposeFile(context.Context, string) (string, error)
 	Client() interface{}
 	Bucket() string
 }
@@ -68,6 +72,29 @@ func (mfm *MinioFileManager) UploadFile(ctx context.Context, filename string, da
 
 func (mfm *MinioFileManager) DownloadFile(ctx context.Context, remoteFile string, localFile string, extra interface{}) error {
 	return mfm.client.FGetObject(ctx, mfm.namespace, path.Join(mfm.namespace, remoteFile), localFile, extra.(minio.GetObjectOptions))
+}
+
+func (mfm *MinioFileManager) ExposeFile(ctx context.Context, filepath string) (string, error) {
+	hostname, err := os.Hostname()
+	if err != nil {
+		hostname := os.Getenv("MGMT_CONSOLE_URL")
+		if hostname == "" {
+			return "", errors.New("Cannot determine hostname")
+		}
+	}
+	headers := http.Header{"Host": []string{hostname}}
+
+	url, err := mfm.client.PresignHeader(context.Background(),
+		"GET",
+		mfm.namespace,
+		filepath,
+		time.Hour*10,
+		url.Values{},
+		headers)
+	if err != nil {
+		return "", err
+	}
+	return url.String(), nil
 }
 
 func (mfm *MinioFileManager) Client() interface{} {
