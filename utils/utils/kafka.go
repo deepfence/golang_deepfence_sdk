@@ -4,13 +4,14 @@ import (
 	"context"
 
 	"github.com/deepfence/golang_deepfence_sdk/utils/log"
+	"github.com/rs/zerolog"
 	"github.com/twmb/franz-go/pkg/kadm"
 	"github.com/twmb/franz-go/pkg/kgo"
 )
 
 // kafka client logger
 var (
-	KgoLogger kgo.Logger = kgo.BasicLogger(&log.LogInfoWriter{}, kgo.LogLevelInfo, nil)
+	KgoLogger kgo.Logger = kgo.BasicLogger(log.NewIOWriter(zerolog.InfoLevel), kgo.LogLevelInfo, nil)
 )
 
 func CheckKafkaConn(kafkaBrokers []string) error {
