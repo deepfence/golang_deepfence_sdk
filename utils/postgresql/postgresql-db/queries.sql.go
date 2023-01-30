@@ -484,6 +484,21 @@ func (q *Queries) GetApiToken(ctx context.Context, id int64) (ApiToken, error) {
 	return i, err
 }
 
+const getApiTokenByActiveUser = `-- name: GetApiTokenByActiveUser :one
+SELECT api_token.api_token
+FROM api_token
+    INNER JOIN users u on api_token.created_by_user_id = u.id
+WHERE u.is_active = 'true'
+LIMIT 1
+`
+
+func (q *Queries) GetApiTokenByActiveUser(ctx context.Context) (uuid.UUID, error) {
+	row := q.db.QueryRowContext(ctx, getApiTokenByActiveUser)
+	var api_token uuid.UUID
+	err := row.Scan(&api_token)
+	return api_token, err
+}
+
 const getApiTokenByToken = `-- name: GetApiTokenByToken :one
 SELECT api_token.api_token,
        api_token.name,

@@ -209,6 +209,13 @@ DELETE
 FROM api_token
 WHERE id = $1;
 
+-- name: GetApiTokenByActiveUser :one
+SELECT api_token.api_token
+FROM api_token
+    INNER JOIN users u on api_token.created_by_user_id = u.id
+WHERE u.is_active = 'true'
+LIMIT 1;
+
 -- name: CreateSetting :one
 INSERT INTO setting (key, value, is_visible_on_ui)
 VALUES ($1, $2, $3)
