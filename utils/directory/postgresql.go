@@ -3,12 +3,23 @@ package directory
 import (
 	"context"
 	"database/sql"
+	"encoding/json"
 	"errors"
 	"fmt"
 
 	postgresqlDb "github.com/deepfence/golang_deepfence_sdk/utils/postgresql/postgresql-db"
 	_ "github.com/lib/pq"
 )
+
+const (
+	ConsoleURLSettingKey = "console_url"
+)
+
+type SettingValue struct {
+	Label       string      `json:"label"`
+	Value       interface{} `json:"value"`
+	Description string      `json:"description"`
+}
 
 var postgresClientsPool map[NamespaceID]*postgresqlDb.Queries
 
@@ -35,4 +46,50 @@ func PostgresClient(ctx context.Context) (*postgresqlDb.Queries, error) {
 		return nil, err
 	}
 	return driver, err
+}
+
+func ListSettings(ctx context.Context, visible bool) ([]postgresqlDb.Setting, error) {
+	pgClient, err := PostgresClient(ctx)
+	if err != nil {
+		return nil, err
+	}
+	var settings []postgresqlDb.Setting
+	if visible == true {
+		settings, err = pgClient.GetVisibleSettings(ctx)
+	} else {
+		settings, err = pgClient.GetSettings(ctx)
+	}
+	if err != nil {
+		return nil, err
+	}
+	return settings, nil
+}
+
+func GetManagementConsoleURL(ctx context.Context) (string, error) {
+	pgClient, err := PostgresClient(ctx)
+	if err != nil {
+		return "", err
+	}
+	setting, err := pgClient.GetSetting(ctx, ConsoleURLSettingKey)
+	if err != nil {
+		return "", err
+	}
+	var settingVal SettingValue
+	err = json.Unmarshal(setting.Value, &settingVal)
+	if err != nil {
+		return "", err
+	}
+	return fmt.Sprintf("%v", settingVal.Value), nil
+}
+
+func GetSetting(ctx context.Context, key string) (*postgresqlDb.Setting, error) {
+	pgClient, err := PostgresClient(ctx)
+	if err != nil {
+		return nil, err
+	}
+	setting, err := pgClient.GetSetting(ctx, key)
+	if err != nil {
+		return nil, err
+	}
+	return &setting, nil
 }
