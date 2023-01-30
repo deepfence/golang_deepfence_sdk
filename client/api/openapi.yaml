@@ -1065,7 +1065,7 @@ paths:
         content:
           application/json:
             schema:
-              $ref: '#/components/schemas/ModelRawReport'
+              $ref: '#/components/schemas/ReportRawReport'
       responses:
         "200":
           description: OK
@@ -1342,6 +1342,42 @@ paths:
       summary: Ingest Vulnerabilities Scan Status
       tags:
       - Vulnerability
+  /deepfence/internal/console-api-token:
+    get:
+      description: Get api-token for console agent
+      operationId: getConsoleApiToken
+      responses:
+        "200":
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ModelApiAuthRequest'
+          description: OK
+        "400":
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ApiDocsBadRequestResponse'
+          description: Bad Request
+        "401":
+          description: Unauthorized
+        "403":
+          description: Forbidden
+        "404":
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ApiDocsFailureResponse'
+          description: Not Found
+        "500":
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ApiDocsFailureResponse'
+          description: Internal Server Error
+      summary: Get api-token for console agent
+      tags:
+      - Internal
   /deepfence/lookup/containerimages:
     post:
       description: Retrieve all the data associated with images
@@ -5809,15 +5845,6 @@ components:
       - ppid
       - threads
       type: object
-    ModelRawReport:
-      example:
-        payload: payload
-      properties:
-        payload:
-          type: string
-      required:
-      - payload
-      type: object
     ModelRegisterInvitedUserRequest:
       example:
         password: password
@@ -6130,6 +6157,15 @@ components:
           type: string
       type: object
     ReportMetricRow:
+      type: object
+    ReportRawReport:
+      example:
+        payload: payload
+      properties:
+        payload:
+          type: string
+      required:
+      - payload
       type: object
     ReportRow:
       example:

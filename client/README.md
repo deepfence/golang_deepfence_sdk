@@ -101,6 +101,7 @@ Class | Method | HTTP request | Description
 *DiagnosisApi* | [**GenerateAgentDiagnosticLogs**](docs/DiagnosisApi.md#generateagentdiagnosticlogs) | **Post** /deepfence/diagnosis/agent-logs | Generate Agent Diagnostic Logs
 *DiagnosisApi* | [**GenerateConsoleDiagnosticLogs**](docs/DiagnosisApi.md#generateconsolediagnosticlogs) | **Post** /deepfence/diagnosis/console-logs | Generate Console Diagnostic Logs
 *DiagnosisApi* | [**GetDiagnosticLogs**](docs/DiagnosisApi.md#getdiagnosticlogs) | **Get** /deepfence/diagnosis/diagnostic-logs | Get Diagnostic Logs
+*InternalApi* | [**GetConsoleApiToken**](docs/InternalApi.md#getconsoleapitoken) | **Get** /deepfence/internal/console-api-token | Get api-token for console agent
 *KubernetesScannerApi* | [**RegisterKubernetesScanner**](docs/KubernetesScannerApi.md#registerkubernetesscanner) | **Post** /deepfence/ingest/kubernetes-scanner | Register Kubernetes Scanner
 *LookupApi* | [**GetContainerImages**](docs/LookupApi.md#getcontainerimages) | **Post** /deepfence/lookup/containerimages | Retrieve Container Images data
 *LookupApi* | [**GetContainers**](docs/LookupApi.md#getcontainers) | **Post** /deepfence/lookup/containers | Retrieve Containers data
@@ -203,7 +204,6 @@ Class | Method | HTTP request | Description
  - [ModelPasswordResetVerifyRequest](docs/ModelPasswordResetVerifyRequest.md)
  - [ModelPod](docs/ModelPod.md)
  - [ModelProcess](docs/ModelProcess.md)
- - [ModelRawReport](docs/ModelRawReport.md)
  - [ModelRegisterInvitedUserRequest](docs/ModelRegisterInvitedUserRequest.md)
  - [ModelResponseAccessToken](docs/ModelResponseAccessToken.md)
  - [ModelScanInfo](docs/ModelScanInfo.md)
@@ -219,6 +219,7 @@ Class | Method | HTTP request | Description
  - [ModelVulnerabilityScanTriggerReq](docs/ModelVulnerabilityScanTriggerReq.md)
  - [ReportColumn](docs/ReportColumn.md)
  - [ReportMetadataRow](docs/ReportMetadataRow.md)
+ - [ReportRawReport](docs/ReportRawReport.md)
  - [ReportRow](docs/ReportRow.md)
  - [ReportTable](docs/ReportTable.md)
  - [ReportersContainsFilter](docs/ReportersContainsFilter.md)

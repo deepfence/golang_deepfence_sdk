@@ -65,6 +65,8 @@ type APIClient struct {
 
 	DiagnosisApi *DiagnosisApiService
 
+	InternalApi *InternalApiService
+
 	KubernetesScannerApi *KubernetesScannerApiService
 
 	LookupApi *LookupApiService
@@ -105,6 +107,7 @@ func NewAPIClient(cfg *Configuration) *APIClient {
 	c.ComplianceApi = (*ComplianceApiService)(&c.common)
 	c.ControlsApi = (*ControlsApiService)(&c.common)
 	c.DiagnosisApi = (*DiagnosisApiService)(&c.common)
+	c.InternalApi = (*InternalApiService)(&c.common)
 	c.KubernetesScannerApi = (*KubernetesScannerApiService)(&c.common)
 	c.LookupApi = (*LookupApiService)(&c.common)
 	c.MalwareScanApi = (*MalwareScanApiService)(&c.common)
