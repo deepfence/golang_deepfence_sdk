@@ -60,6 +60,10 @@ docs/MalwareScanApi.md
 docs/ModelAgentId.md
 docs/ModelAgentUpgrade.md
 docs/ModelApiAuthRequest.md
+docs/ModelBulkScanIdsResp.md
+docs/ModelBulkScanReq.md
+docs/ModelBulkScanTriggerResp.md
+docs/ModelBulkVulnerabilityScanTriggerReq.md
 docs/ModelCloudComplianceScanDetails.md
 docs/ModelCloudNodeAccountInfo.md
 docs/ModelCloudNodeAccountRegisterReq.md
@@ -145,6 +149,10 @@ model_ingesters_vulnerability_scan_status.go
 model_model_agent_id.go
 model_model_agent_upgrade.go
 model_model_api_auth_request.go
+model_model_bulk_scan_ids_resp.go
+model_model_bulk_scan_req.go
+model_model_bulk_scan_trigger_resp.go
+model_model_bulk_vulnerability_scan_trigger_req.go
 model_model_cloud_compliance_scan_details.go
 model_model_cloud_node_account_info.go
 model_model_cloud_node_account_register_req.go

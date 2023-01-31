@@ -5,6 +5,7 @@ All URIs are relative to *http://localhost*
 Method | HTTP request | Description
 ------------- | ------------- | -------------
 [**IngestCompliances**](ComplianceApi.md#IngestCompliances) | **Post** /deepfence/ingest/compliance | Ingest Compliances
+[**ListBulkComplianceBulkScans**](ComplianceApi.md#ListBulkComplianceBulkScans) | **Post** /deepfence/scan/bulk/list/compliance | Get Compliance Bulk Scanss List
 [**ListComplianceScan**](ComplianceApi.md#ListComplianceScan) | **Post** /deepfence/scan/list/compliance | Get Compliance Scans List
 [**ResultsComplianceScan**](ComplianceApi.md#ResultsComplianceScan) | **Post** /deepfence/scan/results/compliance | Get Compliance Scans Results
 [**StartComplianceScan**](ComplianceApi.md#StartComplianceScan) | **Post** /deepfence/scan/start/compliance | Start Compliance Scan
@@ -62,6 +63,72 @@ Name | Type | Description  | Notes
 ### Return type
 
  (empty response body)
+
+### Authorization
+
+[bearer_token](../README.md#bearer_token)
+
+### HTTP request headers
+
+- **Content-Type**: application/json
+- **Accept**: application/json
+
+[[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints)
+[[Back to Model list]](../README.md#documentation-for-models)
+[[Back to README]](../README.md)
+
+
+## ListBulkComplianceBulkScans
+
+> ModelBulkScanIdsResp ListBulkComplianceBulkScans(ctx).ModelBulkScanReq(modelBulkScanReq).Execute()
+
+Get Compliance Bulk Scanss List
+
+
+
+### Example
+
+```go
+package main
+
+import (
+    "context"
+    "fmt"
+    "os"
+    openapiclient "./openapi"
+)
+
+func main() {
+    modelBulkScanReq := *openapiclient.NewModelBulkScanReq("ScanId_example", *openapiclient.NewModelFetchWindow(int32(123), int32(123))) // ModelBulkScanReq |  (optional)
+
+    configuration := openapiclient.NewConfiguration()
+    apiClient := openapiclient.NewAPIClient(configuration)
+    resp, r, err := apiClient.ComplianceApi.ListBulkComplianceBulkScans(context.Background()).ModelBulkScanReq(modelBulkScanReq).Execute()
+    if err != nil {
+        fmt.Fprintf(os.Stderr, "Error when calling `ComplianceApi.ListBulkComplianceBulkScans``: %v\n", err)
+        fmt.Fprintf(os.Stderr, "Full HTTP response: %v\n", r)
+    }
+    // response from `ListBulkComplianceBulkScans`: ModelBulkScanIdsResp
+    fmt.Fprintf(os.Stdout, "Response from `ComplianceApi.ListBulkComplianceBulkScans`: %v\n", resp)
+}
+```
+
+### Path Parameters
+
+
+
+### Other Parameters
+
+Other parameters are passed through a pointer to a apiListBulkComplianceBulkScansRequest struct via the builder pattern
+
+
+Name | Type | Description  | Notes
+------------- | ------------- | ------------- | -------------
+ **modelBulkScanReq** | [**ModelBulkScanReq**](ModelBulkScanReq.md) |  | 
+
+### Return type
+
+[**ModelBulkScanIdsResp**](ModelBulkScanIdsResp.md)
 
 ### Authorization
 

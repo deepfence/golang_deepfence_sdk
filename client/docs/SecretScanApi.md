@@ -6,6 +6,7 @@ Method | HTTP request | Description
 ------------- | ------------- | -------------
 [**IngestSecretScanStatus**](SecretScanApi.md#IngestSecretScanStatus) | **Post** /deepfence/ingest/secret-scan-logs | Ingest Secrets Scan Status
 [**IngestSecrets**](SecretScanApi.md#IngestSecrets) | **Post** /deepfence/ingest/secrets | Ingest Secrets
+[**ListBulkSecretBulkScans**](SecretScanApi.md#ListBulkSecretBulkScans) | **Post** /deepfence/scan/bulk/list/secret | Get Secret Bulk Scanss List
 [**ListSecretScan**](SecretScanApi.md#ListSecretScan) | **Post** /deepfence/scan/list/secret | Get Secret Scans List
 [**ResultsSecretScan**](SecretScanApi.md#ResultsSecretScan) | **Post** /deepfence/scan/results/secret | Get Secret Scans Results
 [**StartSecretScan**](SecretScanApi.md#StartSecretScan) | **Post** /deepfence/scan/start/secret | Start Secret Scan
@@ -127,6 +128,72 @@ Name | Type | Description  | Notes
 ### Return type
 
  (empty response body)
+
+### Authorization
+
+[bearer_token](../README.md#bearer_token)
+
+### HTTP request headers
+
+- **Content-Type**: application/json
+- **Accept**: application/json
+
+[[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints)
+[[Back to Model list]](../README.md#documentation-for-models)
+[[Back to README]](../README.md)
+
+
+## ListBulkSecretBulkScans
+
+> ModelBulkScanIdsResp ListBulkSecretBulkScans(ctx).ModelBulkScanReq(modelBulkScanReq).Execute()
+
+Get Secret Bulk Scanss List
+
+
+
+### Example
+
+```go
+package main
+
+import (
+    "context"
+    "fmt"
+    "os"
+    openapiclient "./openapi"
+)
+
+func main() {
+    modelBulkScanReq := *openapiclient.NewModelBulkScanReq("ScanId_example", *openapiclient.NewModelFetchWindow(int32(123), int32(123))) // ModelBulkScanReq |  (optional)
+
+    configuration := openapiclient.NewConfiguration()
+    apiClient := openapiclient.NewAPIClient(configuration)
+    resp, r, err := apiClient.SecretScanApi.ListBulkSecretBulkScans(context.Background()).ModelBulkScanReq(modelBulkScanReq).Execute()
+    if err != nil {
+        fmt.Fprintf(os.Stderr, "Error when calling `SecretScanApi.ListBulkSecretBulkScans``: %v\n", err)
+        fmt.Fprintf(os.Stderr, "Full HTTP response: %v\n", r)
+    }
+    // response from `ListBulkSecretBulkScans`: ModelBulkScanIdsResp
+    fmt.Fprintf(os.Stdout, "Response from `SecretScanApi.ListBulkSecretBulkScans`: %v\n", resp)
+}
+```
+
+### Path Parameters
+
+
+
+### Other Parameters
+
+Other parameters are passed through a pointer to a apiListBulkSecretBulkScansRequest struct via the builder pattern
+
+
+Name | Type | Description  | Notes
+------------- | ------------- | ------------- | -------------
+ **modelBulkScanReq** | [**ModelBulkScanReq**](ModelBulkScanReq.md) |  | 
+
+### Return type
+
+[**ModelBulkScanIdsResp**](ModelBulkScanIdsResp.md)
 
 ### Authorization
 

@@ -88,6 +88,7 @@ Class | Method | HTTP request | Description
 *CloudResourcesApi* | [**IngestCloudResources**](docs/CloudResourcesApi.md#ingestcloudresources) | **Post** /deepfence/ingest/cloud-resources | Ingest Cloud resources
 *CloudScannerApi* | [**IngestCloudCompliances**](docs/CloudScannerApi.md#ingestcloudcompliances) | **Post** /deepfence/ingest/cloud-compliance | Ingest Cloud Compliances
 *ComplianceApi* | [**IngestCompliances**](docs/ComplianceApi.md#ingestcompliances) | **Post** /deepfence/ingest/compliance | Ingest Compliances
+*ComplianceApi* | [**ListBulkComplianceBulkScans**](docs/ComplianceApi.md#listbulkcompliancebulkscans) | **Post** /deepfence/scan/bulk/list/compliance | Get Compliance Bulk Scanss List
 *ComplianceApi* | [**ListComplianceScan**](docs/ComplianceApi.md#listcompliancescan) | **Post** /deepfence/scan/list/compliance | Get Compliance Scans List
 *ComplianceApi* | [**ResultsComplianceScan**](docs/ComplianceApi.md#resultscompliancescan) | **Post** /deepfence/scan/results/compliance | Get Compliance Scans Results
 *ComplianceApi* | [**StartComplianceScan**](docs/ComplianceApi.md#startcompliancescan) | **Post** /deepfence/scan/start/compliance | Start Compliance Scan
@@ -112,6 +113,7 @@ Class | Method | HTTP request | Description
 *LookupApi* | [**GetProcesses**](docs/LookupApi.md#getprocesses) | **Post** /deepfence/lookup/processes | Retrieve Processes data
 *MalwareScanApi* | [**IngestMalware**](docs/MalwareScanApi.md#ingestmalware) | **Post** /deepfence/ingest/malware | Ingest Malware
 *MalwareScanApi* | [**IngestMalwareScanStatus**](docs/MalwareScanApi.md#ingestmalwarescanstatus) | **Post** /deepfence/ingest/malware-scan-logs | Ingest Malware Scan Status
+*MalwareScanApi* | [**ListBulkMalwareBulkScans**](docs/MalwareScanApi.md#listbulkmalwarebulkscans) | **Post** /deepfence/scan/bulk/list/malware | Get Malware Bulk Scanss List
 *MalwareScanApi* | [**ListMalwareScan**](docs/MalwareScanApi.md#listmalwarescan) | **Post** /deepfence/scan/list/malware | Get Malware Scans List
 *MalwareScanApi* | [**ResultsMalwareScan**](docs/MalwareScanApi.md#resultsmalwarescan) | **Post** /deepfence/scan/results/malware | Get Malware Scans Results
 *MalwareScanApi* | [**StartMalwareScan**](docs/MalwareScanApi.md#startmalwarescan) | **Post** /deepfence/scan/start/malware | Start Malware Scan
@@ -119,6 +121,7 @@ Class | Method | HTTP request | Description
 *MalwareScanApi* | [**StopMalwareScan**](docs/MalwareScanApi.md#stopmalwarescan) | **Post** /deepfence/scan/stop/malware | Stop Malware Scan
 *SecretScanApi* | [**IngestSecretScanStatus**](docs/SecretScanApi.md#ingestsecretscanstatus) | **Post** /deepfence/ingest/secret-scan-logs | Ingest Secrets Scan Status
 *SecretScanApi* | [**IngestSecrets**](docs/SecretScanApi.md#ingestsecrets) | **Post** /deepfence/ingest/secrets | Ingest Secrets
+*SecretScanApi* | [**ListBulkSecretBulkScans**](docs/SecretScanApi.md#listbulksecretbulkscans) | **Post** /deepfence/scan/bulk/list/secret | Get Secret Bulk Scanss List
 *SecretScanApi* | [**ListSecretScan**](docs/SecretScanApi.md#listsecretscan) | **Post** /deepfence/scan/list/secret | Get Secret Scans List
 *SecretScanApi* | [**ResultsSecretScan**](docs/SecretScanApi.md#resultssecretscan) | **Post** /deepfence/scan/results/secret | Get Secret Scans Results
 *SecretScanApi* | [**StartSecretScan**](docs/SecretScanApi.md#startsecretscan) | **Post** /deepfence/scan/start/secret | Start Secret Scan
@@ -144,8 +147,10 @@ Class | Method | HTTP request | Description
 *VulnerabilityApi* | [**IngestSbom**](docs/VulnerabilityApi.md#ingestsbom) | **Post** /deepfence/ingest/sbom | Ingest SBOM from Scan
 *VulnerabilityApi* | [**IngestVulnerabilities**](docs/VulnerabilityApi.md#ingestvulnerabilities) | **Post** /deepfence/ingest/vulnerabilities | Ingest Vulnerabilities
 *VulnerabilityApi* | [**IngestVulnerabilitiesScanStatus**](docs/VulnerabilityApi.md#ingestvulnerabilitiesscanstatus) | **Post** /deepfence/ingest/vulnerabilities-scan-logs | Ingest Vulnerabilities Scan Status
+*VulnerabilityApi* | [**ListBulkVulnerabilityScans**](docs/VulnerabilityApi.md#listbulkvulnerabilityscans) | **Post** /deepfence/scan/bulk/list/vulnerability | Get Vulnerability Bulk Scanss List
 *VulnerabilityApi* | [**ListVulnerabilityScans**](docs/VulnerabilityApi.md#listvulnerabilityscans) | **Post** /deepfence/scan/list/vulnerability | Get Vulnerability Scans List
 *VulnerabilityApi* | [**ResultsVulnerabilityScans**](docs/VulnerabilityApi.md#resultsvulnerabilityscans) | **Post** /deepfence/scan/results/vulnerability | Get Vulnerability Scans Results
+*VulnerabilityApi* | [**StartBulkVulnerabilityScan**](docs/VulnerabilityApi.md#startbulkvulnerabilityscan) | **Post** /deepfence/scan/bulk/start/vulnerability | Start Bulk Vulnerability Scans
 *VulnerabilityApi* | [**StartVulnerabilityScan**](docs/VulnerabilityApi.md#startvulnerabilityscan) | **Post** /deepfence/scan/start/vulnerability | Start Vulnerability Scan
 *VulnerabilityApi* | [**StatusVulnerabilityScan**](docs/VulnerabilityApi.md#statusvulnerabilityscan) | **Get** /deepfence/scan/status/vulnerability | Get Vulnerability Scan Status
 *VulnerabilityApi* | [**StopVulnerabilityScan**](docs/VulnerabilityApi.md#stopvulnerabilityscan) | **Post** /deepfence/scan/stop/vulnerability | Stop Vulnerability Scan
@@ -182,6 +187,10 @@ Class | Method | HTTP request | Description
  - [ModelAgentId](docs/ModelAgentId.md)
  - [ModelAgentUpgrade](docs/ModelAgentUpgrade.md)
  - [ModelApiAuthRequest](docs/ModelApiAuthRequest.md)
+ - [ModelBulkScanIdsResp](docs/ModelBulkScanIdsResp.md)
+ - [ModelBulkScanReq](docs/ModelBulkScanReq.md)
+ - [ModelBulkScanTriggerResp](docs/ModelBulkScanTriggerResp.md)
+ - [ModelBulkVulnerabilityScanTriggerReq](docs/ModelBulkVulnerabilityScanTriggerReq.md)
  - [ModelCloudComplianceScanDetails](docs/ModelCloudComplianceScanDetails.md)
  - [ModelCloudNodeAccountInfo](docs/ModelCloudNodeAccountInfo.md)
  - [ModelCloudNodeAccountRegisterReq](docs/ModelCloudNodeAccountRegisterReq.md)
