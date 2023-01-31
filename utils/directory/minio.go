@@ -22,6 +22,14 @@ func init() {
 	minioClientMap = map[NamespaceID]*minio.Client{}
 }
 
+type AlreadyPresentError struct {
+	err error
+}
+
+func (e AlreadyPresentError) Error() string {
+	return e.err.Error()
+}
+
 type FileManager interface {
 	UploadFile(context.Context, string, []byte, interface{}) (UploadResult, error)
 	DownloadFile(context.Context, string, string, interface{}) error
@@ -45,10 +53,22 @@ type UploadResult struct {
 	VersionID    string
 }
 
+func checkIfFileExists(ctx context.Context, client *minio.Client, bucket, filename string) bool {
+	_, err := client.StatObject(ctx, bucket, filename, minio.StatObjectOptions{})
+	if err != nil {
+		return false
+	}
+	return true
+}
+
 func (mfm *MinioFileManager) UploadFile(ctx context.Context, filename string, data []byte, extra interface{}) (UploadResult, error) {
 	err := mfm.createBucketIfNeeded(ctx)
 	if err != nil {
 		return UploadResult{}, err
+	}
+
+	if checkIfFileExists(ctx, mfm.client, mfm.namespace, path.Join(mfm.namespace, filename)) {
+		return UploadResult{}, AlreadyPresentError{err: errors.New("Location already present")}
 	}
 
 	info, err := mfm.client.PutObject(ctx, mfm.namespace, path.Join(mfm.namespace, filename),
