@@ -4,13 +4,14 @@
 
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
-**ScanId** | **string** |  | 
+**BulkScanId** | **string** |  | 
+**ScanIds** | **[]string** |  | 
 
 ## Methods
 
 ### NewModelScanTriggerResp
 
-`func NewModelScanTriggerResp(scanId string, ) *ModelScanTriggerResp`
+`func NewModelScanTriggerResp(bulkScanId string, scanIds []string, ) *ModelScanTriggerResp`
 
 NewModelScanTriggerResp instantiates a new ModelScanTriggerResp object
 This constructor will assign default values to properties that have it defined,
@@ -25,26 +26,56 @@ NewModelScanTriggerRespWithDefaults instantiates a new ModelScanTriggerResp obje
 This constructor will only assign default values to properties that have it defined,
 but it doesn't guarantee that properties required by API are set
 
-### GetScanId
+### GetBulkScanId
 
-`func (o *ModelScanTriggerResp) GetScanId() string`
+`func (o *ModelScanTriggerResp) GetBulkScanId() string`
 
-GetScanId returns the ScanId field if non-nil, zero value otherwise.
+GetBulkScanId returns the BulkScanId field if non-nil, zero value otherwise.
 
-### GetScanIdOk
+### GetBulkScanIdOk
 
-`func (o *ModelScanTriggerResp) GetScanIdOk() (*string, bool)`
+`func (o *ModelScanTriggerResp) GetBulkScanIdOk() (*string, bool)`
 
-GetScanIdOk returns a tuple with the ScanId field if it's non-nil, zero value otherwise
+GetBulkScanIdOk returns a tuple with the BulkScanId field if it's non-nil, zero value otherwise
 and a boolean to check if the value has been set.
 
-### SetScanId
+### SetBulkScanId
 
-`func (o *ModelScanTriggerResp) SetScanId(v string)`
+`func (o *ModelScanTriggerResp) SetBulkScanId(v string)`
 
-SetScanId sets ScanId field to given value.
+SetBulkScanId sets BulkScanId field to given value.
 
 
+### GetScanIds
+
+`func (o *ModelScanTriggerResp) GetScanIds() []string`
+
+GetScanIds returns the ScanIds field if non-nil, zero value otherwise.
+
+### GetScanIdsOk
+
+`func (o *ModelScanTriggerResp) GetScanIdsOk() (*[]string, bool)`
+
+GetScanIdsOk returns a tuple with the ScanIds field if it's non-nil, zero value otherwise
+and a boolean to check if the value has been set.
+
+### SetScanIds
+
+`func (o *ModelScanTriggerResp) SetScanIds(v []string)`
+
+SetScanIds sets ScanIds field to given value.
+
+
+### SetScanIdsNil
+
+`func (o *ModelScanTriggerResp) SetScanIdsNil(b bool)`
+
+ SetScanIdsNil sets the value for ScanIds to be an explicit nil
+
+### UnsetScanIds
+`func (o *ModelScanTriggerResp) UnsetScanIds()`
+
+UnsetScanIds ensures that no value is present for ScanIds, not even an explicit nil
 
 [[Back to Model list]](../README.md#documentation-for-models) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to README]](../README.md)
 

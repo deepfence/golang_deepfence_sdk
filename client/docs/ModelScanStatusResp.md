@@ -4,13 +4,13 @@
 
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
-**Status** | **string** |  | 
+**Statuses** | **map[string]string** |  | 
 
 ## Methods
 
 ### NewModelScanStatusResp
 
-`func NewModelScanStatusResp(status string, ) *ModelScanStatusResp`
+`func NewModelScanStatusResp(statuses map[string]string, ) *ModelScanStatusResp`
 
 NewModelScanStatusResp instantiates a new ModelScanStatusResp object
 This constructor will assign default values to properties that have it defined,
@@ -25,26 +25,36 @@ NewModelScanStatusRespWithDefaults instantiates a new ModelScanStatusResp object
 This constructor will only assign default values to properties that have it defined,
 but it doesn't guarantee that properties required by API are set
 
-### GetStatus
+### GetStatuses
 
-`func (o *ModelScanStatusResp) GetStatus() string`
+`func (o *ModelScanStatusResp) GetStatuses() map[string]string`
 
-GetStatus returns the Status field if non-nil, zero value otherwise.
+GetStatuses returns the Statuses field if non-nil, zero value otherwise.
 
-### GetStatusOk
+### GetStatusesOk
 
-`func (o *ModelScanStatusResp) GetStatusOk() (*string, bool)`
+`func (o *ModelScanStatusResp) GetStatusesOk() (*map[string]string, bool)`
 
-GetStatusOk returns a tuple with the Status field if it's non-nil, zero value otherwise
+GetStatusesOk returns a tuple with the Statuses field if it's non-nil, zero value otherwise
 and a boolean to check if the value has been set.
 
-### SetStatus
+### SetStatuses
 
-`func (o *ModelScanStatusResp) SetStatus(v string)`
+`func (o *ModelScanStatusResp) SetStatuses(v map[string]string)`
 
-SetStatus sets Status field to given value.
+SetStatuses sets Statuses field to given value.
 
 
+### SetStatusesNil
+
+`func (o *ModelScanStatusResp) SetStatusesNil(b bool)`
+
+ SetStatusesNil sets the value for Statuses to be an explicit nil
+
+### UnsetStatuses
+`func (o *ModelScanStatusResp) UnsetStatuses()`
+
+UnsetStatuses ensures that no value is present for Statuses, not even an explicit nil
 
 [[Back to Model list]](../README.md#documentation-for-models) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to README]](../README.md)
 

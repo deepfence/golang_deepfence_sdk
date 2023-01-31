@@ -6,7 +6,6 @@ Method | HTTP request | Description
 ------------- | ------------- | -------------
 [**IngestSecretScanStatus**](SecretScanApi.md#IngestSecretScanStatus) | **Post** /deepfence/ingest/secret-scan-logs | Ingest Secrets Scan Status
 [**IngestSecrets**](SecretScanApi.md#IngestSecrets) | **Post** /deepfence/ingest/secrets | Ingest Secrets
-[**ListBulkSecretBulkScans**](SecretScanApi.md#ListBulkSecretBulkScans) | **Post** /deepfence/scan/bulk/list/secret | Get Secret Bulk Scanss List
 [**ListSecretScan**](SecretScanApi.md#ListSecretScan) | **Post** /deepfence/scan/list/secret | Get Secret Scans List
 [**ResultsSecretScan**](SecretScanApi.md#ResultsSecretScan) | **Post** /deepfence/scan/results/secret | Get Secret Scans Results
 [**StartSecretScan**](SecretScanApi.md#StartSecretScan) | **Post** /deepfence/scan/start/secret | Start Secret Scan
@@ -143,72 +142,6 @@ Name | Type | Description  | Notes
 [[Back to README]](../README.md)
 
 
-## ListBulkSecretBulkScans
-
-> ModelBulkScanIdsResp ListBulkSecretBulkScans(ctx).ModelBulkScanReq(modelBulkScanReq).Execute()
-
-Get Secret Bulk Scanss List
-
-
-
-### Example
-
-```go
-package main
-
-import (
-    "context"
-    "fmt"
-    "os"
-    openapiclient "./openapi"
-)
-
-func main() {
-    modelBulkScanReq := *openapiclient.NewModelBulkScanReq("ScanId_example", *openapiclient.NewModelFetchWindow(int32(123), int32(123))) // ModelBulkScanReq |  (optional)
-
-    configuration := openapiclient.NewConfiguration()
-    apiClient := openapiclient.NewAPIClient(configuration)
-    resp, r, err := apiClient.SecretScanApi.ListBulkSecretBulkScans(context.Background()).ModelBulkScanReq(modelBulkScanReq).Execute()
-    if err != nil {
-        fmt.Fprintf(os.Stderr, "Error when calling `SecretScanApi.ListBulkSecretBulkScans``: %v\n", err)
-        fmt.Fprintf(os.Stderr, "Full HTTP response: %v\n", r)
-    }
-    // response from `ListBulkSecretBulkScans`: ModelBulkScanIdsResp
-    fmt.Fprintf(os.Stdout, "Response from `SecretScanApi.ListBulkSecretBulkScans`: %v\n", resp)
-}
-```
-
-### Path Parameters
-
-
-
-### Other Parameters
-
-Other parameters are passed through a pointer to a apiListBulkSecretBulkScansRequest struct via the builder pattern
-
-
-Name | Type | Description  | Notes
-------------- | ------------- | ------------- | -------------
- **modelBulkScanReq** | [**ModelBulkScanReq**](ModelBulkScanReq.md) |  | 
-
-### Return type
-
-[**ModelBulkScanIdsResp**](ModelBulkScanIdsResp.md)
-
-### Authorization
-
-[bearer_token](../README.md#bearer_token)
-
-### HTTP request headers
-
-- **Content-Type**: application/json
-- **Accept**: application/json
-
-[[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints)
-[[Back to Model list]](../README.md#documentation-for-models)
-[[Back to README]](../README.md)
-
-
 ## ListSecretScan
 
 > ModelScanListResp ListSecretScan(ctx).ModelScanListReq(modelScanListReq).Execute()
@@ -277,7 +210,7 @@ Name | Type | Description  | Notes
 
 ## ResultsSecretScan
 
-> ModelScanResultsResp ResultsSecretScan(ctx).ModelScanResultsReq(modelScanResultsReq).Execute()
+> ModelSecretScanResult ResultsSecretScan(ctx).ModelScanResultsReq(modelScanResultsReq).Execute()
 
 Get Secret Scans Results
 
@@ -305,7 +238,7 @@ func main() {
         fmt.Fprintf(os.Stderr, "Error when calling `SecretScanApi.ResultsSecretScan``: %v\n", err)
         fmt.Fprintf(os.Stderr, "Full HTTP response: %v\n", r)
     }
-    // response from `ResultsSecretScan`: ModelScanResultsResp
+    // response from `ResultsSecretScan`: ModelSecretScanResult
     fmt.Fprintf(os.Stdout, "Response from `SecretScanApi.ResultsSecretScan`: %v\n", resp)
 }
 ```
@@ -325,7 +258,7 @@ Name | Type | Description  | Notes
 
 ### Return type
 
-[**ModelScanResultsResp**](ModelScanResultsResp.md)
+[**ModelSecretScanResult**](ModelSecretScanResult.md)
 
 ### Authorization
 
@@ -343,7 +276,7 @@ Name | Type | Description  | Notes
 
 ## StartSecretScan
 
-> ModelScanTriggerResp StartSecretScan(ctx).ModelScanTriggerReq(modelScanTriggerReq).Execute()
+> ModelScanTriggerResp StartSecretScan(ctx).ModelSecretScanTriggerReq(modelSecretScanTriggerReq).Execute()
 
 Start Secret Scan
 
@@ -362,11 +295,11 @@ import (
 )
 
 func main() {
-    modelScanTriggerReq := *openapiclient.NewModelScanTriggerReq("NodeId_example", "NodeType_example") // ModelScanTriggerReq |  (optional)
+    modelSecretScanTriggerReq := *openapiclient.NewModelSecretScanTriggerReq(false, []openapiclient.ModelScanTrigger{*openapiclient.NewModelScanTrigger("NodeId_example", "NodeType_example")}) // ModelSecretScanTriggerReq |  (optional)
 
     configuration := openapiclient.NewConfiguration()
     apiClient := openapiclient.NewAPIClient(configuration)
-    resp, r, err := apiClient.SecretScanApi.StartSecretScan(context.Background()).ModelScanTriggerReq(modelScanTriggerReq).Execute()
+    resp, r, err := apiClient.SecretScanApi.StartSecretScan(context.Background()).ModelSecretScanTriggerReq(modelSecretScanTriggerReq).Execute()
     if err != nil {
         fmt.Fprintf(os.Stderr, "Error when calling `SecretScanApi.StartSecretScan``: %v\n", err)
         fmt.Fprintf(os.Stderr, "Full HTTP response: %v\n", r)
@@ -387,7 +320,7 @@ Other parameters are passed through a pointer to a apiStartSecretScanRequest str
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **modelScanTriggerReq** | [**ModelScanTriggerReq**](ModelScanTriggerReq.md) |  | 
+ **modelSecretScanTriggerReq** | [**ModelSecretScanTriggerReq**](ModelSecretScanTriggerReq.md) |  | 
 
 ### Return type
 
@@ -409,7 +342,7 @@ Name | Type | Description  | Notes
 
 ## StatusSecretScan
 
-> ModelScanStatusResp StatusSecretScan(ctx).ScanId(scanId).Execute()
+> ModelScanStatusResp StatusSecretScan(ctx).ScanIds(scanIds).BulkScanId(bulkScanId).Execute()
 
 Get Secret Scan Status
 
@@ -428,11 +361,12 @@ import (
 )
 
 func main() {
-    scanId := "scanId_example" // string | 
+    scanIds := []string{"Inner_example"} // []string | 
+    bulkScanId := "bulkScanId_example" // string | 
 
     configuration := openapiclient.NewConfiguration()
     apiClient := openapiclient.NewAPIClient(configuration)
-    resp, r, err := apiClient.SecretScanApi.StatusSecretScan(context.Background()).ScanId(scanId).Execute()
+    resp, r, err := apiClient.SecretScanApi.StatusSecretScan(context.Background()).ScanIds(scanIds).BulkScanId(bulkScanId).Execute()
     if err != nil {
         fmt.Fprintf(os.Stderr, "Error when calling `SecretScanApi.StatusSecretScan``: %v\n", err)
         fmt.Fprintf(os.Stderr, "Full HTTP response: %v\n", r)
@@ -453,7 +387,8 @@ Other parameters are passed through a pointer to a apiStatusSecretScanRequest st
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **scanId** | **string** |  | 
+ **scanIds** | **[]string** |  | 
+ **bulkScanId** | **string** |  | 
 
 ### Return type
 
@@ -475,7 +410,7 @@ Name | Type | Description  | Notes
 
 ## StopSecretScan
 
-> StopSecretScan(ctx).ModelScanTriggerReq(modelScanTriggerReq).Execute()
+> StopSecretScan(ctx).ModelSecretScanTriggerReq(modelSecretScanTriggerReq).Execute()
 
 Stop Secret Scan
 
@@ -494,11 +429,11 @@ import (
 )
 
 func main() {
-    modelScanTriggerReq := *openapiclient.NewModelScanTriggerReq("NodeId_example", "NodeType_example") // ModelScanTriggerReq |  (optional)
+    modelSecretScanTriggerReq := *openapiclient.NewModelSecretScanTriggerReq(false, []openapiclient.ModelScanTrigger{*openapiclient.NewModelScanTrigger("NodeId_example", "NodeType_example")}) // ModelSecretScanTriggerReq |  (optional)
 
     configuration := openapiclient.NewConfiguration()
     apiClient := openapiclient.NewAPIClient(configuration)
-    resp, r, err := apiClient.SecretScanApi.StopSecretScan(context.Background()).ModelScanTriggerReq(modelScanTriggerReq).Execute()
+    resp, r, err := apiClient.SecretScanApi.StopSecretScan(context.Background()).ModelSecretScanTriggerReq(modelSecretScanTriggerReq).Execute()
     if err != nil {
         fmt.Fprintf(os.Stderr, "Error when calling `SecretScanApi.StopSecretScan``: %v\n", err)
         fmt.Fprintf(os.Stderr, "Full HTTP response: %v\n", r)
@@ -517,7 +452,7 @@ Other parameters are passed through a pointer to a apiStopSecretScanRequest stru
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **modelScanTriggerReq** | [**ModelScanTriggerReq**](ModelScanTriggerReq.md) |  | 
+ **modelSecretScanTriggerReq** | [**ModelSecretScanTriggerReq**](ModelSecretScanTriggerReq.md) |  | 
 
 ### Return type
 

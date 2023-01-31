@@ -20,16 +20,16 @@ var _ MappedNullable = &ModelScanStatusResp{}
 
 // ModelScanStatusResp struct for ModelScanStatusResp
 type ModelScanStatusResp struct {
-	Status string `json:"status"`
+	Statuses map[string]string `json:"statuses"`
 }
 
 // NewModelScanStatusResp instantiates a new ModelScanStatusResp object
 // This constructor will assign default values to properties that have it defined,
 // and makes sure properties required by API are set, but the set of arguments
 // will change when the set of required properties is changed
-func NewModelScanStatusResp(status string) *ModelScanStatusResp {
+func NewModelScanStatusResp(statuses map[string]string) *ModelScanStatusResp {
 	this := ModelScanStatusResp{}
-	this.Status = status
+	this.Statuses = statuses
 	return &this
 }
 
@@ -41,28 +41,30 @@ func NewModelScanStatusRespWithDefaults() *ModelScanStatusResp {
 	return &this
 }
 
-// GetStatus returns the Status field value
-func (o *ModelScanStatusResp) GetStatus() string {
+// GetStatuses returns the Statuses field value
+// If the value is explicit nil, the zero value for map[string]string will be returned
+func (o *ModelScanStatusResp) GetStatuses() map[string]string {
 	if o == nil {
-		var ret string
+		var ret map[string]string
 		return ret
 	}
 
-	return o.Status
+	return o.Statuses
 }
 
-// GetStatusOk returns a tuple with the Status field value
+// GetStatusesOk returns a tuple with the Statuses field value
 // and a boolean to check if the value has been set.
-func (o *ModelScanStatusResp) GetStatusOk() (*string, bool) {
-	if o == nil {
+// NOTE: If the value is an explicit nil, `nil, true` will be returned
+func (o *ModelScanStatusResp) GetStatusesOk() (*map[string]string, bool) {
+	if o == nil || isNil(o.Statuses) {
 		return nil, false
 	}
-	return &o.Status, true
+	return &o.Statuses, true
 }
 
-// SetStatus sets field value
-func (o *ModelScanStatusResp) SetStatus(v string) {
-	o.Status = v
+// SetStatuses sets field value
+func (o *ModelScanStatusResp) SetStatuses(v map[string]string) {
+	o.Statuses = v
 }
 
 func (o ModelScanStatusResp) MarshalJSON() ([]byte, error) {
@@ -75,7 +77,9 @@ func (o ModelScanStatusResp) MarshalJSON() ([]byte, error) {
 
 func (o ModelScanStatusResp) ToMap() (map[string]interface{}, error) {
 	toSerialize := map[string]interface{}{}
-	toSerialize["status"] = o.Status
+	if o.Statuses != nil {
+		toSerialize["statuses"] = o.Statuses
+	}
 	return toSerialize, nil
 }
 

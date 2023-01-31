@@ -17,6 +17,7 @@ import (
 	"io/ioutil"
 	"net/http"
 	"net/url"
+	"reflect"
 )
 
 
@@ -149,145 +150,6 @@ func (a *ComplianceApiService) IngestCompliancesExecute(r ApiIngestCompliancesRe
 	}
 
 	return localVarHTTPResponse, nil
-}
-
-type ApiListBulkComplianceBulkScansRequest struct {
-	ctx context.Context
-	ApiService *ComplianceApiService
-	modelBulkScanReq *ModelBulkScanReq
-}
-
-func (r ApiListBulkComplianceBulkScansRequest) ModelBulkScanReq(modelBulkScanReq ModelBulkScanReq) ApiListBulkComplianceBulkScansRequest {
-	r.modelBulkScanReq = &modelBulkScanReq
-	return r
-}
-
-func (r ApiListBulkComplianceBulkScansRequest) Execute() (*ModelBulkScanIdsResp, *http.Response, error) {
-	return r.ApiService.ListBulkComplianceBulkScansExecute(r)
-}
-
-/*
-ListBulkComplianceBulkScans Get Compliance Bulk Scanss List
-
-Get Compliance Bulk Scanss list on agent or registry
-
- @param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
- @return ApiListBulkComplianceBulkScansRequest
-*/
-func (a *ComplianceApiService) ListBulkComplianceBulkScans(ctx context.Context) ApiListBulkComplianceBulkScansRequest {
-	return ApiListBulkComplianceBulkScansRequest{
-		ApiService: a,
-		ctx: ctx,
-	}
-}
-
-// Execute executes the request
-//  @return ModelBulkScanIdsResp
-func (a *ComplianceApiService) ListBulkComplianceBulkScansExecute(r ApiListBulkComplianceBulkScansRequest) (*ModelBulkScanIdsResp, *http.Response, error) {
-	var (
-		localVarHTTPMethod   = http.MethodPost
-		localVarPostBody     interface{}
-		formFiles            []formFile
-		localVarReturnValue  *ModelBulkScanIdsResp
-	)
-
-	localBasePath, err := a.client.cfg.ServerURLWithContext(r.ctx, "ComplianceApiService.ListBulkComplianceBulkScans")
-	if err != nil {
-		return localVarReturnValue, nil, &GenericOpenAPIError{error: err.Error()}
-	}
-
-	localVarPath := localBasePath + "/deepfence/scan/bulk/list/compliance"
-
-	localVarHeaderParams := make(map[string]string)
-	localVarQueryParams := url.Values{}
-	localVarFormParams := url.Values{}
-
-	// to determine the Content-Type header
-	localVarHTTPContentTypes := []string{"application/json"}
-
-	// set Content-Type header
-	localVarHTTPContentType := selectHeaderContentType(localVarHTTPContentTypes)
-	if localVarHTTPContentType != "" {
-		localVarHeaderParams["Content-Type"] = localVarHTTPContentType
-	}
-
-	// to determine the Accept header
-	localVarHTTPHeaderAccepts := []string{"application/json"}
-
-	// set Accept header
-	localVarHTTPHeaderAccept := selectHeaderAccept(localVarHTTPHeaderAccepts)
-	if localVarHTTPHeaderAccept != "" {
-		localVarHeaderParams["Accept"] = localVarHTTPHeaderAccept
-	}
-	// body params
-	localVarPostBody = r.modelBulkScanReq
-	req, err := a.client.prepareRequest(r.ctx, localVarPath, localVarHTTPMethod, localVarPostBody, localVarHeaderParams, localVarQueryParams, localVarFormParams, formFiles)
-	if err != nil {
-		return localVarReturnValue, nil, err
-	}
-
-	localVarHTTPResponse, err := a.client.callAPI(req)
-	if err != nil || localVarHTTPResponse == nil {
-		return localVarReturnValue, localVarHTTPResponse, err
-	}
-
-	localVarBody, err := ioutil.ReadAll(localVarHTTPResponse.Body)
-	localVarHTTPResponse.Body.Close()
-	localVarHTTPResponse.Body = ioutil.NopCloser(bytes.NewBuffer(localVarBody))
-	if err != nil {
-		return localVarReturnValue, localVarHTTPResponse, err
-	}
-
-	if localVarHTTPResponse.StatusCode >= 300 {
-		newErr := &GenericOpenAPIError{
-			body:  localVarBody,
-			error: localVarHTTPResponse.Status,
-		}
-		if localVarHTTPResponse.StatusCode == 400 {
-			var v ApiDocsBadRequestResponse
-			err = a.client.decode(&v, localVarBody, localVarHTTPResponse.Header.Get("Content-Type"))
-			if err != nil {
-				newErr.error = err.Error()
-				return localVarReturnValue, localVarHTTPResponse, newErr
-			}
-					newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
-					newErr.model = v
-			return localVarReturnValue, localVarHTTPResponse, newErr
-		}
-		if localVarHTTPResponse.StatusCode == 404 {
-			var v ApiDocsFailureResponse
-			err = a.client.decode(&v, localVarBody, localVarHTTPResponse.Header.Get("Content-Type"))
-			if err != nil {
-				newErr.error = err.Error()
-				return localVarReturnValue, localVarHTTPResponse, newErr
-			}
-					newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
-					newErr.model = v
-			return localVarReturnValue, localVarHTTPResponse, newErr
-		}
-		if localVarHTTPResponse.StatusCode == 500 {
-			var v ApiDocsFailureResponse
-			err = a.client.decode(&v, localVarBody, localVarHTTPResponse.Header.Get("Content-Type"))
-			if err != nil {
-				newErr.error = err.Error()
-				return localVarReturnValue, localVarHTTPResponse, newErr
-			}
-					newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
-					newErr.model = v
-		}
-		return localVarReturnValue, localVarHTTPResponse, newErr
-	}
-
-	err = a.client.decode(&localVarReturnValue, localVarBody, localVarHTTPResponse.Header.Get("Content-Type"))
-	if err != nil {
-		newErr := &GenericOpenAPIError{
-			body:  localVarBody,
-			error: err.Error(),
-		}
-		return localVarReturnValue, localVarHTTPResponse, newErr
-	}
-
-	return localVarReturnValue, localVarHTTPResponse, nil
 }
 
 type ApiListComplianceScanRequest struct {
@@ -440,7 +302,7 @@ func (r ApiResultsComplianceScanRequest) ModelScanResultsReq(modelScanResultsReq
 	return r
 }
 
-func (r ApiResultsComplianceScanRequest) Execute() (*ModelScanResultsResp, *http.Response, error) {
+func (r ApiResultsComplianceScanRequest) Execute() (*ModelComplianceScanResult, *http.Response, error) {
 	return r.ApiService.ResultsComplianceScanExecute(r)
 }
 
@@ -460,13 +322,13 @@ func (a *ComplianceApiService) ResultsComplianceScan(ctx context.Context) ApiRes
 }
 
 // Execute executes the request
-//  @return ModelScanResultsResp
-func (a *ComplianceApiService) ResultsComplianceScanExecute(r ApiResultsComplianceScanRequest) (*ModelScanResultsResp, *http.Response, error) {
+//  @return ModelComplianceScanResult
+func (a *ComplianceApiService) ResultsComplianceScanExecute(r ApiResultsComplianceScanRequest) (*ModelComplianceScanResult, *http.Response, error) {
 	var (
 		localVarHTTPMethod   = http.MethodPost
 		localVarPostBody     interface{}
 		formFiles            []formFile
-		localVarReturnValue  *ModelScanResultsResp
+		localVarReturnValue  *ModelComplianceScanResult
 	)
 
 	localBasePath, err := a.client.cfg.ServerURLWithContext(r.ctx, "ComplianceApiService.ResultsComplianceScan")
@@ -571,11 +433,11 @@ func (a *ComplianceApiService) ResultsComplianceScanExecute(r ApiResultsComplian
 type ApiStartComplianceScanRequest struct {
 	ctx context.Context
 	ApiService *ComplianceApiService
-	modelScanTriggerReq *ModelScanTriggerReq
+	modelComplianceScanTriggerReq *ModelComplianceScanTriggerReq
 }
 
-func (r ApiStartComplianceScanRequest) ModelScanTriggerReq(modelScanTriggerReq ModelScanTriggerReq) ApiStartComplianceScanRequest {
-	r.modelScanTriggerReq = &modelScanTriggerReq
+func (r ApiStartComplianceScanRequest) ModelComplianceScanTriggerReq(modelComplianceScanTriggerReq ModelComplianceScanTriggerReq) ApiStartComplianceScanRequest {
+	r.modelComplianceScanTriggerReq = &modelComplianceScanTriggerReq
 	return r
 }
 
@@ -637,7 +499,7 @@ func (a *ComplianceApiService) StartComplianceScanExecute(r ApiStartComplianceSc
 		localVarHeaderParams["Accept"] = localVarHTTPHeaderAccept
 	}
 	// body params
-	localVarPostBody = r.modelScanTriggerReq
+	localVarPostBody = r.modelComplianceScanTriggerReq
 	req, err := a.client.prepareRequest(r.ctx, localVarPath, localVarHTTPMethod, localVarPostBody, localVarHeaderParams, localVarQueryParams, localVarFormParams, formFiles)
 	if err != nil {
 		return localVarReturnValue, nil, err
@@ -710,11 +572,17 @@ func (a *ComplianceApiService) StartComplianceScanExecute(r ApiStartComplianceSc
 type ApiStatusComplianceScanRequest struct {
 	ctx context.Context
 	ApiService *ComplianceApiService
-	scanId *string
+	scanIds *[]string
+	bulkScanId *string
 }
 
-func (r ApiStatusComplianceScanRequest) ScanId(scanId string) ApiStatusComplianceScanRequest {
-	r.scanId = &scanId
+func (r ApiStatusComplianceScanRequest) ScanIds(scanIds []string) ApiStatusComplianceScanRequest {
+	r.scanIds = &scanIds
+	return r
+}
+
+func (r ApiStatusComplianceScanRequest) BulkScanId(bulkScanId string) ApiStatusComplianceScanRequest {
+	r.bulkScanId = &bulkScanId
 	return r
 }
 
@@ -757,11 +625,25 @@ func (a *ComplianceApiService) StatusComplianceScanExecute(r ApiStatusCompliance
 	localVarHeaderParams := make(map[string]string)
 	localVarQueryParams := url.Values{}
 	localVarFormParams := url.Values{}
-	if r.scanId == nil {
-		return localVarReturnValue, nil, reportError("scanId is required and must be specified")
+	if r.scanIds == nil {
+		return localVarReturnValue, nil, reportError("scanIds is required and must be specified")
+	}
+	if r.bulkScanId == nil {
+		return localVarReturnValue, nil, reportError("bulkScanId is required and must be specified")
 	}
 
-	parameterAddToQuery(localVarQueryParams, "scan_id", r.scanId, "")
+	{
+		t := *r.scanIds
+		if reflect.TypeOf(t).Kind() == reflect.Slice {
+			s := reflect.ValueOf(t)
+			for i := 0; i < s.Len(); i++ {
+				parameterAddToQuery(localVarQueryParams, "scan_ids", s.Index(i), "multi")
+			}
+		} else {
+			parameterAddToQuery(localVarQueryParams, "scan_ids", t, "multi")
+		}
+	}
+	parameterAddToQuery(localVarQueryParams, "bulk_scan_id", r.bulkScanId, "")
 	// to determine the Content-Type header
 	localVarHTTPContentTypes := []string{}
 
@@ -851,11 +733,11 @@ func (a *ComplianceApiService) StatusComplianceScanExecute(r ApiStatusCompliance
 type ApiStopComplianceScanRequest struct {
 	ctx context.Context
 	ApiService *ComplianceApiService
-	modelScanTriggerReq *ModelScanTriggerReq
+	modelComplianceScanTriggerReq *ModelComplianceScanTriggerReq
 }
 
-func (r ApiStopComplianceScanRequest) ModelScanTriggerReq(modelScanTriggerReq ModelScanTriggerReq) ApiStopComplianceScanRequest {
-	r.modelScanTriggerReq = &modelScanTriggerReq
+func (r ApiStopComplianceScanRequest) ModelComplianceScanTriggerReq(modelComplianceScanTriggerReq ModelComplianceScanTriggerReq) ApiStopComplianceScanRequest {
+	r.modelComplianceScanTriggerReq = &modelComplianceScanTriggerReq
 	return r
 }
 
@@ -915,7 +797,7 @@ func (a *ComplianceApiService) StopComplianceScanExecute(r ApiStopComplianceScan
 		localVarHeaderParams["Accept"] = localVarHTTPHeaderAccept
 	}
 	// body params
-	localVarPostBody = r.modelScanTriggerReq
+	localVarPostBody = r.modelComplianceScanTriggerReq
 	req, err := a.client.prepareRequest(r.ctx, localVarPath, localVarHTTPMethod, localVarPostBody, localVarHeaderParams, localVarQueryParams, localVarFormParams, formFiles)
 	if err != nil {
 		return nil, err

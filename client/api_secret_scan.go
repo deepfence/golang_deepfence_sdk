@@ -17,6 +17,7 @@ import (
 	"io/ioutil"
 	"net/http"
 	"net/url"
+	"reflect"
 )
 
 
@@ -279,145 +280,6 @@ func (a *SecretScanApiService) IngestSecretsExecute(r ApiIngestSecretsRequest) (
 	return localVarHTTPResponse, nil
 }
 
-type ApiListBulkSecretBulkScansRequest struct {
-	ctx context.Context
-	ApiService *SecretScanApiService
-	modelBulkScanReq *ModelBulkScanReq
-}
-
-func (r ApiListBulkSecretBulkScansRequest) ModelBulkScanReq(modelBulkScanReq ModelBulkScanReq) ApiListBulkSecretBulkScansRequest {
-	r.modelBulkScanReq = &modelBulkScanReq
-	return r
-}
-
-func (r ApiListBulkSecretBulkScansRequest) Execute() (*ModelBulkScanIdsResp, *http.Response, error) {
-	return r.ApiService.ListBulkSecretBulkScansExecute(r)
-}
-
-/*
-ListBulkSecretBulkScans Get Secret Bulk Scanss List
-
-Get Secret Bulk Scanss list on agent or registry
-
- @param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
- @return ApiListBulkSecretBulkScansRequest
-*/
-func (a *SecretScanApiService) ListBulkSecretBulkScans(ctx context.Context) ApiListBulkSecretBulkScansRequest {
-	return ApiListBulkSecretBulkScansRequest{
-		ApiService: a,
-		ctx: ctx,
-	}
-}
-
-// Execute executes the request
-//  @return ModelBulkScanIdsResp
-func (a *SecretScanApiService) ListBulkSecretBulkScansExecute(r ApiListBulkSecretBulkScansRequest) (*ModelBulkScanIdsResp, *http.Response, error) {
-	var (
-		localVarHTTPMethod   = http.MethodPost
-		localVarPostBody     interface{}
-		formFiles            []formFile
-		localVarReturnValue  *ModelBulkScanIdsResp
-	)
-
-	localBasePath, err := a.client.cfg.ServerURLWithContext(r.ctx, "SecretScanApiService.ListBulkSecretBulkScans")
-	if err != nil {
-		return localVarReturnValue, nil, &GenericOpenAPIError{error: err.Error()}
-	}
-
-	localVarPath := localBasePath + "/deepfence/scan/bulk/list/secret"
-
-	localVarHeaderParams := make(map[string]string)
-	localVarQueryParams := url.Values{}
-	localVarFormParams := url.Values{}
-
-	// to determine the Content-Type header
-	localVarHTTPContentTypes := []string{"application/json"}
-
-	// set Content-Type header
-	localVarHTTPContentType := selectHeaderContentType(localVarHTTPContentTypes)
-	if localVarHTTPContentType != "" {
-		localVarHeaderParams["Content-Type"] = localVarHTTPContentType
-	}
-
-	// to determine the Accept header
-	localVarHTTPHeaderAccepts := []string{"application/json"}
-
-	// set Accept header
-	localVarHTTPHeaderAccept := selectHeaderAccept(localVarHTTPHeaderAccepts)
-	if localVarHTTPHeaderAccept != "" {
-		localVarHeaderParams["Accept"] = localVarHTTPHeaderAccept
-	}
-	// body params
-	localVarPostBody = r.modelBulkScanReq
-	req, err := a.client.prepareRequest(r.ctx, localVarPath, localVarHTTPMethod, localVarPostBody, localVarHeaderParams, localVarQueryParams, localVarFormParams, formFiles)
-	if err != nil {
-		return localVarReturnValue, nil, err
-	}
-
-	localVarHTTPResponse, err := a.client.callAPI(req)
-	if err != nil || localVarHTTPResponse == nil {
-		return localVarReturnValue, localVarHTTPResponse, err
-	}
-
-	localVarBody, err := ioutil.ReadAll(localVarHTTPResponse.Body)
-	localVarHTTPResponse.Body.Close()
-	localVarHTTPResponse.Body = ioutil.NopCloser(bytes.NewBuffer(localVarBody))
-	if err != nil {
-		return localVarReturnValue, localVarHTTPResponse, err
-	}
-
-	if localVarHTTPResponse.StatusCode >= 300 {
-		newErr := &GenericOpenAPIError{
-			body:  localVarBody,
-			error: localVarHTTPResponse.Status,
-		}
-		if localVarHTTPResponse.StatusCode == 400 {
-			var v ApiDocsBadRequestResponse
-			err = a.client.decode(&v, localVarBody, localVarHTTPResponse.Header.Get("Content-Type"))
-			if err != nil {
-				newErr.error = err.Error()
-				return localVarReturnValue, localVarHTTPResponse, newErr
-			}
-					newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
-					newErr.model = v
-			return localVarReturnValue, localVarHTTPResponse, newErr
-		}
-		if localVarHTTPResponse.StatusCode == 404 {
-			var v ApiDocsFailureResponse
-			err = a.client.decode(&v, localVarBody, localVarHTTPResponse.Header.Get("Content-Type"))
-			if err != nil {
-				newErr.error = err.Error()
-				return localVarReturnValue, localVarHTTPResponse, newErr
-			}
-					newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
-					newErr.model = v
-			return localVarReturnValue, localVarHTTPResponse, newErr
-		}
-		if localVarHTTPResponse.StatusCode == 500 {
-			var v ApiDocsFailureResponse
-			err = a.client.decode(&v, localVarBody, localVarHTTPResponse.Header.Get("Content-Type"))
-			if err != nil {
-				newErr.error = err.Error()
-				return localVarReturnValue, localVarHTTPResponse, newErr
-			}
-					newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
-					newErr.model = v
-		}
-		return localVarReturnValue, localVarHTTPResponse, newErr
-	}
-
-	err = a.client.decode(&localVarReturnValue, localVarBody, localVarHTTPResponse.Header.Get("Content-Type"))
-	if err != nil {
-		newErr := &GenericOpenAPIError{
-			body:  localVarBody,
-			error: err.Error(),
-		}
-		return localVarReturnValue, localVarHTTPResponse, newErr
-	}
-
-	return localVarReturnValue, localVarHTTPResponse, nil
-}
-
 type ApiListSecretScanRequest struct {
 	ctx context.Context
 	ApiService *SecretScanApiService
@@ -568,7 +430,7 @@ func (r ApiResultsSecretScanRequest) ModelScanResultsReq(modelScanResultsReq Mod
 	return r
 }
 
-func (r ApiResultsSecretScanRequest) Execute() (*ModelScanResultsResp, *http.Response, error) {
+func (r ApiResultsSecretScanRequest) Execute() (*ModelSecretScanResult, *http.Response, error) {
 	return r.ApiService.ResultsSecretScanExecute(r)
 }
 
@@ -588,13 +450,13 @@ func (a *SecretScanApiService) ResultsSecretScan(ctx context.Context) ApiResults
 }
 
 // Execute executes the request
-//  @return ModelScanResultsResp
-func (a *SecretScanApiService) ResultsSecretScanExecute(r ApiResultsSecretScanRequest) (*ModelScanResultsResp, *http.Response, error) {
+//  @return ModelSecretScanResult
+func (a *SecretScanApiService) ResultsSecretScanExecute(r ApiResultsSecretScanRequest) (*ModelSecretScanResult, *http.Response, error) {
 	var (
 		localVarHTTPMethod   = http.MethodPost
 		localVarPostBody     interface{}
 		formFiles            []formFile
-		localVarReturnValue  *ModelScanResultsResp
+		localVarReturnValue  *ModelSecretScanResult
 	)
 
 	localBasePath, err := a.client.cfg.ServerURLWithContext(r.ctx, "SecretScanApiService.ResultsSecretScan")
@@ -699,11 +561,11 @@ func (a *SecretScanApiService) ResultsSecretScanExecute(r ApiResultsSecretScanRe
 type ApiStartSecretScanRequest struct {
 	ctx context.Context
 	ApiService *SecretScanApiService
-	modelScanTriggerReq *ModelScanTriggerReq
+	modelSecretScanTriggerReq *ModelSecretScanTriggerReq
 }
 
-func (r ApiStartSecretScanRequest) ModelScanTriggerReq(modelScanTriggerReq ModelScanTriggerReq) ApiStartSecretScanRequest {
-	r.modelScanTriggerReq = &modelScanTriggerReq
+func (r ApiStartSecretScanRequest) ModelSecretScanTriggerReq(modelSecretScanTriggerReq ModelSecretScanTriggerReq) ApiStartSecretScanRequest {
+	r.modelSecretScanTriggerReq = &modelSecretScanTriggerReq
 	return r
 }
 
@@ -765,7 +627,7 @@ func (a *SecretScanApiService) StartSecretScanExecute(r ApiStartSecretScanReques
 		localVarHeaderParams["Accept"] = localVarHTTPHeaderAccept
 	}
 	// body params
-	localVarPostBody = r.modelScanTriggerReq
+	localVarPostBody = r.modelSecretScanTriggerReq
 	req, err := a.client.prepareRequest(r.ctx, localVarPath, localVarHTTPMethod, localVarPostBody, localVarHeaderParams, localVarQueryParams, localVarFormParams, formFiles)
 	if err != nil {
 		return localVarReturnValue, nil, err
@@ -838,11 +700,17 @@ func (a *SecretScanApiService) StartSecretScanExecute(r ApiStartSecretScanReques
 type ApiStatusSecretScanRequest struct {
 	ctx context.Context
 	ApiService *SecretScanApiService
-	scanId *string
+	scanIds *[]string
+	bulkScanId *string
 }
 
-func (r ApiStatusSecretScanRequest) ScanId(scanId string) ApiStatusSecretScanRequest {
-	r.scanId = &scanId
+func (r ApiStatusSecretScanRequest) ScanIds(scanIds []string) ApiStatusSecretScanRequest {
+	r.scanIds = &scanIds
+	return r
+}
+
+func (r ApiStatusSecretScanRequest) BulkScanId(bulkScanId string) ApiStatusSecretScanRequest {
+	r.bulkScanId = &bulkScanId
 	return r
 }
 
@@ -885,11 +753,25 @@ func (a *SecretScanApiService) StatusSecretScanExecute(r ApiStatusSecretScanRequ
 	localVarHeaderParams := make(map[string]string)
 	localVarQueryParams := url.Values{}
 	localVarFormParams := url.Values{}
-	if r.scanId == nil {
-		return localVarReturnValue, nil, reportError("scanId is required and must be specified")
+	if r.scanIds == nil {
+		return localVarReturnValue, nil, reportError("scanIds is required and must be specified")
+	}
+	if r.bulkScanId == nil {
+		return localVarReturnValue, nil, reportError("bulkScanId is required and must be specified")
 	}
 
-	parameterAddToQuery(localVarQueryParams, "scan_id", r.scanId, "")
+	{
+		t := *r.scanIds
+		if reflect.TypeOf(t).Kind() == reflect.Slice {
+			s := reflect.ValueOf(t)
+			for i := 0; i < s.Len(); i++ {
+				parameterAddToQuery(localVarQueryParams, "scan_ids", s.Index(i), "multi")
+			}
+		} else {
+			parameterAddToQuery(localVarQueryParams, "scan_ids", t, "multi")
+		}
+	}
+	parameterAddToQuery(localVarQueryParams, "bulk_scan_id", r.bulkScanId, "")
 	// to determine the Content-Type header
 	localVarHTTPContentTypes := []string{}
 
@@ -979,11 +861,11 @@ func (a *SecretScanApiService) StatusSecretScanExecute(r ApiStatusSecretScanRequ
 type ApiStopSecretScanRequest struct {
 	ctx context.Context
 	ApiService *SecretScanApiService
-	modelScanTriggerReq *ModelScanTriggerReq
+	modelSecretScanTriggerReq *ModelSecretScanTriggerReq
 }
 
-func (r ApiStopSecretScanRequest) ModelScanTriggerReq(modelScanTriggerReq ModelScanTriggerReq) ApiStopSecretScanRequest {
-	r.modelScanTriggerReq = &modelScanTriggerReq
+func (r ApiStopSecretScanRequest) ModelSecretScanTriggerReq(modelSecretScanTriggerReq ModelSecretScanTriggerReq) ApiStopSecretScanRequest {
+	r.modelSecretScanTriggerReq = &modelSecretScanTriggerReq
 	return r
 }
 
@@ -1043,7 +925,7 @@ func (a *SecretScanApiService) StopSecretScanExecute(r ApiStopSecretScanRequest)
 		localVarHeaderParams["Accept"] = localVarHTTPHeaderAccept
 	}
 	// body params
-	localVarPostBody = r.modelScanTriggerReq
+	localVarPostBody = r.modelSecretScanTriggerReq
 	req, err := a.client.prepareRequest(r.ctx, localVarPath, localVarHTTPMethod, localVarPostBody, localVarHeaderParams, localVarQueryParams, localVarFormParams, formFiles)
 	if err != nil {
 		return nil, err

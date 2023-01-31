@@ -15,36 +15,36 @@ import (
 	"encoding/json"
 )
 
-// checks if the ModelScanTriggerReq type satisfies the MappedNullable interface at compile time
-var _ MappedNullable = &ModelScanTriggerReq{}
+// checks if the ModelScanTrigger type satisfies the MappedNullable interface at compile time
+var _ MappedNullable = &ModelScanTrigger{}
 
-// ModelScanTriggerReq struct for ModelScanTriggerReq
-type ModelScanTriggerReq struct {
+// ModelScanTrigger struct for ModelScanTrigger
+type ModelScanTrigger struct {
 	NodeId string `json:"node_id"`
 	NodeType string `json:"node_type"`
 }
 
-// NewModelScanTriggerReq instantiates a new ModelScanTriggerReq object
+// NewModelScanTrigger instantiates a new ModelScanTrigger object
 // This constructor will assign default values to properties that have it defined,
 // and makes sure properties required by API are set, but the set of arguments
 // will change when the set of required properties is changed
-func NewModelScanTriggerReq(nodeId string, nodeType string) *ModelScanTriggerReq {
-	this := ModelScanTriggerReq{}
+func NewModelScanTrigger(nodeId string, nodeType string) *ModelScanTrigger {
+	this := ModelScanTrigger{}
 	this.NodeId = nodeId
 	this.NodeType = nodeType
 	return &this
 }
 
-// NewModelScanTriggerReqWithDefaults instantiates a new ModelScanTriggerReq object
+// NewModelScanTriggerWithDefaults instantiates a new ModelScanTrigger object
 // This constructor will only assign default values to properties that have it defined,
 // but it doesn't guarantee that properties required by API are set
-func NewModelScanTriggerReqWithDefaults() *ModelScanTriggerReq {
-	this := ModelScanTriggerReq{}
+func NewModelScanTriggerWithDefaults() *ModelScanTrigger {
+	this := ModelScanTrigger{}
 	return &this
 }
 
 // GetNodeId returns the NodeId field value
-func (o *ModelScanTriggerReq) GetNodeId() string {
+func (o *ModelScanTrigger) GetNodeId() string {
 	if o == nil {
 		var ret string
 		return ret
@@ -55,7 +55,7 @@ func (o *ModelScanTriggerReq) GetNodeId() string {
 
 // GetNodeIdOk returns a tuple with the NodeId field value
 // and a boolean to check if the value has been set.
-func (o *ModelScanTriggerReq) GetNodeIdOk() (*string, bool) {
+func (o *ModelScanTrigger) GetNodeIdOk() (*string, bool) {
 	if o == nil {
 		return nil, false
 	}
@@ -63,12 +63,12 @@ func (o *ModelScanTriggerReq) GetNodeIdOk() (*string, bool) {
 }
 
 // SetNodeId sets field value
-func (o *ModelScanTriggerReq) SetNodeId(v string) {
+func (o *ModelScanTrigger) SetNodeId(v string) {
 	o.NodeId = v
 }
 
 // GetNodeType returns the NodeType field value
-func (o *ModelScanTriggerReq) GetNodeType() string {
+func (o *ModelScanTrigger) GetNodeType() string {
 	if o == nil {
 		var ret string
 		return ret
@@ -79,7 +79,7 @@ func (o *ModelScanTriggerReq) GetNodeType() string {
 
 // GetNodeTypeOk returns a tuple with the NodeType field value
 // and a boolean to check if the value has been set.
-func (o *ModelScanTriggerReq) GetNodeTypeOk() (*string, bool) {
+func (o *ModelScanTrigger) GetNodeTypeOk() (*string, bool) {
 	if o == nil {
 		return nil, false
 	}
@@ -87,11 +87,11 @@ func (o *ModelScanTriggerReq) GetNodeTypeOk() (*string, bool) {
 }
 
 // SetNodeType sets field value
-func (o *ModelScanTriggerReq) SetNodeType(v string) {
+func (o *ModelScanTrigger) SetNodeType(v string) {
 	o.NodeType = v
 }
 
-func (o ModelScanTriggerReq) MarshalJSON() ([]byte, error) {
+func (o ModelScanTrigger) MarshalJSON() ([]byte, error) {
 	toSerialize,err := o.ToMap()
 	if err != nil {
 		return []byte{}, err
@@ -99,45 +99,45 @@ func (o ModelScanTriggerReq) MarshalJSON() ([]byte, error) {
 	return json.Marshal(toSerialize)
 }
 
-func (o ModelScanTriggerReq) ToMap() (map[string]interface{}, error) {
+func (o ModelScanTrigger) ToMap() (map[string]interface{}, error) {
 	toSerialize := map[string]interface{}{}
 	toSerialize["node_id"] = o.NodeId
 	toSerialize["node_type"] = o.NodeType
 	return toSerialize, nil
 }
 
-type NullableModelScanTriggerReq struct {
-	value *ModelScanTriggerReq
+type NullableModelScanTrigger struct {
+	value *ModelScanTrigger
 	isSet bool
 }
 
-func (v NullableModelScanTriggerReq) Get() *ModelScanTriggerReq {
+func (v NullableModelScanTrigger) Get() *ModelScanTrigger {
 	return v.value
 }
 
-func (v *NullableModelScanTriggerReq) Set(val *ModelScanTriggerReq) {
+func (v *NullableModelScanTrigger) Set(val *ModelScanTrigger) {
 	v.value = val
 	v.isSet = true
 }
 
-func (v NullableModelScanTriggerReq) IsSet() bool {
+func (v NullableModelScanTrigger) IsSet() bool {
 	return v.isSet
 }
 
-func (v *NullableModelScanTriggerReq) Unset() {
+func (v *NullableModelScanTrigger) Unset() {
 	v.value = nil
 	v.isSet = false
 }
 
-func NewNullableModelScanTriggerReq(val *ModelScanTriggerReq) *NullableModelScanTriggerReq {
-	return &NullableModelScanTriggerReq{value: val, isSet: true}
+func NewNullableModelScanTrigger(val *ModelScanTrigger) *NullableModelScanTrigger {
+	return &NullableModelScanTrigger{value: val, isSet: true}
 }
 
-func (v NullableModelScanTriggerReq) MarshalJSON() ([]byte, error) {
+func (v NullableModelScanTrigger) MarshalJSON() ([]byte, error) {
 	return json.Marshal(v.value)
 }
 
-func (v *NullableModelScanTriggerReq) UnmarshalJSON(src []byte) error {
+func (v *NullableModelScanTrigger) UnmarshalJSON(src []byte) error {
 	v.isSet = true
 	return json.Unmarshal(src, &v.value)
 }

@@ -1693,221 +1693,6 @@ paths:
       summary: Retrieve Processes data
       tags:
       - Lookup
-  /deepfence/scan/bulk/list/compliance:
-    post:
-      description: Get Compliance Bulk Scanss list on agent or registry
-      operationId: listBulkComplianceBulk Scans
-      requestBody:
-        content:
-          application/json:
-            schema:
-              $ref: '#/components/schemas/ModelBulkScanReq'
-      responses:
-        "200":
-          content:
-            application/json:
-              schema:
-                $ref: '#/components/schemas/ModelBulkScanIdsResp'
-          description: OK
-        "400":
-          content:
-            application/json:
-              schema:
-                $ref: '#/components/schemas/ApiDocsBadRequestResponse'
-          description: Bad Request
-        "401":
-          description: Unauthorized
-        "403":
-          description: Forbidden
-        "404":
-          content:
-            application/json:
-              schema:
-                $ref: '#/components/schemas/ApiDocsFailureResponse'
-          description: Not Found
-        "500":
-          content:
-            application/json:
-              schema:
-                $ref: '#/components/schemas/ApiDocsFailureResponse'
-          description: Internal Server Error
-      security:
-      - bearer_token: []
-      summary: Get Compliance Bulk Scanss List
-      tags:
-      - Compliance
-  /deepfence/scan/bulk/list/malware:
-    post:
-      description: Get Malware Bulk Scanss list on agent or registry
-      operationId: listBulkMalwareBulk Scans
-      requestBody:
-        content:
-          application/json:
-            schema:
-              $ref: '#/components/schemas/ModelBulkScanReq'
-      responses:
-        "200":
-          content:
-            application/json:
-              schema:
-                $ref: '#/components/schemas/ModelBulkScanIdsResp'
-          description: OK
-        "400":
-          content:
-            application/json:
-              schema:
-                $ref: '#/components/schemas/ApiDocsBadRequestResponse'
-          description: Bad Request
-        "401":
-          description: Unauthorized
-        "403":
-          description: Forbidden
-        "404":
-          content:
-            application/json:
-              schema:
-                $ref: '#/components/schemas/ApiDocsFailureResponse'
-          description: Not Found
-        "500":
-          content:
-            application/json:
-              schema:
-                $ref: '#/components/schemas/ApiDocsFailureResponse'
-          description: Internal Server Error
-      security:
-      - bearer_token: []
-      summary: Get Malware Bulk Scanss List
-      tags:
-      - Malware Scan
-  /deepfence/scan/bulk/list/secret:
-    post:
-      description: Get Secret Bulk Scanss list on agent or registry
-      operationId: listBulkSecretBulk Scans
-      requestBody:
-        content:
-          application/json:
-            schema:
-              $ref: '#/components/schemas/ModelBulkScanReq'
-      responses:
-        "200":
-          content:
-            application/json:
-              schema:
-                $ref: '#/components/schemas/ModelBulkScanIdsResp'
-          description: OK
-        "400":
-          content:
-            application/json:
-              schema:
-                $ref: '#/components/schemas/ApiDocsBadRequestResponse'
-          description: Bad Request
-        "401":
-          description: Unauthorized
-        "403":
-          description: Forbidden
-        "404":
-          content:
-            application/json:
-              schema:
-                $ref: '#/components/schemas/ApiDocsFailureResponse'
-          description: Not Found
-        "500":
-          content:
-            application/json:
-              schema:
-                $ref: '#/components/schemas/ApiDocsFailureResponse'
-          description: Internal Server Error
-      security:
-      - bearer_token: []
-      summary: Get Secret Bulk Scanss List
-      tags:
-      - Secret Scan
-  /deepfence/scan/bulk/list/vulnerability:
-    post:
-      description: Get Vulnerability Bulk Scans list on agent or registry
-      operationId: listBulkVulnerabilityScans
-      requestBody:
-        content:
-          application/json:
-            schema:
-              $ref: '#/components/schemas/ModelBulkScanReq'
-      responses:
-        "200":
-          content:
-            application/json:
-              schema:
-                $ref: '#/components/schemas/ModelBulkScanIdsResp'
-          description: OK
-        "400":
-          content:
-            application/json:
-              schema:
-                $ref: '#/components/schemas/ApiDocsBadRequestResponse'
-          description: Bad Request
-        "401":
-          description: Unauthorized
-        "403":
-          description: Forbidden
-        "404":
-          content:
-            application/json:
-              schema:
-                $ref: '#/components/schemas/ApiDocsFailureResponse'
-          description: Not Found
-        "500":
-          content:
-            application/json:
-              schema:
-                $ref: '#/components/schemas/ApiDocsFailureResponse'
-          description: Internal Server Error
-      security:
-      - bearer_token: []
-      summary: Get Vulnerability Bulk Scanss List
-      tags:
-      - Vulnerability
-  /deepfence/scan/bulk/start/vulnerability:
-    post:
-      description: Start Vulnerability Scans on agent or registry
-      operationId: startBulkVulnerabilityScan
-      requestBody:
-        content:
-          application/json:
-            schema:
-              $ref: '#/components/schemas/ModelBulkVulnerabilityScanTriggerReq'
-      responses:
-        "202":
-          content:
-            application/json:
-              schema:
-                $ref: '#/components/schemas/ModelBulkScanTriggerResp'
-          description: Accepted
-        "400":
-          content:
-            application/json:
-              schema:
-                $ref: '#/components/schemas/ApiDocsBadRequestResponse'
-          description: Bad Request
-        "401":
-          description: Unauthorized
-        "403":
-          description: Forbidden
-        "404":
-          content:
-            application/json:
-              schema:
-                $ref: '#/components/schemas/ApiDocsFailureResponse'
-          description: Not Found
-        "500":
-          content:
-            application/json:
-              schema:
-                $ref: '#/components/schemas/ApiDocsFailureResponse'
-          description: Internal Server Error
-      security:
-      - bearer_token: []
-      summary: Start Bulk Vulnerability Scans
-      tags:
-      - Vulnerability
   /deepfence/scan/list/compliance:
     post:
       description: Get Compliance Scans list on agent or registry
@@ -2094,7 +1879,7 @@ paths:
           content:
             application/json:
               schema:
-                $ref: '#/components/schemas/ModelScanResultsResp'
+                $ref: '#/components/schemas/ModelComplianceScanResult'
           description: OK
         "400":
           content:
@@ -2137,7 +1922,7 @@ paths:
           content:
             application/json:
               schema:
-                $ref: '#/components/schemas/ModelScanResultsResp'
+                $ref: '#/components/schemas/ModelMalwareScanResult'
           description: OK
         "400":
           content:
@@ -2180,7 +1965,7 @@ paths:
           content:
             application/json:
               schema:
-                $ref: '#/components/schemas/ModelScanResultsResp'
+                $ref: '#/components/schemas/ModelSecretScanResult'
           description: OK
         "400":
           content:
@@ -2223,7 +2008,7 @@ paths:
           content:
             application/json:
               schema:
-                $ref: '#/components/schemas/ModelScanResultsResp'
+                $ref: '#/components/schemas/ModelVulnerabilityScanResult'
           description: OK
         "400":
           content:
@@ -2260,7 +2045,7 @@ paths:
         content:
           application/json:
             schema:
-              $ref: '#/components/schemas/ModelScanTriggerReq'
+              $ref: '#/components/schemas/ModelComplianceScanTriggerReq'
       responses:
         "202":
           content:
@@ -2303,7 +2088,7 @@ paths:
         content:
           application/json:
             schema:
-              $ref: '#/components/schemas/ModelScanTriggerReq'
+              $ref: '#/components/schemas/ModelMalwareScanTriggerReq'
       responses:
         "202":
           content:
@@ -2346,7 +2131,7 @@ paths:
         content:
           application/json:
             schema:
-              $ref: '#/components/schemas/ModelScanTriggerReq'
+              $ref: '#/components/schemas/ModelSecretScanTriggerReq'
       responses:
         "202":
           content:
@@ -2431,7 +2216,16 @@ paths:
       parameters:
       - explode: true
         in: query
-        name: scan_id
+        name: scan_ids
+        required: true
+        schema:
+          items:
+            type: string
+          type: array
+        style: form
+      - explode: true
+        in: query
+        name: bulk_scan_id
         required: true
         schema:
           type: string
@@ -2477,7 +2271,16 @@ paths:
       parameters:
       - explode: true
         in: query
-        name: scan_id
+        name: scan_ids
+        required: true
+        schema:
+          items:
+            type: string
+          type: array
+        style: form
+      - explode: true
+        in: query
+        name: bulk_scan_id
         required: true
         schema:
           type: string
@@ -2523,7 +2326,16 @@ paths:
       parameters:
       - explode: true
         in: query
-        name: scan_id
+        name: scan_ids
+        required: true
+        schema:
+          items:
+            type: string
+          type: array
+        style: form
+      - explode: true
+        in: query
+        name: bulk_scan_id
         required: true
         schema:
           type: string
@@ -2569,7 +2381,16 @@ paths:
       parameters:
       - explode: true
         in: query
-        name: scan_id
+        name: scan_ids
+        required: true
+        schema:
+          items:
+            type: string
+          type: array
+        style: form
+      - explode: true
+        in: query
+        name: bulk_scan_id
         required: true
         schema:
           type: string
@@ -2616,7 +2437,7 @@ paths:
         content:
           application/json:
             schema:
-              $ref: '#/components/schemas/ModelScanTriggerReq'
+              $ref: '#/components/schemas/ModelComplianceScanTriggerReq'
       responses:
         "202":
           description: Accepted
@@ -2655,7 +2476,7 @@ paths:
         content:
           application/json:
             schema:
-              $ref: '#/components/schemas/ModelScanTriggerReq'
+              $ref: '#/components/schemas/ModelMalwareScanTriggerReq'
       responses:
         "202":
           description: Accepted
@@ -2694,7 +2515,7 @@ paths:
         content:
           application/json:
             schema:
-              $ref: '#/components/schemas/ModelScanTriggerReq'
+              $ref: '#/components/schemas/ModelSecretScanTriggerReq'
       responses:
         "202":
           description: Accepted
@@ -2733,7 +2554,7 @@ paths:
         content:
           application/json:
             schema:
-              $ref: '#/components/schemas/ModelScanTriggerReq'
+              $ref: '#/components/schemas/ModelVulnerabilityScanTriggerReq'
       responses:
         "202":
           description: Accepted
@@ -4287,75 +4108,6 @@ components:
       required:
       - api_token
       type: object
-    ModelBulkScanIdsResp:
-      example:
-        scan_ids:
-        - scan_ids
-        - scan_ids
-      properties:
-        scan_ids:
-          items:
-            type: string
-          nullable: true
-          type: array
-      required:
-      - scan_ids
-      type: object
-    ModelBulkScanReq:
-      example:
-        scan_id: scan_id
-        window:
-          offset: 0
-          size: 6
-      properties:
-        scan_id:
-          type: string
-        window:
-          $ref: '#/components/schemas/ModelFetchWindow'
-      required:
-      - scan_id
-      - window
-      type: object
-    ModelBulkScanTriggerResp:
-      example:
-        bulk_scan_id: bulk_scan_id
-      properties:
-        bulk_scan_id:
-          type: string
-      required:
-      - bulk_scan_id
-      type: object
-    ModelBulkVulnerabilityScanTriggerReq:
-      example:
-        scan_config: all
-        scan_requests:
-        - node_type: image
-          node_id: node_id
-        - node_type: image
-          node_id: node_id
-      properties:
-        scan_config:
-          enum:
-          - all
-          - base
-          - ruby
-          - python
-          - javascript
-          - php
-          - golang
-          - java
-          - rust
-          - dotnet
-          type: string
-        scan_requests:
-          items:
-            $ref: '#/components/schemas/ModelScanTriggerReq'
-          nullable: true
-          type: array
-      required:
-      - scan_config
-      - scan_requests
-      type: object
     ModelCloudComplianceScanDetails:
       example:
         account_id: account_id
@@ -4513,6 +4265,157 @@ components:
           type: string
         trail_name:
           type: string
+      type: object
+    ModelCompliance:
+      example:
+        resource: resource
+        compliance_node_type: compliance_node_type
+        description: description
+        test_category: test_category
+        remediation_ansible: remediation_ansible
+        compliance_check_type: compliance_check_type
+        test_rationale: test_rationale
+        test_severity: test_severity
+        remediation_puppet: remediation_puppet
+        remediation_script: remediation_script
+        status: status
+        test_desc: test_desc
+        test_number: test_number
+      properties:
+        compliance_check_type:
+          type: string
+        compliance_node_type:
+          type: string
+        description:
+          type: string
+        remediation_ansible:
+          type: string
+        remediation_puppet:
+          type: string
+        remediation_script:
+          type: string
+        resource:
+          type: string
+        status:
+          type: string
+        test_category:
+          type: string
+        test_desc:
+          type: string
+        test_number:
+          type: string
+        test_rationale:
+          type: string
+        test_severity:
+          type: string
+      required:
+      - compliance_check_type
+      - compliance_node_type
+      - description
+      - remediation_ansible
+      - remediation_puppet
+      - remediation_script
+      - resource
+      - status
+      - test_category
+      - test_desc
+      - test_number
+      - test_rationale
+      - test_severity
+      type: object
+    ModelComplianceScanResult:
+      example:
+        compliances:
+        - resource: resource
+          compliance_node_type: compliance_node_type
+          description: description
+          test_category: test_category
+          remediation_ansible: remediation_ansible
+          compliance_check_type: compliance_check_type
+          test_rationale: test_rationale
+          test_severity: test_severity
+          remediation_puppet: remediation_puppet
+          remediation_script: remediation_script
+          status: status
+          test_desc: test_desc
+          test_number: test_number
+        - resource: resource
+          compliance_node_type: compliance_node_type
+          description: description
+          test_category: test_category
+          remediation_ansible: remediation_ansible
+          compliance_check_type: compliance_check_type
+          test_rationale: test_rationale
+          test_severity: test_severity
+          remediation_puppet: remediation_puppet
+          remediation_script: remediation_script
+          status: status
+          test_desc: test_desc
+          test_number: test_number
+        ImageLayerId: ImageLayerId
+        node_type: node_type
+        container_name: container_name
+        kubernetes_cluster_name: kubernetes_cluster_name
+        masked: masked
+        node_name: node_name
+        scan_id: scan_id
+        host_name: host_name
+        node_id: node_id
+      properties:
+        ImageLayerId:
+          type: string
+        compliances:
+          items:
+            $ref: '#/components/schemas/ModelCompliance'
+          nullable: true
+          type: array
+        container_name:
+          type: string
+        host_name:
+          type: string
+        kubernetes_cluster_name:
+          type: string
+        masked:
+          type: string
+        node_id:
+          type: string
+        node_name:
+          type: string
+        node_type:
+          type: string
+        scan_id:
+          type: string
+      required:
+      - ImageLayerId
+      - compliances
+      - container_name
+      - host_name
+      - kubernetes_cluster_name
+      - masked
+      - node_id
+      - node_name
+      - node_type
+      - scan_id
+      type: object
+    ModelComplianceScanTriggerReq:
+      example:
+        generate_bulk_scan_id: true
+        scan_triggers:
+        - node_type: image
+          node_id: node_id
+        - node_type: image
+          node_id: node_id
+      properties:
+        generate_bulk_scan_id:
+          type: boolean
+        scan_triggers:
+          items:
+            $ref: '#/components/schemas/ModelScanTrigger'
+          nullable: true
+          type: array
+      required:
+      - generate_bulk_scan_id
+      - scan_triggers
       type: object
     ModelComputeMetrics:
       example:
@@ -5899,6 +5802,166 @@ components:
       - email
       - password
       type: object
+    ModelMalware:
+      example:
+        Meta:
+        - Meta
+        - Meta
+        ImageLayerId: ImageLayerId
+        SeverityScore: 6.027456183070403
+        CompleteFilename: CompleteFilename
+        FileSevScore: 0.8008281904610115
+        StringsToMatch:
+        - StringsToMatch
+        - StringsToMatch
+        Summary: Summary
+        Class: Class
+        FileSeverity: FileSeverity
+        Meta Rules:
+          key: Meta Rules
+        RuleName: RuleName
+      properties:
+        Class:
+          type: string
+        CompleteFilename:
+          type: string
+        FileSevScore:
+          type: number
+        FileSeverity:
+          type: string
+        ImageLayerId:
+          type: string
+        Meta:
+          items:
+            type: string
+          type: array
+        Meta Rules:
+          additionalProperties:
+            type: string
+          type: object
+        RuleName:
+          type: string
+        SeverityScore:
+          type: number
+        StringsToMatch:
+          items:
+            type: string
+          type: array
+        Summary:
+          type: string
+      required:
+      - Class
+      - CompleteFilename
+      - FileSevScore
+      - FileSeverity
+      - ImageLayerId
+      - Meta
+      - Meta Rules
+      - RuleName
+      - SeverityScore
+      - StringsToMatch
+      - Summary
+      type: object
+    ModelMalwareScanResult:
+      example:
+        ImageLayerId: ImageLayerId
+        node_type: node_type
+        container_name: container_name
+        kubernetes_cluster_name: kubernetes_cluster_name
+        masked: masked
+        node_name: node_name
+        scan_id: scan_id
+        malwares:
+        - Meta:
+          - Meta
+          - Meta
+          ImageLayerId: ImageLayerId
+          SeverityScore: 6.027456183070403
+          CompleteFilename: CompleteFilename
+          FileSevScore: 0.8008281904610115
+          StringsToMatch:
+          - StringsToMatch
+          - StringsToMatch
+          Summary: Summary
+          Class: Class
+          FileSeverity: FileSeverity
+          Meta Rules:
+            key: Meta Rules
+          RuleName: RuleName
+        - Meta:
+          - Meta
+          - Meta
+          ImageLayerId: ImageLayerId
+          SeverityScore: 6.027456183070403
+          CompleteFilename: CompleteFilename
+          FileSevScore: 0.8008281904610115
+          StringsToMatch:
+          - StringsToMatch
+          - StringsToMatch
+          Summary: Summary
+          Class: Class
+          FileSeverity: FileSeverity
+          Meta Rules:
+            key: Meta Rules
+          RuleName: RuleName
+        host_name: host_name
+        node_id: node_id
+      properties:
+        ImageLayerId:
+          type: string
+        container_name:
+          type: string
+        host_name:
+          type: string
+        kubernetes_cluster_name:
+          type: string
+        malwares:
+          items:
+            $ref: '#/components/schemas/ModelMalware'
+          nullable: true
+          type: array
+        masked:
+          type: string
+        node_id:
+          type: string
+        node_name:
+          type: string
+        node_type:
+          type: string
+        scan_id:
+          type: string
+      required:
+      - ImageLayerId
+      - container_name
+      - host_name
+      - kubernetes_cluster_name
+      - malwares
+      - masked
+      - node_id
+      - node_name
+      - node_type
+      - scan_id
+      type: object
+    ModelMalwareScanTriggerReq:
+      example:
+        generate_bulk_scan_id: true
+        scan_triggers:
+        - node_type: image
+          node_id: node_id
+        - node_type: image
+          node_id: node_id
+      properties:
+        generate_bulk_scan_id:
+          type: boolean
+        scan_triggers:
+          items:
+            $ref: '#/components/schemas/ModelScanTrigger'
+          nullable: true
+          type: array
+      required:
+      - generate_bulk_scan_id
+      - scan_triggers
+      type: object
     ModelMessageResponse:
       example:
         message: message
@@ -6167,6 +6230,35 @@ components:
       - access_token
       - refresh_token
       type: object
+    ModelRule:
+      example:
+        score: 1.4658129805029452
+        level: level
+        part: part
+        name: name
+        signature_to_match: signature_to_match
+        id: 6
+      properties:
+        id:
+          type: integer
+        level:
+          type: string
+        name:
+          type: string
+        part:
+          type: string
+        score:
+          type: number
+        signature_to_match:
+          type: string
+      required:
+      - id
+      - level
+      - name
+      - part
+      - score
+      - signature_to_match
+      type: object
     ModelScanInfo:
       example:
         updated_at: 0
@@ -6241,33 +6333,22 @@ components:
       - scan_id
       - window
       type: object
-    ModelScanResultsResp:
-      example:
-        results:
-        - key: ""
-        - key: ""
-      properties:
-        results:
-          items:
-            additionalProperties: {}
-            type: object
-          nullable: true
-          type: array
-      required:
-      - results
-      type: object
     ModelScanStatus:
       type: string
     ModelScanStatusResp:
       example:
-        status: status
+        statuses:
+          key: null
       properties:
-        status:
-          type: string
+        statuses:
+          additionalProperties:
+            $ref: '#/components/schemas/ModelScanStatus'
+          nullable: true
+          type: object
       required:
-      - status
+      - statuses
       type: object
-    ModelScanTriggerReq:
+    ModelScanTrigger:
       example:
         node_type: image
         node_id: node_id
@@ -6286,12 +6367,155 @@ components:
       type: object
     ModelScanTriggerResp:
       example:
-        scan_id: scan_id
+        bulk_scan_id: bulk_scan_id
+        scan_ids:
+        - scan_ids
+        - scan_ids
       properties:
+        bulk_scan_id:
+          type: string
+        scan_ids:
+          items:
+            type: string
+          nullable: true
+          type: array
+      required:
+      - bulk_scan_id
+      - scan_ids
+      type: object
+    ModelSecret:
+      example:
+        full_filename: full_filename
+        matched_content: matched_content
+        relative_ending_index: 5
+        starting_index: 2
+        relative_starting_index: 5
+      properties:
+        full_filename:
+          type: string
+        matched_content:
+          type: string
+        relative_ending_index:
+          type: integer
+        relative_starting_index:
+          type: integer
+        starting_index:
+          type: integer
+      required:
+      - full_filename
+      - matched_content
+      - relative_ending_index
+      - relative_starting_index
+      - starting_index
+      type: object
+    ModelSecretScanResult:
+      example:
+        ImageLayerId: ImageLayerId
+        node_type: node_type
+        container_name: container_name
+        kubernetes_cluster_name: kubernetes_cluster_name
+        masked: masked
+        node_name: node_name
+        rules:
+        - score: 1.4658129805029452
+          level: level
+          part: part
+          name: name
+          signature_to_match: signature_to_match
+          id: 6
+        - score: 1.4658129805029452
+          level: level
+          part: part
+          name: name
+          signature_to_match: signature_to_match
+          id: 6
+        scan_id: scan_id
+        rule_2_secrets:
+          key:
+          - 0
+          - 0
+        secrets:
+        - full_filename: full_filename
+          matched_content: matched_content
+          relative_ending_index: 5
+          starting_index: 2
+          relative_starting_index: 5
+        - full_filename: full_filename
+          matched_content: matched_content
+          relative_ending_index: 5
+          starting_index: 2
+          relative_starting_index: 5
+        host_name: host_name
+        node_id: node_id
+      properties:
+        ImageLayerId:
+          type: string
+        container_name:
+          type: string
+        host_name:
+          type: string
+        kubernetes_cluster_name:
+          type: string
+        masked:
+          type: string
+        node_id:
+          type: string
+        node_name:
+          type: string
+        node_type:
+          type: string
+        rule_2_secrets:
+          additionalProperties:
+            items:
+              type: integer
+            type: array
+          nullable: true
+          type: object
+        rules:
+          items:
+            $ref: '#/components/schemas/ModelRule'
+          nullable: true
+          type: array
         scan_id:
           type: string
+        secrets:
+          items:
+            $ref: '#/components/schemas/ModelSecret'
+          nullable: true
+          type: array
       required:
+      - ImageLayerId
+      - container_name
+      - host_name
+      - kubernetes_cluster_name
+      - masked
+      - node_id
+      - node_name
+      - node_type
+      - rule_2_secrets
+      - rules
       - scan_id
+      - secrets
+      type: object
+    ModelSecretScanTriggerReq:
+      example:
+        generate_bulk_scan_id: true
+        scan_triggers:
+        - node_type: image
+          node_id: node_id
+        - node_type: image
+          node_id: node_id
+      properties:
+        generate_bulk_scan_id:
+          type: boolean
+        scan_triggers:
+          items:
+            $ref: '#/components/schemas/ModelScanTrigger'
+          nullable: true
+          type: array
+      required:
+      - generate_bulk_scan_id
+      - scan_triggers
       type: object
     ModelUser:
       example:
@@ -6367,20 +6591,164 @@ components:
       - last_name
       - password
       type: object
-    ModelVulnerabilityScanTriggerReq:
+    ModelVulnerability:
       example:
-        node_type: image
-        scan_config: all
+        cve_container_layer: cve_container_layer
+        cve_description: cve_description
+        cve_overall_score: 6.027456183070403
+        cve_caused_by_package: cve_caused_by_package
+        cve_attack_vector: cve_attack_vector
+        cve_cvss_score: 0.8008281904610115
+        urls:
+        - urls
+        - urls
+        cve_severity: cve_severity
+        cve_caused_by_package_path: cve_caused_by_package_path
+        cve_id: cve_id
+        exploit_poc: exploit_poc
+        cve_type: cve_type
+        cve_fixed_in: cve_fixed_in
+        cve_link: cve_link
+      properties:
+        cve_attack_vector:
+          type: string
+        cve_caused_by_package:
+          type: string
+        cve_caused_by_package_path:
+          type: string
+        cve_container_layer:
+          type: string
+        cve_cvss_score:
+          type: number
+        cve_description:
+          type: string
+        cve_fixed_in:
+          type: string
+        cve_id:
+          type: string
+        cve_link:
+          type: string
+        cve_overall_score:
+          type: number
+        cve_severity:
+          type: string
+        cve_type:
+          type: string
+        exploit_poc:
+          type: string
+        urls:
+          items:
+            type: string
+          nullable: true
+          type: array
+      required:
+      - cve_attack_vector
+      - cve_caused_by_package
+      - cve_caused_by_package_path
+      - cve_container_layer
+      - cve_cvss_score
+      - cve_description
+      - cve_fixed_in
+      - cve_id
+      - cve_link
+      - cve_overall_score
+      - cve_severity
+      - cve_type
+      - exploit_poc
+      - urls
+      type: object
+    ModelVulnerabilityScanResult:
+      example:
+        ImageLayerId: ImageLayerId
+        node_type: node_type
+        container_name: container_name
+        kubernetes_cluster_name: kubernetes_cluster_name
+        masked: masked
+        node_name: node_name
+        vulnerabilities:
+        - cve_container_layer: cve_container_layer
+          cve_description: cve_description
+          cve_overall_score: 6.027456183070403
+          cve_caused_by_package: cve_caused_by_package
+          cve_attack_vector: cve_attack_vector
+          cve_cvss_score: 0.8008281904610115
+          urls:
+          - urls
+          - urls
+          cve_severity: cve_severity
+          cve_caused_by_package_path: cve_caused_by_package_path
+          cve_id: cve_id
+          exploit_poc: exploit_poc
+          cve_type: cve_type
+          cve_fixed_in: cve_fixed_in
+          cve_link: cve_link
+        - cve_container_layer: cve_container_layer
+          cve_description: cve_description
+          cve_overall_score: 6.027456183070403
+          cve_caused_by_package: cve_caused_by_package
+          cve_attack_vector: cve_attack_vector
+          cve_cvss_score: 0.8008281904610115
+          urls:
+          - urls
+          - urls
+          cve_severity: cve_severity
+          cve_caused_by_package_path: cve_caused_by_package_path
+          cve_id: cve_id
+          exploit_poc: exploit_poc
+          cve_type: cve_type
+          cve_fixed_in: cve_fixed_in
+          cve_link: cve_link
+        scan_id: scan_id
+        host_name: host_name
         node_id: node_id
       properties:
+        ImageLayerId:
+          type: string
+        container_name:
+          type: string
+        host_name:
+          type: string
+        kubernetes_cluster_name:
+          type: string
+        masked:
+          type: string
         node_id:
           type: string
-        node_type:
-          enum:
-          - image
-          - host
-          - container
+        node_name:
           type: string
+        node_type:
+          type: string
+        scan_id:
+          type: string
+        vulnerabilities:
+          items:
+            $ref: '#/components/schemas/ModelVulnerability'
+          nullable: true
+          type: array
+      required:
+      - ImageLayerId
+      - container_name
+      - host_name
+      - kubernetes_cluster_name
+      - masked
+      - node_id
+      - node_name
+      - node_type
+      - scan_id
+      - vulnerabilities
+      type: object
+    ModelVulnerabilityScanTriggerReq:
+      example:
+        scan_config: all
+        generate_bulk_scan_id: true
+        scan_triggers:
+        - node_type: image
+          node_id: node_id
+        - node_type: image
+          node_id: node_id
+      properties:
+        generate_bulk_scan_id:
+          type: boolean
         scan_config:
           enum:
           - all
@@ -6394,10 +6762,15 @@ components:
           - rust
           - dotnet
           type: string
+        scan_triggers:
+          items:
+            $ref: '#/components/schemas/ModelScanTrigger'
+          nullable: true
+          type: array
       required:
-      - node_id
-      - node_type
+      - generate_bulk_scan_id
       - scan_config
+      - scan_triggers
       type: object
     PostgresqlDbApiToken:
       type: object

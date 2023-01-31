@@ -20,16 +20,18 @@ var _ MappedNullable = &ModelScanTriggerResp{}
 
 // ModelScanTriggerResp struct for ModelScanTriggerResp
 type ModelScanTriggerResp struct {
-	ScanId string `json:"scan_id"`
+	BulkScanId string `json:"bulk_scan_id"`
+	ScanIds []string `json:"scan_ids"`
 }
 
 // NewModelScanTriggerResp instantiates a new ModelScanTriggerResp object
 // This constructor will assign default values to properties that have it defined,
 // and makes sure properties required by API are set, but the set of arguments
 // will change when the set of required properties is changed
-func NewModelScanTriggerResp(scanId string) *ModelScanTriggerResp {
+func NewModelScanTriggerResp(bulkScanId string, scanIds []string) *ModelScanTriggerResp {
 	this := ModelScanTriggerResp{}
-	this.ScanId = scanId
+	this.BulkScanId = bulkScanId
+	this.ScanIds = scanIds
 	return &this
 }
 
@@ -41,28 +43,54 @@ func NewModelScanTriggerRespWithDefaults() *ModelScanTriggerResp {
 	return &this
 }
 
-// GetScanId returns the ScanId field value
-func (o *ModelScanTriggerResp) GetScanId() string {
+// GetBulkScanId returns the BulkScanId field value
+func (o *ModelScanTriggerResp) GetBulkScanId() string {
 	if o == nil {
 		var ret string
 		return ret
 	}
 
-	return o.ScanId
+	return o.BulkScanId
 }
 
-// GetScanIdOk returns a tuple with the ScanId field value
+// GetBulkScanIdOk returns a tuple with the BulkScanId field value
 // and a boolean to check if the value has been set.
-func (o *ModelScanTriggerResp) GetScanIdOk() (*string, bool) {
+func (o *ModelScanTriggerResp) GetBulkScanIdOk() (*string, bool) {
 	if o == nil {
 		return nil, false
 	}
-	return &o.ScanId, true
+	return &o.BulkScanId, true
 }
 
-// SetScanId sets field value
-func (o *ModelScanTriggerResp) SetScanId(v string) {
-	o.ScanId = v
+// SetBulkScanId sets field value
+func (o *ModelScanTriggerResp) SetBulkScanId(v string) {
+	o.BulkScanId = v
+}
+
+// GetScanIds returns the ScanIds field value
+// If the value is explicit nil, the zero value for []string will be returned
+func (o *ModelScanTriggerResp) GetScanIds() []string {
+	if o == nil {
+		var ret []string
+		return ret
+	}
+
+	return o.ScanIds
+}
+
+// GetScanIdsOk returns a tuple with the ScanIds field value
+// and a boolean to check if the value has been set.
+// NOTE: If the value is an explicit nil, `nil, true` will be returned
+func (o *ModelScanTriggerResp) GetScanIdsOk() ([]string, bool) {
+	if o == nil || isNil(o.ScanIds) {
+		return nil, false
+	}
+	return o.ScanIds, true
+}
+
+// SetScanIds sets field value
+func (o *ModelScanTriggerResp) SetScanIds(v []string) {
+	o.ScanIds = v
 }
 
 func (o ModelScanTriggerResp) MarshalJSON() ([]byte, error) {
@@ -75,7 +103,10 @@ func (o ModelScanTriggerResp) MarshalJSON() ([]byte, error) {
 
 func (o ModelScanTriggerResp) ToMap() (map[string]interface{}, error) {
 	toSerialize := map[string]interface{}{}
-	toSerialize["scan_id"] = o.ScanId
+	toSerialize["bulk_scan_id"] = o.BulkScanId
+	if o.ScanIds != nil {
+		toSerialize["scan_ids"] = o.ScanIds
+	}
 	return toSerialize, nil
 }
 
