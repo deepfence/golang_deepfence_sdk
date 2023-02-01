@@ -6,7 +6,6 @@ import (
 	"crypto/x509"
 	"errors"
 	"fmt"
-	"net"
 	"net/http"
 	"sync"
 	"time"
@@ -43,14 +42,17 @@ func (client *OpenapiHttpClient) Client() *openapi.APIClient {
 func buildHttpClient() *http.Client {
 	// Set up our own certificate pool
 	tlsConfig := &tls.Config{RootCAs: x509.NewCertPool(), InsecureSkipVerify: true}
-	transport := &http.Transport{
-		MaxIdleConnsPerHost: maxIdleConnsPerHost,
-		DialContext: (&net.Dialer{
-			Timeout:   10 * time.Second,
-			KeepAlive: 30 * time.Second,
-		}).DialContext,
-		TLSHandshakeTimeout: 30 * time.Second,
-		TLSClientConfig:     tlsConfig}
+	// transport := &http.Transport{
+	// 	MaxIdleConnsPerHost: maxIdleConnsPerHost,
+	// 	DialContext: (&net.Dialer{
+	// 		Timeout:   10 * time.Second,
+	// 		KeepAlive: 30 * time.Second,
+	// 	}).DialContext,
+	// 	TLSHandshakeTimeout: 30 * time.Second,
+	// 	TLSClientConfig:     tlsConfig}
+	transport := http.DefaultTransport.(*http.Transport).Clone()
+	transport.TLSClientConfig = tlsConfig
+	transport.DisableKeepAlives = true
 	client := &http.Client{Transport: transport}
 	return client
 }
@@ -59,14 +61,17 @@ func buildHttpClient() *http.Client {
 func NewHttpsConsoleClient(url, port string) *OpenapiHttpClient {
 
 	tlsConfig := &tls.Config{RootCAs: x509.NewCertPool(), InsecureSkipVerify: true}
-	transport := &http.Transport{
-		MaxIdleConnsPerHost: maxIdleConnsPerHost,
-		DialContext: (&net.Dialer{
-			Timeout:   10 * time.Second,
-			KeepAlive: 30 * time.Second,
-		}).DialContext,
-		TLSHandshakeTimeout: 30 * time.Second,
-		TLSClientConfig:     tlsConfig}
+	// transport := &http.Transport{
+	// 	MaxIdleConnsPerHost: maxIdleConnsPerHost,
+	// 	DialContext: (&net.Dialer{
+	// 		Timeout:   10 * time.Second,
+	// 		KeepAlive: 30 * time.Second,
+	// 	}).DialContext,
+	// 	TLSHandshakeTimeout: 30 * time.Second,
+	// 	TLSClientConfig:     tlsConfig}
+	transport := http.DefaultTransport.(*http.Transport).Clone()
+	transport.TLSClientConfig = tlsConfig
+	transport.DisableKeepAlives = true
 	rhc := rhttp.NewClient()
 	rhc.HTTPClient.Timeout = 10 * time.Second
 	rhc.RetryMax = 3
