@@ -6,6 +6,7 @@ import (
 	"encoding/json"
 	"errors"
 	"fmt"
+	"strings"
 
 	postgresqlDb "github.com/deepfence/golang_deepfence_sdk/utils/postgresql/postgresql-db"
 	_ "github.com/lib/pq"
@@ -80,6 +81,20 @@ func GetManagementConsoleURL(ctx context.Context) (string, error) {
 		return "", err
 	}
 	return fmt.Sprintf("%v", settingVal.Value), nil
+}
+
+func GetManagementHost(ctx context.Context) (string, error) {
+	url, err := GetManagementConsoleURL(ctx)
+	if err != nil {
+		return "", err
+	}
+	// Remove scheme if present
+	if strings.HasPrefix(url, "http://") {
+		return url[7:], nil
+	} else if strings.HasPrefix(url, "https://") {
+		return url[8:], nil
+	}
+	return url, nil
 }
 
 func GetSetting(ctx context.Context, key string) (*postgresqlDb.Setting, error) {

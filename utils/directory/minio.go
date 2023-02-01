@@ -4,7 +4,6 @@ import (
 	"bytes"
 	"context"
 	"errors"
-	"net"
 	"net/http"
 	"net/url"
 	"path"
@@ -96,20 +95,13 @@ func (mfm *MinioFileManager) DownloadFile(ctx context.Context, remoteFile string
 
 func (mfm *MinioFileManager) ExposeFile(ctx context.Context, filepath string) (string, error) {
 
-	ips := []string{}
-	netInterfaceAddresses, err := net.InterfaceAddrs()
+	console_ip, err := GetManagementHost(NewGlobalContext())
+	println(console_ip)
 	if err != nil {
 		return "", err
 	}
 
-	for _, netInterfaceAddress := range netInterfaceAddresses {
-		networkIp, ok := netInterfaceAddress.(*net.IPNet)
-		if ok && !networkIp.IP.IsLoopback() && networkIp.IP.To4() != nil {
-			ips = append(ips, networkIp.IP.String())
-		}
-	}
-
-	headers := http.Header{"Host": ips}
+	headers := http.Header{"Host": []string{console_ip}}
 
 	url, err := mfm.client.PresignHeader(context.Background(),
 		"GET",
