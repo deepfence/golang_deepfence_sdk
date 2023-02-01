@@ -96,7 +96,6 @@ func (mfm *MinioFileManager) DownloadFile(ctx context.Context, remoteFile string
 func (mfm *MinioFileManager) ExposeFile(ctx context.Context, filepath string) (string, error) {
 
 	console_ip, err := GetManagementHost(NewGlobalContext())
-	println(console_ip)
 	if err != nil {
 		return "", err
 	}
