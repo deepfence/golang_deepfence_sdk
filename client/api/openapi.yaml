@@ -6595,10 +6595,10 @@ components:
       example:
         cve_container_layer: cve_container_layer
         cve_description: cve_description
-        cve_overall_score: 6.027456183070403
+        cve_overall_score: 1.4658129805029452
         cve_caused_by_package: cve_caused_by_package
         cve_attack_vector: cve_attack_vector
-        cve_cvss_score: 0.8008281904610115
+        cve_cvss_score: 6.027456183070403
         urls:
         - urls
         - urls
@@ -6659,6 +6659,8 @@ components:
       type: object
     ModelVulnerabilityScanResult:
       example:
+        severity_counts:
+          key: 0
         ImageLayerId: ImageLayerId
         node_type: node_type
         container_name: container_name
@@ -6668,10 +6670,10 @@ components:
         vulnerabilities:
         - cve_container_layer: cve_container_layer
           cve_description: cve_description
-          cve_overall_score: 6.027456183070403
+          cve_overall_score: 1.4658129805029452
           cve_caused_by_package: cve_caused_by_package
           cve_attack_vector: cve_attack_vector
-          cve_cvss_score: 0.8008281904610115
+          cve_cvss_score: 6.027456183070403
           urls:
           - urls
           - urls
@@ -6684,10 +6686,10 @@ components:
           cve_link: cve_link
         - cve_container_layer: cve_container_layer
           cve_description: cve_description
-          cve_overall_score: 6.027456183070403
+          cve_overall_score: 1.4658129805029452
           cve_caused_by_package: cve_caused_by_package
           cve_attack_vector: cve_attack_vector
-          cve_cvss_score: 0.8008281904610115
+          cve_cvss_score: 6.027456183070403
           urls:
           - urls
           - urls
@@ -6720,6 +6722,11 @@ components:
           type: string
         scan_id:
           type: string
+        severity_counts:
+          additionalProperties:
+            type: integer
+          nullable: true
+          type: object
         vulnerabilities:
           items:
             $ref: '#/components/schemas/ModelVulnerability'
@@ -6735,6 +6742,7 @@ components:
       - node_name
       - node_type
       - scan_id
+      - severity_counts
       - vulnerabilities
       type: object
     ModelVulnerabilityScanTriggerReq:
