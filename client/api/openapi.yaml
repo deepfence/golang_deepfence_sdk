@@ -4079,15 +4079,11 @@ components:
       type: object
     ModelAgentId:
       example:
-        available_workload: 0
         node_id: node_id
       properties:
-        available_workload:
-          type: integer
         node_id:
           type: string
       required:
-      - available_workload
       - node_id
       type: object
     ModelAgentUpgrade:
