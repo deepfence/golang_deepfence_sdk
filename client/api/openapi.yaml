@@ -4079,11 +4079,15 @@ components:
       type: object
     ModelAgentId:
       example:
+        available_workload: 0
         node_id: node_id
       properties:
+        available_workload:
+          type: integer
         node_id:
           type: string
       required:
+      - available_workload
       - node_id
       type: object
     ModelAgentUpgrade:
@@ -4352,30 +4356,27 @@ components:
           status: status
           test_desc: test_desc
           test_number: test_number
-        ImageLayerId: ImageLayerId
         node_type: node_type
-        container_name: container_name
+        docker_container_name: docker_container_name
         kubernetes_cluster_name: kubernetes_cluster_name
-        masked: masked
         node_name: node_name
         scan_id: scan_id
+        docker_image_name: docker_image_name
         host_name: host_name
         node_id: node_id
       properties:
-        ImageLayerId:
-          type: string
         compliances:
           items:
             $ref: '#/components/schemas/ModelCompliance'
           nullable: true
           type: array
-        container_name:
+        docker_container_name:
+          type: string
+        docker_image_name:
           type: string
         host_name:
           type: string
         kubernetes_cluster_name:
-          type: string
-        masked:
           type: string
         node_id:
           type: string
@@ -4386,12 +4387,11 @@ components:
         scan_id:
           type: string
       required:
-      - ImageLayerId
       - compliances
-      - container_name
+      - docker_container_name
+      - docker_image_name
       - host_name
       - kubernetes_cluster_name
-      - masked
       - node_id
       - node_name
       - node_type
@@ -5864,11 +5864,9 @@ components:
       type: object
     ModelMalwareScanResult:
       example:
-        ImageLayerId: ImageLayerId
         node_type: node_type
-        container_name: container_name
+        docker_container_name: docker_container_name
         kubernetes_cluster_name: kubernetes_cluster_name
-        masked: masked
         node_name: node_name
         scan_id: scan_id
         malwares:
@@ -5904,12 +5902,13 @@ components:
           Meta Rules:
             key: Meta Rules
           RuleName: RuleName
+        docker_image_name: docker_image_name
         host_name: host_name
         node_id: node_id
       properties:
-        ImageLayerId:
+        docker_container_name:
           type: string
-        container_name:
+        docker_image_name:
           type: string
         host_name:
           type: string
@@ -5920,8 +5919,6 @@ components:
             $ref: '#/components/schemas/ModelMalware'
           nullable: true
           type: array
-        masked:
-          type: string
         node_id:
           type: string
         node_name:
@@ -5931,12 +5928,11 @@ components:
         scan_id:
           type: string
       required:
-      - ImageLayerId
-      - container_name
+      - docker_container_name
+      - docker_image_name
       - host_name
       - kubernetes_cluster_name
       - malwares
-      - masked
       - node_id
       - node_name
       - node_type
@@ -6410,11 +6406,11 @@ components:
       type: object
     ModelSecretScanResult:
       example:
-        ImageLayerId: ImageLayerId
+        severity_counts:
+          key: 7
         node_type: node_type
-        container_name: container_name
+        docker_container_name: docker_container_name
         kubernetes_cluster_name: kubernetes_cluster_name
-        masked: masked
         node_name: node_name
         rules:
         - score: 1.4658129805029452
@@ -6445,18 +6441,17 @@ components:
           relative_ending_index: 5
           starting_index: 2
           relative_starting_index: 5
+        docker_image_name: docker_image_name
         host_name: host_name
         node_id: node_id
       properties:
-        ImageLayerId:
+        docker_container_name:
           type: string
-        container_name:
+        docker_image_name:
           type: string
         host_name:
           type: string
         kubernetes_cluster_name:
-          type: string
-        masked:
           type: string
         node_id:
           type: string
@@ -6483,12 +6478,16 @@ components:
             $ref: '#/components/schemas/ModelSecret'
           nullable: true
           type: array
+        severity_counts:
+          additionalProperties:
+            type: integer
+          nullable: true
+          type: object
       required:
-      - ImageLayerId
-      - container_name
+      - docker_container_name
+      - docker_image_name
       - host_name
       - kubernetes_cluster_name
-      - masked
       - node_id
       - node_name
       - node_type
@@ -6496,6 +6495,7 @@ components:
       - rules
       - scan_id
       - secrets
+      - severity_counts
       type: object
     ModelSecretScanTriggerReq:
       example:
@@ -6661,11 +6661,9 @@ components:
       example:
         severity_counts:
           key: 0
-        ImageLayerId: ImageLayerId
         node_type: node_type
-        container_name: container_name
+        docker_container_name: docker_container_name
         kubernetes_cluster_name: kubernetes_cluster_name
-        masked: masked
         node_name: node_name
         vulnerabilities:
         - cve_container_layer: cve_container_layer
@@ -6701,18 +6699,17 @@ components:
           cve_fixed_in: cve_fixed_in
           cve_link: cve_link
         scan_id: scan_id
+        docker_image_name: docker_image_name
         host_name: host_name
         node_id: node_id
       properties:
-        ImageLayerId:
+        docker_container_name:
           type: string
-        container_name:
+        docker_image_name:
           type: string
         host_name:
           type: string
         kubernetes_cluster_name:
-          type: string
-        masked:
           type: string
         node_id:
           type: string
@@ -6733,11 +6730,10 @@ components:
           nullable: true
           type: array
       required:
-      - ImageLayerId
-      - container_name
+      - docker_container_name
+      - docker_image_name
       - host_name
       - kubernetes_cluster_name
-      - masked
       - node_id
       - node_name
       - node_type

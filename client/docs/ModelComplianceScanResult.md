@@ -4,12 +4,11 @@
 
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
-**ImageLayerId** | **string** |  | 
 **Compliances** | [**[]ModelCompliance**](ModelCompliance.md) |  | 
-**ContainerName** | **string** |  | 
+**DockerContainerName** | **string** |  | 
+**DockerImageName** | **string** |  | 
 **HostName** | **string** |  | 
 **KubernetesClusterName** | **string** |  | 
-**Masked** | **string** |  | 
 **NodeId** | **string** |  | 
 **NodeName** | **string** |  | 
 **NodeType** | **string** |  | 
@@ -19,7 +18,7 @@ Name | Type | Description | Notes
 
 ### NewModelComplianceScanResult
 
-`func NewModelComplianceScanResult(imageLayerId string, compliances []ModelCompliance, containerName string, hostName string, kubernetesClusterName string, masked string, nodeId string, nodeName string, nodeType string, scanId string, ) *ModelComplianceScanResult`
+`func NewModelComplianceScanResult(compliances []ModelCompliance, dockerContainerName string, dockerImageName string, hostName string, kubernetesClusterName string, nodeId string, nodeName string, nodeType string, scanId string, ) *ModelComplianceScanResult`
 
 NewModelComplianceScanResult instantiates a new ModelComplianceScanResult object
 This constructor will assign default values to properties that have it defined,
@@ -33,26 +32,6 @@ will change when the set of required properties is changed
 NewModelComplianceScanResultWithDefaults instantiates a new ModelComplianceScanResult object
 This constructor will only assign default values to properties that have it defined,
 but it doesn't guarantee that properties required by API are set
-
-### GetImageLayerId
-
-`func (o *ModelComplianceScanResult) GetImageLayerId() string`
-
-GetImageLayerId returns the ImageLayerId field if non-nil, zero value otherwise.
-
-### GetImageLayerIdOk
-
-`func (o *ModelComplianceScanResult) GetImageLayerIdOk() (*string, bool)`
-
-GetImageLayerIdOk returns a tuple with the ImageLayerId field if it's non-nil, zero value otherwise
-and a boolean to check if the value has been set.
-
-### SetImageLayerId
-
-`func (o *ModelComplianceScanResult) SetImageLayerId(v string)`
-
-SetImageLayerId sets ImageLayerId field to given value.
-
 
 ### GetCompliances
 
@@ -84,24 +63,44 @@ SetCompliances sets Compliances field to given value.
 `func (o *ModelComplianceScanResult) UnsetCompliances()`
 
 UnsetCompliances ensures that no value is present for Compliances, not even an explicit nil
-### GetContainerName
+### GetDockerContainerName
 
-`func (o *ModelComplianceScanResult) GetContainerName() string`
+`func (o *ModelComplianceScanResult) GetDockerContainerName() string`
 
-GetContainerName returns the ContainerName field if non-nil, zero value otherwise.
+GetDockerContainerName returns the DockerContainerName field if non-nil, zero value otherwise.
 
-### GetContainerNameOk
+### GetDockerContainerNameOk
 
-`func (o *ModelComplianceScanResult) GetContainerNameOk() (*string, bool)`
+`func (o *ModelComplianceScanResult) GetDockerContainerNameOk() (*string, bool)`
 
-GetContainerNameOk returns a tuple with the ContainerName field if it's non-nil, zero value otherwise
+GetDockerContainerNameOk returns a tuple with the DockerContainerName field if it's non-nil, zero value otherwise
 and a boolean to check if the value has been set.
 
-### SetContainerName
+### SetDockerContainerName
 
-`func (o *ModelComplianceScanResult) SetContainerName(v string)`
+`func (o *ModelComplianceScanResult) SetDockerContainerName(v string)`
 
-SetContainerName sets ContainerName field to given value.
+SetDockerContainerName sets DockerContainerName field to given value.
+
+
+### GetDockerImageName
+
+`func (o *ModelComplianceScanResult) GetDockerImageName() string`
+
+GetDockerImageName returns the DockerImageName field if non-nil, zero value otherwise.
+
+### GetDockerImageNameOk
+
+`func (o *ModelComplianceScanResult) GetDockerImageNameOk() (*string, bool)`
+
+GetDockerImageNameOk returns a tuple with the DockerImageName field if it's non-nil, zero value otherwise
+and a boolean to check if the value has been set.
+
+### SetDockerImageName
+
+`func (o *ModelComplianceScanResult) SetDockerImageName(v string)`
+
+SetDockerImageName sets DockerImageName field to given value.
 
 
 ### GetHostName
@@ -142,26 +141,6 @@ and a boolean to check if the value has been set.
 `func (o *ModelComplianceScanResult) SetKubernetesClusterName(v string)`
 
 SetKubernetesClusterName sets KubernetesClusterName field to given value.
-
-
-### GetMasked
-
-`func (o *ModelComplianceScanResult) GetMasked() string`
-
-GetMasked returns the Masked field if non-nil, zero value otherwise.
-
-### GetMaskedOk
-
-`func (o *ModelComplianceScanResult) GetMaskedOk() (*string, bool)`
-
-GetMaskedOk returns a tuple with the Masked field if it's non-nil, zero value otherwise
-and a boolean to check if the value has been set.
-
-### SetMasked
-
-`func (o *ModelComplianceScanResult) SetMasked(v string)`
-
-SetMasked sets Masked field to given value.
 
 
 ### GetNodeId

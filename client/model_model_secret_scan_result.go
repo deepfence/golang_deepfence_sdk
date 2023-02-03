@@ -20,11 +20,10 @@ var _ MappedNullable = &ModelSecretScanResult{}
 
 // ModelSecretScanResult struct for ModelSecretScanResult
 type ModelSecretScanResult struct {
-	ImageLayerId string `json:"ImageLayerId"`
-	ContainerName string `json:"container_name"`
+	DockerContainerName string `json:"docker_container_name"`
+	DockerImageName string `json:"docker_image_name"`
 	HostName string `json:"host_name"`
 	KubernetesClusterName string `json:"kubernetes_cluster_name"`
-	Masked string `json:"masked"`
 	NodeId string `json:"node_id"`
 	NodeName string `json:"node_name"`
 	NodeType string `json:"node_type"`
@@ -32,19 +31,19 @@ type ModelSecretScanResult struct {
 	Rules []ModelRule `json:"rules"`
 	ScanId string `json:"scan_id"`
 	Secrets []ModelSecret `json:"secrets"`
+	SeverityCounts map[string]int32 `json:"severity_counts"`
 }
 
 // NewModelSecretScanResult instantiates a new ModelSecretScanResult object
 // This constructor will assign default values to properties that have it defined,
 // and makes sure properties required by API are set, but the set of arguments
 // will change when the set of required properties is changed
-func NewModelSecretScanResult(imageLayerId string, containerName string, hostName string, kubernetesClusterName string, masked string, nodeId string, nodeName string, nodeType string, rule2Secrets map[string][]int32, rules []ModelRule, scanId string, secrets []ModelSecret) *ModelSecretScanResult {
+func NewModelSecretScanResult(dockerContainerName string, dockerImageName string, hostName string, kubernetesClusterName string, nodeId string, nodeName string, nodeType string, rule2Secrets map[string][]int32, rules []ModelRule, scanId string, secrets []ModelSecret, severityCounts map[string]int32) *ModelSecretScanResult {
 	this := ModelSecretScanResult{}
-	this.ImageLayerId = imageLayerId
-	this.ContainerName = containerName
+	this.DockerContainerName = dockerContainerName
+	this.DockerImageName = dockerImageName
 	this.HostName = hostName
 	this.KubernetesClusterName = kubernetesClusterName
-	this.Masked = masked
 	this.NodeId = nodeId
 	this.NodeName = nodeName
 	this.NodeType = nodeType
@@ -52,6 +51,7 @@ func NewModelSecretScanResult(imageLayerId string, containerName string, hostNam
 	this.Rules = rules
 	this.ScanId = scanId
 	this.Secrets = secrets
+	this.SeverityCounts = severityCounts
 	return &this
 }
 
@@ -63,52 +63,52 @@ func NewModelSecretScanResultWithDefaults() *ModelSecretScanResult {
 	return &this
 }
 
-// GetImageLayerId returns the ImageLayerId field value
-func (o *ModelSecretScanResult) GetImageLayerId() string {
+// GetDockerContainerName returns the DockerContainerName field value
+func (o *ModelSecretScanResult) GetDockerContainerName() string {
 	if o == nil {
 		var ret string
 		return ret
 	}
 
-	return o.ImageLayerId
+	return o.DockerContainerName
 }
 
-// GetImageLayerIdOk returns a tuple with the ImageLayerId field value
+// GetDockerContainerNameOk returns a tuple with the DockerContainerName field value
 // and a boolean to check if the value has been set.
-func (o *ModelSecretScanResult) GetImageLayerIdOk() (*string, bool) {
+func (o *ModelSecretScanResult) GetDockerContainerNameOk() (*string, bool) {
 	if o == nil {
 		return nil, false
 	}
-	return &o.ImageLayerId, true
+	return &o.DockerContainerName, true
 }
 
-// SetImageLayerId sets field value
-func (o *ModelSecretScanResult) SetImageLayerId(v string) {
-	o.ImageLayerId = v
+// SetDockerContainerName sets field value
+func (o *ModelSecretScanResult) SetDockerContainerName(v string) {
+	o.DockerContainerName = v
 }
 
-// GetContainerName returns the ContainerName field value
-func (o *ModelSecretScanResult) GetContainerName() string {
+// GetDockerImageName returns the DockerImageName field value
+func (o *ModelSecretScanResult) GetDockerImageName() string {
 	if o == nil {
 		var ret string
 		return ret
 	}
 
-	return o.ContainerName
+	return o.DockerImageName
 }
 
-// GetContainerNameOk returns a tuple with the ContainerName field value
+// GetDockerImageNameOk returns a tuple with the DockerImageName field value
 // and a boolean to check if the value has been set.
-func (o *ModelSecretScanResult) GetContainerNameOk() (*string, bool) {
+func (o *ModelSecretScanResult) GetDockerImageNameOk() (*string, bool) {
 	if o == nil {
 		return nil, false
 	}
-	return &o.ContainerName, true
+	return &o.DockerImageName, true
 }
 
-// SetContainerName sets field value
-func (o *ModelSecretScanResult) SetContainerName(v string) {
-	o.ContainerName = v
+// SetDockerImageName sets field value
+func (o *ModelSecretScanResult) SetDockerImageName(v string) {
+	o.DockerImageName = v
 }
 
 // GetHostName returns the HostName field value
@@ -157,30 +157,6 @@ func (o *ModelSecretScanResult) GetKubernetesClusterNameOk() (*string, bool) {
 // SetKubernetesClusterName sets field value
 func (o *ModelSecretScanResult) SetKubernetesClusterName(v string) {
 	o.KubernetesClusterName = v
-}
-
-// GetMasked returns the Masked field value
-func (o *ModelSecretScanResult) GetMasked() string {
-	if o == nil {
-		var ret string
-		return ret
-	}
-
-	return o.Masked
-}
-
-// GetMaskedOk returns a tuple with the Masked field value
-// and a boolean to check if the value has been set.
-func (o *ModelSecretScanResult) GetMaskedOk() (*string, bool) {
-	if o == nil {
-		return nil, false
-	}
-	return &o.Masked, true
-}
-
-// SetMasked sets field value
-func (o *ModelSecretScanResult) SetMasked(v string) {
-	o.Masked = v
 }
 
 // GetNodeId returns the NodeId field value
@@ -357,6 +333,32 @@ func (o *ModelSecretScanResult) SetSecrets(v []ModelSecret) {
 	o.Secrets = v
 }
 
+// GetSeverityCounts returns the SeverityCounts field value
+// If the value is explicit nil, the zero value for map[string]int32 will be returned
+func (o *ModelSecretScanResult) GetSeverityCounts() map[string]int32 {
+	if o == nil {
+		var ret map[string]int32
+		return ret
+	}
+
+	return o.SeverityCounts
+}
+
+// GetSeverityCountsOk returns a tuple with the SeverityCounts field value
+// and a boolean to check if the value has been set.
+// NOTE: If the value is an explicit nil, `nil, true` will be returned
+func (o *ModelSecretScanResult) GetSeverityCountsOk() (*map[string]int32, bool) {
+	if o == nil || isNil(o.SeverityCounts) {
+		return nil, false
+	}
+	return &o.SeverityCounts, true
+}
+
+// SetSeverityCounts sets field value
+func (o *ModelSecretScanResult) SetSeverityCounts(v map[string]int32) {
+	o.SeverityCounts = v
+}
+
 func (o ModelSecretScanResult) MarshalJSON() ([]byte, error) {
 	toSerialize,err := o.ToMap()
 	if err != nil {
@@ -367,11 +369,10 @@ func (o ModelSecretScanResult) MarshalJSON() ([]byte, error) {
 
 func (o ModelSecretScanResult) ToMap() (map[string]interface{}, error) {
 	toSerialize := map[string]interface{}{}
-	toSerialize["ImageLayerId"] = o.ImageLayerId
-	toSerialize["container_name"] = o.ContainerName
+	toSerialize["docker_container_name"] = o.DockerContainerName
+	toSerialize["docker_image_name"] = o.DockerImageName
 	toSerialize["host_name"] = o.HostName
 	toSerialize["kubernetes_cluster_name"] = o.KubernetesClusterName
-	toSerialize["masked"] = o.Masked
 	toSerialize["node_id"] = o.NodeId
 	toSerialize["node_name"] = o.NodeName
 	toSerialize["node_type"] = o.NodeType
@@ -384,6 +385,9 @@ func (o ModelSecretScanResult) ToMap() (map[string]interface{}, error) {
 	toSerialize["scan_id"] = o.ScanId
 	if o.Secrets != nil {
 		toSerialize["secrets"] = o.Secrets
+	}
+	if o.SeverityCounts != nil {
+		toSerialize["severity_counts"] = o.SeverityCounts
 	}
 	return toSerialize, nil
 }

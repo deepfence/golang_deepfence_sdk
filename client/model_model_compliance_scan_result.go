@@ -20,12 +20,11 @@ var _ MappedNullable = &ModelComplianceScanResult{}
 
 // ModelComplianceScanResult struct for ModelComplianceScanResult
 type ModelComplianceScanResult struct {
-	ImageLayerId string `json:"ImageLayerId"`
 	Compliances []ModelCompliance `json:"compliances"`
-	ContainerName string `json:"container_name"`
+	DockerContainerName string `json:"docker_container_name"`
+	DockerImageName string `json:"docker_image_name"`
 	HostName string `json:"host_name"`
 	KubernetesClusterName string `json:"kubernetes_cluster_name"`
-	Masked string `json:"masked"`
 	NodeId string `json:"node_id"`
 	NodeName string `json:"node_name"`
 	NodeType string `json:"node_type"`
@@ -36,14 +35,13 @@ type ModelComplianceScanResult struct {
 // This constructor will assign default values to properties that have it defined,
 // and makes sure properties required by API are set, but the set of arguments
 // will change when the set of required properties is changed
-func NewModelComplianceScanResult(imageLayerId string, compliances []ModelCompliance, containerName string, hostName string, kubernetesClusterName string, masked string, nodeId string, nodeName string, nodeType string, scanId string) *ModelComplianceScanResult {
+func NewModelComplianceScanResult(compliances []ModelCompliance, dockerContainerName string, dockerImageName string, hostName string, kubernetesClusterName string, nodeId string, nodeName string, nodeType string, scanId string) *ModelComplianceScanResult {
 	this := ModelComplianceScanResult{}
-	this.ImageLayerId = imageLayerId
 	this.Compliances = compliances
-	this.ContainerName = containerName
+	this.DockerContainerName = dockerContainerName
+	this.DockerImageName = dockerImageName
 	this.HostName = hostName
 	this.KubernetesClusterName = kubernetesClusterName
-	this.Masked = masked
 	this.NodeId = nodeId
 	this.NodeName = nodeName
 	this.NodeType = nodeType
@@ -57,30 +55,6 @@ func NewModelComplianceScanResult(imageLayerId string, compliances []ModelCompli
 func NewModelComplianceScanResultWithDefaults() *ModelComplianceScanResult {
 	this := ModelComplianceScanResult{}
 	return &this
-}
-
-// GetImageLayerId returns the ImageLayerId field value
-func (o *ModelComplianceScanResult) GetImageLayerId() string {
-	if o == nil {
-		var ret string
-		return ret
-	}
-
-	return o.ImageLayerId
-}
-
-// GetImageLayerIdOk returns a tuple with the ImageLayerId field value
-// and a boolean to check if the value has been set.
-func (o *ModelComplianceScanResult) GetImageLayerIdOk() (*string, bool) {
-	if o == nil {
-		return nil, false
-	}
-	return &o.ImageLayerId, true
-}
-
-// SetImageLayerId sets field value
-func (o *ModelComplianceScanResult) SetImageLayerId(v string) {
-	o.ImageLayerId = v
 }
 
 // GetCompliances returns the Compliances field value
@@ -109,28 +83,52 @@ func (o *ModelComplianceScanResult) SetCompliances(v []ModelCompliance) {
 	o.Compliances = v
 }
 
-// GetContainerName returns the ContainerName field value
-func (o *ModelComplianceScanResult) GetContainerName() string {
+// GetDockerContainerName returns the DockerContainerName field value
+func (o *ModelComplianceScanResult) GetDockerContainerName() string {
 	if o == nil {
 		var ret string
 		return ret
 	}
 
-	return o.ContainerName
+	return o.DockerContainerName
 }
 
-// GetContainerNameOk returns a tuple with the ContainerName field value
+// GetDockerContainerNameOk returns a tuple with the DockerContainerName field value
 // and a boolean to check if the value has been set.
-func (o *ModelComplianceScanResult) GetContainerNameOk() (*string, bool) {
+func (o *ModelComplianceScanResult) GetDockerContainerNameOk() (*string, bool) {
 	if o == nil {
 		return nil, false
 	}
-	return &o.ContainerName, true
+	return &o.DockerContainerName, true
 }
 
-// SetContainerName sets field value
-func (o *ModelComplianceScanResult) SetContainerName(v string) {
-	o.ContainerName = v
+// SetDockerContainerName sets field value
+func (o *ModelComplianceScanResult) SetDockerContainerName(v string) {
+	o.DockerContainerName = v
+}
+
+// GetDockerImageName returns the DockerImageName field value
+func (o *ModelComplianceScanResult) GetDockerImageName() string {
+	if o == nil {
+		var ret string
+		return ret
+	}
+
+	return o.DockerImageName
+}
+
+// GetDockerImageNameOk returns a tuple with the DockerImageName field value
+// and a boolean to check if the value has been set.
+func (o *ModelComplianceScanResult) GetDockerImageNameOk() (*string, bool) {
+	if o == nil {
+		return nil, false
+	}
+	return &o.DockerImageName, true
+}
+
+// SetDockerImageName sets field value
+func (o *ModelComplianceScanResult) SetDockerImageName(v string) {
+	o.DockerImageName = v
 }
 
 // GetHostName returns the HostName field value
@@ -179,30 +177,6 @@ func (o *ModelComplianceScanResult) GetKubernetesClusterNameOk() (*string, bool)
 // SetKubernetesClusterName sets field value
 func (o *ModelComplianceScanResult) SetKubernetesClusterName(v string) {
 	o.KubernetesClusterName = v
-}
-
-// GetMasked returns the Masked field value
-func (o *ModelComplianceScanResult) GetMasked() string {
-	if o == nil {
-		var ret string
-		return ret
-	}
-
-	return o.Masked
-}
-
-// GetMaskedOk returns a tuple with the Masked field value
-// and a boolean to check if the value has been set.
-func (o *ModelComplianceScanResult) GetMaskedOk() (*string, bool) {
-	if o == nil {
-		return nil, false
-	}
-	return &o.Masked, true
-}
-
-// SetMasked sets field value
-func (o *ModelComplianceScanResult) SetMasked(v string) {
-	o.Masked = v
 }
 
 // GetNodeId returns the NodeId field value
@@ -311,14 +285,13 @@ func (o ModelComplianceScanResult) MarshalJSON() ([]byte, error) {
 
 func (o ModelComplianceScanResult) ToMap() (map[string]interface{}, error) {
 	toSerialize := map[string]interface{}{}
-	toSerialize["ImageLayerId"] = o.ImageLayerId
 	if o.Compliances != nil {
 		toSerialize["compliances"] = o.Compliances
 	}
-	toSerialize["container_name"] = o.ContainerName
+	toSerialize["docker_container_name"] = o.DockerContainerName
+	toSerialize["docker_image_name"] = o.DockerImageName
 	toSerialize["host_name"] = o.HostName
 	toSerialize["kubernetes_cluster_name"] = o.KubernetesClusterName
-	toSerialize["masked"] = o.Masked
 	toSerialize["node_id"] = o.NodeId
 	toSerialize["node_name"] = o.NodeName
 	toSerialize["node_type"] = o.NodeType

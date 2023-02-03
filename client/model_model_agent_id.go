@@ -20,6 +20,7 @@ var _ MappedNullable = &ModelAgentId{}
 
 // ModelAgentId struct for ModelAgentId
 type ModelAgentId struct {
+	AvailableWorkload int32 `json:"available_workload"`
 	NodeId string `json:"node_id"`
 }
 
@@ -27,8 +28,9 @@ type ModelAgentId struct {
 // This constructor will assign default values to properties that have it defined,
 // and makes sure properties required by API are set, but the set of arguments
 // will change when the set of required properties is changed
-func NewModelAgentId(nodeId string) *ModelAgentId {
+func NewModelAgentId(availableWorkload int32, nodeId string) *ModelAgentId {
 	this := ModelAgentId{}
+	this.AvailableWorkload = availableWorkload
 	this.NodeId = nodeId
 	return &this
 }
@@ -39,6 +41,30 @@ func NewModelAgentId(nodeId string) *ModelAgentId {
 func NewModelAgentIdWithDefaults() *ModelAgentId {
 	this := ModelAgentId{}
 	return &this
+}
+
+// GetAvailableWorkload returns the AvailableWorkload field value
+func (o *ModelAgentId) GetAvailableWorkload() int32 {
+	if o == nil {
+		var ret int32
+		return ret
+	}
+
+	return o.AvailableWorkload
+}
+
+// GetAvailableWorkloadOk returns a tuple with the AvailableWorkload field value
+// and a boolean to check if the value has been set.
+func (o *ModelAgentId) GetAvailableWorkloadOk() (*int32, bool) {
+	if o == nil {
+		return nil, false
+	}
+	return &o.AvailableWorkload, true
+}
+
+// SetAvailableWorkload sets field value
+func (o *ModelAgentId) SetAvailableWorkload(v int32) {
+	o.AvailableWorkload = v
 }
 
 // GetNodeId returns the NodeId field value
@@ -75,6 +101,7 @@ func (o ModelAgentId) MarshalJSON() ([]byte, error) {
 
 func (o ModelAgentId) ToMap() (map[string]interface{}, error) {
 	toSerialize := map[string]interface{}{}
+	toSerialize["available_workload"] = o.AvailableWorkload
 	toSerialize["node_id"] = o.NodeId
 	return toSerialize, nil
 }

@@ -4,11 +4,10 @@
 
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
-**ImageLayerId** | **string** |  | 
-**ContainerName** | **string** |  | 
+**DockerContainerName** | **string** |  | 
+**DockerImageName** | **string** |  | 
 **HostName** | **string** |  | 
 **KubernetesClusterName** | **string** |  | 
-**Masked** | **string** |  | 
 **NodeId** | **string** |  | 
 **NodeName** | **string** |  | 
 **NodeType** | **string** |  | 
@@ -16,12 +15,13 @@ Name | Type | Description | Notes
 **Rules** | [**[]ModelRule**](ModelRule.md) |  | 
 **ScanId** | **string** |  | 
 **Secrets** | [**[]ModelSecret**](ModelSecret.md) |  | 
+**SeverityCounts** | **map[string]int32** |  | 
 
 ## Methods
 
 ### NewModelSecretScanResult
 
-`func NewModelSecretScanResult(imageLayerId string, containerName string, hostName string, kubernetesClusterName string, masked string, nodeId string, nodeName string, nodeType string, rule2Secrets map[string][]int32, rules []ModelRule, scanId string, secrets []ModelSecret, ) *ModelSecretScanResult`
+`func NewModelSecretScanResult(dockerContainerName string, dockerImageName string, hostName string, kubernetesClusterName string, nodeId string, nodeName string, nodeType string, rule2Secrets map[string][]int32, rules []ModelRule, scanId string, secrets []ModelSecret, severityCounts map[string]int32, ) *ModelSecretScanResult`
 
 NewModelSecretScanResult instantiates a new ModelSecretScanResult object
 This constructor will assign default values to properties that have it defined,
@@ -36,44 +36,44 @@ NewModelSecretScanResultWithDefaults instantiates a new ModelSecretScanResult ob
 This constructor will only assign default values to properties that have it defined,
 but it doesn't guarantee that properties required by API are set
 
-### GetImageLayerId
+### GetDockerContainerName
 
-`func (o *ModelSecretScanResult) GetImageLayerId() string`
+`func (o *ModelSecretScanResult) GetDockerContainerName() string`
 
-GetImageLayerId returns the ImageLayerId field if non-nil, zero value otherwise.
+GetDockerContainerName returns the DockerContainerName field if non-nil, zero value otherwise.
 
-### GetImageLayerIdOk
+### GetDockerContainerNameOk
 
-`func (o *ModelSecretScanResult) GetImageLayerIdOk() (*string, bool)`
+`func (o *ModelSecretScanResult) GetDockerContainerNameOk() (*string, bool)`
 
-GetImageLayerIdOk returns a tuple with the ImageLayerId field if it's non-nil, zero value otherwise
+GetDockerContainerNameOk returns a tuple with the DockerContainerName field if it's non-nil, zero value otherwise
 and a boolean to check if the value has been set.
 
-### SetImageLayerId
+### SetDockerContainerName
 
-`func (o *ModelSecretScanResult) SetImageLayerId(v string)`
+`func (o *ModelSecretScanResult) SetDockerContainerName(v string)`
 
-SetImageLayerId sets ImageLayerId field to given value.
+SetDockerContainerName sets DockerContainerName field to given value.
 
 
-### GetContainerName
+### GetDockerImageName
 
-`func (o *ModelSecretScanResult) GetContainerName() string`
+`func (o *ModelSecretScanResult) GetDockerImageName() string`
 
-GetContainerName returns the ContainerName field if non-nil, zero value otherwise.
+GetDockerImageName returns the DockerImageName field if non-nil, zero value otherwise.
 
-### GetContainerNameOk
+### GetDockerImageNameOk
 
-`func (o *ModelSecretScanResult) GetContainerNameOk() (*string, bool)`
+`func (o *ModelSecretScanResult) GetDockerImageNameOk() (*string, bool)`
 
-GetContainerNameOk returns a tuple with the ContainerName field if it's non-nil, zero value otherwise
+GetDockerImageNameOk returns a tuple with the DockerImageName field if it's non-nil, zero value otherwise
 and a boolean to check if the value has been set.
 
-### SetContainerName
+### SetDockerImageName
 
-`func (o *ModelSecretScanResult) SetContainerName(v string)`
+`func (o *ModelSecretScanResult) SetDockerImageName(v string)`
 
-SetContainerName sets ContainerName field to given value.
+SetDockerImageName sets DockerImageName field to given value.
 
 
 ### GetHostName
@@ -114,26 +114,6 @@ and a boolean to check if the value has been set.
 `func (o *ModelSecretScanResult) SetKubernetesClusterName(v string)`
 
 SetKubernetesClusterName sets KubernetesClusterName field to given value.
-
-
-### GetMasked
-
-`func (o *ModelSecretScanResult) GetMasked() string`
-
-GetMasked returns the Masked field if non-nil, zero value otherwise.
-
-### GetMaskedOk
-
-`func (o *ModelSecretScanResult) GetMaskedOk() (*string, bool)`
-
-GetMaskedOk returns a tuple with the Masked field if it's non-nil, zero value otherwise
-and a boolean to check if the value has been set.
-
-### SetMasked
-
-`func (o *ModelSecretScanResult) SetMasked(v string)`
-
-SetMasked sets Masked field to given value.
 
 
 ### GetNodeId
@@ -306,6 +286,36 @@ SetSecrets sets Secrets field to given value.
 `func (o *ModelSecretScanResult) UnsetSecrets()`
 
 UnsetSecrets ensures that no value is present for Secrets, not even an explicit nil
+### GetSeverityCounts
+
+`func (o *ModelSecretScanResult) GetSeverityCounts() map[string]int32`
+
+GetSeverityCounts returns the SeverityCounts field if non-nil, zero value otherwise.
+
+### GetSeverityCountsOk
+
+`func (o *ModelSecretScanResult) GetSeverityCountsOk() (*map[string]int32, bool)`
+
+GetSeverityCountsOk returns a tuple with the SeverityCounts field if it's non-nil, zero value otherwise
+and a boolean to check if the value has been set.
+
+### SetSeverityCounts
+
+`func (o *ModelSecretScanResult) SetSeverityCounts(v map[string]int32)`
+
+SetSeverityCounts sets SeverityCounts field to given value.
+
+
+### SetSeverityCountsNil
+
+`func (o *ModelSecretScanResult) SetSeverityCountsNil(b bool)`
+
+ SetSeverityCountsNil sets the value for SeverityCounts to be an explicit nil
+
+### UnsetSeverityCounts
+`func (o *ModelSecretScanResult) UnsetSeverityCounts()`
+
+UnsetSeverityCounts ensures that no value is present for SeverityCounts, not even an explicit nil
 
 [[Back to Model list]](../README.md#documentation-for-models) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to README]](../README.md)
 

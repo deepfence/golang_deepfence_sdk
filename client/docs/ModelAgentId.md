@@ -4,13 +4,14 @@
 
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
+**AvailableWorkload** | **int32** |  | 
 **NodeId** | **string** |  | 
 
 ## Methods
 
 ### NewModelAgentId
 
-`func NewModelAgentId(nodeId string, ) *ModelAgentId`
+`func NewModelAgentId(availableWorkload int32, nodeId string, ) *ModelAgentId`
 
 NewModelAgentId instantiates a new ModelAgentId object
 This constructor will assign default values to properties that have it defined,
@@ -24,6 +25,26 @@ will change when the set of required properties is changed
 NewModelAgentIdWithDefaults instantiates a new ModelAgentId object
 This constructor will only assign default values to properties that have it defined,
 but it doesn't guarantee that properties required by API are set
+
+### GetAvailableWorkload
+
+`func (o *ModelAgentId) GetAvailableWorkload() int32`
+
+GetAvailableWorkload returns the AvailableWorkload field if non-nil, zero value otherwise.
+
+### GetAvailableWorkloadOk
+
+`func (o *ModelAgentId) GetAvailableWorkloadOk() (*int32, bool)`
+
+GetAvailableWorkloadOk returns a tuple with the AvailableWorkload field if it's non-nil, zero value otherwise
+and a boolean to check if the value has been set.
+
+### SetAvailableWorkload
+
+`func (o *ModelAgentId) SetAvailableWorkload(v int32)`
+
+SetAvailableWorkload sets AvailableWorkload field to given value.
+
 
 ### GetNodeId
 
