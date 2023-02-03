@@ -13,6 +13,19 @@ import (
 	"github.com/google/uuid"
 )
 
+const countActiveUsers = `-- name: CountActiveUsers :one
+SELECT count(*)
+FROM users
+WHERE users.is_active = true
+`
+
+func (q *Queries) CountActiveUsers(ctx context.Context) (int64, error) {
+	row := q.db.QueryRowContext(ctx, countActiveUsers)
+	var count int64
+	err := row.Scan(&count)
+	return count, err
+}
+
 const countCompanies = `-- name: CountCompanies :one
 SELECT count(*)
 FROM company
@@ -487,7 +500,7 @@ func (q *Queries) GetApiToken(ctx context.Context, id int64) (ApiToken, error) {
 const getApiTokenByActiveUser = `-- name: GetApiTokenByActiveUser :one
 SELECT api_token.api_token
 FROM api_token
-    INNER JOIN users u on api_token.created_by_user_id = u.id
+         INNER JOIN users u on api_token.created_by_user_id = u.id
 WHERE u.is_active = 'true'
 LIMIT 1
 `
@@ -926,7 +939,7 @@ SELECT container_registry.id,
        container_registry.updated_at
 FROM container_registry
 WHERE container_registry.registry_type = $1
-AND container_registry.name = $2
+  AND container_registry.name = $2
 LIMIT 1
 `
 
