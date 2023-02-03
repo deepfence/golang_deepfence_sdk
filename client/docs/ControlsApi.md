@@ -6,7 +6,7 @@ Method | HTTP request | Description
 ------------- | ------------- | -------------
 [**GetAgentControls**](ControlsApi.md#GetAgentControls) | **Post** /deepfence/controls/agent | Fetch Agent Actions
 [**GetAgentInitControls**](ControlsApi.md#GetAgentInitControls) | **Post** /deepfence/controls/agent-init | Fetch Agent Init Actions
-[**GetKubernetesScannerControls**](ControlsApi.md#GetKubernetesScannerControls) | **Post** /deepfence/controls/kubernetes-scanner | Fetch Kubernetes Scanner Actions
+[**GetKubernetesClusterControls**](ControlsApi.md#GetKubernetesClusterControls) | **Post** /deepfence/controls/kubernetes-cluster | Fetch Kubernetes Cluster Actions
 [**UpgradeAgentVersion**](ControlsApi.md#UpgradeAgentVersion) | **Post** /deepfence/controls/agent-upgrade | Schedule new agent version upgrade
 
 
@@ -143,11 +143,11 @@ Name | Type | Description  | Notes
 [[Back to README]](../README.md)
 
 
-## GetKubernetesScannerControls
+## GetKubernetesClusterControls
 
-> ControlsKubernetesScannerControlResponse GetKubernetesScannerControls(ctx).ModelAgentId(modelAgentId).Execute()
+> ControlsAgentControls GetKubernetesClusterControls(ctx).ModelAgentId(modelAgentId).Execute()
 
-Fetch Kubernetes Scanner Actions
+Fetch Kubernetes Cluster Actions
 
 
 
@@ -168,13 +168,13 @@ func main() {
 
     configuration := openapiclient.NewConfiguration()
     apiClient := openapiclient.NewAPIClient(configuration)
-    resp, r, err := apiClient.ControlsApi.GetKubernetesScannerControls(context.Background()).ModelAgentId(modelAgentId).Execute()
+    resp, r, err := apiClient.ControlsApi.GetKubernetesClusterControls(context.Background()).ModelAgentId(modelAgentId).Execute()
     if err != nil {
-        fmt.Fprintf(os.Stderr, "Error when calling `ControlsApi.GetKubernetesScannerControls``: %v\n", err)
+        fmt.Fprintf(os.Stderr, "Error when calling `ControlsApi.GetKubernetesClusterControls``: %v\n", err)
         fmt.Fprintf(os.Stderr, "Full HTTP response: %v\n", r)
     }
-    // response from `GetKubernetesScannerControls`: ControlsKubernetesScannerControlResponse
-    fmt.Fprintf(os.Stdout, "Response from `ControlsApi.GetKubernetesScannerControls`: %v\n", resp)
+    // response from `GetKubernetesClusterControls`: ControlsAgentControls
+    fmt.Fprintf(os.Stdout, "Response from `ControlsApi.GetKubernetesClusterControls`: %v\n", resp)
 }
 ```
 
@@ -184,7 +184,7 @@ func main() {
 
 ### Other Parameters
 
-Other parameters are passed through a pointer to a apiGetKubernetesScannerControlsRequest struct via the builder pattern
+Other parameters are passed through a pointer to a apiGetKubernetesClusterControlsRequest struct via the builder pattern
 
 
 Name | Type | Description  | Notes
@@ -193,7 +193,7 @@ Name | Type | Description  | Notes
 
 ### Return type
 
-[**ControlsKubernetesScannerControlResponse**](ControlsKubernetesScannerControlResponse.md)
+[**ControlsAgentControls**](ControlsAgentControls.md)
 
 ### Authorization
 

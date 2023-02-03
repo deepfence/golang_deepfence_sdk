@@ -67,8 +67,6 @@ type APIClient struct {
 
 	InternalApi *InternalApiService
 
-	KubernetesScannerApi *KubernetesScannerApiService
-
 	LookupApi *LookupApiService
 
 	MalwareScanApi *MalwareScanApiService
@@ -108,7 +106,6 @@ func NewAPIClient(cfg *Configuration) *APIClient {
 	c.ControlsApi = (*ControlsApiService)(&c.common)
 	c.DiagnosisApi = (*DiagnosisApiService)(&c.common)
 	c.InternalApi = (*InternalApiService)(&c.common)
-	c.KubernetesScannerApi = (*KubernetesScannerApiService)(&c.common)
 	c.LookupApi = (*LookupApiService)(&c.common)
 	c.MalwareScanApi = (*MalwareScanApiService)(&c.common)
 	c.SecretScanApi = (*SecretScanApiService)(&c.common)
@@ -261,11 +258,7 @@ func parameterAddToQuery(queryParams interface{}, keyPrefix string, obj interfac
 
 	switch valuesMap := queryParams.(type) {
 		case url.Values:
-			if collectionType == "csv" && valuesMap.Get(keyPrefix) != "" {
-				valuesMap.Set(keyPrefix, valuesMap.Get(keyPrefix) + "," + value)
-			} else {
-				valuesMap.Add(keyPrefix, value)
-			}
+			valuesMap.Add( keyPrefix, value )
 			break
 		case map[string]string:
 			valuesMap[keyPrefix] = value

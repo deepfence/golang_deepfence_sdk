@@ -301,52 +301,52 @@ func (a *ControlsApiService) GetAgentInitControlsExecute(r ApiGetAgentInitContro
 	return localVarReturnValue, localVarHTTPResponse, nil
 }
 
-type ApiGetKubernetesScannerControlsRequest struct {
+type ApiGetKubernetesClusterControlsRequest struct {
 	ctx context.Context
 	ApiService *ControlsApiService
 	modelAgentId *ModelAgentId
 }
 
-func (r ApiGetKubernetesScannerControlsRequest) ModelAgentId(modelAgentId ModelAgentId) ApiGetKubernetesScannerControlsRequest {
+func (r ApiGetKubernetesClusterControlsRequest) ModelAgentId(modelAgentId ModelAgentId) ApiGetKubernetesClusterControlsRequest {
 	r.modelAgentId = &modelAgentId
 	return r
 }
 
-func (r ApiGetKubernetesScannerControlsRequest) Execute() (*ControlsKubernetesScannerControlResponse, *http.Response, error) {
-	return r.ApiService.GetKubernetesScannerControlsExecute(r)
+func (r ApiGetKubernetesClusterControlsRequest) Execute() (*ControlsAgentControls, *http.Response, error) {
+	return r.ApiService.GetKubernetesClusterControlsExecute(r)
 }
 
 /*
-GetKubernetesScannerControls Fetch Kubernetes Scanner Actions
+GetKubernetesClusterControls Fetch Kubernetes Cluster Actions
 
 Fetch actions for a given Kubernetes Cluster
 
  @param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
- @return ApiGetKubernetesScannerControlsRequest
+ @return ApiGetKubernetesClusterControlsRequest
 */
-func (a *ControlsApiService) GetKubernetesScannerControls(ctx context.Context) ApiGetKubernetesScannerControlsRequest {
-	return ApiGetKubernetesScannerControlsRequest{
+func (a *ControlsApiService) GetKubernetesClusterControls(ctx context.Context) ApiGetKubernetesClusterControlsRequest {
+	return ApiGetKubernetesClusterControlsRequest{
 		ApiService: a,
 		ctx: ctx,
 	}
 }
 
 // Execute executes the request
-//  @return ControlsKubernetesScannerControlResponse
-func (a *ControlsApiService) GetKubernetesScannerControlsExecute(r ApiGetKubernetesScannerControlsRequest) (*ControlsKubernetesScannerControlResponse, *http.Response, error) {
+//  @return ControlsAgentControls
+func (a *ControlsApiService) GetKubernetesClusterControlsExecute(r ApiGetKubernetesClusterControlsRequest) (*ControlsAgentControls, *http.Response, error) {
 	var (
 		localVarHTTPMethod   = http.MethodPost
 		localVarPostBody     interface{}
 		formFiles            []formFile
-		localVarReturnValue  *ControlsKubernetesScannerControlResponse
+		localVarReturnValue  *ControlsAgentControls
 	)
 
-	localBasePath, err := a.client.cfg.ServerURLWithContext(r.ctx, "ControlsApiService.GetKubernetesScannerControls")
+	localBasePath, err := a.client.cfg.ServerURLWithContext(r.ctx, "ControlsApiService.GetKubernetesClusterControls")
 	if err != nil {
 		return localVarReturnValue, nil, &GenericOpenAPIError{error: err.Error()}
 	}
 
-	localVarPath := localBasePath + "/deepfence/controls/kubernetes-scanner"
+	localVarPath := localBasePath + "/deepfence/controls/kubernetes-cluster"
 
 	localVarHeaderParams := make(map[string]string)
 	localVarQueryParams := url.Values{}

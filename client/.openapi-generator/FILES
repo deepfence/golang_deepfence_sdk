@@ -10,7 +10,6 @@ api_compliance.go
 api_controls.go
 api_diagnosis.go
 api_internal.go
-api_kubernetes_scanner.go
 api_lookup.go
 api_malware_scan.go
 api_secret_scan.go
@@ -31,9 +30,6 @@ docs/ComplianceApi.md
 docs/ControlsAction.md
 docs/ControlsAgentControls.md
 docs/ControlsApi.md
-docs/ControlsKubernetesScannerControlResponse.md
-docs/ControlsKubernetesScannerPendingScan.md
-docs/ControlsKubernetesScannerPendingScans.md
 docs/DetailedConnectionSummary.md
 docs/DetailedNodeSummary.md
 docs/DetailedParent.md
@@ -44,7 +40,6 @@ docs/IngestersCloudResource.md
 docs/IngestersCompliance.md
 docs/IngestersMalware.md
 docs/IngestersMalwareScanStatus.md
-docs/IngestersRegisterKubernetesScannerRequest.md
 docs/IngestersReportIngestionData.md
 docs/IngestersSecret.md
 docs/IngestersSecretMatch.md
@@ -54,7 +49,6 @@ docs/IngestersSecretSeverity.md
 docs/IngestersVulnerability.md
 docs/IngestersVulnerabilityScanStatus.md
 docs/InternalApi.md
-docs/KubernetesScannerApi.md
 docs/LookupApi.md
 docs/MalwareScanApi.md
 docs/ModelAgentId.md
@@ -132,9 +126,6 @@ model_api_docs_failure_response.go
 model_api_docs_graph_result.go
 model_controls_action.go
 model_controls_agent_controls.go
-model_controls_kubernetes_scanner_control_response.go
-model_controls_kubernetes_scanner_pending_scan.go
-model_controls_kubernetes_scanner_pending_scans.go
 model_detailed_connection_summary.go
 model_detailed_node_summary.go
 model_detailed_parent.go
@@ -144,7 +135,6 @@ model_ingesters_cloud_resource.go
 model_ingesters_compliance.go
 model_ingesters_malware.go
 model_ingesters_malware_scan_status.go
-model_ingesters_register_kubernetes_scanner_request.go
 model_ingesters_report_ingestion_data.go
 model_ingesters_secret.go
 model_ingesters_secret_match.go
@@ -224,7 +214,6 @@ test/api_compliance_test.go
 test/api_controls_test.go
 test/api_diagnosis_test.go
 test/api_internal_test.go
-test/api_kubernetes_scanner_test.go
 test/api_lookup_test.go
 test/api_malware_scan_test.go
 test/api_secret_scan_test.go

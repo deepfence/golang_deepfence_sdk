@@ -363,10 +363,10 @@ paths:
       summary: Schedule new agent version upgrade
       tags:
       - Controls
-  /deepfence/controls/kubernetes-scanner:
+  /deepfence/controls/kubernetes-cluster:
     post:
       description: Fetch actions for a given Kubernetes Cluster
-      operationId: getKubernetesScannerControls
+      operationId: getKubernetesClusterControls
       requestBody:
         content:
           application/json:
@@ -377,7 +377,7 @@ paths:
           content:
             application/json:
               schema:
-                $ref: '#/components/schemas/ControlsKubernetesScannerControlResponse'
+                $ref: '#/components/schemas/ControlsAgentControls'
           description: OK
         "400":
           content:
@@ -403,7 +403,7 @@ paths:
           description: Internal Server Error
       security:
       - bearer_token: []
-      summary: Fetch Kubernetes Scanner Actions
+      summary: Fetch Kubernetes Cluster Actions
       tags:
       - Controls
   /deepfence/diagnosis/agent-logs:
@@ -931,48 +931,6 @@ paths:
       summary: Ingest Compliances
       tags:
       - Compliance
-  /deepfence/ingest/kubernetes-scanner:
-    post:
-      description: Register Kubernetes Scanner
-      operationId: registerKubernetesScanner
-      requestBody:
-        content:
-          application/json:
-            schema:
-              items:
-                $ref: '#/components/schemas/IngestersRegisterKubernetesScannerRequest'
-              nullable: true
-              type: array
-      responses:
-        "204":
-          description: No Content
-        "400":
-          content:
-            application/json:
-              schema:
-                $ref: '#/components/schemas/ApiDocsBadRequestResponse'
-          description: Bad Request
-        "401":
-          description: Unauthorized
-        "403":
-          description: Forbidden
-        "404":
-          content:
-            application/json:
-              schema:
-                $ref: '#/components/schemas/ApiDocsFailureResponse'
-          description: Not Found
-        "500":
-          content:
-            application/json:
-              schema:
-                $ref: '#/components/schemas/ApiDocsFailureResponse'
-          description: Internal Server Error
-      security:
-      - bearer_token: []
-      summary: Register Kubernetes Scanner
-      tags:
-      - Kubernetes Scanner
   /deepfence/ingest/malware:
     post:
       description: Ingest malware found while scanning the agent
@@ -1511,51 +1469,6 @@ paths:
       security:
       - bearer_token: []
       summary: Retrieve Hosts data
-      tags:
-      - Lookup
-  /deepfence/lookup/kubernetes-scanners:
-    post:
-      description: Retrieve all the data associated with k8s scanners
-      operationId: getKubernetesScanners
-      requestBody:
-        content:
-          application/json:
-            schema:
-              $ref: '#/components/schemas/ReportersLookupFilter'
-      responses:
-        "200":
-          content:
-            application/json:
-              schema:
-                items:
-                  $ref: '#/components/schemas/ModelKubernetesCluster'
-                type: array
-          description: OK
-        "400":
-          content:
-            application/json:
-              schema:
-                $ref: '#/components/schemas/ApiDocsBadRequestResponse'
-          description: Bad Request
-        "401":
-          description: Unauthorized
-        "403":
-          description: Forbidden
-        "404":
-          content:
-            application/json:
-              schema:
-                $ref: '#/components/schemas/ApiDocsFailureResponse'
-          description: Not Found
-        "500":
-          content:
-            application/json:
-              schema:
-                $ref: '#/components/schemas/ApiDocsFailureResponse'
-          description: Internal Server Error
-      security:
-      - bearer_token: []
-      summary: Retrieve K8s scanners data
       tags:
       - Lookup
   /deepfence/lookup/kubernetesclusters:
@@ -3129,66 +3042,6 @@ components:
       - beatrate
       - commands
       type: object
-    ControlsKubernetesScannerControlResponse:
-      example:
-        data:
-          scans:
-            key:
-              account_id: account_id
-              controls:
-              - controls
-              - controls
-              scan_type: scan_type
-              scan_id: scan_id
-          refresh: refresh
-      properties:
-        data:
-          $ref: '#/components/schemas/ControlsKubernetesScannerPendingScans'
-      type: object
-    ControlsKubernetesScannerPendingScan:
-      example:
-        account_id: account_id
-        controls:
-        - controls
-        - controls
-        scan_type: scan_type
-        scan_id: scan_id
-      properties:
-        account_id:
-          type: string
-        controls:
-          items:
-            type: string
-          nullable: true
-          type: array
-        scan_id:
-          type: string
-        scan_type:
-          type: string
-      type: object
-    ControlsKubernetesScannerPendingScanMap:
-      additionalProperties:
-        $ref: '#/components/schemas/ControlsKubernetesScannerPendingScan'
-      type: object
-    ControlsKubernetesScannerPendingScans:
-      example:
-        scans:
-          key:
-            account_id: account_id
-            controls:
-            - controls
-            - controls
-            scan_type: scan_type
-            scan_id: scan_id
-        refresh: refresh
-      properties:
-        refresh:
-          type: string
-        scans:
-          additionalProperties:
-            $ref: '#/components/schemas/ControlsKubernetesScannerPendingScan'
-          type: object
-      type: object
     DetailedConnectionSummary:
       example:
         source: source
@@ -3705,16 +3558,6 @@ components:
         scan_id:
           type: string
         scan_status:
-          type: string
-      type: object
-    IngestersRegisterKubernetesScannerRequest:
-      example:
-        kubernetes_cluster_name: kubernetes_cluster_name
-        node_id: node_id
-      properties:
-        kubernetes_cluster_name:
-          type: string
-        node_id:
           type: string
       type: object
     IngestersReportIngestionData:
