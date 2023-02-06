@@ -79,7 +79,7 @@ Name | Type | Description  | Notes
 
 ## GetAgentInitControls
 
-> ControlsAgentControls GetAgentInitControls(ctx).ModelInitAgentReq(modelInitAgentReq).Execute()
+> ControlsAgentControls GetAgentInitControls(ctx).ModelAgentId(modelAgentId).Execute()
 
 Fetch Agent Init Actions
 
@@ -98,11 +98,11 @@ import (
 )
 
 func main() {
-    modelInitAgentReq := *openapiclient.NewModelInitAgentReq(int32(123), "NodeId_example", "Version_example") // ModelInitAgentReq |  (optional)
+    modelAgentId := *openapiclient.NewModelAgentId(int32(123), "NodeId_example") // ModelAgentId |  (optional)
 
     configuration := openapiclient.NewConfiguration()
     apiClient := openapiclient.NewAPIClient(configuration)
-    resp, r, err := apiClient.ControlsApi.GetAgentInitControls(context.Background()).ModelInitAgentReq(modelInitAgentReq).Execute()
+    resp, r, err := apiClient.ControlsApi.GetAgentInitControls(context.Background()).ModelAgentId(modelAgentId).Execute()
     if err != nil {
         fmt.Fprintf(os.Stderr, "Error when calling `ControlsApi.GetAgentInitControls``: %v\n", err)
         fmt.Fprintf(os.Stderr, "Full HTTP response: %v\n", r)
@@ -123,7 +123,7 @@ Other parameters are passed through a pointer to a apiGetAgentInitControlsReques
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **modelInitAgentReq** | [**ModelInitAgentReq**](ModelInitAgentReq.md) |  | 
+ **modelAgentId** | [**ModelAgentId**](ModelAgentId.md) |  | 
 
 ### Return type
 

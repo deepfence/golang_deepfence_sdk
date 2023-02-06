@@ -192,7 +192,6 @@ Class | Method | HTTP request | Description
  - [ModelContainerImage](docs/ModelContainerImage.md)
  - [ModelFetchWindow](docs/ModelFetchWindow.md)
  - [ModelHost](docs/ModelHost.md)
- - [ModelInitAgentReq](docs/ModelInitAgentReq.md)
  - [ModelInviteUserRequest](docs/ModelInviteUserRequest.md)
  - [ModelInviteUserResponse](docs/ModelInviteUserResponse.md)
  - [ModelKubernetesCluster](docs/ModelKubernetesCluster.md)

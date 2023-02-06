@@ -29,6 +29,7 @@ const (
 	RetryFailedUpgradesTask = "retry_failed_upgrades"
 	ParseSBOMTask           = "tasks_parse_sbom"
 	CheckAgentUpgradeTask   = "tasks_check_agent_upgrade"
+	SyncRegistryTask        = "task_sync_registry"
 )
 
 const (

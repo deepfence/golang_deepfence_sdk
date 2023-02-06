@@ -70,7 +70,6 @@ docs/ModelContainer.md
 docs/ModelContainerImage.md
 docs/ModelFetchWindow.md
 docs/ModelHost.md
-docs/ModelInitAgentReq.md
 docs/ModelInviteUserRequest.md
 docs/ModelInviteUserResponse.md
 docs/ModelKubernetesCluster.md
@@ -163,7 +162,6 @@ model_model_container.go
 model_model_container_image.go
 model_model_fetch_window.go
 model_model_host.go
-model_model_init_agent_req.go
 model_model_invite_user_request.go
 model_model_invite_user_response.go
 model_model_kubernetes_cluster.go

@@ -289,7 +289,7 @@ paths:
         content:
           application/json:
             schema:
-              $ref: '#/components/schemas/ModelInitAgentReq'
+              $ref: '#/components/schemas/ModelAgentId'
       responses:
         "200":
           content:
@@ -4812,23 +4812,6 @@ components:
       - node_id
       - pods
       - processes
-      type: object
-    ModelInitAgentReq:
-      example:
-        available_workload: 0
-        version: version
-        node_id: node_id
-      properties:
-        available_workload:
-          type: integer
-        node_id:
-          type: string
-        version:
-          type: string
-      required:
-      - available_workload
-      - node_id
-      - version
       type: object
     ModelInviteUserRequest:
       example:
