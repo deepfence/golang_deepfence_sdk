@@ -23,11 +23,12 @@ const (
 
 // task names
 const (
-	CleanUpGraphDBTask    = "clean_up_graph_db"
-	CleanUpPostgresqlTask = "clean_up_postgresql"
-	RetryFailedScansTask  = "retry_failed_scans"
-	ParseSBOMTask         = "tasks_parse_sbom"
-	CheckAgentUpgradeTask = "tasks_check_agent_upgrade"
+	CleanUpGraphDBTask      = "clean_up_graph_db"
+	CleanUpPostgresqlTask   = "clean_up_postgresql"
+	RetryFailedScansTask    = "retry_failed_scans"
+	RetryFailedUpgradesTask = "retry_failed_upgrades"
+	ParseSBOMTask           = "tasks_parse_sbom"
+	CheckAgentUpgradeTask   = "tasks_check_agent_upgrade"
 )
 
 const (
