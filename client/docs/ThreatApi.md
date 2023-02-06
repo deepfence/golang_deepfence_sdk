@@ -25,7 +25,7 @@ import (
     "context"
     "fmt"
     "os"
-    openapiclient "./openapi"
+    openapiclient "github.com/deepfence/golang_deepfence_sdk/client"
 )
 
 func main() {
