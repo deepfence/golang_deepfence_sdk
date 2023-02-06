@@ -4,6 +4,7 @@ import (
 	"bytes"
 	"context"
 	"errors"
+	"fmt"
 	"net/http"
 	"net/url"
 	"path"
@@ -22,11 +23,11 @@ func init() {
 }
 
 type AlreadyPresentError struct {
-	err error
+	Path string
 }
 
 func (e AlreadyPresentError) Error() string {
-	return e.err.Error()
+	return fmt.Sprintf("Already exists here: %s", e.Path)
 }
 
 type FileManager interface {
@@ -67,7 +68,7 @@ func (mfm *MinioFileManager) UploadFile(ctx context.Context, filename string, da
 	}
 
 	if key, has := checkIfFileExists(ctx, mfm.client, mfm.namespace, path.Join(mfm.namespace, filename)); has {
-		return UploadResult{}, AlreadyPresentError{err: errors.New(key)}
+		return UploadResult{}, AlreadyPresentError{Path: key}
 	}
 
 	info, err := mfm.client.PutObject(ctx, mfm.namespace, path.Join(mfm.namespace, filename),
