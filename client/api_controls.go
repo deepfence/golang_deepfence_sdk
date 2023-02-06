@@ -165,11 +165,11 @@ func (a *ControlsApiService) GetAgentControlsExecute(r ApiGetAgentControlsReques
 type ApiGetAgentInitControlsRequest struct {
 	ctx context.Context
 	ApiService *ControlsApiService
-	modelAgentId *ModelAgentId
+	modelInitAgentReq *ModelInitAgentReq
 }
 
-func (r ApiGetAgentInitControlsRequest) ModelAgentId(modelAgentId ModelAgentId) ApiGetAgentInitControlsRequest {
-	r.modelAgentId = &modelAgentId
+func (r ApiGetAgentInitControlsRequest) ModelInitAgentReq(modelInitAgentReq ModelInitAgentReq) ApiGetAgentInitControlsRequest {
+	r.modelInitAgentReq = &modelInitAgentReq
 	return r
 }
 
@@ -231,7 +231,7 @@ func (a *ControlsApiService) GetAgentInitControlsExecute(r ApiGetAgentInitContro
 		localVarHeaderParams["Accept"] = localVarHTTPHeaderAccept
 	}
 	// body params
-	localVarPostBody = r.modelAgentId
+	localVarPostBody = r.modelInitAgentReq
 	req, err := a.client.prepareRequest(r.ctx, localVarPath, localVarHTTPMethod, localVarPostBody, localVarHeaderParams, localVarQueryParams, localVarFormParams, formFiles)
 	if err != nil {
 		return localVarReturnValue, nil, err
