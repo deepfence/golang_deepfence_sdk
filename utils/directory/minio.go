@@ -52,12 +52,12 @@ type UploadResult struct {
 	VersionID    string
 }
 
-func checkIfFileExists(ctx context.Context, client *minio.Client, bucket, filename string) bool {
-	_, err := client.StatObject(ctx, bucket, filename, minio.StatObjectOptions{})
+func checkIfFileExists(ctx context.Context, client *minio.Client, bucket, filename string) (string, bool) {
+	info, err := client.StatObject(ctx, bucket, filename, minio.StatObjectOptions{})
 	if err != nil {
-		return false
+		return "", false
 	}
-	return true
+	return info.Key, true
 }
 
 func (mfm *MinioFileManager) UploadFile(ctx context.Context, filename string, data []byte, extra interface{}) (UploadResult, error) {
@@ -66,8 +66,8 @@ func (mfm *MinioFileManager) UploadFile(ctx context.Context, filename string, da
 		return UploadResult{}, err
 	}
 
-	if checkIfFileExists(ctx, mfm.client, mfm.namespace, path.Join(mfm.namespace, filename)) {
-		return UploadResult{}, AlreadyPresentError{err: errors.New("Location already present")}
+	if key, has := checkIfFileExists(ctx, mfm.client, mfm.namespace, path.Join(mfm.namespace, filename)); has {
+		return UploadResult{}, AlreadyPresentError{err: errors.New(key)}
 	}
 
 	info, err := mfm.client.PutObject(ctx, mfm.namespace, path.Join(mfm.namespace, filename),
