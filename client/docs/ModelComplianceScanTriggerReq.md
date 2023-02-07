@@ -4,14 +4,14 @@
 
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
-**GenerateBulkScanId** | **bool** |  | 
-**ScanTriggers** | [**[]ModelScanTrigger**](ModelScanTrigger.md) |  | 
+**Filters** | [**ModelScanFilter**](ModelScanFilter.md) |  | 
+**NodeIds** | [**[]ModelNodeIdentifier**](ModelNodeIdentifier.md) |  | 
 
 ## Methods
 
 ### NewModelComplianceScanTriggerReq
 
-`func NewModelComplianceScanTriggerReq(generateBulkScanId bool, scanTriggers []ModelScanTrigger, ) *ModelComplianceScanTriggerReq`
+`func NewModelComplianceScanTriggerReq(filters ModelScanFilter, nodeIds []ModelNodeIdentifier, ) *ModelComplianceScanTriggerReq`
 
 NewModelComplianceScanTriggerReq instantiates a new ModelComplianceScanTriggerReq object
 This constructor will assign default values to properties that have it defined,
@@ -26,56 +26,56 @@ NewModelComplianceScanTriggerReqWithDefaults instantiates a new ModelComplianceS
 This constructor will only assign default values to properties that have it defined,
 but it doesn't guarantee that properties required by API are set
 
-### GetGenerateBulkScanId
+### GetFilters
 
-`func (o *ModelComplianceScanTriggerReq) GetGenerateBulkScanId() bool`
+`func (o *ModelComplianceScanTriggerReq) GetFilters() ModelScanFilter`
 
-GetGenerateBulkScanId returns the GenerateBulkScanId field if non-nil, zero value otherwise.
+GetFilters returns the Filters field if non-nil, zero value otherwise.
 
-### GetGenerateBulkScanIdOk
+### GetFiltersOk
 
-`func (o *ModelComplianceScanTriggerReq) GetGenerateBulkScanIdOk() (*bool, bool)`
+`func (o *ModelComplianceScanTriggerReq) GetFiltersOk() (*ModelScanFilter, bool)`
 
-GetGenerateBulkScanIdOk returns a tuple with the GenerateBulkScanId field if it's non-nil, zero value otherwise
+GetFiltersOk returns a tuple with the Filters field if it's non-nil, zero value otherwise
 and a boolean to check if the value has been set.
 
-### SetGenerateBulkScanId
+### SetFilters
 
-`func (o *ModelComplianceScanTriggerReq) SetGenerateBulkScanId(v bool)`
+`func (o *ModelComplianceScanTriggerReq) SetFilters(v ModelScanFilter)`
 
-SetGenerateBulkScanId sets GenerateBulkScanId field to given value.
+SetFilters sets Filters field to given value.
 
 
-### GetScanTriggers
+### GetNodeIds
 
-`func (o *ModelComplianceScanTriggerReq) GetScanTriggers() []ModelScanTrigger`
+`func (o *ModelComplianceScanTriggerReq) GetNodeIds() []ModelNodeIdentifier`
 
-GetScanTriggers returns the ScanTriggers field if non-nil, zero value otherwise.
+GetNodeIds returns the NodeIds field if non-nil, zero value otherwise.
 
-### GetScanTriggersOk
+### GetNodeIdsOk
 
-`func (o *ModelComplianceScanTriggerReq) GetScanTriggersOk() (*[]ModelScanTrigger, bool)`
+`func (o *ModelComplianceScanTriggerReq) GetNodeIdsOk() (*[]ModelNodeIdentifier, bool)`
 
-GetScanTriggersOk returns a tuple with the ScanTriggers field if it's non-nil, zero value otherwise
+GetNodeIdsOk returns a tuple with the NodeIds field if it's non-nil, zero value otherwise
 and a boolean to check if the value has been set.
 
-### SetScanTriggers
+### SetNodeIds
 
-`func (o *ModelComplianceScanTriggerReq) SetScanTriggers(v []ModelScanTrigger)`
+`func (o *ModelComplianceScanTriggerReq) SetNodeIds(v []ModelNodeIdentifier)`
 
-SetScanTriggers sets ScanTriggers field to given value.
+SetNodeIds sets NodeIds field to given value.
 
 
-### SetScanTriggersNil
+### SetNodeIdsNil
 
-`func (o *ModelComplianceScanTriggerReq) SetScanTriggersNil(b bool)`
+`func (o *ModelComplianceScanTriggerReq) SetNodeIdsNil(b bool)`
 
- SetScanTriggersNil sets the value for ScanTriggers to be an explicit nil
+ SetNodeIdsNil sets the value for NodeIds to be an explicit nil
 
-### UnsetScanTriggers
-`func (o *ModelComplianceScanTriggerReq) UnsetScanTriggers()`
+### UnsetNodeIds
+`func (o *ModelComplianceScanTriggerReq) UnsetNodeIds()`
 
-UnsetScanTriggers ensures that no value is present for ScanTriggers, not even an explicit nil
+UnsetNodeIds ensures that no value is present for NodeIds, not even an explicit nil
 
 [[Back to Model list]](../README.md#documentation-for-models) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to README]](../README.md)
 

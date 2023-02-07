@@ -295,7 +295,7 @@ import (
 )
 
 func main() {
-    modelSecretScanTriggerReq := *openapiclient.NewModelSecretScanTriggerReq(false, []openapiclient.ModelScanTrigger{*openapiclient.NewModelScanTrigger("NodeId_example", "NodeType_example")}) // ModelSecretScanTriggerReq |  (optional)
+    modelSecretScanTriggerReq := *openapiclient.NewModelSecretScanTriggerReq(*openapiclient.NewModelScanFilter(*openapiclient.NewModelFieldsFilter([]openapiclient.ModelKeyValue{*openapiclient.NewModelKeyValue("Key_example", "Value_example")}), *openapiclient.NewModelFieldsFilter([]openapiclient.ModelKeyValue{*openapiclient.NewModelKeyValue("Key_example", "Value_example")}), *openapiclient.NewModelFieldsFilter([]openapiclient.ModelKeyValue{*openapiclient.NewModelKeyValue("Key_example", "Value_example")})), []openapiclient.ModelNodeIdentifier{*openapiclient.NewModelNodeIdentifier("NodeId_example", "NodeType_example")}) // ModelSecretScanTriggerReq |  (optional)
 
     configuration := openapiclient.NewConfiguration()
     apiClient := openapiclient.NewAPIClient(configuration)
@@ -429,7 +429,7 @@ import (
 )
 
 func main() {
-    modelSecretScanTriggerReq := *openapiclient.NewModelSecretScanTriggerReq(false, []openapiclient.ModelScanTrigger{*openapiclient.NewModelScanTrigger("NodeId_example", "NodeType_example")}) // ModelSecretScanTriggerReq |  (optional)
+    modelSecretScanTriggerReq := *openapiclient.NewModelSecretScanTriggerReq(*openapiclient.NewModelScanFilter(*openapiclient.NewModelFieldsFilter([]openapiclient.ModelKeyValue{*openapiclient.NewModelKeyValue("Key_example", "Value_example")}), *openapiclient.NewModelFieldsFilter([]openapiclient.ModelKeyValue{*openapiclient.NewModelKeyValue("Key_example", "Value_example")}), *openapiclient.NewModelFieldsFilter([]openapiclient.ModelKeyValue{*openapiclient.NewModelKeyValue("Key_example", "Value_example")})), []openapiclient.ModelNodeIdentifier{*openapiclient.NewModelNodeIdentifier("NodeId_example", "NodeType_example")}) // ModelSecretScanTriggerReq |  (optional)
 
     configuration := openapiclient.NewConfiguration()
     apiClient := openapiclient.NewAPIClient(configuration)

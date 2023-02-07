@@ -230,7 +230,7 @@ import (
 )
 
 func main() {
-    modelComplianceScanTriggerReq := *openapiclient.NewModelComplianceScanTriggerReq(false, []openapiclient.ModelScanTrigger{*openapiclient.NewModelScanTrigger("NodeId_example", "NodeType_example")}) // ModelComplianceScanTriggerReq |  (optional)
+    modelComplianceScanTriggerReq := *openapiclient.NewModelComplianceScanTriggerReq(*openapiclient.NewModelScanFilter(*openapiclient.NewModelFieldsFilter([]openapiclient.ModelKeyValue{*openapiclient.NewModelKeyValue("Key_example", "Value_example")}), *openapiclient.NewModelFieldsFilter([]openapiclient.ModelKeyValue{*openapiclient.NewModelKeyValue("Key_example", "Value_example")}), *openapiclient.NewModelFieldsFilter([]openapiclient.ModelKeyValue{*openapiclient.NewModelKeyValue("Key_example", "Value_example")})), []openapiclient.ModelNodeIdentifier{*openapiclient.NewModelNodeIdentifier("NodeId_example", "NodeType_example")}) // ModelComplianceScanTriggerReq |  (optional)
 
     configuration := openapiclient.NewConfiguration()
     apiClient := openapiclient.NewAPIClient(configuration)
@@ -364,7 +364,7 @@ import (
 )
 
 func main() {
-    modelComplianceScanTriggerReq := *openapiclient.NewModelComplianceScanTriggerReq(false, []openapiclient.ModelScanTrigger{*openapiclient.NewModelScanTrigger("NodeId_example", "NodeType_example")}) // ModelComplianceScanTriggerReq |  (optional)
+    modelComplianceScanTriggerReq := *openapiclient.NewModelComplianceScanTriggerReq(*openapiclient.NewModelScanFilter(*openapiclient.NewModelFieldsFilter([]openapiclient.ModelKeyValue{*openapiclient.NewModelKeyValue("Key_example", "Value_example")}), *openapiclient.NewModelFieldsFilter([]openapiclient.ModelKeyValue{*openapiclient.NewModelKeyValue("Key_example", "Value_example")}), *openapiclient.NewModelFieldsFilter([]openapiclient.ModelKeyValue{*openapiclient.NewModelKeyValue("Key_example", "Value_example")})), []openapiclient.ModelNodeIdentifier{*openapiclient.NewModelNodeIdentifier("NodeId_example", "NodeType_example")}) // ModelComplianceScanTriggerReq |  (optional)
 
     configuration := openapiclient.NewConfiguration()
     apiClient := openapiclient.NewAPIClient(configuration)

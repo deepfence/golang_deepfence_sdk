@@ -20,18 +20,18 @@ var _ MappedNullable = &ModelComplianceScanTriggerReq{}
 
 // ModelComplianceScanTriggerReq struct for ModelComplianceScanTriggerReq
 type ModelComplianceScanTriggerReq struct {
-	GenerateBulkScanId bool `json:"generate_bulk_scan_id"`
-	ScanTriggers []ModelScanTrigger `json:"scan_triggers"`
+	Filters ModelScanFilter `json:"filters"`
+	NodeIds []ModelNodeIdentifier `json:"node_ids"`
 }
 
 // NewModelComplianceScanTriggerReq instantiates a new ModelComplianceScanTriggerReq object
 // This constructor will assign default values to properties that have it defined,
 // and makes sure properties required by API are set, but the set of arguments
 // will change when the set of required properties is changed
-func NewModelComplianceScanTriggerReq(generateBulkScanId bool, scanTriggers []ModelScanTrigger) *ModelComplianceScanTriggerReq {
+func NewModelComplianceScanTriggerReq(filters ModelScanFilter, nodeIds []ModelNodeIdentifier) *ModelComplianceScanTriggerReq {
 	this := ModelComplianceScanTriggerReq{}
-	this.GenerateBulkScanId = generateBulkScanId
-	this.ScanTriggers = scanTriggers
+	this.Filters = filters
+	this.NodeIds = nodeIds
 	return &this
 }
 
@@ -43,54 +43,54 @@ func NewModelComplianceScanTriggerReqWithDefaults() *ModelComplianceScanTriggerR
 	return &this
 }
 
-// GetGenerateBulkScanId returns the GenerateBulkScanId field value
-func (o *ModelComplianceScanTriggerReq) GetGenerateBulkScanId() bool {
+// GetFilters returns the Filters field value
+func (o *ModelComplianceScanTriggerReq) GetFilters() ModelScanFilter {
 	if o == nil {
-		var ret bool
+		var ret ModelScanFilter
 		return ret
 	}
 
-	return o.GenerateBulkScanId
+	return o.Filters
 }
 
-// GetGenerateBulkScanIdOk returns a tuple with the GenerateBulkScanId field value
+// GetFiltersOk returns a tuple with the Filters field value
 // and a boolean to check if the value has been set.
-func (o *ModelComplianceScanTriggerReq) GetGenerateBulkScanIdOk() (*bool, bool) {
+func (o *ModelComplianceScanTriggerReq) GetFiltersOk() (*ModelScanFilter, bool) {
 	if o == nil {
 		return nil, false
 	}
-	return &o.GenerateBulkScanId, true
+	return &o.Filters, true
 }
 
-// SetGenerateBulkScanId sets field value
-func (o *ModelComplianceScanTriggerReq) SetGenerateBulkScanId(v bool) {
-	o.GenerateBulkScanId = v
+// SetFilters sets field value
+func (o *ModelComplianceScanTriggerReq) SetFilters(v ModelScanFilter) {
+	o.Filters = v
 }
 
-// GetScanTriggers returns the ScanTriggers field value
-// If the value is explicit nil, the zero value for []ModelScanTrigger will be returned
-func (o *ModelComplianceScanTriggerReq) GetScanTriggers() []ModelScanTrigger {
+// GetNodeIds returns the NodeIds field value
+// If the value is explicit nil, the zero value for []ModelNodeIdentifier will be returned
+func (o *ModelComplianceScanTriggerReq) GetNodeIds() []ModelNodeIdentifier {
 	if o == nil {
-		var ret []ModelScanTrigger
+		var ret []ModelNodeIdentifier
 		return ret
 	}
 
-	return o.ScanTriggers
+	return o.NodeIds
 }
 
-// GetScanTriggersOk returns a tuple with the ScanTriggers field value
+// GetNodeIdsOk returns a tuple with the NodeIds field value
 // and a boolean to check if the value has been set.
 // NOTE: If the value is an explicit nil, `nil, true` will be returned
-func (o *ModelComplianceScanTriggerReq) GetScanTriggersOk() ([]ModelScanTrigger, bool) {
-	if o == nil || isNil(o.ScanTriggers) {
+func (o *ModelComplianceScanTriggerReq) GetNodeIdsOk() ([]ModelNodeIdentifier, bool) {
+	if o == nil || isNil(o.NodeIds) {
 		return nil, false
 	}
-	return o.ScanTriggers, true
+	return o.NodeIds, true
 }
 
-// SetScanTriggers sets field value
-func (o *ModelComplianceScanTriggerReq) SetScanTriggers(v []ModelScanTrigger) {
-	o.ScanTriggers = v
+// SetNodeIds sets field value
+func (o *ModelComplianceScanTriggerReq) SetNodeIds(v []ModelNodeIdentifier) {
+	o.NodeIds = v
 }
 
 func (o ModelComplianceScanTriggerReq) MarshalJSON() ([]byte, error) {
@@ -103,9 +103,9 @@ func (o ModelComplianceScanTriggerReq) MarshalJSON() ([]byte, error) {
 
 func (o ModelComplianceScanTriggerReq) ToMap() (map[string]interface{}, error) {
 	toSerialize := map[string]interface{}{}
-	toSerialize["generate_bulk_scan_id"] = o.GenerateBulkScanId
-	if o.ScanTriggers != nil {
-		toSerialize["scan_triggers"] = o.ScanTriggers
+	toSerialize["filters"] = o.Filters
+	if o.NodeIds != nil {
+		toSerialize["node_ids"] = o.NodeIds
 	}
 	return toSerialize, nil
 }

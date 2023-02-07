@@ -20,18 +20,18 @@ var _ MappedNullable = &ModelSecretScanTriggerReq{}
 
 // ModelSecretScanTriggerReq struct for ModelSecretScanTriggerReq
 type ModelSecretScanTriggerReq struct {
-	GenerateBulkScanId bool `json:"generate_bulk_scan_id"`
-	ScanTriggers []ModelScanTrigger `json:"scan_triggers"`
+	Filters ModelScanFilter `json:"filters"`
+	NodeIds []ModelNodeIdentifier `json:"node_ids"`
 }
 
 // NewModelSecretScanTriggerReq instantiates a new ModelSecretScanTriggerReq object
 // This constructor will assign default values to properties that have it defined,
 // and makes sure properties required by API are set, but the set of arguments
 // will change when the set of required properties is changed
-func NewModelSecretScanTriggerReq(generateBulkScanId bool, scanTriggers []ModelScanTrigger) *ModelSecretScanTriggerReq {
+func NewModelSecretScanTriggerReq(filters ModelScanFilter, nodeIds []ModelNodeIdentifier) *ModelSecretScanTriggerReq {
 	this := ModelSecretScanTriggerReq{}
-	this.GenerateBulkScanId = generateBulkScanId
-	this.ScanTriggers = scanTriggers
+	this.Filters = filters
+	this.NodeIds = nodeIds
 	return &this
 }
 
@@ -43,54 +43,54 @@ func NewModelSecretScanTriggerReqWithDefaults() *ModelSecretScanTriggerReq {
 	return &this
 }
 
-// GetGenerateBulkScanId returns the GenerateBulkScanId field value
-func (o *ModelSecretScanTriggerReq) GetGenerateBulkScanId() bool {
+// GetFilters returns the Filters field value
+func (o *ModelSecretScanTriggerReq) GetFilters() ModelScanFilter {
 	if o == nil {
-		var ret bool
+		var ret ModelScanFilter
 		return ret
 	}
 
-	return o.GenerateBulkScanId
+	return o.Filters
 }
 
-// GetGenerateBulkScanIdOk returns a tuple with the GenerateBulkScanId field value
+// GetFiltersOk returns a tuple with the Filters field value
 // and a boolean to check if the value has been set.
-func (o *ModelSecretScanTriggerReq) GetGenerateBulkScanIdOk() (*bool, bool) {
+func (o *ModelSecretScanTriggerReq) GetFiltersOk() (*ModelScanFilter, bool) {
 	if o == nil {
 		return nil, false
 	}
-	return &o.GenerateBulkScanId, true
+	return &o.Filters, true
 }
 
-// SetGenerateBulkScanId sets field value
-func (o *ModelSecretScanTriggerReq) SetGenerateBulkScanId(v bool) {
-	o.GenerateBulkScanId = v
+// SetFilters sets field value
+func (o *ModelSecretScanTriggerReq) SetFilters(v ModelScanFilter) {
+	o.Filters = v
 }
 
-// GetScanTriggers returns the ScanTriggers field value
-// If the value is explicit nil, the zero value for []ModelScanTrigger will be returned
-func (o *ModelSecretScanTriggerReq) GetScanTriggers() []ModelScanTrigger {
+// GetNodeIds returns the NodeIds field value
+// If the value is explicit nil, the zero value for []ModelNodeIdentifier will be returned
+func (o *ModelSecretScanTriggerReq) GetNodeIds() []ModelNodeIdentifier {
 	if o == nil {
-		var ret []ModelScanTrigger
+		var ret []ModelNodeIdentifier
 		return ret
 	}
 
-	return o.ScanTriggers
+	return o.NodeIds
 }
 
-// GetScanTriggersOk returns a tuple with the ScanTriggers field value
+// GetNodeIdsOk returns a tuple with the NodeIds field value
 // and a boolean to check if the value has been set.
 // NOTE: If the value is an explicit nil, `nil, true` will be returned
-func (o *ModelSecretScanTriggerReq) GetScanTriggersOk() ([]ModelScanTrigger, bool) {
-	if o == nil || isNil(o.ScanTriggers) {
+func (o *ModelSecretScanTriggerReq) GetNodeIdsOk() ([]ModelNodeIdentifier, bool) {
+	if o == nil || isNil(o.NodeIds) {
 		return nil, false
 	}
-	return o.ScanTriggers, true
+	return o.NodeIds, true
 }
 
-// SetScanTriggers sets field value
-func (o *ModelSecretScanTriggerReq) SetScanTriggers(v []ModelScanTrigger) {
-	o.ScanTriggers = v
+// SetNodeIds sets field value
+func (o *ModelSecretScanTriggerReq) SetNodeIds(v []ModelNodeIdentifier) {
+	o.NodeIds = v
 }
 
 func (o ModelSecretScanTriggerReq) MarshalJSON() ([]byte, error) {
@@ -103,9 +103,9 @@ func (o ModelSecretScanTriggerReq) MarshalJSON() ([]byte, error) {
 
 func (o ModelSecretScanTriggerReq) ToMap() (map[string]interface{}, error) {
 	toSerialize := map[string]interface{}{}
-	toSerialize["generate_bulk_scan_id"] = o.GenerateBulkScanId
-	if o.ScanTriggers != nil {
-		toSerialize["scan_triggers"] = o.ScanTriggers
+	toSerialize["filters"] = o.Filters
+	if o.NodeIds != nil {
+		toSerialize["node_ids"] = o.NodeIds
 	}
 	return toSerialize, nil
 }

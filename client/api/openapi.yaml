@@ -1100,7 +1100,7 @@ paths:
         content:
           application/json:
             schema:
-              $ref: '#/components/schemas/UtilsSbomRequest'
+              $ref: '#/components/schemas/UtilsScanSbomRequest'
       responses:
         "200":
           description: OK
@@ -4420,23 +4420,41 @@ components:
       type: object
     ModelComplianceScanTriggerReq:
       example:
-        generate_bulk_scan_id: true
-        scan_triggers:
+        filters:
+          container_scan_filter:
+            fields_values:
+            - value: value
+              key: key
+            - value: value
+              key: key
+          image_scan_filter:
+            fields_values:
+            - value: value
+              key: key
+            - value: value
+              key: key
+          host_scan_filter:
+            fields_values:
+            - value: value
+              key: key
+            - value: value
+              key: key
+        node_ids:
         - node_type: image
           node_id: node_id
         - node_type: image
           node_id: node_id
       properties:
-        generate_bulk_scan_id:
-          type: boolean
-        scan_triggers:
+        filters:
+          $ref: '#/components/schemas/ModelScanFilter'
+        node_ids:
           items:
-            $ref: '#/components/schemas/ModelScanTrigger'
+            $ref: '#/components/schemas/ModelNodeIdentifier'
           nullable: true
           type: array
       required:
-      - generate_bulk_scan_id
-      - scan_triggers
+      - filters
+      - node_ids
       type: object
     ModelComputeMetrics:
       example:
@@ -4573,6 +4591,22 @@ components:
       required:
       - offset
       - size
+      type: object
+    ModelFieldsFilter:
+      example:
+        fields_values:
+        - value: value
+          key: key
+        - value: value
+          key: key
+      properties:
+        fields_values:
+          items:
+            $ref: '#/components/schemas/ModelKeyValue'
+          nullable: true
+          type: array
+      required:
+      - fields_values
       type: object
     ModelHost:
       example:
@@ -5044,6 +5078,19 @@ components:
           type: string
         message:
           type: string
+      type: object
+    ModelKeyValue:
+      example:
+        value: value
+        key: key
+      properties:
+        key:
+          type: string
+        value:
+          type: string
+      required:
+      - key
+      - value
       type: object
     ModelKubernetesCluster:
       example:
@@ -5986,23 +6033,41 @@ components:
       type: object
     ModelMalwareScanTriggerReq:
       example:
-        generate_bulk_scan_id: true
-        scan_triggers:
+        filters:
+          container_scan_filter:
+            fields_values:
+            - value: value
+              key: key
+            - value: value
+              key: key
+          image_scan_filter:
+            fields_values:
+            - value: value
+              key: key
+            - value: value
+              key: key
+          host_scan_filter:
+            fields_values:
+            - value: value
+              key: key
+            - value: value
+              key: key
+        node_ids:
         - node_type: image
           node_id: node_id
         - node_type: image
           node_id: node_id
       properties:
-        generate_bulk_scan_id:
-          type: boolean
-        scan_triggers:
+        filters:
+          $ref: '#/components/schemas/ModelScanFilter'
+        node_ids:
           items:
-            $ref: '#/components/schemas/ModelScanTrigger'
+            $ref: '#/components/schemas/ModelNodeIdentifier'
           nullable: true
           type: array
       required:
-      - generate_bulk_scan_id
-      - scan_triggers
+      - filters
+      - node_ids
       type: object
     ModelMessageResponse:
       example:
@@ -6015,6 +6080,23 @@ components:
       type: object
     ModelMetadata:
       additionalProperties: {}
+      type: object
+    ModelNodeIdentifier:
+      example:
+        node_type: image
+        node_id: node_id
+      properties:
+        node_id:
+          type: string
+        node_type:
+          enum:
+          - image
+          - host
+          - container
+          type: string
+      required:
+      - node_id
+      - node_type
       type: object
     ModelPasswordResetRequest:
       example:
@@ -6339,6 +6421,38 @@ components:
       - score
       - signature_to_match
       type: object
+    ModelScanFilter:
+      example:
+        container_scan_filter:
+          fields_values:
+          - value: value
+            key: key
+          - value: value
+            key: key
+        image_scan_filter:
+          fields_values:
+          - value: value
+            key: key
+          - value: value
+            key: key
+        host_scan_filter:
+          fields_values:
+          - value: value
+            key: key
+          - value: value
+            key: key
+      properties:
+        container_scan_filter:
+          $ref: '#/components/schemas/ModelFieldsFilter'
+        host_scan_filter:
+          $ref: '#/components/schemas/ModelFieldsFilter'
+        image_scan_filter:
+          $ref: '#/components/schemas/ModelFieldsFilter'
+      required:
+      - container_scan_filter
+      - host_scan_filter
+      - image_scan_filter
+      type: object
     ModelScanInfo:
       example:
         node_type: node_type
@@ -6442,23 +6556,6 @@ components:
           type: object
       required:
       - statuses
-      type: object
-    ModelScanTrigger:
-      example:
-        node_type: image
-        node_id: node_id
-      properties:
-        node_id:
-          type: string
-        node_type:
-          enum:
-          - image
-          - host
-          - container
-          type: string
-      required:
-      - node_id
-      - node_type
       type: object
     ModelScanTriggerResp:
       example:
@@ -6598,23 +6695,41 @@ components:
       type: object
     ModelSecretScanTriggerReq:
       example:
-        generate_bulk_scan_id: true
-        scan_triggers:
+        filters:
+          container_scan_filter:
+            fields_values:
+            - value: value
+              key: key
+            - value: value
+              key: key
+          image_scan_filter:
+            fields_values:
+            - value: value
+              key: key
+            - value: value
+              key: key
+          host_scan_filter:
+            fields_values:
+            - value: value
+              key: key
+            - value: value
+              key: key
+        node_ids:
         - node_type: image
           node_id: node_id
         - node_type: image
           node_id: node_id
       properties:
-        generate_bulk_scan_id:
-          type: boolean
-        scan_triggers:
+        filters:
+          $ref: '#/components/schemas/ModelScanFilter'
+        node_ids:
           items:
-            $ref: '#/components/schemas/ModelScanTrigger'
+            $ref: '#/components/schemas/ModelNodeIdentifier'
           nullable: true
           type: array
       required:
-      - generate_bulk_scan_id
-      - scan_triggers
+      - filters
+      - node_ids
       type: object
     ModelUser:
       example:
@@ -6843,15 +6958,38 @@ components:
     ModelVulnerabilityScanTriggerReq:
       example:
         scan_config: all
-        generate_bulk_scan_id: true
-        scan_triggers:
+        filters:
+          container_scan_filter:
+            fields_values:
+            - value: value
+              key: key
+            - value: value
+              key: key
+          image_scan_filter:
+            fields_values:
+            - value: value
+              key: key
+            - value: value
+              key: key
+          host_scan_filter:
+            fields_values:
+            - value: value
+              key: key
+            - value: value
+              key: key
+        node_ids:
         - node_type: image
           node_id: node_id
         - node_type: image
           node_id: node_id
       properties:
-        generate_bulk_scan_id:
-          type: boolean
+        filters:
+          $ref: '#/components/schemas/ModelScanFilter'
+        node_ids:
+          items:
+            $ref: '#/components/schemas/ModelNodeIdentifier'
+          nullable: true
+          type: array
         scan_config:
           enum:
           - all
@@ -6865,15 +7003,10 @@ components:
           - rust
           - dotnet
           type: string
-        scan_triggers:
-          items:
-            $ref: '#/components/schemas/ModelScanTrigger'
-          nullable: true
-          type: array
       required:
-      - generate_bulk_scan_id
+      - filters
+      - node_ids
       - scan_config
-      - scan_triggers
       type: object
     PostgresqlDbApiToken:
       type: object
@@ -7186,18 +7319,19 @@ components:
       - pod_filter
       - region_filter
       type: object
-    UtilsSbomRequest:
+    UtilsScanSbomRequest:
       example:
+        kubernetes_cluster_name: kubernetes_cluster_name
+        scan_type: scan_type
+        sbom_file_path: sbom_file_path
+        registry_id: registry_id
         mode: mode
         image_name: image_name
         node_type: node_type
         container_name: container_name
-        kubernetes_cluster_name: kubernetes_cluster_name
         sbom: sbom
-        scan_type: scan_type
         scan_id: scan_id
         image_id: image_id
-        sbom_file_path: sbom_file_path
         host_name: host_name
         node_id: node_id
       properties:
@@ -7216,6 +7350,8 @@ components:
         node_id:
           type: string
         node_type:
+          type: string
+        registry_id:
           type: string
         sbom:
           type: string
