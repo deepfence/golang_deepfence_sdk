@@ -5,6 +5,7 @@ All URIs are relative to *http://localhost*
 Method | HTTP request | Description
 ------------- | ------------- | -------------
 [**ListCloudNodeAccount**](CloudNodesApi.md#ListCloudNodeAccount) | **Post** /deepfence/cloud-node/accounts/list | List Cloud Node Accounts
+[**ListCloudProviders**](CloudNodesApi.md#ListCloudProviders) | **Post** /deepfence/cloud-node/providers/list | List Cloud Node Providers
 [**RegisterCloudNodeAccount**](CloudNodesApi.md#RegisterCloudNodeAccount) | **Post** /deepfence/cloud-node/account | Register Cloud Node Account
 
 
@@ -68,6 +69,67 @@ Name | Type | Description  | Notes
 ### HTTP request headers
 
 - **Content-Type**: application/json
+- **Accept**: application/json
+
+[[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints)
+[[Back to Model list]](../README.md#documentation-for-models)
+[[Back to README]](../README.md)
+
+
+## ListCloudProviders
+
+> ModelCloudNodeProvidersListResp ListCloudProviders(ctx).Execute()
+
+List Cloud Node Providers
+
+
+
+### Example
+
+```go
+package main
+
+import (
+    "context"
+    "fmt"
+    "os"
+    openapiclient "github.com/deepfence/golang_deepfence_sdk/client"
+)
+
+func main() {
+
+    configuration := openapiclient.NewConfiguration()
+    apiClient := openapiclient.NewAPIClient(configuration)
+    resp, r, err := apiClient.CloudNodesApi.ListCloudProviders(context.Background()).Execute()
+    if err != nil {
+        fmt.Fprintf(os.Stderr, "Error when calling `CloudNodesApi.ListCloudProviders``: %v\n", err)
+        fmt.Fprintf(os.Stderr, "Full HTTP response: %v\n", r)
+    }
+    // response from `ListCloudProviders`: ModelCloudNodeProvidersListResp
+    fmt.Fprintf(os.Stdout, "Response from `CloudNodesApi.ListCloudProviders`: %v\n", resp)
+}
+```
+
+### Path Parameters
+
+This endpoint does not need any parameter.
+
+### Other Parameters
+
+Other parameters are passed through a pointer to a apiListCloudProvidersRequest struct via the builder pattern
+
+
+### Return type
+
+[**ModelCloudNodeProvidersListResp**](ModelCloudNodeProvidersListResp.md)
+
+### Authorization
+
+[bearer_token](../README.md#bearer_token)
+
+### HTTP request headers
+
+- **Content-Type**: Not defined
 - **Accept**: application/json
 
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints)

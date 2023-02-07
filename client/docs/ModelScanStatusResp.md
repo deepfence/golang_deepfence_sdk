@@ -4,13 +4,13 @@
 
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
-**Statuses** | **map[string]string** |  | 
+**Statuses** | [**map[string]ModelScanInfo**](ModelScanInfo.md) |  | 
 
 ## Methods
 
 ### NewModelScanStatusResp
 
-`func NewModelScanStatusResp(statuses map[string]string, ) *ModelScanStatusResp`
+`func NewModelScanStatusResp(statuses map[string]ModelScanInfo, ) *ModelScanStatusResp`
 
 NewModelScanStatusResp instantiates a new ModelScanStatusResp object
 This constructor will assign default values to properties that have it defined,
@@ -27,20 +27,20 @@ but it doesn't guarantee that properties required by API are set
 
 ### GetStatuses
 
-`func (o *ModelScanStatusResp) GetStatuses() map[string]string`
+`func (o *ModelScanStatusResp) GetStatuses() map[string]ModelScanInfo`
 
 GetStatuses returns the Statuses field if non-nil, zero value otherwise.
 
 ### GetStatusesOk
 
-`func (o *ModelScanStatusResp) GetStatusesOk() (*map[string]string, bool)`
+`func (o *ModelScanStatusResp) GetStatusesOk() (*map[string]ModelScanInfo, bool)`
 
 GetStatusesOk returns a tuple with the Statuses field if it's non-nil, zero value otherwise
 and a boolean to check if the value has been set.
 
 ### SetStatuses
 
-`func (o *ModelScanStatusResp) SetStatuses(v map[string]string)`
+`func (o *ModelScanStatusResp) SetStatuses(v map[string]ModelScanInfo)`
 
 SetStatuses sets Statuses field to given value.
 

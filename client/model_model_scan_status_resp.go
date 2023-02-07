@@ -20,14 +20,14 @@ var _ MappedNullable = &ModelScanStatusResp{}
 
 // ModelScanStatusResp struct for ModelScanStatusResp
 type ModelScanStatusResp struct {
-	Statuses map[string]string `json:"statuses"`
+	Statuses map[string]ModelScanInfo `json:"statuses"`
 }
 
 // NewModelScanStatusResp instantiates a new ModelScanStatusResp object
 // This constructor will assign default values to properties that have it defined,
 // and makes sure properties required by API are set, but the set of arguments
 // will change when the set of required properties is changed
-func NewModelScanStatusResp(statuses map[string]string) *ModelScanStatusResp {
+func NewModelScanStatusResp(statuses map[string]ModelScanInfo) *ModelScanStatusResp {
 	this := ModelScanStatusResp{}
 	this.Statuses = statuses
 	return &this
@@ -42,10 +42,10 @@ func NewModelScanStatusRespWithDefaults() *ModelScanStatusResp {
 }
 
 // GetStatuses returns the Statuses field value
-// If the value is explicit nil, the zero value for map[string]string will be returned
-func (o *ModelScanStatusResp) GetStatuses() map[string]string {
+// If the value is explicit nil, the zero value for map[string]ModelScanInfo will be returned
+func (o *ModelScanStatusResp) GetStatuses() map[string]ModelScanInfo {
 	if o == nil {
-		var ret map[string]string
+		var ret map[string]ModelScanInfo
 		return ret
 	}
 
@@ -55,7 +55,7 @@ func (o *ModelScanStatusResp) GetStatuses() map[string]string {
 // GetStatusesOk returns a tuple with the Statuses field value
 // and a boolean to check if the value has been set.
 // NOTE: If the value is an explicit nil, `nil, true` will be returned
-func (o *ModelScanStatusResp) GetStatusesOk() (*map[string]string, bool) {
+func (o *ModelScanStatusResp) GetStatusesOk() (*map[string]ModelScanInfo, bool) {
 	if o == nil || isNil(o.Statuses) {
 		return nil, false
 	}
@@ -63,7 +63,7 @@ func (o *ModelScanStatusResp) GetStatusesOk() (*map[string]string, bool) {
 }
 
 // SetStatuses sets field value
-func (o *ModelScanStatusResp) SetStatuses(v map[string]string) {
+func (o *ModelScanStatusResp) SetStatuses(v map[string]ModelScanInfo) {
 	o.Statuses = v
 }
 

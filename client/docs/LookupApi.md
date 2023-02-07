@@ -10,6 +10,7 @@ Method | HTTP request | Description
 [**GetKubernetesClusters**](LookupApi.md#GetKubernetesClusters) | **Post** /deepfence/lookup/kubernetesclusters | Retrieve K8s data
 [**GetPods**](LookupApi.md#GetPods) | **Post** /deepfence/lookup/pods | Retrieve Pods data
 [**GetProcesses**](LookupApi.md#GetProcesses) | **Post** /deepfence/lookup/processes | Retrieve Processes data
+[**GetRegistryAccount**](LookupApi.md#GetRegistryAccount) | **Post** /deepfence/lookup/registryaccount | Get Images in Registry
 
 
 
@@ -394,6 +395,72 @@ Name | Type | Description  | Notes
 ### Return type
 
 [**[]ModelProcess**](ModelProcess.md)
+
+### Authorization
+
+[bearer_token](../README.md#bearer_token)
+
+### HTTP request headers
+
+- **Content-Type**: application/json
+- **Accept**: application/json
+
+[[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints)
+[[Back to Model list]](../README.md#documentation-for-models)
+[[Back to README]](../README.md)
+
+
+## GetRegistryAccount
+
+> []ModelRegistryAccount GetRegistryAccount(ctx).ReportersLookupFilter(reportersLookupFilter).Execute()
+
+Get Images in Registry
+
+
+
+### Example
+
+```go
+package main
+
+import (
+    "context"
+    "fmt"
+    "os"
+    openapiclient "github.com/deepfence/golang_deepfence_sdk/client"
+)
+
+func main() {
+    reportersLookupFilter := *openapiclient.NewReportersLookupFilter([]string{"InFieldFilter_example"}, []string{"NodeIds_example"}) // ReportersLookupFilter |  (optional)
+
+    configuration := openapiclient.NewConfiguration()
+    apiClient := openapiclient.NewAPIClient(configuration)
+    resp, r, err := apiClient.LookupApi.GetRegistryAccount(context.Background()).ReportersLookupFilter(reportersLookupFilter).Execute()
+    if err != nil {
+        fmt.Fprintf(os.Stderr, "Error when calling `LookupApi.GetRegistryAccount``: %v\n", err)
+        fmt.Fprintf(os.Stderr, "Full HTTP response: %v\n", r)
+    }
+    // response from `GetRegistryAccount`: []ModelRegistryAccount
+    fmt.Fprintf(os.Stdout, "Response from `LookupApi.GetRegistryAccount`: %v\n", resp)
+}
+```
+
+### Path Parameters
+
+
+
+### Other Parameters
+
+Other parameters are passed through a pointer to a apiGetRegistryAccountRequest struct via the builder pattern
+
+
+Name | Type | Description  | Notes
+------------- | ------------- | ------------- | -------------
+ **reportersLookupFilter** | [**ReportersLookupFilter**](ReportersLookupFilter.md) |  | 
+
+### Return type
+
+[**[]ModelRegistryAccount**](ModelRegistryAccount.md)
 
 ### Authorization
 

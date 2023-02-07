@@ -84,9 +84,11 @@ Class | Method | HTTP request | Description
 *AuthenticationApi* | [**Login**](docs/AuthenticationApi.md#login) | **Post** /deepfence/user/login | Login API
 *AuthenticationApi* | [**Logout**](docs/AuthenticationApi.md#logout) | **Post** /deepfence/user/logout | Logout API
 *CloudNodesApi* | [**ListCloudNodeAccount**](docs/CloudNodesApi.md#listcloudnodeaccount) | **Post** /deepfence/cloud-node/accounts/list | List Cloud Node Accounts
+*CloudNodesApi* | [**ListCloudProviders**](docs/CloudNodesApi.md#listcloudproviders) | **Post** /deepfence/cloud-node/providers/list | List Cloud Node Providers
 *CloudNodesApi* | [**RegisterCloudNodeAccount**](docs/CloudNodesApi.md#registercloudnodeaccount) | **Post** /deepfence/cloud-node/account | Register Cloud Node Account
 *CloudResourcesApi* | [**IngestCloudResources**](docs/CloudResourcesApi.md#ingestcloudresources) | **Post** /deepfence/ingest/cloud-resources | Ingest Cloud resources
 *CloudScannerApi* | [**IngestCloudCompliances**](docs/CloudScannerApi.md#ingestcloudcompliances) | **Post** /deepfence/ingest/cloud-compliance | Ingest Cloud Compliances
+*CloudScannerApi* | [**StartCloudComplianceScans**](docs/CloudScannerApi.md#startcloudcompliancescans) | **Post** /deepfence/scan/start/cloud-compliance | Start Cloud Compliance Scans
 *ComplianceApi* | [**IngestCompliances**](docs/ComplianceApi.md#ingestcompliances) | **Post** /deepfence/ingest/compliance | Ingest Compliances
 *ComplianceApi* | [**ListComplianceScan**](docs/ComplianceApi.md#listcompliancescan) | **Post** /deepfence/scan/list/compliance | Get Compliance Scans List
 *ComplianceApi* | [**ResultsComplianceScan**](docs/ComplianceApi.md#resultscompliancescan) | **Post** /deepfence/scan/results/compliance | Get Compliance Scans Results
@@ -108,6 +110,7 @@ Class | Method | HTTP request | Description
 *LookupApi* | [**GetKubernetesClusters**](docs/LookupApi.md#getkubernetesclusters) | **Post** /deepfence/lookup/kubernetesclusters | Retrieve K8s data
 *LookupApi* | [**GetPods**](docs/LookupApi.md#getpods) | **Post** /deepfence/lookup/pods | Retrieve Pods data
 *LookupApi* | [**GetProcesses**](docs/LookupApi.md#getprocesses) | **Post** /deepfence/lookup/processes | Retrieve Processes data
+*LookupApi* | [**GetRegistryAccount**](docs/LookupApi.md#getregistryaccount) | **Post** /deepfence/lookup/registryaccount | Get Images in Registry
 *MalwareScanApi* | [**IngestMalware**](docs/MalwareScanApi.md#ingestmalware) | **Post** /deepfence/ingest/malware | Ingest Malware
 *MalwareScanApi* | [**IngestMalwareScanStatus**](docs/MalwareScanApi.md#ingestmalwarescanstatus) | **Post** /deepfence/ingest/malware-scan-logs | Ingest Malware Scan Status
 *MalwareScanApi* | [**ListMalwareScan**](docs/MalwareScanApi.md#listmalwarescan) | **Post** /deepfence/scan/list/malware | Get Malware Scans List
@@ -177,6 +180,8 @@ Class | Method | HTTP request | Description
  - [ModelAgentUpgrade](docs/ModelAgentUpgrade.md)
  - [ModelApiAuthRequest](docs/ModelApiAuthRequest.md)
  - [ModelCloudComplianceScanDetails](docs/ModelCloudComplianceScanDetails.md)
+ - [ModelCloudComplianceScanTrigger](docs/ModelCloudComplianceScanTrigger.md)
+ - [ModelCloudComplianceScanTriggerReq](docs/ModelCloudComplianceScanTriggerReq.md)
  - [ModelCloudNodeAccountInfo](docs/ModelCloudNodeAccountInfo.md)
  - [ModelCloudNodeAccountRegisterReq](docs/ModelCloudNodeAccountRegisterReq.md)
  - [ModelCloudNodeAccountRegisterResp](docs/ModelCloudNodeAccountRegisterResp.md)
@@ -184,6 +189,7 @@ Class | Method | HTTP request | Description
  - [ModelCloudNodeAccountsListReq](docs/ModelCloudNodeAccountsListReq.md)
  - [ModelCloudNodeAccountsListResp](docs/ModelCloudNodeAccountsListResp.md)
  - [ModelCloudNodeCloudtrailTrail](docs/ModelCloudNodeCloudtrailTrail.md)
+ - [ModelCloudNodeProvidersListResp](docs/ModelCloudNodeProvidersListResp.md)
  - [ModelCompliance](docs/ModelCompliance.md)
  - [ModelComplianceScanResult](docs/ModelComplianceScanResult.md)
  - [ModelComplianceScanTriggerReq](docs/ModelComplianceScanTriggerReq.md)
@@ -206,6 +212,7 @@ Class | Method | HTTP request | Description
  - [ModelPod](docs/ModelPod.md)
  - [ModelProcess](docs/ModelProcess.md)
  - [ModelRegisterInvitedUserRequest](docs/ModelRegisterInvitedUserRequest.md)
+ - [ModelRegistryAccount](docs/ModelRegistryAccount.md)
  - [ModelResponseAccessToken](docs/ModelResponseAccessToken.md)
  - [ModelRule](docs/ModelRule.md)
  - [ModelScanInfo](docs/ModelScanInfo.md)

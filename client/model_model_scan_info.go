@@ -20,6 +20,8 @@ var _ MappedNullable = &ModelScanInfo{}
 
 // ModelScanInfo struct for ModelScanInfo
 type ModelScanInfo struct {
+	NodeId string `json:"node_id"`
+	NodeType string `json:"node_type"`
 	ScanId string `json:"scan_id"`
 	Status string `json:"status"`
 	UpdatedAt int64 `json:"updated_at"`
@@ -29,8 +31,10 @@ type ModelScanInfo struct {
 // This constructor will assign default values to properties that have it defined,
 // and makes sure properties required by API are set, but the set of arguments
 // will change when the set of required properties is changed
-func NewModelScanInfo(scanId string, status string, updatedAt int64) *ModelScanInfo {
+func NewModelScanInfo(nodeId string, nodeType string, scanId string, status string, updatedAt int64) *ModelScanInfo {
 	this := ModelScanInfo{}
+	this.NodeId = nodeId
+	this.NodeType = nodeType
 	this.ScanId = scanId
 	this.Status = status
 	this.UpdatedAt = updatedAt
@@ -43,6 +47,54 @@ func NewModelScanInfo(scanId string, status string, updatedAt int64) *ModelScanI
 func NewModelScanInfoWithDefaults() *ModelScanInfo {
 	this := ModelScanInfo{}
 	return &this
+}
+
+// GetNodeId returns the NodeId field value
+func (o *ModelScanInfo) GetNodeId() string {
+	if o == nil {
+		var ret string
+		return ret
+	}
+
+	return o.NodeId
+}
+
+// GetNodeIdOk returns a tuple with the NodeId field value
+// and a boolean to check if the value has been set.
+func (o *ModelScanInfo) GetNodeIdOk() (*string, bool) {
+	if o == nil {
+		return nil, false
+	}
+	return &o.NodeId, true
+}
+
+// SetNodeId sets field value
+func (o *ModelScanInfo) SetNodeId(v string) {
+	o.NodeId = v
+}
+
+// GetNodeType returns the NodeType field value
+func (o *ModelScanInfo) GetNodeType() string {
+	if o == nil {
+		var ret string
+		return ret
+	}
+
+	return o.NodeType
+}
+
+// GetNodeTypeOk returns a tuple with the NodeType field value
+// and a boolean to check if the value has been set.
+func (o *ModelScanInfo) GetNodeTypeOk() (*string, bool) {
+	if o == nil {
+		return nil, false
+	}
+	return &o.NodeType, true
+}
+
+// SetNodeType sets field value
+func (o *ModelScanInfo) SetNodeType(v string) {
+	o.NodeType = v
 }
 
 // GetScanId returns the ScanId field value
@@ -127,6 +179,8 @@ func (o ModelScanInfo) MarshalJSON() ([]byte, error) {
 
 func (o ModelScanInfo) ToMap() (map[string]interface{}, error) {
 	toSerialize := map[string]interface{}{}
+	toSerialize["node_id"] = o.NodeId
+	toSerialize["node_type"] = o.NodeType
 	toSerialize["scan_id"] = o.ScanId
 	toSerialize["status"] = o.Status
 	toSerialize["updated_at"] = o.UpdatedAt

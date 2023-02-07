@@ -4,6 +4,8 @@
 
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
+**NodeId** | **string** |  | 
+**NodeType** | **string** |  | 
 **ScanId** | **string** |  | 
 **Status** | **string** |  | 
 **UpdatedAt** | **int64** |  | 
@@ -12,7 +14,7 @@ Name | Type | Description | Notes
 
 ### NewModelScanInfo
 
-`func NewModelScanInfo(scanId string, status string, updatedAt int64, ) *ModelScanInfo`
+`func NewModelScanInfo(nodeId string, nodeType string, scanId string, status string, updatedAt int64, ) *ModelScanInfo`
 
 NewModelScanInfo instantiates a new ModelScanInfo object
 This constructor will assign default values to properties that have it defined,
@@ -26,6 +28,46 @@ will change when the set of required properties is changed
 NewModelScanInfoWithDefaults instantiates a new ModelScanInfo object
 This constructor will only assign default values to properties that have it defined,
 but it doesn't guarantee that properties required by API are set
+
+### GetNodeId
+
+`func (o *ModelScanInfo) GetNodeId() string`
+
+GetNodeId returns the NodeId field if non-nil, zero value otherwise.
+
+### GetNodeIdOk
+
+`func (o *ModelScanInfo) GetNodeIdOk() (*string, bool)`
+
+GetNodeIdOk returns a tuple with the NodeId field if it's non-nil, zero value otherwise
+and a boolean to check if the value has been set.
+
+### SetNodeId
+
+`func (o *ModelScanInfo) SetNodeId(v string)`
+
+SetNodeId sets NodeId field to given value.
+
+
+### GetNodeType
+
+`func (o *ModelScanInfo) GetNodeType() string`
+
+GetNodeType returns the NodeType field if non-nil, zero value otherwise.
+
+### GetNodeTypeOk
+
+`func (o *ModelScanInfo) GetNodeTypeOk() (*string, bool)`
+
+GetNodeTypeOk returns a tuple with the NodeType field if it's non-nil, zero value otherwise
+and a boolean to check if the value has been set.
+
+### SetNodeType
+
+`func (o *ModelScanInfo) SetNodeType(v string)`
+
+SetNodeType sets NodeType field to given value.
+
 
 ### GetScanId
 

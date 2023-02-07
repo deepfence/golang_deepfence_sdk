@@ -238,6 +238,44 @@ paths:
       summary: List Cloud Node Accounts
       tags:
       - Cloud Nodes
+  /deepfence/cloud-node/providers/list:
+    post:
+      description: List Cloud Node Providers registered with the console
+      operationId: listCloudProviders
+      responses:
+        "200":
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ModelCloudNodeProvidersListResp'
+          description: OK
+        "400":
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ApiDocsBadRequestResponse'
+          description: Bad Request
+        "401":
+          description: Unauthorized
+        "403":
+          description: Forbidden
+        "404":
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ApiDocsFailureResponse'
+          description: Not Found
+        "500":
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ApiDocsFailureResponse'
+          description: Internal Server Error
+      security:
+      - bearer_token: []
+      summary: List Cloud Node Providers
+      tags:
+      - Cloud Nodes
   /deepfence/controls/agent:
     post:
       description: Fetch actions for a given agent
@@ -1606,6 +1644,51 @@ paths:
       summary: Retrieve Processes data
       tags:
       - Lookup
+  /deepfence/lookup/registryaccount:
+    post:
+      description: List all the images present in the given registry
+      operationId: getRegistryAccount
+      requestBody:
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/ReportersLookupFilter'
+      responses:
+        "200":
+          content:
+            application/json:
+              schema:
+                items:
+                  $ref: '#/components/schemas/ModelRegistryAccount'
+                type: array
+          description: OK
+        "400":
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ApiDocsBadRequestResponse'
+          description: Bad Request
+        "401":
+          description: Unauthorized
+        "403":
+          description: Forbidden
+        "404":
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ApiDocsFailureResponse'
+          description: Not Found
+        "500":
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ApiDocsFailureResponse'
+          description: Internal Server Error
+      security:
+      - bearer_token: []
+      summary: Get Images in Registry
+      tags:
+      - Lookup
   /deepfence/scan/list/compliance:
     post:
       description: Get Compliance Scans list on agent or registry
@@ -1950,6 +2033,49 @@ paths:
       summary: Get Vulnerability Scans Results
       tags:
       - Vulnerability
+  /deepfence/scan/start/cloud-compliance:
+    post:
+      description: Start Cloud Compliance Scans on cloud nodes
+      operationId: startCloudComplianceScans
+      requestBody:
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/ModelCloudComplianceScanTriggerReq'
+      responses:
+        "202":
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ModelScanTriggerResp'
+          description: Accepted
+        "400":
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ApiDocsBadRequestResponse'
+          description: Bad Request
+        "401":
+          description: Unauthorized
+        "403":
+          description: Forbidden
+        "404":
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ApiDocsFailureResponse'
+          description: Not Found
+        "500":
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ApiDocsFailureResponse'
+          description: Internal Server Error
+      security:
+      - bearer_token: []
+      summary: Start Cloud Compliance Scans
+      tags:
+      - Cloud Scanner
   /deepfence/scan/start/compliance:
     post:
       description: Start Compliance Scan on agent or registry
@@ -3968,6 +4094,44 @@ components:
         scan_type:
           type: string
       type: object
+    ModelCloudComplianceScanTrigger:
+      example:
+        benchmark_types:
+        - benchmark_types
+        - benchmark_types
+        node_id: node_id
+      properties:
+        benchmark_types:
+          items:
+            type: string
+          nullable: true
+          type: array
+        node_id:
+          type: string
+      required:
+      - benchmark_types
+      - node_id
+      type: object
+    ModelCloudComplianceScanTriggerReq:
+      example:
+        scan_triggers:
+        - benchmark_types:
+          - benchmark_types
+          - benchmark_types
+          node_id: node_id
+        - benchmark_types:
+          - benchmark_types
+          - benchmark_types
+          node_id: node_id
+      properties:
+        scan_triggers:
+          items:
+            $ref: '#/components/schemas/ModelCloudComplianceScanTrigger'
+          nullable: true
+          type: array
+      required:
+      - scan_triggers
+      type: object
     ModelCloudNodeAccountInfo:
       example:
         compliance_percentage: compliance_percentage
@@ -4112,6 +4276,20 @@ components:
           type: string
         trail_name:
           type: string
+      type: object
+    ModelCloudNodeProvidersListResp:
+      example:
+        providers:
+        - providers
+        - providers
+      properties:
+        providers:
+          items:
+            type: string
+          nullable: true
+          type: array
+      required:
+      - providers
       type: object
     ModelCompliance:
       example:
@@ -6073,6 +6251,44 @@ components:
       - last_name
       - password
       type: object
+    ModelRegistryAccount:
+      example:
+        container_images:
+        - metadata:
+            key: ""
+          docker_image_tag: docker_image_tag
+          docker_image_size: docker_image_size
+          metrics:
+            memory_mb: 6.027456183070403
+            cpu_percent: 0.8008281904610115
+          docker_image_name: docker_image_name
+          node_id: node_id
+        - metadata:
+            key: ""
+          docker_image_tag: docker_image_tag
+          docker_image_size: docker_image_size
+          metrics:
+            memory_mb: 6.027456183070403
+            cpu_percent: 0.8008281904610115
+          docker_image_name: docker_image_name
+          node_id: node_id
+        host_name: host_name
+        node_id: node_id
+      properties:
+        container_images:
+          items:
+            $ref: '#/components/schemas/ModelContainerImage'
+          nullable: true
+          type: array
+        host_name:
+          type: string
+        node_id:
+          type: string
+      required:
+      - container_images
+      - host_name
+      - node_id
+      type: object
     ModelResponseAccessToken:
       example:
         access_token: access_token
@@ -6117,10 +6333,16 @@ components:
       type: object
     ModelScanInfo:
       example:
+        node_type: node_type
         updated_at: 0
         scan_id: scan_id
+        node_id: node_id
         status: status
       properties:
+        node_id:
+          type: string
+        node_type:
+          type: string
         scan_id:
           type: string
         status:
@@ -6129,6 +6351,8 @@ components:
           format: int64
           type: integer
       required:
+      - node_id
+      - node_type
       - scan_id
       - status
       - updated_at
@@ -6159,11 +6383,15 @@ components:
     ModelScanListResp:
       example:
         scans_info:
-        - updated_at: 0
+        - node_type: node_type
+          updated_at: 0
           scan_id: scan_id
+          node_id: node_id
           status: status
-        - updated_at: 0
+        - node_type: node_type
+          updated_at: 0
           scan_id: scan_id
+          node_id: node_id
           status: status
       properties:
         scans_info:
@@ -6189,16 +6417,19 @@ components:
       - scan_id
       - window
       type: object
-    ModelScanStatus:
-      type: string
     ModelScanStatusResp:
       example:
         statuses:
-          key: null
+          key:
+            node_type: node_type
+            updated_at: 0
+            scan_id: scan_id
+            node_id: node_id
+            status: status
       properties:
         statuses:
           additionalProperties:
-            $ref: '#/components/schemas/ModelScanStatus'
+            $ref: '#/components/schemas/ModelScanInfo'
           nullable: true
           type: object
       required:
