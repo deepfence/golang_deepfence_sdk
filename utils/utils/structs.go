@@ -1,6 +1,6 @@
 package utils
 
-type SbomRequest struct {
+type ScanSbomRequest struct {
 	SbomParameters
 	SbomBody
 }
@@ -17,6 +17,7 @@ type SbomParameters struct {
 	ContainerName         string `json:"container_name"`
 	SBOMFilePath          string `json:"sbom_file_path"`
 	Mode                  string `json:"mode,omitempty"`
+	RegistryId            string `json:"registry_id,omitempty"`
 }
 
 type SbomBody struct {
