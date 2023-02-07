@@ -5902,6 +5902,8 @@ components:
       type: object
     ModelMalwareScanResult:
       example:
+        severity_counts:
+          key: 1
         node_type: node_type
         docker_container_name: docker_container_name
         kubernetes_cluster_name: kubernetes_cluster_name
@@ -5965,6 +5967,11 @@ components:
           type: string
         scan_id:
           type: string
+        severity_counts:
+          additionalProperties:
+            type: integer
+          nullable: true
+          type: object
       required:
       - docker_container_name
       - docker_image_name
@@ -5975,6 +5982,7 @@ components:
       - node_name
       - node_type
       - scan_id
+      - severity_counts
       type: object
     ModelMalwareScanTriggerReq:
       example:
