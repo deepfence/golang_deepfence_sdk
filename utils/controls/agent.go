@@ -20,6 +20,8 @@ const (
 	Container ScanResource = iota
 	Image
 	Host
+	CloudAccount
+	KubernetesCluster
 )
 
 func ResourceTypeToNeo4j(t ScanResource) string {
@@ -30,6 +32,10 @@ func ResourceTypeToNeo4j(t ScanResource) string {
 		return "ContainerImage"
 	case Host:
 		return "Node"
+	case CloudAccount:
+		return "Node"
+	case KubernetesCluster:
+		return "KubernetesCluster"
 	}
 	return ""
 }
@@ -42,6 +48,10 @@ func ResourceTypeToString(t ScanResource) string {
 		return "image"
 	case Host:
 		return "host"
+	case CloudAccount:
+		return "cloud_account"
+	case KubernetesCluster:
+		return "kubernetes_cluster"
 	}
 	return ""
 }
