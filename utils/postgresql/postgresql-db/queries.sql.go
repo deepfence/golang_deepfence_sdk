@@ -443,13 +443,56 @@ func (q *Queries) DeleteUserInviteByExpiry(ctx context.Context, expiry time.Time
 const getActiveUsers = `-- name: GetActiveUsers :many
 SELECT id, first_name, last_name, email, role_id, group_ids, company_id, password_hash, is_active, password_invalidated, created_at, updated_at
 FROM users
+WHERE is_active = 't'
+ORDER BY first_name
+`
+
+func (q *Queries) GetActiveUsers(ctx context.Context) ([]User, error) {
+	rows, err := q.db.QueryContext(ctx, getActiveUsers)
+	if err != nil {
+		return nil, err
+	}
+	defer rows.Close()
+	var items []User
+	for rows.Next() {
+		var i User
+		if err := rows.Scan(
+			&i.ID,
+			&i.FirstName,
+			&i.LastName,
+			&i.Email,
+			&i.RoleID,
+			&i.GroupIds,
+			&i.CompanyID,
+			&i.PasswordHash,
+			&i.IsActive,
+			&i.PasswordInvalidated,
+			&i.CreatedAt,
+			&i.UpdatedAt,
+		); err != nil {
+			return nil, err
+		}
+		items = append(items, i)
+	}
+	if err := rows.Close(); err != nil {
+		return nil, err
+	}
+	if err := rows.Err(); err != nil {
+		return nil, err
+	}
+	return items, nil
+}
+
+const getActiveUsersByCompanyID = `-- name: GetActiveUsersByCompanyID :many
+SELECT id, first_name, last_name, email, role_id, group_ids, company_id, password_hash, is_active, password_invalidated, created_at, updated_at
+FROM users
 WHERE company_id = $1
   AND is_active = 't'
 ORDER BY first_name
 `
 
-func (q *Queries) GetActiveUsers(ctx context.Context, companyID int32) ([]User, error) {
-	rows, err := q.db.QueryContext(ctx, getActiveUsers, companyID)
+func (q *Queries) GetActiveUsersByCompanyID(ctx context.Context, companyID int32) ([]User, error) {
+	rows, err := q.db.QueryContext(ctx, getActiveUsersByCompanyID, companyID)
 	if err != nil {
 		return nil, err
 	}
@@ -1473,12 +1516,54 @@ func (q *Queries) GetUserInviteByEmail(ctx context.Context, email string) (UserI
 const getUsers = `-- name: GetUsers :many
 SELECT id, first_name, last_name, email, role_id, group_ids, company_id, password_hash, is_active, password_invalidated, created_at, updated_at
 FROM users
+ORDER BY first_name
+`
+
+func (q *Queries) GetUsers(ctx context.Context) ([]User, error) {
+	rows, err := q.db.QueryContext(ctx, getUsers)
+	if err != nil {
+		return nil, err
+	}
+	defer rows.Close()
+	var items []User
+	for rows.Next() {
+		var i User
+		if err := rows.Scan(
+			&i.ID,
+			&i.FirstName,
+			&i.LastName,
+			&i.Email,
+			&i.RoleID,
+			&i.GroupIds,
+			&i.CompanyID,
+			&i.PasswordHash,
+			&i.IsActive,
+			&i.PasswordInvalidated,
+			&i.CreatedAt,
+			&i.UpdatedAt,
+		); err != nil {
+			return nil, err
+		}
+		items = append(items, i)
+	}
+	if err := rows.Close(); err != nil {
+		return nil, err
+	}
+	if err := rows.Err(); err != nil {
+		return nil, err
+	}
+	return items, nil
+}
+
+const getUsersByCompanyID = `-- name: GetUsersByCompanyID :many
+SELECT id, first_name, last_name, email, role_id, group_ids, company_id, password_hash, is_active, password_invalidated, created_at, updated_at
+FROM users
 WHERE company_id = $1
 ORDER BY first_name
 `
 
-func (q *Queries) GetUsers(ctx context.Context, companyID int32) ([]User, error) {
-	rows, err := q.db.QueryContext(ctx, getUsers, companyID)
+func (q *Queries) GetUsersByCompanyID(ctx context.Context, companyID int32) ([]User, error) {
+	rows, err := q.db.QueryContext(ctx, getUsersByCompanyID, companyID)
 	if err != nil {
 		return nil, err
 	}

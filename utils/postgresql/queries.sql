@@ -148,10 +148,21 @@ LIMIT 1;
 -- name: GetUsers :many
 SELECT *
 FROM users
-WHERE company_id = $1
 ORDER BY first_name;
 
 -- name: GetActiveUsers :many
+SELECT *
+FROM users
+WHERE is_active = 't'
+ORDER BY first_name;
+
+-- name: GetUsersByCompanyID :many
+SELECT *
+FROM users
+WHERE company_id = $1
+ORDER BY first_name;
+
+-- name: GetActiveUsersByCompanyID :many
 SELECT *
 FROM users
 WHERE company_id = $1
