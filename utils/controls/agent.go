@@ -22,6 +22,7 @@ const (
 	Host
 	CloudAccount
 	KubernetesCluster
+	RegistryAccount
 )
 
 func ResourceTypeToNeo4j(t ScanResource) string {
@@ -36,6 +37,8 @@ func ResourceTypeToNeo4j(t ScanResource) string {
 		return "Node"
 	case KubernetesCluster:
 		return "KubernetesCluster"
+	case RegistryAccount:
+		return "RegistryAccount"
 	}
 	return ""
 }
@@ -51,7 +54,9 @@ func ResourceTypeToString(t ScanResource) string {
 	case CloudAccount:
 		return "cloud_account"
 	case KubernetesCluster:
-		return "kubernetes_cluster"
+		return "cluster"
+	case RegistryAccount:
+		return "registry"
 	}
 	return ""
 }
@@ -64,6 +69,10 @@ func StringToResourceType(s string) ScanResource {
 		return Image
 	case "host":
 		return Host
+	case "cluster":
+		return KubernetesCluster
+	case "registry":
+		return RegistryAccount
 	}
 	return -1
 }
