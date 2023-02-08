@@ -146,25 +146,89 @@ WHERE id = $1
 LIMIT 1;
 
 -- name: GetUsers :many
-SELECT *
+SELECT users.id,
+       users.first_name,
+       users.last_name,
+       users.email,
+       users.role_id,
+       role.name         as role_name,
+       users.group_ids,
+       users.company_id,
+       company.name      as company_name,
+       users.password_hash,
+       users.is_active,
+       users.password_invalidated,
+       users.created_at,
+       users.updated_at,
+       company.namespace as company_namespace
 FROM users
+         INNER JOIN role ON role.id = users.role_id
+         INNER JOIN company ON company.id = users.company_id
 ORDER BY first_name;
 
 -- name: GetActiveUsers :many
-SELECT *
+SELECT users.id,
+       users.first_name,
+       users.last_name,
+       users.email,
+       users.role_id,
+       role.name         as role_name,
+       users.group_ids,
+       users.company_id,
+       company.name      as company_name,
+       users.password_hash,
+       users.is_active,
+       users.password_invalidated,
+       users.created_at,
+       users.updated_at,
+       company.namespace as company_namespace
 FROM users
+         INNER JOIN role ON role.id = users.role_id
+         INNER JOIN company ON company.id = users.company_id
 WHERE is_active = 't'
 ORDER BY first_name;
 
 -- name: GetUsersByCompanyID :many
-SELECT *
+SELECT users.id,
+       users.first_name,
+       users.last_name,
+       users.email,
+       users.role_id,
+       role.name         as role_name,
+       users.group_ids,
+       users.company_id,
+       company.name      as company_name,
+       users.password_hash,
+       users.is_active,
+       users.password_invalidated,
+       users.created_at,
+       users.updated_at,
+       company.namespace as company_namespace
 FROM users
+         INNER JOIN role ON role.id = users.role_id
+         INNER JOIN company ON company.id = users.company_id
 WHERE company_id = $1
 ORDER BY first_name;
 
 -- name: GetActiveUsersByCompanyID :many
-SELECT *
+SELECT users.id,
+       users.first_name,
+       users.last_name,
+       users.email,
+       users.role_id,
+       role.name         as role_name,
+       users.group_ids,
+       users.company_id,
+       company.name      as company_name,
+       users.password_hash,
+       users.is_active,
+       users.password_invalidated,
+       users.created_at,
+       users.updated_at,
+       company.namespace as company_namespace
 FROM users
+         INNER JOIN role ON role.id = users.role_id
+         INNER JOIN company ON company.id = users.company_id
 WHERE company_id = $1
   AND is_active = 't'
 ORDER BY first_name;
