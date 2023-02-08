@@ -361,6 +361,17 @@ func (q *Queries) DeleteApiToken(ctx context.Context, id int64) error {
 	return err
 }
 
+const deleteApiTokensByUserID = `-- name: DeleteApiTokensByUserID :exec
+DELETE
+FROM api_token
+WHERE created_by_user_id = $1
+`
+
+func (q *Queries) DeleteApiTokensByUserID(ctx context.Context, createdByUserID int64) error {
+	_, err := q.db.ExecContext(ctx, deleteApiTokensByUserID, createdByUserID)
+	return err
+}
+
 const deleteCompany = `-- name: DeleteCompany :exec
 DELETE
 FROM company

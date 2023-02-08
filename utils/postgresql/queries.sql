@@ -214,6 +214,11 @@ DELETE
 FROM api_token
 WHERE id = $1;
 
+-- name: DeleteApiTokensByUserID :exec
+DELETE
+FROM api_token
+WHERE created_by_user_id = $1;
+
 -- name: GetApiTokenByActiveUser :one
 SELECT api_token.api_token
 FROM api_token
