@@ -2,9 +2,15 @@ package encryption
 
 import (
 	"bytes"
+	"context"
 	"crypto/aes"
 	"crypto/cipher"
 	"encoding/hex"
+	"encoding/json"
+
+	commonConst "github.com/deepfence/ThreatMapper/deepfence_server/constants/common"
+	"github.com/deepfence/ThreatMapper/deepfence_server/model"
+	pgDb "github.com/deepfence/golang_deepfence_sdk/utils/postgresql/postgresql-db"
 )
 
 type AES struct {
@@ -68,4 +74,24 @@ func PKCS5UnPadding(src []byte) []byte {
 	length := len(src)
 	unpadding := int(src[length-1])
 	return src[:(length - unpadding)]
+}
+
+func GetAESValueForEncryption(ctx context.Context, pgClient *pgDb.Queries) (json.RawMessage, error) {
+	s := model.Setting{}
+	aes, err := s.GetSettingByKey(ctx, pgClient, commonConst.AES_SECRET)
+	if err != nil {
+		return nil, err
+	}
+	var sValue model.SettingValue
+	err = json.Unmarshal(aes.Value, &sValue)
+	if err != nil {
+		return nil, err
+	}
+
+	b, err := json.Marshal(sValue.Value)
+	if err != nil {
+		return nil, err
+	}
+
+	return json.RawMessage(b), nil
 }

@@ -10,6 +10,8 @@ import (
 	"github.com/lestrrat-go/jwx/v2/jwt"
 )
 
+var ErrNamespaceNotFound = errors.New("namespace/tenet-id not found")
+
 // Injector makes sure the context is filled with the
 // information provided by the JWT.
 func Injector(next http.Handler) http.Handler {
