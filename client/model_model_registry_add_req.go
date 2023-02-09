@@ -45,7 +45,7 @@ func NewModelRegistryAddReqWithDefaults() *ModelRegistryAddReq {
 
 // GetName returns the Name field value if set, zero value otherwise.
 func (o *ModelRegistryAddReq) GetName() string {
-	if o == nil || isNil(o.Name) {
+	if o == nil || IsNil(o.Name) {
 		var ret string
 		return ret
 	}
@@ -55,7 +55,7 @@ func (o *ModelRegistryAddReq) GetName() string {
 // GetNameOk returns a tuple with the Name field value if set, nil otherwise
 // and a boolean to check if the value has been set.
 func (o *ModelRegistryAddReq) GetNameOk() (*string, bool) {
-	if o == nil || isNil(o.Name) {
+	if o == nil || IsNil(o.Name) {
 		return nil, false
 	}
 	return o.Name, true
@@ -63,7 +63,7 @@ func (o *ModelRegistryAddReq) GetNameOk() (*string, bool) {
 
 // HasName returns a boolean if a field has been set.
 func (o *ModelRegistryAddReq) HasName() bool {
-	if o != nil && !isNil(o.Name) {
+	if o != nil && !IsNil(o.Name) {
 		return true
 	}
 
@@ -88,7 +88,7 @@ func (o *ModelRegistryAddReq) GetNonSecret() map[string]interface{} {
 // and a boolean to check if the value has been set.
 // NOTE: If the value is an explicit nil, `nil, true` will be returned
 func (o *ModelRegistryAddReq) GetNonSecretOk() (map[string]interface{}, bool) {
-	if o == nil || isNil(o.NonSecret) {
+	if o == nil || IsNil(o.NonSecret) {
 		return map[string]interface{}{}, false
 	}
 	return o.NonSecret, true
@@ -96,7 +96,7 @@ func (o *ModelRegistryAddReq) GetNonSecretOk() (map[string]interface{}, bool) {
 
 // HasNonSecret returns a boolean if a field has been set.
 func (o *ModelRegistryAddReq) HasNonSecret() bool {
-	if o != nil && isNil(o.NonSecret) {
+	if o != nil && IsNil(o.NonSecret) {
 		return true
 	}
 
@@ -110,7 +110,7 @@ func (o *ModelRegistryAddReq) SetNonSecret(v map[string]interface{}) {
 
 // GetRegistryType returns the RegistryType field value if set, zero value otherwise.
 func (o *ModelRegistryAddReq) GetRegistryType() string {
-	if o == nil || isNil(o.RegistryType) {
+	if o == nil || IsNil(o.RegistryType) {
 		var ret string
 		return ret
 	}
@@ -120,7 +120,7 @@ func (o *ModelRegistryAddReq) GetRegistryType() string {
 // GetRegistryTypeOk returns a tuple with the RegistryType field value if set, nil otherwise
 // and a boolean to check if the value has been set.
 func (o *ModelRegistryAddReq) GetRegistryTypeOk() (*string, bool) {
-	if o == nil || isNil(o.RegistryType) {
+	if o == nil || IsNil(o.RegistryType) {
 		return nil, false
 	}
 	return o.RegistryType, true
@@ -128,7 +128,7 @@ func (o *ModelRegistryAddReq) GetRegistryTypeOk() (*string, bool) {
 
 // HasRegistryType returns a boolean if a field has been set.
 func (o *ModelRegistryAddReq) HasRegistryType() bool {
-	if o != nil && !isNil(o.RegistryType) {
+	if o != nil && !IsNil(o.RegistryType) {
 		return true
 	}
 
@@ -153,7 +153,7 @@ func (o *ModelRegistryAddReq) GetSecret() map[string]interface{} {
 // and a boolean to check if the value has been set.
 // NOTE: If the value is an explicit nil, `nil, true` will be returned
 func (o *ModelRegistryAddReq) GetSecretOk() (map[string]interface{}, bool) {
-	if o == nil || isNil(o.Secret) {
+	if o == nil || IsNil(o.Secret) {
 		return map[string]interface{}{}, false
 	}
 	return o.Secret, true
@@ -161,7 +161,7 @@ func (o *ModelRegistryAddReq) GetSecretOk() (map[string]interface{}, bool) {
 
 // HasSecret returns a boolean if a field has been set.
 func (o *ModelRegistryAddReq) HasSecret() bool {
-	if o != nil && isNil(o.Secret) {
+	if o != nil && IsNil(o.Secret) {
 		return true
 	}
 
@@ -183,13 +183,13 @@ func (o ModelRegistryAddReq) MarshalJSON() ([]byte, error) {
 
 func (o ModelRegistryAddReq) ToMap() (map[string]interface{}, error) {
 	toSerialize := map[string]interface{}{}
-	if !isNil(o.Name) {
+	if !IsNil(o.Name) {
 		toSerialize["name"] = o.Name
 	}
 	if o.NonSecret != nil {
 		toSerialize["non_secret"] = o.NonSecret
 	}
-	if !isNil(o.RegistryType) {
+	if !IsNil(o.RegistryType) {
 		toSerialize["registry_type"] = o.RegistryType
 	}
 	if o.Secret != nil {

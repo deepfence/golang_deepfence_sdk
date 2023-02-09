@@ -20,20 +20,24 @@ var _ MappedNullable = &ModelScanFilter{}
 
 // ModelScanFilter struct for ModelScanFilter
 type ModelScanFilter struct {
+	CloudAccountScanFilter ModelFieldsFilter `json:"cloud_account_scan_filter"`
 	ContainerScanFilter ModelFieldsFilter `json:"container_scan_filter"`
 	HostScanFilter ModelFieldsFilter `json:"host_scan_filter"`
 	ImageScanFilter ModelFieldsFilter `json:"image_scan_filter"`
+	KubernetesClusterScanFilter ModelFieldsFilter `json:"kubernetes_cluster_scan_filter"`
 }
 
 // NewModelScanFilter instantiates a new ModelScanFilter object
 // This constructor will assign default values to properties that have it defined,
 // and makes sure properties required by API are set, but the set of arguments
 // will change when the set of required properties is changed
-func NewModelScanFilter(containerScanFilter ModelFieldsFilter, hostScanFilter ModelFieldsFilter, imageScanFilter ModelFieldsFilter) *ModelScanFilter {
+func NewModelScanFilter(cloudAccountScanFilter ModelFieldsFilter, containerScanFilter ModelFieldsFilter, hostScanFilter ModelFieldsFilter, imageScanFilter ModelFieldsFilter, kubernetesClusterScanFilter ModelFieldsFilter) *ModelScanFilter {
 	this := ModelScanFilter{}
+	this.CloudAccountScanFilter = cloudAccountScanFilter
 	this.ContainerScanFilter = containerScanFilter
 	this.HostScanFilter = hostScanFilter
 	this.ImageScanFilter = imageScanFilter
+	this.KubernetesClusterScanFilter = kubernetesClusterScanFilter
 	return &this
 }
 
@@ -43,6 +47,30 @@ func NewModelScanFilter(containerScanFilter ModelFieldsFilter, hostScanFilter Mo
 func NewModelScanFilterWithDefaults() *ModelScanFilter {
 	this := ModelScanFilter{}
 	return &this
+}
+
+// GetCloudAccountScanFilter returns the CloudAccountScanFilter field value
+func (o *ModelScanFilter) GetCloudAccountScanFilter() ModelFieldsFilter {
+	if o == nil {
+		var ret ModelFieldsFilter
+		return ret
+	}
+
+	return o.CloudAccountScanFilter
+}
+
+// GetCloudAccountScanFilterOk returns a tuple with the CloudAccountScanFilter field value
+// and a boolean to check if the value has been set.
+func (o *ModelScanFilter) GetCloudAccountScanFilterOk() (*ModelFieldsFilter, bool) {
+	if o == nil {
+		return nil, false
+	}
+	return &o.CloudAccountScanFilter, true
+}
+
+// SetCloudAccountScanFilter sets field value
+func (o *ModelScanFilter) SetCloudAccountScanFilter(v ModelFieldsFilter) {
+	o.CloudAccountScanFilter = v
 }
 
 // GetContainerScanFilter returns the ContainerScanFilter field value
@@ -117,6 +145,30 @@ func (o *ModelScanFilter) SetImageScanFilter(v ModelFieldsFilter) {
 	o.ImageScanFilter = v
 }
 
+// GetKubernetesClusterScanFilter returns the KubernetesClusterScanFilter field value
+func (o *ModelScanFilter) GetKubernetesClusterScanFilter() ModelFieldsFilter {
+	if o == nil {
+		var ret ModelFieldsFilter
+		return ret
+	}
+
+	return o.KubernetesClusterScanFilter
+}
+
+// GetKubernetesClusterScanFilterOk returns a tuple with the KubernetesClusterScanFilter field value
+// and a boolean to check if the value has been set.
+func (o *ModelScanFilter) GetKubernetesClusterScanFilterOk() (*ModelFieldsFilter, bool) {
+	if o == nil {
+		return nil, false
+	}
+	return &o.KubernetesClusterScanFilter, true
+}
+
+// SetKubernetesClusterScanFilter sets field value
+func (o *ModelScanFilter) SetKubernetesClusterScanFilter(v ModelFieldsFilter) {
+	o.KubernetesClusterScanFilter = v
+}
+
 func (o ModelScanFilter) MarshalJSON() ([]byte, error) {
 	toSerialize,err := o.ToMap()
 	if err != nil {
@@ -127,9 +179,11 @@ func (o ModelScanFilter) MarshalJSON() ([]byte, error) {
 
 func (o ModelScanFilter) ToMap() (map[string]interface{}, error) {
 	toSerialize := map[string]interface{}{}
+	toSerialize["cloud_account_scan_filter"] = o.CloudAccountScanFilter
 	toSerialize["container_scan_filter"] = o.ContainerScanFilter
 	toSerialize["host_scan_filter"] = o.HostScanFilter
 	toSerialize["image_scan_filter"] = o.ImageScanFilter
+	toSerialize["kubernetes_cluster_scan_filter"] = o.KubernetesClusterScanFilter
 	return toSerialize, nil
 }
 

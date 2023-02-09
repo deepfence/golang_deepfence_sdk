@@ -77,7 +77,7 @@ func NewIngestersCloudResourceWithDefaults() *IngestersCloudResource {
 
 // GetAccountId returns the AccountId field value if set, zero value otherwise.
 func (o *IngestersCloudResource) GetAccountId() string {
-	if o == nil || isNil(o.AccountId) {
+	if o == nil || IsNil(o.AccountId) {
 		var ret string
 		return ret
 	}
@@ -87,7 +87,7 @@ func (o *IngestersCloudResource) GetAccountId() string {
 // GetAccountIdOk returns a tuple with the AccountId field value if set, nil otherwise
 // and a boolean to check if the value has been set.
 func (o *IngestersCloudResource) GetAccountIdOk() (*string, bool) {
-	if o == nil || isNil(o.AccountId) {
+	if o == nil || IsNil(o.AccountId) {
 		return nil, false
 	}
 	return o.AccountId, true
@@ -95,7 +95,7 @@ func (o *IngestersCloudResource) GetAccountIdOk() (*string, bool) {
 
 // HasAccountId returns a boolean if a field has been set.
 func (o *IngestersCloudResource) HasAccountId() bool {
-	if o != nil && !isNil(o.AccountId) {
+	if o != nil && !IsNil(o.AccountId) {
 		return true
 	}
 
@@ -109,7 +109,7 @@ func (o *IngestersCloudResource) SetAccountId(v string) {
 
 // GetAllowBlobPublicAccess returns the AllowBlobPublicAccess field value if set, zero value otherwise.
 func (o *IngestersCloudResource) GetAllowBlobPublicAccess() string {
-	if o == nil || isNil(o.AllowBlobPublicAccess) {
+	if o == nil || IsNil(o.AllowBlobPublicAccess) {
 		var ret string
 		return ret
 	}
@@ -119,7 +119,7 @@ func (o *IngestersCloudResource) GetAllowBlobPublicAccess() string {
 // GetAllowBlobPublicAccessOk returns a tuple with the AllowBlobPublicAccess field value if set, nil otherwise
 // and a boolean to check if the value has been set.
 func (o *IngestersCloudResource) GetAllowBlobPublicAccessOk() (*string, bool) {
-	if o == nil || isNil(o.AllowBlobPublicAccess) {
+	if o == nil || IsNil(o.AllowBlobPublicAccess) {
 		return nil, false
 	}
 	return o.AllowBlobPublicAccess, true
@@ -127,7 +127,7 @@ func (o *IngestersCloudResource) GetAllowBlobPublicAccessOk() (*string, bool) {
 
 // HasAllowBlobPublicAccess returns a boolean if a field has been set.
 func (o *IngestersCloudResource) HasAllowBlobPublicAccess() bool {
-	if o != nil && !isNil(o.AllowBlobPublicAccess) {
+	if o != nil && !IsNil(o.AllowBlobPublicAccess) {
 		return true
 	}
 
@@ -141,7 +141,7 @@ func (o *IngestersCloudResource) SetAllowBlobPublicAccess(v string) {
 
 // GetArn returns the Arn field value if set, zero value otherwise.
 func (o *IngestersCloudResource) GetArn() string {
-	if o == nil || isNil(o.Arn) {
+	if o == nil || IsNil(o.Arn) {
 		var ret string
 		return ret
 	}
@@ -151,7 +151,7 @@ func (o *IngestersCloudResource) GetArn() string {
 // GetArnOk returns a tuple with the Arn field value if set, nil otherwise
 // and a boolean to check if the value has been set.
 func (o *IngestersCloudResource) GetArnOk() (*string, bool) {
-	if o == nil || isNil(o.Arn) {
+	if o == nil || IsNil(o.Arn) {
 		return nil, false
 	}
 	return o.Arn, true
@@ -159,7 +159,7 @@ func (o *IngestersCloudResource) GetArnOk() (*string, bool) {
 
 // HasArn returns a boolean if a field has been set.
 func (o *IngestersCloudResource) HasArn() bool {
-	if o != nil && !isNil(o.Arn) {
+	if o != nil && !IsNil(o.Arn) {
 		return true
 	}
 
@@ -173,7 +173,7 @@ func (o *IngestersCloudResource) SetArn(v string) {
 
 // GetBlockPublicAcls returns the BlockPublicAcls field value if set, zero value otherwise.
 func (o *IngestersCloudResource) GetBlockPublicAcls() bool {
-	if o == nil || isNil(o.BlockPublicAcls) {
+	if o == nil || IsNil(o.BlockPublicAcls) {
 		var ret bool
 		return ret
 	}
@@ -183,7 +183,7 @@ func (o *IngestersCloudResource) GetBlockPublicAcls() bool {
 // GetBlockPublicAclsOk returns a tuple with the BlockPublicAcls field value if set, nil otherwise
 // and a boolean to check if the value has been set.
 func (o *IngestersCloudResource) GetBlockPublicAclsOk() (*bool, bool) {
-	if o == nil || isNil(o.BlockPublicAcls) {
+	if o == nil || IsNil(o.BlockPublicAcls) {
 		return nil, false
 	}
 	return o.BlockPublicAcls, true
@@ -191,7 +191,7 @@ func (o *IngestersCloudResource) GetBlockPublicAclsOk() (*bool, bool) {
 
 // HasBlockPublicAcls returns a boolean if a field has been set.
 func (o *IngestersCloudResource) HasBlockPublicAcls() bool {
-	if o != nil && !isNil(o.BlockPublicAcls) {
+	if o != nil && !IsNil(o.BlockPublicAcls) {
 		return true
 	}
 
@@ -205,7 +205,7 @@ func (o *IngestersCloudResource) SetBlockPublicAcls(v bool) {
 
 // GetBlockPublicPolicy returns the BlockPublicPolicy field value if set, zero value otherwise.
 func (o *IngestersCloudResource) GetBlockPublicPolicy() bool {
-	if o == nil || isNil(o.BlockPublicPolicy) {
+	if o == nil || IsNil(o.BlockPublicPolicy) {
 		var ret bool
 		return ret
 	}
@@ -215,7 +215,7 @@ func (o *IngestersCloudResource) GetBlockPublicPolicy() bool {
 // GetBlockPublicPolicyOk returns a tuple with the BlockPublicPolicy field value if set, nil otherwise
 // and a boolean to check if the value has been set.
 func (o *IngestersCloudResource) GetBlockPublicPolicyOk() (*bool, bool) {
-	if o == nil || isNil(o.BlockPublicPolicy) {
+	if o == nil || IsNil(o.BlockPublicPolicy) {
 		return nil, false
 	}
 	return o.BlockPublicPolicy, true
@@ -223,7 +223,7 @@ func (o *IngestersCloudResource) GetBlockPublicPolicyOk() (*bool, bool) {
 
 // HasBlockPublicPolicy returns a boolean if a field has been set.
 func (o *IngestersCloudResource) HasBlockPublicPolicy() bool {
-	if o != nil && !isNil(o.BlockPublicPolicy) {
+	if o != nil && !IsNil(o.BlockPublicPolicy) {
 		return true
 	}
 
@@ -237,7 +237,7 @@ func (o *IngestersCloudResource) SetBlockPublicPolicy(v bool) {
 
 // GetBucketPolicyIsPublic returns the BucketPolicyIsPublic field value if set, zero value otherwise.
 func (o *IngestersCloudResource) GetBucketPolicyIsPublic() bool {
-	if o == nil || isNil(o.BucketPolicyIsPublic) {
+	if o == nil || IsNil(o.BucketPolicyIsPublic) {
 		var ret bool
 		return ret
 	}
@@ -247,7 +247,7 @@ func (o *IngestersCloudResource) GetBucketPolicyIsPublic() bool {
 // GetBucketPolicyIsPublicOk returns a tuple with the BucketPolicyIsPublic field value if set, nil otherwise
 // and a boolean to check if the value has been set.
 func (o *IngestersCloudResource) GetBucketPolicyIsPublicOk() (*bool, bool) {
-	if o == nil || isNil(o.BucketPolicyIsPublic) {
+	if o == nil || IsNil(o.BucketPolicyIsPublic) {
 		return nil, false
 	}
 	return o.BucketPolicyIsPublic, true
@@ -255,7 +255,7 @@ func (o *IngestersCloudResource) GetBucketPolicyIsPublicOk() (*bool, bool) {
 
 // HasBucketPolicyIsPublic returns a boolean if a field has been set.
 func (o *IngestersCloudResource) HasBucketPolicyIsPublic() bool {
-	if o != nil && !isNil(o.BucketPolicyIsPublic) {
+	if o != nil && !IsNil(o.BucketPolicyIsPublic) {
 		return true
 	}
 
@@ -269,7 +269,7 @@ func (o *IngestersCloudResource) SetBucketPolicyIsPublic(v bool) {
 
 // GetCidrIpv4 returns the CidrIpv4 field value if set, zero value otherwise.
 func (o *IngestersCloudResource) GetCidrIpv4() string {
-	if o == nil || isNil(o.CidrIpv4) {
+	if o == nil || IsNil(o.CidrIpv4) {
 		var ret string
 		return ret
 	}
@@ -279,7 +279,7 @@ func (o *IngestersCloudResource) GetCidrIpv4() string {
 // GetCidrIpv4Ok returns a tuple with the CidrIpv4 field value if set, nil otherwise
 // and a boolean to check if the value has been set.
 func (o *IngestersCloudResource) GetCidrIpv4Ok() (*string, bool) {
-	if o == nil || isNil(o.CidrIpv4) {
+	if o == nil || IsNil(o.CidrIpv4) {
 		return nil, false
 	}
 	return o.CidrIpv4, true
@@ -287,7 +287,7 @@ func (o *IngestersCloudResource) GetCidrIpv4Ok() (*string, bool) {
 
 // HasCidrIpv4 returns a boolean if a field has been set.
 func (o *IngestersCloudResource) HasCidrIpv4() bool {
-	if o != nil && !isNil(o.CidrIpv4) {
+	if o != nil && !IsNil(o.CidrIpv4) {
 		return true
 	}
 
@@ -312,7 +312,7 @@ func (o *IngestersCloudResource) GetContainerDefinitions() interface{} {
 // and a boolean to check if the value has been set.
 // NOTE: If the value is an explicit nil, `nil, true` will be returned
 func (o *IngestersCloudResource) GetContainerDefinitionsOk() (*interface{}, bool) {
-	if o == nil || isNil(o.ContainerDefinitions) {
+	if o == nil || IsNil(o.ContainerDefinitions) {
 		return nil, false
 	}
 	return &o.ContainerDefinitions, true
@@ -320,7 +320,7 @@ func (o *IngestersCloudResource) GetContainerDefinitionsOk() (*interface{}, bool
 
 // HasContainerDefinitions returns a boolean if a field has been set.
 func (o *IngestersCloudResource) HasContainerDefinitions() bool {
-	if o != nil && isNil(o.ContainerDefinitions) {
+	if o != nil && IsNil(o.ContainerDefinitions) {
 		return true
 	}
 
@@ -334,7 +334,7 @@ func (o *IngestersCloudResource) SetContainerDefinitions(v interface{}) {
 
 // GetDbClusterIdentifier returns the DbClusterIdentifier field value if set, zero value otherwise.
 func (o *IngestersCloudResource) GetDbClusterIdentifier() string {
-	if o == nil || isNil(o.DbClusterIdentifier) {
+	if o == nil || IsNil(o.DbClusterIdentifier) {
 		var ret string
 		return ret
 	}
@@ -344,7 +344,7 @@ func (o *IngestersCloudResource) GetDbClusterIdentifier() string {
 // GetDbClusterIdentifierOk returns a tuple with the DbClusterIdentifier field value if set, nil otherwise
 // and a boolean to check if the value has been set.
 func (o *IngestersCloudResource) GetDbClusterIdentifierOk() (*string, bool) {
-	if o == nil || isNil(o.DbClusterIdentifier) {
+	if o == nil || IsNil(o.DbClusterIdentifier) {
 		return nil, false
 	}
 	return o.DbClusterIdentifier, true
@@ -352,7 +352,7 @@ func (o *IngestersCloudResource) GetDbClusterIdentifierOk() (*string, bool) {
 
 // HasDbClusterIdentifier returns a boolean if a field has been set.
 func (o *IngestersCloudResource) HasDbClusterIdentifier() bool {
-	if o != nil && !isNil(o.DbClusterIdentifier) {
+	if o != nil && !IsNil(o.DbClusterIdentifier) {
 		return true
 	}
 
@@ -377,7 +377,7 @@ func (o *IngestersCloudResource) GetEventNotificationConfiguration() interface{}
 // and a boolean to check if the value has been set.
 // NOTE: If the value is an explicit nil, `nil, true` will be returned
 func (o *IngestersCloudResource) GetEventNotificationConfigurationOk() (*interface{}, bool) {
-	if o == nil || isNil(o.EventNotificationConfiguration) {
+	if o == nil || IsNil(o.EventNotificationConfiguration) {
 		return nil, false
 	}
 	return &o.EventNotificationConfiguration, true
@@ -385,7 +385,7 @@ func (o *IngestersCloudResource) GetEventNotificationConfigurationOk() (*interfa
 
 // HasEventNotificationConfiguration returns a boolean if a field has been set.
 func (o *IngestersCloudResource) HasEventNotificationConfiguration() bool {
-	if o != nil && isNil(o.EventNotificationConfiguration) {
+	if o != nil && IsNil(o.EventNotificationConfiguration) {
 		return true
 	}
 
@@ -399,7 +399,7 @@ func (o *IngestersCloudResource) SetEventNotificationConfiguration(v interface{}
 
 // GetGroupId returns the GroupId field value if set, zero value otherwise.
 func (o *IngestersCloudResource) GetGroupId() string {
-	if o == nil || isNil(o.GroupId) {
+	if o == nil || IsNil(o.GroupId) {
 		var ret string
 		return ret
 	}
@@ -409,7 +409,7 @@ func (o *IngestersCloudResource) GetGroupId() string {
 // GetGroupIdOk returns a tuple with the GroupId field value if set, nil otherwise
 // and a boolean to check if the value has been set.
 func (o *IngestersCloudResource) GetGroupIdOk() (*string, bool) {
-	if o == nil || isNil(o.GroupId) {
+	if o == nil || IsNil(o.GroupId) {
 		return nil, false
 	}
 	return o.GroupId, true
@@ -417,7 +417,7 @@ func (o *IngestersCloudResource) GetGroupIdOk() (*string, bool) {
 
 // HasGroupId returns a boolean if a field has been set.
 func (o *IngestersCloudResource) HasGroupId() bool {
-	if o != nil && !isNil(o.GroupId) {
+	if o != nil && !IsNil(o.GroupId) {
 		return true
 	}
 
@@ -442,7 +442,7 @@ func (o *IngestersCloudResource) GetIamPolicy() interface{} {
 // and a boolean to check if the value has been set.
 // NOTE: If the value is an explicit nil, `nil, true` will be returned
 func (o *IngestersCloudResource) GetIamPolicyOk() (*interface{}, bool) {
-	if o == nil || isNil(o.IamPolicy) {
+	if o == nil || IsNil(o.IamPolicy) {
 		return nil, false
 	}
 	return &o.IamPolicy, true
@@ -450,7 +450,7 @@ func (o *IngestersCloudResource) GetIamPolicyOk() (*interface{}, bool) {
 
 // HasIamPolicy returns a boolean if a field has been set.
 func (o *IngestersCloudResource) HasIamPolicy() bool {
-	if o != nil && isNil(o.IamPolicy) {
+	if o != nil && IsNil(o.IamPolicy) {
 		return true
 	}
 
@@ -464,7 +464,7 @@ func (o *IngestersCloudResource) SetIamPolicy(v interface{}) {
 
 // GetId returns the Id field value if set, zero value otherwise.
 func (o *IngestersCloudResource) GetId() string {
-	if o == nil || isNil(o.Id) {
+	if o == nil || IsNil(o.Id) {
 		var ret string
 		return ret
 	}
@@ -474,7 +474,7 @@ func (o *IngestersCloudResource) GetId() string {
 // GetIdOk returns a tuple with the Id field value if set, nil otherwise
 // and a boolean to check if the value has been set.
 func (o *IngestersCloudResource) GetIdOk() (*string, bool) {
-	if o == nil || isNil(o.Id) {
+	if o == nil || IsNil(o.Id) {
 		return nil, false
 	}
 	return o.Id, true
@@ -482,7 +482,7 @@ func (o *IngestersCloudResource) GetIdOk() (*string, bool) {
 
 // HasId returns a boolean if a field has been set.
 func (o *IngestersCloudResource) HasId() bool {
-	if o != nil && !isNil(o.Id) {
+	if o != nil && !IsNil(o.Id) {
 		return true
 	}
 
@@ -496,7 +496,7 @@ func (o *IngestersCloudResource) SetId(v string) {
 
 // GetIgnorePublicAcls returns the IgnorePublicAcls field value if set, zero value otherwise.
 func (o *IngestersCloudResource) GetIgnorePublicAcls() bool {
-	if o == nil || isNil(o.IgnorePublicAcls) {
+	if o == nil || IsNil(o.IgnorePublicAcls) {
 		var ret bool
 		return ret
 	}
@@ -506,7 +506,7 @@ func (o *IngestersCloudResource) GetIgnorePublicAcls() bool {
 // GetIgnorePublicAclsOk returns a tuple with the IgnorePublicAcls field value if set, nil otherwise
 // and a boolean to check if the value has been set.
 func (o *IngestersCloudResource) GetIgnorePublicAclsOk() (*bool, bool) {
-	if o == nil || isNil(o.IgnorePublicAcls) {
+	if o == nil || IsNil(o.IgnorePublicAcls) {
 		return nil, false
 	}
 	return o.IgnorePublicAcls, true
@@ -514,7 +514,7 @@ func (o *IngestersCloudResource) GetIgnorePublicAclsOk() (*bool, bool) {
 
 // HasIgnorePublicAcls returns a boolean if a field has been set.
 func (o *IngestersCloudResource) HasIgnorePublicAcls() bool {
-	if o != nil && !isNil(o.IgnorePublicAcls) {
+	if o != nil && !IsNil(o.IgnorePublicAcls) {
 		return true
 	}
 
@@ -539,7 +539,7 @@ func (o *IngestersCloudResource) GetIngressSettings() interface{} {
 // and a boolean to check if the value has been set.
 // NOTE: If the value is an explicit nil, `nil, true` will be returned
 func (o *IngestersCloudResource) GetIngressSettingsOk() (*interface{}, bool) {
-	if o == nil || isNil(o.IngressSettings) {
+	if o == nil || IsNil(o.IngressSettings) {
 		return nil, false
 	}
 	return &o.IngressSettings, true
@@ -547,7 +547,7 @@ func (o *IngestersCloudResource) GetIngressSettingsOk() (*interface{}, bool) {
 
 // HasIngressSettings returns a boolean if a field has been set.
 func (o *IngestersCloudResource) HasIngressSettings() bool {
-	if o != nil && isNil(o.IngressSettings) {
+	if o != nil && IsNil(o.IngressSettings) {
 		return true
 	}
 
@@ -561,7 +561,7 @@ func (o *IngestersCloudResource) SetIngressSettings(v interface{}) {
 
 // GetInstanceId returns the InstanceId field value if set, zero value otherwise.
 func (o *IngestersCloudResource) GetInstanceId() string {
-	if o == nil || isNil(o.InstanceId) {
+	if o == nil || IsNil(o.InstanceId) {
 		var ret string
 		return ret
 	}
@@ -571,7 +571,7 @@ func (o *IngestersCloudResource) GetInstanceId() string {
 // GetInstanceIdOk returns a tuple with the InstanceId field value if set, nil otherwise
 // and a boolean to check if the value has been set.
 func (o *IngestersCloudResource) GetInstanceIdOk() (*string, bool) {
-	if o == nil || isNil(o.InstanceId) {
+	if o == nil || IsNil(o.InstanceId) {
 		return nil, false
 	}
 	return o.InstanceId, true
@@ -579,7 +579,7 @@ func (o *IngestersCloudResource) GetInstanceIdOk() (*string, bool) {
 
 // HasInstanceId returns a boolean if a field has been set.
 func (o *IngestersCloudResource) HasInstanceId() bool {
-	if o != nil && !isNil(o.InstanceId) {
+	if o != nil && !IsNil(o.InstanceId) {
 		return true
 	}
 
@@ -604,7 +604,7 @@ func (o *IngestersCloudResource) GetIpConfiguration() interface{} {
 // and a boolean to check if the value has been set.
 // NOTE: If the value is an explicit nil, `nil, true` will be returned
 func (o *IngestersCloudResource) GetIpConfigurationOk() (*interface{}, bool) {
-	if o == nil || isNil(o.IpConfiguration) {
+	if o == nil || IsNil(o.IpConfiguration) {
 		return nil, false
 	}
 	return &o.IpConfiguration, true
@@ -612,7 +612,7 @@ func (o *IngestersCloudResource) GetIpConfigurationOk() (*interface{}, bool) {
 
 // HasIpConfiguration returns a boolean if a field has been set.
 func (o *IngestersCloudResource) HasIpConfiguration() bool {
-	if o != nil && isNil(o.IpConfiguration) {
+	if o != nil && IsNil(o.IpConfiguration) {
 		return true
 	}
 
@@ -626,7 +626,7 @@ func (o *IngestersCloudResource) SetIpConfiguration(v interface{}) {
 
 // GetName returns the Name field value if set, zero value otherwise.
 func (o *IngestersCloudResource) GetName() string {
-	if o == nil || isNil(o.Name) {
+	if o == nil || IsNil(o.Name) {
 		var ret string
 		return ret
 	}
@@ -636,7 +636,7 @@ func (o *IngestersCloudResource) GetName() string {
 // GetNameOk returns a tuple with the Name field value if set, nil otherwise
 // and a boolean to check if the value has been set.
 func (o *IngestersCloudResource) GetNameOk() (*string, bool) {
-	if o == nil || isNil(o.Name) {
+	if o == nil || IsNil(o.Name) {
 		return nil, false
 	}
 	return o.Name, true
@@ -644,7 +644,7 @@ func (o *IngestersCloudResource) GetNameOk() (*string, bool) {
 
 // HasName returns a boolean if a field has been set.
 func (o *IngestersCloudResource) HasName() bool {
-	if o != nil && !isNil(o.Name) {
+	if o != nil && !IsNil(o.Name) {
 		return true
 	}
 
@@ -669,7 +669,7 @@ func (o *IngestersCloudResource) GetNetworkInterfaces() interface{} {
 // and a boolean to check if the value has been set.
 // NOTE: If the value is an explicit nil, `nil, true` will be returned
 func (o *IngestersCloudResource) GetNetworkInterfacesOk() (*interface{}, bool) {
-	if o == nil || isNil(o.NetworkInterfaces) {
+	if o == nil || IsNil(o.NetworkInterfaces) {
 		return nil, false
 	}
 	return &o.NetworkInterfaces, true
@@ -677,7 +677,7 @@ func (o *IngestersCloudResource) GetNetworkInterfacesOk() (*interface{}, bool) {
 
 // HasNetworkInterfaces returns a boolean if a field has been set.
 func (o *IngestersCloudResource) HasNetworkInterfaces() bool {
-	if o != nil && isNil(o.NetworkInterfaces) {
+	if o != nil && IsNil(o.NetworkInterfaces) {
 		return true
 	}
 
@@ -691,7 +691,7 @@ func (o *IngestersCloudResource) SetNetworkInterfaces(v interface{}) {
 
 // GetNetworkMode returns the NetworkMode field value if set, zero value otherwise.
 func (o *IngestersCloudResource) GetNetworkMode() string {
-	if o == nil || isNil(o.NetworkMode) {
+	if o == nil || IsNil(o.NetworkMode) {
 		var ret string
 		return ret
 	}
@@ -701,7 +701,7 @@ func (o *IngestersCloudResource) GetNetworkMode() string {
 // GetNetworkModeOk returns a tuple with the NetworkMode field value if set, nil otherwise
 // and a boolean to check if the value has been set.
 func (o *IngestersCloudResource) GetNetworkModeOk() (*string, bool) {
-	if o == nil || isNil(o.NetworkMode) {
+	if o == nil || IsNil(o.NetworkMode) {
 		return nil, false
 	}
 	return o.NetworkMode, true
@@ -709,7 +709,7 @@ func (o *IngestersCloudResource) GetNetworkModeOk() (*string, bool) {
 
 // HasNetworkMode returns a boolean if a field has been set.
 func (o *IngestersCloudResource) HasNetworkMode() bool {
-	if o != nil && !isNil(o.NetworkMode) {
+	if o != nil && !IsNil(o.NetworkMode) {
 		return true
 	}
 
@@ -734,7 +734,7 @@ func (o *IngestersCloudResource) GetPolicy() interface{} {
 // and a boolean to check if the value has been set.
 // NOTE: If the value is an explicit nil, `nil, true` will be returned
 func (o *IngestersCloudResource) GetPolicyOk() (*interface{}, bool) {
-	if o == nil || isNil(o.Policy) {
+	if o == nil || IsNil(o.Policy) {
 		return nil, false
 	}
 	return &o.Policy, true
@@ -742,7 +742,7 @@ func (o *IngestersCloudResource) GetPolicyOk() (*interface{}, bool) {
 
 // HasPolicy returns a boolean if a field has been set.
 func (o *IngestersCloudResource) HasPolicy() bool {
-	if o != nil && isNil(o.Policy) {
+	if o != nil && IsNil(o.Policy) {
 		return true
 	}
 
@@ -756,7 +756,7 @@ func (o *IngestersCloudResource) SetPolicy(v interface{}) {
 
 // GetPolicyStd returns the PolicyStd field value if set, zero value otherwise.
 func (o *IngestersCloudResource) GetPolicyStd() string {
-	if o == nil || isNil(o.PolicyStd) {
+	if o == nil || IsNil(o.PolicyStd) {
 		var ret string
 		return ret
 	}
@@ -766,7 +766,7 @@ func (o *IngestersCloudResource) GetPolicyStd() string {
 // GetPolicyStdOk returns a tuple with the PolicyStd field value if set, nil otherwise
 // and a boolean to check if the value has been set.
 func (o *IngestersCloudResource) GetPolicyStdOk() (*string, bool) {
-	if o == nil || isNil(o.PolicyStd) {
+	if o == nil || IsNil(o.PolicyStd) {
 		return nil, false
 	}
 	return o.PolicyStd, true
@@ -774,7 +774,7 @@ func (o *IngestersCloudResource) GetPolicyStdOk() (*string, bool) {
 
 // HasPolicyStd returns a boolean if a field has been set.
 func (o *IngestersCloudResource) HasPolicyStd() bool {
-	if o != nil && !isNil(o.PolicyStd) {
+	if o != nil && !IsNil(o.PolicyStd) {
 		return true
 	}
 
@@ -788,7 +788,7 @@ func (o *IngestersCloudResource) SetPolicyStd(v string) {
 
 // GetPublicAccess returns the PublicAccess field value if set, zero value otherwise.
 func (o *IngestersCloudResource) GetPublicAccess() string {
-	if o == nil || isNil(o.PublicAccess) {
+	if o == nil || IsNil(o.PublicAccess) {
 		var ret string
 		return ret
 	}
@@ -798,7 +798,7 @@ func (o *IngestersCloudResource) GetPublicAccess() string {
 // GetPublicAccessOk returns a tuple with the PublicAccess field value if set, nil otherwise
 // and a boolean to check if the value has been set.
 func (o *IngestersCloudResource) GetPublicAccessOk() (*string, bool) {
-	if o == nil || isNil(o.PublicAccess) {
+	if o == nil || IsNil(o.PublicAccess) {
 		return nil, false
 	}
 	return o.PublicAccess, true
@@ -806,7 +806,7 @@ func (o *IngestersCloudResource) GetPublicAccessOk() (*string, bool) {
 
 // HasPublicAccess returns a boolean if a field has been set.
 func (o *IngestersCloudResource) HasPublicAccess() bool {
-	if o != nil && !isNil(o.PublicAccess) {
+	if o != nil && !IsNil(o.PublicAccess) {
 		return true
 	}
 
@@ -831,7 +831,7 @@ func (o *IngestersCloudResource) GetPublicIps() interface{} {
 // and a boolean to check if the value has been set.
 // NOTE: If the value is an explicit nil, `nil, true` will be returned
 func (o *IngestersCloudResource) GetPublicIpsOk() (*interface{}, bool) {
-	if o == nil || isNil(o.PublicIps) {
+	if o == nil || IsNil(o.PublicIps) {
 		return nil, false
 	}
 	return &o.PublicIps, true
@@ -839,7 +839,7 @@ func (o *IngestersCloudResource) GetPublicIpsOk() (*interface{}, bool) {
 
 // HasPublicIps returns a boolean if a field has been set.
 func (o *IngestersCloudResource) HasPublicIps() bool {
-	if o != nil && isNil(o.PublicIps) {
+	if o != nil && IsNil(o.PublicIps) {
 		return true
 	}
 
@@ -853,7 +853,7 @@ func (o *IngestersCloudResource) SetPublicIps(v interface{}) {
 
 // GetRegion returns the Region field value if set, zero value otherwise.
 func (o *IngestersCloudResource) GetRegion() string {
-	if o == nil || isNil(o.Region) {
+	if o == nil || IsNil(o.Region) {
 		var ret string
 		return ret
 	}
@@ -863,7 +863,7 @@ func (o *IngestersCloudResource) GetRegion() string {
 // GetRegionOk returns a tuple with the Region field value if set, nil otherwise
 // and a boolean to check if the value has been set.
 func (o *IngestersCloudResource) GetRegionOk() (*string, bool) {
-	if o == nil || isNil(o.Region) {
+	if o == nil || IsNil(o.Region) {
 		return nil, false
 	}
 	return o.Region, true
@@ -871,7 +871,7 @@ func (o *IngestersCloudResource) GetRegionOk() (*string, bool) {
 
 // HasRegion returns a boolean if a field has been set.
 func (o *IngestersCloudResource) HasRegion() bool {
-	if o != nil && !isNil(o.Region) {
+	if o != nil && !IsNil(o.Region) {
 		return true
 	}
 
@@ -885,7 +885,7 @@ func (o *IngestersCloudResource) SetRegion(v string) {
 
 // GetResourceId returns the ResourceId field value if set, zero value otherwise.
 func (o *IngestersCloudResource) GetResourceId() string {
-	if o == nil || isNil(o.ResourceId) {
+	if o == nil || IsNil(o.ResourceId) {
 		var ret string
 		return ret
 	}
@@ -895,7 +895,7 @@ func (o *IngestersCloudResource) GetResourceId() string {
 // GetResourceIdOk returns a tuple with the ResourceId field value if set, nil otherwise
 // and a boolean to check if the value has been set.
 func (o *IngestersCloudResource) GetResourceIdOk() (*string, bool) {
-	if o == nil || isNil(o.ResourceId) {
+	if o == nil || IsNil(o.ResourceId) {
 		return nil, false
 	}
 	return o.ResourceId, true
@@ -903,7 +903,7 @@ func (o *IngestersCloudResource) GetResourceIdOk() (*string, bool) {
 
 // HasResourceId returns a boolean if a field has been set.
 func (o *IngestersCloudResource) HasResourceId() bool {
-	if o != nil && !isNil(o.ResourceId) {
+	if o != nil && !IsNil(o.ResourceId) {
 		return true
 	}
 
@@ -928,7 +928,7 @@ func (o *IngestersCloudResource) GetResourceVpcConfig() interface{} {
 // and a boolean to check if the value has been set.
 // NOTE: If the value is an explicit nil, `nil, true` will be returned
 func (o *IngestersCloudResource) GetResourceVpcConfigOk() (*interface{}, bool) {
-	if o == nil || isNil(o.ResourceVpcConfig) {
+	if o == nil || IsNil(o.ResourceVpcConfig) {
 		return nil, false
 	}
 	return &o.ResourceVpcConfig, true
@@ -936,7 +936,7 @@ func (o *IngestersCloudResource) GetResourceVpcConfigOk() (*interface{}, bool) {
 
 // HasResourceVpcConfig returns a boolean if a field has been set.
 func (o *IngestersCloudResource) HasResourceVpcConfig() bool {
-	if o != nil && isNil(o.ResourceVpcConfig) {
+	if o != nil && IsNil(o.ResourceVpcConfig) {
 		return true
 	}
 
@@ -950,7 +950,7 @@ func (o *IngestersCloudResource) SetResourceVpcConfig(v interface{}) {
 
 // GetRestrictPublicBuckets returns the RestrictPublicBuckets field value if set, zero value otherwise.
 func (o *IngestersCloudResource) GetRestrictPublicBuckets() bool {
-	if o == nil || isNil(o.RestrictPublicBuckets) {
+	if o == nil || IsNil(o.RestrictPublicBuckets) {
 		var ret bool
 		return ret
 	}
@@ -960,7 +960,7 @@ func (o *IngestersCloudResource) GetRestrictPublicBuckets() bool {
 // GetRestrictPublicBucketsOk returns a tuple with the RestrictPublicBuckets field value if set, nil otherwise
 // and a boolean to check if the value has been set.
 func (o *IngestersCloudResource) GetRestrictPublicBucketsOk() (*bool, bool) {
-	if o == nil || isNil(o.RestrictPublicBuckets) {
+	if o == nil || IsNil(o.RestrictPublicBuckets) {
 		return nil, false
 	}
 	return o.RestrictPublicBuckets, true
@@ -968,7 +968,7 @@ func (o *IngestersCloudResource) GetRestrictPublicBucketsOk() (*bool, bool) {
 
 // HasRestrictPublicBuckets returns a boolean if a field has been set.
 func (o *IngestersCloudResource) HasRestrictPublicBuckets() bool {
-	if o != nil && !isNil(o.RestrictPublicBuckets) {
+	if o != nil && !IsNil(o.RestrictPublicBuckets) {
 		return true
 	}
 
@@ -982,7 +982,7 @@ func (o *IngestersCloudResource) SetRestrictPublicBuckets(v bool) {
 
 // GetScheme returns the Scheme field value if set, zero value otherwise.
 func (o *IngestersCloudResource) GetScheme() string {
-	if o == nil || isNil(o.Scheme) {
+	if o == nil || IsNil(o.Scheme) {
 		var ret string
 		return ret
 	}
@@ -992,7 +992,7 @@ func (o *IngestersCloudResource) GetScheme() string {
 // GetSchemeOk returns a tuple with the Scheme field value if set, nil otherwise
 // and a boolean to check if the value has been set.
 func (o *IngestersCloudResource) GetSchemeOk() (*string, bool) {
-	if o == nil || isNil(o.Scheme) {
+	if o == nil || IsNil(o.Scheme) {
 		return nil, false
 	}
 	return o.Scheme, true
@@ -1000,7 +1000,7 @@ func (o *IngestersCloudResource) GetSchemeOk() (*string, bool) {
 
 // HasScheme returns a boolean if a field has been set.
 func (o *IngestersCloudResource) HasScheme() bool {
-	if o != nil && !isNil(o.Scheme) {
+	if o != nil && !IsNil(o.Scheme) {
 		return true
 	}
 
@@ -1025,7 +1025,7 @@ func (o *IngestersCloudResource) GetSecurityGroups() interface{} {
 // and a boolean to check if the value has been set.
 // NOTE: If the value is an explicit nil, `nil, true` will be returned
 func (o *IngestersCloudResource) GetSecurityGroupsOk() (*interface{}, bool) {
-	if o == nil || isNil(o.SecurityGroups) {
+	if o == nil || IsNil(o.SecurityGroups) {
 		return nil, false
 	}
 	return &o.SecurityGroups, true
@@ -1033,7 +1033,7 @@ func (o *IngestersCloudResource) GetSecurityGroupsOk() (*interface{}, bool) {
 
 // HasSecurityGroups returns a boolean if a field has been set.
 func (o *IngestersCloudResource) HasSecurityGroups() bool {
-	if o != nil && isNil(o.SecurityGroups) {
+	if o != nil && IsNil(o.SecurityGroups) {
 		return true
 	}
 
@@ -1047,7 +1047,7 @@ func (o *IngestersCloudResource) SetSecurityGroups(v interface{}) {
 
 // GetServiceName returns the ServiceName field value if set, zero value otherwise.
 func (o *IngestersCloudResource) GetServiceName() string {
-	if o == nil || isNil(o.ServiceName) {
+	if o == nil || IsNil(o.ServiceName) {
 		var ret string
 		return ret
 	}
@@ -1057,7 +1057,7 @@ func (o *IngestersCloudResource) GetServiceName() string {
 // GetServiceNameOk returns a tuple with the ServiceName field value if set, nil otherwise
 // and a boolean to check if the value has been set.
 func (o *IngestersCloudResource) GetServiceNameOk() (*string, bool) {
-	if o == nil || isNil(o.ServiceName) {
+	if o == nil || IsNil(o.ServiceName) {
 		return nil, false
 	}
 	return o.ServiceName, true
@@ -1065,7 +1065,7 @@ func (o *IngestersCloudResource) GetServiceNameOk() (*string, bool) {
 
 // HasServiceName returns a boolean if a field has been set.
 func (o *IngestersCloudResource) HasServiceName() bool {
-	if o != nil && !isNil(o.ServiceName) {
+	if o != nil && !IsNil(o.ServiceName) {
 		return true
 	}
 
@@ -1090,7 +1090,7 @@ func (o *IngestersCloudResource) GetTaskDefinition() interface{} {
 // and a boolean to check if the value has been set.
 // NOTE: If the value is an explicit nil, `nil, true` will be returned
 func (o *IngestersCloudResource) GetTaskDefinitionOk() (*interface{}, bool) {
-	if o == nil || isNil(o.TaskDefinition) {
+	if o == nil || IsNil(o.TaskDefinition) {
 		return nil, false
 	}
 	return &o.TaskDefinition, true
@@ -1098,7 +1098,7 @@ func (o *IngestersCloudResource) GetTaskDefinitionOk() (*interface{}, bool) {
 
 // HasTaskDefinition returns a boolean if a field has been set.
 func (o *IngestersCloudResource) HasTaskDefinition() bool {
-	if o != nil && isNil(o.TaskDefinition) {
+	if o != nil && IsNil(o.TaskDefinition) {
 		return true
 	}
 
@@ -1112,7 +1112,7 @@ func (o *IngestersCloudResource) SetTaskDefinition(v interface{}) {
 
 // GetTaskDefinitionArn returns the TaskDefinitionArn field value if set, zero value otherwise.
 func (o *IngestersCloudResource) GetTaskDefinitionArn() string {
-	if o == nil || isNil(o.TaskDefinitionArn) {
+	if o == nil || IsNil(o.TaskDefinitionArn) {
 		var ret string
 		return ret
 	}
@@ -1122,7 +1122,7 @@ func (o *IngestersCloudResource) GetTaskDefinitionArn() string {
 // GetTaskDefinitionArnOk returns a tuple with the TaskDefinitionArn field value if set, nil otherwise
 // and a boolean to check if the value has been set.
 func (o *IngestersCloudResource) GetTaskDefinitionArnOk() (*string, bool) {
-	if o == nil || isNil(o.TaskDefinitionArn) {
+	if o == nil || IsNil(o.TaskDefinitionArn) {
 		return nil, false
 	}
 	return o.TaskDefinitionArn, true
@@ -1130,7 +1130,7 @@ func (o *IngestersCloudResource) GetTaskDefinitionArnOk() (*string, bool) {
 
 // HasTaskDefinitionArn returns a boolean if a field has been set.
 func (o *IngestersCloudResource) HasTaskDefinitionArn() bool {
-	if o != nil && !isNil(o.TaskDefinitionArn) {
+	if o != nil && !IsNil(o.TaskDefinitionArn) {
 		return true
 	}
 
@@ -1144,7 +1144,7 @@ func (o *IngestersCloudResource) SetTaskDefinitionArn(v string) {
 
 // GetVpcId returns the VpcId field value if set, zero value otherwise.
 func (o *IngestersCloudResource) GetVpcId() string {
-	if o == nil || isNil(o.VpcId) {
+	if o == nil || IsNil(o.VpcId) {
 		var ret string
 		return ret
 	}
@@ -1154,7 +1154,7 @@ func (o *IngestersCloudResource) GetVpcId() string {
 // GetVpcIdOk returns a tuple with the VpcId field value if set, nil otherwise
 // and a boolean to check if the value has been set.
 func (o *IngestersCloudResource) GetVpcIdOk() (*string, bool) {
-	if o == nil || isNil(o.VpcId) {
+	if o == nil || IsNil(o.VpcId) {
 		return nil, false
 	}
 	return o.VpcId, true
@@ -1162,7 +1162,7 @@ func (o *IngestersCloudResource) GetVpcIdOk() (*string, bool) {
 
 // HasVpcId returns a boolean if a field has been set.
 func (o *IngestersCloudResource) HasVpcId() bool {
-	if o != nil && !isNil(o.VpcId) {
+	if o != nil && !IsNil(o.VpcId) {
 		return true
 	}
 
@@ -1187,7 +1187,7 @@ func (o *IngestersCloudResource) GetVpcOptions() interface{} {
 // and a boolean to check if the value has been set.
 // NOTE: If the value is an explicit nil, `nil, true` will be returned
 func (o *IngestersCloudResource) GetVpcOptionsOk() (*interface{}, bool) {
-	if o == nil || isNil(o.VpcOptions) {
+	if o == nil || IsNil(o.VpcOptions) {
 		return nil, false
 	}
 	return &o.VpcOptions, true
@@ -1195,7 +1195,7 @@ func (o *IngestersCloudResource) GetVpcOptionsOk() (*interface{}, bool) {
 
 // HasVpcOptions returns a boolean if a field has been set.
 func (o *IngestersCloudResource) HasVpcOptions() bool {
-	if o != nil && isNil(o.VpcOptions) {
+	if o != nil && IsNil(o.VpcOptions) {
 		return true
 	}
 
@@ -1220,7 +1220,7 @@ func (o *IngestersCloudResource) GetVpcSecurityGroups() interface{} {
 // and a boolean to check if the value has been set.
 // NOTE: If the value is an explicit nil, `nil, true` will be returned
 func (o *IngestersCloudResource) GetVpcSecurityGroupsOk() (*interface{}, bool) {
-	if o == nil || isNil(o.VpcSecurityGroups) {
+	if o == nil || IsNil(o.VpcSecurityGroups) {
 		return nil, false
 	}
 	return &o.VpcSecurityGroups, true
@@ -1228,7 +1228,7 @@ func (o *IngestersCloudResource) GetVpcSecurityGroupsOk() (*interface{}, bool) {
 
 // HasVpcSecurityGroups returns a boolean if a field has been set.
 func (o *IngestersCloudResource) HasVpcSecurityGroups() bool {
-	if o != nil && isNil(o.VpcSecurityGroups) {
+	if o != nil && IsNil(o.VpcSecurityGroups) {
 		return true
 	}
 
@@ -1250,106 +1250,106 @@ func (o IngestersCloudResource) MarshalJSON() ([]byte, error) {
 
 func (o IngestersCloudResource) ToMap() (map[string]interface{}, error) {
 	toSerialize := map[string]interface{}{}
-	if !isNil(o.AccountId) {
+	if !IsNil(o.AccountId) {
 		toSerialize["account_id"] = o.AccountId
 	}
-	if !isNil(o.AllowBlobPublicAccess) {
+	if !IsNil(o.AllowBlobPublicAccess) {
 		toSerialize["allow_blob_public_access"] = o.AllowBlobPublicAccess
 	}
-	if !isNil(o.Arn) {
+	if !IsNil(o.Arn) {
 		toSerialize["arn"] = o.Arn
 	}
-	if !isNil(o.BlockPublicAcls) {
+	if !IsNil(o.BlockPublicAcls) {
 		toSerialize["block_public_acls"] = o.BlockPublicAcls
 	}
-	if !isNil(o.BlockPublicPolicy) {
+	if !IsNil(o.BlockPublicPolicy) {
 		toSerialize["block_public_policy"] = o.BlockPublicPolicy
 	}
-	if !isNil(o.BucketPolicyIsPublic) {
+	if !IsNil(o.BucketPolicyIsPublic) {
 		toSerialize["bucket_policy_is_public"] = o.BucketPolicyIsPublic
 	}
-	if !isNil(o.CidrIpv4) {
+	if !IsNil(o.CidrIpv4) {
 		toSerialize["cidr_ipv4"] = o.CidrIpv4
 	}
 	if o.ContainerDefinitions != nil {
 		toSerialize["container_definitions"] = o.ContainerDefinitions
 	}
-	if !isNil(o.DbClusterIdentifier) {
+	if !IsNil(o.DbClusterIdentifier) {
 		toSerialize["db_cluster_identifier"] = o.DbClusterIdentifier
 	}
 	if o.EventNotificationConfiguration != nil {
 		toSerialize["event_notification_configuration"] = o.EventNotificationConfiguration
 	}
-	if !isNil(o.GroupId) {
+	if !IsNil(o.GroupId) {
 		toSerialize["group_id"] = o.GroupId
 	}
 	if o.IamPolicy != nil {
 		toSerialize["iam_policy"] = o.IamPolicy
 	}
-	if !isNil(o.Id) {
+	if !IsNil(o.Id) {
 		toSerialize["id"] = o.Id
 	}
-	if !isNil(o.IgnorePublicAcls) {
+	if !IsNil(o.IgnorePublicAcls) {
 		toSerialize["ignore_public_acls"] = o.IgnorePublicAcls
 	}
 	if o.IngressSettings != nil {
 		toSerialize["ingress_settings"] = o.IngressSettings
 	}
-	if !isNil(o.InstanceId) {
+	if !IsNil(o.InstanceId) {
 		toSerialize["instance_id"] = o.InstanceId
 	}
 	if o.IpConfiguration != nil {
 		toSerialize["ip_configuration"] = o.IpConfiguration
 	}
-	if !isNil(o.Name) {
+	if !IsNil(o.Name) {
 		toSerialize["name"] = o.Name
 	}
 	if o.NetworkInterfaces != nil {
 		toSerialize["network_interfaces"] = o.NetworkInterfaces
 	}
-	if !isNil(o.NetworkMode) {
+	if !IsNil(o.NetworkMode) {
 		toSerialize["network_mode"] = o.NetworkMode
 	}
 	if o.Policy != nil {
 		toSerialize["policy"] = o.Policy
 	}
-	if !isNil(o.PolicyStd) {
+	if !IsNil(o.PolicyStd) {
 		toSerialize["policy_std"] = o.PolicyStd
 	}
-	if !isNil(o.PublicAccess) {
+	if !IsNil(o.PublicAccess) {
 		toSerialize["public_access"] = o.PublicAccess
 	}
 	if o.PublicIps != nil {
 		toSerialize["public_ips"] = o.PublicIps
 	}
-	if !isNil(o.Region) {
+	if !IsNil(o.Region) {
 		toSerialize["region"] = o.Region
 	}
-	if !isNil(o.ResourceId) {
+	if !IsNil(o.ResourceId) {
 		toSerialize["resource_id"] = o.ResourceId
 	}
 	if o.ResourceVpcConfig != nil {
 		toSerialize["resource_vpc_config"] = o.ResourceVpcConfig
 	}
-	if !isNil(o.RestrictPublicBuckets) {
+	if !IsNil(o.RestrictPublicBuckets) {
 		toSerialize["restrict_public_buckets"] = o.RestrictPublicBuckets
 	}
-	if !isNil(o.Scheme) {
+	if !IsNil(o.Scheme) {
 		toSerialize["scheme"] = o.Scheme
 	}
 	if o.SecurityGroups != nil {
 		toSerialize["security_groups"] = o.SecurityGroups
 	}
-	if !isNil(o.ServiceName) {
+	if !IsNil(o.ServiceName) {
 		toSerialize["service_name"] = o.ServiceName
 	}
 	if o.TaskDefinition != nil {
 		toSerialize["task_definition"] = o.TaskDefinition
 	}
-	if !isNil(o.TaskDefinitionArn) {
+	if !IsNil(o.TaskDefinitionArn) {
 		toSerialize["task_definition_arn"] = o.TaskDefinitionArn
 	}
-	if !isNil(o.VpcId) {
+	if !IsNil(o.VpcId) {
 		toSerialize["vpc_id"] = o.VpcId
 	}
 	if o.VpcOptions != nil {

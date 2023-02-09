@@ -56,7 +56,7 @@ func (o *ReportersContainsFilter) GetFilterIn() map[string][]interface{} {
 // and a boolean to check if the value has been set.
 // NOTE: If the value is an explicit nil, `nil, true` will be returned
 func (o *ReportersContainsFilter) GetFilterInOk() (*map[string][]interface{}, bool) {
-	if o == nil || isNil(o.FilterIn) {
+	if o == nil || IsNil(o.FilterIn) {
 		return nil, false
 	}
 	return &o.FilterIn, true

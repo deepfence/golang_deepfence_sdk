@@ -4,13 +4,15 @@
 
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
-**ScanTriggers** | [**[]ModelComplianceScanTrigger**](ModelComplianceScanTrigger.md) |  | 
+**BenchmarkTypes** | **[]string** |  | 
+**Filters** | [**ModelScanFilter**](ModelScanFilter.md) |  | 
+**NodeIds** | [**[]ModelNodeIdentifier**](ModelNodeIdentifier.md) |  | 
 
 ## Methods
 
 ### NewModelComplianceScanTriggerReq
 
-`func NewModelComplianceScanTriggerReq(scanTriggers []ModelComplianceScanTrigger, ) *ModelComplianceScanTriggerReq`
+`func NewModelComplianceScanTriggerReq(benchmarkTypes []string, filters ModelScanFilter, nodeIds []ModelNodeIdentifier, ) *ModelComplianceScanTriggerReq`
 
 NewModelComplianceScanTriggerReq instantiates a new ModelComplianceScanTriggerReq object
 This constructor will assign default values to properties that have it defined,
@@ -25,36 +27,86 @@ NewModelComplianceScanTriggerReqWithDefaults instantiates a new ModelComplianceS
 This constructor will only assign default values to properties that have it defined,
 but it doesn't guarantee that properties required by API are set
 
-### GetScanTriggers
+### GetBenchmarkTypes
 
-`func (o *ModelComplianceScanTriggerReq) GetScanTriggers() []ModelComplianceScanTrigger`
+`func (o *ModelComplianceScanTriggerReq) GetBenchmarkTypes() []string`
 
-GetScanTriggers returns the ScanTriggers field if non-nil, zero value otherwise.
+GetBenchmarkTypes returns the BenchmarkTypes field if non-nil, zero value otherwise.
 
-### GetScanTriggersOk
+### GetBenchmarkTypesOk
 
-`func (o *ModelComplianceScanTriggerReq) GetScanTriggersOk() (*[]ModelComplianceScanTrigger, bool)`
+`func (o *ModelComplianceScanTriggerReq) GetBenchmarkTypesOk() (*[]string, bool)`
 
-GetScanTriggersOk returns a tuple with the ScanTriggers field if it's non-nil, zero value otherwise
+GetBenchmarkTypesOk returns a tuple with the BenchmarkTypes field if it's non-nil, zero value otherwise
 and a boolean to check if the value has been set.
 
-### SetScanTriggers
+### SetBenchmarkTypes
 
-`func (o *ModelComplianceScanTriggerReq) SetScanTriggers(v []ModelComplianceScanTrigger)`
+`func (o *ModelComplianceScanTriggerReq) SetBenchmarkTypes(v []string)`
 
-SetScanTriggers sets ScanTriggers field to given value.
+SetBenchmarkTypes sets BenchmarkTypes field to given value.
 
 
-### SetScanTriggersNil
+### SetBenchmarkTypesNil
 
-`func (o *ModelComplianceScanTriggerReq) SetScanTriggersNil(b bool)`
+`func (o *ModelComplianceScanTriggerReq) SetBenchmarkTypesNil(b bool)`
 
- SetScanTriggersNil sets the value for ScanTriggers to be an explicit nil
+ SetBenchmarkTypesNil sets the value for BenchmarkTypes to be an explicit nil
 
-### UnsetScanTriggers
-`func (o *ModelComplianceScanTriggerReq) UnsetScanTriggers()`
+### UnsetBenchmarkTypes
+`func (o *ModelComplianceScanTriggerReq) UnsetBenchmarkTypes()`
 
-UnsetScanTriggers ensures that no value is present for ScanTriggers, not even an explicit nil
+UnsetBenchmarkTypes ensures that no value is present for BenchmarkTypes, not even an explicit nil
+### GetFilters
+
+`func (o *ModelComplianceScanTriggerReq) GetFilters() ModelScanFilter`
+
+GetFilters returns the Filters field if non-nil, zero value otherwise.
+
+### GetFiltersOk
+
+`func (o *ModelComplianceScanTriggerReq) GetFiltersOk() (*ModelScanFilter, bool)`
+
+GetFiltersOk returns a tuple with the Filters field if it's non-nil, zero value otherwise
+and a boolean to check if the value has been set.
+
+### SetFilters
+
+`func (o *ModelComplianceScanTriggerReq) SetFilters(v ModelScanFilter)`
+
+SetFilters sets Filters field to given value.
+
+
+### GetNodeIds
+
+`func (o *ModelComplianceScanTriggerReq) GetNodeIds() []ModelNodeIdentifier`
+
+GetNodeIds returns the NodeIds field if non-nil, zero value otherwise.
+
+### GetNodeIdsOk
+
+`func (o *ModelComplianceScanTriggerReq) GetNodeIdsOk() (*[]ModelNodeIdentifier, bool)`
+
+GetNodeIdsOk returns a tuple with the NodeIds field if it's non-nil, zero value otherwise
+and a boolean to check if the value has been set.
+
+### SetNodeIds
+
+`func (o *ModelComplianceScanTriggerReq) SetNodeIds(v []ModelNodeIdentifier)`
+
+SetNodeIds sets NodeIds field to given value.
+
+
+### SetNodeIdsNil
+
+`func (o *ModelComplianceScanTriggerReq) SetNodeIdsNil(b bool)`
+
+ SetNodeIdsNil sets the value for NodeIds to be an explicit nil
+
+### UnsetNodeIds
+`func (o *ModelComplianceScanTriggerReq) UnsetNodeIds()`
+
+UnsetNodeIds ensures that no value is present for NodeIds, not even an explicit nil
 
 [[Back to Model list]](../README.md#documentation-for-models) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to README]](../README.md)
 

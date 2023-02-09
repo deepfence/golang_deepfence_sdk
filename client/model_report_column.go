@@ -44,7 +44,7 @@ func NewReportColumnWithDefaults() *ReportColumn {
 
 // GetDataType returns the DataType field value if set, zero value otherwise.
 func (o *ReportColumn) GetDataType() string {
-	if o == nil || isNil(o.DataType) {
+	if o == nil || IsNil(o.DataType) {
 		var ret string
 		return ret
 	}
@@ -54,7 +54,7 @@ func (o *ReportColumn) GetDataType() string {
 // GetDataTypeOk returns a tuple with the DataType field value if set, nil otherwise
 // and a boolean to check if the value has been set.
 func (o *ReportColumn) GetDataTypeOk() (*string, bool) {
-	if o == nil || isNil(o.DataType) {
+	if o == nil || IsNil(o.DataType) {
 		return nil, false
 	}
 	return o.DataType, true
@@ -62,7 +62,7 @@ func (o *ReportColumn) GetDataTypeOk() (*string, bool) {
 
 // HasDataType returns a boolean if a field has been set.
 func (o *ReportColumn) HasDataType() bool {
-	if o != nil && !isNil(o.DataType) {
+	if o != nil && !IsNil(o.DataType) {
 		return true
 	}
 
@@ -76,7 +76,7 @@ func (o *ReportColumn) SetDataType(v string) {
 
 // GetId returns the Id field value if set, zero value otherwise.
 func (o *ReportColumn) GetId() string {
-	if o == nil || isNil(o.Id) {
+	if o == nil || IsNil(o.Id) {
 		var ret string
 		return ret
 	}
@@ -86,7 +86,7 @@ func (o *ReportColumn) GetId() string {
 // GetIdOk returns a tuple with the Id field value if set, nil otherwise
 // and a boolean to check if the value has been set.
 func (o *ReportColumn) GetIdOk() (*string, bool) {
-	if o == nil || isNil(o.Id) {
+	if o == nil || IsNil(o.Id) {
 		return nil, false
 	}
 	return o.Id, true
@@ -94,7 +94,7 @@ func (o *ReportColumn) GetIdOk() (*string, bool) {
 
 // HasId returns a boolean if a field has been set.
 func (o *ReportColumn) HasId() bool {
-	if o != nil && !isNil(o.Id) {
+	if o != nil && !IsNil(o.Id) {
 		return true
 	}
 
@@ -108,7 +108,7 @@ func (o *ReportColumn) SetId(v string) {
 
 // GetLabel returns the Label field value if set, zero value otherwise.
 func (o *ReportColumn) GetLabel() string {
-	if o == nil || isNil(o.Label) {
+	if o == nil || IsNil(o.Label) {
 		var ret string
 		return ret
 	}
@@ -118,7 +118,7 @@ func (o *ReportColumn) GetLabel() string {
 // GetLabelOk returns a tuple with the Label field value if set, nil otherwise
 // and a boolean to check if the value has been set.
 func (o *ReportColumn) GetLabelOk() (*string, bool) {
-	if o == nil || isNil(o.Label) {
+	if o == nil || IsNil(o.Label) {
 		return nil, false
 	}
 	return o.Label, true
@@ -126,7 +126,7 @@ func (o *ReportColumn) GetLabelOk() (*string, bool) {
 
 // HasLabel returns a boolean if a field has been set.
 func (o *ReportColumn) HasLabel() bool {
-	if o != nil && !isNil(o.Label) {
+	if o != nil && !IsNil(o.Label) {
 		return true
 	}
 
@@ -148,13 +148,13 @@ func (o ReportColumn) MarshalJSON() ([]byte, error) {
 
 func (o ReportColumn) ToMap() (map[string]interface{}, error) {
 	toSerialize := map[string]interface{}{}
-	if !isNil(o.DataType) {
+	if !IsNil(o.DataType) {
 		toSerialize["dataType"] = o.DataType
 	}
-	if !isNil(o.Id) {
+	if !IsNil(o.Id) {
 		toSerialize["id"] = o.Id
 	}
-	if !isNil(o.Label) {
+	if !IsNil(o.Label) {
 		toSerialize["label"] = o.Label
 	}
 	return toSerialize, nil

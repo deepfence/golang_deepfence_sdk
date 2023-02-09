@@ -48,7 +48,7 @@ func NewModelRegistryListRespWithDefaults() *ModelRegistryListResp {
 
 // GetCreatedAt returns the CreatedAt field value if set, zero value otherwise.
 func (o *ModelRegistryListResp) GetCreatedAt() time.Time {
-	if o == nil || isNil(o.CreatedAt) {
+	if o == nil || IsNil(o.CreatedAt) {
 		var ret time.Time
 		return ret
 	}
@@ -58,7 +58,7 @@ func (o *ModelRegistryListResp) GetCreatedAt() time.Time {
 // GetCreatedAtOk returns a tuple with the CreatedAt field value if set, nil otherwise
 // and a boolean to check if the value has been set.
 func (o *ModelRegistryListResp) GetCreatedAtOk() (*time.Time, bool) {
-	if o == nil || isNil(o.CreatedAt) {
+	if o == nil || IsNil(o.CreatedAt) {
 		return nil, false
 	}
 	return o.CreatedAt, true
@@ -66,7 +66,7 @@ func (o *ModelRegistryListResp) GetCreatedAtOk() (*time.Time, bool) {
 
 // HasCreatedAt returns a boolean if a field has been set.
 func (o *ModelRegistryListResp) HasCreatedAt() bool {
-	if o != nil && !isNil(o.CreatedAt) {
+	if o != nil && !IsNil(o.CreatedAt) {
 		return true
 	}
 
@@ -80,7 +80,7 @@ func (o *ModelRegistryListResp) SetCreatedAt(v time.Time) {
 
 // GetId returns the Id field value if set, zero value otherwise.
 func (o *ModelRegistryListResp) GetId() int32 {
-	if o == nil || isNil(o.Id) {
+	if o == nil || IsNil(o.Id) {
 		var ret int32
 		return ret
 	}
@@ -90,7 +90,7 @@ func (o *ModelRegistryListResp) GetId() int32 {
 // GetIdOk returns a tuple with the Id field value if set, nil otherwise
 // and a boolean to check if the value has been set.
 func (o *ModelRegistryListResp) GetIdOk() (*int32, bool) {
-	if o == nil || isNil(o.Id) {
+	if o == nil || IsNil(o.Id) {
 		return nil, false
 	}
 	return o.Id, true
@@ -98,7 +98,7 @@ func (o *ModelRegistryListResp) GetIdOk() (*int32, bool) {
 
 // HasId returns a boolean if a field has been set.
 func (o *ModelRegistryListResp) HasId() bool {
-	if o != nil && !isNil(o.Id) {
+	if o != nil && !IsNil(o.Id) {
 		return true
 	}
 
@@ -112,7 +112,7 @@ func (o *ModelRegistryListResp) SetId(v int32) {
 
 // GetName returns the Name field value if set, zero value otherwise.
 func (o *ModelRegistryListResp) GetName() string {
-	if o == nil || isNil(o.Name) {
+	if o == nil || IsNil(o.Name) {
 		var ret string
 		return ret
 	}
@@ -122,7 +122,7 @@ func (o *ModelRegistryListResp) GetName() string {
 // GetNameOk returns a tuple with the Name field value if set, nil otherwise
 // and a boolean to check if the value has been set.
 func (o *ModelRegistryListResp) GetNameOk() (*string, bool) {
-	if o == nil || isNil(o.Name) {
+	if o == nil || IsNil(o.Name) {
 		return nil, false
 	}
 	return o.Name, true
@@ -130,7 +130,7 @@ func (o *ModelRegistryListResp) GetNameOk() (*string, bool) {
 
 // HasName returns a boolean if a field has been set.
 func (o *ModelRegistryListResp) HasName() bool {
-	if o != nil && !isNil(o.Name) {
+	if o != nil && !IsNil(o.Name) {
 		return true
 	}
 
@@ -155,7 +155,7 @@ func (o *ModelRegistryListResp) GetNonSecret() interface{} {
 // and a boolean to check if the value has been set.
 // NOTE: If the value is an explicit nil, `nil, true` will be returned
 func (o *ModelRegistryListResp) GetNonSecretOk() (*interface{}, bool) {
-	if o == nil || isNil(o.NonSecret) {
+	if o == nil || IsNil(o.NonSecret) {
 		return nil, false
 	}
 	return &o.NonSecret, true
@@ -163,7 +163,7 @@ func (o *ModelRegistryListResp) GetNonSecretOk() (*interface{}, bool) {
 
 // HasNonSecret returns a boolean if a field has been set.
 func (o *ModelRegistryListResp) HasNonSecret() bool {
-	if o != nil && isNil(o.NonSecret) {
+	if o != nil && IsNil(o.NonSecret) {
 		return true
 	}
 
@@ -177,7 +177,7 @@ func (o *ModelRegistryListResp) SetNonSecret(v interface{}) {
 
 // GetRegistryType returns the RegistryType field value if set, zero value otherwise.
 func (o *ModelRegistryListResp) GetRegistryType() string {
-	if o == nil || isNil(o.RegistryType) {
+	if o == nil || IsNil(o.RegistryType) {
 		var ret string
 		return ret
 	}
@@ -187,7 +187,7 @@ func (o *ModelRegistryListResp) GetRegistryType() string {
 // GetRegistryTypeOk returns a tuple with the RegistryType field value if set, nil otherwise
 // and a boolean to check if the value has been set.
 func (o *ModelRegistryListResp) GetRegistryTypeOk() (*string, bool) {
-	if o == nil || isNil(o.RegistryType) {
+	if o == nil || IsNil(o.RegistryType) {
 		return nil, false
 	}
 	return o.RegistryType, true
@@ -195,7 +195,7 @@ func (o *ModelRegistryListResp) GetRegistryTypeOk() (*string, bool) {
 
 // HasRegistryType returns a boolean if a field has been set.
 func (o *ModelRegistryListResp) HasRegistryType() bool {
-	if o != nil && !isNil(o.RegistryType) {
+	if o != nil && !IsNil(o.RegistryType) {
 		return true
 	}
 
@@ -209,7 +209,7 @@ func (o *ModelRegistryListResp) SetRegistryType(v string) {
 
 // GetUpdatedAt returns the UpdatedAt field value if set, zero value otherwise.
 func (o *ModelRegistryListResp) GetUpdatedAt() time.Time {
-	if o == nil || isNil(o.UpdatedAt) {
+	if o == nil || IsNil(o.UpdatedAt) {
 		var ret time.Time
 		return ret
 	}
@@ -219,7 +219,7 @@ func (o *ModelRegistryListResp) GetUpdatedAt() time.Time {
 // GetUpdatedAtOk returns a tuple with the UpdatedAt field value if set, nil otherwise
 // and a boolean to check if the value has been set.
 func (o *ModelRegistryListResp) GetUpdatedAtOk() (*time.Time, bool) {
-	if o == nil || isNil(o.UpdatedAt) {
+	if o == nil || IsNil(o.UpdatedAt) {
 		return nil, false
 	}
 	return o.UpdatedAt, true
@@ -227,7 +227,7 @@ func (o *ModelRegistryListResp) GetUpdatedAtOk() (*time.Time, bool) {
 
 // HasUpdatedAt returns a boolean if a field has been set.
 func (o *ModelRegistryListResp) HasUpdatedAt() bool {
-	if o != nil && !isNil(o.UpdatedAt) {
+	if o != nil && !IsNil(o.UpdatedAt) {
 		return true
 	}
 
@@ -249,22 +249,22 @@ func (o ModelRegistryListResp) MarshalJSON() ([]byte, error) {
 
 func (o ModelRegistryListResp) ToMap() (map[string]interface{}, error) {
 	toSerialize := map[string]interface{}{}
-	if !isNil(o.CreatedAt) {
+	if !IsNil(o.CreatedAt) {
 		toSerialize["created_at"] = o.CreatedAt
 	}
-	if !isNil(o.Id) {
+	if !IsNil(o.Id) {
 		toSerialize["id"] = o.Id
 	}
-	if !isNil(o.Name) {
+	if !IsNil(o.Name) {
 		toSerialize["name"] = o.Name
 	}
 	if o.NonSecret != nil {
 		toSerialize["non_secret"] = o.NonSecret
 	}
-	if !isNil(o.RegistryType) {
+	if !IsNil(o.RegistryType) {
 		toSerialize["registry_type"] = o.RegistryType
 	}
-	if !isNil(o.UpdatedAt) {
+	if !IsNil(o.UpdatedAt) {
 		toSerialize["updated_at"] = o.UpdatedAt
 	}
 	return toSerialize, nil

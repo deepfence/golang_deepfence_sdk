@@ -2064,6 +2064,49 @@ paths:
       summary: Get Vulnerability Scans List
       tags:
       - Vulnerability
+  /deepfence/scan/results/cloud-compliance:
+    post:
+      description: Get Cloud Compliance Scan results for cloud node
+      operationId: resultsCloudComplianceScan
+      requestBody:
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/ModelScanResultsReq'
+      responses:
+        "200":
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ModelCloudComplianceScanResult'
+          description: OK
+        "400":
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ApiDocsBadRequestResponse'
+          description: Bad Request
+        "401":
+          description: Unauthorized
+        "403":
+          description: Forbidden
+        "404":
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ApiDocsFailureResponse'
+          description: Not Found
+        "500":
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ApiDocsFailureResponse'
+          description: Internal Server Error
+      security:
+      - bearer_token: []
+      summary: Get Cloud Compliance Scan Results
+      tags:
+      - Cloud Scanner
   /deepfence/scan/results/compliance:
     post:
       description: Get Compliance Scans results on agent or registry
@@ -4336,6 +4379,91 @@ components:
       required:
       - api_token
       type: object
+    ModelCloudCompliance:
+      example:
+        severity: severity
+        reason: reason
+        control_id: control_id
+        resource: resource
+        masked: masked
+        count: 0
+        node_name: node_name
+        description: description
+        cloud_provider: cloud_provider
+        title: title
+        type: type
+        compliance_check_type: compliance_check_type
+        '@timestamp': '@timestamp'
+        account_id: account_id
+        service: service
+        scan_id: scan_id
+        region: region
+        group: group
+        node_id: node_id
+        status: status
+      properties:
+        '@timestamp':
+          type: string
+        account_id:
+          type: string
+        cloud_provider:
+          type: string
+        compliance_check_type:
+          type: string
+        control_id:
+          type: string
+        count:
+          type: integer
+        description:
+          type: string
+        group:
+          type: string
+        masked:
+          type: string
+        node_id:
+          type: string
+        node_name:
+          type: string
+        reason:
+          type: string
+        region:
+          type: string
+        resource:
+          type: string
+        scan_id:
+          type: string
+        service:
+          type: string
+        severity:
+          type: string
+        status:
+          type: string
+        title:
+          type: string
+        type:
+          type: string
+      required:
+      - '@timestamp'
+      - account_id
+      - cloud_provider
+      - compliance_check_type
+      - control_id
+      - count
+      - description
+      - group
+      - masked
+      - node_id
+      - node_name
+      - reason
+      - region
+      - resource
+      - scan_id
+      - service
+      - severity
+      - status
+      - title
+      - type
+      type: object
     ModelCloudComplianceScanDetails:
       example:
         account_id: account_id
@@ -4356,6 +4484,90 @@ components:
           type: string
         scan_type:
           type: string
+      type: object
+    ModelCloudComplianceScanResult:
+      example:
+        compliances:
+        - severity: severity
+          reason: reason
+          control_id: control_id
+          resource: resource
+          masked: masked
+          count: 0
+          node_name: node_name
+          description: description
+          cloud_provider: cloud_provider
+          title: title
+          type: type
+          compliance_check_type: compliance_check_type
+          '@timestamp': '@timestamp'
+          account_id: account_id
+          service: service
+          scan_id: scan_id
+          region: region
+          group: group
+          node_id: node_id
+          status: status
+        - severity: severity
+          reason: reason
+          control_id: control_id
+          resource: resource
+          masked: masked
+          count: 0
+          node_name: node_name
+          description: description
+          cloud_provider: cloud_provider
+          title: title
+          type: type
+          compliance_check_type: compliance_check_type
+          '@timestamp': '@timestamp'
+          account_id: account_id
+          service: service
+          scan_id: scan_id
+          region: region
+          group: group
+          node_id: node_id
+          status: status
+        node_type: node_type
+        docker_container_name: docker_container_name
+        kubernetes_cluster_name: kubernetes_cluster_name
+        node_name: node_name
+        scan_id: scan_id
+        docker_image_name: docker_image_name
+        host_name: host_name
+        node_id: node_id
+      properties:
+        compliances:
+          items:
+            $ref: '#/components/schemas/ModelCloudCompliance'
+          nullable: true
+          type: array
+        docker_container_name:
+          type: string
+        docker_image_name:
+          type: string
+        host_name:
+          type: string
+        kubernetes_cluster_name:
+          type: string
+        node_id:
+          type: string
+        node_name:
+          type: string
+        node_type:
+          type: string
+        scan_id:
+          type: string
+      required:
+      - compliances
+      - docker_container_name
+      - docker_image_name
+      - host_name
+      - kubernetes_cluster_name
+      - node_id
+      - node_name
+      - node_type
+      - scan_id
       type: object
     ModelCloudNodeAccountInfo:
       example:
@@ -4680,55 +4892,84 @@ components:
       required:
       - statuses
       type: object
-    ModelComplianceScanTrigger:
+    ModelComplianceScanTriggerReq:
       example:
-        node_type: aws
         benchmark_types:
         - benchmark_types
         - benchmark_types
-        node_id: node_id
+        filters:
+          container_scan_filter:
+            fields_values:
+            - values:
+              - values
+              - values
+              key: key
+            - values:
+              - values
+              - values
+              key: key
+          cloud_account_scan_filter:
+            fields_values:
+            - values:
+              - values
+              - values
+              key: key
+            - values:
+              - values
+              - values
+              key: key
+          image_scan_filter:
+            fields_values:
+            - values:
+              - values
+              - values
+              key: key
+            - values:
+              - values
+              - values
+              key: key
+          kubernetes_cluster_scan_filter:
+            fields_values:
+            - values:
+              - values
+              - values
+              key: key
+            - values:
+              - values
+              - values
+              key: key
+          host_scan_filter:
+            fields_values:
+            - values:
+              - values
+              - values
+              key: key
+            - values:
+              - values
+              - values
+              key: key
+        node_ids:
+        - node_type: image
+          node_id: node_id
+        - node_type: image
+          node_id: node_id
       properties:
         benchmark_types:
           items:
             type: string
           nullable: true
           type: array
-        node_id:
-          type: string
-        node_type:
-          enum:
-          - aws
-          - gcp
-          - azure
-          - linux
-          - kubernetes_cluster
-          type: string
-      required:
-      - benchmark_types
-      - node_id
-      - node_type
-      type: object
-    ModelComplianceScanTriggerReq:
-      example:
-        scan_triggers:
-        - node_type: aws
-          benchmark_types:
-          - benchmark_types
-          - benchmark_types
-          node_id: node_id
-        - node_type: aws
-          benchmark_types:
-          - benchmark_types
-          - benchmark_types
-          node_id: node_id
-      properties:
-        scan_triggers:
+        filters:
+          $ref: '#/components/schemas/ModelScanFilter'
+        node_ids:
           items:
-            $ref: '#/components/schemas/ModelComplianceScanTrigger'
+            $ref: '#/components/schemas/ModelNodeIdentifier'
           nullable: true
           type: array
       required:
-      - scan_triggers
+      - benchmark_types
+      - filters
+      - node_ids
       type: object
     ModelComputeMetrics:
       example:
@@ -4869,14 +5110,18 @@ components:
     ModelFieldsFilter:
       example:
         fields_values:
-        - value: value
+        - values:
+          - values
+          - values
           key: key
-        - value: value
+        - values:
+          - values
+          - values
           key: key
       properties:
         fields_values:
           items:
-            $ref: '#/components/schemas/ModelKeyValue'
+            $ref: '#/components/schemas/ModelKeyValues'
           nullable: true
           type: array
       required:
@@ -5353,18 +5598,23 @@ components:
         message:
           type: string
       type: object
-    ModelKeyValue:
+    ModelKeyValues:
       example:
-        value: value
+        values:
+        - values
+        - values
         key: key
       properties:
         key:
           type: string
-        value:
-          type: string
+        values:
+          items:
+            type: string
+          nullable: true
+          type: array
       required:
       - key
-      - value
+      - values
       type: object
     ModelKubernetesCluster:
       example:
@@ -6310,21 +6560,53 @@ components:
         filters:
           container_scan_filter:
             fields_values:
-            - value: value
+            - values:
+              - values
+              - values
               key: key
-            - value: value
+            - values:
+              - values
+              - values
+              key: key
+          cloud_account_scan_filter:
+            fields_values:
+            - values:
+              - values
+              - values
+              key: key
+            - values:
+              - values
+              - values
               key: key
           image_scan_filter:
             fields_values:
-            - value: value
+            - values:
+              - values
+              - values
               key: key
-            - value: value
+            - values:
+              - values
+              - values
+              key: key
+          kubernetes_cluster_scan_filter:
+            fields_values:
+            - values:
+              - values
+              - values
+              key: key
+            - values:
+              - values
+              - values
               key: key
           host_scan_filter:
             fields_values:
-            - value: value
+            - values:
+              - values
+              - values
               key: key
-            - value: value
+            - values:
+              - values
+              - values
               key: key
         node_ids:
         - node_type: image
@@ -6367,6 +6649,7 @@ components:
           - image
           - host
           - container
+          - cloud_account
           - cluster
           - registry
           type: string
@@ -6746,33 +7029,71 @@ components:
       example:
         container_scan_filter:
           fields_values:
-          - value: value
+          - values:
+            - values
+            - values
             key: key
-          - value: value
+          - values:
+            - values
+            - values
+            key: key
+        cloud_account_scan_filter:
+          fields_values:
+          - values:
+            - values
+            - values
+            key: key
+          - values:
+            - values
+            - values
             key: key
         image_scan_filter:
           fields_values:
-          - value: value
+          - values:
+            - values
+            - values
             key: key
-          - value: value
+          - values:
+            - values
+            - values
+            key: key
+        kubernetes_cluster_scan_filter:
+          fields_values:
+          - values:
+            - values
+            - values
+            key: key
+          - values:
+            - values
+            - values
             key: key
         host_scan_filter:
           fields_values:
-          - value: value
+          - values:
+            - values
+            - values
             key: key
-          - value: value
+          - values:
+            - values
+            - values
             key: key
       properties:
+        cloud_account_scan_filter:
+          $ref: '#/components/schemas/ModelFieldsFilter'
         container_scan_filter:
           $ref: '#/components/schemas/ModelFieldsFilter'
         host_scan_filter:
           $ref: '#/components/schemas/ModelFieldsFilter'
         image_scan_filter:
           $ref: '#/components/schemas/ModelFieldsFilter'
+        kubernetes_cluster_scan_filter:
+          $ref: '#/components/schemas/ModelFieldsFilter'
       required:
+      - cloud_account_scan_filter
       - container_scan_filter
       - host_scan_filter
       - image_scan_filter
+      - kubernetes_cluster_scan_filter
       type: object
     ModelScanInfo:
       example:
@@ -7019,21 +7340,53 @@ components:
         filters:
           container_scan_filter:
             fields_values:
-            - value: value
+            - values:
+              - values
+              - values
               key: key
-            - value: value
+            - values:
+              - values
+              - values
+              key: key
+          cloud_account_scan_filter:
+            fields_values:
+            - values:
+              - values
+              - values
+              key: key
+            - values:
+              - values
+              - values
               key: key
           image_scan_filter:
             fields_values:
-            - value: value
+            - values:
+              - values
+              - values
               key: key
-            - value: value
+            - values:
+              - values
+              - values
+              key: key
+          kubernetes_cluster_scan_filter:
+            fields_values:
+            - values:
+              - values
+              - values
+              key: key
+            - values:
+              - values
+              - values
               key: key
           host_scan_filter:
             fields_values:
-            - value: value
+            - values:
+              - values
+              - values
               key: key
-            - value: value
+            - values:
+              - values
+              - values
               key: key
         node_ids:
         - node_type: image
@@ -7282,21 +7635,53 @@ components:
         filters:
           container_scan_filter:
             fields_values:
-            - value: value
+            - values:
+              - values
+              - values
               key: key
-            - value: value
+            - values:
+              - values
+              - values
+              key: key
+          cloud_account_scan_filter:
+            fields_values:
+            - values:
+              - values
+              - values
+              key: key
+            - values:
+              - values
+              - values
               key: key
           image_scan_filter:
             fields_values:
-            - value: value
+            - values:
+              - values
+              - values
               key: key
-            - value: value
+            - values:
+              - values
+              - values
+              key: key
+          kubernetes_cluster_scan_filter:
+            fields_values:
+            - values:
+              - values
+              - values
+              key: key
+            - values:
+              - values
+              - values
               key: key
           host_scan_filter:
             fields_values:
-            - value: value
+            - values:
+              - values
+              - values
               key: key
-            - value: value
+            - values:
+              - values
+              - values
               key: key
         node_ids:
         - node_type: image

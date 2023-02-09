@@ -58,7 +58,7 @@ func (o *ReportersLookupFilter) GetInFieldFilter() []string {
 // and a boolean to check if the value has been set.
 // NOTE: If the value is an explicit nil, `nil, true` will be returned
 func (o *ReportersLookupFilter) GetInFieldFilterOk() ([]string, bool) {
-	if o == nil || isNil(o.InFieldFilter) {
+	if o == nil || IsNil(o.InFieldFilter) {
 		return nil, false
 	}
 	return o.InFieldFilter, true
@@ -84,7 +84,7 @@ func (o *ReportersLookupFilter) GetNodeIds() []string {
 // and a boolean to check if the value has been set.
 // NOTE: If the value is an explicit nil, `nil, true` will be returned
 func (o *ReportersLookupFilter) GetNodeIdsOk() ([]string, bool) {
-	if o == nil || isNil(o.NodeIds) {
+	if o == nil || IsNil(o.NodeIds) {
 		return nil, false
 	}
 	return o.NodeIds, true

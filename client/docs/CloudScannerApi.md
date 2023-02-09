@@ -6,6 +6,7 @@ Method | HTTP request | Description
 ------------- | ------------- | -------------
 [**IngestCloudComplianceScanStatus**](CloudScannerApi.md#IngestCloudComplianceScanStatus) | **Post** /deepfence/ingest/cloud-compliance-scan-status | Ingest Cloud Compliances
 [**IngestCloudCompliances**](CloudScannerApi.md#IngestCloudCompliances) | **Post** /deepfence/ingest/cloud-compliance | Ingest Cloud Compliances
+[**ResultsCloudComplianceScan**](CloudScannerApi.md#ResultsCloudComplianceScan) | **Post** /deepfence/scan/results/cloud-compliance | Get Cloud Compliance Scan Results
 [**StatusCloudComplianceScan**](CloudScannerApi.md#StatusCloudComplianceScan) | **Get** /deepfence/scan/status/cloud-compliance | Get Cloud Compliance Scan Status
 
 
@@ -27,7 +28,7 @@ import (
     "context"
     "fmt"
     "os"
-    openapiclient "./openapi"
+    openapiclient "github.com/deepfence/golang_deepfence_sdk/client"
 )
 
 func main() {
@@ -35,7 +36,7 @@ func main() {
 
     configuration := openapiclient.NewConfiguration()
     apiClient := openapiclient.NewAPIClient(configuration)
-    resp, r, err := apiClient.CloudScannerApi.IngestCloudComplianceScanStatus(context.Background()).IngestersCloudCompliance(ingestersCloudCompliance).Execute()
+    r, err := apiClient.CloudScannerApi.IngestCloudComplianceScanStatus(context.Background()).IngestersCloudCompliance(ingestersCloudCompliance).Execute()
     if err != nil {
         fmt.Fprintf(os.Stderr, "Error when calling `CloudScannerApi.IngestCloudComplianceScanStatus``: %v\n", err)
         fmt.Fprintf(os.Stderr, "Full HTTP response: %v\n", r)
@@ -91,7 +92,7 @@ import (
     "context"
     "fmt"
     "os"
-    openapiclient "./openapi"
+    openapiclient "github.com/deepfence/golang_deepfence_sdk/client"
 )
 
 func main() {
@@ -99,7 +100,7 @@ func main() {
 
     configuration := openapiclient.NewConfiguration()
     apiClient := openapiclient.NewAPIClient(configuration)
-    resp, r, err := apiClient.CloudScannerApi.IngestCloudCompliances(context.Background()).IngestersCloudCompliance(ingestersCloudCompliance).Execute()
+    r, err := apiClient.CloudScannerApi.IngestCloudCompliances(context.Background()).IngestersCloudCompliance(ingestersCloudCompliance).Execute()
     if err != nil {
         fmt.Fprintf(os.Stderr, "Error when calling `CloudScannerApi.IngestCloudCompliances``: %v\n", err)
         fmt.Fprintf(os.Stderr, "Full HTTP response: %v\n", r)
@@ -138,6 +139,72 @@ Name | Type | Description  | Notes
 [[Back to README]](../README.md)
 
 
+## ResultsCloudComplianceScan
+
+> ModelCloudComplianceScanResult ResultsCloudComplianceScan(ctx).ModelScanResultsReq(modelScanResultsReq).Execute()
+
+Get Cloud Compliance Scan Results
+
+
+
+### Example
+
+```go
+package main
+
+import (
+    "context"
+    "fmt"
+    "os"
+    openapiclient "github.com/deepfence/golang_deepfence_sdk/client"
+)
+
+func main() {
+    modelScanResultsReq := *openapiclient.NewModelScanResultsReq("ScanId_example", *openapiclient.NewModelFetchWindow(int32(123), int32(123))) // ModelScanResultsReq |  (optional)
+
+    configuration := openapiclient.NewConfiguration()
+    apiClient := openapiclient.NewAPIClient(configuration)
+    resp, r, err := apiClient.CloudScannerApi.ResultsCloudComplianceScan(context.Background()).ModelScanResultsReq(modelScanResultsReq).Execute()
+    if err != nil {
+        fmt.Fprintf(os.Stderr, "Error when calling `CloudScannerApi.ResultsCloudComplianceScan``: %v\n", err)
+        fmt.Fprintf(os.Stderr, "Full HTTP response: %v\n", r)
+    }
+    // response from `ResultsCloudComplianceScan`: ModelCloudComplianceScanResult
+    fmt.Fprintf(os.Stdout, "Response from `CloudScannerApi.ResultsCloudComplianceScan`: %v\n", resp)
+}
+```
+
+### Path Parameters
+
+
+
+### Other Parameters
+
+Other parameters are passed through a pointer to a apiResultsCloudComplianceScanRequest struct via the builder pattern
+
+
+Name | Type | Description  | Notes
+------------- | ------------- | ------------- | -------------
+ **modelScanResultsReq** | [**ModelScanResultsReq**](ModelScanResultsReq.md) |  | 
+
+### Return type
+
+[**ModelCloudComplianceScanResult**](ModelCloudComplianceScanResult.md)
+
+### Authorization
+
+[bearer_token](../README.md#bearer_token)
+
+### HTTP request headers
+
+- **Content-Type**: application/json
+- **Accept**: application/json
+
+[[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints)
+[[Back to Model list]](../README.md#documentation-for-models)
+[[Back to README]](../README.md)
+
+
 ## StatusCloudComplianceScan
 
 > ModelComplianceScanStatusResp StatusCloudComplianceScan(ctx).ScanIds(scanIds).BulkScanId(bulkScanId).Execute()
@@ -155,7 +222,7 @@ import (
     "context"
     "fmt"
     "os"
-    openapiclient "./openapi"
+    openapiclient "github.com/deepfence/golang_deepfence_sdk/client"
 )
 
 func main() {

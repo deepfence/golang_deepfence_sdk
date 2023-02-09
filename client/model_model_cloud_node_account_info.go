@@ -46,7 +46,7 @@ func NewModelCloudNodeAccountInfoWithDefaults() *ModelCloudNodeAccountInfo {
 
 // GetActive returns the Active field value if set, zero value otherwise.
 func (o *ModelCloudNodeAccountInfo) GetActive() string {
-	if o == nil || isNil(o.Active) {
+	if o == nil || IsNil(o.Active) {
 		var ret string
 		return ret
 	}
@@ -56,7 +56,7 @@ func (o *ModelCloudNodeAccountInfo) GetActive() string {
 // GetActiveOk returns a tuple with the Active field value if set, nil otherwise
 // and a boolean to check if the value has been set.
 func (o *ModelCloudNodeAccountInfo) GetActiveOk() (*string, bool) {
-	if o == nil || isNil(o.Active) {
+	if o == nil || IsNil(o.Active) {
 		return nil, false
 	}
 	return o.Active, true
@@ -64,7 +64,7 @@ func (o *ModelCloudNodeAccountInfo) GetActiveOk() (*string, bool) {
 
 // HasActive returns a boolean if a field has been set.
 func (o *ModelCloudNodeAccountInfo) HasActive() bool {
-	if o != nil && !isNil(o.Active) {
+	if o != nil && !IsNil(o.Active) {
 		return true
 	}
 
@@ -78,7 +78,7 @@ func (o *ModelCloudNodeAccountInfo) SetActive(v string) {
 
 // GetCloudProvider returns the CloudProvider field value if set, zero value otherwise.
 func (o *ModelCloudNodeAccountInfo) GetCloudProvider() string {
-	if o == nil || isNil(o.CloudProvider) {
+	if o == nil || IsNil(o.CloudProvider) {
 		var ret string
 		return ret
 	}
@@ -88,7 +88,7 @@ func (o *ModelCloudNodeAccountInfo) GetCloudProvider() string {
 // GetCloudProviderOk returns a tuple with the CloudProvider field value if set, nil otherwise
 // and a boolean to check if the value has been set.
 func (o *ModelCloudNodeAccountInfo) GetCloudProviderOk() (*string, bool) {
-	if o == nil || isNil(o.CloudProvider) {
+	if o == nil || IsNil(o.CloudProvider) {
 		return nil, false
 	}
 	return o.CloudProvider, true
@@ -96,7 +96,7 @@ func (o *ModelCloudNodeAccountInfo) GetCloudProviderOk() (*string, bool) {
 
 // HasCloudProvider returns a boolean if a field has been set.
 func (o *ModelCloudNodeAccountInfo) HasCloudProvider() bool {
-	if o != nil && !isNil(o.CloudProvider) {
+	if o != nil && !IsNil(o.CloudProvider) {
 		return true
 	}
 
@@ -110,7 +110,7 @@ func (o *ModelCloudNodeAccountInfo) SetCloudProvider(v string) {
 
 // GetCompliancePercentage returns the CompliancePercentage field value if set, zero value otherwise.
 func (o *ModelCloudNodeAccountInfo) GetCompliancePercentage() string {
-	if o == nil || isNil(o.CompliancePercentage) {
+	if o == nil || IsNil(o.CompliancePercentage) {
 		var ret string
 		return ret
 	}
@@ -120,7 +120,7 @@ func (o *ModelCloudNodeAccountInfo) GetCompliancePercentage() string {
 // GetCompliancePercentageOk returns a tuple with the CompliancePercentage field value if set, nil otherwise
 // and a boolean to check if the value has been set.
 func (o *ModelCloudNodeAccountInfo) GetCompliancePercentageOk() (*string, bool) {
-	if o == nil || isNil(o.CompliancePercentage) {
+	if o == nil || IsNil(o.CompliancePercentage) {
 		return nil, false
 	}
 	return o.CompliancePercentage, true
@@ -128,7 +128,7 @@ func (o *ModelCloudNodeAccountInfo) GetCompliancePercentageOk() (*string, bool) 
 
 // HasCompliancePercentage returns a boolean if a field has been set.
 func (o *ModelCloudNodeAccountInfo) HasCompliancePercentage() bool {
-	if o != nil && !isNil(o.CompliancePercentage) {
+	if o != nil && !IsNil(o.CompliancePercentage) {
 		return true
 	}
 
@@ -142,7 +142,7 @@ func (o *ModelCloudNodeAccountInfo) SetCompliancePercentage(v string) {
 
 // GetNodeId returns the NodeId field value if set, zero value otherwise.
 func (o *ModelCloudNodeAccountInfo) GetNodeId() string {
-	if o == nil || isNil(o.NodeId) {
+	if o == nil || IsNil(o.NodeId) {
 		var ret string
 		return ret
 	}
@@ -152,7 +152,7 @@ func (o *ModelCloudNodeAccountInfo) GetNodeId() string {
 // GetNodeIdOk returns a tuple with the NodeId field value if set, nil otherwise
 // and a boolean to check if the value has been set.
 func (o *ModelCloudNodeAccountInfo) GetNodeIdOk() (*string, bool) {
-	if o == nil || isNil(o.NodeId) {
+	if o == nil || IsNil(o.NodeId) {
 		return nil, false
 	}
 	return o.NodeId, true
@@ -160,7 +160,7 @@ func (o *ModelCloudNodeAccountInfo) GetNodeIdOk() (*string, bool) {
 
 // HasNodeId returns a boolean if a field has been set.
 func (o *ModelCloudNodeAccountInfo) HasNodeId() bool {
-	if o != nil && !isNil(o.NodeId) {
+	if o != nil && !IsNil(o.NodeId) {
 		return true
 	}
 
@@ -174,7 +174,7 @@ func (o *ModelCloudNodeAccountInfo) SetNodeId(v string) {
 
 // GetNodeName returns the NodeName field value if set, zero value otherwise.
 func (o *ModelCloudNodeAccountInfo) GetNodeName() string {
-	if o == nil || isNil(o.NodeName) {
+	if o == nil || IsNil(o.NodeName) {
 		var ret string
 		return ret
 	}
@@ -184,7 +184,7 @@ func (o *ModelCloudNodeAccountInfo) GetNodeName() string {
 // GetNodeNameOk returns a tuple with the NodeName field value if set, nil otherwise
 // and a boolean to check if the value has been set.
 func (o *ModelCloudNodeAccountInfo) GetNodeNameOk() (*string, bool) {
-	if o == nil || isNil(o.NodeName) {
+	if o == nil || IsNil(o.NodeName) {
 		return nil, false
 	}
 	return o.NodeName, true
@@ -192,7 +192,7 @@ func (o *ModelCloudNodeAccountInfo) GetNodeNameOk() (*string, bool) {
 
 // HasNodeName returns a boolean if a field has been set.
 func (o *ModelCloudNodeAccountInfo) HasNodeName() bool {
-	if o != nil && !isNil(o.NodeName) {
+	if o != nil && !IsNil(o.NodeName) {
 		return true
 	}
 
@@ -214,19 +214,19 @@ func (o ModelCloudNodeAccountInfo) MarshalJSON() ([]byte, error) {
 
 func (o ModelCloudNodeAccountInfo) ToMap() (map[string]interface{}, error) {
 	toSerialize := map[string]interface{}{}
-	if !isNil(o.Active) {
+	if !IsNil(o.Active) {
 		toSerialize["active"] = o.Active
 	}
-	if !isNil(o.CloudProvider) {
+	if !IsNil(o.CloudProvider) {
 		toSerialize["cloud_provider"] = o.CloudProvider
 	}
-	if !isNil(o.CompliancePercentage) {
+	if !IsNil(o.CompliancePercentage) {
 		toSerialize["compliance_percentage"] = o.CompliancePercentage
 	}
-	if !isNil(o.NodeId) {
+	if !IsNil(o.NodeId) {
 		toSerialize["node_id"] = o.NodeId
 	}
-	if !isNil(o.NodeName) {
+	if !IsNil(o.NodeName) {
 		toSerialize["node_name"] = o.NodeName
 	}
 	return toSerialize, nil

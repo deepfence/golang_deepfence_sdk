@@ -72,7 +72,7 @@ func (o *ReportersThreatNodeInfo) GetAttackPath() [][]string {
 // and a boolean to check if the value has been set.
 // NOTE: If the value is an explicit nil, `nil, true` will be returned
 func (o *ReportersThreatNodeInfo) GetAttackPathOk() ([][]string, bool) {
-	if o == nil || isNil(o.AttackPath) {
+	if o == nil || IsNil(o.AttackPath) {
 		return nil, false
 	}
 	return o.AttackPath, true
@@ -218,7 +218,7 @@ func (o *ReportersThreatNodeInfo) GetNodes() map[string]ReportersNodeInfo {
 // and a boolean to check if the value has been set.
 // NOTE: If the value is an explicit nil, `nil, true` will be returned
 func (o *ReportersThreatNodeInfo) GetNodesOk() (*map[string]ReportersNodeInfo, bool) {
-	if o == nil || isNil(o.Nodes) {
+	if o == nil || IsNil(o.Nodes) {
 		return nil, false
 	}
 	return &o.Nodes, true

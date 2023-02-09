@@ -57,7 +57,7 @@ func NewDetailedNodeSummaryWithDefaults() *DetailedNodeSummary {
 
 // GetAdjacency returns the Adjacency field value if set, zero value otherwise.
 func (o *DetailedNodeSummary) GetAdjacency() []string {
-	if o == nil || isNil(o.Adjacency) {
+	if o == nil || IsNil(o.Adjacency) {
 		var ret []string
 		return ret
 	}
@@ -67,7 +67,7 @@ func (o *DetailedNodeSummary) GetAdjacency() []string {
 // GetAdjacencyOk returns a tuple with the Adjacency field value if set, nil otherwise
 // and a boolean to check if the value has been set.
 func (o *DetailedNodeSummary) GetAdjacencyOk() ([]string, bool) {
-	if o == nil || isNil(o.Adjacency) {
+	if o == nil || IsNil(o.Adjacency) {
 		return nil, false
 	}
 	return o.Adjacency, true
@@ -75,7 +75,7 @@ func (o *DetailedNodeSummary) GetAdjacencyOk() ([]string, bool) {
 
 // HasAdjacency returns a boolean if a field has been set.
 func (o *DetailedNodeSummary) HasAdjacency() bool {
-	if o != nil && !isNil(o.Adjacency) {
+	if o != nil && !IsNil(o.Adjacency) {
 		return true
 	}
 
@@ -89,7 +89,7 @@ func (o *DetailedNodeSummary) SetAdjacency(v []string) {
 
 // GetId returns the Id field value if set, zero value otherwise.
 func (o *DetailedNodeSummary) GetId() string {
-	if o == nil || isNil(o.Id) {
+	if o == nil || IsNil(o.Id) {
 		var ret string
 		return ret
 	}
@@ -99,7 +99,7 @@ func (o *DetailedNodeSummary) GetId() string {
 // GetIdOk returns a tuple with the Id field value if set, nil otherwise
 // and a boolean to check if the value has been set.
 func (o *DetailedNodeSummary) GetIdOk() (*string, bool) {
-	if o == nil || isNil(o.Id) {
+	if o == nil || IsNil(o.Id) {
 		return nil, false
 	}
 	return o.Id, true
@@ -107,7 +107,7 @@ func (o *DetailedNodeSummary) GetIdOk() (*string, bool) {
 
 // HasId returns a boolean if a field has been set.
 func (o *DetailedNodeSummary) HasId() bool {
-	if o != nil && !isNil(o.Id) {
+	if o != nil && !IsNil(o.Id) {
 		return true
 	}
 
@@ -121,7 +121,7 @@ func (o *DetailedNodeSummary) SetId(v string) {
 
 // GetImage returns the Image field value if set, zero value otherwise.
 func (o *DetailedNodeSummary) GetImage() string {
-	if o == nil || isNil(o.Image) {
+	if o == nil || IsNil(o.Image) {
 		var ret string
 		return ret
 	}
@@ -131,7 +131,7 @@ func (o *DetailedNodeSummary) GetImage() string {
 // GetImageOk returns a tuple with the Image field value if set, nil otherwise
 // and a boolean to check if the value has been set.
 func (o *DetailedNodeSummary) GetImageOk() (*string, bool) {
-	if o == nil || isNil(o.Image) {
+	if o == nil || IsNil(o.Image) {
 		return nil, false
 	}
 	return o.Image, true
@@ -139,7 +139,7 @@ func (o *DetailedNodeSummary) GetImageOk() (*string, bool) {
 
 // HasImage returns a boolean if a field has been set.
 func (o *DetailedNodeSummary) HasImage() bool {
-	if o != nil && !isNil(o.Image) {
+	if o != nil && !IsNil(o.Image) {
 		return true
 	}
 
@@ -153,7 +153,7 @@ func (o *DetailedNodeSummary) SetImage(v string) {
 
 // GetImmediateParentId returns the ImmediateParentId field value if set, zero value otherwise.
 func (o *DetailedNodeSummary) GetImmediateParentId() string {
-	if o == nil || isNil(o.ImmediateParentId) {
+	if o == nil || IsNil(o.ImmediateParentId) {
 		var ret string
 		return ret
 	}
@@ -163,7 +163,7 @@ func (o *DetailedNodeSummary) GetImmediateParentId() string {
 // GetImmediateParentIdOk returns a tuple with the ImmediateParentId field value if set, nil otherwise
 // and a boolean to check if the value has been set.
 func (o *DetailedNodeSummary) GetImmediateParentIdOk() (*string, bool) {
-	if o == nil || isNil(o.ImmediateParentId) {
+	if o == nil || IsNil(o.ImmediateParentId) {
 		return nil, false
 	}
 	return o.ImmediateParentId, true
@@ -171,7 +171,7 @@ func (o *DetailedNodeSummary) GetImmediateParentIdOk() (*string, bool) {
 
 // HasImmediateParentId returns a boolean if a field has been set.
 func (o *DetailedNodeSummary) HasImmediateParentId() bool {
-	if o != nil && !isNil(o.ImmediateParentId) {
+	if o != nil && !IsNil(o.ImmediateParentId) {
 		return true
 	}
 
@@ -185,7 +185,7 @@ func (o *DetailedNodeSummary) SetImmediateParentId(v string) {
 
 // GetLabel returns the Label field value if set, zero value otherwise.
 func (o *DetailedNodeSummary) GetLabel() string {
-	if o == nil || isNil(o.Label) {
+	if o == nil || IsNil(o.Label) {
 		var ret string
 		return ret
 	}
@@ -195,7 +195,7 @@ func (o *DetailedNodeSummary) GetLabel() string {
 // GetLabelOk returns a tuple with the Label field value if set, nil otherwise
 // and a boolean to check if the value has been set.
 func (o *DetailedNodeSummary) GetLabelOk() (*string, bool) {
-	if o == nil || isNil(o.Label) {
+	if o == nil || IsNil(o.Label) {
 		return nil, false
 	}
 	return o.Label, true
@@ -203,7 +203,7 @@ func (o *DetailedNodeSummary) GetLabelOk() (*string, bool) {
 
 // HasLabel returns a boolean if a field has been set.
 func (o *DetailedNodeSummary) HasLabel() bool {
-	if o != nil && !isNil(o.Label) {
+	if o != nil && !IsNil(o.Label) {
 		return true
 	}
 
@@ -217,7 +217,7 @@ func (o *DetailedNodeSummary) SetLabel(v string) {
 
 // GetLabelMinor returns the LabelMinor field value if set, zero value otherwise.
 func (o *DetailedNodeSummary) GetLabelMinor() string {
-	if o == nil || isNil(o.LabelMinor) {
+	if o == nil || IsNil(o.LabelMinor) {
 		var ret string
 		return ret
 	}
@@ -227,7 +227,7 @@ func (o *DetailedNodeSummary) GetLabelMinor() string {
 // GetLabelMinorOk returns a tuple with the LabelMinor field value if set, nil otherwise
 // and a boolean to check if the value has been set.
 func (o *DetailedNodeSummary) GetLabelMinorOk() (*string, bool) {
-	if o == nil || isNil(o.LabelMinor) {
+	if o == nil || IsNil(o.LabelMinor) {
 		return nil, false
 	}
 	return o.LabelMinor, true
@@ -235,7 +235,7 @@ func (o *DetailedNodeSummary) GetLabelMinorOk() (*string, bool) {
 
 // HasLabelMinor returns a boolean if a field has been set.
 func (o *DetailedNodeSummary) HasLabelMinor() bool {
-	if o != nil && !isNil(o.LabelMinor) {
+	if o != nil && !IsNil(o.LabelMinor) {
 		return true
 	}
 
@@ -249,7 +249,7 @@ func (o *DetailedNodeSummary) SetLabelMinor(v string) {
 
 // GetMetadata returns the Metadata field value if set, zero value otherwise.
 func (o *DetailedNodeSummary) GetMetadata() []ReportMetadataRow {
-	if o == nil || isNil(o.Metadata) {
+	if o == nil || IsNil(o.Metadata) {
 		var ret []ReportMetadataRow
 		return ret
 	}
@@ -259,7 +259,7 @@ func (o *DetailedNodeSummary) GetMetadata() []ReportMetadataRow {
 // GetMetadataOk returns a tuple with the Metadata field value if set, nil otherwise
 // and a boolean to check if the value has been set.
 func (o *DetailedNodeSummary) GetMetadataOk() ([]ReportMetadataRow, bool) {
-	if o == nil || isNil(o.Metadata) {
+	if o == nil || IsNil(o.Metadata) {
 		return nil, false
 	}
 	return o.Metadata, true
@@ -267,7 +267,7 @@ func (o *DetailedNodeSummary) GetMetadataOk() ([]ReportMetadataRow, bool) {
 
 // HasMetadata returns a boolean if a field has been set.
 func (o *DetailedNodeSummary) HasMetadata() bool {
-	if o != nil && !isNil(o.Metadata) {
+	if o != nil && !IsNil(o.Metadata) {
 		return true
 	}
 
@@ -281,7 +281,7 @@ func (o *DetailedNodeSummary) SetMetadata(v []ReportMetadataRow) {
 
 // GetMetrics returns the Metrics field value if set, zero value otherwise.
 func (o *DetailedNodeSummary) GetMetrics() []map[string]interface{} {
-	if o == nil || isNil(o.Metrics) {
+	if o == nil || IsNil(o.Metrics) {
 		var ret []map[string]interface{}
 		return ret
 	}
@@ -291,7 +291,7 @@ func (o *DetailedNodeSummary) GetMetrics() []map[string]interface{} {
 // GetMetricsOk returns a tuple with the Metrics field value if set, nil otherwise
 // and a boolean to check if the value has been set.
 func (o *DetailedNodeSummary) GetMetricsOk() ([]map[string]interface{}, bool) {
-	if o == nil || isNil(o.Metrics) {
+	if o == nil || IsNil(o.Metrics) {
 		return nil, false
 	}
 	return o.Metrics, true
@@ -299,7 +299,7 @@ func (o *DetailedNodeSummary) GetMetricsOk() ([]map[string]interface{}, bool) {
 
 // HasMetrics returns a boolean if a field has been set.
 func (o *DetailedNodeSummary) HasMetrics() bool {
-	if o != nil && !isNil(o.Metrics) {
+	if o != nil && !IsNil(o.Metrics) {
 		return true
 	}
 
@@ -313,7 +313,7 @@ func (o *DetailedNodeSummary) SetMetrics(v []map[string]interface{}) {
 
 // GetParents returns the Parents field value if set, zero value otherwise.
 func (o *DetailedNodeSummary) GetParents() []DetailedParent {
-	if o == nil || isNil(o.Parents) {
+	if o == nil || IsNil(o.Parents) {
 		var ret []DetailedParent
 		return ret
 	}
@@ -323,7 +323,7 @@ func (o *DetailedNodeSummary) GetParents() []DetailedParent {
 // GetParentsOk returns a tuple with the Parents field value if set, nil otherwise
 // and a boolean to check if the value has been set.
 func (o *DetailedNodeSummary) GetParentsOk() ([]DetailedParent, bool) {
-	if o == nil || isNil(o.Parents) {
+	if o == nil || IsNil(o.Parents) {
 		return nil, false
 	}
 	return o.Parents, true
@@ -331,7 +331,7 @@ func (o *DetailedNodeSummary) GetParentsOk() ([]DetailedParent, bool) {
 
 // HasParents returns a boolean if a field has been set.
 func (o *DetailedNodeSummary) HasParents() bool {
-	if o != nil && !isNil(o.Parents) {
+	if o != nil && !IsNil(o.Parents) {
 		return true
 	}
 
@@ -345,7 +345,7 @@ func (o *DetailedNodeSummary) SetParents(v []DetailedParent) {
 
 // GetPseudo returns the Pseudo field value if set, zero value otherwise.
 func (o *DetailedNodeSummary) GetPseudo() bool {
-	if o == nil || isNil(o.Pseudo) {
+	if o == nil || IsNil(o.Pseudo) {
 		var ret bool
 		return ret
 	}
@@ -355,7 +355,7 @@ func (o *DetailedNodeSummary) GetPseudo() bool {
 // GetPseudoOk returns a tuple with the Pseudo field value if set, nil otherwise
 // and a boolean to check if the value has been set.
 func (o *DetailedNodeSummary) GetPseudoOk() (*bool, bool) {
-	if o == nil || isNil(o.Pseudo) {
+	if o == nil || IsNil(o.Pseudo) {
 		return nil, false
 	}
 	return o.Pseudo, true
@@ -363,7 +363,7 @@ func (o *DetailedNodeSummary) GetPseudoOk() (*bool, bool) {
 
 // HasPseudo returns a boolean if a field has been set.
 func (o *DetailedNodeSummary) HasPseudo() bool {
-	if o != nil && !isNil(o.Pseudo) {
+	if o != nil && !IsNil(o.Pseudo) {
 		return true
 	}
 
@@ -377,7 +377,7 @@ func (o *DetailedNodeSummary) SetPseudo(v bool) {
 
 // GetRank returns the Rank field value if set, zero value otherwise.
 func (o *DetailedNodeSummary) GetRank() string {
-	if o == nil || isNil(o.Rank) {
+	if o == nil || IsNil(o.Rank) {
 		var ret string
 		return ret
 	}
@@ -387,7 +387,7 @@ func (o *DetailedNodeSummary) GetRank() string {
 // GetRankOk returns a tuple with the Rank field value if set, nil otherwise
 // and a boolean to check if the value has been set.
 func (o *DetailedNodeSummary) GetRankOk() (*string, bool) {
-	if o == nil || isNil(o.Rank) {
+	if o == nil || IsNil(o.Rank) {
 		return nil, false
 	}
 	return o.Rank, true
@@ -395,7 +395,7 @@ func (o *DetailedNodeSummary) GetRankOk() (*string, bool) {
 
 // HasRank returns a boolean if a field has been set.
 func (o *DetailedNodeSummary) HasRank() bool {
-	if o != nil && !isNil(o.Rank) {
+	if o != nil && !IsNil(o.Rank) {
 		return true
 	}
 
@@ -409,7 +409,7 @@ func (o *DetailedNodeSummary) SetRank(v string) {
 
 // GetShape returns the Shape field value if set, zero value otherwise.
 func (o *DetailedNodeSummary) GetShape() string {
-	if o == nil || isNil(o.Shape) {
+	if o == nil || IsNil(o.Shape) {
 		var ret string
 		return ret
 	}
@@ -419,7 +419,7 @@ func (o *DetailedNodeSummary) GetShape() string {
 // GetShapeOk returns a tuple with the Shape field value if set, nil otherwise
 // and a boolean to check if the value has been set.
 func (o *DetailedNodeSummary) GetShapeOk() (*string, bool) {
-	if o == nil || isNil(o.Shape) {
+	if o == nil || IsNil(o.Shape) {
 		return nil, false
 	}
 	return o.Shape, true
@@ -427,7 +427,7 @@ func (o *DetailedNodeSummary) GetShapeOk() (*string, bool) {
 
 // HasShape returns a boolean if a field has been set.
 func (o *DetailedNodeSummary) HasShape() bool {
-	if o != nil && !isNil(o.Shape) {
+	if o != nil && !IsNil(o.Shape) {
 		return true
 	}
 
@@ -441,7 +441,7 @@ func (o *DetailedNodeSummary) SetShape(v string) {
 
 // GetStack returns the Stack field value if set, zero value otherwise.
 func (o *DetailedNodeSummary) GetStack() bool {
-	if o == nil || isNil(o.Stack) {
+	if o == nil || IsNil(o.Stack) {
 		var ret bool
 		return ret
 	}
@@ -451,7 +451,7 @@ func (o *DetailedNodeSummary) GetStack() bool {
 // GetStackOk returns a tuple with the Stack field value if set, nil otherwise
 // and a boolean to check if the value has been set.
 func (o *DetailedNodeSummary) GetStackOk() (*bool, bool) {
-	if o == nil || isNil(o.Stack) {
+	if o == nil || IsNil(o.Stack) {
 		return nil, false
 	}
 	return o.Stack, true
@@ -459,7 +459,7 @@ func (o *DetailedNodeSummary) GetStackOk() (*bool, bool) {
 
 // HasStack returns a boolean if a field has been set.
 func (o *DetailedNodeSummary) HasStack() bool {
-	if o != nil && !isNil(o.Stack) {
+	if o != nil && !IsNil(o.Stack) {
 		return true
 	}
 
@@ -473,7 +473,7 @@ func (o *DetailedNodeSummary) SetStack(v bool) {
 
 // GetTables returns the Tables field value if set, zero value otherwise.
 func (o *DetailedNodeSummary) GetTables() []ReportTable {
-	if o == nil || isNil(o.Tables) {
+	if o == nil || IsNil(o.Tables) {
 		var ret []ReportTable
 		return ret
 	}
@@ -483,7 +483,7 @@ func (o *DetailedNodeSummary) GetTables() []ReportTable {
 // GetTablesOk returns a tuple with the Tables field value if set, nil otherwise
 // and a boolean to check if the value has been set.
 func (o *DetailedNodeSummary) GetTablesOk() ([]ReportTable, bool) {
-	if o == nil || isNil(o.Tables) {
+	if o == nil || IsNil(o.Tables) {
 		return nil, false
 	}
 	return o.Tables, true
@@ -491,7 +491,7 @@ func (o *DetailedNodeSummary) GetTablesOk() ([]ReportTable, bool) {
 
 // HasTables returns a boolean if a field has been set.
 func (o *DetailedNodeSummary) HasTables() bool {
-	if o != nil && !isNil(o.Tables) {
+	if o != nil && !IsNil(o.Tables) {
 		return true
 	}
 
@@ -505,7 +505,7 @@ func (o *DetailedNodeSummary) SetTables(v []ReportTable) {
 
 // GetTag returns the Tag field value if set, zero value otherwise.
 func (o *DetailedNodeSummary) GetTag() string {
-	if o == nil || isNil(o.Tag) {
+	if o == nil || IsNil(o.Tag) {
 		var ret string
 		return ret
 	}
@@ -515,7 +515,7 @@ func (o *DetailedNodeSummary) GetTag() string {
 // GetTagOk returns a tuple with the Tag field value if set, nil otherwise
 // and a boolean to check if the value has been set.
 func (o *DetailedNodeSummary) GetTagOk() (*string, bool) {
-	if o == nil || isNil(o.Tag) {
+	if o == nil || IsNil(o.Tag) {
 		return nil, false
 	}
 	return o.Tag, true
@@ -523,7 +523,7 @@ func (o *DetailedNodeSummary) GetTagOk() (*string, bool) {
 
 // HasTag returns a boolean if a field has been set.
 func (o *DetailedNodeSummary) HasTag() bool {
-	if o != nil && !isNil(o.Tag) {
+	if o != nil && !IsNil(o.Tag) {
 		return true
 	}
 
@@ -537,7 +537,7 @@ func (o *DetailedNodeSummary) SetTag(v string) {
 
 // GetType returns the Type field value if set, zero value otherwise.
 func (o *DetailedNodeSummary) GetType() string {
-	if o == nil || isNil(o.Type) {
+	if o == nil || IsNil(o.Type) {
 		var ret string
 		return ret
 	}
@@ -547,7 +547,7 @@ func (o *DetailedNodeSummary) GetType() string {
 // GetTypeOk returns a tuple with the Type field value if set, nil otherwise
 // and a boolean to check if the value has been set.
 func (o *DetailedNodeSummary) GetTypeOk() (*string, bool) {
-	if o == nil || isNil(o.Type) {
+	if o == nil || IsNil(o.Type) {
 		return nil, false
 	}
 	return o.Type, true
@@ -555,7 +555,7 @@ func (o *DetailedNodeSummary) GetTypeOk() (*string, bool) {
 
 // HasType returns a boolean if a field has been set.
 func (o *DetailedNodeSummary) HasType() bool {
-	if o != nil && !isNil(o.Type) {
+	if o != nil && !IsNil(o.Type) {
 		return true
 	}
 
@@ -577,52 +577,52 @@ func (o DetailedNodeSummary) MarshalJSON() ([]byte, error) {
 
 func (o DetailedNodeSummary) ToMap() (map[string]interface{}, error) {
 	toSerialize := map[string]interface{}{}
-	if !isNil(o.Adjacency) {
+	if !IsNil(o.Adjacency) {
 		toSerialize["adjacency"] = o.Adjacency
 	}
-	if !isNil(o.Id) {
+	if !IsNil(o.Id) {
 		toSerialize["id"] = o.Id
 	}
-	if !isNil(o.Image) {
+	if !IsNil(o.Image) {
 		toSerialize["image"] = o.Image
 	}
-	if !isNil(o.ImmediateParentId) {
+	if !IsNil(o.ImmediateParentId) {
 		toSerialize["immediate_parent_id"] = o.ImmediateParentId
 	}
-	if !isNil(o.Label) {
+	if !IsNil(o.Label) {
 		toSerialize["label"] = o.Label
 	}
-	if !isNil(o.LabelMinor) {
+	if !IsNil(o.LabelMinor) {
 		toSerialize["labelMinor"] = o.LabelMinor
 	}
-	if !isNil(o.Metadata) {
+	if !IsNil(o.Metadata) {
 		toSerialize["metadata"] = o.Metadata
 	}
-	if !isNil(o.Metrics) {
+	if !IsNil(o.Metrics) {
 		toSerialize["metrics"] = o.Metrics
 	}
-	if !isNil(o.Parents) {
+	if !IsNil(o.Parents) {
 		toSerialize["parents"] = o.Parents
 	}
-	if !isNil(o.Pseudo) {
+	if !IsNil(o.Pseudo) {
 		toSerialize["pseudo"] = o.Pseudo
 	}
-	if !isNil(o.Rank) {
+	if !IsNil(o.Rank) {
 		toSerialize["rank"] = o.Rank
 	}
-	if !isNil(o.Shape) {
+	if !IsNil(o.Shape) {
 		toSerialize["shape"] = o.Shape
 	}
-	if !isNil(o.Stack) {
+	if !IsNil(o.Stack) {
 		toSerialize["stack"] = o.Stack
 	}
-	if !isNil(o.Tables) {
+	if !IsNil(o.Tables) {
 		toSerialize["tables"] = o.Tables
 	}
-	if !isNil(o.Tag) {
+	if !IsNil(o.Tag) {
 		toSerialize["tag"] = o.Tag
 	}
-	if !isNil(o.Type) {
+	if !IsNil(o.Type) {
 		toSerialize["type"] = o.Type
 	}
 	return toSerialize, nil

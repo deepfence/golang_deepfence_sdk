@@ -42,7 +42,7 @@ func NewModelCloudNodeAccountRegisterRespWithDefaults() *ModelCloudNodeAccountRe
 
 // GetData returns the Data field value if set, zero value otherwise.
 func (o *ModelCloudNodeAccountRegisterResp) GetData() ModelCloudNodeAccountRegisterRespData {
-	if o == nil || isNil(o.Data) {
+	if o == nil || IsNil(o.Data) {
 		var ret ModelCloudNodeAccountRegisterRespData
 		return ret
 	}
@@ -52,7 +52,7 @@ func (o *ModelCloudNodeAccountRegisterResp) GetData() ModelCloudNodeAccountRegis
 // GetDataOk returns a tuple with the Data field value if set, nil otherwise
 // and a boolean to check if the value has been set.
 func (o *ModelCloudNodeAccountRegisterResp) GetDataOk() (*ModelCloudNodeAccountRegisterRespData, bool) {
-	if o == nil || isNil(o.Data) {
+	if o == nil || IsNil(o.Data) {
 		return nil, false
 	}
 	return o.Data, true
@@ -60,7 +60,7 @@ func (o *ModelCloudNodeAccountRegisterResp) GetDataOk() (*ModelCloudNodeAccountR
 
 // HasData returns a boolean if a field has been set.
 func (o *ModelCloudNodeAccountRegisterResp) HasData() bool {
-	if o != nil && !isNil(o.Data) {
+	if o != nil && !IsNil(o.Data) {
 		return true
 	}
 
@@ -82,7 +82,7 @@ func (o ModelCloudNodeAccountRegisterResp) MarshalJSON() ([]byte, error) {
 
 func (o ModelCloudNodeAccountRegisterResp) ToMap() (map[string]interface{}, error) {
 	toSerialize := map[string]interface{}{}
-	if !isNil(o.Data) {
+	if !IsNil(o.Data) {
 		toSerialize["data"] = o.Data
 	}
 	return toSerialize, nil

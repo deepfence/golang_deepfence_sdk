@@ -15,11 +15,12 @@ import (
 	"encoding/json"
 )
 
-// checks if the ModelVulnerabilityScanResult type satisfies the MappedNullable interface at compile time
-var _ MappedNullable = &ModelVulnerabilityScanResult{}
+// checks if the ModelCloudComplianceScanResult type satisfies the MappedNullable interface at compile time
+var _ MappedNullable = &ModelCloudComplianceScanResult{}
 
-// ModelVulnerabilityScanResult struct for ModelVulnerabilityScanResult
-type ModelVulnerabilityScanResult struct {
+// ModelCloudComplianceScanResult struct for ModelCloudComplianceScanResult
+type ModelCloudComplianceScanResult struct {
+	Compliances []ModelCloudCompliance `json:"compliances"`
 	DockerContainerName string `json:"docker_container_name"`
 	DockerImageName string `json:"docker_image_name"`
 	HostName string `json:"host_name"`
@@ -28,16 +29,15 @@ type ModelVulnerabilityScanResult struct {
 	NodeName string `json:"node_name"`
 	NodeType string `json:"node_type"`
 	ScanId string `json:"scan_id"`
-	SeverityCounts map[string]int32 `json:"severity_counts"`
-	Vulnerabilities []ModelVulnerability `json:"vulnerabilities"`
 }
 
-// NewModelVulnerabilityScanResult instantiates a new ModelVulnerabilityScanResult object
+// NewModelCloudComplianceScanResult instantiates a new ModelCloudComplianceScanResult object
 // This constructor will assign default values to properties that have it defined,
 // and makes sure properties required by API are set, but the set of arguments
 // will change when the set of required properties is changed
-func NewModelVulnerabilityScanResult(dockerContainerName string, dockerImageName string, hostName string, kubernetesClusterName string, nodeId string, nodeName string, nodeType string, scanId string, severityCounts map[string]int32, vulnerabilities []ModelVulnerability) *ModelVulnerabilityScanResult {
-	this := ModelVulnerabilityScanResult{}
+func NewModelCloudComplianceScanResult(compliances []ModelCloudCompliance, dockerContainerName string, dockerImageName string, hostName string, kubernetesClusterName string, nodeId string, nodeName string, nodeType string, scanId string) *ModelCloudComplianceScanResult {
+	this := ModelCloudComplianceScanResult{}
+	this.Compliances = compliances
 	this.DockerContainerName = dockerContainerName
 	this.DockerImageName = dockerImageName
 	this.HostName = hostName
@@ -46,21 +46,45 @@ func NewModelVulnerabilityScanResult(dockerContainerName string, dockerImageName
 	this.NodeName = nodeName
 	this.NodeType = nodeType
 	this.ScanId = scanId
-	this.SeverityCounts = severityCounts
-	this.Vulnerabilities = vulnerabilities
 	return &this
 }
 
-// NewModelVulnerabilityScanResultWithDefaults instantiates a new ModelVulnerabilityScanResult object
+// NewModelCloudComplianceScanResultWithDefaults instantiates a new ModelCloudComplianceScanResult object
 // This constructor will only assign default values to properties that have it defined,
 // but it doesn't guarantee that properties required by API are set
-func NewModelVulnerabilityScanResultWithDefaults() *ModelVulnerabilityScanResult {
-	this := ModelVulnerabilityScanResult{}
+func NewModelCloudComplianceScanResultWithDefaults() *ModelCloudComplianceScanResult {
+	this := ModelCloudComplianceScanResult{}
 	return &this
+}
+
+// GetCompliances returns the Compliances field value
+// If the value is explicit nil, the zero value for []ModelCloudCompliance will be returned
+func (o *ModelCloudComplianceScanResult) GetCompliances() []ModelCloudCompliance {
+	if o == nil {
+		var ret []ModelCloudCompliance
+		return ret
+	}
+
+	return o.Compliances
+}
+
+// GetCompliancesOk returns a tuple with the Compliances field value
+// and a boolean to check if the value has been set.
+// NOTE: If the value is an explicit nil, `nil, true` will be returned
+func (o *ModelCloudComplianceScanResult) GetCompliancesOk() ([]ModelCloudCompliance, bool) {
+	if o == nil || IsNil(o.Compliances) {
+		return nil, false
+	}
+	return o.Compliances, true
+}
+
+// SetCompliances sets field value
+func (o *ModelCloudComplianceScanResult) SetCompliances(v []ModelCloudCompliance) {
+	o.Compliances = v
 }
 
 // GetDockerContainerName returns the DockerContainerName field value
-func (o *ModelVulnerabilityScanResult) GetDockerContainerName() string {
+func (o *ModelCloudComplianceScanResult) GetDockerContainerName() string {
 	if o == nil {
 		var ret string
 		return ret
@@ -71,7 +95,7 @@ func (o *ModelVulnerabilityScanResult) GetDockerContainerName() string {
 
 // GetDockerContainerNameOk returns a tuple with the DockerContainerName field value
 // and a boolean to check if the value has been set.
-func (o *ModelVulnerabilityScanResult) GetDockerContainerNameOk() (*string, bool) {
+func (o *ModelCloudComplianceScanResult) GetDockerContainerNameOk() (*string, bool) {
 	if o == nil {
 		return nil, false
 	}
@@ -79,12 +103,12 @@ func (o *ModelVulnerabilityScanResult) GetDockerContainerNameOk() (*string, bool
 }
 
 // SetDockerContainerName sets field value
-func (o *ModelVulnerabilityScanResult) SetDockerContainerName(v string) {
+func (o *ModelCloudComplianceScanResult) SetDockerContainerName(v string) {
 	o.DockerContainerName = v
 }
 
 // GetDockerImageName returns the DockerImageName field value
-func (o *ModelVulnerabilityScanResult) GetDockerImageName() string {
+func (o *ModelCloudComplianceScanResult) GetDockerImageName() string {
 	if o == nil {
 		var ret string
 		return ret
@@ -95,7 +119,7 @@ func (o *ModelVulnerabilityScanResult) GetDockerImageName() string {
 
 // GetDockerImageNameOk returns a tuple with the DockerImageName field value
 // and a boolean to check if the value has been set.
-func (o *ModelVulnerabilityScanResult) GetDockerImageNameOk() (*string, bool) {
+func (o *ModelCloudComplianceScanResult) GetDockerImageNameOk() (*string, bool) {
 	if o == nil {
 		return nil, false
 	}
@@ -103,12 +127,12 @@ func (o *ModelVulnerabilityScanResult) GetDockerImageNameOk() (*string, bool) {
 }
 
 // SetDockerImageName sets field value
-func (o *ModelVulnerabilityScanResult) SetDockerImageName(v string) {
+func (o *ModelCloudComplianceScanResult) SetDockerImageName(v string) {
 	o.DockerImageName = v
 }
 
 // GetHostName returns the HostName field value
-func (o *ModelVulnerabilityScanResult) GetHostName() string {
+func (o *ModelCloudComplianceScanResult) GetHostName() string {
 	if o == nil {
 		var ret string
 		return ret
@@ -119,7 +143,7 @@ func (o *ModelVulnerabilityScanResult) GetHostName() string {
 
 // GetHostNameOk returns a tuple with the HostName field value
 // and a boolean to check if the value has been set.
-func (o *ModelVulnerabilityScanResult) GetHostNameOk() (*string, bool) {
+func (o *ModelCloudComplianceScanResult) GetHostNameOk() (*string, bool) {
 	if o == nil {
 		return nil, false
 	}
@@ -127,12 +151,12 @@ func (o *ModelVulnerabilityScanResult) GetHostNameOk() (*string, bool) {
 }
 
 // SetHostName sets field value
-func (o *ModelVulnerabilityScanResult) SetHostName(v string) {
+func (o *ModelCloudComplianceScanResult) SetHostName(v string) {
 	o.HostName = v
 }
 
 // GetKubernetesClusterName returns the KubernetesClusterName field value
-func (o *ModelVulnerabilityScanResult) GetKubernetesClusterName() string {
+func (o *ModelCloudComplianceScanResult) GetKubernetesClusterName() string {
 	if o == nil {
 		var ret string
 		return ret
@@ -143,7 +167,7 @@ func (o *ModelVulnerabilityScanResult) GetKubernetesClusterName() string {
 
 // GetKubernetesClusterNameOk returns a tuple with the KubernetesClusterName field value
 // and a boolean to check if the value has been set.
-func (o *ModelVulnerabilityScanResult) GetKubernetesClusterNameOk() (*string, bool) {
+func (o *ModelCloudComplianceScanResult) GetKubernetesClusterNameOk() (*string, bool) {
 	if o == nil {
 		return nil, false
 	}
@@ -151,12 +175,12 @@ func (o *ModelVulnerabilityScanResult) GetKubernetesClusterNameOk() (*string, bo
 }
 
 // SetKubernetesClusterName sets field value
-func (o *ModelVulnerabilityScanResult) SetKubernetesClusterName(v string) {
+func (o *ModelCloudComplianceScanResult) SetKubernetesClusterName(v string) {
 	o.KubernetesClusterName = v
 }
 
 // GetNodeId returns the NodeId field value
-func (o *ModelVulnerabilityScanResult) GetNodeId() string {
+func (o *ModelCloudComplianceScanResult) GetNodeId() string {
 	if o == nil {
 		var ret string
 		return ret
@@ -167,7 +191,7 @@ func (o *ModelVulnerabilityScanResult) GetNodeId() string {
 
 // GetNodeIdOk returns a tuple with the NodeId field value
 // and a boolean to check if the value has been set.
-func (o *ModelVulnerabilityScanResult) GetNodeIdOk() (*string, bool) {
+func (o *ModelCloudComplianceScanResult) GetNodeIdOk() (*string, bool) {
 	if o == nil {
 		return nil, false
 	}
@@ -175,12 +199,12 @@ func (o *ModelVulnerabilityScanResult) GetNodeIdOk() (*string, bool) {
 }
 
 // SetNodeId sets field value
-func (o *ModelVulnerabilityScanResult) SetNodeId(v string) {
+func (o *ModelCloudComplianceScanResult) SetNodeId(v string) {
 	o.NodeId = v
 }
 
 // GetNodeName returns the NodeName field value
-func (o *ModelVulnerabilityScanResult) GetNodeName() string {
+func (o *ModelCloudComplianceScanResult) GetNodeName() string {
 	if o == nil {
 		var ret string
 		return ret
@@ -191,7 +215,7 @@ func (o *ModelVulnerabilityScanResult) GetNodeName() string {
 
 // GetNodeNameOk returns a tuple with the NodeName field value
 // and a boolean to check if the value has been set.
-func (o *ModelVulnerabilityScanResult) GetNodeNameOk() (*string, bool) {
+func (o *ModelCloudComplianceScanResult) GetNodeNameOk() (*string, bool) {
 	if o == nil {
 		return nil, false
 	}
@@ -199,12 +223,12 @@ func (o *ModelVulnerabilityScanResult) GetNodeNameOk() (*string, bool) {
 }
 
 // SetNodeName sets field value
-func (o *ModelVulnerabilityScanResult) SetNodeName(v string) {
+func (o *ModelCloudComplianceScanResult) SetNodeName(v string) {
 	o.NodeName = v
 }
 
 // GetNodeType returns the NodeType field value
-func (o *ModelVulnerabilityScanResult) GetNodeType() string {
+func (o *ModelCloudComplianceScanResult) GetNodeType() string {
 	if o == nil {
 		var ret string
 		return ret
@@ -215,7 +239,7 @@ func (o *ModelVulnerabilityScanResult) GetNodeType() string {
 
 // GetNodeTypeOk returns a tuple with the NodeType field value
 // and a boolean to check if the value has been set.
-func (o *ModelVulnerabilityScanResult) GetNodeTypeOk() (*string, bool) {
+func (o *ModelCloudComplianceScanResult) GetNodeTypeOk() (*string, bool) {
 	if o == nil {
 		return nil, false
 	}
@@ -223,12 +247,12 @@ func (o *ModelVulnerabilityScanResult) GetNodeTypeOk() (*string, bool) {
 }
 
 // SetNodeType sets field value
-func (o *ModelVulnerabilityScanResult) SetNodeType(v string) {
+func (o *ModelCloudComplianceScanResult) SetNodeType(v string) {
 	o.NodeType = v
 }
 
 // GetScanId returns the ScanId field value
-func (o *ModelVulnerabilityScanResult) GetScanId() string {
+func (o *ModelCloudComplianceScanResult) GetScanId() string {
 	if o == nil {
 		var ret string
 		return ret
@@ -239,7 +263,7 @@ func (o *ModelVulnerabilityScanResult) GetScanId() string {
 
 // GetScanIdOk returns a tuple with the ScanId field value
 // and a boolean to check if the value has been set.
-func (o *ModelVulnerabilityScanResult) GetScanIdOk() (*string, bool) {
+func (o *ModelCloudComplianceScanResult) GetScanIdOk() (*string, bool) {
 	if o == nil {
 		return nil, false
 	}
@@ -247,63 +271,11 @@ func (o *ModelVulnerabilityScanResult) GetScanIdOk() (*string, bool) {
 }
 
 // SetScanId sets field value
-func (o *ModelVulnerabilityScanResult) SetScanId(v string) {
+func (o *ModelCloudComplianceScanResult) SetScanId(v string) {
 	o.ScanId = v
 }
 
-// GetSeverityCounts returns the SeverityCounts field value
-// If the value is explicit nil, the zero value for map[string]int32 will be returned
-func (o *ModelVulnerabilityScanResult) GetSeverityCounts() map[string]int32 {
-	if o == nil {
-		var ret map[string]int32
-		return ret
-	}
-
-	return o.SeverityCounts
-}
-
-// GetSeverityCountsOk returns a tuple with the SeverityCounts field value
-// and a boolean to check if the value has been set.
-// NOTE: If the value is an explicit nil, `nil, true` will be returned
-func (o *ModelVulnerabilityScanResult) GetSeverityCountsOk() (*map[string]int32, bool) {
-	if o == nil || IsNil(o.SeverityCounts) {
-		return nil, false
-	}
-	return &o.SeverityCounts, true
-}
-
-// SetSeverityCounts sets field value
-func (o *ModelVulnerabilityScanResult) SetSeverityCounts(v map[string]int32) {
-	o.SeverityCounts = v
-}
-
-// GetVulnerabilities returns the Vulnerabilities field value
-// If the value is explicit nil, the zero value for []ModelVulnerability will be returned
-func (o *ModelVulnerabilityScanResult) GetVulnerabilities() []ModelVulnerability {
-	if o == nil {
-		var ret []ModelVulnerability
-		return ret
-	}
-
-	return o.Vulnerabilities
-}
-
-// GetVulnerabilitiesOk returns a tuple with the Vulnerabilities field value
-// and a boolean to check if the value has been set.
-// NOTE: If the value is an explicit nil, `nil, true` will be returned
-func (o *ModelVulnerabilityScanResult) GetVulnerabilitiesOk() ([]ModelVulnerability, bool) {
-	if o == nil || IsNil(o.Vulnerabilities) {
-		return nil, false
-	}
-	return o.Vulnerabilities, true
-}
-
-// SetVulnerabilities sets field value
-func (o *ModelVulnerabilityScanResult) SetVulnerabilities(v []ModelVulnerability) {
-	o.Vulnerabilities = v
-}
-
-func (o ModelVulnerabilityScanResult) MarshalJSON() ([]byte, error) {
+func (o ModelCloudComplianceScanResult) MarshalJSON() ([]byte, error) {
 	toSerialize,err := o.ToMap()
 	if err != nil {
 		return []byte{}, err
@@ -311,8 +283,11 @@ func (o ModelVulnerabilityScanResult) MarshalJSON() ([]byte, error) {
 	return json.Marshal(toSerialize)
 }
 
-func (o ModelVulnerabilityScanResult) ToMap() (map[string]interface{}, error) {
+func (o ModelCloudComplianceScanResult) ToMap() (map[string]interface{}, error) {
 	toSerialize := map[string]interface{}{}
+	if o.Compliances != nil {
+		toSerialize["compliances"] = o.Compliances
+	}
 	toSerialize["docker_container_name"] = o.DockerContainerName
 	toSerialize["docker_image_name"] = o.DockerImageName
 	toSerialize["host_name"] = o.HostName
@@ -321,47 +296,41 @@ func (o ModelVulnerabilityScanResult) ToMap() (map[string]interface{}, error) {
 	toSerialize["node_name"] = o.NodeName
 	toSerialize["node_type"] = o.NodeType
 	toSerialize["scan_id"] = o.ScanId
-	if o.SeverityCounts != nil {
-		toSerialize["severity_counts"] = o.SeverityCounts
-	}
-	if o.Vulnerabilities != nil {
-		toSerialize["vulnerabilities"] = o.Vulnerabilities
-	}
 	return toSerialize, nil
 }
 
-type NullableModelVulnerabilityScanResult struct {
-	value *ModelVulnerabilityScanResult
+type NullableModelCloudComplianceScanResult struct {
+	value *ModelCloudComplianceScanResult
 	isSet bool
 }
 
-func (v NullableModelVulnerabilityScanResult) Get() *ModelVulnerabilityScanResult {
+func (v NullableModelCloudComplianceScanResult) Get() *ModelCloudComplianceScanResult {
 	return v.value
 }
 
-func (v *NullableModelVulnerabilityScanResult) Set(val *ModelVulnerabilityScanResult) {
+func (v *NullableModelCloudComplianceScanResult) Set(val *ModelCloudComplianceScanResult) {
 	v.value = val
 	v.isSet = true
 }
 
-func (v NullableModelVulnerabilityScanResult) IsSet() bool {
+func (v NullableModelCloudComplianceScanResult) IsSet() bool {
 	return v.isSet
 }
 
-func (v *NullableModelVulnerabilityScanResult) Unset() {
+func (v *NullableModelCloudComplianceScanResult) Unset() {
 	v.value = nil
 	v.isSet = false
 }
 
-func NewNullableModelVulnerabilityScanResult(val *ModelVulnerabilityScanResult) *NullableModelVulnerabilityScanResult {
-	return &NullableModelVulnerabilityScanResult{value: val, isSet: true}
+func NewNullableModelCloudComplianceScanResult(val *ModelCloudComplianceScanResult) *NullableModelCloudComplianceScanResult {
+	return &NullableModelCloudComplianceScanResult{value: val, isSet: true}
 }
 
-func (v NullableModelVulnerabilityScanResult) MarshalJSON() ([]byte, error) {
+func (v NullableModelCloudComplianceScanResult) MarshalJSON() ([]byte, error) {
 	return json.Marshal(v.value)
 }
 
-func (v *NullableModelVulnerabilityScanResult) UnmarshalJSON(src []byte) error {
+func (v *NullableModelCloudComplianceScanResult) UnmarshalJSON(src []byte) error {
 	v.isSet = true
 	return json.Unmarshal(src, &v.value)
 }

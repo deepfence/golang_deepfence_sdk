@@ -60,7 +60,7 @@ func (o *ModelRegistryAccount) GetContainerImages() []ModelContainerImage {
 // and a boolean to check if the value has been set.
 // NOTE: If the value is an explicit nil, `nil, true` will be returned
 func (o *ModelRegistryAccount) GetContainerImagesOk() ([]ModelContainerImage, bool) {
-	if o == nil || isNil(o.ContainerImages) {
+	if o == nil || IsNil(o.ContainerImages) {
 		return nil, false
 	}
 	return o.ContainerImages, true

@@ -56,7 +56,7 @@ func NewUtilsScanSbomRequestWithDefaults() *UtilsScanSbomRequest {
 
 // GetContainerName returns the ContainerName field value if set, zero value otherwise.
 func (o *UtilsScanSbomRequest) GetContainerName() string {
-	if o == nil || isNil(o.ContainerName) {
+	if o == nil || IsNil(o.ContainerName) {
 		var ret string
 		return ret
 	}
@@ -66,7 +66,7 @@ func (o *UtilsScanSbomRequest) GetContainerName() string {
 // GetContainerNameOk returns a tuple with the ContainerName field value if set, nil otherwise
 // and a boolean to check if the value has been set.
 func (o *UtilsScanSbomRequest) GetContainerNameOk() (*string, bool) {
-	if o == nil || isNil(o.ContainerName) {
+	if o == nil || IsNil(o.ContainerName) {
 		return nil, false
 	}
 	return o.ContainerName, true
@@ -74,7 +74,7 @@ func (o *UtilsScanSbomRequest) GetContainerNameOk() (*string, bool) {
 
 // HasContainerName returns a boolean if a field has been set.
 func (o *UtilsScanSbomRequest) HasContainerName() bool {
-	if o != nil && !isNil(o.ContainerName) {
+	if o != nil && !IsNil(o.ContainerName) {
 		return true
 	}
 
@@ -88,7 +88,7 @@ func (o *UtilsScanSbomRequest) SetContainerName(v string) {
 
 // GetHostName returns the HostName field value if set, zero value otherwise.
 func (o *UtilsScanSbomRequest) GetHostName() string {
-	if o == nil || isNil(o.HostName) {
+	if o == nil || IsNil(o.HostName) {
 		var ret string
 		return ret
 	}
@@ -98,7 +98,7 @@ func (o *UtilsScanSbomRequest) GetHostName() string {
 // GetHostNameOk returns a tuple with the HostName field value if set, nil otherwise
 // and a boolean to check if the value has been set.
 func (o *UtilsScanSbomRequest) GetHostNameOk() (*string, bool) {
-	if o == nil || isNil(o.HostName) {
+	if o == nil || IsNil(o.HostName) {
 		return nil, false
 	}
 	return o.HostName, true
@@ -106,7 +106,7 @@ func (o *UtilsScanSbomRequest) GetHostNameOk() (*string, bool) {
 
 // HasHostName returns a boolean if a field has been set.
 func (o *UtilsScanSbomRequest) HasHostName() bool {
-	if o != nil && !isNil(o.HostName) {
+	if o != nil && !IsNil(o.HostName) {
 		return true
 	}
 
@@ -120,7 +120,7 @@ func (o *UtilsScanSbomRequest) SetHostName(v string) {
 
 // GetImageId returns the ImageId field value if set, zero value otherwise.
 func (o *UtilsScanSbomRequest) GetImageId() string {
-	if o == nil || isNil(o.ImageId) {
+	if o == nil || IsNil(o.ImageId) {
 		var ret string
 		return ret
 	}
@@ -130,7 +130,7 @@ func (o *UtilsScanSbomRequest) GetImageId() string {
 // GetImageIdOk returns a tuple with the ImageId field value if set, nil otherwise
 // and a boolean to check if the value has been set.
 func (o *UtilsScanSbomRequest) GetImageIdOk() (*string, bool) {
-	if o == nil || isNil(o.ImageId) {
+	if o == nil || IsNil(o.ImageId) {
 		return nil, false
 	}
 	return o.ImageId, true
@@ -138,7 +138,7 @@ func (o *UtilsScanSbomRequest) GetImageIdOk() (*string, bool) {
 
 // HasImageId returns a boolean if a field has been set.
 func (o *UtilsScanSbomRequest) HasImageId() bool {
-	if o != nil && !isNil(o.ImageId) {
+	if o != nil && !IsNil(o.ImageId) {
 		return true
 	}
 
@@ -152,7 +152,7 @@ func (o *UtilsScanSbomRequest) SetImageId(v string) {
 
 // GetImageName returns the ImageName field value if set, zero value otherwise.
 func (o *UtilsScanSbomRequest) GetImageName() string {
-	if o == nil || isNil(o.ImageName) {
+	if o == nil || IsNil(o.ImageName) {
 		var ret string
 		return ret
 	}
@@ -162,7 +162,7 @@ func (o *UtilsScanSbomRequest) GetImageName() string {
 // GetImageNameOk returns a tuple with the ImageName field value if set, nil otherwise
 // and a boolean to check if the value has been set.
 func (o *UtilsScanSbomRequest) GetImageNameOk() (*string, bool) {
-	if o == nil || isNil(o.ImageName) {
+	if o == nil || IsNil(o.ImageName) {
 		return nil, false
 	}
 	return o.ImageName, true
@@ -170,7 +170,7 @@ func (o *UtilsScanSbomRequest) GetImageNameOk() (*string, bool) {
 
 // HasImageName returns a boolean if a field has been set.
 func (o *UtilsScanSbomRequest) HasImageName() bool {
-	if o != nil && !isNil(o.ImageName) {
+	if o != nil && !IsNil(o.ImageName) {
 		return true
 	}
 
@@ -184,7 +184,7 @@ func (o *UtilsScanSbomRequest) SetImageName(v string) {
 
 // GetKubernetesClusterName returns the KubernetesClusterName field value if set, zero value otherwise.
 func (o *UtilsScanSbomRequest) GetKubernetesClusterName() string {
-	if o == nil || isNil(o.KubernetesClusterName) {
+	if o == nil || IsNil(o.KubernetesClusterName) {
 		var ret string
 		return ret
 	}
@@ -194,7 +194,7 @@ func (o *UtilsScanSbomRequest) GetKubernetesClusterName() string {
 // GetKubernetesClusterNameOk returns a tuple with the KubernetesClusterName field value if set, nil otherwise
 // and a boolean to check if the value has been set.
 func (o *UtilsScanSbomRequest) GetKubernetesClusterNameOk() (*string, bool) {
-	if o == nil || isNil(o.KubernetesClusterName) {
+	if o == nil || IsNil(o.KubernetesClusterName) {
 		return nil, false
 	}
 	return o.KubernetesClusterName, true
@@ -202,7 +202,7 @@ func (o *UtilsScanSbomRequest) GetKubernetesClusterNameOk() (*string, bool) {
 
 // HasKubernetesClusterName returns a boolean if a field has been set.
 func (o *UtilsScanSbomRequest) HasKubernetesClusterName() bool {
-	if o != nil && !isNil(o.KubernetesClusterName) {
+	if o != nil && !IsNil(o.KubernetesClusterName) {
 		return true
 	}
 
@@ -216,7 +216,7 @@ func (o *UtilsScanSbomRequest) SetKubernetesClusterName(v string) {
 
 // GetMode returns the Mode field value if set, zero value otherwise.
 func (o *UtilsScanSbomRequest) GetMode() string {
-	if o == nil || isNil(o.Mode) {
+	if o == nil || IsNil(o.Mode) {
 		var ret string
 		return ret
 	}
@@ -226,7 +226,7 @@ func (o *UtilsScanSbomRequest) GetMode() string {
 // GetModeOk returns a tuple with the Mode field value if set, nil otherwise
 // and a boolean to check if the value has been set.
 func (o *UtilsScanSbomRequest) GetModeOk() (*string, bool) {
-	if o == nil || isNil(o.Mode) {
+	if o == nil || IsNil(o.Mode) {
 		return nil, false
 	}
 	return o.Mode, true
@@ -234,7 +234,7 @@ func (o *UtilsScanSbomRequest) GetModeOk() (*string, bool) {
 
 // HasMode returns a boolean if a field has been set.
 func (o *UtilsScanSbomRequest) HasMode() bool {
-	if o != nil && !isNil(o.Mode) {
+	if o != nil && !IsNil(o.Mode) {
 		return true
 	}
 
@@ -248,7 +248,7 @@ func (o *UtilsScanSbomRequest) SetMode(v string) {
 
 // GetNodeId returns the NodeId field value if set, zero value otherwise.
 func (o *UtilsScanSbomRequest) GetNodeId() string {
-	if o == nil || isNil(o.NodeId) {
+	if o == nil || IsNil(o.NodeId) {
 		var ret string
 		return ret
 	}
@@ -258,7 +258,7 @@ func (o *UtilsScanSbomRequest) GetNodeId() string {
 // GetNodeIdOk returns a tuple with the NodeId field value if set, nil otherwise
 // and a boolean to check if the value has been set.
 func (o *UtilsScanSbomRequest) GetNodeIdOk() (*string, bool) {
-	if o == nil || isNil(o.NodeId) {
+	if o == nil || IsNil(o.NodeId) {
 		return nil, false
 	}
 	return o.NodeId, true
@@ -266,7 +266,7 @@ func (o *UtilsScanSbomRequest) GetNodeIdOk() (*string, bool) {
 
 // HasNodeId returns a boolean if a field has been set.
 func (o *UtilsScanSbomRequest) HasNodeId() bool {
-	if o != nil && !isNil(o.NodeId) {
+	if o != nil && !IsNil(o.NodeId) {
 		return true
 	}
 
@@ -280,7 +280,7 @@ func (o *UtilsScanSbomRequest) SetNodeId(v string) {
 
 // GetNodeType returns the NodeType field value if set, zero value otherwise.
 func (o *UtilsScanSbomRequest) GetNodeType() string {
-	if o == nil || isNil(o.NodeType) {
+	if o == nil || IsNil(o.NodeType) {
 		var ret string
 		return ret
 	}
@@ -290,7 +290,7 @@ func (o *UtilsScanSbomRequest) GetNodeType() string {
 // GetNodeTypeOk returns a tuple with the NodeType field value if set, nil otherwise
 // and a boolean to check if the value has been set.
 func (o *UtilsScanSbomRequest) GetNodeTypeOk() (*string, bool) {
-	if o == nil || isNil(o.NodeType) {
+	if o == nil || IsNil(o.NodeType) {
 		return nil, false
 	}
 	return o.NodeType, true
@@ -298,7 +298,7 @@ func (o *UtilsScanSbomRequest) GetNodeTypeOk() (*string, bool) {
 
 // HasNodeType returns a boolean if a field has been set.
 func (o *UtilsScanSbomRequest) HasNodeType() bool {
-	if o != nil && !isNil(o.NodeType) {
+	if o != nil && !IsNil(o.NodeType) {
 		return true
 	}
 
@@ -312,7 +312,7 @@ func (o *UtilsScanSbomRequest) SetNodeType(v string) {
 
 // GetRegistryId returns the RegistryId field value if set, zero value otherwise.
 func (o *UtilsScanSbomRequest) GetRegistryId() string {
-	if o == nil || isNil(o.RegistryId) {
+	if o == nil || IsNil(o.RegistryId) {
 		var ret string
 		return ret
 	}
@@ -322,7 +322,7 @@ func (o *UtilsScanSbomRequest) GetRegistryId() string {
 // GetRegistryIdOk returns a tuple with the RegistryId field value if set, nil otherwise
 // and a boolean to check if the value has been set.
 func (o *UtilsScanSbomRequest) GetRegistryIdOk() (*string, bool) {
-	if o == nil || isNil(o.RegistryId) {
+	if o == nil || IsNil(o.RegistryId) {
 		return nil, false
 	}
 	return o.RegistryId, true
@@ -330,7 +330,7 @@ func (o *UtilsScanSbomRequest) GetRegistryIdOk() (*string, bool) {
 
 // HasRegistryId returns a boolean if a field has been set.
 func (o *UtilsScanSbomRequest) HasRegistryId() bool {
-	if o != nil && !isNil(o.RegistryId) {
+	if o != nil && !IsNil(o.RegistryId) {
 		return true
 	}
 
@@ -368,7 +368,7 @@ func (o *UtilsScanSbomRequest) SetSbom(v string) {
 
 // GetSbomFilePath returns the SbomFilePath field value if set, zero value otherwise.
 func (o *UtilsScanSbomRequest) GetSbomFilePath() string {
-	if o == nil || isNil(o.SbomFilePath) {
+	if o == nil || IsNil(o.SbomFilePath) {
 		var ret string
 		return ret
 	}
@@ -378,7 +378,7 @@ func (o *UtilsScanSbomRequest) GetSbomFilePath() string {
 // GetSbomFilePathOk returns a tuple with the SbomFilePath field value if set, nil otherwise
 // and a boolean to check if the value has been set.
 func (o *UtilsScanSbomRequest) GetSbomFilePathOk() (*string, bool) {
-	if o == nil || isNil(o.SbomFilePath) {
+	if o == nil || IsNil(o.SbomFilePath) {
 		return nil, false
 	}
 	return o.SbomFilePath, true
@@ -386,7 +386,7 @@ func (o *UtilsScanSbomRequest) GetSbomFilePathOk() (*string, bool) {
 
 // HasSbomFilePath returns a boolean if a field has been set.
 func (o *UtilsScanSbomRequest) HasSbomFilePath() bool {
-	if o != nil && !isNil(o.SbomFilePath) {
+	if o != nil && !IsNil(o.SbomFilePath) {
 		return true
 	}
 
@@ -424,7 +424,7 @@ func (o *UtilsScanSbomRequest) SetScanId(v string) {
 
 // GetScanType returns the ScanType field value if set, zero value otherwise.
 func (o *UtilsScanSbomRequest) GetScanType() string {
-	if o == nil || isNil(o.ScanType) {
+	if o == nil || IsNil(o.ScanType) {
 		var ret string
 		return ret
 	}
@@ -434,7 +434,7 @@ func (o *UtilsScanSbomRequest) GetScanType() string {
 // GetScanTypeOk returns a tuple with the ScanType field value if set, nil otherwise
 // and a boolean to check if the value has been set.
 func (o *UtilsScanSbomRequest) GetScanTypeOk() (*string, bool) {
-	if o == nil || isNil(o.ScanType) {
+	if o == nil || IsNil(o.ScanType) {
 		return nil, false
 	}
 	return o.ScanType, true
@@ -442,7 +442,7 @@ func (o *UtilsScanSbomRequest) GetScanTypeOk() (*string, bool) {
 
 // HasScanType returns a boolean if a field has been set.
 func (o *UtilsScanSbomRequest) HasScanType() bool {
-	if o != nil && !isNil(o.ScanType) {
+	if o != nil && !IsNil(o.ScanType) {
 		return true
 	}
 
@@ -464,39 +464,39 @@ func (o UtilsScanSbomRequest) MarshalJSON() ([]byte, error) {
 
 func (o UtilsScanSbomRequest) ToMap() (map[string]interface{}, error) {
 	toSerialize := map[string]interface{}{}
-	if !isNil(o.ContainerName) {
+	if !IsNil(o.ContainerName) {
 		toSerialize["container_name"] = o.ContainerName
 	}
-	if !isNil(o.HostName) {
+	if !IsNil(o.HostName) {
 		toSerialize["host_name"] = o.HostName
 	}
-	if !isNil(o.ImageId) {
+	if !IsNil(o.ImageId) {
 		toSerialize["image_id"] = o.ImageId
 	}
-	if !isNil(o.ImageName) {
+	if !IsNil(o.ImageName) {
 		toSerialize["image_name"] = o.ImageName
 	}
-	if !isNil(o.KubernetesClusterName) {
+	if !IsNil(o.KubernetesClusterName) {
 		toSerialize["kubernetes_cluster_name"] = o.KubernetesClusterName
 	}
-	if !isNil(o.Mode) {
+	if !IsNil(o.Mode) {
 		toSerialize["mode"] = o.Mode
 	}
-	if !isNil(o.NodeId) {
+	if !IsNil(o.NodeId) {
 		toSerialize["node_id"] = o.NodeId
 	}
-	if !isNil(o.NodeType) {
+	if !IsNil(o.NodeType) {
 		toSerialize["node_type"] = o.NodeType
 	}
-	if !isNil(o.RegistryId) {
+	if !IsNil(o.RegistryId) {
 		toSerialize["registry_id"] = o.RegistryId
 	}
 	toSerialize["sbom"] = o.Sbom
-	if !isNil(o.SbomFilePath) {
+	if !IsNil(o.SbomFilePath) {
 		toSerialize["sbom_file_path"] = o.SbomFilePath
 	}
 	toSerialize["scan_id"] = o.ScanId
-	if !isNil(o.ScanType) {
+	if !IsNil(o.ScanType) {
 		toSerialize["scan_type"] = o.ScanType
 	}
 	return toSerialize, nil

@@ -44,7 +44,7 @@ func NewModelCloudNodeAccountsListReqWithDefaults() *ModelCloudNodeAccountsListR
 
 // GetCloudProvider returns the CloudProvider field value if set, zero value otherwise.
 func (o *ModelCloudNodeAccountsListReq) GetCloudProvider() string {
-	if o == nil || isNil(o.CloudProvider) {
+	if o == nil || IsNil(o.CloudProvider) {
 		var ret string
 		return ret
 	}
@@ -54,7 +54,7 @@ func (o *ModelCloudNodeAccountsListReq) GetCloudProvider() string {
 // GetCloudProviderOk returns a tuple with the CloudProvider field value if set, nil otherwise
 // and a boolean to check if the value has been set.
 func (o *ModelCloudNodeAccountsListReq) GetCloudProviderOk() (*string, bool) {
-	if o == nil || isNil(o.CloudProvider) {
+	if o == nil || IsNil(o.CloudProvider) {
 		return nil, false
 	}
 	return o.CloudProvider, true
@@ -62,7 +62,7 @@ func (o *ModelCloudNodeAccountsListReq) GetCloudProviderOk() (*string, bool) {
 
 // HasCloudProvider returns a boolean if a field has been set.
 func (o *ModelCloudNodeAccountsListReq) HasCloudProvider() bool {
-	if o != nil && !isNil(o.CloudProvider) {
+	if o != nil && !IsNil(o.CloudProvider) {
 		return true
 	}
 
@@ -108,7 +108,7 @@ func (o ModelCloudNodeAccountsListReq) MarshalJSON() ([]byte, error) {
 
 func (o ModelCloudNodeAccountsListReq) ToMap() (map[string]interface{}, error) {
 	toSerialize := map[string]interface{}{}
-	if !isNil(o.CloudProvider) {
+	if !IsNil(o.CloudProvider) {
 		toSerialize["cloud_provider"] = o.CloudProvider
 	}
 	toSerialize["window"] = o.Window

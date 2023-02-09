@@ -44,7 +44,7 @@ func NewModelComplianceScanStatusWithDefaults() *ModelComplianceScanStatus {
 
 // GetBenchmarkType returns the BenchmarkType field value if set, zero value otherwise.
 func (o *ModelComplianceScanStatus) GetBenchmarkType() string {
-	if o == nil || isNil(o.BenchmarkType) {
+	if o == nil || IsNil(o.BenchmarkType) {
 		var ret string
 		return ret
 	}
@@ -54,7 +54,7 @@ func (o *ModelComplianceScanStatus) GetBenchmarkType() string {
 // GetBenchmarkTypeOk returns a tuple with the BenchmarkType field value if set, nil otherwise
 // and a boolean to check if the value has been set.
 func (o *ModelComplianceScanStatus) GetBenchmarkTypeOk() (*string, bool) {
-	if o == nil || isNil(o.BenchmarkType) {
+	if o == nil || IsNil(o.BenchmarkType) {
 		return nil, false
 	}
 	return o.BenchmarkType, true
@@ -62,7 +62,7 @@ func (o *ModelComplianceScanStatus) GetBenchmarkTypeOk() (*string, bool) {
 
 // HasBenchmarkType returns a boolean if a field has been set.
 func (o *ModelComplianceScanStatus) HasBenchmarkType() bool {
-	if o != nil && !isNil(o.BenchmarkType) {
+	if o != nil && !IsNil(o.BenchmarkType) {
 		return true
 	}
 
@@ -76,7 +76,7 @@ func (o *ModelComplianceScanStatus) SetBenchmarkType(v string) {
 
 // GetScanId returns the ScanId field value if set, zero value otherwise.
 func (o *ModelComplianceScanStatus) GetScanId() string {
-	if o == nil || isNil(o.ScanId) {
+	if o == nil || IsNil(o.ScanId) {
 		var ret string
 		return ret
 	}
@@ -86,7 +86,7 @@ func (o *ModelComplianceScanStatus) GetScanId() string {
 // GetScanIdOk returns a tuple with the ScanId field value if set, nil otherwise
 // and a boolean to check if the value has been set.
 func (o *ModelComplianceScanStatus) GetScanIdOk() (*string, bool) {
-	if o == nil || isNil(o.ScanId) {
+	if o == nil || IsNil(o.ScanId) {
 		return nil, false
 	}
 	return o.ScanId, true
@@ -94,7 +94,7 @@ func (o *ModelComplianceScanStatus) GetScanIdOk() (*string, bool) {
 
 // HasScanId returns a boolean if a field has been set.
 func (o *ModelComplianceScanStatus) HasScanId() bool {
-	if o != nil && !isNil(o.ScanId) {
+	if o != nil && !IsNil(o.ScanId) {
 		return true
 	}
 
@@ -108,7 +108,7 @@ func (o *ModelComplianceScanStatus) SetScanId(v string) {
 
 // GetStatus returns the Status field value if set, zero value otherwise.
 func (o *ModelComplianceScanStatus) GetStatus() string {
-	if o == nil || isNil(o.Status) {
+	if o == nil || IsNil(o.Status) {
 		var ret string
 		return ret
 	}
@@ -118,7 +118,7 @@ func (o *ModelComplianceScanStatus) GetStatus() string {
 // GetStatusOk returns a tuple with the Status field value if set, nil otherwise
 // and a boolean to check if the value has been set.
 func (o *ModelComplianceScanStatus) GetStatusOk() (*string, bool) {
-	if o == nil || isNil(o.Status) {
+	if o == nil || IsNil(o.Status) {
 		return nil, false
 	}
 	return o.Status, true
@@ -126,7 +126,7 @@ func (o *ModelComplianceScanStatus) GetStatusOk() (*string, bool) {
 
 // HasStatus returns a boolean if a field has been set.
 func (o *ModelComplianceScanStatus) HasStatus() bool {
-	if o != nil && !isNil(o.Status) {
+	if o != nil && !IsNil(o.Status) {
 		return true
 	}
 
@@ -148,13 +148,13 @@ func (o ModelComplianceScanStatus) MarshalJSON() ([]byte, error) {
 
 func (o ModelComplianceScanStatus) ToMap() (map[string]interface{}, error) {
 	toSerialize := map[string]interface{}{}
-	if !isNil(o.BenchmarkType) {
+	if !IsNil(o.BenchmarkType) {
 		toSerialize["benchmark_type"] = o.BenchmarkType
 	}
-	if !isNil(o.ScanId) {
+	if !IsNil(o.ScanId) {
 		toSerialize["scan_id"] = o.ScanId
 	}
-	if !isNil(o.Status) {
+	if !IsNil(o.Status) {
 		toSerialize["status"] = o.Status
 	}
 	return toSerialize, nil

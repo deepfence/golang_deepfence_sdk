@@ -88,7 +88,7 @@ func (o *ModelKubernetesCluster) GetContainers() []ModelHost {
 // and a boolean to check if the value has been set.
 // NOTE: If the value is an explicit nil, `nil, true` will be returned
 func (o *ModelKubernetesCluster) GetContainersOk() ([]ModelHost, bool) {
-	if o == nil || isNil(o.Containers) {
+	if o == nil || IsNil(o.Containers) {
 		return nil, false
 	}
 	return o.Containers, true

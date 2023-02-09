@@ -56,7 +56,7 @@ func (o *ModelScanListResp) GetScansInfo() []ModelScanInfo {
 // and a boolean to check if the value has been set.
 // NOTE: If the value is an explicit nil, `nil, true` will be returned
 func (o *ModelScanListResp) GetScansInfoOk() ([]ModelScanInfo, bool) {
-	if o == nil || isNil(o.ScansInfo) {
+	if o == nil || IsNil(o.ScansInfo) {
 		return nil, false
 	}
 	return o.ScansInfo, true

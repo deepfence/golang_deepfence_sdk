@@ -43,7 +43,7 @@ func NewDetailedConnectionSummaryWithDefaults() *DetailedConnectionSummary {
 
 // GetSource returns the Source field value if set, zero value otherwise.
 func (o *DetailedConnectionSummary) GetSource() string {
-	if o == nil || isNil(o.Source) {
+	if o == nil || IsNil(o.Source) {
 		var ret string
 		return ret
 	}
@@ -53,7 +53,7 @@ func (o *DetailedConnectionSummary) GetSource() string {
 // GetSourceOk returns a tuple with the Source field value if set, nil otherwise
 // and a boolean to check if the value has been set.
 func (o *DetailedConnectionSummary) GetSourceOk() (*string, bool) {
-	if o == nil || isNil(o.Source) {
+	if o == nil || IsNil(o.Source) {
 		return nil, false
 	}
 	return o.Source, true
@@ -61,7 +61,7 @@ func (o *DetailedConnectionSummary) GetSourceOk() (*string, bool) {
 
 // HasSource returns a boolean if a field has been set.
 func (o *DetailedConnectionSummary) HasSource() bool {
-	if o != nil && !isNil(o.Source) {
+	if o != nil && !IsNil(o.Source) {
 		return true
 	}
 
@@ -75,7 +75,7 @@ func (o *DetailedConnectionSummary) SetSource(v string) {
 
 // GetTarget returns the Target field value if set, zero value otherwise.
 func (o *DetailedConnectionSummary) GetTarget() string {
-	if o == nil || isNil(o.Target) {
+	if o == nil || IsNil(o.Target) {
 		var ret string
 		return ret
 	}
@@ -85,7 +85,7 @@ func (o *DetailedConnectionSummary) GetTarget() string {
 // GetTargetOk returns a tuple with the Target field value if set, nil otherwise
 // and a boolean to check if the value has been set.
 func (o *DetailedConnectionSummary) GetTargetOk() (*string, bool) {
-	if o == nil || isNil(o.Target) {
+	if o == nil || IsNil(o.Target) {
 		return nil, false
 	}
 	return o.Target, true
@@ -93,7 +93,7 @@ func (o *DetailedConnectionSummary) GetTargetOk() (*string, bool) {
 
 // HasTarget returns a boolean if a field has been set.
 func (o *DetailedConnectionSummary) HasTarget() bool {
-	if o != nil && !isNil(o.Target) {
+	if o != nil && !IsNil(o.Target) {
 		return true
 	}
 
@@ -115,10 +115,10 @@ func (o DetailedConnectionSummary) MarshalJSON() ([]byte, error) {
 
 func (o DetailedConnectionSummary) ToMap() (map[string]interface{}, error) {
 	toSerialize := map[string]interface{}{}
-	if !isNil(o.Source) {
+	if !IsNil(o.Source) {
 		toSerialize["source"] = o.Source
 	}
-	if !isNil(o.Target) {
+	if !IsNil(o.Target) {
 		toSerialize["target"] = o.Target
 	}
 	return toSerialize, nil

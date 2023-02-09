@@ -45,7 +45,7 @@ func NewIngestersSecretRuleWithDefaults() *IngestersSecretRule {
 
 // GetId returns the Id field value if set, zero value otherwise.
 func (o *IngestersSecretRule) GetId() int32 {
-	if o == nil || isNil(o.Id) {
+	if o == nil || IsNil(o.Id) {
 		var ret int32
 		return ret
 	}
@@ -55,7 +55,7 @@ func (o *IngestersSecretRule) GetId() int32 {
 // GetIdOk returns a tuple with the Id field value if set, nil otherwise
 // and a boolean to check if the value has been set.
 func (o *IngestersSecretRule) GetIdOk() (*int32, bool) {
-	if o == nil || isNil(o.Id) {
+	if o == nil || IsNil(o.Id) {
 		return nil, false
 	}
 	return o.Id, true
@@ -63,7 +63,7 @@ func (o *IngestersSecretRule) GetIdOk() (*int32, bool) {
 
 // HasId returns a boolean if a field has been set.
 func (o *IngestersSecretRule) HasId() bool {
-	if o != nil && !isNil(o.Id) {
+	if o != nil && !IsNil(o.Id) {
 		return true
 	}
 
@@ -77,7 +77,7 @@ func (o *IngestersSecretRule) SetId(v int32) {
 
 // GetName returns the Name field value if set, zero value otherwise.
 func (o *IngestersSecretRule) GetName() string {
-	if o == nil || isNil(o.Name) {
+	if o == nil || IsNil(o.Name) {
 		var ret string
 		return ret
 	}
@@ -87,7 +87,7 @@ func (o *IngestersSecretRule) GetName() string {
 // GetNameOk returns a tuple with the Name field value if set, nil otherwise
 // and a boolean to check if the value has been set.
 func (o *IngestersSecretRule) GetNameOk() (*string, bool) {
-	if o == nil || isNil(o.Name) {
+	if o == nil || IsNil(o.Name) {
 		return nil, false
 	}
 	return o.Name, true
@@ -95,7 +95,7 @@ func (o *IngestersSecretRule) GetNameOk() (*string, bool) {
 
 // HasName returns a boolean if a field has been set.
 func (o *IngestersSecretRule) HasName() bool {
-	if o != nil && !isNil(o.Name) {
+	if o != nil && !IsNil(o.Name) {
 		return true
 	}
 
@@ -109,7 +109,7 @@ func (o *IngestersSecretRule) SetName(v string) {
 
 // GetPart returns the Part field value if set, zero value otherwise.
 func (o *IngestersSecretRule) GetPart() string {
-	if o == nil || isNil(o.Part) {
+	if o == nil || IsNil(o.Part) {
 		var ret string
 		return ret
 	}
@@ -119,7 +119,7 @@ func (o *IngestersSecretRule) GetPart() string {
 // GetPartOk returns a tuple with the Part field value if set, nil otherwise
 // and a boolean to check if the value has been set.
 func (o *IngestersSecretRule) GetPartOk() (*string, bool) {
-	if o == nil || isNil(o.Part) {
+	if o == nil || IsNil(o.Part) {
 		return nil, false
 	}
 	return o.Part, true
@@ -127,7 +127,7 @@ func (o *IngestersSecretRule) GetPartOk() (*string, bool) {
 
 // HasPart returns a boolean if a field has been set.
 func (o *IngestersSecretRule) HasPart() bool {
-	if o != nil && !isNil(o.Part) {
+	if o != nil && !IsNil(o.Part) {
 		return true
 	}
 
@@ -141,7 +141,7 @@ func (o *IngestersSecretRule) SetPart(v string) {
 
 // GetSignatureToMatch returns the SignatureToMatch field value if set, zero value otherwise.
 func (o *IngestersSecretRule) GetSignatureToMatch() string {
-	if o == nil || isNil(o.SignatureToMatch) {
+	if o == nil || IsNil(o.SignatureToMatch) {
 		var ret string
 		return ret
 	}
@@ -151,7 +151,7 @@ func (o *IngestersSecretRule) GetSignatureToMatch() string {
 // GetSignatureToMatchOk returns a tuple with the SignatureToMatch field value if set, nil otherwise
 // and a boolean to check if the value has been set.
 func (o *IngestersSecretRule) GetSignatureToMatchOk() (*string, bool) {
-	if o == nil || isNil(o.SignatureToMatch) {
+	if o == nil || IsNil(o.SignatureToMatch) {
 		return nil, false
 	}
 	return o.SignatureToMatch, true
@@ -159,7 +159,7 @@ func (o *IngestersSecretRule) GetSignatureToMatchOk() (*string, bool) {
 
 // HasSignatureToMatch returns a boolean if a field has been set.
 func (o *IngestersSecretRule) HasSignatureToMatch() bool {
-	if o != nil && !isNil(o.SignatureToMatch) {
+	if o != nil && !IsNil(o.SignatureToMatch) {
 		return true
 	}
 
@@ -181,16 +181,16 @@ func (o IngestersSecretRule) MarshalJSON() ([]byte, error) {
 
 func (o IngestersSecretRule) ToMap() (map[string]interface{}, error) {
 	toSerialize := map[string]interface{}{}
-	if !isNil(o.Id) {
+	if !IsNil(o.Id) {
 		toSerialize["id"] = o.Id
 	}
-	if !isNil(o.Name) {
+	if !IsNil(o.Name) {
 		toSerialize["name"] = o.Name
 	}
-	if !isNil(o.Part) {
+	if !IsNil(o.Part) {
 		toSerialize["part"] = o.Part
 	}
-	if !isNil(o.SignatureToMatch) {
+	if !IsNil(o.SignatureToMatch) {
 		toSerialize["signature_to_match"] = o.SignatureToMatch
 	}
 	return toSerialize, nil

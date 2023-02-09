@@ -58,7 +58,7 @@ func (o *ModelCloudNodeAccountsListResp) GetCloudNodeAccountsInfo() []ModelCloud
 // and a boolean to check if the value has been set.
 // NOTE: If the value is an explicit nil, `nil, true` will be returned
 func (o *ModelCloudNodeAccountsListResp) GetCloudNodeAccountsInfoOk() ([]ModelCloudNodeAccountInfo, bool) {
-	if o == nil || isNil(o.CloudNodeAccountsInfo) {
+	if o == nil || IsNil(o.CloudNodeAccountsInfo) {
 		return nil, false
 	}
 	return o.CloudNodeAccountsInfo, true

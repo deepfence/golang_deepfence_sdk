@@ -70,7 +70,7 @@ func (o *ModelPod) GetContainers() []ModelContainer {
 // and a boolean to check if the value has been set.
 // NOTE: If the value is an explicit nil, `nil, true` will be returned
 func (o *ModelPod) GetContainersOk() ([]ModelContainer, bool) {
-	if o == nil || isNil(o.Containers) {
+	if o == nil || IsNil(o.Containers) {
 		return nil, false
 	}
 	return o.Containers, true
@@ -240,7 +240,7 @@ func (o *ModelPod) GetProcesses() []ModelProcess {
 // and a boolean to check if the value has been set.
 // NOTE: If the value is an explicit nil, `nil, true` will be returned
 func (o *ModelPod) GetProcessesOk() ([]ModelProcess, bool) {
-	if o == nil || isNil(o.Processes) {
+	if o == nil || IsNil(o.Processes) {
 		return nil, false
 	}
 	return o.Processes, true

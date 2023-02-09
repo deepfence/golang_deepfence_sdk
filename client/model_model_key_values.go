@@ -15,36 +15,36 @@ import (
 	"encoding/json"
 )
 
-// checks if the ModelKeyValue type satisfies the MappedNullable interface at compile time
-var _ MappedNullable = &ModelKeyValue{}
+// checks if the ModelKeyValues type satisfies the MappedNullable interface at compile time
+var _ MappedNullable = &ModelKeyValues{}
 
-// ModelKeyValue struct for ModelKeyValue
-type ModelKeyValue struct {
+// ModelKeyValues struct for ModelKeyValues
+type ModelKeyValues struct {
 	Key string `json:"key"`
-	Value string `json:"value"`
+	Values []string `json:"values"`
 }
 
-// NewModelKeyValue instantiates a new ModelKeyValue object
+// NewModelKeyValues instantiates a new ModelKeyValues object
 // This constructor will assign default values to properties that have it defined,
 // and makes sure properties required by API are set, but the set of arguments
 // will change when the set of required properties is changed
-func NewModelKeyValue(key string, value string) *ModelKeyValue {
-	this := ModelKeyValue{}
+func NewModelKeyValues(key string, values []string) *ModelKeyValues {
+	this := ModelKeyValues{}
 	this.Key = key
-	this.Value = value
+	this.Values = values
 	return &this
 }
 
-// NewModelKeyValueWithDefaults instantiates a new ModelKeyValue object
+// NewModelKeyValuesWithDefaults instantiates a new ModelKeyValues object
 // This constructor will only assign default values to properties that have it defined,
 // but it doesn't guarantee that properties required by API are set
-func NewModelKeyValueWithDefaults() *ModelKeyValue {
-	this := ModelKeyValue{}
+func NewModelKeyValuesWithDefaults() *ModelKeyValues {
+	this := ModelKeyValues{}
 	return &this
 }
 
 // GetKey returns the Key field value
-func (o *ModelKeyValue) GetKey() string {
+func (o *ModelKeyValues) GetKey() string {
 	if o == nil {
 		var ret string
 		return ret
@@ -55,7 +55,7 @@ func (o *ModelKeyValue) GetKey() string {
 
 // GetKeyOk returns a tuple with the Key field value
 // and a boolean to check if the value has been set.
-func (o *ModelKeyValue) GetKeyOk() (*string, bool) {
+func (o *ModelKeyValues) GetKeyOk() (*string, bool) {
 	if o == nil {
 		return nil, false
 	}
@@ -63,35 +63,37 @@ func (o *ModelKeyValue) GetKeyOk() (*string, bool) {
 }
 
 // SetKey sets field value
-func (o *ModelKeyValue) SetKey(v string) {
+func (o *ModelKeyValues) SetKey(v string) {
 	o.Key = v
 }
 
-// GetValue returns the Value field value
-func (o *ModelKeyValue) GetValue() string {
+// GetValues returns the Values field value
+// If the value is explicit nil, the zero value for []string will be returned
+func (o *ModelKeyValues) GetValues() []string {
 	if o == nil {
-		var ret string
+		var ret []string
 		return ret
 	}
 
-	return o.Value
+	return o.Values
 }
 
-// GetValueOk returns a tuple with the Value field value
+// GetValuesOk returns a tuple with the Values field value
 // and a boolean to check if the value has been set.
-func (o *ModelKeyValue) GetValueOk() (*string, bool) {
-	if o == nil {
+// NOTE: If the value is an explicit nil, `nil, true` will be returned
+func (o *ModelKeyValues) GetValuesOk() ([]string, bool) {
+	if o == nil || IsNil(o.Values) {
 		return nil, false
 	}
-	return &o.Value, true
+	return o.Values, true
 }
 
-// SetValue sets field value
-func (o *ModelKeyValue) SetValue(v string) {
-	o.Value = v
+// SetValues sets field value
+func (o *ModelKeyValues) SetValues(v []string) {
+	o.Values = v
 }
 
-func (o ModelKeyValue) MarshalJSON() ([]byte, error) {
+func (o ModelKeyValues) MarshalJSON() ([]byte, error) {
 	toSerialize,err := o.ToMap()
 	if err != nil {
 		return []byte{}, err
@@ -99,45 +101,47 @@ func (o ModelKeyValue) MarshalJSON() ([]byte, error) {
 	return json.Marshal(toSerialize)
 }
 
-func (o ModelKeyValue) ToMap() (map[string]interface{}, error) {
+func (o ModelKeyValues) ToMap() (map[string]interface{}, error) {
 	toSerialize := map[string]interface{}{}
 	toSerialize["key"] = o.Key
-	toSerialize["value"] = o.Value
+	if o.Values != nil {
+		toSerialize["values"] = o.Values
+	}
 	return toSerialize, nil
 }
 
-type NullableModelKeyValue struct {
-	value *ModelKeyValue
+type NullableModelKeyValues struct {
+	value *ModelKeyValues
 	isSet bool
 }
 
-func (v NullableModelKeyValue) Get() *ModelKeyValue {
+func (v NullableModelKeyValues) Get() *ModelKeyValues {
 	return v.value
 }
 
-func (v *NullableModelKeyValue) Set(val *ModelKeyValue) {
+func (v *NullableModelKeyValues) Set(val *ModelKeyValues) {
 	v.value = val
 	v.isSet = true
 }
 
-func (v NullableModelKeyValue) IsSet() bool {
+func (v NullableModelKeyValues) IsSet() bool {
 	return v.isSet
 }
 
-func (v *NullableModelKeyValue) Unset() {
+func (v *NullableModelKeyValues) Unset() {
 	v.value = nil
 	v.isSet = false
 }
 
-func NewNullableModelKeyValue(val *ModelKeyValue) *NullableModelKeyValue {
-	return &NullableModelKeyValue{value: val, isSet: true}
+func NewNullableModelKeyValues(val *ModelKeyValues) *NullableModelKeyValues {
+	return &NullableModelKeyValues{value: val, isSet: true}
 }
 
-func (v NullableModelKeyValue) MarshalJSON() ([]byte, error) {
+func (v NullableModelKeyValues) MarshalJSON() ([]byte, error) {
 	return json.Marshal(v.value)
 }
 
-func (v *NullableModelKeyValue) UnmarshalJSON(src []byte) error {
+func (v *NullableModelKeyValues) UnmarshalJSON(src []byte) error {
 	v.isSet = true
 	return json.Unmarshal(src, &v.value)
 }

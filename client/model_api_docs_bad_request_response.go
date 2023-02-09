@@ -55,7 +55,7 @@ func (o *ApiDocsBadRequestResponse) GetErrorFields() map[string]string {
 // and a boolean to check if the value has been set.
 // NOTE: If the value is an explicit nil, `nil, true` will be returned
 func (o *ApiDocsBadRequestResponse) GetErrorFieldsOk() (*map[string]string, bool) {
-	if o == nil || isNil(o.ErrorFields) {
+	if o == nil || IsNil(o.ErrorFields) {
 		return nil, false
 	}
 	return &o.ErrorFields, true
@@ -63,7 +63,7 @@ func (o *ApiDocsBadRequestResponse) GetErrorFieldsOk() (*map[string]string, bool
 
 // HasErrorFields returns a boolean if a field has been set.
 func (o *ApiDocsBadRequestResponse) HasErrorFields() bool {
-	if o != nil && isNil(o.ErrorFields) {
+	if o != nil && IsNil(o.ErrorFields) {
 		return true
 	}
 
@@ -77,7 +77,7 @@ func (o *ApiDocsBadRequestResponse) SetErrorFields(v map[string]string) {
 
 // GetMessage returns the Message field value if set, zero value otherwise.
 func (o *ApiDocsBadRequestResponse) GetMessage() string {
-	if o == nil || isNil(o.Message) {
+	if o == nil || IsNil(o.Message) {
 		var ret string
 		return ret
 	}
@@ -87,7 +87,7 @@ func (o *ApiDocsBadRequestResponse) GetMessage() string {
 // GetMessageOk returns a tuple with the Message field value if set, nil otherwise
 // and a boolean to check if the value has been set.
 func (o *ApiDocsBadRequestResponse) GetMessageOk() (*string, bool) {
-	if o == nil || isNil(o.Message) {
+	if o == nil || IsNil(o.Message) {
 		return nil, false
 	}
 	return o.Message, true
@@ -95,7 +95,7 @@ func (o *ApiDocsBadRequestResponse) GetMessageOk() (*string, bool) {
 
 // HasMessage returns a boolean if a field has been set.
 func (o *ApiDocsBadRequestResponse) HasMessage() bool {
-	if o != nil && !isNil(o.Message) {
+	if o != nil && !IsNil(o.Message) {
 		return true
 	}
 
@@ -109,7 +109,7 @@ func (o *ApiDocsBadRequestResponse) SetMessage(v string) {
 
 // GetSuccess returns the Success field value if set, zero value otherwise.
 func (o *ApiDocsBadRequestResponse) GetSuccess() bool {
-	if o == nil || isNil(o.Success) {
+	if o == nil || IsNil(o.Success) {
 		var ret bool
 		return ret
 	}
@@ -119,7 +119,7 @@ func (o *ApiDocsBadRequestResponse) GetSuccess() bool {
 // GetSuccessOk returns a tuple with the Success field value if set, nil otherwise
 // and a boolean to check if the value has been set.
 func (o *ApiDocsBadRequestResponse) GetSuccessOk() (*bool, bool) {
-	if o == nil || isNil(o.Success) {
+	if o == nil || IsNil(o.Success) {
 		return nil, false
 	}
 	return o.Success, true
@@ -127,7 +127,7 @@ func (o *ApiDocsBadRequestResponse) GetSuccessOk() (*bool, bool) {
 
 // HasSuccess returns a boolean if a field has been set.
 func (o *ApiDocsBadRequestResponse) HasSuccess() bool {
-	if o != nil && !isNil(o.Success) {
+	if o != nil && !IsNil(o.Success) {
 		return true
 	}
 
@@ -152,10 +152,10 @@ func (o ApiDocsBadRequestResponse) ToMap() (map[string]interface{}, error) {
 	if o.ErrorFields != nil {
 		toSerialize["error_fields"] = o.ErrorFields
 	}
-	if !isNil(o.Message) {
+	if !IsNil(o.Message) {
 		toSerialize["message"] = o.Message
 	}
-	if !isNil(o.Success) {
+	if !IsNil(o.Success) {
 		toSerialize["success"] = o.Success
 	}
 	return toSerialize, nil

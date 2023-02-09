@@ -58,7 +58,7 @@ func (o *ReportTable) GetColumns() []ReportColumn {
 // and a boolean to check if the value has been set.
 // NOTE: If the value is an explicit nil, `nil, true` will be returned
 func (o *ReportTable) GetColumnsOk() ([]ReportColumn, bool) {
-	if o == nil || isNil(o.Columns) {
+	if o == nil || IsNil(o.Columns) {
 		return nil, false
 	}
 	return o.Columns, true
@@ -66,7 +66,7 @@ func (o *ReportTable) GetColumnsOk() ([]ReportColumn, bool) {
 
 // HasColumns returns a boolean if a field has been set.
 func (o *ReportTable) HasColumns() bool {
-	if o != nil && isNil(o.Columns) {
+	if o != nil && IsNil(o.Columns) {
 		return true
 	}
 
@@ -80,7 +80,7 @@ func (o *ReportTable) SetColumns(v []ReportColumn) {
 
 // GetId returns the Id field value if set, zero value otherwise.
 func (o *ReportTable) GetId() string {
-	if o == nil || isNil(o.Id) {
+	if o == nil || IsNil(o.Id) {
 		var ret string
 		return ret
 	}
@@ -90,7 +90,7 @@ func (o *ReportTable) GetId() string {
 // GetIdOk returns a tuple with the Id field value if set, nil otherwise
 // and a boolean to check if the value has been set.
 func (o *ReportTable) GetIdOk() (*string, bool) {
-	if o == nil || isNil(o.Id) {
+	if o == nil || IsNil(o.Id) {
 		return nil, false
 	}
 	return o.Id, true
@@ -98,7 +98,7 @@ func (o *ReportTable) GetIdOk() (*string, bool) {
 
 // HasId returns a boolean if a field has been set.
 func (o *ReportTable) HasId() bool {
-	if o != nil && !isNil(o.Id) {
+	if o != nil && !IsNil(o.Id) {
 		return true
 	}
 
@@ -112,7 +112,7 @@ func (o *ReportTable) SetId(v string) {
 
 // GetLabel returns the Label field value if set, zero value otherwise.
 func (o *ReportTable) GetLabel() string {
-	if o == nil || isNil(o.Label) {
+	if o == nil || IsNil(o.Label) {
 		var ret string
 		return ret
 	}
@@ -122,7 +122,7 @@ func (o *ReportTable) GetLabel() string {
 // GetLabelOk returns a tuple with the Label field value if set, nil otherwise
 // and a boolean to check if the value has been set.
 func (o *ReportTable) GetLabelOk() (*string, bool) {
-	if o == nil || isNil(o.Label) {
+	if o == nil || IsNil(o.Label) {
 		return nil, false
 	}
 	return o.Label, true
@@ -130,7 +130,7 @@ func (o *ReportTable) GetLabelOk() (*string, bool) {
 
 // HasLabel returns a boolean if a field has been set.
 func (o *ReportTable) HasLabel() bool {
-	if o != nil && !isNil(o.Label) {
+	if o != nil && !IsNil(o.Label) {
 		return true
 	}
 
@@ -155,7 +155,7 @@ func (o *ReportTable) GetRows() []ReportRow {
 // and a boolean to check if the value has been set.
 // NOTE: If the value is an explicit nil, `nil, true` will be returned
 func (o *ReportTable) GetRowsOk() ([]ReportRow, bool) {
-	if o == nil || isNil(o.Rows) {
+	if o == nil || IsNil(o.Rows) {
 		return nil, false
 	}
 	return o.Rows, true
@@ -163,7 +163,7 @@ func (o *ReportTable) GetRowsOk() ([]ReportRow, bool) {
 
 // HasRows returns a boolean if a field has been set.
 func (o *ReportTable) HasRows() bool {
-	if o != nil && isNil(o.Rows) {
+	if o != nil && IsNil(o.Rows) {
 		return true
 	}
 
@@ -177,7 +177,7 @@ func (o *ReportTable) SetRows(v []ReportRow) {
 
 // GetTruncationCount returns the TruncationCount field value if set, zero value otherwise.
 func (o *ReportTable) GetTruncationCount() int32 {
-	if o == nil || isNil(o.TruncationCount) {
+	if o == nil || IsNil(o.TruncationCount) {
 		var ret int32
 		return ret
 	}
@@ -187,7 +187,7 @@ func (o *ReportTable) GetTruncationCount() int32 {
 // GetTruncationCountOk returns a tuple with the TruncationCount field value if set, nil otherwise
 // and a boolean to check if the value has been set.
 func (o *ReportTable) GetTruncationCountOk() (*int32, bool) {
-	if o == nil || isNil(o.TruncationCount) {
+	if o == nil || IsNil(o.TruncationCount) {
 		return nil, false
 	}
 	return o.TruncationCount, true
@@ -195,7 +195,7 @@ func (o *ReportTable) GetTruncationCountOk() (*int32, bool) {
 
 // HasTruncationCount returns a boolean if a field has been set.
 func (o *ReportTable) HasTruncationCount() bool {
-	if o != nil && !isNil(o.TruncationCount) {
+	if o != nil && !IsNil(o.TruncationCount) {
 		return true
 	}
 
@@ -209,7 +209,7 @@ func (o *ReportTable) SetTruncationCount(v int32) {
 
 // GetType returns the Type field value if set, zero value otherwise.
 func (o *ReportTable) GetType() string {
-	if o == nil || isNil(o.Type) {
+	if o == nil || IsNil(o.Type) {
 		var ret string
 		return ret
 	}
@@ -219,7 +219,7 @@ func (o *ReportTable) GetType() string {
 // GetTypeOk returns a tuple with the Type field value if set, nil otherwise
 // and a boolean to check if the value has been set.
 func (o *ReportTable) GetTypeOk() (*string, bool) {
-	if o == nil || isNil(o.Type) {
+	if o == nil || IsNil(o.Type) {
 		return nil, false
 	}
 	return o.Type, true
@@ -227,7 +227,7 @@ func (o *ReportTable) GetTypeOk() (*string, bool) {
 
 // HasType returns a boolean if a field has been set.
 func (o *ReportTable) HasType() bool {
-	if o != nil && !isNil(o.Type) {
+	if o != nil && !IsNil(o.Type) {
 		return true
 	}
 
@@ -252,19 +252,19 @@ func (o ReportTable) ToMap() (map[string]interface{}, error) {
 	if o.Columns != nil {
 		toSerialize["columns"] = o.Columns
 	}
-	if !isNil(o.Id) {
+	if !IsNil(o.Id) {
 		toSerialize["id"] = o.Id
 	}
-	if !isNil(o.Label) {
+	if !IsNil(o.Label) {
 		toSerialize["label"] = o.Label
 	}
 	if o.Rows != nil {
 		toSerialize["rows"] = o.Rows
 	}
-	if !isNil(o.TruncationCount) {
+	if !IsNil(o.TruncationCount) {
 		toSerialize["truncationCount"] = o.TruncationCount
 	}
-	if !isNil(o.Type) {
+	if !IsNil(o.Type) {
 		toSerialize["type"] = o.Type
 	}
 	return toSerialize, nil

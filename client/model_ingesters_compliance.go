@@ -65,7 +65,7 @@ func NewIngestersComplianceWithDefaults() *IngestersCompliance {
 
 // GetTimestamp returns the Timestamp field value if set, zero value otherwise.
 func (o *IngestersCompliance) GetTimestamp() string {
-	if o == nil || isNil(o.Timestamp) {
+	if o == nil || IsNil(o.Timestamp) {
 		var ret string
 		return ret
 	}
@@ -75,7 +75,7 @@ func (o *IngestersCompliance) GetTimestamp() string {
 // GetTimestampOk returns a tuple with the Timestamp field value if set, nil otherwise
 // and a boolean to check if the value has been set.
 func (o *IngestersCompliance) GetTimestampOk() (*string, bool) {
-	if o == nil || isNil(o.Timestamp) {
+	if o == nil || IsNil(o.Timestamp) {
 		return nil, false
 	}
 	return o.Timestamp, true
@@ -83,7 +83,7 @@ func (o *IngestersCompliance) GetTimestampOk() (*string, bool) {
 
 // HasTimestamp returns a boolean if a field has been set.
 func (o *IngestersCompliance) HasTimestamp() bool {
-	if o != nil && !isNil(o.Timestamp) {
+	if o != nil && !IsNil(o.Timestamp) {
 		return true
 	}
 
@@ -97,7 +97,7 @@ func (o *IngestersCompliance) SetTimestamp(v string) {
 
 // GetComplianceCheckType returns the ComplianceCheckType field value if set, zero value otherwise.
 func (o *IngestersCompliance) GetComplianceCheckType() string {
-	if o == nil || isNil(o.ComplianceCheckType) {
+	if o == nil || IsNil(o.ComplianceCheckType) {
 		var ret string
 		return ret
 	}
@@ -107,7 +107,7 @@ func (o *IngestersCompliance) GetComplianceCheckType() string {
 // GetComplianceCheckTypeOk returns a tuple with the ComplianceCheckType field value if set, nil otherwise
 // and a boolean to check if the value has been set.
 func (o *IngestersCompliance) GetComplianceCheckTypeOk() (*string, bool) {
-	if o == nil || isNil(o.ComplianceCheckType) {
+	if o == nil || IsNil(o.ComplianceCheckType) {
 		return nil, false
 	}
 	return o.ComplianceCheckType, true
@@ -115,7 +115,7 @@ func (o *IngestersCompliance) GetComplianceCheckTypeOk() (*string, bool) {
 
 // HasComplianceCheckType returns a boolean if a field has been set.
 func (o *IngestersCompliance) HasComplianceCheckType() bool {
-	if o != nil && !isNil(o.ComplianceCheckType) {
+	if o != nil && !IsNil(o.ComplianceCheckType) {
 		return true
 	}
 
@@ -129,7 +129,7 @@ func (o *IngestersCompliance) SetComplianceCheckType(v string) {
 
 // GetComplianceNodeType returns the ComplianceNodeType field value if set, zero value otherwise.
 func (o *IngestersCompliance) GetComplianceNodeType() string {
-	if o == nil || isNil(o.ComplianceNodeType) {
+	if o == nil || IsNil(o.ComplianceNodeType) {
 		var ret string
 		return ret
 	}
@@ -139,7 +139,7 @@ func (o *IngestersCompliance) GetComplianceNodeType() string {
 // GetComplianceNodeTypeOk returns a tuple with the ComplianceNodeType field value if set, nil otherwise
 // and a boolean to check if the value has been set.
 func (o *IngestersCompliance) GetComplianceNodeTypeOk() (*string, bool) {
-	if o == nil || isNil(o.ComplianceNodeType) {
+	if o == nil || IsNil(o.ComplianceNodeType) {
 		return nil, false
 	}
 	return o.ComplianceNodeType, true
@@ -147,7 +147,7 @@ func (o *IngestersCompliance) GetComplianceNodeTypeOk() (*string, bool) {
 
 // HasComplianceNodeType returns a boolean if a field has been set.
 func (o *IngestersCompliance) HasComplianceNodeType() bool {
-	if o != nil && !isNil(o.ComplianceNodeType) {
+	if o != nil && !IsNil(o.ComplianceNodeType) {
 		return true
 	}
 
@@ -161,7 +161,7 @@ func (o *IngestersCompliance) SetComplianceNodeType(v string) {
 
 // GetDescription returns the Description field value if set, zero value otherwise.
 func (o *IngestersCompliance) GetDescription() string {
-	if o == nil || isNil(o.Description) {
+	if o == nil || IsNil(o.Description) {
 		var ret string
 		return ret
 	}
@@ -171,7 +171,7 @@ func (o *IngestersCompliance) GetDescription() string {
 // GetDescriptionOk returns a tuple with the Description field value if set, nil otherwise
 // and a boolean to check if the value has been set.
 func (o *IngestersCompliance) GetDescriptionOk() (*string, bool) {
-	if o == nil || isNil(o.Description) {
+	if o == nil || IsNil(o.Description) {
 		return nil, false
 	}
 	return o.Description, true
@@ -179,7 +179,7 @@ func (o *IngestersCompliance) GetDescriptionOk() (*string, bool) {
 
 // HasDescription returns a boolean if a field has been set.
 func (o *IngestersCompliance) HasDescription() bool {
-	if o != nil && !isNil(o.Description) {
+	if o != nil && !IsNil(o.Description) {
 		return true
 	}
 
@@ -193,7 +193,7 @@ func (o *IngestersCompliance) SetDescription(v string) {
 
 // GetDocId returns the DocId field value if set, zero value otherwise.
 func (o *IngestersCompliance) GetDocId() string {
-	if o == nil || isNil(o.DocId) {
+	if o == nil || IsNil(o.DocId) {
 		var ret string
 		return ret
 	}
@@ -203,7 +203,7 @@ func (o *IngestersCompliance) GetDocId() string {
 // GetDocIdOk returns a tuple with the DocId field value if set, nil otherwise
 // and a boolean to check if the value has been set.
 func (o *IngestersCompliance) GetDocIdOk() (*string, bool) {
-	if o == nil || isNil(o.DocId) {
+	if o == nil || IsNil(o.DocId) {
 		return nil, false
 	}
 	return o.DocId, true
@@ -211,7 +211,7 @@ func (o *IngestersCompliance) GetDocIdOk() (*string, bool) {
 
 // HasDocId returns a boolean if a field has been set.
 func (o *IngestersCompliance) HasDocId() bool {
-	if o != nil && !isNil(o.DocId) {
+	if o != nil && !IsNil(o.DocId) {
 		return true
 	}
 
@@ -225,7 +225,7 @@ func (o *IngestersCompliance) SetDocId(v string) {
 
 // GetKubernetesClusterId returns the KubernetesClusterId field value if set, zero value otherwise.
 func (o *IngestersCompliance) GetKubernetesClusterId() string {
-	if o == nil || isNil(o.KubernetesClusterId) {
+	if o == nil || IsNil(o.KubernetesClusterId) {
 		var ret string
 		return ret
 	}
@@ -235,7 +235,7 @@ func (o *IngestersCompliance) GetKubernetesClusterId() string {
 // GetKubernetesClusterIdOk returns a tuple with the KubernetesClusterId field value if set, nil otherwise
 // and a boolean to check if the value has been set.
 func (o *IngestersCompliance) GetKubernetesClusterIdOk() (*string, bool) {
-	if o == nil || isNil(o.KubernetesClusterId) {
+	if o == nil || IsNil(o.KubernetesClusterId) {
 		return nil, false
 	}
 	return o.KubernetesClusterId, true
@@ -243,7 +243,7 @@ func (o *IngestersCompliance) GetKubernetesClusterIdOk() (*string, bool) {
 
 // HasKubernetesClusterId returns a boolean if a field has been set.
 func (o *IngestersCompliance) HasKubernetesClusterId() bool {
-	if o != nil && !isNil(o.KubernetesClusterId) {
+	if o != nil && !IsNil(o.KubernetesClusterId) {
 		return true
 	}
 
@@ -257,7 +257,7 @@ func (o *IngestersCompliance) SetKubernetesClusterId(v string) {
 
 // GetKubernetesClusterName returns the KubernetesClusterName field value if set, zero value otherwise.
 func (o *IngestersCompliance) GetKubernetesClusterName() string {
-	if o == nil || isNil(o.KubernetesClusterName) {
+	if o == nil || IsNil(o.KubernetesClusterName) {
 		var ret string
 		return ret
 	}
@@ -267,7 +267,7 @@ func (o *IngestersCompliance) GetKubernetesClusterName() string {
 // GetKubernetesClusterNameOk returns a tuple with the KubernetesClusterName field value if set, nil otherwise
 // and a boolean to check if the value has been set.
 func (o *IngestersCompliance) GetKubernetesClusterNameOk() (*string, bool) {
-	if o == nil || isNil(o.KubernetesClusterName) {
+	if o == nil || IsNil(o.KubernetesClusterName) {
 		return nil, false
 	}
 	return o.KubernetesClusterName, true
@@ -275,7 +275,7 @@ func (o *IngestersCompliance) GetKubernetesClusterNameOk() (*string, bool) {
 
 // HasKubernetesClusterName returns a boolean if a field has been set.
 func (o *IngestersCompliance) HasKubernetesClusterName() bool {
-	if o != nil && !isNil(o.KubernetesClusterName) {
+	if o != nil && !IsNil(o.KubernetesClusterName) {
 		return true
 	}
 
@@ -289,7 +289,7 @@ func (o *IngestersCompliance) SetKubernetesClusterName(v string) {
 
 // GetMasked returns the Masked field value if set, zero value otherwise.
 func (o *IngestersCompliance) GetMasked() string {
-	if o == nil || isNil(o.Masked) {
+	if o == nil || IsNil(o.Masked) {
 		var ret string
 		return ret
 	}
@@ -299,7 +299,7 @@ func (o *IngestersCompliance) GetMasked() string {
 // GetMaskedOk returns a tuple with the Masked field value if set, nil otherwise
 // and a boolean to check if the value has been set.
 func (o *IngestersCompliance) GetMaskedOk() (*string, bool) {
-	if o == nil || isNil(o.Masked) {
+	if o == nil || IsNil(o.Masked) {
 		return nil, false
 	}
 	return o.Masked, true
@@ -307,7 +307,7 @@ func (o *IngestersCompliance) GetMaskedOk() (*string, bool) {
 
 // HasMasked returns a boolean if a field has been set.
 func (o *IngestersCompliance) HasMasked() bool {
-	if o != nil && !isNil(o.Masked) {
+	if o != nil && !IsNil(o.Masked) {
 		return true
 	}
 
@@ -321,7 +321,7 @@ func (o *IngestersCompliance) SetMasked(v string) {
 
 // GetNodeId returns the NodeId field value if set, zero value otherwise.
 func (o *IngestersCompliance) GetNodeId() string {
-	if o == nil || isNil(o.NodeId) {
+	if o == nil || IsNil(o.NodeId) {
 		var ret string
 		return ret
 	}
@@ -331,7 +331,7 @@ func (o *IngestersCompliance) GetNodeId() string {
 // GetNodeIdOk returns a tuple with the NodeId field value if set, nil otherwise
 // and a boolean to check if the value has been set.
 func (o *IngestersCompliance) GetNodeIdOk() (*string, bool) {
-	if o == nil || isNil(o.NodeId) {
+	if o == nil || IsNil(o.NodeId) {
 		return nil, false
 	}
 	return o.NodeId, true
@@ -339,7 +339,7 @@ func (o *IngestersCompliance) GetNodeIdOk() (*string, bool) {
 
 // HasNodeId returns a boolean if a field has been set.
 func (o *IngestersCompliance) HasNodeId() bool {
-	if o != nil && !isNil(o.NodeId) {
+	if o != nil && !IsNil(o.NodeId) {
 		return true
 	}
 
@@ -353,7 +353,7 @@ func (o *IngestersCompliance) SetNodeId(v string) {
 
 // GetNodeName returns the NodeName field value if set, zero value otherwise.
 func (o *IngestersCompliance) GetNodeName() string {
-	if o == nil || isNil(o.NodeName) {
+	if o == nil || IsNil(o.NodeName) {
 		var ret string
 		return ret
 	}
@@ -363,7 +363,7 @@ func (o *IngestersCompliance) GetNodeName() string {
 // GetNodeNameOk returns a tuple with the NodeName field value if set, nil otherwise
 // and a boolean to check if the value has been set.
 func (o *IngestersCompliance) GetNodeNameOk() (*string, bool) {
-	if o == nil || isNil(o.NodeName) {
+	if o == nil || IsNil(o.NodeName) {
 		return nil, false
 	}
 	return o.NodeName, true
@@ -371,7 +371,7 @@ func (o *IngestersCompliance) GetNodeNameOk() (*string, bool) {
 
 // HasNodeName returns a boolean if a field has been set.
 func (o *IngestersCompliance) HasNodeName() bool {
-	if o != nil && !isNil(o.NodeName) {
+	if o != nil && !IsNil(o.NodeName) {
 		return true
 	}
 
@@ -385,7 +385,7 @@ func (o *IngestersCompliance) SetNodeName(v string) {
 
 // GetNodeType returns the NodeType field value if set, zero value otherwise.
 func (o *IngestersCompliance) GetNodeType() string {
-	if o == nil || isNil(o.NodeType) {
+	if o == nil || IsNil(o.NodeType) {
 		var ret string
 		return ret
 	}
@@ -395,7 +395,7 @@ func (o *IngestersCompliance) GetNodeType() string {
 // GetNodeTypeOk returns a tuple with the NodeType field value if set, nil otherwise
 // and a boolean to check if the value has been set.
 func (o *IngestersCompliance) GetNodeTypeOk() (*string, bool) {
-	if o == nil || isNil(o.NodeType) {
+	if o == nil || IsNil(o.NodeType) {
 		return nil, false
 	}
 	return o.NodeType, true
@@ -403,7 +403,7 @@ func (o *IngestersCompliance) GetNodeTypeOk() (*string, bool) {
 
 // HasNodeType returns a boolean if a field has been set.
 func (o *IngestersCompliance) HasNodeType() bool {
-	if o != nil && !isNil(o.NodeType) {
+	if o != nil && !IsNil(o.NodeType) {
 		return true
 	}
 
@@ -417,7 +417,7 @@ func (o *IngestersCompliance) SetNodeType(v string) {
 
 // GetRemediationAnsible returns the RemediationAnsible field value if set, zero value otherwise.
 func (o *IngestersCompliance) GetRemediationAnsible() string {
-	if o == nil || isNil(o.RemediationAnsible) {
+	if o == nil || IsNil(o.RemediationAnsible) {
 		var ret string
 		return ret
 	}
@@ -427,7 +427,7 @@ func (o *IngestersCompliance) GetRemediationAnsible() string {
 // GetRemediationAnsibleOk returns a tuple with the RemediationAnsible field value if set, nil otherwise
 // and a boolean to check if the value has been set.
 func (o *IngestersCompliance) GetRemediationAnsibleOk() (*string, bool) {
-	if o == nil || isNil(o.RemediationAnsible) {
+	if o == nil || IsNil(o.RemediationAnsible) {
 		return nil, false
 	}
 	return o.RemediationAnsible, true
@@ -435,7 +435,7 @@ func (o *IngestersCompliance) GetRemediationAnsibleOk() (*string, bool) {
 
 // HasRemediationAnsible returns a boolean if a field has been set.
 func (o *IngestersCompliance) HasRemediationAnsible() bool {
-	if o != nil && !isNil(o.RemediationAnsible) {
+	if o != nil && !IsNil(o.RemediationAnsible) {
 		return true
 	}
 
@@ -449,7 +449,7 @@ func (o *IngestersCompliance) SetRemediationAnsible(v string) {
 
 // GetRemediationPuppet returns the RemediationPuppet field value if set, zero value otherwise.
 func (o *IngestersCompliance) GetRemediationPuppet() string {
-	if o == nil || isNil(o.RemediationPuppet) {
+	if o == nil || IsNil(o.RemediationPuppet) {
 		var ret string
 		return ret
 	}
@@ -459,7 +459,7 @@ func (o *IngestersCompliance) GetRemediationPuppet() string {
 // GetRemediationPuppetOk returns a tuple with the RemediationPuppet field value if set, nil otherwise
 // and a boolean to check if the value has been set.
 func (o *IngestersCompliance) GetRemediationPuppetOk() (*string, bool) {
-	if o == nil || isNil(o.RemediationPuppet) {
+	if o == nil || IsNil(o.RemediationPuppet) {
 		return nil, false
 	}
 	return o.RemediationPuppet, true
@@ -467,7 +467,7 @@ func (o *IngestersCompliance) GetRemediationPuppetOk() (*string, bool) {
 
 // HasRemediationPuppet returns a boolean if a field has been set.
 func (o *IngestersCompliance) HasRemediationPuppet() bool {
-	if o != nil && !isNil(o.RemediationPuppet) {
+	if o != nil && !IsNil(o.RemediationPuppet) {
 		return true
 	}
 
@@ -481,7 +481,7 @@ func (o *IngestersCompliance) SetRemediationPuppet(v string) {
 
 // GetRemediationScript returns the RemediationScript field value if set, zero value otherwise.
 func (o *IngestersCompliance) GetRemediationScript() string {
-	if o == nil || isNil(o.RemediationScript) {
+	if o == nil || IsNil(o.RemediationScript) {
 		var ret string
 		return ret
 	}
@@ -491,7 +491,7 @@ func (o *IngestersCompliance) GetRemediationScript() string {
 // GetRemediationScriptOk returns a tuple with the RemediationScript field value if set, nil otherwise
 // and a boolean to check if the value has been set.
 func (o *IngestersCompliance) GetRemediationScriptOk() (*string, bool) {
-	if o == nil || isNil(o.RemediationScript) {
+	if o == nil || IsNil(o.RemediationScript) {
 		return nil, false
 	}
 	return o.RemediationScript, true
@@ -499,7 +499,7 @@ func (o *IngestersCompliance) GetRemediationScriptOk() (*string, bool) {
 
 // HasRemediationScript returns a boolean if a field has been set.
 func (o *IngestersCompliance) HasRemediationScript() bool {
-	if o != nil && !isNil(o.RemediationScript) {
+	if o != nil && !IsNil(o.RemediationScript) {
 		return true
 	}
 
@@ -513,7 +513,7 @@ func (o *IngestersCompliance) SetRemediationScript(v string) {
 
 // GetResource returns the Resource field value if set, zero value otherwise.
 func (o *IngestersCompliance) GetResource() string {
-	if o == nil || isNil(o.Resource) {
+	if o == nil || IsNil(o.Resource) {
 		var ret string
 		return ret
 	}
@@ -523,7 +523,7 @@ func (o *IngestersCompliance) GetResource() string {
 // GetResourceOk returns a tuple with the Resource field value if set, nil otherwise
 // and a boolean to check if the value has been set.
 func (o *IngestersCompliance) GetResourceOk() (*string, bool) {
-	if o == nil || isNil(o.Resource) {
+	if o == nil || IsNil(o.Resource) {
 		return nil, false
 	}
 	return o.Resource, true
@@ -531,7 +531,7 @@ func (o *IngestersCompliance) GetResourceOk() (*string, bool) {
 
 // HasResource returns a boolean if a field has been set.
 func (o *IngestersCompliance) HasResource() bool {
-	if o != nil && !isNil(o.Resource) {
+	if o != nil && !IsNil(o.Resource) {
 		return true
 	}
 
@@ -545,7 +545,7 @@ func (o *IngestersCompliance) SetResource(v string) {
 
 // GetScanId returns the ScanId field value if set, zero value otherwise.
 func (o *IngestersCompliance) GetScanId() string {
-	if o == nil || isNil(o.ScanId) {
+	if o == nil || IsNil(o.ScanId) {
 		var ret string
 		return ret
 	}
@@ -555,7 +555,7 @@ func (o *IngestersCompliance) GetScanId() string {
 // GetScanIdOk returns a tuple with the ScanId field value if set, nil otherwise
 // and a boolean to check if the value has been set.
 func (o *IngestersCompliance) GetScanIdOk() (*string, bool) {
-	if o == nil || isNil(o.ScanId) {
+	if o == nil || IsNil(o.ScanId) {
 		return nil, false
 	}
 	return o.ScanId, true
@@ -563,7 +563,7 @@ func (o *IngestersCompliance) GetScanIdOk() (*string, bool) {
 
 // HasScanId returns a boolean if a field has been set.
 func (o *IngestersCompliance) HasScanId() bool {
-	if o != nil && !isNil(o.ScanId) {
+	if o != nil && !IsNil(o.ScanId) {
 		return true
 	}
 
@@ -577,7 +577,7 @@ func (o *IngestersCompliance) SetScanId(v string) {
 
 // GetStatus returns the Status field value if set, zero value otherwise.
 func (o *IngestersCompliance) GetStatus() string {
-	if o == nil || isNil(o.Status) {
+	if o == nil || IsNil(o.Status) {
 		var ret string
 		return ret
 	}
@@ -587,7 +587,7 @@ func (o *IngestersCompliance) GetStatus() string {
 // GetStatusOk returns a tuple with the Status field value if set, nil otherwise
 // and a boolean to check if the value has been set.
 func (o *IngestersCompliance) GetStatusOk() (*string, bool) {
-	if o == nil || isNil(o.Status) {
+	if o == nil || IsNil(o.Status) {
 		return nil, false
 	}
 	return o.Status, true
@@ -595,7 +595,7 @@ func (o *IngestersCompliance) GetStatusOk() (*string, bool) {
 
 // HasStatus returns a boolean if a field has been set.
 func (o *IngestersCompliance) HasStatus() bool {
-	if o != nil && !isNil(o.Status) {
+	if o != nil && !IsNil(o.Status) {
 		return true
 	}
 
@@ -609,7 +609,7 @@ func (o *IngestersCompliance) SetStatus(v string) {
 
 // GetTestCategory returns the TestCategory field value if set, zero value otherwise.
 func (o *IngestersCompliance) GetTestCategory() string {
-	if o == nil || isNil(o.TestCategory) {
+	if o == nil || IsNil(o.TestCategory) {
 		var ret string
 		return ret
 	}
@@ -619,7 +619,7 @@ func (o *IngestersCompliance) GetTestCategory() string {
 // GetTestCategoryOk returns a tuple with the TestCategory field value if set, nil otherwise
 // and a boolean to check if the value has been set.
 func (o *IngestersCompliance) GetTestCategoryOk() (*string, bool) {
-	if o == nil || isNil(o.TestCategory) {
+	if o == nil || IsNil(o.TestCategory) {
 		return nil, false
 	}
 	return o.TestCategory, true
@@ -627,7 +627,7 @@ func (o *IngestersCompliance) GetTestCategoryOk() (*string, bool) {
 
 // HasTestCategory returns a boolean if a field has been set.
 func (o *IngestersCompliance) HasTestCategory() bool {
-	if o != nil && !isNil(o.TestCategory) {
+	if o != nil && !IsNil(o.TestCategory) {
 		return true
 	}
 
@@ -641,7 +641,7 @@ func (o *IngestersCompliance) SetTestCategory(v string) {
 
 // GetTestDesc returns the TestDesc field value if set, zero value otherwise.
 func (o *IngestersCompliance) GetTestDesc() string {
-	if o == nil || isNil(o.TestDesc) {
+	if o == nil || IsNil(o.TestDesc) {
 		var ret string
 		return ret
 	}
@@ -651,7 +651,7 @@ func (o *IngestersCompliance) GetTestDesc() string {
 // GetTestDescOk returns a tuple with the TestDesc field value if set, nil otherwise
 // and a boolean to check if the value has been set.
 func (o *IngestersCompliance) GetTestDescOk() (*string, bool) {
-	if o == nil || isNil(o.TestDesc) {
+	if o == nil || IsNil(o.TestDesc) {
 		return nil, false
 	}
 	return o.TestDesc, true
@@ -659,7 +659,7 @@ func (o *IngestersCompliance) GetTestDescOk() (*string, bool) {
 
 // HasTestDesc returns a boolean if a field has been set.
 func (o *IngestersCompliance) HasTestDesc() bool {
-	if o != nil && !isNil(o.TestDesc) {
+	if o != nil && !IsNil(o.TestDesc) {
 		return true
 	}
 
@@ -673,7 +673,7 @@ func (o *IngestersCompliance) SetTestDesc(v string) {
 
 // GetTestNumber returns the TestNumber field value if set, zero value otherwise.
 func (o *IngestersCompliance) GetTestNumber() string {
-	if o == nil || isNil(o.TestNumber) {
+	if o == nil || IsNil(o.TestNumber) {
 		var ret string
 		return ret
 	}
@@ -683,7 +683,7 @@ func (o *IngestersCompliance) GetTestNumber() string {
 // GetTestNumberOk returns a tuple with the TestNumber field value if set, nil otherwise
 // and a boolean to check if the value has been set.
 func (o *IngestersCompliance) GetTestNumberOk() (*string, bool) {
-	if o == nil || isNil(o.TestNumber) {
+	if o == nil || IsNil(o.TestNumber) {
 		return nil, false
 	}
 	return o.TestNumber, true
@@ -691,7 +691,7 @@ func (o *IngestersCompliance) GetTestNumberOk() (*string, bool) {
 
 // HasTestNumber returns a boolean if a field has been set.
 func (o *IngestersCompliance) HasTestNumber() bool {
-	if o != nil && !isNil(o.TestNumber) {
+	if o != nil && !IsNil(o.TestNumber) {
 		return true
 	}
 
@@ -705,7 +705,7 @@ func (o *IngestersCompliance) SetTestNumber(v string) {
 
 // GetTestRationale returns the TestRationale field value if set, zero value otherwise.
 func (o *IngestersCompliance) GetTestRationale() string {
-	if o == nil || isNil(o.TestRationale) {
+	if o == nil || IsNil(o.TestRationale) {
 		var ret string
 		return ret
 	}
@@ -715,7 +715,7 @@ func (o *IngestersCompliance) GetTestRationale() string {
 // GetTestRationaleOk returns a tuple with the TestRationale field value if set, nil otherwise
 // and a boolean to check if the value has been set.
 func (o *IngestersCompliance) GetTestRationaleOk() (*string, bool) {
-	if o == nil || isNil(o.TestRationale) {
+	if o == nil || IsNil(o.TestRationale) {
 		return nil, false
 	}
 	return o.TestRationale, true
@@ -723,7 +723,7 @@ func (o *IngestersCompliance) GetTestRationaleOk() (*string, bool) {
 
 // HasTestRationale returns a boolean if a field has been set.
 func (o *IngestersCompliance) HasTestRationale() bool {
-	if o != nil && !isNil(o.TestRationale) {
+	if o != nil && !IsNil(o.TestRationale) {
 		return true
 	}
 
@@ -737,7 +737,7 @@ func (o *IngestersCompliance) SetTestRationale(v string) {
 
 // GetTestSeverity returns the TestSeverity field value if set, zero value otherwise.
 func (o *IngestersCompliance) GetTestSeverity() string {
-	if o == nil || isNil(o.TestSeverity) {
+	if o == nil || IsNil(o.TestSeverity) {
 		var ret string
 		return ret
 	}
@@ -747,7 +747,7 @@ func (o *IngestersCompliance) GetTestSeverity() string {
 // GetTestSeverityOk returns a tuple with the TestSeverity field value if set, nil otherwise
 // and a boolean to check if the value has been set.
 func (o *IngestersCompliance) GetTestSeverityOk() (*string, bool) {
-	if o == nil || isNil(o.TestSeverity) {
+	if o == nil || IsNil(o.TestSeverity) {
 		return nil, false
 	}
 	return o.TestSeverity, true
@@ -755,7 +755,7 @@ func (o *IngestersCompliance) GetTestSeverityOk() (*string, bool) {
 
 // HasTestSeverity returns a boolean if a field has been set.
 func (o *IngestersCompliance) HasTestSeverity() bool {
-	if o != nil && !isNil(o.TestSeverity) {
+	if o != nil && !IsNil(o.TestSeverity) {
 		return true
 	}
 
@@ -769,7 +769,7 @@ func (o *IngestersCompliance) SetTestSeverity(v string) {
 
 // GetTimeStamp returns the TimeStamp field value if set, zero value otherwise.
 func (o *IngestersCompliance) GetTimeStamp() int32 {
-	if o == nil || isNil(o.TimeStamp) {
+	if o == nil || IsNil(o.TimeStamp) {
 		var ret int32
 		return ret
 	}
@@ -779,7 +779,7 @@ func (o *IngestersCompliance) GetTimeStamp() int32 {
 // GetTimeStampOk returns a tuple with the TimeStamp field value if set, nil otherwise
 // and a boolean to check if the value has been set.
 func (o *IngestersCompliance) GetTimeStampOk() (*int32, bool) {
-	if o == nil || isNil(o.TimeStamp) {
+	if o == nil || IsNil(o.TimeStamp) {
 		return nil, false
 	}
 	return o.TimeStamp, true
@@ -787,7 +787,7 @@ func (o *IngestersCompliance) GetTimeStampOk() (*int32, bool) {
 
 // HasTimeStamp returns a boolean if a field has been set.
 func (o *IngestersCompliance) HasTimeStamp() bool {
-	if o != nil && !isNil(o.TimeStamp) {
+	if o != nil && !IsNil(o.TimeStamp) {
 		return true
 	}
 
@@ -801,7 +801,7 @@ func (o *IngestersCompliance) SetTimeStamp(v int32) {
 
 // GetType returns the Type field value if set, zero value otherwise.
 func (o *IngestersCompliance) GetType() string {
-	if o == nil || isNil(o.Type) {
+	if o == nil || IsNil(o.Type) {
 		var ret string
 		return ret
 	}
@@ -811,7 +811,7 @@ func (o *IngestersCompliance) GetType() string {
 // GetTypeOk returns a tuple with the Type field value if set, nil otherwise
 // and a boolean to check if the value has been set.
 func (o *IngestersCompliance) GetTypeOk() (*string, bool) {
-	if o == nil || isNil(o.Type) {
+	if o == nil || IsNil(o.Type) {
 		return nil, false
 	}
 	return o.Type, true
@@ -819,7 +819,7 @@ func (o *IngestersCompliance) GetTypeOk() (*string, bool) {
 
 // HasType returns a boolean if a field has been set.
 func (o *IngestersCompliance) HasType() bool {
-	if o != nil && !isNil(o.Type) {
+	if o != nil && !IsNil(o.Type) {
 		return true
 	}
 
@@ -841,76 +841,76 @@ func (o IngestersCompliance) MarshalJSON() ([]byte, error) {
 
 func (o IngestersCompliance) ToMap() (map[string]interface{}, error) {
 	toSerialize := map[string]interface{}{}
-	if !isNil(o.Timestamp) {
+	if !IsNil(o.Timestamp) {
 		toSerialize["@timestamp"] = o.Timestamp
 	}
-	if !isNil(o.ComplianceCheckType) {
+	if !IsNil(o.ComplianceCheckType) {
 		toSerialize["compliance_check_type"] = o.ComplianceCheckType
 	}
-	if !isNil(o.ComplianceNodeType) {
+	if !IsNil(o.ComplianceNodeType) {
 		toSerialize["compliance_node_type"] = o.ComplianceNodeType
 	}
-	if !isNil(o.Description) {
+	if !IsNil(o.Description) {
 		toSerialize["description"] = o.Description
 	}
-	if !isNil(o.DocId) {
+	if !IsNil(o.DocId) {
 		toSerialize["doc_id"] = o.DocId
 	}
-	if !isNil(o.KubernetesClusterId) {
+	if !IsNil(o.KubernetesClusterId) {
 		toSerialize["kubernetes_cluster_id"] = o.KubernetesClusterId
 	}
-	if !isNil(o.KubernetesClusterName) {
+	if !IsNil(o.KubernetesClusterName) {
 		toSerialize["kubernetes_cluster_name"] = o.KubernetesClusterName
 	}
-	if !isNil(o.Masked) {
+	if !IsNil(o.Masked) {
 		toSerialize["masked"] = o.Masked
 	}
-	if !isNil(o.NodeId) {
+	if !IsNil(o.NodeId) {
 		toSerialize["node_id"] = o.NodeId
 	}
-	if !isNil(o.NodeName) {
+	if !IsNil(o.NodeName) {
 		toSerialize["node_name"] = o.NodeName
 	}
-	if !isNil(o.NodeType) {
+	if !IsNil(o.NodeType) {
 		toSerialize["node_type"] = o.NodeType
 	}
-	if !isNil(o.RemediationAnsible) {
+	if !IsNil(o.RemediationAnsible) {
 		toSerialize["remediation_ansible"] = o.RemediationAnsible
 	}
-	if !isNil(o.RemediationPuppet) {
+	if !IsNil(o.RemediationPuppet) {
 		toSerialize["remediation_puppet"] = o.RemediationPuppet
 	}
-	if !isNil(o.RemediationScript) {
+	if !IsNil(o.RemediationScript) {
 		toSerialize["remediation_script"] = o.RemediationScript
 	}
-	if !isNil(o.Resource) {
+	if !IsNil(o.Resource) {
 		toSerialize["resource"] = o.Resource
 	}
-	if !isNil(o.ScanId) {
+	if !IsNil(o.ScanId) {
 		toSerialize["scan_id"] = o.ScanId
 	}
-	if !isNil(o.Status) {
+	if !IsNil(o.Status) {
 		toSerialize["status"] = o.Status
 	}
-	if !isNil(o.TestCategory) {
+	if !IsNil(o.TestCategory) {
 		toSerialize["test_category"] = o.TestCategory
 	}
-	if !isNil(o.TestDesc) {
+	if !IsNil(o.TestDesc) {
 		toSerialize["test_desc"] = o.TestDesc
 	}
-	if !isNil(o.TestNumber) {
+	if !IsNil(o.TestNumber) {
 		toSerialize["test_number"] = o.TestNumber
 	}
-	if !isNil(o.TestRationale) {
+	if !IsNil(o.TestRationale) {
 		toSerialize["test_rationale"] = o.TestRationale
 	}
-	if !isNil(o.TestSeverity) {
+	if !IsNil(o.TestSeverity) {
 		toSerialize["test_severity"] = o.TestSeverity
 	}
-	if !isNil(o.TimeStamp) {
+	if !IsNil(o.TimeStamp) {
 		toSerialize["time_stamp"] = o.TimeStamp
 	}
-	if !isNil(o.Type) {
+	if !IsNil(o.Type) {
 		toSerialize["type"] = o.Type
 	}
 	return toSerialize, nil

@@ -89,6 +89,7 @@ Class | Method | HTTP request | Description
 *CloudResourcesApi* | [**IngestCloudResources**](docs/CloudResourcesApi.md#ingestcloudresources) | **Post** /deepfence/ingest/cloud-resources | Ingest Cloud resources
 *CloudScannerApi* | [**IngestCloudComplianceScanStatus**](docs/CloudScannerApi.md#ingestcloudcompliancescanstatus) | **Post** /deepfence/ingest/cloud-compliance-scan-status | Ingest Cloud Compliances
 *CloudScannerApi* | [**IngestCloudCompliances**](docs/CloudScannerApi.md#ingestcloudcompliances) | **Post** /deepfence/ingest/cloud-compliance | Ingest Cloud Compliances
+*CloudScannerApi* | [**ResultsCloudComplianceScan**](docs/CloudScannerApi.md#resultscloudcompliancescan) | **Post** /deepfence/scan/results/cloud-compliance | Get Cloud Compliance Scan Results
 *CloudScannerApi* | [**StatusCloudComplianceScan**](docs/CloudScannerApi.md#statuscloudcompliancescan) | **Get** /deepfence/scan/status/cloud-compliance | Get Cloud Compliance Scan Status
 *ComplianceApi* | [**IngestCompliances**](docs/ComplianceApi.md#ingestcompliances) | **Post** /deepfence/ingest/compliance | Ingest Compliances
 *ComplianceApi* | [**ListComplianceScan**](docs/ComplianceApi.md#listcompliancescan) | **Post** /deepfence/scan/list/compliance | Get Compliance Scans List
@@ -185,7 +186,9 @@ Class | Method | HTTP request | Description
  - [ModelAgentId](docs/ModelAgentId.md)
  - [ModelAgentUpgrade](docs/ModelAgentUpgrade.md)
  - [ModelApiAuthRequest](docs/ModelApiAuthRequest.md)
+ - [ModelCloudCompliance](docs/ModelCloudCompliance.md)
  - [ModelCloudComplianceScanDetails](docs/ModelCloudComplianceScanDetails.md)
+ - [ModelCloudComplianceScanResult](docs/ModelCloudComplianceScanResult.md)
  - [ModelCloudNodeAccountInfo](docs/ModelCloudNodeAccountInfo.md)
  - [ModelCloudNodeAccountRegisterReq](docs/ModelCloudNodeAccountRegisterReq.md)
  - [ModelCloudNodeAccountRegisterResp](docs/ModelCloudNodeAccountRegisterResp.md)
@@ -198,7 +201,6 @@ Class | Method | HTTP request | Description
  - [ModelComplianceScanResult](docs/ModelComplianceScanResult.md)
  - [ModelComplianceScanStatus](docs/ModelComplianceScanStatus.md)
  - [ModelComplianceScanStatusResp](docs/ModelComplianceScanStatusResp.md)
- - [ModelComplianceScanTrigger](docs/ModelComplianceScanTrigger.md)
  - [ModelComplianceScanTriggerReq](docs/ModelComplianceScanTriggerReq.md)
  - [ModelComputeMetrics](docs/ModelComputeMetrics.md)
  - [ModelContainer](docs/ModelContainer.md)
@@ -209,7 +211,7 @@ Class | Method | HTTP request | Description
  - [ModelInitAgentReq](docs/ModelInitAgentReq.md)
  - [ModelInviteUserRequest](docs/ModelInviteUserRequest.md)
  - [ModelInviteUserResponse](docs/ModelInviteUserResponse.md)
- - [ModelKeyValue](docs/ModelKeyValue.md)
+ - [ModelKeyValues](docs/ModelKeyValues.md)
  - [ModelKubernetesCluster](docs/ModelKubernetesCluster.md)
  - [ModelLoginRequest](docs/ModelLoginRequest.md)
  - [ModelMalware](docs/ModelMalware.md)

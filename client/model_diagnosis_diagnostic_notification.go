@@ -46,7 +46,7 @@ func NewDiagnosisDiagnosticNotificationWithDefaults() *DiagnosisDiagnosticNotifi
 
 // GetContent returns the Content field value if set, zero value otherwise.
 func (o *DiagnosisDiagnosticNotification) GetContent() string {
-	if o == nil || isNil(o.Content) {
+	if o == nil || IsNil(o.Content) {
 		var ret string
 		return ret
 	}
@@ -56,7 +56,7 @@ func (o *DiagnosisDiagnosticNotification) GetContent() string {
 // GetContentOk returns a tuple with the Content field value if set, nil otherwise
 // and a boolean to check if the value has been set.
 func (o *DiagnosisDiagnosticNotification) GetContentOk() (*string, bool) {
-	if o == nil || isNil(o.Content) {
+	if o == nil || IsNil(o.Content) {
 		return nil, false
 	}
 	return o.Content, true
@@ -64,7 +64,7 @@ func (o *DiagnosisDiagnosticNotification) GetContentOk() (*string, bool) {
 
 // HasContent returns a boolean if a field has been set.
 func (o *DiagnosisDiagnosticNotification) HasContent() bool {
-	if o != nil && !isNil(o.Content) {
+	if o != nil && !IsNil(o.Content) {
 		return true
 	}
 
@@ -89,7 +89,7 @@ func (o *DiagnosisDiagnosticNotification) GetExpiryInSecs() interface{} {
 // and a boolean to check if the value has been set.
 // NOTE: If the value is an explicit nil, `nil, true` will be returned
 func (o *DiagnosisDiagnosticNotification) GetExpiryInSecsOk() (*interface{}, bool) {
-	if o == nil || isNil(o.ExpiryInSecs) {
+	if o == nil || IsNil(o.ExpiryInSecs) {
 		return nil, false
 	}
 	return &o.ExpiryInSecs, true
@@ -97,7 +97,7 @@ func (o *DiagnosisDiagnosticNotification) GetExpiryInSecsOk() (*interface{}, boo
 
 // HasExpiryInSecs returns a boolean if a field has been set.
 func (o *DiagnosisDiagnosticNotification) HasExpiryInSecs() bool {
-	if o != nil && isNil(o.ExpiryInSecs) {
+	if o != nil && IsNil(o.ExpiryInSecs) {
 		return true
 	}
 
@@ -122,7 +122,7 @@ func (o *DiagnosisDiagnosticNotification) GetFollowUrl() interface{} {
 // and a boolean to check if the value has been set.
 // NOTE: If the value is an explicit nil, `nil, true` will be returned
 func (o *DiagnosisDiagnosticNotification) GetFollowUrlOk() (*interface{}, bool) {
-	if o == nil || isNil(o.FollowUrl) {
+	if o == nil || IsNil(o.FollowUrl) {
 		return nil, false
 	}
 	return &o.FollowUrl, true
@@ -130,7 +130,7 @@ func (o *DiagnosisDiagnosticNotification) GetFollowUrlOk() (*interface{}, bool) 
 
 // HasFollowUrl returns a boolean if a field has been set.
 func (o *DiagnosisDiagnosticNotification) HasFollowUrl() bool {
-	if o != nil && isNil(o.FollowUrl) {
+	if o != nil && IsNil(o.FollowUrl) {
 		return true
 	}
 
@@ -144,7 +144,7 @@ func (o *DiagnosisDiagnosticNotification) SetFollowUrl(v interface{}) {
 
 // GetSourceApplicationId returns the SourceApplicationId field value if set, zero value otherwise.
 func (o *DiagnosisDiagnosticNotification) GetSourceApplicationId() string {
-	if o == nil || isNil(o.SourceApplicationId) {
+	if o == nil || IsNil(o.SourceApplicationId) {
 		var ret string
 		return ret
 	}
@@ -154,7 +154,7 @@ func (o *DiagnosisDiagnosticNotification) GetSourceApplicationId() string {
 // GetSourceApplicationIdOk returns a tuple with the SourceApplicationId field value if set, nil otherwise
 // and a boolean to check if the value has been set.
 func (o *DiagnosisDiagnosticNotification) GetSourceApplicationIdOk() (*string, bool) {
-	if o == nil || isNil(o.SourceApplicationId) {
+	if o == nil || IsNil(o.SourceApplicationId) {
 		return nil, false
 	}
 	return o.SourceApplicationId, true
@@ -162,7 +162,7 @@ func (o *DiagnosisDiagnosticNotification) GetSourceApplicationIdOk() (*string, b
 
 // HasSourceApplicationId returns a boolean if a field has been set.
 func (o *DiagnosisDiagnosticNotification) HasSourceApplicationId() bool {
-	if o != nil && !isNil(o.SourceApplicationId) {
+	if o != nil && !IsNil(o.SourceApplicationId) {
 		return true
 	}
 
@@ -176,7 +176,7 @@ func (o *DiagnosisDiagnosticNotification) SetSourceApplicationId(v string) {
 
 // GetUpdatedAt returns the UpdatedAt field value if set, zero value otherwise.
 func (o *DiagnosisDiagnosticNotification) GetUpdatedAt() string {
-	if o == nil || isNil(o.UpdatedAt) {
+	if o == nil || IsNil(o.UpdatedAt) {
 		var ret string
 		return ret
 	}
@@ -186,7 +186,7 @@ func (o *DiagnosisDiagnosticNotification) GetUpdatedAt() string {
 // GetUpdatedAtOk returns a tuple with the UpdatedAt field value if set, nil otherwise
 // and a boolean to check if the value has been set.
 func (o *DiagnosisDiagnosticNotification) GetUpdatedAtOk() (*string, bool) {
-	if o == nil || isNil(o.UpdatedAt) {
+	if o == nil || IsNil(o.UpdatedAt) {
 		return nil, false
 	}
 	return o.UpdatedAt, true
@@ -194,7 +194,7 @@ func (o *DiagnosisDiagnosticNotification) GetUpdatedAtOk() (*string, bool) {
 
 // HasUpdatedAt returns a boolean if a field has been set.
 func (o *DiagnosisDiagnosticNotification) HasUpdatedAt() bool {
-	if o != nil && !isNil(o.UpdatedAt) {
+	if o != nil && !IsNil(o.UpdatedAt) {
 		return true
 	}
 
@@ -216,7 +216,7 @@ func (o DiagnosisDiagnosticNotification) MarshalJSON() ([]byte, error) {
 
 func (o DiagnosisDiagnosticNotification) ToMap() (map[string]interface{}, error) {
 	toSerialize := map[string]interface{}{}
-	if !isNil(o.Content) {
+	if !IsNil(o.Content) {
 		toSerialize["content"] = o.Content
 	}
 	if o.ExpiryInSecs != nil {
@@ -225,10 +225,10 @@ func (o DiagnosisDiagnosticNotification) ToMap() (map[string]interface{}, error)
 	if o.FollowUrl != nil {
 		toSerialize["follow_url"] = o.FollowUrl
 	}
-	if !isNil(o.SourceApplicationId) {
+	if !IsNil(o.SourceApplicationId) {
 		toSerialize["source_application_id"] = o.SourceApplicationId
 	}
-	if !isNil(o.UpdatedAt) {
+	if !IsNil(o.UpdatedAt) {
 		toSerialize["updated_at"] = o.UpdatedAt
 	}
 	return toSerialize, nil

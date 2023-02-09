@@ -4,13 +4,13 @@
 
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
-**FieldsValues** | [**[]ModelKeyValue**](ModelKeyValue.md) |  | 
+**FieldsValues** | [**[]ModelKeyValues**](ModelKeyValues.md) |  | 
 
 ## Methods
 
 ### NewModelFieldsFilter
 
-`func NewModelFieldsFilter(fieldsValues []ModelKeyValue, ) *ModelFieldsFilter`
+`func NewModelFieldsFilter(fieldsValues []ModelKeyValues, ) *ModelFieldsFilter`
 
 NewModelFieldsFilter instantiates a new ModelFieldsFilter object
 This constructor will assign default values to properties that have it defined,
@@ -27,20 +27,20 @@ but it doesn't guarantee that properties required by API are set
 
 ### GetFieldsValues
 
-`func (o *ModelFieldsFilter) GetFieldsValues() []ModelKeyValue`
+`func (o *ModelFieldsFilter) GetFieldsValues() []ModelKeyValues`
 
 GetFieldsValues returns the FieldsValues field if non-nil, zero value otherwise.
 
 ### GetFieldsValuesOk
 
-`func (o *ModelFieldsFilter) GetFieldsValuesOk() (*[]ModelKeyValue, bool)`
+`func (o *ModelFieldsFilter) GetFieldsValuesOk() (*[]ModelKeyValues, bool)`
 
 GetFieldsValuesOk returns a tuple with the FieldsValues field if it's non-nil, zero value otherwise
 and a boolean to check if the value has been set.
 
 ### SetFieldsValues
 
-`func (o *ModelFieldsFilter) SetFieldsValues(v []ModelKeyValue)`
+`func (o *ModelFieldsFilter) SetFieldsValues(v []ModelKeyValues)`
 
 SetFieldsValues sets FieldsValues field to given value.
 

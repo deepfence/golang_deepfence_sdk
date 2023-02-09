@@ -20,14 +20,14 @@ var _ MappedNullable = &ModelFieldsFilter{}
 
 // ModelFieldsFilter struct for ModelFieldsFilter
 type ModelFieldsFilter struct {
-	FieldsValues []ModelKeyValue `json:"fields_values"`
+	FieldsValues []ModelKeyValues `json:"fields_values"`
 }
 
 // NewModelFieldsFilter instantiates a new ModelFieldsFilter object
 // This constructor will assign default values to properties that have it defined,
 // and makes sure properties required by API are set, but the set of arguments
 // will change when the set of required properties is changed
-func NewModelFieldsFilter(fieldsValues []ModelKeyValue) *ModelFieldsFilter {
+func NewModelFieldsFilter(fieldsValues []ModelKeyValues) *ModelFieldsFilter {
 	this := ModelFieldsFilter{}
 	this.FieldsValues = fieldsValues
 	return &this
@@ -42,10 +42,10 @@ func NewModelFieldsFilterWithDefaults() *ModelFieldsFilter {
 }
 
 // GetFieldsValues returns the FieldsValues field value
-// If the value is explicit nil, the zero value for []ModelKeyValue will be returned
-func (o *ModelFieldsFilter) GetFieldsValues() []ModelKeyValue {
+// If the value is explicit nil, the zero value for []ModelKeyValues will be returned
+func (o *ModelFieldsFilter) GetFieldsValues() []ModelKeyValues {
 	if o == nil {
-		var ret []ModelKeyValue
+		var ret []ModelKeyValues
 		return ret
 	}
 
@@ -55,15 +55,15 @@ func (o *ModelFieldsFilter) GetFieldsValues() []ModelKeyValue {
 // GetFieldsValuesOk returns a tuple with the FieldsValues field value
 // and a boolean to check if the value has been set.
 // NOTE: If the value is an explicit nil, `nil, true` will be returned
-func (o *ModelFieldsFilter) GetFieldsValuesOk() ([]ModelKeyValue, bool) {
-	if o == nil || isNil(o.FieldsValues) {
+func (o *ModelFieldsFilter) GetFieldsValuesOk() ([]ModelKeyValues, bool) {
+	if o == nil || IsNil(o.FieldsValues) {
 		return nil, false
 	}
 	return o.FieldsValues, true
 }
 
 // SetFieldsValues sets field value
-func (o *ModelFieldsFilter) SetFieldsValues(v []ModelKeyValue) {
+func (o *ModelFieldsFilter) SetFieldsValues(v []ModelKeyValues) {
 	o.FieldsValues = v
 }
 

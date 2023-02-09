@@ -52,7 +52,7 @@ func NewIngestersSecretScanStatusWithDefaults() *IngestersSecretScanStatus {
 
 // GetTimestamp returns the Timestamp field value if set, zero value otherwise.
 func (o *IngestersSecretScanStatus) GetTimestamp() time.Time {
-	if o == nil || isNil(o.Timestamp) {
+	if o == nil || IsNil(o.Timestamp) {
 		var ret time.Time
 		return ret
 	}
@@ -62,7 +62,7 @@ func (o *IngestersSecretScanStatus) GetTimestamp() time.Time {
 // GetTimestampOk returns a tuple with the Timestamp field value if set, nil otherwise
 // and a boolean to check if the value has been set.
 func (o *IngestersSecretScanStatus) GetTimestampOk() (*time.Time, bool) {
-	if o == nil || isNil(o.Timestamp) {
+	if o == nil || IsNil(o.Timestamp) {
 		return nil, false
 	}
 	return o.Timestamp, true
@@ -70,7 +70,7 @@ func (o *IngestersSecretScanStatus) GetTimestampOk() (*time.Time, bool) {
 
 // HasTimestamp returns a boolean if a field has been set.
 func (o *IngestersSecretScanStatus) HasTimestamp() bool {
-	if o != nil && !isNil(o.Timestamp) {
+	if o != nil && !IsNil(o.Timestamp) {
 		return true
 	}
 
@@ -84,7 +84,7 @@ func (o *IngestersSecretScanStatus) SetTimestamp(v time.Time) {
 
 // GetContainerName returns the ContainerName field value if set, zero value otherwise.
 func (o *IngestersSecretScanStatus) GetContainerName() string {
-	if o == nil || isNil(o.ContainerName) {
+	if o == nil || IsNil(o.ContainerName) {
 		var ret string
 		return ret
 	}
@@ -94,7 +94,7 @@ func (o *IngestersSecretScanStatus) GetContainerName() string {
 // GetContainerNameOk returns a tuple with the ContainerName field value if set, nil otherwise
 // and a boolean to check if the value has been set.
 func (o *IngestersSecretScanStatus) GetContainerNameOk() (*string, bool) {
-	if o == nil || isNil(o.ContainerName) {
+	if o == nil || IsNil(o.ContainerName) {
 		return nil, false
 	}
 	return o.ContainerName, true
@@ -102,7 +102,7 @@ func (o *IngestersSecretScanStatus) GetContainerNameOk() (*string, bool) {
 
 // HasContainerName returns a boolean if a field has been set.
 func (o *IngestersSecretScanStatus) HasContainerName() bool {
-	if o != nil && !isNil(o.ContainerName) {
+	if o != nil && !IsNil(o.ContainerName) {
 		return true
 	}
 
@@ -116,7 +116,7 @@ func (o *IngestersSecretScanStatus) SetContainerName(v string) {
 
 // GetHostName returns the HostName field value if set, zero value otherwise.
 func (o *IngestersSecretScanStatus) GetHostName() string {
-	if o == nil || isNil(o.HostName) {
+	if o == nil || IsNil(o.HostName) {
 		var ret string
 		return ret
 	}
@@ -126,7 +126,7 @@ func (o *IngestersSecretScanStatus) GetHostName() string {
 // GetHostNameOk returns a tuple with the HostName field value if set, nil otherwise
 // and a boolean to check if the value has been set.
 func (o *IngestersSecretScanStatus) GetHostNameOk() (*string, bool) {
-	if o == nil || isNil(o.HostName) {
+	if o == nil || IsNil(o.HostName) {
 		return nil, false
 	}
 	return o.HostName, true
@@ -134,7 +134,7 @@ func (o *IngestersSecretScanStatus) GetHostNameOk() (*string, bool) {
 
 // HasHostName returns a boolean if a field has been set.
 func (o *IngestersSecretScanStatus) HasHostName() bool {
-	if o != nil && !isNil(o.HostName) {
+	if o != nil && !IsNil(o.HostName) {
 		return true
 	}
 
@@ -148,7 +148,7 @@ func (o *IngestersSecretScanStatus) SetHostName(v string) {
 
 // GetKubernetesClusterName returns the KubernetesClusterName field value if set, zero value otherwise.
 func (o *IngestersSecretScanStatus) GetKubernetesClusterName() string {
-	if o == nil || isNil(o.KubernetesClusterName) {
+	if o == nil || IsNil(o.KubernetesClusterName) {
 		var ret string
 		return ret
 	}
@@ -158,7 +158,7 @@ func (o *IngestersSecretScanStatus) GetKubernetesClusterName() string {
 // GetKubernetesClusterNameOk returns a tuple with the KubernetesClusterName field value if set, nil otherwise
 // and a boolean to check if the value has been set.
 func (o *IngestersSecretScanStatus) GetKubernetesClusterNameOk() (*string, bool) {
-	if o == nil || isNil(o.KubernetesClusterName) {
+	if o == nil || IsNil(o.KubernetesClusterName) {
 		return nil, false
 	}
 	return o.KubernetesClusterName, true
@@ -166,7 +166,7 @@ func (o *IngestersSecretScanStatus) GetKubernetesClusterNameOk() (*string, bool)
 
 // HasKubernetesClusterName returns a boolean if a field has been set.
 func (o *IngestersSecretScanStatus) HasKubernetesClusterName() bool {
-	if o != nil && !isNil(o.KubernetesClusterName) {
+	if o != nil && !IsNil(o.KubernetesClusterName) {
 		return true
 	}
 
@@ -180,7 +180,7 @@ func (o *IngestersSecretScanStatus) SetKubernetesClusterName(v string) {
 
 // GetMasked returns the Masked field value if set, zero value otherwise.
 func (o *IngestersSecretScanStatus) GetMasked() string {
-	if o == nil || isNil(o.Masked) {
+	if o == nil || IsNil(o.Masked) {
 		var ret string
 		return ret
 	}
@@ -190,7 +190,7 @@ func (o *IngestersSecretScanStatus) GetMasked() string {
 // GetMaskedOk returns a tuple with the Masked field value if set, nil otherwise
 // and a boolean to check if the value has been set.
 func (o *IngestersSecretScanStatus) GetMaskedOk() (*string, bool) {
-	if o == nil || isNil(o.Masked) {
+	if o == nil || IsNil(o.Masked) {
 		return nil, false
 	}
 	return o.Masked, true
@@ -198,7 +198,7 @@ func (o *IngestersSecretScanStatus) GetMaskedOk() (*string, bool) {
 
 // HasMasked returns a boolean if a field has been set.
 func (o *IngestersSecretScanStatus) HasMasked() bool {
-	if o != nil && !isNil(o.Masked) {
+	if o != nil && !IsNil(o.Masked) {
 		return true
 	}
 
@@ -212,7 +212,7 @@ func (o *IngestersSecretScanStatus) SetMasked(v string) {
 
 // GetNodeId returns the NodeId field value if set, zero value otherwise.
 func (o *IngestersSecretScanStatus) GetNodeId() string {
-	if o == nil || isNil(o.NodeId) {
+	if o == nil || IsNil(o.NodeId) {
 		var ret string
 		return ret
 	}
@@ -222,7 +222,7 @@ func (o *IngestersSecretScanStatus) GetNodeId() string {
 // GetNodeIdOk returns a tuple with the NodeId field value if set, nil otherwise
 // and a boolean to check if the value has been set.
 func (o *IngestersSecretScanStatus) GetNodeIdOk() (*string, bool) {
-	if o == nil || isNil(o.NodeId) {
+	if o == nil || IsNil(o.NodeId) {
 		return nil, false
 	}
 	return o.NodeId, true
@@ -230,7 +230,7 @@ func (o *IngestersSecretScanStatus) GetNodeIdOk() (*string, bool) {
 
 // HasNodeId returns a boolean if a field has been set.
 func (o *IngestersSecretScanStatus) HasNodeId() bool {
-	if o != nil && !isNil(o.NodeId) {
+	if o != nil && !IsNil(o.NodeId) {
 		return true
 	}
 
@@ -244,7 +244,7 @@ func (o *IngestersSecretScanStatus) SetNodeId(v string) {
 
 // GetNodeName returns the NodeName field value if set, zero value otherwise.
 func (o *IngestersSecretScanStatus) GetNodeName() string {
-	if o == nil || isNil(o.NodeName) {
+	if o == nil || IsNil(o.NodeName) {
 		var ret string
 		return ret
 	}
@@ -254,7 +254,7 @@ func (o *IngestersSecretScanStatus) GetNodeName() string {
 // GetNodeNameOk returns a tuple with the NodeName field value if set, nil otherwise
 // and a boolean to check if the value has been set.
 func (o *IngestersSecretScanStatus) GetNodeNameOk() (*string, bool) {
-	if o == nil || isNil(o.NodeName) {
+	if o == nil || IsNil(o.NodeName) {
 		return nil, false
 	}
 	return o.NodeName, true
@@ -262,7 +262,7 @@ func (o *IngestersSecretScanStatus) GetNodeNameOk() (*string, bool) {
 
 // HasNodeName returns a boolean if a field has been set.
 func (o *IngestersSecretScanStatus) HasNodeName() bool {
-	if o != nil && !isNil(o.NodeName) {
+	if o != nil && !IsNil(o.NodeName) {
 		return true
 	}
 
@@ -276,7 +276,7 @@ func (o *IngestersSecretScanStatus) SetNodeName(v string) {
 
 // GetNodeType returns the NodeType field value if set, zero value otherwise.
 func (o *IngestersSecretScanStatus) GetNodeType() string {
-	if o == nil || isNil(o.NodeType) {
+	if o == nil || IsNil(o.NodeType) {
 		var ret string
 		return ret
 	}
@@ -286,7 +286,7 @@ func (o *IngestersSecretScanStatus) GetNodeType() string {
 // GetNodeTypeOk returns a tuple with the NodeType field value if set, nil otherwise
 // and a boolean to check if the value has been set.
 func (o *IngestersSecretScanStatus) GetNodeTypeOk() (*string, bool) {
-	if o == nil || isNil(o.NodeType) {
+	if o == nil || IsNil(o.NodeType) {
 		return nil, false
 	}
 	return o.NodeType, true
@@ -294,7 +294,7 @@ func (o *IngestersSecretScanStatus) GetNodeTypeOk() (*string, bool) {
 
 // HasNodeType returns a boolean if a field has been set.
 func (o *IngestersSecretScanStatus) HasNodeType() bool {
-	if o != nil && !isNil(o.NodeType) {
+	if o != nil && !IsNil(o.NodeType) {
 		return true
 	}
 
@@ -308,7 +308,7 @@ func (o *IngestersSecretScanStatus) SetNodeType(v string) {
 
 // GetScanId returns the ScanId field value if set, zero value otherwise.
 func (o *IngestersSecretScanStatus) GetScanId() string {
-	if o == nil || isNil(o.ScanId) {
+	if o == nil || IsNil(o.ScanId) {
 		var ret string
 		return ret
 	}
@@ -318,7 +318,7 @@ func (o *IngestersSecretScanStatus) GetScanId() string {
 // GetScanIdOk returns a tuple with the ScanId field value if set, nil otherwise
 // and a boolean to check if the value has been set.
 func (o *IngestersSecretScanStatus) GetScanIdOk() (*string, bool) {
-	if o == nil || isNil(o.ScanId) {
+	if o == nil || IsNil(o.ScanId) {
 		return nil, false
 	}
 	return o.ScanId, true
@@ -326,7 +326,7 @@ func (o *IngestersSecretScanStatus) GetScanIdOk() (*string, bool) {
 
 // HasScanId returns a boolean if a field has been set.
 func (o *IngestersSecretScanStatus) HasScanId() bool {
-	if o != nil && !isNil(o.ScanId) {
+	if o != nil && !IsNil(o.ScanId) {
 		return true
 	}
 
@@ -340,7 +340,7 @@ func (o *IngestersSecretScanStatus) SetScanId(v string) {
 
 // GetScanStatus returns the ScanStatus field value if set, zero value otherwise.
 func (o *IngestersSecretScanStatus) GetScanStatus() string {
-	if o == nil || isNil(o.ScanStatus) {
+	if o == nil || IsNil(o.ScanStatus) {
 		var ret string
 		return ret
 	}
@@ -350,7 +350,7 @@ func (o *IngestersSecretScanStatus) GetScanStatus() string {
 // GetScanStatusOk returns a tuple with the ScanStatus field value if set, nil otherwise
 // and a boolean to check if the value has been set.
 func (o *IngestersSecretScanStatus) GetScanStatusOk() (*string, bool) {
-	if o == nil || isNil(o.ScanStatus) {
+	if o == nil || IsNil(o.ScanStatus) {
 		return nil, false
 	}
 	return o.ScanStatus, true
@@ -358,7 +358,7 @@ func (o *IngestersSecretScanStatus) GetScanStatusOk() (*string, bool) {
 
 // HasScanStatus returns a boolean if a field has been set.
 func (o *IngestersSecretScanStatus) HasScanStatus() bool {
-	if o != nil && !isNil(o.ScanStatus) {
+	if o != nil && !IsNil(o.ScanStatus) {
 		return true
 	}
 
@@ -380,34 +380,34 @@ func (o IngestersSecretScanStatus) MarshalJSON() ([]byte, error) {
 
 func (o IngestersSecretScanStatus) ToMap() (map[string]interface{}, error) {
 	toSerialize := map[string]interface{}{}
-	if !isNil(o.Timestamp) {
+	if !IsNil(o.Timestamp) {
 		toSerialize["@timestamp"] = o.Timestamp
 	}
-	if !isNil(o.ContainerName) {
+	if !IsNil(o.ContainerName) {
 		toSerialize["container_name"] = o.ContainerName
 	}
-	if !isNil(o.HostName) {
+	if !IsNil(o.HostName) {
 		toSerialize["host_name"] = o.HostName
 	}
-	if !isNil(o.KubernetesClusterName) {
+	if !IsNil(o.KubernetesClusterName) {
 		toSerialize["kubernetes_cluster_name"] = o.KubernetesClusterName
 	}
-	if !isNil(o.Masked) {
+	if !IsNil(o.Masked) {
 		toSerialize["masked"] = o.Masked
 	}
-	if !isNil(o.NodeId) {
+	if !IsNil(o.NodeId) {
 		toSerialize["node_id"] = o.NodeId
 	}
-	if !isNil(o.NodeName) {
+	if !IsNil(o.NodeName) {
 		toSerialize["node_name"] = o.NodeName
 	}
-	if !isNil(o.NodeType) {
+	if !IsNil(o.NodeType) {
 		toSerialize["node_type"] = o.NodeType
 	}
-	if !isNil(o.ScanId) {
+	if !IsNil(o.ScanId) {
 		toSerialize["scan_id"] = o.ScanId
 	}
-	if !isNil(o.ScanStatus) {
+	if !IsNil(o.ScanStatus) {
 		toSerialize["scan_status"] = o.ScanStatus
 	}
 	return toSerialize, nil

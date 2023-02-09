@@ -44,7 +44,7 @@ func NewDetailedParentWithDefaults() *DetailedParent {
 
 // GetId returns the Id field value if set, zero value otherwise.
 func (o *DetailedParent) GetId() string {
-	if o == nil || isNil(o.Id) {
+	if o == nil || IsNil(o.Id) {
 		var ret string
 		return ret
 	}
@@ -54,7 +54,7 @@ func (o *DetailedParent) GetId() string {
 // GetIdOk returns a tuple with the Id field value if set, nil otherwise
 // and a boolean to check if the value has been set.
 func (o *DetailedParent) GetIdOk() (*string, bool) {
-	if o == nil || isNil(o.Id) {
+	if o == nil || IsNil(o.Id) {
 		return nil, false
 	}
 	return o.Id, true
@@ -62,7 +62,7 @@ func (o *DetailedParent) GetIdOk() (*string, bool) {
 
 // HasId returns a boolean if a field has been set.
 func (o *DetailedParent) HasId() bool {
-	if o != nil && !isNil(o.Id) {
+	if o != nil && !IsNil(o.Id) {
 		return true
 	}
 
@@ -76,7 +76,7 @@ func (o *DetailedParent) SetId(v string) {
 
 // GetLabel returns the Label field value if set, zero value otherwise.
 func (o *DetailedParent) GetLabel() string {
-	if o == nil || isNil(o.Label) {
+	if o == nil || IsNil(o.Label) {
 		var ret string
 		return ret
 	}
@@ -86,7 +86,7 @@ func (o *DetailedParent) GetLabel() string {
 // GetLabelOk returns a tuple with the Label field value if set, nil otherwise
 // and a boolean to check if the value has been set.
 func (o *DetailedParent) GetLabelOk() (*string, bool) {
-	if o == nil || isNil(o.Label) {
+	if o == nil || IsNil(o.Label) {
 		return nil, false
 	}
 	return o.Label, true
@@ -94,7 +94,7 @@ func (o *DetailedParent) GetLabelOk() (*string, bool) {
 
 // HasLabel returns a boolean if a field has been set.
 func (o *DetailedParent) HasLabel() bool {
-	if o != nil && !isNil(o.Label) {
+	if o != nil && !IsNil(o.Label) {
 		return true
 	}
 
@@ -108,7 +108,7 @@ func (o *DetailedParent) SetLabel(v string) {
 
 // GetTopologyId returns the TopologyId field value if set, zero value otherwise.
 func (o *DetailedParent) GetTopologyId() string {
-	if o == nil || isNil(o.TopologyId) {
+	if o == nil || IsNil(o.TopologyId) {
 		var ret string
 		return ret
 	}
@@ -118,7 +118,7 @@ func (o *DetailedParent) GetTopologyId() string {
 // GetTopologyIdOk returns a tuple with the TopologyId field value if set, nil otherwise
 // and a boolean to check if the value has been set.
 func (o *DetailedParent) GetTopologyIdOk() (*string, bool) {
-	if o == nil || isNil(o.TopologyId) {
+	if o == nil || IsNil(o.TopologyId) {
 		return nil, false
 	}
 	return o.TopologyId, true
@@ -126,7 +126,7 @@ func (o *DetailedParent) GetTopologyIdOk() (*string, bool) {
 
 // HasTopologyId returns a boolean if a field has been set.
 func (o *DetailedParent) HasTopologyId() bool {
-	if o != nil && !isNil(o.TopologyId) {
+	if o != nil && !IsNil(o.TopologyId) {
 		return true
 	}
 
@@ -148,13 +148,13 @@ func (o DetailedParent) MarshalJSON() ([]byte, error) {
 
 func (o DetailedParent) ToMap() (map[string]interface{}, error) {
 	toSerialize := map[string]interface{}{}
-	if !isNil(o.Id) {
+	if !IsNil(o.Id) {
 		toSerialize["id"] = o.Id
 	}
-	if !isNil(o.Label) {
+	if !IsNil(o.Label) {
 		toSerialize["label"] = o.Label
 	}
-	if !isNil(o.TopologyId) {
+	if !IsNil(o.TopologyId) {
 		toSerialize["topologyId"] = o.TopologyId
 	}
 	return toSerialize, nil

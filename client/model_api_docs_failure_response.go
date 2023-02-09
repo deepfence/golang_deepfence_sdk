@@ -43,7 +43,7 @@ func NewApiDocsFailureResponseWithDefaults() *ApiDocsFailureResponse {
 
 // GetMessage returns the Message field value if set, zero value otherwise.
 func (o *ApiDocsFailureResponse) GetMessage() string {
-	if o == nil || isNil(o.Message) {
+	if o == nil || IsNil(o.Message) {
 		var ret string
 		return ret
 	}
@@ -53,7 +53,7 @@ func (o *ApiDocsFailureResponse) GetMessage() string {
 // GetMessageOk returns a tuple with the Message field value if set, nil otherwise
 // and a boolean to check if the value has been set.
 func (o *ApiDocsFailureResponse) GetMessageOk() (*string, bool) {
-	if o == nil || isNil(o.Message) {
+	if o == nil || IsNil(o.Message) {
 		return nil, false
 	}
 	return o.Message, true
@@ -61,7 +61,7 @@ func (o *ApiDocsFailureResponse) GetMessageOk() (*string, bool) {
 
 // HasMessage returns a boolean if a field has been set.
 func (o *ApiDocsFailureResponse) HasMessage() bool {
-	if o != nil && !isNil(o.Message) {
+	if o != nil && !IsNil(o.Message) {
 		return true
 	}
 
@@ -75,7 +75,7 @@ func (o *ApiDocsFailureResponse) SetMessage(v string) {
 
 // GetSuccess returns the Success field value if set, zero value otherwise.
 func (o *ApiDocsFailureResponse) GetSuccess() bool {
-	if o == nil || isNil(o.Success) {
+	if o == nil || IsNil(o.Success) {
 		var ret bool
 		return ret
 	}
@@ -85,7 +85,7 @@ func (o *ApiDocsFailureResponse) GetSuccess() bool {
 // GetSuccessOk returns a tuple with the Success field value if set, nil otherwise
 // and a boolean to check if the value has been set.
 func (o *ApiDocsFailureResponse) GetSuccessOk() (*bool, bool) {
-	if o == nil || isNil(o.Success) {
+	if o == nil || IsNil(o.Success) {
 		return nil, false
 	}
 	return o.Success, true
@@ -93,7 +93,7 @@ func (o *ApiDocsFailureResponse) GetSuccessOk() (*bool, bool) {
 
 // HasSuccess returns a boolean if a field has been set.
 func (o *ApiDocsFailureResponse) HasSuccess() bool {
-	if o != nil && !isNil(o.Success) {
+	if o != nil && !IsNil(o.Success) {
 		return true
 	}
 
@@ -115,10 +115,10 @@ func (o ApiDocsFailureResponse) MarshalJSON() ([]byte, error) {
 
 func (o ApiDocsFailureResponse) ToMap() (map[string]interface{}, error) {
 	toSerialize := map[string]interface{}{}
-	if !isNil(o.Message) {
+	if !IsNil(o.Message) {
 		toSerialize["message"] = o.Message
 	}
-	if !isNil(o.Success) {
+	if !IsNil(o.Success) {
 		toSerialize["success"] = o.Success
 	}
 	return toSerialize, nil

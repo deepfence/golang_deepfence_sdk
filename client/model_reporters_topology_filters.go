@@ -66,7 +66,7 @@ func (o *ReportersTopologyFilters) GetCloudFilter() []string {
 // and a boolean to check if the value has been set.
 // NOTE: If the value is an explicit nil, `nil, true` will be returned
 func (o *ReportersTopologyFilters) GetCloudFilterOk() ([]string, bool) {
-	if o == nil || isNil(o.CloudFilter) {
+	if o == nil || IsNil(o.CloudFilter) {
 		return nil, false
 	}
 	return o.CloudFilter, true
@@ -116,7 +116,7 @@ func (o *ReportersTopologyFilters) GetHostFilter() []string {
 // and a boolean to check if the value has been set.
 // NOTE: If the value is an explicit nil, `nil, true` will be returned
 func (o *ReportersTopologyFilters) GetHostFilterOk() ([]string, bool) {
-	if o == nil || isNil(o.HostFilter) {
+	if o == nil || IsNil(o.HostFilter) {
 		return nil, false
 	}
 	return o.HostFilter, true
@@ -142,7 +142,7 @@ func (o *ReportersTopologyFilters) GetKubernetesFilter() []string {
 // and a boolean to check if the value has been set.
 // NOTE: If the value is an explicit nil, `nil, true` will be returned
 func (o *ReportersTopologyFilters) GetKubernetesFilterOk() ([]string, bool) {
-	if o == nil || isNil(o.KubernetesFilter) {
+	if o == nil || IsNil(o.KubernetesFilter) {
 		return nil, false
 	}
 	return o.KubernetesFilter, true
@@ -168,7 +168,7 @@ func (o *ReportersTopologyFilters) GetPodFilter() []string {
 // and a boolean to check if the value has been set.
 // NOTE: If the value is an explicit nil, `nil, true` will be returned
 func (o *ReportersTopologyFilters) GetPodFilterOk() ([]string, bool) {
-	if o == nil || isNil(o.PodFilter) {
+	if o == nil || IsNil(o.PodFilter) {
 		return nil, false
 	}
 	return o.PodFilter, true
@@ -194,7 +194,7 @@ func (o *ReportersTopologyFilters) GetRegionFilter() []string {
 // and a boolean to check if the value has been set.
 // NOTE: If the value is an explicit nil, `nil, true` will be returned
 func (o *ReportersTopologyFilters) GetRegionFilterOk() ([]string, bool) {
-	if o == nil || isNil(o.RegionFilter) {
+	if o == nil || IsNil(o.RegionFilter) {
 		return nil, false
 	}
 	return o.RegionFilter, true

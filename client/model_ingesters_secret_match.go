@@ -46,7 +46,7 @@ func NewIngestersSecretMatchWithDefaults() *IngestersSecretMatch {
 
 // GetFullFilename returns the FullFilename field value if set, zero value otherwise.
 func (o *IngestersSecretMatch) GetFullFilename() string {
-	if o == nil || isNil(o.FullFilename) {
+	if o == nil || IsNil(o.FullFilename) {
 		var ret string
 		return ret
 	}
@@ -56,7 +56,7 @@ func (o *IngestersSecretMatch) GetFullFilename() string {
 // GetFullFilenameOk returns a tuple with the FullFilename field value if set, nil otherwise
 // and a boolean to check if the value has been set.
 func (o *IngestersSecretMatch) GetFullFilenameOk() (*string, bool) {
-	if o == nil || isNil(o.FullFilename) {
+	if o == nil || IsNil(o.FullFilename) {
 		return nil, false
 	}
 	return o.FullFilename, true
@@ -64,7 +64,7 @@ func (o *IngestersSecretMatch) GetFullFilenameOk() (*string, bool) {
 
 // HasFullFilename returns a boolean if a field has been set.
 func (o *IngestersSecretMatch) HasFullFilename() bool {
-	if o != nil && !isNil(o.FullFilename) {
+	if o != nil && !IsNil(o.FullFilename) {
 		return true
 	}
 
@@ -78,7 +78,7 @@ func (o *IngestersSecretMatch) SetFullFilename(v string) {
 
 // GetMatchedContent returns the MatchedContent field value if set, zero value otherwise.
 func (o *IngestersSecretMatch) GetMatchedContent() string {
-	if o == nil || isNil(o.MatchedContent) {
+	if o == nil || IsNil(o.MatchedContent) {
 		var ret string
 		return ret
 	}
@@ -88,7 +88,7 @@ func (o *IngestersSecretMatch) GetMatchedContent() string {
 // GetMatchedContentOk returns a tuple with the MatchedContent field value if set, nil otherwise
 // and a boolean to check if the value has been set.
 func (o *IngestersSecretMatch) GetMatchedContentOk() (*string, bool) {
-	if o == nil || isNil(o.MatchedContent) {
+	if o == nil || IsNil(o.MatchedContent) {
 		return nil, false
 	}
 	return o.MatchedContent, true
@@ -96,7 +96,7 @@ func (o *IngestersSecretMatch) GetMatchedContentOk() (*string, bool) {
 
 // HasMatchedContent returns a boolean if a field has been set.
 func (o *IngestersSecretMatch) HasMatchedContent() bool {
-	if o != nil && !isNil(o.MatchedContent) {
+	if o != nil && !IsNil(o.MatchedContent) {
 		return true
 	}
 
@@ -110,7 +110,7 @@ func (o *IngestersSecretMatch) SetMatchedContent(v string) {
 
 // GetRelativeEndingIndex returns the RelativeEndingIndex field value if set, zero value otherwise.
 func (o *IngestersSecretMatch) GetRelativeEndingIndex() int32 {
-	if o == nil || isNil(o.RelativeEndingIndex) {
+	if o == nil || IsNil(o.RelativeEndingIndex) {
 		var ret int32
 		return ret
 	}
@@ -120,7 +120,7 @@ func (o *IngestersSecretMatch) GetRelativeEndingIndex() int32 {
 // GetRelativeEndingIndexOk returns a tuple with the RelativeEndingIndex field value if set, nil otherwise
 // and a boolean to check if the value has been set.
 func (o *IngestersSecretMatch) GetRelativeEndingIndexOk() (*int32, bool) {
-	if o == nil || isNil(o.RelativeEndingIndex) {
+	if o == nil || IsNil(o.RelativeEndingIndex) {
 		return nil, false
 	}
 	return o.RelativeEndingIndex, true
@@ -128,7 +128,7 @@ func (o *IngestersSecretMatch) GetRelativeEndingIndexOk() (*int32, bool) {
 
 // HasRelativeEndingIndex returns a boolean if a field has been set.
 func (o *IngestersSecretMatch) HasRelativeEndingIndex() bool {
-	if o != nil && !isNil(o.RelativeEndingIndex) {
+	if o != nil && !IsNil(o.RelativeEndingIndex) {
 		return true
 	}
 
@@ -142,7 +142,7 @@ func (o *IngestersSecretMatch) SetRelativeEndingIndex(v int32) {
 
 // GetRelativeStartingIndex returns the RelativeStartingIndex field value if set, zero value otherwise.
 func (o *IngestersSecretMatch) GetRelativeStartingIndex() int32 {
-	if o == nil || isNil(o.RelativeStartingIndex) {
+	if o == nil || IsNil(o.RelativeStartingIndex) {
 		var ret int32
 		return ret
 	}
@@ -152,7 +152,7 @@ func (o *IngestersSecretMatch) GetRelativeStartingIndex() int32 {
 // GetRelativeStartingIndexOk returns a tuple with the RelativeStartingIndex field value if set, nil otherwise
 // and a boolean to check if the value has been set.
 func (o *IngestersSecretMatch) GetRelativeStartingIndexOk() (*int32, bool) {
-	if o == nil || isNil(o.RelativeStartingIndex) {
+	if o == nil || IsNil(o.RelativeStartingIndex) {
 		return nil, false
 	}
 	return o.RelativeStartingIndex, true
@@ -160,7 +160,7 @@ func (o *IngestersSecretMatch) GetRelativeStartingIndexOk() (*int32, bool) {
 
 // HasRelativeStartingIndex returns a boolean if a field has been set.
 func (o *IngestersSecretMatch) HasRelativeStartingIndex() bool {
-	if o != nil && !isNil(o.RelativeStartingIndex) {
+	if o != nil && !IsNil(o.RelativeStartingIndex) {
 		return true
 	}
 
@@ -174,7 +174,7 @@ func (o *IngestersSecretMatch) SetRelativeStartingIndex(v int32) {
 
 // GetStartingIndex returns the StartingIndex field value if set, zero value otherwise.
 func (o *IngestersSecretMatch) GetStartingIndex() int32 {
-	if o == nil || isNil(o.StartingIndex) {
+	if o == nil || IsNil(o.StartingIndex) {
 		var ret int32
 		return ret
 	}
@@ -184,7 +184,7 @@ func (o *IngestersSecretMatch) GetStartingIndex() int32 {
 // GetStartingIndexOk returns a tuple with the StartingIndex field value if set, nil otherwise
 // and a boolean to check if the value has been set.
 func (o *IngestersSecretMatch) GetStartingIndexOk() (*int32, bool) {
-	if o == nil || isNil(o.StartingIndex) {
+	if o == nil || IsNil(o.StartingIndex) {
 		return nil, false
 	}
 	return o.StartingIndex, true
@@ -192,7 +192,7 @@ func (o *IngestersSecretMatch) GetStartingIndexOk() (*int32, bool) {
 
 // HasStartingIndex returns a boolean if a field has been set.
 func (o *IngestersSecretMatch) HasStartingIndex() bool {
-	if o != nil && !isNil(o.StartingIndex) {
+	if o != nil && !IsNil(o.StartingIndex) {
 		return true
 	}
 
@@ -214,19 +214,19 @@ func (o IngestersSecretMatch) MarshalJSON() ([]byte, error) {
 
 func (o IngestersSecretMatch) ToMap() (map[string]interface{}, error) {
 	toSerialize := map[string]interface{}{}
-	if !isNil(o.FullFilename) {
+	if !IsNil(o.FullFilename) {
 		toSerialize["full_filename"] = o.FullFilename
 	}
-	if !isNil(o.MatchedContent) {
+	if !IsNil(o.MatchedContent) {
 		toSerialize["matched_content"] = o.MatchedContent
 	}
-	if !isNil(o.RelativeEndingIndex) {
+	if !IsNil(o.RelativeEndingIndex) {
 		toSerialize["relative_ending_index"] = o.RelativeEndingIndex
 	}
-	if !isNil(o.RelativeStartingIndex) {
+	if !IsNil(o.RelativeStartingIndex) {
 		toSerialize["relative_starting_index"] = o.RelativeStartingIndex
 	}
-	if !isNil(o.StartingIndex) {
+	if !IsNil(o.StartingIndex) {
 		toSerialize["starting_index"] = o.StartingIndex
 	}
 	return toSerialize, nil

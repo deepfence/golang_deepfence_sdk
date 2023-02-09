@@ -246,7 +246,7 @@ func (o *ModelSecretScanResult) GetRule2Secrets() map[string][]int32 {
 // and a boolean to check if the value has been set.
 // NOTE: If the value is an explicit nil, `nil, true` will be returned
 func (o *ModelSecretScanResult) GetRule2SecretsOk() (*map[string][]int32, bool) {
-	if o == nil || isNil(o.Rule2Secrets) {
+	if o == nil || IsNil(o.Rule2Secrets) {
 		return nil, false
 	}
 	return &o.Rule2Secrets, true
@@ -272,7 +272,7 @@ func (o *ModelSecretScanResult) GetRules() []ModelRule {
 // and a boolean to check if the value has been set.
 // NOTE: If the value is an explicit nil, `nil, true` will be returned
 func (o *ModelSecretScanResult) GetRulesOk() ([]ModelRule, bool) {
-	if o == nil || isNil(o.Rules) {
+	if o == nil || IsNil(o.Rules) {
 		return nil, false
 	}
 	return o.Rules, true
@@ -322,7 +322,7 @@ func (o *ModelSecretScanResult) GetSecrets() []ModelSecret {
 // and a boolean to check if the value has been set.
 // NOTE: If the value is an explicit nil, `nil, true` will be returned
 func (o *ModelSecretScanResult) GetSecretsOk() ([]ModelSecret, bool) {
-	if o == nil || isNil(o.Secrets) {
+	if o == nil || IsNil(o.Secrets) {
 		return nil, false
 	}
 	return o.Secrets, true
@@ -348,7 +348,7 @@ func (o *ModelSecretScanResult) GetSeverityCounts() map[string]int32 {
 // and a boolean to check if the value has been set.
 // NOTE: If the value is an explicit nil, `nil, true` will be returned
 func (o *ModelSecretScanResult) GetSeverityCountsOk() (*map[string]int32, bool) {
-	if o == nil || isNil(o.SeverityCounts) {
+	if o == nil || IsNil(o.SeverityCounts) {
 		return nil, false
 	}
 	return &o.SeverityCounts, true

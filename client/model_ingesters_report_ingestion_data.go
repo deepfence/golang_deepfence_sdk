@@ -80,7 +80,7 @@ func (o *IngestersReportIngestionData) GetContainerBatch() []map[string]string {
 // and a boolean to check if the value has been set.
 // NOTE: If the value is an explicit nil, `nil, true` will be returned
 func (o *IngestersReportIngestionData) GetContainerBatchOk() ([]map[string]string, bool) {
-	if o == nil || isNil(o.ContainerBatch) {
+	if o == nil || IsNil(o.ContainerBatch) {
 		return nil, false
 	}
 	return o.ContainerBatch, true
@@ -106,7 +106,7 @@ func (o *IngestersReportIngestionData) GetContainerEdgesBatch() []map[string]int
 // and a boolean to check if the value has been set.
 // NOTE: If the value is an explicit nil, `nil, true` will be returned
 func (o *IngestersReportIngestionData) GetContainerEdgesBatchOk() ([]map[string]interface{}, bool) {
-	if o == nil || isNil(o.ContainerEdgesBatch) {
+	if o == nil || IsNil(o.ContainerEdgesBatch) {
 		return nil, false
 	}
 	return o.ContainerEdgesBatch, true
@@ -132,7 +132,7 @@ func (o *IngestersReportIngestionData) GetContainerImageBatch() []map[string]str
 // and a boolean to check if the value has been set.
 // NOTE: If the value is an explicit nil, `nil, true` will be returned
 func (o *IngestersReportIngestionData) GetContainerImageBatchOk() ([]map[string]string, bool) {
-	if o == nil || isNil(o.ContainerImageBatch) {
+	if o == nil || IsNil(o.ContainerImageBatch) {
 		return nil, false
 	}
 	return o.ContainerImageBatch, true
@@ -158,7 +158,7 @@ func (o *IngestersReportIngestionData) GetContainerImageEdgeBatch() []map[string
 // and a boolean to check if the value has been set.
 // NOTE: If the value is an explicit nil, `nil, true` will be returned
 func (o *IngestersReportIngestionData) GetContainerImageEdgeBatchOk() ([]map[string]interface{}, bool) {
-	if o == nil || isNil(o.ContainerImageEdgeBatch) {
+	if o == nil || IsNil(o.ContainerImageEdgeBatch) {
 		return nil, false
 	}
 	return o.ContainerImageEdgeBatch, true
@@ -184,7 +184,7 @@ func (o *IngestersReportIngestionData) GetEndpointEdgesBatch() []map[string]inte
 // and a boolean to check if the value has been set.
 // NOTE: If the value is an explicit nil, `nil, true` will be returned
 func (o *IngestersReportIngestionData) GetEndpointEdgesBatchOk() ([]map[string]interface{}, bool) {
-	if o == nil || isNil(o.EndpointEdgesBatch) {
+	if o == nil || IsNil(o.EndpointEdgesBatch) {
 		return nil, false
 	}
 	return o.EndpointEdgesBatch, true
@@ -210,7 +210,7 @@ func (o *IngestersReportIngestionData) GetHostBatch() []map[string]string {
 // and a boolean to check if the value has been set.
 // NOTE: If the value is an explicit nil, `nil, true` will be returned
 func (o *IngestersReportIngestionData) GetHostBatchOk() ([]map[string]string, bool) {
-	if o == nil || isNil(o.HostBatch) {
+	if o == nil || IsNil(o.HostBatch) {
 		return nil, false
 	}
 	return o.HostBatch, true
@@ -236,7 +236,7 @@ func (o *IngestersReportIngestionData) GetHosts() []map[string]string {
 // and a boolean to check if the value has been set.
 // NOTE: If the value is an explicit nil, `nil, true` will be returned
 func (o *IngestersReportIngestionData) GetHostsOk() ([]map[string]string, bool) {
-	if o == nil || isNil(o.Hosts) {
+	if o == nil || IsNil(o.Hosts) {
 		return nil, false
 	}
 	return o.Hosts, true
@@ -262,7 +262,7 @@ func (o *IngestersReportIngestionData) GetKubernetesClusterBatch() []map[string]
 // and a boolean to check if the value has been set.
 // NOTE: If the value is an explicit nil, `nil, true` will be returned
 func (o *IngestersReportIngestionData) GetKubernetesClusterBatchOk() ([]map[string]string, bool) {
-	if o == nil || isNil(o.KubernetesClusterBatch) {
+	if o == nil || IsNil(o.KubernetesClusterBatch) {
 		return nil, false
 	}
 	return o.KubernetesClusterBatch, true
@@ -288,7 +288,7 @@ func (o *IngestersReportIngestionData) GetKubernetesClusterEdgeBatch() []map[str
 // and a boolean to check if the value has been set.
 // NOTE: If the value is an explicit nil, `nil, true` will be returned
 func (o *IngestersReportIngestionData) GetKubernetesClusterEdgeBatchOk() ([]map[string]interface{}, bool) {
-	if o == nil || isNil(o.KubernetesClusterEdgeBatch) {
+	if o == nil || IsNil(o.KubernetesClusterEdgeBatch) {
 		return nil, false
 	}
 	return o.KubernetesClusterEdgeBatch, true
@@ -314,7 +314,7 @@ func (o *IngestersReportIngestionData) GetPodBatch() []map[string]string {
 // and a boolean to check if the value has been set.
 // NOTE: If the value is an explicit nil, `nil, true` will be returned
 func (o *IngestersReportIngestionData) GetPodBatchOk() ([]map[string]string, bool) {
-	if o == nil || isNil(o.PodBatch) {
+	if o == nil || IsNil(o.PodBatch) {
 		return nil, false
 	}
 	return o.PodBatch, true
@@ -340,7 +340,7 @@ func (o *IngestersReportIngestionData) GetPodEdgesBatch() []map[string]interface
 // and a boolean to check if the value has been set.
 // NOTE: If the value is an explicit nil, `nil, true` will be returned
 func (o *IngestersReportIngestionData) GetPodEdgesBatchOk() ([]map[string]interface{}, bool) {
-	if o == nil || isNil(o.PodEdgesBatch) {
+	if o == nil || IsNil(o.PodEdgesBatch) {
 		return nil, false
 	}
 	return o.PodEdgesBatch, true
@@ -366,7 +366,7 @@ func (o *IngestersReportIngestionData) GetProcessBatch() []map[string]string {
 // and a boolean to check if the value has been set.
 // NOTE: If the value is an explicit nil, `nil, true` will be returned
 func (o *IngestersReportIngestionData) GetProcessBatchOk() ([]map[string]string, bool) {
-	if o == nil || isNil(o.ProcessBatch) {
+	if o == nil || IsNil(o.ProcessBatch) {
 		return nil, false
 	}
 	return o.ProcessBatch, true
@@ -392,7 +392,7 @@ func (o *IngestersReportIngestionData) GetProcessEdgesBatch() []map[string]inter
 // and a boolean to check if the value has been set.
 // NOTE: If the value is an explicit nil, `nil, true` will be returned
 func (o *IngestersReportIngestionData) GetProcessEdgesBatchOk() ([]map[string]interface{}, bool) {
-	if o == nil || isNil(o.ProcessEdgesBatch) {
+	if o == nil || IsNil(o.ProcessEdgesBatch) {
 		return nil, false
 	}
 	return o.ProcessEdgesBatch, true

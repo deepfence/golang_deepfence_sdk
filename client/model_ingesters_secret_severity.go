@@ -43,7 +43,7 @@ func NewIngestersSecretSeverityWithDefaults() *IngestersSecretSeverity {
 
 // GetLevel returns the Level field value if set, zero value otherwise.
 func (o *IngestersSecretSeverity) GetLevel() string {
-	if o == nil || isNil(o.Level) {
+	if o == nil || IsNil(o.Level) {
 		var ret string
 		return ret
 	}
@@ -53,7 +53,7 @@ func (o *IngestersSecretSeverity) GetLevel() string {
 // GetLevelOk returns a tuple with the Level field value if set, nil otherwise
 // and a boolean to check if the value has been set.
 func (o *IngestersSecretSeverity) GetLevelOk() (*string, bool) {
-	if o == nil || isNil(o.Level) {
+	if o == nil || IsNil(o.Level) {
 		return nil, false
 	}
 	return o.Level, true
@@ -61,7 +61,7 @@ func (o *IngestersSecretSeverity) GetLevelOk() (*string, bool) {
 
 // HasLevel returns a boolean if a field has been set.
 func (o *IngestersSecretSeverity) HasLevel() bool {
-	if o != nil && !isNil(o.Level) {
+	if o != nil && !IsNil(o.Level) {
 		return true
 	}
 
@@ -75,7 +75,7 @@ func (o *IngestersSecretSeverity) SetLevel(v string) {
 
 // GetScore returns the Score field value if set, zero value otherwise.
 func (o *IngestersSecretSeverity) GetScore() float32 {
-	if o == nil || isNil(o.Score) {
+	if o == nil || IsNil(o.Score) {
 		var ret float32
 		return ret
 	}
@@ -85,7 +85,7 @@ func (o *IngestersSecretSeverity) GetScore() float32 {
 // GetScoreOk returns a tuple with the Score field value if set, nil otherwise
 // and a boolean to check if the value has been set.
 func (o *IngestersSecretSeverity) GetScoreOk() (*float32, bool) {
-	if o == nil || isNil(o.Score) {
+	if o == nil || IsNil(o.Score) {
 		return nil, false
 	}
 	return o.Score, true
@@ -93,7 +93,7 @@ func (o *IngestersSecretSeverity) GetScoreOk() (*float32, bool) {
 
 // HasScore returns a boolean if a field has been set.
 func (o *IngestersSecretSeverity) HasScore() bool {
-	if o != nil && !isNil(o.Score) {
+	if o != nil && !IsNil(o.Score) {
 		return true
 	}
 
@@ -115,10 +115,10 @@ func (o IngestersSecretSeverity) MarshalJSON() ([]byte, error) {
 
 func (o IngestersSecretSeverity) ToMap() (map[string]interface{}, error) {
 	toSerialize := map[string]interface{}{}
-	if !isNil(o.Level) {
+	if !IsNil(o.Level) {
 		toSerialize["level"] = o.Level
 	}
-	if !isNil(o.Score) {
+	if !IsNil(o.Score) {
 		toSerialize["score"] = o.Score
 	}
 	return toSerialize, nil

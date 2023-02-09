@@ -4,15 +4,17 @@
 
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
+**CloudAccountScanFilter** | [**ModelFieldsFilter**](ModelFieldsFilter.md) |  | 
 **ContainerScanFilter** | [**ModelFieldsFilter**](ModelFieldsFilter.md) |  | 
 **HostScanFilter** | [**ModelFieldsFilter**](ModelFieldsFilter.md) |  | 
 **ImageScanFilter** | [**ModelFieldsFilter**](ModelFieldsFilter.md) |  | 
+**KubernetesClusterScanFilter** | [**ModelFieldsFilter**](ModelFieldsFilter.md) |  | 
 
 ## Methods
 
 ### NewModelScanFilter
 
-`func NewModelScanFilter(containerScanFilter ModelFieldsFilter, hostScanFilter ModelFieldsFilter, imageScanFilter ModelFieldsFilter, ) *ModelScanFilter`
+`func NewModelScanFilter(cloudAccountScanFilter ModelFieldsFilter, containerScanFilter ModelFieldsFilter, hostScanFilter ModelFieldsFilter, imageScanFilter ModelFieldsFilter, kubernetesClusterScanFilter ModelFieldsFilter, ) *ModelScanFilter`
 
 NewModelScanFilter instantiates a new ModelScanFilter object
 This constructor will assign default values to properties that have it defined,
@@ -26,6 +28,26 @@ will change when the set of required properties is changed
 NewModelScanFilterWithDefaults instantiates a new ModelScanFilter object
 This constructor will only assign default values to properties that have it defined,
 but it doesn't guarantee that properties required by API are set
+
+### GetCloudAccountScanFilter
+
+`func (o *ModelScanFilter) GetCloudAccountScanFilter() ModelFieldsFilter`
+
+GetCloudAccountScanFilter returns the CloudAccountScanFilter field if non-nil, zero value otherwise.
+
+### GetCloudAccountScanFilterOk
+
+`func (o *ModelScanFilter) GetCloudAccountScanFilterOk() (*ModelFieldsFilter, bool)`
+
+GetCloudAccountScanFilterOk returns a tuple with the CloudAccountScanFilter field if it's non-nil, zero value otherwise
+and a boolean to check if the value has been set.
+
+### SetCloudAccountScanFilter
+
+`func (o *ModelScanFilter) SetCloudAccountScanFilter(v ModelFieldsFilter)`
+
+SetCloudAccountScanFilter sets CloudAccountScanFilter field to given value.
+
 
 ### GetContainerScanFilter
 
@@ -85,6 +107,26 @@ and a boolean to check if the value has been set.
 `func (o *ModelScanFilter) SetImageScanFilter(v ModelFieldsFilter)`
 
 SetImageScanFilter sets ImageScanFilter field to given value.
+
+
+### GetKubernetesClusterScanFilter
+
+`func (o *ModelScanFilter) GetKubernetesClusterScanFilter() ModelFieldsFilter`
+
+GetKubernetesClusterScanFilter returns the KubernetesClusterScanFilter field if non-nil, zero value otherwise.
+
+### GetKubernetesClusterScanFilterOk
+
+`func (o *ModelScanFilter) GetKubernetesClusterScanFilterOk() (*ModelFieldsFilter, bool)`
+
+GetKubernetesClusterScanFilterOk returns a tuple with the KubernetesClusterScanFilter field if it's non-nil, zero value otherwise
+and a boolean to check if the value has been set.
+
+### SetKubernetesClusterScanFilter
+
+`func (o *ModelScanFilter) SetKubernetesClusterScanFilter(v ModelFieldsFilter)`
+
+SetKubernetesClusterScanFilter sets KubernetesClusterScanFilter field to given value.
 
 
 

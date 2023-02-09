@@ -82,7 +82,7 @@ func (o *ModelScanTriggerResp) GetScanIds() []string {
 // and a boolean to check if the value has been set.
 // NOTE: If the value is an explicit nil, `nil, true` will be returned
 func (o *ModelScanTriggerResp) GetScanIdsOk() ([]string, bool) {
-	if o == nil || isNil(o.ScanIds) {
+	if o == nil || IsNil(o.ScanIds) {
 		return nil, false
 	}
 	return o.ScanIds, true

@@ -27,7 +27,7 @@ import (
     "context"
     "fmt"
     "os"
-    openapiclient "./openapi"
+    openapiclient "github.com/deepfence/golang_deepfence_sdk/client"
 )
 
 func main() {
@@ -35,7 +35,7 @@ func main() {
 
     configuration := openapiclient.NewConfiguration()
     apiClient := openapiclient.NewAPIClient(configuration)
-    resp, r, err := apiClient.RegistryApi.AddRegistry(context.Background()).ModelRegistryAddReq(modelRegistryAddReq).Execute()
+    r, err := apiClient.RegistryApi.AddRegistry(context.Background()).ModelRegistryAddReq(modelRegistryAddReq).Execute()
     if err != nil {
         fmt.Fprintf(os.Stderr, "Error when calling `RegistryApi.AddRegistry``: %v\n", err)
         fmt.Fprintf(os.Stderr, "Full HTTP response: %v\n", r)
@@ -91,7 +91,7 @@ import (
     "context"
     "fmt"
     "os"
-    openapiclient "./openapi"
+    openapiclient "github.com/deepfence/golang_deepfence_sdk/client"
 )
 
 func main() {
@@ -99,7 +99,7 @@ func main() {
 
     configuration := openapiclient.NewConfiguration()
     apiClient := openapiclient.NewAPIClient(configuration)
-    resp, r, err := apiClient.RegistryApi.DeleteRegistry(context.Background(), id).Execute()
+    r, err := apiClient.RegistryApi.DeleteRegistry(context.Background(), id).Execute()
     if err != nil {
         fmt.Fprintf(os.Stderr, "Error when calling `RegistryApi.DeleteRegistry``: %v\n", err)
         fmt.Fprintf(os.Stderr, "Full HTTP response: %v\n", r)
@@ -159,7 +159,7 @@ import (
     "context"
     "fmt"
     "os"
-    openapiclient "./openapi"
+    openapiclient "github.com/deepfence/golang_deepfence_sdk/client"
 )
 
 func main() {

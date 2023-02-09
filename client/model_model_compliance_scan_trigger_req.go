@@ -20,16 +20,20 @@ var _ MappedNullable = &ModelComplianceScanTriggerReq{}
 
 // ModelComplianceScanTriggerReq struct for ModelComplianceScanTriggerReq
 type ModelComplianceScanTriggerReq struct {
-	ScanTriggers []ModelComplianceScanTrigger `json:"scan_triggers"`
+	BenchmarkTypes []string `json:"benchmark_types"`
+	Filters ModelScanFilter `json:"filters"`
+	NodeIds []ModelNodeIdentifier `json:"node_ids"`
 }
 
 // NewModelComplianceScanTriggerReq instantiates a new ModelComplianceScanTriggerReq object
 // This constructor will assign default values to properties that have it defined,
 // and makes sure properties required by API are set, but the set of arguments
 // will change when the set of required properties is changed
-func NewModelComplianceScanTriggerReq(scanTriggers []ModelComplianceScanTrigger) *ModelComplianceScanTriggerReq {
+func NewModelComplianceScanTriggerReq(benchmarkTypes []string, filters ModelScanFilter, nodeIds []ModelNodeIdentifier) *ModelComplianceScanTriggerReq {
 	this := ModelComplianceScanTriggerReq{}
-	this.ScanTriggers = scanTriggers
+	this.BenchmarkTypes = benchmarkTypes
+	this.Filters = filters
+	this.NodeIds = nodeIds
 	return &this
 }
 
@@ -41,30 +45,80 @@ func NewModelComplianceScanTriggerReqWithDefaults() *ModelComplianceScanTriggerR
 	return &this
 }
 
-// GetScanTriggers returns the ScanTriggers field value
-// If the value is explicit nil, the zero value for []ModelComplianceScanTrigger will be returned
-func (o *ModelComplianceScanTriggerReq) GetScanTriggers() []ModelComplianceScanTrigger {
+// GetBenchmarkTypes returns the BenchmarkTypes field value
+// If the value is explicit nil, the zero value for []string will be returned
+func (o *ModelComplianceScanTriggerReq) GetBenchmarkTypes() []string {
 	if o == nil {
-		var ret []ModelComplianceScanTrigger
+		var ret []string
 		return ret
 	}
 
-	return o.ScanTriggers
+	return o.BenchmarkTypes
 }
 
-// GetScanTriggersOk returns a tuple with the ScanTriggers field value
+// GetBenchmarkTypesOk returns a tuple with the BenchmarkTypes field value
 // and a boolean to check if the value has been set.
 // NOTE: If the value is an explicit nil, `nil, true` will be returned
-func (o *ModelComplianceScanTriggerReq) GetScanTriggersOk() ([]ModelComplianceScanTrigger, bool) {
-	if o == nil || isNil(o.ScanTriggers) {
+func (o *ModelComplianceScanTriggerReq) GetBenchmarkTypesOk() ([]string, bool) {
+	if o == nil || IsNil(o.BenchmarkTypes) {
 		return nil, false
 	}
-	return o.ScanTriggers, true
+	return o.BenchmarkTypes, true
 }
 
-// SetScanTriggers sets field value
-func (o *ModelComplianceScanTriggerReq) SetScanTriggers(v []ModelComplianceScanTrigger) {
-	o.ScanTriggers = v
+// SetBenchmarkTypes sets field value
+func (o *ModelComplianceScanTriggerReq) SetBenchmarkTypes(v []string) {
+	o.BenchmarkTypes = v
+}
+
+// GetFilters returns the Filters field value
+func (o *ModelComplianceScanTriggerReq) GetFilters() ModelScanFilter {
+	if o == nil {
+		var ret ModelScanFilter
+		return ret
+	}
+
+	return o.Filters
+}
+
+// GetFiltersOk returns a tuple with the Filters field value
+// and a boolean to check if the value has been set.
+func (o *ModelComplianceScanTriggerReq) GetFiltersOk() (*ModelScanFilter, bool) {
+	if o == nil {
+		return nil, false
+	}
+	return &o.Filters, true
+}
+
+// SetFilters sets field value
+func (o *ModelComplianceScanTriggerReq) SetFilters(v ModelScanFilter) {
+	o.Filters = v
+}
+
+// GetNodeIds returns the NodeIds field value
+// If the value is explicit nil, the zero value for []ModelNodeIdentifier will be returned
+func (o *ModelComplianceScanTriggerReq) GetNodeIds() []ModelNodeIdentifier {
+	if o == nil {
+		var ret []ModelNodeIdentifier
+		return ret
+	}
+
+	return o.NodeIds
+}
+
+// GetNodeIdsOk returns a tuple with the NodeIds field value
+// and a boolean to check if the value has been set.
+// NOTE: If the value is an explicit nil, `nil, true` will be returned
+func (o *ModelComplianceScanTriggerReq) GetNodeIdsOk() ([]ModelNodeIdentifier, bool) {
+	if o == nil || IsNil(o.NodeIds) {
+		return nil, false
+	}
+	return o.NodeIds, true
+}
+
+// SetNodeIds sets field value
+func (o *ModelComplianceScanTriggerReq) SetNodeIds(v []ModelNodeIdentifier) {
+	o.NodeIds = v
 }
 
 func (o ModelComplianceScanTriggerReq) MarshalJSON() ([]byte, error) {
@@ -77,8 +131,12 @@ func (o ModelComplianceScanTriggerReq) MarshalJSON() ([]byte, error) {
 
 func (o ModelComplianceScanTriggerReq) ToMap() (map[string]interface{}, error) {
 	toSerialize := map[string]interface{}{}
-	if o.ScanTriggers != nil {
-		toSerialize["scan_triggers"] = o.ScanTriggers
+	if o.BenchmarkTypes != nil {
+		toSerialize["benchmark_types"] = o.BenchmarkTypes
+	}
+	toSerialize["filters"] = o.Filters
+	if o.NodeIds != nil {
+		toSerialize["node_ids"] = o.NodeIds
 	}
 	return toSerialize, nil
 }

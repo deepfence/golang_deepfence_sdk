@@ -43,7 +43,7 @@ func NewModelCloudNodeCloudtrailTrailWithDefaults() *ModelCloudNodeCloudtrailTra
 
 // GetAccountId returns the AccountId field value if set, zero value otherwise.
 func (o *ModelCloudNodeCloudtrailTrail) GetAccountId() string {
-	if o == nil || isNil(o.AccountId) {
+	if o == nil || IsNil(o.AccountId) {
 		var ret string
 		return ret
 	}
@@ -53,7 +53,7 @@ func (o *ModelCloudNodeCloudtrailTrail) GetAccountId() string {
 // GetAccountIdOk returns a tuple with the AccountId field value if set, nil otherwise
 // and a boolean to check if the value has been set.
 func (o *ModelCloudNodeCloudtrailTrail) GetAccountIdOk() (*string, bool) {
-	if o == nil || isNil(o.AccountId) {
+	if o == nil || IsNil(o.AccountId) {
 		return nil, false
 	}
 	return o.AccountId, true
@@ -61,7 +61,7 @@ func (o *ModelCloudNodeCloudtrailTrail) GetAccountIdOk() (*string, bool) {
 
 // HasAccountId returns a boolean if a field has been set.
 func (o *ModelCloudNodeCloudtrailTrail) HasAccountId() bool {
-	if o != nil && !isNil(o.AccountId) {
+	if o != nil && !IsNil(o.AccountId) {
 		return true
 	}
 
@@ -75,7 +75,7 @@ func (o *ModelCloudNodeCloudtrailTrail) SetAccountId(v string) {
 
 // GetTrailName returns the TrailName field value if set, zero value otherwise.
 func (o *ModelCloudNodeCloudtrailTrail) GetTrailName() string {
-	if o == nil || isNil(o.TrailName) {
+	if o == nil || IsNil(o.TrailName) {
 		var ret string
 		return ret
 	}
@@ -85,7 +85,7 @@ func (o *ModelCloudNodeCloudtrailTrail) GetTrailName() string {
 // GetTrailNameOk returns a tuple with the TrailName field value if set, nil otherwise
 // and a boolean to check if the value has been set.
 func (o *ModelCloudNodeCloudtrailTrail) GetTrailNameOk() (*string, bool) {
-	if o == nil || isNil(o.TrailName) {
+	if o == nil || IsNil(o.TrailName) {
 		return nil, false
 	}
 	return o.TrailName, true
@@ -93,7 +93,7 @@ func (o *ModelCloudNodeCloudtrailTrail) GetTrailNameOk() (*string, bool) {
 
 // HasTrailName returns a boolean if a field has been set.
 func (o *ModelCloudNodeCloudtrailTrail) HasTrailName() bool {
-	if o != nil && !isNil(o.TrailName) {
+	if o != nil && !IsNil(o.TrailName) {
 		return true
 	}
 
@@ -115,10 +115,10 @@ func (o ModelCloudNodeCloudtrailTrail) MarshalJSON() ([]byte, error) {
 
 func (o ModelCloudNodeCloudtrailTrail) ToMap() (map[string]interface{}, error) {
 	toSerialize := map[string]interface{}{}
-	if !isNil(o.AccountId) {
+	if !IsNil(o.AccountId) {
 		toSerialize["account_id"] = o.AccountId
 	}
-	if !isNil(o.TrailName) {
+	if !IsNil(o.TrailName) {
 		toSerialize["trail_name"] = o.TrailName
 	}
 	return toSerialize, nil

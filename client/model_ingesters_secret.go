@@ -55,7 +55,7 @@ func NewIngestersSecretWithDefaults() *IngestersSecret {
 
 // GetTimestamp returns the Timestamp field value if set, zero value otherwise.
 func (o *IngestersSecret) GetTimestamp() time.Time {
-	if o == nil || isNil(o.Timestamp) {
+	if o == nil || IsNil(o.Timestamp) {
 		var ret time.Time
 		return ret
 	}
@@ -65,7 +65,7 @@ func (o *IngestersSecret) GetTimestamp() time.Time {
 // GetTimestampOk returns a tuple with the Timestamp field value if set, nil otherwise
 // and a boolean to check if the value has been set.
 func (o *IngestersSecret) GetTimestampOk() (*time.Time, bool) {
-	if o == nil || isNil(o.Timestamp) {
+	if o == nil || IsNil(o.Timestamp) {
 		return nil, false
 	}
 	return o.Timestamp, true
@@ -73,7 +73,7 @@ func (o *IngestersSecret) GetTimestampOk() (*time.Time, bool) {
 
 // HasTimestamp returns a boolean if a field has been set.
 func (o *IngestersSecret) HasTimestamp() bool {
-	if o != nil && !isNil(o.Timestamp) {
+	if o != nil && !IsNil(o.Timestamp) {
 		return true
 	}
 
@@ -87,7 +87,7 @@ func (o *IngestersSecret) SetTimestamp(v time.Time) {
 
 // GetImageLayerId returns the ImageLayerId field value if set, zero value otherwise.
 func (o *IngestersSecret) GetImageLayerId() string {
-	if o == nil || isNil(o.ImageLayerId) {
+	if o == nil || IsNil(o.ImageLayerId) {
 		var ret string
 		return ret
 	}
@@ -97,7 +97,7 @@ func (o *IngestersSecret) GetImageLayerId() string {
 // GetImageLayerIdOk returns a tuple with the ImageLayerId field value if set, nil otherwise
 // and a boolean to check if the value has been set.
 func (o *IngestersSecret) GetImageLayerIdOk() (*string, bool) {
-	if o == nil || isNil(o.ImageLayerId) {
+	if o == nil || IsNil(o.ImageLayerId) {
 		return nil, false
 	}
 	return o.ImageLayerId, true
@@ -105,7 +105,7 @@ func (o *IngestersSecret) GetImageLayerIdOk() (*string, bool) {
 
 // HasImageLayerId returns a boolean if a field has been set.
 func (o *IngestersSecret) HasImageLayerId() bool {
-	if o != nil && !isNil(o.ImageLayerId) {
+	if o != nil && !IsNil(o.ImageLayerId) {
 		return true
 	}
 
@@ -119,7 +119,7 @@ func (o *IngestersSecret) SetImageLayerId(v string) {
 
 // GetMatch returns the Match field value if set, zero value otherwise.
 func (o *IngestersSecret) GetMatch() IngestersSecretMatch {
-	if o == nil || isNil(o.Match) {
+	if o == nil || IsNil(o.Match) {
 		var ret IngestersSecretMatch
 		return ret
 	}
@@ -129,7 +129,7 @@ func (o *IngestersSecret) GetMatch() IngestersSecretMatch {
 // GetMatchOk returns a tuple with the Match field value if set, nil otherwise
 // and a boolean to check if the value has been set.
 func (o *IngestersSecret) GetMatchOk() (*IngestersSecretMatch, bool) {
-	if o == nil || isNil(o.Match) {
+	if o == nil || IsNil(o.Match) {
 		return nil, false
 	}
 	return o.Match, true
@@ -137,7 +137,7 @@ func (o *IngestersSecret) GetMatchOk() (*IngestersSecretMatch, bool) {
 
 // HasMatch returns a boolean if a field has been set.
 func (o *IngestersSecret) HasMatch() bool {
-	if o != nil && !isNil(o.Match) {
+	if o != nil && !IsNil(o.Match) {
 		return true
 	}
 
@@ -151,7 +151,7 @@ func (o *IngestersSecret) SetMatch(v IngestersSecretMatch) {
 
 // GetRule returns the Rule field value if set, zero value otherwise.
 func (o *IngestersSecret) GetRule() IngestersSecretRule {
-	if o == nil || isNil(o.Rule) {
+	if o == nil || IsNil(o.Rule) {
 		var ret IngestersSecretRule
 		return ret
 	}
@@ -161,7 +161,7 @@ func (o *IngestersSecret) GetRule() IngestersSecretRule {
 // GetRuleOk returns a tuple with the Rule field value if set, nil otherwise
 // and a boolean to check if the value has been set.
 func (o *IngestersSecret) GetRuleOk() (*IngestersSecretRule, bool) {
-	if o == nil || isNil(o.Rule) {
+	if o == nil || IsNil(o.Rule) {
 		return nil, false
 	}
 	return o.Rule, true
@@ -169,7 +169,7 @@ func (o *IngestersSecret) GetRuleOk() (*IngestersSecretRule, bool) {
 
 // HasRule returns a boolean if a field has been set.
 func (o *IngestersSecret) HasRule() bool {
-	if o != nil && !isNil(o.Rule) {
+	if o != nil && !IsNil(o.Rule) {
 		return true
 	}
 
@@ -183,7 +183,7 @@ func (o *IngestersSecret) SetRule(v IngestersSecretRule) {
 
 // GetSeverity returns the Severity field value if set, zero value otherwise.
 func (o *IngestersSecret) GetSeverity() IngestersSecretSeverity {
-	if o == nil || isNil(o.Severity) {
+	if o == nil || IsNil(o.Severity) {
 		var ret IngestersSecretSeverity
 		return ret
 	}
@@ -193,7 +193,7 @@ func (o *IngestersSecret) GetSeverity() IngestersSecretSeverity {
 // GetSeverityOk returns a tuple with the Severity field value if set, nil otherwise
 // and a boolean to check if the value has been set.
 func (o *IngestersSecret) GetSeverityOk() (*IngestersSecretSeverity, bool) {
-	if o == nil || isNil(o.Severity) {
+	if o == nil || IsNil(o.Severity) {
 		return nil, false
 	}
 	return o.Severity, true
@@ -201,7 +201,7 @@ func (o *IngestersSecret) GetSeverityOk() (*IngestersSecretSeverity, bool) {
 
 // HasSeverity returns a boolean if a field has been set.
 func (o *IngestersSecret) HasSeverity() bool {
-	if o != nil && !isNil(o.Severity) {
+	if o != nil && !IsNil(o.Severity) {
 		return true
 	}
 
@@ -215,7 +215,7 @@ func (o *IngestersSecret) SetSeverity(v IngestersSecretSeverity) {
 
 // GetContainerName returns the ContainerName field value if set, zero value otherwise.
 func (o *IngestersSecret) GetContainerName() string {
-	if o == nil || isNil(o.ContainerName) {
+	if o == nil || IsNil(o.ContainerName) {
 		var ret string
 		return ret
 	}
@@ -225,7 +225,7 @@ func (o *IngestersSecret) GetContainerName() string {
 // GetContainerNameOk returns a tuple with the ContainerName field value if set, nil otherwise
 // and a boolean to check if the value has been set.
 func (o *IngestersSecret) GetContainerNameOk() (*string, bool) {
-	if o == nil || isNil(o.ContainerName) {
+	if o == nil || IsNil(o.ContainerName) {
 		return nil, false
 	}
 	return o.ContainerName, true
@@ -233,7 +233,7 @@ func (o *IngestersSecret) GetContainerNameOk() (*string, bool) {
 
 // HasContainerName returns a boolean if a field has been set.
 func (o *IngestersSecret) HasContainerName() bool {
-	if o != nil && !isNil(o.ContainerName) {
+	if o != nil && !IsNil(o.ContainerName) {
 		return true
 	}
 
@@ -247,7 +247,7 @@ func (o *IngestersSecret) SetContainerName(v string) {
 
 // GetHostName returns the HostName field value if set, zero value otherwise.
 func (o *IngestersSecret) GetHostName() string {
-	if o == nil || isNil(o.HostName) {
+	if o == nil || IsNil(o.HostName) {
 		var ret string
 		return ret
 	}
@@ -257,7 +257,7 @@ func (o *IngestersSecret) GetHostName() string {
 // GetHostNameOk returns a tuple with the HostName field value if set, nil otherwise
 // and a boolean to check if the value has been set.
 func (o *IngestersSecret) GetHostNameOk() (*string, bool) {
-	if o == nil || isNil(o.HostName) {
+	if o == nil || IsNil(o.HostName) {
 		return nil, false
 	}
 	return o.HostName, true
@@ -265,7 +265,7 @@ func (o *IngestersSecret) GetHostNameOk() (*string, bool) {
 
 // HasHostName returns a boolean if a field has been set.
 func (o *IngestersSecret) HasHostName() bool {
-	if o != nil && !isNil(o.HostName) {
+	if o != nil && !IsNil(o.HostName) {
 		return true
 	}
 
@@ -279,7 +279,7 @@ func (o *IngestersSecret) SetHostName(v string) {
 
 // GetKubernetesClusterName returns the KubernetesClusterName field value if set, zero value otherwise.
 func (o *IngestersSecret) GetKubernetesClusterName() string {
-	if o == nil || isNil(o.KubernetesClusterName) {
+	if o == nil || IsNil(o.KubernetesClusterName) {
 		var ret string
 		return ret
 	}
@@ -289,7 +289,7 @@ func (o *IngestersSecret) GetKubernetesClusterName() string {
 // GetKubernetesClusterNameOk returns a tuple with the KubernetesClusterName field value if set, nil otherwise
 // and a boolean to check if the value has been set.
 func (o *IngestersSecret) GetKubernetesClusterNameOk() (*string, bool) {
-	if o == nil || isNil(o.KubernetesClusterName) {
+	if o == nil || IsNil(o.KubernetesClusterName) {
 		return nil, false
 	}
 	return o.KubernetesClusterName, true
@@ -297,7 +297,7 @@ func (o *IngestersSecret) GetKubernetesClusterNameOk() (*string, bool) {
 
 // HasKubernetesClusterName returns a boolean if a field has been set.
 func (o *IngestersSecret) HasKubernetesClusterName() bool {
-	if o != nil && !isNil(o.KubernetesClusterName) {
+	if o != nil && !IsNil(o.KubernetesClusterName) {
 		return true
 	}
 
@@ -311,7 +311,7 @@ func (o *IngestersSecret) SetKubernetesClusterName(v string) {
 
 // GetMasked returns the Masked field value if set, zero value otherwise.
 func (o *IngestersSecret) GetMasked() string {
-	if o == nil || isNil(o.Masked) {
+	if o == nil || IsNil(o.Masked) {
 		var ret string
 		return ret
 	}
@@ -321,7 +321,7 @@ func (o *IngestersSecret) GetMasked() string {
 // GetMaskedOk returns a tuple with the Masked field value if set, nil otherwise
 // and a boolean to check if the value has been set.
 func (o *IngestersSecret) GetMaskedOk() (*string, bool) {
-	if o == nil || isNil(o.Masked) {
+	if o == nil || IsNil(o.Masked) {
 		return nil, false
 	}
 	return o.Masked, true
@@ -329,7 +329,7 @@ func (o *IngestersSecret) GetMaskedOk() (*string, bool) {
 
 // HasMasked returns a boolean if a field has been set.
 func (o *IngestersSecret) HasMasked() bool {
-	if o != nil && !isNil(o.Masked) {
+	if o != nil && !IsNil(o.Masked) {
 		return true
 	}
 
@@ -343,7 +343,7 @@ func (o *IngestersSecret) SetMasked(v string) {
 
 // GetNodeId returns the NodeId field value if set, zero value otherwise.
 func (o *IngestersSecret) GetNodeId() string {
-	if o == nil || isNil(o.NodeId) {
+	if o == nil || IsNil(o.NodeId) {
 		var ret string
 		return ret
 	}
@@ -353,7 +353,7 @@ func (o *IngestersSecret) GetNodeId() string {
 // GetNodeIdOk returns a tuple with the NodeId field value if set, nil otherwise
 // and a boolean to check if the value has been set.
 func (o *IngestersSecret) GetNodeIdOk() (*string, bool) {
-	if o == nil || isNil(o.NodeId) {
+	if o == nil || IsNil(o.NodeId) {
 		return nil, false
 	}
 	return o.NodeId, true
@@ -361,7 +361,7 @@ func (o *IngestersSecret) GetNodeIdOk() (*string, bool) {
 
 // HasNodeId returns a boolean if a field has been set.
 func (o *IngestersSecret) HasNodeId() bool {
-	if o != nil && !isNil(o.NodeId) {
+	if o != nil && !IsNil(o.NodeId) {
 		return true
 	}
 
@@ -375,7 +375,7 @@ func (o *IngestersSecret) SetNodeId(v string) {
 
 // GetNodeName returns the NodeName field value if set, zero value otherwise.
 func (o *IngestersSecret) GetNodeName() string {
-	if o == nil || isNil(o.NodeName) {
+	if o == nil || IsNil(o.NodeName) {
 		var ret string
 		return ret
 	}
@@ -385,7 +385,7 @@ func (o *IngestersSecret) GetNodeName() string {
 // GetNodeNameOk returns a tuple with the NodeName field value if set, nil otherwise
 // and a boolean to check if the value has been set.
 func (o *IngestersSecret) GetNodeNameOk() (*string, bool) {
-	if o == nil || isNil(o.NodeName) {
+	if o == nil || IsNil(o.NodeName) {
 		return nil, false
 	}
 	return o.NodeName, true
@@ -393,7 +393,7 @@ func (o *IngestersSecret) GetNodeNameOk() (*string, bool) {
 
 // HasNodeName returns a boolean if a field has been set.
 func (o *IngestersSecret) HasNodeName() bool {
-	if o != nil && !isNil(o.NodeName) {
+	if o != nil && !IsNil(o.NodeName) {
 		return true
 	}
 
@@ -407,7 +407,7 @@ func (o *IngestersSecret) SetNodeName(v string) {
 
 // GetNodeType returns the NodeType field value if set, zero value otherwise.
 func (o *IngestersSecret) GetNodeType() string {
-	if o == nil || isNil(o.NodeType) {
+	if o == nil || IsNil(o.NodeType) {
 		var ret string
 		return ret
 	}
@@ -417,7 +417,7 @@ func (o *IngestersSecret) GetNodeType() string {
 // GetNodeTypeOk returns a tuple with the NodeType field value if set, nil otherwise
 // and a boolean to check if the value has been set.
 func (o *IngestersSecret) GetNodeTypeOk() (*string, bool) {
-	if o == nil || isNil(o.NodeType) {
+	if o == nil || IsNil(o.NodeType) {
 		return nil, false
 	}
 	return o.NodeType, true
@@ -425,7 +425,7 @@ func (o *IngestersSecret) GetNodeTypeOk() (*string, bool) {
 
 // HasNodeType returns a boolean if a field has been set.
 func (o *IngestersSecret) HasNodeType() bool {
-	if o != nil && !isNil(o.NodeType) {
+	if o != nil && !IsNil(o.NodeType) {
 		return true
 	}
 
@@ -439,7 +439,7 @@ func (o *IngestersSecret) SetNodeType(v string) {
 
 // GetScanId returns the ScanId field value if set, zero value otherwise.
 func (o *IngestersSecret) GetScanId() string {
-	if o == nil || isNil(o.ScanId) {
+	if o == nil || IsNil(o.ScanId) {
 		var ret string
 		return ret
 	}
@@ -449,7 +449,7 @@ func (o *IngestersSecret) GetScanId() string {
 // GetScanIdOk returns a tuple with the ScanId field value if set, nil otherwise
 // and a boolean to check if the value has been set.
 func (o *IngestersSecret) GetScanIdOk() (*string, bool) {
-	if o == nil || isNil(o.ScanId) {
+	if o == nil || IsNil(o.ScanId) {
 		return nil, false
 	}
 	return o.ScanId, true
@@ -457,7 +457,7 @@ func (o *IngestersSecret) GetScanIdOk() (*string, bool) {
 
 // HasScanId returns a boolean if a field has been set.
 func (o *IngestersSecret) HasScanId() bool {
-	if o != nil && !isNil(o.ScanId) {
+	if o != nil && !IsNil(o.ScanId) {
 		return true
 	}
 
@@ -479,43 +479,43 @@ func (o IngestersSecret) MarshalJSON() ([]byte, error) {
 
 func (o IngestersSecret) ToMap() (map[string]interface{}, error) {
 	toSerialize := map[string]interface{}{}
-	if !isNil(o.Timestamp) {
+	if !IsNil(o.Timestamp) {
 		toSerialize["@timestamp"] = o.Timestamp
 	}
-	if !isNil(o.ImageLayerId) {
+	if !IsNil(o.ImageLayerId) {
 		toSerialize["ImageLayerId"] = o.ImageLayerId
 	}
-	if !isNil(o.Match) {
+	if !IsNil(o.Match) {
 		toSerialize["Match"] = o.Match
 	}
-	if !isNil(o.Rule) {
+	if !IsNil(o.Rule) {
 		toSerialize["Rule"] = o.Rule
 	}
-	if !isNil(o.Severity) {
+	if !IsNil(o.Severity) {
 		toSerialize["Severity"] = o.Severity
 	}
-	if !isNil(o.ContainerName) {
+	if !IsNil(o.ContainerName) {
 		toSerialize["container_name"] = o.ContainerName
 	}
-	if !isNil(o.HostName) {
+	if !IsNil(o.HostName) {
 		toSerialize["host_name"] = o.HostName
 	}
-	if !isNil(o.KubernetesClusterName) {
+	if !IsNil(o.KubernetesClusterName) {
 		toSerialize["kubernetes_cluster_name"] = o.KubernetesClusterName
 	}
-	if !isNil(o.Masked) {
+	if !IsNil(o.Masked) {
 		toSerialize["masked"] = o.Masked
 	}
-	if !isNil(o.NodeId) {
+	if !IsNil(o.NodeId) {
 		toSerialize["node_id"] = o.NodeId
 	}
-	if !isNil(o.NodeName) {
+	if !IsNil(o.NodeName) {
 		toSerialize["node_name"] = o.NodeName
 	}
-	if !isNil(o.NodeType) {
+	if !IsNil(o.NodeType) {
 		toSerialize["node_type"] = o.NodeType
 	}
-	if !isNil(o.ScanId) {
+	if !IsNil(o.ScanId) {
 		toSerialize["scan_id"] = o.ScanId
 	}
 	return toSerialize, nil

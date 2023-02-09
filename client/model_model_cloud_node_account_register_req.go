@@ -108,7 +108,7 @@ func (o *ModelCloudNodeAccountRegisterReq) GetMonitoredAccountIds() map[string]s
 // and a boolean to check if the value has been set.
 // NOTE: If the value is an explicit nil, `nil, true` will be returned
 func (o *ModelCloudNodeAccountRegisterReq) GetMonitoredAccountIdsOk() (*map[string]string, bool) {
-	if o == nil || isNil(o.MonitoredAccountIds) {
+	if o == nil || IsNil(o.MonitoredAccountIds) {
 		return nil, false
 	}
 	return &o.MonitoredAccountIds, true
@@ -116,7 +116,7 @@ func (o *ModelCloudNodeAccountRegisterReq) GetMonitoredAccountIdsOk() (*map[stri
 
 // HasMonitoredAccountIds returns a boolean if a field has been set.
 func (o *ModelCloudNodeAccountRegisterReq) HasMonitoredAccountIds() bool {
-	if o != nil && isNil(o.MonitoredAccountIds) {
+	if o != nil && IsNil(o.MonitoredAccountIds) {
 		return true
 	}
 
@@ -154,7 +154,7 @@ func (o *ModelCloudNodeAccountRegisterReq) SetNodeId(v string) {
 
 // GetOrgAccId returns the OrgAccId field value if set, zero value otherwise.
 func (o *ModelCloudNodeAccountRegisterReq) GetOrgAccId() string {
-	if o == nil || isNil(o.OrgAccId) {
+	if o == nil || IsNil(o.OrgAccId) {
 		var ret string
 		return ret
 	}
@@ -164,7 +164,7 @@ func (o *ModelCloudNodeAccountRegisterReq) GetOrgAccId() string {
 // GetOrgAccIdOk returns a tuple with the OrgAccId field value if set, nil otherwise
 // and a boolean to check if the value has been set.
 func (o *ModelCloudNodeAccountRegisterReq) GetOrgAccIdOk() (*string, bool) {
-	if o == nil || isNil(o.OrgAccId) {
+	if o == nil || IsNil(o.OrgAccId) {
 		return nil, false
 	}
 	return o.OrgAccId, true
@@ -172,7 +172,7 @@ func (o *ModelCloudNodeAccountRegisterReq) GetOrgAccIdOk() (*string, bool) {
 
 // HasOrgAccId returns a boolean if a field has been set.
 func (o *ModelCloudNodeAccountRegisterReq) HasOrgAccId() bool {
-	if o != nil && !isNil(o.OrgAccId) {
+	if o != nil && !IsNil(o.OrgAccId) {
 		return true
 	}
 
@@ -200,7 +200,7 @@ func (o ModelCloudNodeAccountRegisterReq) ToMap() (map[string]interface{}, error
 		toSerialize["monitored_account_ids"] = o.MonitoredAccountIds
 	}
 	toSerialize["node_id"] = o.NodeId
-	if !isNil(o.OrgAccId) {
+	if !IsNil(o.OrgAccId) {
 		toSerialize["org_acc_id"] = o.OrgAccId
 	}
 	return toSerialize, nil

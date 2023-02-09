@@ -45,7 +45,7 @@ func NewModelCloudComplianceScanDetailsWithDefaults() *ModelCloudComplianceScanD
 
 // GetAccountId returns the AccountId field value if set, zero value otherwise.
 func (o *ModelCloudComplianceScanDetails) GetAccountId() string {
-	if o == nil || isNil(o.AccountId) {
+	if o == nil || IsNil(o.AccountId) {
 		var ret string
 		return ret
 	}
@@ -55,7 +55,7 @@ func (o *ModelCloudComplianceScanDetails) GetAccountId() string {
 // GetAccountIdOk returns a tuple with the AccountId field value if set, nil otherwise
 // and a boolean to check if the value has been set.
 func (o *ModelCloudComplianceScanDetails) GetAccountIdOk() (*string, bool) {
-	if o == nil || isNil(o.AccountId) {
+	if o == nil || IsNil(o.AccountId) {
 		return nil, false
 	}
 	return o.AccountId, true
@@ -63,7 +63,7 @@ func (o *ModelCloudComplianceScanDetails) GetAccountIdOk() (*string, bool) {
 
 // HasAccountId returns a boolean if a field has been set.
 func (o *ModelCloudComplianceScanDetails) HasAccountId() bool {
-	if o != nil && !isNil(o.AccountId) {
+	if o != nil && !IsNil(o.AccountId) {
 		return true
 	}
 
@@ -88,7 +88,7 @@ func (o *ModelCloudComplianceScanDetails) GetControls() []string {
 // and a boolean to check if the value has been set.
 // NOTE: If the value is an explicit nil, `nil, true` will be returned
 func (o *ModelCloudComplianceScanDetails) GetControlsOk() ([]string, bool) {
-	if o == nil || isNil(o.Controls) {
+	if o == nil || IsNil(o.Controls) {
 		return nil, false
 	}
 	return o.Controls, true
@@ -96,7 +96,7 @@ func (o *ModelCloudComplianceScanDetails) GetControlsOk() ([]string, bool) {
 
 // HasControls returns a boolean if a field has been set.
 func (o *ModelCloudComplianceScanDetails) HasControls() bool {
-	if o != nil && isNil(o.Controls) {
+	if o != nil && IsNil(o.Controls) {
 		return true
 	}
 
@@ -110,7 +110,7 @@ func (o *ModelCloudComplianceScanDetails) SetControls(v []string) {
 
 // GetScanId returns the ScanId field value if set, zero value otherwise.
 func (o *ModelCloudComplianceScanDetails) GetScanId() string {
-	if o == nil || isNil(o.ScanId) {
+	if o == nil || IsNil(o.ScanId) {
 		var ret string
 		return ret
 	}
@@ -120,7 +120,7 @@ func (o *ModelCloudComplianceScanDetails) GetScanId() string {
 // GetScanIdOk returns a tuple with the ScanId field value if set, nil otherwise
 // and a boolean to check if the value has been set.
 func (o *ModelCloudComplianceScanDetails) GetScanIdOk() (*string, bool) {
-	if o == nil || isNil(o.ScanId) {
+	if o == nil || IsNil(o.ScanId) {
 		return nil, false
 	}
 	return o.ScanId, true
@@ -128,7 +128,7 @@ func (o *ModelCloudComplianceScanDetails) GetScanIdOk() (*string, bool) {
 
 // HasScanId returns a boolean if a field has been set.
 func (o *ModelCloudComplianceScanDetails) HasScanId() bool {
-	if o != nil && !isNil(o.ScanId) {
+	if o != nil && !IsNil(o.ScanId) {
 		return true
 	}
 
@@ -142,7 +142,7 @@ func (o *ModelCloudComplianceScanDetails) SetScanId(v string) {
 
 // GetScanType returns the ScanType field value if set, zero value otherwise.
 func (o *ModelCloudComplianceScanDetails) GetScanType() string {
-	if o == nil || isNil(o.ScanType) {
+	if o == nil || IsNil(o.ScanType) {
 		var ret string
 		return ret
 	}
@@ -152,7 +152,7 @@ func (o *ModelCloudComplianceScanDetails) GetScanType() string {
 // GetScanTypeOk returns a tuple with the ScanType field value if set, nil otherwise
 // and a boolean to check if the value has been set.
 func (o *ModelCloudComplianceScanDetails) GetScanTypeOk() (*string, bool) {
-	if o == nil || isNil(o.ScanType) {
+	if o == nil || IsNil(o.ScanType) {
 		return nil, false
 	}
 	return o.ScanType, true
@@ -160,7 +160,7 @@ func (o *ModelCloudComplianceScanDetails) GetScanTypeOk() (*string, bool) {
 
 // HasScanType returns a boolean if a field has been set.
 func (o *ModelCloudComplianceScanDetails) HasScanType() bool {
-	if o != nil && !isNil(o.ScanType) {
+	if o != nil && !IsNil(o.ScanType) {
 		return true
 	}
 
@@ -182,16 +182,16 @@ func (o ModelCloudComplianceScanDetails) MarshalJSON() ([]byte, error) {
 
 func (o ModelCloudComplianceScanDetails) ToMap() (map[string]interface{}, error) {
 	toSerialize := map[string]interface{}{}
-	if !isNil(o.AccountId) {
+	if !IsNil(o.AccountId) {
 		toSerialize["account_id"] = o.AccountId
 	}
 	if o.Controls != nil {
 		toSerialize["controls"] = o.Controls
 	}
-	if !isNil(o.ScanId) {
+	if !IsNil(o.ScanId) {
 		toSerialize["scan_id"] = o.ScanId
 	}
-	if !isNil(o.ScanType) {
+	if !IsNil(o.ScanType) {
 		toSerialize["scan_type"] = o.ScanType
 	}
 	return toSerialize, nil

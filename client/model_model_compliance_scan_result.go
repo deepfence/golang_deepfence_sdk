@@ -72,7 +72,7 @@ func (o *ModelComplianceScanResult) GetCompliances() []ModelCompliance {
 // and a boolean to check if the value has been set.
 // NOTE: If the value is an explicit nil, `nil, true` will be returned
 func (o *ModelComplianceScanResult) GetCompliancesOk() ([]ModelCompliance, bool) {
-	if o == nil || isNil(o.Compliances) {
+	if o == nil || IsNil(o.Compliances) {
 		return nil, false
 	}
 	return o.Compliances, true

@@ -54,7 +54,7 @@ func (o *ReportRow) GetEntries() map[string]string {
 // and a boolean to check if the value has been set.
 // NOTE: If the value is an explicit nil, `nil, true` will be returned
 func (o *ReportRow) GetEntriesOk() (*map[string]string, bool) {
-	if o == nil || isNil(o.Entries) {
+	if o == nil || IsNil(o.Entries) {
 		return nil, false
 	}
 	return &o.Entries, true
@@ -62,7 +62,7 @@ func (o *ReportRow) GetEntriesOk() (*map[string]string, bool) {
 
 // HasEntries returns a boolean if a field has been set.
 func (o *ReportRow) HasEntries() bool {
-	if o != nil && isNil(o.Entries) {
+	if o != nil && IsNil(o.Entries) {
 		return true
 	}
 
@@ -76,7 +76,7 @@ func (o *ReportRow) SetEntries(v map[string]string) {
 
 // GetId returns the Id field value if set, zero value otherwise.
 func (o *ReportRow) GetId() string {
-	if o == nil || isNil(o.Id) {
+	if o == nil || IsNil(o.Id) {
 		var ret string
 		return ret
 	}
@@ -86,7 +86,7 @@ func (o *ReportRow) GetId() string {
 // GetIdOk returns a tuple with the Id field value if set, nil otherwise
 // and a boolean to check if the value has been set.
 func (o *ReportRow) GetIdOk() (*string, bool) {
-	if o == nil || isNil(o.Id) {
+	if o == nil || IsNil(o.Id) {
 		return nil, false
 	}
 	return o.Id, true
@@ -94,7 +94,7 @@ func (o *ReportRow) GetIdOk() (*string, bool) {
 
 // HasId returns a boolean if a field has been set.
 func (o *ReportRow) HasId() bool {
-	if o != nil && !isNil(o.Id) {
+	if o != nil && !IsNil(o.Id) {
 		return true
 	}
 
@@ -119,7 +119,7 @@ func (o ReportRow) ToMap() (map[string]interface{}, error) {
 	if o.Entries != nil {
 		toSerialize["entries"] = o.Entries
 	}
-	if !isNil(o.Id) {
+	if !IsNil(o.Id) {
 		toSerialize["id"] = o.Id
 	}
 	return toSerialize, nil

@@ -55,7 +55,7 @@ func (o *ModelCloudNodeAccountRegisterRespData) GetCloudtrailTrails() []ModelClo
 // and a boolean to check if the value has been set.
 // NOTE: If the value is an explicit nil, `nil, true` will be returned
 func (o *ModelCloudNodeAccountRegisterRespData) GetCloudtrailTrailsOk() ([]ModelCloudNodeCloudtrailTrail, bool) {
-	if o == nil || isNil(o.CloudtrailTrails) {
+	if o == nil || IsNil(o.CloudtrailTrails) {
 		return nil, false
 	}
 	return o.CloudtrailTrails, true
@@ -63,7 +63,7 @@ func (o *ModelCloudNodeAccountRegisterRespData) GetCloudtrailTrailsOk() ([]Model
 
 // HasCloudtrailTrails returns a boolean if a field has been set.
 func (o *ModelCloudNodeAccountRegisterRespData) HasCloudtrailTrails() bool {
-	if o != nil && isNil(o.CloudtrailTrails) {
+	if o != nil && IsNil(o.CloudtrailTrails) {
 		return true
 	}
 
@@ -77,7 +77,7 @@ func (o *ModelCloudNodeAccountRegisterRespData) SetCloudtrailTrails(v []ModelClo
 
 // GetRefresh returns the Refresh field value if set, zero value otherwise.
 func (o *ModelCloudNodeAccountRegisterRespData) GetRefresh() string {
-	if o == nil || isNil(o.Refresh) {
+	if o == nil || IsNil(o.Refresh) {
 		var ret string
 		return ret
 	}
@@ -87,7 +87,7 @@ func (o *ModelCloudNodeAccountRegisterRespData) GetRefresh() string {
 // GetRefreshOk returns a tuple with the Refresh field value if set, nil otherwise
 // and a boolean to check if the value has been set.
 func (o *ModelCloudNodeAccountRegisterRespData) GetRefreshOk() (*string, bool) {
-	if o == nil || isNil(o.Refresh) {
+	if o == nil || IsNil(o.Refresh) {
 		return nil, false
 	}
 	return o.Refresh, true
@@ -95,7 +95,7 @@ func (o *ModelCloudNodeAccountRegisterRespData) GetRefreshOk() (*string, bool) {
 
 // HasRefresh returns a boolean if a field has been set.
 func (o *ModelCloudNodeAccountRegisterRespData) HasRefresh() bool {
-	if o != nil && !isNil(o.Refresh) {
+	if o != nil && !IsNil(o.Refresh) {
 		return true
 	}
 
@@ -120,7 +120,7 @@ func (o *ModelCloudNodeAccountRegisterRespData) GetScans() map[string]ModelCloud
 // and a boolean to check if the value has been set.
 // NOTE: If the value is an explicit nil, `nil, true` will be returned
 func (o *ModelCloudNodeAccountRegisterRespData) GetScansOk() (*map[string]ModelCloudComplianceScanDetails, bool) {
-	if o == nil || isNil(o.Scans) {
+	if o == nil || IsNil(o.Scans) {
 		return nil, false
 	}
 	return &o.Scans, true
@@ -128,7 +128,7 @@ func (o *ModelCloudNodeAccountRegisterRespData) GetScansOk() (*map[string]ModelC
 
 // HasScans returns a boolean if a field has been set.
 func (o *ModelCloudNodeAccountRegisterRespData) HasScans() bool {
-	if o != nil && isNil(o.Scans) {
+	if o != nil && IsNil(o.Scans) {
 		return true
 	}
 
@@ -153,7 +153,7 @@ func (o ModelCloudNodeAccountRegisterRespData) ToMap() (map[string]interface{}, 
 	if o.CloudtrailTrails != nil {
 		toSerialize["cloudtrail_trails"] = o.CloudtrailTrails
 	}
-	if !isNil(o.Refresh) {
+	if !IsNil(o.Refresh) {
 		toSerialize["refresh"] = o.Refresh
 	}
 	if o.Scans != nil {

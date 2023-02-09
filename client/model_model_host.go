@@ -94,7 +94,7 @@ func (o *ModelHost) GetContainerImages() []ModelContainerImage {
 // and a boolean to check if the value has been set.
 // NOTE: If the value is an explicit nil, `nil, true` will be returned
 func (o *ModelHost) GetContainerImagesOk() ([]ModelContainerImage, bool) {
-	if o == nil || isNil(o.ContainerImages) {
+	if o == nil || IsNil(o.ContainerImages) {
 		return nil, false
 	}
 	return o.ContainerImages, true
@@ -120,7 +120,7 @@ func (o *ModelHost) GetContainers() []ModelContainer {
 // and a boolean to check if the value has been set.
 // NOTE: If the value is an explicit nil, `nil, true` will be returned
 func (o *ModelHost) GetContainersOk() ([]ModelContainer, bool) {
-	if o == nil || isNil(o.Containers) {
+	if o == nil || IsNil(o.Containers) {
 		return nil, false
 	}
 	return o.Containers, true
@@ -218,7 +218,7 @@ func (o *ModelHost) GetPods() []ModelPod {
 // and a boolean to check if the value has been set.
 // NOTE: If the value is an explicit nil, `nil, true` will be returned
 func (o *ModelHost) GetPodsOk() ([]ModelPod, bool) {
-	if o == nil || isNil(o.Pods) {
+	if o == nil || IsNil(o.Pods) {
 		return nil, false
 	}
 	return o.Pods, true
@@ -244,7 +244,7 @@ func (o *ModelHost) GetProcesses() []ModelProcess {
 // and a boolean to check if the value has been set.
 // NOTE: If the value is an explicit nil, `nil, true` will be returned
 func (o *ModelHost) GetProcessesOk() ([]ModelProcess, bool) {
-	if o == nil || isNil(o.Processes) {
+	if o == nil || IsNil(o.Processes) {
 		return nil, false
 	}
 	return o.Processes, true

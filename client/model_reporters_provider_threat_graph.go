@@ -86,7 +86,7 @@ func (o *ReportersProviderThreatGraph) GetResources() []ReportersThreatNodeInfo 
 // and a boolean to check if the value has been set.
 // NOTE: If the value is an explicit nil, `nil, true` will be returned
 func (o *ReportersProviderThreatGraph) GetResourcesOk() ([]ReportersThreatNodeInfo, bool) {
-	if o == nil || isNil(o.Resources) {
+	if o == nil || IsNil(o.Resources) {
 		return nil, false
 	}
 	return o.Resources, true

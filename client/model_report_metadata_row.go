@@ -47,7 +47,7 @@ func NewReportMetadataRowWithDefaults() *ReportMetadataRow {
 
 // GetDataType returns the DataType field value if set, zero value otherwise.
 func (o *ReportMetadataRow) GetDataType() string {
-	if o == nil || isNil(o.DataType) {
+	if o == nil || IsNil(o.DataType) {
 		var ret string
 		return ret
 	}
@@ -57,7 +57,7 @@ func (o *ReportMetadataRow) GetDataType() string {
 // GetDataTypeOk returns a tuple with the DataType field value if set, nil otherwise
 // and a boolean to check if the value has been set.
 func (o *ReportMetadataRow) GetDataTypeOk() (*string, bool) {
-	if o == nil || isNil(o.DataType) {
+	if o == nil || IsNil(o.DataType) {
 		return nil, false
 	}
 	return o.DataType, true
@@ -65,7 +65,7 @@ func (o *ReportMetadataRow) GetDataTypeOk() (*string, bool) {
 
 // HasDataType returns a boolean if a field has been set.
 func (o *ReportMetadataRow) HasDataType() bool {
-	if o != nil && !isNil(o.DataType) {
+	if o != nil && !IsNil(o.DataType) {
 		return true
 	}
 
@@ -79,7 +79,7 @@ func (o *ReportMetadataRow) SetDataType(v string) {
 
 // GetId returns the Id field value if set, zero value otherwise.
 func (o *ReportMetadataRow) GetId() string {
-	if o == nil || isNil(o.Id) {
+	if o == nil || IsNil(o.Id) {
 		var ret string
 		return ret
 	}
@@ -89,7 +89,7 @@ func (o *ReportMetadataRow) GetId() string {
 // GetIdOk returns a tuple with the Id field value if set, nil otherwise
 // and a boolean to check if the value has been set.
 func (o *ReportMetadataRow) GetIdOk() (*string, bool) {
-	if o == nil || isNil(o.Id) {
+	if o == nil || IsNil(o.Id) {
 		return nil, false
 	}
 	return o.Id, true
@@ -97,7 +97,7 @@ func (o *ReportMetadataRow) GetIdOk() (*string, bool) {
 
 // HasId returns a boolean if a field has been set.
 func (o *ReportMetadataRow) HasId() bool {
-	if o != nil && !isNil(o.Id) {
+	if o != nil && !IsNil(o.Id) {
 		return true
 	}
 
@@ -111,7 +111,7 @@ func (o *ReportMetadataRow) SetId(v string) {
 
 // GetLabel returns the Label field value if set, zero value otherwise.
 func (o *ReportMetadataRow) GetLabel() string {
-	if o == nil || isNil(o.Label) {
+	if o == nil || IsNil(o.Label) {
 		var ret string
 		return ret
 	}
@@ -121,7 +121,7 @@ func (o *ReportMetadataRow) GetLabel() string {
 // GetLabelOk returns a tuple with the Label field value if set, nil otherwise
 // and a boolean to check if the value has been set.
 func (o *ReportMetadataRow) GetLabelOk() (*string, bool) {
-	if o == nil || isNil(o.Label) {
+	if o == nil || IsNil(o.Label) {
 		return nil, false
 	}
 	return o.Label, true
@@ -129,7 +129,7 @@ func (o *ReportMetadataRow) GetLabelOk() (*string, bool) {
 
 // HasLabel returns a boolean if a field has been set.
 func (o *ReportMetadataRow) HasLabel() bool {
-	if o != nil && !isNil(o.Label) {
+	if o != nil && !IsNil(o.Label) {
 		return true
 	}
 
@@ -143,7 +143,7 @@ func (o *ReportMetadataRow) SetLabel(v string) {
 
 // GetPriority returns the Priority field value if set, zero value otherwise.
 func (o *ReportMetadataRow) GetPriority() float32 {
-	if o == nil || isNil(o.Priority) {
+	if o == nil || IsNil(o.Priority) {
 		var ret float32
 		return ret
 	}
@@ -153,7 +153,7 @@ func (o *ReportMetadataRow) GetPriority() float32 {
 // GetPriorityOk returns a tuple with the Priority field value if set, nil otherwise
 // and a boolean to check if the value has been set.
 func (o *ReportMetadataRow) GetPriorityOk() (*float32, bool) {
-	if o == nil || isNil(o.Priority) {
+	if o == nil || IsNil(o.Priority) {
 		return nil, false
 	}
 	return o.Priority, true
@@ -161,7 +161,7 @@ func (o *ReportMetadataRow) GetPriorityOk() (*float32, bool) {
 
 // HasPriority returns a boolean if a field has been set.
 func (o *ReportMetadataRow) HasPriority() bool {
-	if o != nil && !isNil(o.Priority) {
+	if o != nil && !IsNil(o.Priority) {
 		return true
 	}
 
@@ -175,7 +175,7 @@ func (o *ReportMetadataRow) SetPriority(v float32) {
 
 // GetTruncate returns the Truncate field value if set, zero value otherwise.
 func (o *ReportMetadataRow) GetTruncate() int32 {
-	if o == nil || isNil(o.Truncate) {
+	if o == nil || IsNil(o.Truncate) {
 		var ret int32
 		return ret
 	}
@@ -185,7 +185,7 @@ func (o *ReportMetadataRow) GetTruncate() int32 {
 // GetTruncateOk returns a tuple with the Truncate field value if set, nil otherwise
 // and a boolean to check if the value has been set.
 func (o *ReportMetadataRow) GetTruncateOk() (*int32, bool) {
-	if o == nil || isNil(o.Truncate) {
+	if o == nil || IsNil(o.Truncate) {
 		return nil, false
 	}
 	return o.Truncate, true
@@ -193,7 +193,7 @@ func (o *ReportMetadataRow) GetTruncateOk() (*int32, bool) {
 
 // HasTruncate returns a boolean if a field has been set.
 func (o *ReportMetadataRow) HasTruncate() bool {
-	if o != nil && !isNil(o.Truncate) {
+	if o != nil && !IsNil(o.Truncate) {
 		return true
 	}
 
@@ -207,7 +207,7 @@ func (o *ReportMetadataRow) SetTruncate(v int32) {
 
 // GetValue returns the Value field value if set, zero value otherwise.
 func (o *ReportMetadataRow) GetValue() string {
-	if o == nil || isNil(o.Value) {
+	if o == nil || IsNil(o.Value) {
 		var ret string
 		return ret
 	}
@@ -217,7 +217,7 @@ func (o *ReportMetadataRow) GetValue() string {
 // GetValueOk returns a tuple with the Value field value if set, nil otherwise
 // and a boolean to check if the value has been set.
 func (o *ReportMetadataRow) GetValueOk() (*string, bool) {
-	if o == nil || isNil(o.Value) {
+	if o == nil || IsNil(o.Value) {
 		return nil, false
 	}
 	return o.Value, true
@@ -225,7 +225,7 @@ func (o *ReportMetadataRow) GetValueOk() (*string, bool) {
 
 // HasValue returns a boolean if a field has been set.
 func (o *ReportMetadataRow) HasValue() bool {
-	if o != nil && !isNil(o.Value) {
+	if o != nil && !IsNil(o.Value) {
 		return true
 	}
 
@@ -247,22 +247,22 @@ func (o ReportMetadataRow) MarshalJSON() ([]byte, error) {
 
 func (o ReportMetadataRow) ToMap() (map[string]interface{}, error) {
 	toSerialize := map[string]interface{}{}
-	if !isNil(o.DataType) {
+	if !IsNil(o.DataType) {
 		toSerialize["dataType"] = o.DataType
 	}
-	if !isNil(o.Id) {
+	if !IsNil(o.Id) {
 		toSerialize["id"] = o.Id
 	}
-	if !isNil(o.Label) {
+	if !IsNil(o.Label) {
 		toSerialize["label"] = o.Label
 	}
-	if !isNil(o.Priority) {
+	if !IsNil(o.Priority) {
 		toSerialize["priority"] = o.Priority
 	}
-	if !isNil(o.Truncate) {
+	if !IsNil(o.Truncate) {
 		toSerialize["truncate"] = o.Truncate
 	}
-	if !isNil(o.Value) {
+	if !IsNil(o.Value) {
 		toSerialize["value"] = o.Value
 	}
 	return toSerialize, nil

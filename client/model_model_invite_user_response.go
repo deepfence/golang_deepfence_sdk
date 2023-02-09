@@ -44,7 +44,7 @@ func NewModelInviteUserResponseWithDefaults() *ModelInviteUserResponse {
 
 // GetInviteExpiryHours returns the InviteExpiryHours field value if set, zero value otherwise.
 func (o *ModelInviteUserResponse) GetInviteExpiryHours() int32 {
-	if o == nil || isNil(o.InviteExpiryHours) {
+	if o == nil || IsNil(o.InviteExpiryHours) {
 		var ret int32
 		return ret
 	}
@@ -54,7 +54,7 @@ func (o *ModelInviteUserResponse) GetInviteExpiryHours() int32 {
 // GetInviteExpiryHoursOk returns a tuple with the InviteExpiryHours field value if set, nil otherwise
 // and a boolean to check if the value has been set.
 func (o *ModelInviteUserResponse) GetInviteExpiryHoursOk() (*int32, bool) {
-	if o == nil || isNil(o.InviteExpiryHours) {
+	if o == nil || IsNil(o.InviteExpiryHours) {
 		return nil, false
 	}
 	return o.InviteExpiryHours, true
@@ -62,7 +62,7 @@ func (o *ModelInviteUserResponse) GetInviteExpiryHoursOk() (*int32, bool) {
 
 // HasInviteExpiryHours returns a boolean if a field has been set.
 func (o *ModelInviteUserResponse) HasInviteExpiryHours() bool {
-	if o != nil && !isNil(o.InviteExpiryHours) {
+	if o != nil && !IsNil(o.InviteExpiryHours) {
 		return true
 	}
 
@@ -76,7 +76,7 @@ func (o *ModelInviteUserResponse) SetInviteExpiryHours(v int32) {
 
 // GetInviteUrl returns the InviteUrl field value if set, zero value otherwise.
 func (o *ModelInviteUserResponse) GetInviteUrl() string {
-	if o == nil || isNil(o.InviteUrl) {
+	if o == nil || IsNil(o.InviteUrl) {
 		var ret string
 		return ret
 	}
@@ -86,7 +86,7 @@ func (o *ModelInviteUserResponse) GetInviteUrl() string {
 // GetInviteUrlOk returns a tuple with the InviteUrl field value if set, nil otherwise
 // and a boolean to check if the value has been set.
 func (o *ModelInviteUserResponse) GetInviteUrlOk() (*string, bool) {
-	if o == nil || isNil(o.InviteUrl) {
+	if o == nil || IsNil(o.InviteUrl) {
 		return nil, false
 	}
 	return o.InviteUrl, true
@@ -94,7 +94,7 @@ func (o *ModelInviteUserResponse) GetInviteUrlOk() (*string, bool) {
 
 // HasInviteUrl returns a boolean if a field has been set.
 func (o *ModelInviteUserResponse) HasInviteUrl() bool {
-	if o != nil && !isNil(o.InviteUrl) {
+	if o != nil && !IsNil(o.InviteUrl) {
 		return true
 	}
 
@@ -108,7 +108,7 @@ func (o *ModelInviteUserResponse) SetInviteUrl(v string) {
 
 // GetMessage returns the Message field value if set, zero value otherwise.
 func (o *ModelInviteUserResponse) GetMessage() string {
-	if o == nil || isNil(o.Message) {
+	if o == nil || IsNil(o.Message) {
 		var ret string
 		return ret
 	}
@@ -118,7 +118,7 @@ func (o *ModelInviteUserResponse) GetMessage() string {
 // GetMessageOk returns a tuple with the Message field value if set, nil otherwise
 // and a boolean to check if the value has been set.
 func (o *ModelInviteUserResponse) GetMessageOk() (*string, bool) {
-	if o == nil || isNil(o.Message) {
+	if o == nil || IsNil(o.Message) {
 		return nil, false
 	}
 	return o.Message, true
@@ -126,7 +126,7 @@ func (o *ModelInviteUserResponse) GetMessageOk() (*string, bool) {
 
 // HasMessage returns a boolean if a field has been set.
 func (o *ModelInviteUserResponse) HasMessage() bool {
-	if o != nil && !isNil(o.Message) {
+	if o != nil && !IsNil(o.Message) {
 		return true
 	}
 
@@ -148,13 +148,13 @@ func (o ModelInviteUserResponse) MarshalJSON() ([]byte, error) {
 
 func (o ModelInviteUserResponse) ToMap() (map[string]interface{}, error) {
 	toSerialize := map[string]interface{}{}
-	if !isNil(o.InviteExpiryHours) {
+	if !IsNil(o.InviteExpiryHours) {
 		toSerialize["invite_expiry_hours"] = o.InviteExpiryHours
 	}
-	if !isNil(o.InviteUrl) {
+	if !IsNil(o.InviteUrl) {
 		toSerialize["invite_url"] = o.InviteUrl
 	}
-	if !isNil(o.Message) {
+	if !IsNil(o.Message) {
 		toSerialize["message"] = o.Message
 	}
 	return toSerialize, nil

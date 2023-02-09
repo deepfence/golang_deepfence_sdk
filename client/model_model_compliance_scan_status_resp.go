@@ -56,7 +56,7 @@ func (o *ModelComplianceScanStatusResp) GetStatuses() []ModelComplianceScanStatu
 // and a boolean to check if the value has been set.
 // NOTE: If the value is an explicit nil, `nil, true` will be returned
 func (o *ModelComplianceScanStatusResp) GetStatusesOk() ([]ModelComplianceScanStatus, bool) {
-	if o == nil || isNil(o.Statuses) {
+	if o == nil || IsNil(o.Statuses) {
 		return nil, false
 	}
 	return o.Statuses, true

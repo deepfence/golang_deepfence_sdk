@@ -56,7 +56,7 @@ func (o *ModelCloudNodeProvidersListResp) GetProviders() []string {
 // and a boolean to check if the value has been set.
 // NOTE: If the value is an explicit nil, `nil, true` will be returned
 func (o *ModelCloudNodeProvidersListResp) GetProvidersOk() ([]string, bool) {
-	if o == nil || isNil(o.Providers) {
+	if o == nil || IsNil(o.Providers) {
 		return nil, false
 	}
 	return o.Providers, true

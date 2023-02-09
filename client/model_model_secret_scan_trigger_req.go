@@ -82,7 +82,7 @@ func (o *ModelSecretScanTriggerReq) GetNodeIds() []ModelNodeIdentifier {
 // and a boolean to check if the value has been set.
 // NOTE: If the value is an explicit nil, `nil, true` will be returned
 func (o *ModelSecretScanTriggerReq) GetNodeIdsOk() ([]ModelNodeIdentifier, bool) {
-	if o == nil || isNil(o.NodeIds) {
+	if o == nil || IsNil(o.NodeIds) {
 		return nil, false
 	}
 	return o.NodeIds, true
