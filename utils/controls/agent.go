@@ -73,6 +73,8 @@ func StringToResourceType(s string) ScanResource {
 		return KubernetesCluster
 	case "registry":
 		return RegistryAccount
+	case "cloud_account":
+		return CloudAccount
 	}
 	return -1
 }
