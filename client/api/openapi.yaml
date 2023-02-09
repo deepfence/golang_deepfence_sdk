@@ -4386,7 +4386,7 @@ components:
         control_id: control_id
         resource: resource
         masked: masked
-        count: 0
+        count: 6
         node_name: node_name
         description: description
         cloud_provider: cloud_provider
@@ -4493,7 +4493,7 @@ components:
           control_id: control_id
           resource: resource
           masked: masked
-          count: 0
+          count: 6
           node_name: node_name
           description: description
           cloud_provider: cloud_provider
@@ -4513,7 +4513,7 @@ components:
           control_id: control_id
           resource: resource
           masked: masked
-          count: 0
+          count: 6
           node_name: node_name
           description: description
           cloud_provider: cloud_provider
@@ -4528,15 +4528,23 @@ components:
           group: group
           node_id: node_id
           status: status
+        compliance_percentage: 0.8008281904610115
         node_type: node_type
+        benchmark_type: benchmark_type
         docker_container_name: docker_container_name
         kubernetes_cluster_name: kubernetes_cluster_name
         node_name: node_name
         scan_id: scan_id
+        status_counts:
+          key: 1
         docker_image_name: docker_image_name
         host_name: host_name
         node_id: node_id
       properties:
+        benchmark_type:
+          type: string
+        compliance_percentage:
+          type: number
         compliances:
           items:
             $ref: '#/components/schemas/ModelCloudCompliance'
@@ -4558,7 +4566,14 @@ components:
           type: string
         scan_id:
           type: string
+        status_counts:
+          additionalProperties:
+            type: integer
+          nullable: true
+          type: object
       required:
+      - benchmark_type
+      - compliance_percentage
       - compliances
       - docker_container_name
       - docker_image_name
@@ -4568,6 +4583,7 @@ components:
       - node_name
       - node_type
       - scan_id
+      - status_counts
       type: object
     ModelCloudNodeAccountInfo:
       example:
@@ -4791,6 +4807,36 @@ components:
       - test_rationale
       - test_severity
       type: object
+    ModelComplianceScanInfo:
+      example:
+        node_type: node_type
+        benchmark_type: benchmark_type
+        updated_at: 0
+        scan_id: scan_id
+        node_id: node_id
+        status: status
+      properties:
+        benchmark_type:
+          type: string
+        node_id:
+          type: string
+        node_type:
+          type: string
+        scan_id:
+          type: string
+        status:
+          type: string
+        updated_at:
+          format: int64
+          type: integer
+      required:
+      - benchmark_type
+      - node_id
+      - node_type
+      - scan_id
+      - status
+      - updated_at
+      type: object
     ModelComplianceScanResult:
       example:
         compliances:
@@ -4820,15 +4866,23 @@ components:
           status: status
           test_desc: test_desc
           test_number: test_number
+        compliance_percentage: 0.8008281904610115
         node_type: node_type
+        benchmark_type: benchmark_type
         docker_container_name: docker_container_name
         kubernetes_cluster_name: kubernetes_cluster_name
         node_name: node_name
         scan_id: scan_id
+        status_counts:
+          key: 6
         docker_image_name: docker_image_name
         host_name: host_name
         node_id: node_id
       properties:
+        benchmark_type:
+          type: string
+        compliance_percentage:
+          type: number
         compliances:
           items:
             $ref: '#/components/schemas/ModelCompliance'
@@ -4850,7 +4904,14 @@ components:
           type: string
         scan_id:
           type: string
+        status_counts:
+          additionalProperties:
+            type: integer
+          nullable: true
+          type: object
       required:
+      - benchmark_type
+      - compliance_percentage
       - compliances
       - docker_container_name
       - docker_image_name
@@ -4860,33 +4921,27 @@ components:
       - node_name
       - node_type
       - scan_id
-      type: object
-    ModelComplianceScanStatus:
-      example:
-        benchmark_type: benchmark_type
-        scan_id: scan_id
-        status: status
-      properties:
-        benchmark_type:
-          type: string
-        scan_id:
-          type: string
-        status:
-          type: string
+      - status_counts
       type: object
     ModelComplianceScanStatusResp:
       example:
         statuses:
-        - benchmark_type: benchmark_type
+        - node_type: node_type
+          benchmark_type: benchmark_type
+          updated_at: 0
           scan_id: scan_id
+          node_id: node_id
           status: status
-        - benchmark_type: benchmark_type
+        - node_type: node_type
+          benchmark_type: benchmark_type
+          updated_at: 0
           scan_id: scan_id
+          node_id: node_id
           status: status
       properties:
         statuses:
           items:
-            $ref: '#/components/schemas/ModelComplianceScanStatus'
+            $ref: '#/components/schemas/ModelComplianceScanInfo'
           nullable: true
           type: array
       required:

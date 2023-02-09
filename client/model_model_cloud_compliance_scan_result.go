@@ -20,6 +20,8 @@ var _ MappedNullable = &ModelCloudComplianceScanResult{}
 
 // ModelCloudComplianceScanResult struct for ModelCloudComplianceScanResult
 type ModelCloudComplianceScanResult struct {
+	BenchmarkType string `json:"benchmark_type"`
+	CompliancePercentage float32 `json:"compliance_percentage"`
 	Compliances []ModelCloudCompliance `json:"compliances"`
 	DockerContainerName string `json:"docker_container_name"`
 	DockerImageName string `json:"docker_image_name"`
@@ -29,14 +31,17 @@ type ModelCloudComplianceScanResult struct {
 	NodeName string `json:"node_name"`
 	NodeType string `json:"node_type"`
 	ScanId string `json:"scan_id"`
+	StatusCounts map[string]int32 `json:"status_counts"`
 }
 
 // NewModelCloudComplianceScanResult instantiates a new ModelCloudComplianceScanResult object
 // This constructor will assign default values to properties that have it defined,
 // and makes sure properties required by API are set, but the set of arguments
 // will change when the set of required properties is changed
-func NewModelCloudComplianceScanResult(compliances []ModelCloudCompliance, dockerContainerName string, dockerImageName string, hostName string, kubernetesClusterName string, nodeId string, nodeName string, nodeType string, scanId string) *ModelCloudComplianceScanResult {
+func NewModelCloudComplianceScanResult(benchmarkType string, compliancePercentage float32, compliances []ModelCloudCompliance, dockerContainerName string, dockerImageName string, hostName string, kubernetesClusterName string, nodeId string, nodeName string, nodeType string, scanId string, statusCounts map[string]int32) *ModelCloudComplianceScanResult {
 	this := ModelCloudComplianceScanResult{}
+	this.BenchmarkType = benchmarkType
+	this.CompliancePercentage = compliancePercentage
 	this.Compliances = compliances
 	this.DockerContainerName = dockerContainerName
 	this.DockerImageName = dockerImageName
@@ -46,6 +51,7 @@ func NewModelCloudComplianceScanResult(compliances []ModelCloudCompliance, docke
 	this.NodeName = nodeName
 	this.NodeType = nodeType
 	this.ScanId = scanId
+	this.StatusCounts = statusCounts
 	return &this
 }
 
@@ -55,6 +61,54 @@ func NewModelCloudComplianceScanResult(compliances []ModelCloudCompliance, docke
 func NewModelCloudComplianceScanResultWithDefaults() *ModelCloudComplianceScanResult {
 	this := ModelCloudComplianceScanResult{}
 	return &this
+}
+
+// GetBenchmarkType returns the BenchmarkType field value
+func (o *ModelCloudComplianceScanResult) GetBenchmarkType() string {
+	if o == nil {
+		var ret string
+		return ret
+	}
+
+	return o.BenchmarkType
+}
+
+// GetBenchmarkTypeOk returns a tuple with the BenchmarkType field value
+// and a boolean to check if the value has been set.
+func (o *ModelCloudComplianceScanResult) GetBenchmarkTypeOk() (*string, bool) {
+	if o == nil {
+		return nil, false
+	}
+	return &o.BenchmarkType, true
+}
+
+// SetBenchmarkType sets field value
+func (o *ModelCloudComplianceScanResult) SetBenchmarkType(v string) {
+	o.BenchmarkType = v
+}
+
+// GetCompliancePercentage returns the CompliancePercentage field value
+func (o *ModelCloudComplianceScanResult) GetCompliancePercentage() float32 {
+	if o == nil {
+		var ret float32
+		return ret
+	}
+
+	return o.CompliancePercentage
+}
+
+// GetCompliancePercentageOk returns a tuple with the CompliancePercentage field value
+// and a boolean to check if the value has been set.
+func (o *ModelCloudComplianceScanResult) GetCompliancePercentageOk() (*float32, bool) {
+	if o == nil {
+		return nil, false
+	}
+	return &o.CompliancePercentage, true
+}
+
+// SetCompliancePercentage sets field value
+func (o *ModelCloudComplianceScanResult) SetCompliancePercentage(v float32) {
+	o.CompliancePercentage = v
 }
 
 // GetCompliances returns the Compliances field value
@@ -275,6 +329,32 @@ func (o *ModelCloudComplianceScanResult) SetScanId(v string) {
 	o.ScanId = v
 }
 
+// GetStatusCounts returns the StatusCounts field value
+// If the value is explicit nil, the zero value for map[string]int32 will be returned
+func (o *ModelCloudComplianceScanResult) GetStatusCounts() map[string]int32 {
+	if o == nil {
+		var ret map[string]int32
+		return ret
+	}
+
+	return o.StatusCounts
+}
+
+// GetStatusCountsOk returns a tuple with the StatusCounts field value
+// and a boolean to check if the value has been set.
+// NOTE: If the value is an explicit nil, `nil, true` will be returned
+func (o *ModelCloudComplianceScanResult) GetStatusCountsOk() (*map[string]int32, bool) {
+	if o == nil || IsNil(o.StatusCounts) {
+		return nil, false
+	}
+	return &o.StatusCounts, true
+}
+
+// SetStatusCounts sets field value
+func (o *ModelCloudComplianceScanResult) SetStatusCounts(v map[string]int32) {
+	o.StatusCounts = v
+}
+
 func (o ModelCloudComplianceScanResult) MarshalJSON() ([]byte, error) {
 	toSerialize,err := o.ToMap()
 	if err != nil {
@@ -285,6 +365,8 @@ func (o ModelCloudComplianceScanResult) MarshalJSON() ([]byte, error) {
 
 func (o ModelCloudComplianceScanResult) ToMap() (map[string]interface{}, error) {
 	toSerialize := map[string]interface{}{}
+	toSerialize["benchmark_type"] = o.BenchmarkType
+	toSerialize["compliance_percentage"] = o.CompliancePercentage
 	if o.Compliances != nil {
 		toSerialize["compliances"] = o.Compliances
 	}
@@ -296,6 +378,9 @@ func (o ModelCloudComplianceScanResult) ToMap() (map[string]interface{}, error) 
 	toSerialize["node_name"] = o.NodeName
 	toSerialize["node_type"] = o.NodeType
 	toSerialize["scan_id"] = o.ScanId
+	if o.StatusCounts != nil {
+		toSerialize["status_counts"] = o.StatusCounts
+	}
 	return toSerialize, nil
 }
 

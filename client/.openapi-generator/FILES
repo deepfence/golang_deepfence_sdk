@@ -67,8 +67,8 @@ docs/ModelCloudNodeAccountsListResp.md
 docs/ModelCloudNodeCloudtrailTrail.md
 docs/ModelCloudNodeProvidersListResp.md
 docs/ModelCompliance.md
+docs/ModelComplianceScanInfo.md
 docs/ModelComplianceScanResult.md
-docs/ModelComplianceScanStatus.md
 docs/ModelComplianceScanStatusResp.md
 docs/ModelComplianceScanTriggerReq.md
 docs/ModelComputeMetrics.md
@@ -172,8 +172,8 @@ model_model_cloud_node_accounts_list_resp.go
 model_model_cloud_node_cloudtrail_trail.go
 model_model_cloud_node_providers_list_resp.go
 model_model_compliance.go
+model_model_compliance_scan_info.go
 model_model_compliance_scan_result.go
-model_model_compliance_scan_status.go
 model_model_compliance_scan_status_resp.go
 model_model_compliance_scan_trigger_req.go
 model_model_compute_metrics.go

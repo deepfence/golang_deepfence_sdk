@@ -4,6 +4,8 @@
 
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
+**BenchmarkType** | **string** |  | 
+**CompliancePercentage** | **float32** |  | 
 **Compliances** | [**[]ModelCompliance**](ModelCompliance.md) |  | 
 **DockerContainerName** | **string** |  | 
 **DockerImageName** | **string** |  | 
@@ -13,12 +15,13 @@ Name | Type | Description | Notes
 **NodeName** | **string** |  | 
 **NodeType** | **string** |  | 
 **ScanId** | **string** |  | 
+**StatusCounts** | **map[string]int32** |  | 
 
 ## Methods
 
 ### NewModelComplianceScanResult
 
-`func NewModelComplianceScanResult(compliances []ModelCompliance, dockerContainerName string, dockerImageName string, hostName string, kubernetesClusterName string, nodeId string, nodeName string, nodeType string, scanId string, ) *ModelComplianceScanResult`
+`func NewModelComplianceScanResult(benchmarkType string, compliancePercentage float32, compliances []ModelCompliance, dockerContainerName string, dockerImageName string, hostName string, kubernetesClusterName string, nodeId string, nodeName string, nodeType string, scanId string, statusCounts map[string]int32, ) *ModelComplianceScanResult`
 
 NewModelComplianceScanResult instantiates a new ModelComplianceScanResult object
 This constructor will assign default values to properties that have it defined,
@@ -32,6 +35,46 @@ will change when the set of required properties is changed
 NewModelComplianceScanResultWithDefaults instantiates a new ModelComplianceScanResult object
 This constructor will only assign default values to properties that have it defined,
 but it doesn't guarantee that properties required by API are set
+
+### GetBenchmarkType
+
+`func (o *ModelComplianceScanResult) GetBenchmarkType() string`
+
+GetBenchmarkType returns the BenchmarkType field if non-nil, zero value otherwise.
+
+### GetBenchmarkTypeOk
+
+`func (o *ModelComplianceScanResult) GetBenchmarkTypeOk() (*string, bool)`
+
+GetBenchmarkTypeOk returns a tuple with the BenchmarkType field if it's non-nil, zero value otherwise
+and a boolean to check if the value has been set.
+
+### SetBenchmarkType
+
+`func (o *ModelComplianceScanResult) SetBenchmarkType(v string)`
+
+SetBenchmarkType sets BenchmarkType field to given value.
+
+
+### GetCompliancePercentage
+
+`func (o *ModelComplianceScanResult) GetCompliancePercentage() float32`
+
+GetCompliancePercentage returns the CompliancePercentage field if non-nil, zero value otherwise.
+
+### GetCompliancePercentageOk
+
+`func (o *ModelComplianceScanResult) GetCompliancePercentageOk() (*float32, bool)`
+
+GetCompliancePercentageOk returns a tuple with the CompliancePercentage field if it's non-nil, zero value otherwise
+and a boolean to check if the value has been set.
+
+### SetCompliancePercentage
+
+`func (o *ModelComplianceScanResult) SetCompliancePercentage(v float32)`
+
+SetCompliancePercentage sets CompliancePercentage field to given value.
+
 
 ### GetCompliances
 
@@ -223,6 +266,36 @@ and a boolean to check if the value has been set.
 SetScanId sets ScanId field to given value.
 
 
+### GetStatusCounts
+
+`func (o *ModelComplianceScanResult) GetStatusCounts() map[string]int32`
+
+GetStatusCounts returns the StatusCounts field if non-nil, zero value otherwise.
+
+### GetStatusCountsOk
+
+`func (o *ModelComplianceScanResult) GetStatusCountsOk() (*map[string]int32, bool)`
+
+GetStatusCountsOk returns a tuple with the StatusCounts field if it's non-nil, zero value otherwise
+and a boolean to check if the value has been set.
+
+### SetStatusCounts
+
+`func (o *ModelComplianceScanResult) SetStatusCounts(v map[string]int32)`
+
+SetStatusCounts sets StatusCounts field to given value.
+
+
+### SetStatusCountsNil
+
+`func (o *ModelComplianceScanResult) SetStatusCountsNil(b bool)`
+
+ SetStatusCountsNil sets the value for StatusCounts to be an explicit nil
+
+### UnsetStatusCounts
+`func (o *ModelComplianceScanResult) UnsetStatusCounts()`
+
+UnsetStatusCounts ensures that no value is present for StatusCounts, not even an explicit nil
 
 [[Back to Model list]](../README.md#documentation-for-models) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to README]](../README.md)
 

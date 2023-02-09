@@ -4,6 +4,8 @@
 
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
+**BenchmarkType** | **string** |  | 
+**CompliancePercentage** | **float32** |  | 
 **Compliances** | [**[]ModelCloudCompliance**](ModelCloudCompliance.md) |  | 
 **DockerContainerName** | **string** |  | 
 **DockerImageName** | **string** |  | 
@@ -13,12 +15,13 @@ Name | Type | Description | Notes
 **NodeName** | **string** |  | 
 **NodeType** | **string** |  | 
 **ScanId** | **string** |  | 
+**StatusCounts** | **map[string]int32** |  | 
 
 ## Methods
 
 ### NewModelCloudComplianceScanResult
 
-`func NewModelCloudComplianceScanResult(compliances []ModelCloudCompliance, dockerContainerName string, dockerImageName string, hostName string, kubernetesClusterName string, nodeId string, nodeName string, nodeType string, scanId string, ) *ModelCloudComplianceScanResult`
+`func NewModelCloudComplianceScanResult(benchmarkType string, compliancePercentage float32, compliances []ModelCloudCompliance, dockerContainerName string, dockerImageName string, hostName string, kubernetesClusterName string, nodeId string, nodeName string, nodeType string, scanId string, statusCounts map[string]int32, ) *ModelCloudComplianceScanResult`
 
 NewModelCloudComplianceScanResult instantiates a new ModelCloudComplianceScanResult object
 This constructor will assign default values to properties that have it defined,
@@ -32,6 +35,46 @@ will change when the set of required properties is changed
 NewModelCloudComplianceScanResultWithDefaults instantiates a new ModelCloudComplianceScanResult object
 This constructor will only assign default values to properties that have it defined,
 but it doesn't guarantee that properties required by API are set
+
+### GetBenchmarkType
+
+`func (o *ModelCloudComplianceScanResult) GetBenchmarkType() string`
+
+GetBenchmarkType returns the BenchmarkType field if non-nil, zero value otherwise.
+
+### GetBenchmarkTypeOk
+
+`func (o *ModelCloudComplianceScanResult) GetBenchmarkTypeOk() (*string, bool)`
+
+GetBenchmarkTypeOk returns a tuple with the BenchmarkType field if it's non-nil, zero value otherwise
+and a boolean to check if the value has been set.
+
+### SetBenchmarkType
+
+`func (o *ModelCloudComplianceScanResult) SetBenchmarkType(v string)`
+
+SetBenchmarkType sets BenchmarkType field to given value.
+
+
+### GetCompliancePercentage
+
+`func (o *ModelCloudComplianceScanResult) GetCompliancePercentage() float32`
+
+GetCompliancePercentage returns the CompliancePercentage field if non-nil, zero value otherwise.
+
+### GetCompliancePercentageOk
+
+`func (o *ModelCloudComplianceScanResult) GetCompliancePercentageOk() (*float32, bool)`
+
+GetCompliancePercentageOk returns a tuple with the CompliancePercentage field if it's non-nil, zero value otherwise
+and a boolean to check if the value has been set.
+
+### SetCompliancePercentage
+
+`func (o *ModelCloudComplianceScanResult) SetCompliancePercentage(v float32)`
+
+SetCompliancePercentage sets CompliancePercentage field to given value.
+
 
 ### GetCompliances
 
@@ -223,6 +266,36 @@ and a boolean to check if the value has been set.
 SetScanId sets ScanId field to given value.
 
 
+### GetStatusCounts
+
+`func (o *ModelCloudComplianceScanResult) GetStatusCounts() map[string]int32`
+
+GetStatusCounts returns the StatusCounts field if non-nil, zero value otherwise.
+
+### GetStatusCountsOk
+
+`func (o *ModelCloudComplianceScanResult) GetStatusCountsOk() (*map[string]int32, bool)`
+
+GetStatusCountsOk returns a tuple with the StatusCounts field if it's non-nil, zero value otherwise
+and a boolean to check if the value has been set.
+
+### SetStatusCounts
+
+`func (o *ModelCloudComplianceScanResult) SetStatusCounts(v map[string]int32)`
+
+SetStatusCounts sets StatusCounts field to given value.
+
+
+### SetStatusCountsNil
+
+`func (o *ModelCloudComplianceScanResult) SetStatusCountsNil(b bool)`
+
+ SetStatusCountsNil sets the value for StatusCounts to be an explicit nil
+
+### UnsetStatusCounts
+`func (o *ModelCloudComplianceScanResult) UnsetStatusCounts()`
+
+UnsetStatusCounts ensures that no value is present for StatusCounts, not even an explicit nil
 
 [[Back to Model list]](../README.md#documentation-for-models) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to README]](../README.md)
 

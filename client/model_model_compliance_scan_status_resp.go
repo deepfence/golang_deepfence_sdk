@@ -20,14 +20,14 @@ var _ MappedNullable = &ModelComplianceScanStatusResp{}
 
 // ModelComplianceScanStatusResp struct for ModelComplianceScanStatusResp
 type ModelComplianceScanStatusResp struct {
-	Statuses []ModelComplianceScanStatus `json:"statuses"`
+	Statuses []ModelComplianceScanInfo `json:"statuses"`
 }
 
 // NewModelComplianceScanStatusResp instantiates a new ModelComplianceScanStatusResp object
 // This constructor will assign default values to properties that have it defined,
 // and makes sure properties required by API are set, but the set of arguments
 // will change when the set of required properties is changed
-func NewModelComplianceScanStatusResp(statuses []ModelComplianceScanStatus) *ModelComplianceScanStatusResp {
+func NewModelComplianceScanStatusResp(statuses []ModelComplianceScanInfo) *ModelComplianceScanStatusResp {
 	this := ModelComplianceScanStatusResp{}
 	this.Statuses = statuses
 	return &this
@@ -42,10 +42,10 @@ func NewModelComplianceScanStatusRespWithDefaults() *ModelComplianceScanStatusRe
 }
 
 // GetStatuses returns the Statuses field value
-// If the value is explicit nil, the zero value for []ModelComplianceScanStatus will be returned
-func (o *ModelComplianceScanStatusResp) GetStatuses() []ModelComplianceScanStatus {
+// If the value is explicit nil, the zero value for []ModelComplianceScanInfo will be returned
+func (o *ModelComplianceScanStatusResp) GetStatuses() []ModelComplianceScanInfo {
 	if o == nil {
-		var ret []ModelComplianceScanStatus
+		var ret []ModelComplianceScanInfo
 		return ret
 	}
 
@@ -55,7 +55,7 @@ func (o *ModelComplianceScanStatusResp) GetStatuses() []ModelComplianceScanStatu
 // GetStatusesOk returns a tuple with the Statuses field value
 // and a boolean to check if the value has been set.
 // NOTE: If the value is an explicit nil, `nil, true` will be returned
-func (o *ModelComplianceScanStatusResp) GetStatusesOk() ([]ModelComplianceScanStatus, bool) {
+func (o *ModelComplianceScanStatusResp) GetStatusesOk() ([]ModelComplianceScanInfo, bool) {
 	if o == nil || IsNil(o.Statuses) {
 		return nil, false
 	}
@@ -63,7 +63,7 @@ func (o *ModelComplianceScanStatusResp) GetStatusesOk() ([]ModelComplianceScanSt
 }
 
 // SetStatuses sets field value
-func (o *ModelComplianceScanStatusResp) SetStatuses(v []ModelComplianceScanStatus) {
+func (o *ModelComplianceScanStatusResp) SetStatuses(v []ModelComplianceScanInfo) {
 	o.Statuses = v
 }
 
