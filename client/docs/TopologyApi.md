@@ -31,7 +31,7 @@ import (
     "context"
     "fmt"
     "os"
-    openapiclient "github.com/deepfence/golang_deepfence_sdk/client"
+    openapiclient "./openapi"
 )
 
 func main() {
@@ -97,7 +97,7 @@ import (
     "context"
     "fmt"
     "os"
-    openapiclient "github.com/deepfence/golang_deepfence_sdk/client"
+    openapiclient "./openapi"
 )
 
 func main() {
@@ -163,7 +163,7 @@ import (
     "context"
     "fmt"
     "os"
-    openapiclient "github.com/deepfence/golang_deepfence_sdk/client"
+    openapiclient "./openapi"
 )
 
 func main() {
@@ -229,7 +229,7 @@ import (
     "context"
     "fmt"
     "os"
-    openapiclient "github.com/deepfence/golang_deepfence_sdk/client"
+    openapiclient "./openapi"
 )
 
 func main() {
@@ -295,7 +295,7 @@ import (
     "context"
     "fmt"
     "os"
-    openapiclient "github.com/deepfence/golang_deepfence_sdk/client"
+    openapiclient "./openapi"
 )
 
 func main() {
@@ -361,7 +361,7 @@ import (
     "context"
     "fmt"
     "os"
-    openapiclient "github.com/deepfence/golang_deepfence_sdk/client"
+    openapiclient "./openapi"
 )
 
 func main() {
@@ -369,7 +369,7 @@ func main() {
 
     configuration := openapiclient.NewConfiguration()
     apiClient := openapiclient.NewAPIClient(configuration)
-    r, err := apiClient.TopologyApi.IngestAgentReport(context.Background()).ReportRawReport(reportRawReport).Execute()
+    resp, r, err := apiClient.TopologyApi.IngestAgentReport(context.Background()).ReportRawReport(reportRawReport).Execute()
     if err != nil {
         fmt.Fprintf(os.Stderr, "Error when calling `TopologyApi.IngestAgentReport``: %v\n", err)
         fmt.Fprintf(os.Stderr, "Full HTTP response: %v\n", r)
@@ -425,7 +425,7 @@ import (
     "context"
     "fmt"
     "os"
-    openapiclient "github.com/deepfence/golang_deepfence_sdk/client"
+    openapiclient "./openapi"
 )
 
 func main() {
@@ -433,7 +433,7 @@ func main() {
 
     configuration := openapiclient.NewConfiguration()
     apiClient := openapiclient.NewAPIClient(configuration)
-    r, err := apiClient.TopologyApi.IngestSyncAgentReport(context.Background()).IngestersReportIngestionData(ingestersReportIngestionData).Execute()
+    resp, r, err := apiClient.TopologyApi.IngestSyncAgentReport(context.Background()).IngestersReportIngestionData(ingestersReportIngestionData).Execute()
     if err != nil {
         fmt.Fprintf(os.Stderr, "Error when calling `TopologyApi.IngestSyncAgentReport``: %v\n", err)
         fmt.Fprintf(os.Stderr, "Full HTTP response: %v\n", r)

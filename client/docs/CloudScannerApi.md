@@ -4,9 +4,74 @@ All URIs are relative to *http://localhost*
 
 Method | HTTP request | Description
 ------------- | ------------- | -------------
+[**IngestCloudComplianceScanStatus**](CloudScannerApi.md#IngestCloudComplianceScanStatus) | **Post** /deepfence/ingest/cloud-compliance-scan-status | Ingest Cloud Compliances
 [**IngestCloudCompliances**](CloudScannerApi.md#IngestCloudCompliances) | **Post** /deepfence/ingest/cloud-compliance | Ingest Cloud Compliances
-[**StartCloudComplianceScans**](CloudScannerApi.md#StartCloudComplianceScans) | **Post** /deepfence/scan/start/cloud-compliance | Start Cloud Compliance Scans
+[**StatusCloudComplianceScan**](CloudScannerApi.md#StatusCloudComplianceScan) | **Get** /deepfence/scan/status/cloud-compliance | Get Cloud Compliance Scan Status
 
+
+
+## IngestCloudComplianceScanStatus
+
+> IngestCloudComplianceScanStatus(ctx).IngestersCloudCompliance(ingestersCloudCompliance).Execute()
+
+Ingest Cloud Compliances
+
+
+
+### Example
+
+```go
+package main
+
+import (
+    "context"
+    "fmt"
+    "os"
+    openapiclient "./openapi"
+)
+
+func main() {
+    ingestersCloudCompliance := []openapiclient.IngestersCloudCompliance{*openapiclient.NewIngestersCloudCompliance()} // []IngestersCloudCompliance |  (optional)
+
+    configuration := openapiclient.NewConfiguration()
+    apiClient := openapiclient.NewAPIClient(configuration)
+    resp, r, err := apiClient.CloudScannerApi.IngestCloudComplianceScanStatus(context.Background()).IngestersCloudCompliance(ingestersCloudCompliance).Execute()
+    if err != nil {
+        fmt.Fprintf(os.Stderr, "Error when calling `CloudScannerApi.IngestCloudComplianceScanStatus``: %v\n", err)
+        fmt.Fprintf(os.Stderr, "Full HTTP response: %v\n", r)
+    }
+}
+```
+
+### Path Parameters
+
+
+
+### Other Parameters
+
+Other parameters are passed through a pointer to a apiIngestCloudComplianceScanStatusRequest struct via the builder pattern
+
+
+Name | Type | Description  | Notes
+------------- | ------------- | ------------- | -------------
+ **ingestersCloudCompliance** | [**[]IngestersCloudCompliance**](IngestersCloudCompliance.md) |  | 
+
+### Return type
+
+ (empty response body)
+
+### Authorization
+
+[bearer_token](../README.md#bearer_token)
+
+### HTTP request headers
+
+- **Content-Type**: application/json
+- **Accept**: application/json
+
+[[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints)
+[[Back to Model list]](../README.md#documentation-for-models)
+[[Back to README]](../README.md)
 
 
 ## IngestCloudCompliances
@@ -26,7 +91,7 @@ import (
     "context"
     "fmt"
     "os"
-    openapiclient "github.com/deepfence/golang_deepfence_sdk/client"
+    openapiclient "./openapi"
 )
 
 func main() {
@@ -34,7 +99,7 @@ func main() {
 
     configuration := openapiclient.NewConfiguration()
     apiClient := openapiclient.NewAPIClient(configuration)
-    r, err := apiClient.CloudScannerApi.IngestCloudCompliances(context.Background()).IngestersCloudCompliance(ingestersCloudCompliance).Execute()
+    resp, r, err := apiClient.CloudScannerApi.IngestCloudCompliances(context.Background()).IngestersCloudCompliance(ingestersCloudCompliance).Execute()
     if err != nil {
         fmt.Fprintf(os.Stderr, "Error when calling `CloudScannerApi.IngestCloudCompliances``: %v\n", err)
         fmt.Fprintf(os.Stderr, "Full HTTP response: %v\n", r)
@@ -73,11 +138,11 @@ Name | Type | Description  | Notes
 [[Back to README]](../README.md)
 
 
-## StartCloudComplianceScans
+## StatusCloudComplianceScan
 
-> ModelScanTriggerResp StartCloudComplianceScans(ctx).ModelCloudComplianceScanTriggerReq(modelCloudComplianceScanTriggerReq).Execute()
+> ModelComplianceScanStatusResp StatusCloudComplianceScan(ctx).ScanIds(scanIds).BulkScanId(bulkScanId).Execute()
 
-Start Cloud Compliance Scans
+Get Cloud Compliance Scan Status
 
 
 
@@ -90,21 +155,22 @@ import (
     "context"
     "fmt"
     "os"
-    openapiclient "github.com/deepfence/golang_deepfence_sdk/client"
+    openapiclient "./openapi"
 )
 
 func main() {
-    modelCloudComplianceScanTriggerReq := *openapiclient.NewModelCloudComplianceScanTriggerReq([]openapiclient.ModelCloudComplianceScanTrigger{*openapiclient.NewModelCloudComplianceScanTrigger([]string{"BenchmarkTypes_example"}, "NodeId_example")}) // ModelCloudComplianceScanTriggerReq |  (optional)
+    scanIds := []string{"Inner_example"} // []string | 
+    bulkScanId := "bulkScanId_example" // string | 
 
     configuration := openapiclient.NewConfiguration()
     apiClient := openapiclient.NewAPIClient(configuration)
-    resp, r, err := apiClient.CloudScannerApi.StartCloudComplianceScans(context.Background()).ModelCloudComplianceScanTriggerReq(modelCloudComplianceScanTriggerReq).Execute()
+    resp, r, err := apiClient.CloudScannerApi.StatusCloudComplianceScan(context.Background()).ScanIds(scanIds).BulkScanId(bulkScanId).Execute()
     if err != nil {
-        fmt.Fprintf(os.Stderr, "Error when calling `CloudScannerApi.StartCloudComplianceScans``: %v\n", err)
+        fmt.Fprintf(os.Stderr, "Error when calling `CloudScannerApi.StatusCloudComplianceScan``: %v\n", err)
         fmt.Fprintf(os.Stderr, "Full HTTP response: %v\n", r)
     }
-    // response from `StartCloudComplianceScans`: ModelScanTriggerResp
-    fmt.Fprintf(os.Stdout, "Response from `CloudScannerApi.StartCloudComplianceScans`: %v\n", resp)
+    // response from `StatusCloudComplianceScan`: ModelComplianceScanStatusResp
+    fmt.Fprintf(os.Stdout, "Response from `CloudScannerApi.StatusCloudComplianceScan`: %v\n", resp)
 }
 ```
 
@@ -114,16 +180,17 @@ func main() {
 
 ### Other Parameters
 
-Other parameters are passed through a pointer to a apiStartCloudComplianceScansRequest struct via the builder pattern
+Other parameters are passed through a pointer to a apiStatusCloudComplianceScanRequest struct via the builder pattern
 
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **modelCloudComplianceScanTriggerReq** | [**ModelCloudComplianceScanTriggerReq**](ModelCloudComplianceScanTriggerReq.md) |  | 
+ **scanIds** | **[]string** |  | 
+ **bulkScanId** | **string** |  | 
 
 ### Return type
 
-[**ModelScanTriggerResp**](ModelScanTriggerResp.md)
+[**ModelComplianceScanStatusResp**](ModelComplianceScanStatusResp.md)
 
 ### Authorization
 
@@ -131,7 +198,7 @@ Name | Type | Description  | Notes
 
 ### HTTP request headers
 
-- **Content-Type**: application/json
+- **Content-Type**: Not defined
 - **Accept**: application/json
 
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints)

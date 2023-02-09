@@ -71,6 +71,46 @@ paths:
       summary: Get User's API Tokens
       tags:
       - User
+  /deepfence/api-token/reset:
+    post:
+      description: Reset user's API Tokens
+      operationId: resetApiTokens
+      responses:
+        "200":
+          content:
+            application/json:
+              schema:
+                items:
+                  $ref: '#/components/schemas/PostgresqlDbApiToken'
+                type: array
+          description: OK
+        "400":
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ApiDocsBadRequestResponse'
+          description: Bad Request
+        "401":
+          description: Unauthorized
+        "403":
+          description: Forbidden
+        "404":
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ApiDocsFailureResponse'
+          description: Not Found
+        "500":
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ApiDocsFailureResponse'
+          description: Internal Server Error
+      security:
+      - bearer_token: []
+      summary: Reset User's API Tokens
+      tags:
+      - User
   /deepfence/auth/token:
     post:
       description: "Get access token for programmatic API access, by providing API\
@@ -847,6 +887,48 @@ paths:
     post:
       description: Ingest Cloud compliances found while scanning cloud provider
       operationId: ingestCloudCompliances
+      requestBody:
+        content:
+          application/json:
+            schema:
+              items:
+                $ref: '#/components/schemas/IngestersCloudCompliance'
+              nullable: true
+              type: array
+      responses:
+        "200":
+          description: OK
+        "400":
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ApiDocsBadRequestResponse'
+          description: Bad Request
+        "401":
+          description: Unauthorized
+        "403":
+          description: Forbidden
+        "404":
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ApiDocsFailureResponse'
+          description: Not Found
+        "500":
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ApiDocsFailureResponse'
+          description: Internal Server Error
+      security:
+      - bearer_token: []
+      summary: Ingest Cloud Compliances
+      tags:
+      - Cloud Scanner
+  /deepfence/ingest/cloud-compliance-scan-status:
+    post:
+      description: Ingest Cloud compliances found while scanning cloud provider
+      operationId: ingestCloudComplianceScanStatus
       requestBody:
         content:
           application/json:
@@ -1689,6 +1771,127 @@ paths:
       summary: Get Images in Registry
       tags:
       - Lookup
+  /deepfence/registryaccount/:
+    post:
+      description: Add a new supported registry
+      operationId: addRegistry
+      requestBody:
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/ModelRegistryAddReq'
+      responses:
+        "200":
+          description: OK
+        "400":
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ApiDocsBadRequestResponse'
+          description: Bad Request
+        "401":
+          description: Unauthorized
+        "403":
+          description: Forbidden
+        "404":
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ApiDocsFailureResponse'
+          description: Not Found
+        "500":
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ApiDocsFailureResponse'
+          description: Internal Server Error
+      security:
+      - bearer_token: []
+      summary: Add Registry
+      tags:
+      - Registry
+  /deepfence/registryaccount/{id}:
+    delete:
+      description: Delete registry
+      operationId: deleteRegistry
+      parameters:
+      - explode: false
+        in: path
+        name: id
+        required: true
+        schema:
+          type: integer
+        style: simple
+      responses:
+        "200":
+          description: OK
+        "400":
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ApiDocsBadRequestResponse'
+          description: Bad Request
+        "401":
+          description: Unauthorized
+        "403":
+          description: Forbidden
+        "404":
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ApiDocsFailureResponse'
+          description: Not Found
+        "500":
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ApiDocsFailureResponse'
+          description: Internal Server Error
+      security:
+      - bearer_token: []
+      summary: Add Registry
+      tags:
+      - Registry
+  /deepfence/registryaccount/list:
+    get:
+      description: List all the added Registries
+      operationId: listRegistry
+      responses:
+        "200":
+          content:
+            application/json:
+              schema:
+                items:
+                  $ref: '#/components/schemas/ModelRegistryListResp'
+                type: array
+          description: OK
+        "400":
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ApiDocsBadRequestResponse'
+          description: Bad Request
+        "401":
+          description: Unauthorized
+        "403":
+          description: Forbidden
+        "404":
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ApiDocsFailureResponse'
+          description: Not Found
+        "500":
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ApiDocsFailureResponse'
+          description: Internal Server Error
+      security:
+      - bearer_token: []
+      summary: List Registries
+      tags:
+      - Registry
   /deepfence/scan/list/compliance:
     post:
       description: Get Compliance Scans list on agent or registry
@@ -2033,49 +2236,6 @@ paths:
       summary: Get Vulnerability Scans Results
       tags:
       - Vulnerability
-  /deepfence/scan/start/cloud-compliance:
-    post:
-      description: Start Cloud Compliance Scans on cloud nodes
-      operationId: startCloudComplianceScans
-      requestBody:
-        content:
-          application/json:
-            schema:
-              $ref: '#/components/schemas/ModelCloudComplianceScanTriggerReq'
-      responses:
-        "202":
-          content:
-            application/json:
-              schema:
-                $ref: '#/components/schemas/ModelScanTriggerResp'
-          description: Accepted
-        "400":
-          content:
-            application/json:
-              schema:
-                $ref: '#/components/schemas/ApiDocsBadRequestResponse'
-          description: Bad Request
-        "401":
-          description: Unauthorized
-        "403":
-          description: Forbidden
-        "404":
-          content:
-            application/json:
-              schema:
-                $ref: '#/components/schemas/ApiDocsFailureResponse'
-          description: Not Found
-        "500":
-          content:
-            application/json:
-              schema:
-                $ref: '#/components/schemas/ApiDocsFailureResponse'
-          description: Internal Server Error
-      security:
-      - bearer_token: []
-      summary: Start Cloud Compliance Scans
-      tags:
-      - Cloud Scanner
   /deepfence/scan/start/compliance:
     post:
       description: Start Compliance Scan on agent or registry
@@ -2248,6 +2408,61 @@ paths:
       summary: Start Vulnerability Scan
       tags:
       - Vulnerability
+  /deepfence/scan/status/cloud-compliance:
+    get:
+      description: Get Cloud Compliance Scan Status on cloud node
+      operationId: statusCloudComplianceScan
+      parameters:
+      - explode: true
+        in: query
+        name: scan_ids
+        required: true
+        schema:
+          items:
+            type: string
+          type: array
+        style: form
+      - explode: true
+        in: query
+        name: bulk_scan_id
+        required: true
+        schema:
+          type: string
+        style: form
+      responses:
+        "200":
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ModelComplianceScanStatusResp'
+          description: OK
+        "400":
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ApiDocsBadRequestResponse'
+          description: Bad Request
+        "401":
+          description: Unauthorized
+        "403":
+          description: Forbidden
+        "404":
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ApiDocsFailureResponse'
+          description: Not Found
+        "500":
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ApiDocsFailureResponse'
+          description: Internal Server Error
+      security:
+      - bearer_token: []
+      summary: Get Cloud Compliance Scan Status
+      tags:
+      - Cloud Scanner
   /deepfence/scan/status/compliance:
     get:
       description: Get Compliance Scan Status on agent or registry
@@ -2274,7 +2489,7 @@ paths:
           content:
             application/json:
               schema:
-                $ref: '#/components/schemas/ModelScanStatusResp'
+                $ref: '#/components/schemas/ModelComplianceScanStatusResp'
           description: OK
         "400":
           content:
@@ -3013,6 +3228,46 @@ paths:
                 $ref: '#/components/schemas/ApiDocsFailureResponse'
           description: Internal Server Error
       summary: Verify and Reset Password
+      tags:
+      - User
+  /deepfence/users:
+    get:
+      description: Get users
+      operationId: getUsers
+      responses:
+        "200":
+          content:
+            application/json:
+              schema:
+                items:
+                  $ref: '#/components/schemas/ModelUser'
+                type: array
+          description: OK
+        "400":
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ApiDocsBadRequestResponse'
+          description: Bad Request
+        "401":
+          description: Unauthorized
+        "403":
+          description: Forbidden
+        "404":
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ApiDocsFailureResponse'
+          description: Not Found
+        "500":
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ApiDocsFailureResponse'
+          description: Internal Server Error
+      security:
+      - bearer_token: []
+      summary: Get users
       tags:
       - User
 components:
@@ -4084,53 +4339,23 @@ components:
     ModelCloudComplianceScanDetails:
       example:
         account_id: account_id
+        controls:
+        - controls
+        - controls
         scan_type: scan_type
         scan_id: scan_id
       properties:
         account_id:
           type: string
-        scan_id:
-          type: string
-        scan_type:
-          type: string
-      type: object
-    ModelCloudComplianceScanTrigger:
-      example:
-        benchmark_types:
-        - benchmark_types
-        - benchmark_types
-        node_id: node_id
-      properties:
-        benchmark_types:
+        controls:
           items:
             type: string
           nullable: true
           type: array
-        node_id:
+        scan_id:
           type: string
-      required:
-      - benchmark_types
-      - node_id
-      type: object
-    ModelCloudComplianceScanTriggerReq:
-      example:
-        scan_triggers:
-        - benchmark_types:
-          - benchmark_types
-          - benchmark_types
-          node_id: node_id
-        - benchmark_types:
-          - benchmark_types
-          - benchmark_types
-          node_id: node_id
-      properties:
-        scan_triggers:
-          items:
-            $ref: '#/components/schemas/ModelCloudComplianceScanTrigger'
-          nullable: true
-          type: array
-      required:
-      - scan_triggers
+        scan_type:
+          type: string
       type: object
     ModelCloudNodeAccountInfo:
       example:
@@ -4193,6 +4418,9 @@ components:
           scans:
             key:
               account_id: account_id
+              controls:
+              - controls
+              - controls
               scan_type: scan_type
               scan_id: scan_id
           refresh: refresh
@@ -4210,6 +4438,9 @@ components:
         scans:
           key:
             account_id: account_id
+            controls:
+            - controls
+            - controls
             scan_type: scan_type
             scan_id: scan_id
         refresh: refresh
@@ -4418,43 +4649,86 @@ components:
       - node_type
       - scan_id
       type: object
-    ModelComplianceScanTriggerReq:
+    ModelComplianceScanStatus:
       example:
-        filters:
-          container_scan_filter:
-            fields_values:
-            - value: value
-              key: key
-            - value: value
-              key: key
-          image_scan_filter:
-            fields_values:
-            - value: value
-              key: key
-            - value: value
-              key: key
-          host_scan_filter:
-            fields_values:
-            - value: value
-              key: key
-            - value: value
-              key: key
-        node_ids:
-        - node_type: image
-          node_id: node_id
-        - node_type: image
-          node_id: node_id
+        benchmark_type: benchmark_type
+        scan_id: scan_id
+        status: status
       properties:
-        filters:
-          $ref: '#/components/schemas/ModelScanFilter'
-        node_ids:
+        benchmark_type:
+          type: string
+        scan_id:
+          type: string
+        status:
+          type: string
+      type: object
+    ModelComplianceScanStatusResp:
+      example:
+        statuses:
+        - benchmark_type: benchmark_type
+          scan_id: scan_id
+          status: status
+        - benchmark_type: benchmark_type
+          scan_id: scan_id
+          status: status
+      properties:
+        statuses:
           items:
-            $ref: '#/components/schemas/ModelNodeIdentifier'
+            $ref: '#/components/schemas/ModelComplianceScanStatus'
           nullable: true
           type: array
       required:
-      - filters
-      - node_ids
+      - statuses
+      type: object
+    ModelComplianceScanTrigger:
+      example:
+        node_type: aws
+        benchmark_types:
+        - benchmark_types
+        - benchmark_types
+        node_id: node_id
+      properties:
+        benchmark_types:
+          items:
+            type: string
+          nullable: true
+          type: array
+        node_id:
+          type: string
+        node_type:
+          enum:
+          - aws
+          - gcp
+          - azure
+          - linux
+          - kubernetes_cluster
+          type: string
+      required:
+      - benchmark_types
+      - node_id
+      - node_type
+      type: object
+    ModelComplianceScanTriggerReq:
+      example:
+        scan_triggers:
+        - node_type: aws
+          benchmark_types:
+          - benchmark_types
+          - benchmark_types
+          node_id: node_id
+        - node_type: aws
+          benchmark_types:
+          - benchmark_types
+          - benchmark_types
+          node_id: node_id
+      properties:
+        scan_triggers:
+          items:
+            $ref: '#/components/schemas/ModelComplianceScanTrigger'
+          nullable: true
+          type: array
+      required:
+      - scan_triggers
       type: object
     ModelComputeMetrics:
       example:
@@ -6093,6 +6367,8 @@ components:
           - image
           - host
           - container
+          - cluster
+          - registry
           type: string
       required:
       - node_id
@@ -6378,6 +6654,51 @@ components:
       - container_images
       - host_name
       - node_id
+      type: object
+    ModelRegistryAddReq:
+      example:
+        non_secret:
+          key: ""
+        registry_type: registry_type
+        name: name
+        secret:
+          key: ""
+      properties:
+        name:
+          type: string
+        non_secret:
+          additionalProperties: {}
+          nullable: true
+          type: object
+        registry_type:
+          type: string
+        secret:
+          additionalProperties: {}
+          nullable: true
+          type: object
+      type: object
+    ModelRegistryListResp:
+      example:
+        updated_at: 2000-01-23T04:56:07.000+00:00
+        non_secret: ""
+        registry_type: registry_type
+        name: name
+        created_at: 2000-01-23T04:56:07.000+00:00
+        id: 0
+      properties:
+        created_at:
+          format: date-time
+          type: string
+        id:
+          type: integer
+        name:
+          type: string
+        non_secret: {}
+        registry_type:
+          type: string
+        updated_at:
+          format: date-time
+          type: string
       type: object
     ModelResponseAccessToken:
       example:

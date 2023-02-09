@@ -21,6 +21,7 @@ var _ MappedNullable = &ModelCloudComplianceScanDetails{}
 // ModelCloudComplianceScanDetails struct for ModelCloudComplianceScanDetails
 type ModelCloudComplianceScanDetails struct {
 	AccountId *string `json:"account_id,omitempty"`
+	Controls []string `json:"controls,omitempty"`
 	ScanId *string `json:"scan_id,omitempty"`
 	ScanType *string `json:"scan_type,omitempty"`
 }
@@ -72,6 +73,39 @@ func (o *ModelCloudComplianceScanDetails) HasAccountId() bool {
 // SetAccountId gets a reference to the given string and assigns it to the AccountId field.
 func (o *ModelCloudComplianceScanDetails) SetAccountId(v string) {
 	o.AccountId = &v
+}
+
+// GetControls returns the Controls field value if set, zero value otherwise (both if not set or set to explicit null).
+func (o *ModelCloudComplianceScanDetails) GetControls() []string {
+	if o == nil {
+		var ret []string
+		return ret
+	}
+	return o.Controls
+}
+
+// GetControlsOk returns a tuple with the Controls field value if set, nil otherwise
+// and a boolean to check if the value has been set.
+// NOTE: If the value is an explicit nil, `nil, true` will be returned
+func (o *ModelCloudComplianceScanDetails) GetControlsOk() ([]string, bool) {
+	if o == nil || isNil(o.Controls) {
+		return nil, false
+	}
+	return o.Controls, true
+}
+
+// HasControls returns a boolean if a field has been set.
+func (o *ModelCloudComplianceScanDetails) HasControls() bool {
+	if o != nil && isNil(o.Controls) {
+		return true
+	}
+
+	return false
+}
+
+// SetControls gets a reference to the given []string and assigns it to the Controls field.
+func (o *ModelCloudComplianceScanDetails) SetControls(v []string) {
+	o.Controls = v
 }
 
 // GetScanId returns the ScanId field value if set, zero value otherwise.
@@ -150,6 +184,9 @@ func (o ModelCloudComplianceScanDetails) ToMap() (map[string]interface{}, error)
 	toSerialize := map[string]interface{}{}
 	if !isNil(o.AccountId) {
 		toSerialize["account_id"] = o.AccountId
+	}
+	if o.Controls != nil {
+		toSerialize["controls"] = o.Controls
 	}
 	if !isNil(o.ScanId) {
 		toSerialize["scan_id"] = o.ScanId

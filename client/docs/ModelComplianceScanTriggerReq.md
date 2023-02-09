@@ -4,14 +4,13 @@
 
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
-**Filters** | [**ModelScanFilter**](ModelScanFilter.md) |  | 
-**NodeIds** | [**[]ModelNodeIdentifier**](ModelNodeIdentifier.md) |  | 
+**ScanTriggers** | [**[]ModelComplianceScanTrigger**](ModelComplianceScanTrigger.md) |  | 
 
 ## Methods
 
 ### NewModelComplianceScanTriggerReq
 
-`func NewModelComplianceScanTriggerReq(filters ModelScanFilter, nodeIds []ModelNodeIdentifier, ) *ModelComplianceScanTriggerReq`
+`func NewModelComplianceScanTriggerReq(scanTriggers []ModelComplianceScanTrigger, ) *ModelComplianceScanTriggerReq`
 
 NewModelComplianceScanTriggerReq instantiates a new ModelComplianceScanTriggerReq object
 This constructor will assign default values to properties that have it defined,
@@ -26,56 +25,36 @@ NewModelComplianceScanTriggerReqWithDefaults instantiates a new ModelComplianceS
 This constructor will only assign default values to properties that have it defined,
 but it doesn't guarantee that properties required by API are set
 
-### GetFilters
+### GetScanTriggers
 
-`func (o *ModelComplianceScanTriggerReq) GetFilters() ModelScanFilter`
+`func (o *ModelComplianceScanTriggerReq) GetScanTriggers() []ModelComplianceScanTrigger`
 
-GetFilters returns the Filters field if non-nil, zero value otherwise.
+GetScanTriggers returns the ScanTriggers field if non-nil, zero value otherwise.
 
-### GetFiltersOk
+### GetScanTriggersOk
 
-`func (o *ModelComplianceScanTriggerReq) GetFiltersOk() (*ModelScanFilter, bool)`
+`func (o *ModelComplianceScanTriggerReq) GetScanTriggersOk() (*[]ModelComplianceScanTrigger, bool)`
 
-GetFiltersOk returns a tuple with the Filters field if it's non-nil, zero value otherwise
+GetScanTriggersOk returns a tuple with the ScanTriggers field if it's non-nil, zero value otherwise
 and a boolean to check if the value has been set.
 
-### SetFilters
+### SetScanTriggers
 
-`func (o *ModelComplianceScanTriggerReq) SetFilters(v ModelScanFilter)`
+`func (o *ModelComplianceScanTriggerReq) SetScanTriggers(v []ModelComplianceScanTrigger)`
 
-SetFilters sets Filters field to given value.
-
-
-### GetNodeIds
-
-`func (o *ModelComplianceScanTriggerReq) GetNodeIds() []ModelNodeIdentifier`
-
-GetNodeIds returns the NodeIds field if non-nil, zero value otherwise.
-
-### GetNodeIdsOk
-
-`func (o *ModelComplianceScanTriggerReq) GetNodeIdsOk() (*[]ModelNodeIdentifier, bool)`
-
-GetNodeIdsOk returns a tuple with the NodeIds field if it's non-nil, zero value otherwise
-and a boolean to check if the value has been set.
-
-### SetNodeIds
-
-`func (o *ModelComplianceScanTriggerReq) SetNodeIds(v []ModelNodeIdentifier)`
-
-SetNodeIds sets NodeIds field to given value.
+SetScanTriggers sets ScanTriggers field to given value.
 
 
-### SetNodeIdsNil
+### SetScanTriggersNil
 
-`func (o *ModelComplianceScanTriggerReq) SetNodeIdsNil(b bool)`
+`func (o *ModelComplianceScanTriggerReq) SetScanTriggersNil(b bool)`
 
- SetNodeIdsNil sets the value for NodeIds to be an explicit nil
+ SetScanTriggersNil sets the value for ScanTriggers to be an explicit nil
 
-### UnsetNodeIds
-`func (o *ModelComplianceScanTriggerReq) UnsetNodeIds()`
+### UnsetScanTriggers
+`func (o *ModelComplianceScanTriggerReq) UnsetScanTriggers()`
 
-UnsetNodeIds ensures that no value is present for NodeIds, not even an explicit nil
+UnsetScanTriggers ensures that no value is present for ScanTriggers, not even an explicit nil
 
 [[Back to Model list]](../README.md#documentation-for-models) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to README]](../README.md)
 

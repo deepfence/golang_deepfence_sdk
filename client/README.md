@@ -87,8 +87,9 @@ Class | Method | HTTP request | Description
 *CloudNodesApi* | [**ListCloudProviders**](docs/CloudNodesApi.md#listcloudproviders) | **Post** /deepfence/cloud-node/providers/list | List Cloud Node Providers
 *CloudNodesApi* | [**RegisterCloudNodeAccount**](docs/CloudNodesApi.md#registercloudnodeaccount) | **Post** /deepfence/cloud-node/account | Register Cloud Node Account
 *CloudResourcesApi* | [**IngestCloudResources**](docs/CloudResourcesApi.md#ingestcloudresources) | **Post** /deepfence/ingest/cloud-resources | Ingest Cloud resources
+*CloudScannerApi* | [**IngestCloudComplianceScanStatus**](docs/CloudScannerApi.md#ingestcloudcompliancescanstatus) | **Post** /deepfence/ingest/cloud-compliance-scan-status | Ingest Cloud Compliances
 *CloudScannerApi* | [**IngestCloudCompliances**](docs/CloudScannerApi.md#ingestcloudcompliances) | **Post** /deepfence/ingest/cloud-compliance | Ingest Cloud Compliances
-*CloudScannerApi* | [**StartCloudComplianceScans**](docs/CloudScannerApi.md#startcloudcompliancescans) | **Post** /deepfence/scan/start/cloud-compliance | Start Cloud Compliance Scans
+*CloudScannerApi* | [**StatusCloudComplianceScan**](docs/CloudScannerApi.md#statuscloudcompliancescan) | **Get** /deepfence/scan/status/cloud-compliance | Get Cloud Compliance Scan Status
 *ComplianceApi* | [**IngestCompliances**](docs/ComplianceApi.md#ingestcompliances) | **Post** /deepfence/ingest/compliance | Ingest Compliances
 *ComplianceApi* | [**ListComplianceScan**](docs/ComplianceApi.md#listcompliancescan) | **Post** /deepfence/scan/list/compliance | Get Compliance Scans List
 *ComplianceApi* | [**ResultsComplianceScan**](docs/ComplianceApi.md#resultscompliancescan) | **Post** /deepfence/scan/results/compliance | Get Compliance Scans Results
@@ -118,6 +119,9 @@ Class | Method | HTTP request | Description
 *MalwareScanApi* | [**StartMalwareScan**](docs/MalwareScanApi.md#startmalwarescan) | **Post** /deepfence/scan/start/malware | Start Malware Scan
 *MalwareScanApi* | [**StatusMalwareScan**](docs/MalwareScanApi.md#statusmalwarescan) | **Get** /deepfence/scan/status/malware | Get Malware Scan Status
 *MalwareScanApi* | [**StopMalwareScan**](docs/MalwareScanApi.md#stopmalwarescan) | **Post** /deepfence/scan/stop/malware | Stop Malware Scan
+*RegistryApi* | [**AddRegistry**](docs/RegistryApi.md#addregistry) | **Post** /deepfence/registryaccount/ | Add Registry
+*RegistryApi* | [**DeleteRegistry**](docs/RegistryApi.md#deleteregistry) | **Delete** /deepfence/registryaccount/{id} | Add Registry
+*RegistryApi* | [**ListRegistry**](docs/RegistryApi.md#listregistry) | **Get** /deepfence/registryaccount/list | List Registries
 *SecretScanApi* | [**IngestSecretScanStatus**](docs/SecretScanApi.md#ingestsecretscanstatus) | **Post** /deepfence/ingest/secret-scan-logs | Ingest Secrets Scan Status
 *SecretScanApi* | [**IngestSecrets**](docs/SecretScanApi.md#ingestsecrets) | **Post** /deepfence/ingest/secrets | Ingest Secrets
 *SecretScanApi* | [**ListSecretScan**](docs/SecretScanApi.md#listsecretscan) | **Post** /deepfence/scan/list/secret | Get Secret Scans List
@@ -136,9 +140,11 @@ Class | Method | HTTP request | Description
 *UserApi* | [**DeleteCurrentUser**](docs/UserApi.md#deletecurrentuser) | **Delete** /deepfence/user | Delete Current User
 *UserApi* | [**GetApiTokens**](docs/UserApi.md#getapitokens) | **Get** /deepfence/api-token | Get User&#39;s API Tokens
 *UserApi* | [**GetCurrentUser**](docs/UserApi.md#getcurrentuser) | **Get** /deepfence/user | Get Current User
+*UserApi* | [**GetUsers**](docs/UserApi.md#getusers) | **Get** /deepfence/users | Get users
 *UserApi* | [**InviteUser**](docs/UserApi.md#inviteuser) | **Post** /deepfence/user/invite | Invite User
 *UserApi* | [**RegisterInvitedUser**](docs/UserApi.md#registerinviteduser) | **Post** /deepfence/user/invite/register | Register Invited User
 *UserApi* | [**RegisterUser**](docs/UserApi.md#registeruser) | **Post** /deepfence/user/register | Register User
+*UserApi* | [**ResetApiTokens**](docs/UserApi.md#resetapitokens) | **Post** /deepfence/api-token/reset | Reset User&#39;s API Tokens
 *UserApi* | [**ResetPasswordRequest**](docs/UserApi.md#resetpasswordrequest) | **Post** /deepfence/user/reset-password/request | Reset Password Request
 *UserApi* | [**UpdateCurrentUser**](docs/UserApi.md#updatecurrentuser) | **Put** /deepfence/user | Update Current User
 *UserApi* | [**VerifyResetPasswordRequest**](docs/UserApi.md#verifyresetpasswordrequest) | **Post** /deepfence/user/reset-password/verify | Verify and Reset Password
@@ -180,8 +186,6 @@ Class | Method | HTTP request | Description
  - [ModelAgentUpgrade](docs/ModelAgentUpgrade.md)
  - [ModelApiAuthRequest](docs/ModelApiAuthRequest.md)
  - [ModelCloudComplianceScanDetails](docs/ModelCloudComplianceScanDetails.md)
- - [ModelCloudComplianceScanTrigger](docs/ModelCloudComplianceScanTrigger.md)
- - [ModelCloudComplianceScanTriggerReq](docs/ModelCloudComplianceScanTriggerReq.md)
  - [ModelCloudNodeAccountInfo](docs/ModelCloudNodeAccountInfo.md)
  - [ModelCloudNodeAccountRegisterReq](docs/ModelCloudNodeAccountRegisterReq.md)
  - [ModelCloudNodeAccountRegisterResp](docs/ModelCloudNodeAccountRegisterResp.md)
@@ -192,6 +196,9 @@ Class | Method | HTTP request | Description
  - [ModelCloudNodeProvidersListResp](docs/ModelCloudNodeProvidersListResp.md)
  - [ModelCompliance](docs/ModelCompliance.md)
  - [ModelComplianceScanResult](docs/ModelComplianceScanResult.md)
+ - [ModelComplianceScanStatus](docs/ModelComplianceScanStatus.md)
+ - [ModelComplianceScanStatusResp](docs/ModelComplianceScanStatusResp.md)
+ - [ModelComplianceScanTrigger](docs/ModelComplianceScanTrigger.md)
  - [ModelComplianceScanTriggerReq](docs/ModelComplianceScanTriggerReq.md)
  - [ModelComputeMetrics](docs/ModelComputeMetrics.md)
  - [ModelContainer](docs/ModelContainer.md)
@@ -216,6 +223,8 @@ Class | Method | HTTP request | Description
  - [ModelProcess](docs/ModelProcess.md)
  - [ModelRegisterInvitedUserRequest](docs/ModelRegisterInvitedUserRequest.md)
  - [ModelRegistryAccount](docs/ModelRegistryAccount.md)
+ - [ModelRegistryAddReq](docs/ModelRegistryAddReq.md)
+ - [ModelRegistryListResp](docs/ModelRegistryListResp.md)
  - [ModelResponseAccessToken](docs/ModelResponseAccessToken.md)
  - [ModelRule](docs/ModelRule.md)
  - [ModelScanFilter](docs/ModelScanFilter.md)

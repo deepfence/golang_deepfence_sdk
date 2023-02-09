@@ -7,9 +7,11 @@ Method | HTTP request | Description
 [**DeleteCurrentUser**](UserApi.md#DeleteCurrentUser) | **Delete** /deepfence/user | Delete Current User
 [**GetApiTokens**](UserApi.md#GetApiTokens) | **Get** /deepfence/api-token | Get User&#39;s API Tokens
 [**GetCurrentUser**](UserApi.md#GetCurrentUser) | **Get** /deepfence/user | Get Current User
+[**GetUsers**](UserApi.md#GetUsers) | **Get** /deepfence/users | Get users
 [**InviteUser**](UserApi.md#InviteUser) | **Post** /deepfence/user/invite | Invite User
 [**RegisterInvitedUser**](UserApi.md#RegisterInvitedUser) | **Post** /deepfence/user/invite/register | Register Invited User
 [**RegisterUser**](UserApi.md#RegisterUser) | **Post** /deepfence/user/register | Register User
+[**ResetApiTokens**](UserApi.md#ResetApiTokens) | **Post** /deepfence/api-token/reset | Reset User&#39;s API Tokens
 [**ResetPasswordRequest**](UserApi.md#ResetPasswordRequest) | **Post** /deepfence/user/reset-password/request | Reset Password Request
 [**UpdateCurrentUser**](UserApi.md#UpdateCurrentUser) | **Put** /deepfence/user | Update Current User
 [**VerifyResetPasswordRequest**](UserApi.md#VerifyResetPasswordRequest) | **Post** /deepfence/user/reset-password/verify | Verify and Reset Password
@@ -33,14 +35,14 @@ import (
     "context"
     "fmt"
     "os"
-    openapiclient "github.com/deepfence/golang_deepfence_sdk/client"
+    openapiclient "./openapi"
 )
 
 func main() {
 
     configuration := openapiclient.NewConfiguration()
     apiClient := openapiclient.NewAPIClient(configuration)
-    r, err := apiClient.UserApi.DeleteCurrentUser(context.Background()).Execute()
+    resp, r, err := apiClient.UserApi.DeleteCurrentUser(context.Background()).Execute()
     if err != nil {
         fmt.Fprintf(os.Stderr, "Error when calling `UserApi.DeleteCurrentUser``: %v\n", err)
         fmt.Fprintf(os.Stderr, "Full HTTP response: %v\n", r)
@@ -92,7 +94,7 @@ import (
     "context"
     "fmt"
     "os"
-    openapiclient "github.com/deepfence/golang_deepfence_sdk/client"
+    openapiclient "./openapi"
 )
 
 func main() {
@@ -153,7 +155,7 @@ import (
     "context"
     "fmt"
     "os"
-    openapiclient "github.com/deepfence/golang_deepfence_sdk/client"
+    openapiclient "./openapi"
 )
 
 func main() {
@@ -197,6 +199,67 @@ Other parameters are passed through a pointer to a apiGetCurrentUserRequest stru
 [[Back to README]](../README.md)
 
 
+## GetUsers
+
+> []ModelUser GetUsers(ctx).Execute()
+
+Get users
+
+
+
+### Example
+
+```go
+package main
+
+import (
+    "context"
+    "fmt"
+    "os"
+    openapiclient "./openapi"
+)
+
+func main() {
+
+    configuration := openapiclient.NewConfiguration()
+    apiClient := openapiclient.NewAPIClient(configuration)
+    resp, r, err := apiClient.UserApi.GetUsers(context.Background()).Execute()
+    if err != nil {
+        fmt.Fprintf(os.Stderr, "Error when calling `UserApi.GetUsers``: %v\n", err)
+        fmt.Fprintf(os.Stderr, "Full HTTP response: %v\n", r)
+    }
+    // response from `GetUsers`: []ModelUser
+    fmt.Fprintf(os.Stdout, "Response from `UserApi.GetUsers`: %v\n", resp)
+}
+```
+
+### Path Parameters
+
+This endpoint does not need any parameter.
+
+### Other Parameters
+
+Other parameters are passed through a pointer to a apiGetUsersRequest struct via the builder pattern
+
+
+### Return type
+
+[**[]ModelUser**](ModelUser.md)
+
+### Authorization
+
+[bearer_token](../README.md#bearer_token)
+
+### HTTP request headers
+
+- **Content-Type**: Not defined
+- **Accept**: application/json
+
+[[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints)
+[[Back to Model list]](../README.md#documentation-for-models)
+[[Back to README]](../README.md)
+
+
 ## InviteUser
 
 > ModelInviteUserResponse InviteUser(ctx).ModelInviteUserRequest(modelInviteUserRequest).Execute()
@@ -214,7 +277,7 @@ import (
     "context"
     "fmt"
     "os"
-    openapiclient "github.com/deepfence/golang_deepfence_sdk/client"
+    openapiclient "./openapi"
 )
 
 func main() {
@@ -280,7 +343,7 @@ import (
     "context"
     "fmt"
     "os"
-    openapiclient "github.com/deepfence/golang_deepfence_sdk/client"
+    openapiclient "./openapi"
 )
 
 func main() {
@@ -346,7 +409,7 @@ import (
     "context"
     "fmt"
     "os"
-    openapiclient "github.com/deepfence/golang_deepfence_sdk/client"
+    openapiclient "./openapi"
 )
 
 func main() {
@@ -395,6 +458,67 @@ No authorization required
 [[Back to README]](../README.md)
 
 
+## ResetApiTokens
+
+> []map[string]interface{} ResetApiTokens(ctx).Execute()
+
+Reset User's API Tokens
+
+
+
+### Example
+
+```go
+package main
+
+import (
+    "context"
+    "fmt"
+    "os"
+    openapiclient "./openapi"
+)
+
+func main() {
+
+    configuration := openapiclient.NewConfiguration()
+    apiClient := openapiclient.NewAPIClient(configuration)
+    resp, r, err := apiClient.UserApi.ResetApiTokens(context.Background()).Execute()
+    if err != nil {
+        fmt.Fprintf(os.Stderr, "Error when calling `UserApi.ResetApiTokens``: %v\n", err)
+        fmt.Fprintf(os.Stderr, "Full HTTP response: %v\n", r)
+    }
+    // response from `ResetApiTokens`: []map[string]interface{}
+    fmt.Fprintf(os.Stdout, "Response from `UserApi.ResetApiTokens`: %v\n", resp)
+}
+```
+
+### Path Parameters
+
+This endpoint does not need any parameter.
+
+### Other Parameters
+
+Other parameters are passed through a pointer to a apiResetApiTokensRequest struct via the builder pattern
+
+
+### Return type
+
+**[]map[string]interface{}**
+
+### Authorization
+
+[bearer_token](../README.md#bearer_token)
+
+### HTTP request headers
+
+- **Content-Type**: Not defined
+- **Accept**: application/json
+
+[[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints)
+[[Back to Model list]](../README.md#documentation-for-models)
+[[Back to README]](../README.md)
+
+
 ## ResetPasswordRequest
 
 > ModelMessageResponse ResetPasswordRequest(ctx).ModelPasswordResetRequest(modelPasswordResetRequest).Execute()
@@ -412,7 +536,7 @@ import (
     "context"
     "fmt"
     "os"
-    openapiclient "github.com/deepfence/golang_deepfence_sdk/client"
+    openapiclient "./openapi"
 )
 
 func main() {
@@ -478,7 +602,7 @@ import (
     "context"
     "fmt"
     "os"
-    openapiclient "github.com/deepfence/golang_deepfence_sdk/client"
+    openapiclient "./openapi"
 )
 
 func main() {
@@ -544,7 +668,7 @@ import (
     "context"
     "fmt"
     "os"
-    openapiclient "github.com/deepfence/golang_deepfence_sdk/client"
+    openapiclient "./openapi"
 )
 
 func main() {
@@ -552,7 +676,7 @@ func main() {
 
     configuration := openapiclient.NewConfiguration()
     apiClient := openapiclient.NewAPIClient(configuration)
-    r, err := apiClient.UserApi.VerifyResetPasswordRequest(context.Background()).ModelPasswordResetVerifyRequest(modelPasswordResetVerifyRequest).Execute()
+    resp, r, err := apiClient.UserApi.VerifyResetPasswordRequest(context.Background()).ModelPasswordResetVerifyRequest(modelPasswordResetVerifyRequest).Execute()
     if err != nil {
         fmt.Fprintf(os.Stderr, "Error when calling `UserApi.VerifyResetPasswordRequest``: %v\n", err)
         fmt.Fprintf(os.Stderr, "Full HTTP response: %v\n", r)

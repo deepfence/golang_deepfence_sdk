@@ -28,7 +28,7 @@ import (
     "context"
     "fmt"
     "os"
-    openapiclient "github.com/deepfence/golang_deepfence_sdk/client"
+    openapiclient "./openapi"
 )
 
 func main() {
@@ -89,14 +89,14 @@ import (
     "context"
     "fmt"
     "os"
-    openapiclient "github.com/deepfence/golang_deepfence_sdk/client"
+    openapiclient "./openapi"
 )
 
 func main() {
 
     configuration := openapiclient.NewConfiguration()
     apiClient := openapiclient.NewAPIClient(configuration)
-    r, err := apiClient.DiagnosisApi.GenerateAgentDiagnosticLogs(context.Background()).Execute()
+    resp, r, err := apiClient.DiagnosisApi.GenerateAgentDiagnosticLogs(context.Background()).Execute()
     if err != nil {
         fmt.Fprintf(os.Stderr, "Error when calling `DiagnosisApi.GenerateAgentDiagnosticLogs``: %v\n", err)
         fmt.Fprintf(os.Stderr, "Full HTTP response: %v\n", r)
@@ -148,14 +148,14 @@ import (
     "context"
     "fmt"
     "os"
-    openapiclient "github.com/deepfence/golang_deepfence_sdk/client"
+    openapiclient "./openapi"
 )
 
 func main() {
 
     configuration := openapiclient.NewConfiguration()
     apiClient := openapiclient.NewAPIClient(configuration)
-    r, err := apiClient.DiagnosisApi.GenerateConsoleDiagnosticLogs(context.Background()).Execute()
+    resp, r, err := apiClient.DiagnosisApi.GenerateConsoleDiagnosticLogs(context.Background()).Execute()
     if err != nil {
         fmt.Fprintf(os.Stderr, "Error when calling `DiagnosisApi.GenerateConsoleDiagnosticLogs``: %v\n", err)
         fmt.Fprintf(os.Stderr, "Full HTTP response: %v\n", r)
@@ -207,14 +207,14 @@ import (
     "context"
     "fmt"
     "os"
-    openapiclient "github.com/deepfence/golang_deepfence_sdk/client"
+    openapiclient "./openapi"
 )
 
 func main() {
 
     configuration := openapiclient.NewConfiguration()
     apiClient := openapiclient.NewAPIClient(configuration)
-    r, err := apiClient.DiagnosisApi.GetDiagnosticLogs(context.Background()).Execute()
+    resp, r, err := apiClient.DiagnosisApi.GetDiagnosticLogs(context.Background()).Execute()
     if err != nil {
         fmt.Fprintf(os.Stderr, "Error when calling `DiagnosisApi.GetDiagnosticLogs``: %v\n", err)
         fmt.Fprintf(os.Stderr, "Full HTTP response: %v\n", r)

@@ -14,7 +14,7 @@ package client
 import (
 	"bytes"
 	"context"
-	"io"
+	"io/ioutil"
 	"net/http"
 	"net/url"
 	"reflect"
@@ -102,9 +102,9 @@ func (a *ComplianceApiService) IngestCompliancesExecute(r ApiIngestCompliancesRe
 		return localVarHTTPResponse, err
 	}
 
-	localVarBody, err := io.ReadAll(localVarHTTPResponse.Body)
+	localVarBody, err := ioutil.ReadAll(localVarHTTPResponse.Body)
 	localVarHTTPResponse.Body.Close()
-	localVarHTTPResponse.Body = io.NopCloser(bytes.NewBuffer(localVarBody))
+	localVarHTTPResponse.Body = ioutil.NopCloser(bytes.NewBuffer(localVarBody))
 	if err != nil {
 		return localVarHTTPResponse, err
 	}
@@ -232,9 +232,9 @@ func (a *ComplianceApiService) ListComplianceScanExecute(r ApiListComplianceScan
 		return localVarReturnValue, localVarHTTPResponse, err
 	}
 
-	localVarBody, err := io.ReadAll(localVarHTTPResponse.Body)
+	localVarBody, err := ioutil.ReadAll(localVarHTTPResponse.Body)
 	localVarHTTPResponse.Body.Close()
-	localVarHTTPResponse.Body = io.NopCloser(bytes.NewBuffer(localVarBody))
+	localVarHTTPResponse.Body = ioutil.NopCloser(bytes.NewBuffer(localVarBody))
 	if err != nil {
 		return localVarReturnValue, localVarHTTPResponse, err
 	}
@@ -371,9 +371,9 @@ func (a *ComplianceApiService) ResultsComplianceScanExecute(r ApiResultsComplian
 		return localVarReturnValue, localVarHTTPResponse, err
 	}
 
-	localVarBody, err := io.ReadAll(localVarHTTPResponse.Body)
+	localVarBody, err := ioutil.ReadAll(localVarHTTPResponse.Body)
 	localVarHTTPResponse.Body.Close()
-	localVarHTTPResponse.Body = io.NopCloser(bytes.NewBuffer(localVarBody))
+	localVarHTTPResponse.Body = ioutil.NopCloser(bytes.NewBuffer(localVarBody))
 	if err != nil {
 		return localVarReturnValue, localVarHTTPResponse, err
 	}
@@ -510,9 +510,9 @@ func (a *ComplianceApiService) StartComplianceScanExecute(r ApiStartComplianceSc
 		return localVarReturnValue, localVarHTTPResponse, err
 	}
 
-	localVarBody, err := io.ReadAll(localVarHTTPResponse.Body)
+	localVarBody, err := ioutil.ReadAll(localVarHTTPResponse.Body)
 	localVarHTTPResponse.Body.Close()
-	localVarHTTPResponse.Body = io.NopCloser(bytes.NewBuffer(localVarBody))
+	localVarHTTPResponse.Body = ioutil.NopCloser(bytes.NewBuffer(localVarBody))
 	if err != nil {
 		return localVarReturnValue, localVarHTTPResponse, err
 	}
@@ -586,7 +586,7 @@ func (r ApiStatusComplianceScanRequest) BulkScanId(bulkScanId string) ApiStatusC
 	return r
 }
 
-func (r ApiStatusComplianceScanRequest) Execute() (*ModelScanStatusResp, *http.Response, error) {
+func (r ApiStatusComplianceScanRequest) Execute() (*ModelComplianceScanStatusResp, *http.Response, error) {
 	return r.ApiService.StatusComplianceScanExecute(r)
 }
 
@@ -606,13 +606,13 @@ func (a *ComplianceApiService) StatusComplianceScan(ctx context.Context) ApiStat
 }
 
 // Execute executes the request
-//  @return ModelScanStatusResp
-func (a *ComplianceApiService) StatusComplianceScanExecute(r ApiStatusComplianceScanRequest) (*ModelScanStatusResp, *http.Response, error) {
+//  @return ModelComplianceScanStatusResp
+func (a *ComplianceApiService) StatusComplianceScanExecute(r ApiStatusComplianceScanRequest) (*ModelComplianceScanStatusResp, *http.Response, error) {
 	var (
 		localVarHTTPMethod   = http.MethodGet
 		localVarPostBody     interface{}
 		formFiles            []formFile
-		localVarReturnValue  *ModelScanStatusResp
+		localVarReturnValue  *ModelComplianceScanStatusResp
 	)
 
 	localBasePath, err := a.client.cfg.ServerURLWithContext(r.ctx, "ComplianceApiService.StatusComplianceScan")
@@ -671,9 +671,9 @@ func (a *ComplianceApiService) StatusComplianceScanExecute(r ApiStatusCompliance
 		return localVarReturnValue, localVarHTTPResponse, err
 	}
 
-	localVarBody, err := io.ReadAll(localVarHTTPResponse.Body)
+	localVarBody, err := ioutil.ReadAll(localVarHTTPResponse.Body)
 	localVarHTTPResponse.Body.Close()
-	localVarHTTPResponse.Body = io.NopCloser(bytes.NewBuffer(localVarBody))
+	localVarHTTPResponse.Body = ioutil.NopCloser(bytes.NewBuffer(localVarBody))
 	if err != nil {
 		return localVarReturnValue, localVarHTTPResponse, err
 	}
@@ -808,9 +808,9 @@ func (a *ComplianceApiService) StopComplianceScanExecute(r ApiStopComplianceScan
 		return localVarHTTPResponse, err
 	}
 
-	localVarBody, err := io.ReadAll(localVarHTTPResponse.Body)
+	localVarBody, err := ioutil.ReadAll(localVarHTTPResponse.Body)
 	localVarHTTPResponse.Body.Close()
-	localVarHTTPResponse.Body = io.NopCloser(bytes.NewBuffer(localVarBody))
+	localVarHTTPResponse.Body = ioutil.NopCloser(bytes.NewBuffer(localVarBody))
 	if err != nil {
 		return localVarHTTPResponse, err
 	}

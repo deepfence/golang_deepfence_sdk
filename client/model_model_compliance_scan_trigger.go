@@ -15,37 +15,39 @@ import (
 	"encoding/json"
 )
 
-// checks if the ModelCloudComplianceScanTrigger type satisfies the MappedNullable interface at compile time
-var _ MappedNullable = &ModelCloudComplianceScanTrigger{}
+// checks if the ModelComplianceScanTrigger type satisfies the MappedNullable interface at compile time
+var _ MappedNullable = &ModelComplianceScanTrigger{}
 
-// ModelCloudComplianceScanTrigger struct for ModelCloudComplianceScanTrigger
-type ModelCloudComplianceScanTrigger struct {
+// ModelComplianceScanTrigger struct for ModelComplianceScanTrigger
+type ModelComplianceScanTrigger struct {
 	BenchmarkTypes []string `json:"benchmark_types"`
 	NodeId string `json:"node_id"`
+	NodeType string `json:"node_type"`
 }
 
-// NewModelCloudComplianceScanTrigger instantiates a new ModelCloudComplianceScanTrigger object
+// NewModelComplianceScanTrigger instantiates a new ModelComplianceScanTrigger object
 // This constructor will assign default values to properties that have it defined,
 // and makes sure properties required by API are set, but the set of arguments
 // will change when the set of required properties is changed
-func NewModelCloudComplianceScanTrigger(benchmarkTypes []string, nodeId string) *ModelCloudComplianceScanTrigger {
-	this := ModelCloudComplianceScanTrigger{}
+func NewModelComplianceScanTrigger(benchmarkTypes []string, nodeId string, nodeType string) *ModelComplianceScanTrigger {
+	this := ModelComplianceScanTrigger{}
 	this.BenchmarkTypes = benchmarkTypes
 	this.NodeId = nodeId
+	this.NodeType = nodeType
 	return &this
 }
 
-// NewModelCloudComplianceScanTriggerWithDefaults instantiates a new ModelCloudComplianceScanTrigger object
+// NewModelComplianceScanTriggerWithDefaults instantiates a new ModelComplianceScanTrigger object
 // This constructor will only assign default values to properties that have it defined,
 // but it doesn't guarantee that properties required by API are set
-func NewModelCloudComplianceScanTriggerWithDefaults() *ModelCloudComplianceScanTrigger {
-	this := ModelCloudComplianceScanTrigger{}
+func NewModelComplianceScanTriggerWithDefaults() *ModelComplianceScanTrigger {
+	this := ModelComplianceScanTrigger{}
 	return &this
 }
 
 // GetBenchmarkTypes returns the BenchmarkTypes field value
 // If the value is explicit nil, the zero value for []string will be returned
-func (o *ModelCloudComplianceScanTrigger) GetBenchmarkTypes() []string {
+func (o *ModelComplianceScanTrigger) GetBenchmarkTypes() []string {
 	if o == nil {
 		var ret []string
 		return ret
@@ -57,7 +59,7 @@ func (o *ModelCloudComplianceScanTrigger) GetBenchmarkTypes() []string {
 // GetBenchmarkTypesOk returns a tuple with the BenchmarkTypes field value
 // and a boolean to check if the value has been set.
 // NOTE: If the value is an explicit nil, `nil, true` will be returned
-func (o *ModelCloudComplianceScanTrigger) GetBenchmarkTypesOk() ([]string, bool) {
+func (o *ModelComplianceScanTrigger) GetBenchmarkTypesOk() ([]string, bool) {
 	if o == nil || isNil(o.BenchmarkTypes) {
 		return nil, false
 	}
@@ -65,12 +67,12 @@ func (o *ModelCloudComplianceScanTrigger) GetBenchmarkTypesOk() ([]string, bool)
 }
 
 // SetBenchmarkTypes sets field value
-func (o *ModelCloudComplianceScanTrigger) SetBenchmarkTypes(v []string) {
+func (o *ModelComplianceScanTrigger) SetBenchmarkTypes(v []string) {
 	o.BenchmarkTypes = v
 }
 
 // GetNodeId returns the NodeId field value
-func (o *ModelCloudComplianceScanTrigger) GetNodeId() string {
+func (o *ModelComplianceScanTrigger) GetNodeId() string {
 	if o == nil {
 		var ret string
 		return ret
@@ -81,7 +83,7 @@ func (o *ModelCloudComplianceScanTrigger) GetNodeId() string {
 
 // GetNodeIdOk returns a tuple with the NodeId field value
 // and a boolean to check if the value has been set.
-func (o *ModelCloudComplianceScanTrigger) GetNodeIdOk() (*string, bool) {
+func (o *ModelComplianceScanTrigger) GetNodeIdOk() (*string, bool) {
 	if o == nil {
 		return nil, false
 	}
@@ -89,11 +91,35 @@ func (o *ModelCloudComplianceScanTrigger) GetNodeIdOk() (*string, bool) {
 }
 
 // SetNodeId sets field value
-func (o *ModelCloudComplianceScanTrigger) SetNodeId(v string) {
+func (o *ModelComplianceScanTrigger) SetNodeId(v string) {
 	o.NodeId = v
 }
 
-func (o ModelCloudComplianceScanTrigger) MarshalJSON() ([]byte, error) {
+// GetNodeType returns the NodeType field value
+func (o *ModelComplianceScanTrigger) GetNodeType() string {
+	if o == nil {
+		var ret string
+		return ret
+	}
+
+	return o.NodeType
+}
+
+// GetNodeTypeOk returns a tuple with the NodeType field value
+// and a boolean to check if the value has been set.
+func (o *ModelComplianceScanTrigger) GetNodeTypeOk() (*string, bool) {
+	if o == nil {
+		return nil, false
+	}
+	return &o.NodeType, true
+}
+
+// SetNodeType sets field value
+func (o *ModelComplianceScanTrigger) SetNodeType(v string) {
+	o.NodeType = v
+}
+
+func (o ModelComplianceScanTrigger) MarshalJSON() ([]byte, error) {
 	toSerialize,err := o.ToMap()
 	if err != nil {
 		return []byte{}, err
@@ -101,47 +127,48 @@ func (o ModelCloudComplianceScanTrigger) MarshalJSON() ([]byte, error) {
 	return json.Marshal(toSerialize)
 }
 
-func (o ModelCloudComplianceScanTrigger) ToMap() (map[string]interface{}, error) {
+func (o ModelComplianceScanTrigger) ToMap() (map[string]interface{}, error) {
 	toSerialize := map[string]interface{}{}
 	if o.BenchmarkTypes != nil {
 		toSerialize["benchmark_types"] = o.BenchmarkTypes
 	}
 	toSerialize["node_id"] = o.NodeId
+	toSerialize["node_type"] = o.NodeType
 	return toSerialize, nil
 }
 
-type NullableModelCloudComplianceScanTrigger struct {
-	value *ModelCloudComplianceScanTrigger
+type NullableModelComplianceScanTrigger struct {
+	value *ModelComplianceScanTrigger
 	isSet bool
 }
 
-func (v NullableModelCloudComplianceScanTrigger) Get() *ModelCloudComplianceScanTrigger {
+func (v NullableModelComplianceScanTrigger) Get() *ModelComplianceScanTrigger {
 	return v.value
 }
 
-func (v *NullableModelCloudComplianceScanTrigger) Set(val *ModelCloudComplianceScanTrigger) {
+func (v *NullableModelComplianceScanTrigger) Set(val *ModelComplianceScanTrigger) {
 	v.value = val
 	v.isSet = true
 }
 
-func (v NullableModelCloudComplianceScanTrigger) IsSet() bool {
+func (v NullableModelComplianceScanTrigger) IsSet() bool {
 	return v.isSet
 }
 
-func (v *NullableModelCloudComplianceScanTrigger) Unset() {
+func (v *NullableModelComplianceScanTrigger) Unset() {
 	v.value = nil
 	v.isSet = false
 }
 
-func NewNullableModelCloudComplianceScanTrigger(val *ModelCloudComplianceScanTrigger) *NullableModelCloudComplianceScanTrigger {
-	return &NullableModelCloudComplianceScanTrigger{value: val, isSet: true}
+func NewNullableModelComplianceScanTrigger(val *ModelComplianceScanTrigger) *NullableModelComplianceScanTrigger {
+	return &NullableModelComplianceScanTrigger{value: val, isSet: true}
 }
 
-func (v NullableModelCloudComplianceScanTrigger) MarshalJSON() ([]byte, error) {
+func (v NullableModelComplianceScanTrigger) MarshalJSON() ([]byte, error) {
 	return json.Marshal(v.value)
 }
 
-func (v *NullableModelCloudComplianceScanTrigger) UnmarshalJSON(src []byte) error {
+func (v *NullableModelComplianceScanTrigger) UnmarshalJSON(src []byte) error {
 	v.isSet = true
 	return json.Unmarshal(src, &v.value)
 }

@@ -5,6 +5,7 @@
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
 **AccountId** | Pointer to **string** |  | [optional] 
+**Controls** | Pointer to **[]string** |  | [optional] 
 **ScanId** | Pointer to **string** |  | [optional] 
 **ScanType** | Pointer to **string** |  | [optional] 
 
@@ -52,6 +53,41 @@ SetAccountId sets AccountId field to given value.
 
 HasAccountId returns a boolean if a field has been set.
 
+### GetControls
+
+`func (o *ModelCloudComplianceScanDetails) GetControls() []string`
+
+GetControls returns the Controls field if non-nil, zero value otherwise.
+
+### GetControlsOk
+
+`func (o *ModelCloudComplianceScanDetails) GetControlsOk() (*[]string, bool)`
+
+GetControlsOk returns a tuple with the Controls field if it's non-nil, zero value otherwise
+and a boolean to check if the value has been set.
+
+### SetControls
+
+`func (o *ModelCloudComplianceScanDetails) SetControls(v []string)`
+
+SetControls sets Controls field to given value.
+
+### HasControls
+
+`func (o *ModelCloudComplianceScanDetails) HasControls() bool`
+
+HasControls returns a boolean if a field has been set.
+
+### SetControlsNil
+
+`func (o *ModelCloudComplianceScanDetails) SetControlsNil(b bool)`
+
+ SetControlsNil sets the value for Controls to be an explicit nil
+
+### UnsetControls
+`func (o *ModelCloudComplianceScanDetails) UnsetControls()`
+
+UnsetControls ensures that no value is present for Controls, not even an explicit nil
 ### GetScanId
 
 `func (o *ModelCloudComplianceScanDetails) GetScanId() string`

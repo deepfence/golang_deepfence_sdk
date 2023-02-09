@@ -12,6 +12,7 @@ api_diagnosis.go
 api_internal.go
 api_lookup.go
 api_malware_scan.go
+api_registry.go
 api_secret_scan.go
 api_threat.go
 api_topology.go
@@ -55,8 +56,6 @@ docs/ModelAgentId.md
 docs/ModelAgentUpgrade.md
 docs/ModelApiAuthRequest.md
 docs/ModelCloudComplianceScanDetails.md
-docs/ModelCloudComplianceScanTrigger.md
-docs/ModelCloudComplianceScanTriggerReq.md
 docs/ModelCloudNodeAccountInfo.md
 docs/ModelCloudNodeAccountRegisterReq.md
 docs/ModelCloudNodeAccountRegisterResp.md
@@ -67,6 +66,9 @@ docs/ModelCloudNodeCloudtrailTrail.md
 docs/ModelCloudNodeProvidersListResp.md
 docs/ModelCompliance.md
 docs/ModelComplianceScanResult.md
+docs/ModelComplianceScanStatus.md
+docs/ModelComplianceScanStatusResp.md
+docs/ModelComplianceScanTrigger.md
 docs/ModelComplianceScanTriggerReq.md
 docs/ModelComputeMetrics.md
 docs/ModelContainer.md
@@ -91,6 +93,8 @@ docs/ModelPod.md
 docs/ModelProcess.md
 docs/ModelRegisterInvitedUserRequest.md
 docs/ModelRegistryAccount.md
+docs/ModelRegistryAddReq.md
+docs/ModelRegistryListResp.md
 docs/ModelResponseAccessToken.md
 docs/ModelRule.md
 docs/ModelScanFilter.md
@@ -108,6 +112,7 @@ docs/ModelUserRegisterRequest.md
 docs/ModelVulnerability.md
 docs/ModelVulnerabilityScanResult.md
 docs/ModelVulnerabilityScanTriggerReq.md
+docs/RegistryApi.md
 docs/ReportColumn.md
 docs/ReportMetadataRow.md
 docs/ReportRawReport.md
@@ -155,8 +160,6 @@ model_model_agent_id.go
 model_model_agent_upgrade.go
 model_model_api_auth_request.go
 model_model_cloud_compliance_scan_details.go
-model_model_cloud_compliance_scan_trigger.go
-model_model_cloud_compliance_scan_trigger_req.go
 model_model_cloud_node_account_info.go
 model_model_cloud_node_account_register_req.go
 model_model_cloud_node_account_register_resp.go
@@ -167,6 +170,9 @@ model_model_cloud_node_cloudtrail_trail.go
 model_model_cloud_node_providers_list_resp.go
 model_model_compliance.go
 model_model_compliance_scan_result.go
+model_model_compliance_scan_status.go
+model_model_compliance_scan_status_resp.go
+model_model_compliance_scan_trigger.go
 model_model_compliance_scan_trigger_req.go
 model_model_compute_metrics.go
 model_model_container.go
@@ -191,6 +197,8 @@ model_model_pod.go
 model_model_process.go
 model_model_register_invited_user_request.go
 model_model_registry_account.go
+model_model_registry_add_req.go
+model_model_registry_list_resp.go
 model_model_response_access_token.go
 model_model_rule.go
 model_model_scan_filter.go
@@ -232,6 +240,7 @@ test/api_diagnosis_test.go
 test/api_internal_test.go
 test/api_lookup_test.go
 test/api_malware_scan_test.go
+test/api_registry_test.go
 test/api_secret_scan_test.go
 test/api_threat_test.go
 test/api_topology_test.go

@@ -30,7 +30,7 @@ import (
     "context"
     "fmt"
     "os"
-    openapiclient "github.com/deepfence/golang_deepfence_sdk/client"
+    openapiclient "./openapi"
 )
 
 func main() {
@@ -38,7 +38,7 @@ func main() {
 
     configuration := openapiclient.NewConfiguration()
     apiClient := openapiclient.NewAPIClient(configuration)
-    r, err := apiClient.ComplianceApi.IngestCompliances(context.Background()).IngestersCompliance(ingestersCompliance).Execute()
+    resp, r, err := apiClient.ComplianceApi.IngestCompliances(context.Background()).IngestersCompliance(ingestersCompliance).Execute()
     if err != nil {
         fmt.Fprintf(os.Stderr, "Error when calling `ComplianceApi.IngestCompliances``: %v\n", err)
         fmt.Fprintf(os.Stderr, "Full HTTP response: %v\n", r)
@@ -94,7 +94,7 @@ import (
     "context"
     "fmt"
     "os"
-    openapiclient "github.com/deepfence/golang_deepfence_sdk/client"
+    openapiclient "./openapi"
 )
 
 func main() {
@@ -160,7 +160,7 @@ import (
     "context"
     "fmt"
     "os"
-    openapiclient "github.com/deepfence/golang_deepfence_sdk/client"
+    openapiclient "./openapi"
 )
 
 func main() {
@@ -226,11 +226,11 @@ import (
     "context"
     "fmt"
     "os"
-    openapiclient "github.com/deepfence/golang_deepfence_sdk/client"
+    openapiclient "./openapi"
 )
 
 func main() {
-    modelComplianceScanTriggerReq := *openapiclient.NewModelComplianceScanTriggerReq(*openapiclient.NewModelScanFilter(*openapiclient.NewModelFieldsFilter([]openapiclient.ModelKeyValue{*openapiclient.NewModelKeyValue("Key_example", "Value_example")}), *openapiclient.NewModelFieldsFilter([]openapiclient.ModelKeyValue{*openapiclient.NewModelKeyValue("Key_example", "Value_example")}), *openapiclient.NewModelFieldsFilter([]openapiclient.ModelKeyValue{*openapiclient.NewModelKeyValue("Key_example", "Value_example")})), []openapiclient.ModelNodeIdentifier{*openapiclient.NewModelNodeIdentifier("NodeId_example", "NodeType_example")}) // ModelComplianceScanTriggerReq |  (optional)
+    modelComplianceScanTriggerReq := *openapiclient.NewModelComplianceScanTriggerReq([]openapiclient.ModelComplianceScanTrigger{*openapiclient.NewModelComplianceScanTrigger([]string{"BenchmarkTypes_example"}, "NodeId_example", "NodeType_example")}) // ModelComplianceScanTriggerReq |  (optional)
 
     configuration := openapiclient.NewConfiguration()
     apiClient := openapiclient.NewAPIClient(configuration)
@@ -277,7 +277,7 @@ Name | Type | Description  | Notes
 
 ## StatusComplianceScan
 
-> ModelScanStatusResp StatusComplianceScan(ctx).ScanIds(scanIds).BulkScanId(bulkScanId).Execute()
+> ModelComplianceScanStatusResp StatusComplianceScan(ctx).ScanIds(scanIds).BulkScanId(bulkScanId).Execute()
 
 Get Compliance Scan Status
 
@@ -292,7 +292,7 @@ import (
     "context"
     "fmt"
     "os"
-    openapiclient "github.com/deepfence/golang_deepfence_sdk/client"
+    openapiclient "./openapi"
 )
 
 func main() {
@@ -306,7 +306,7 @@ func main() {
         fmt.Fprintf(os.Stderr, "Error when calling `ComplianceApi.StatusComplianceScan``: %v\n", err)
         fmt.Fprintf(os.Stderr, "Full HTTP response: %v\n", r)
     }
-    // response from `StatusComplianceScan`: ModelScanStatusResp
+    // response from `StatusComplianceScan`: ModelComplianceScanStatusResp
     fmt.Fprintf(os.Stdout, "Response from `ComplianceApi.StatusComplianceScan`: %v\n", resp)
 }
 ```
@@ -327,7 +327,7 @@ Name | Type | Description  | Notes
 
 ### Return type
 
-[**ModelScanStatusResp**](ModelScanStatusResp.md)
+[**ModelComplianceScanStatusResp**](ModelComplianceScanStatusResp.md)
 
 ### Authorization
 
@@ -360,15 +360,15 @@ import (
     "context"
     "fmt"
     "os"
-    openapiclient "github.com/deepfence/golang_deepfence_sdk/client"
+    openapiclient "./openapi"
 )
 
 func main() {
-    modelComplianceScanTriggerReq := *openapiclient.NewModelComplianceScanTriggerReq(*openapiclient.NewModelScanFilter(*openapiclient.NewModelFieldsFilter([]openapiclient.ModelKeyValue{*openapiclient.NewModelKeyValue("Key_example", "Value_example")}), *openapiclient.NewModelFieldsFilter([]openapiclient.ModelKeyValue{*openapiclient.NewModelKeyValue("Key_example", "Value_example")}), *openapiclient.NewModelFieldsFilter([]openapiclient.ModelKeyValue{*openapiclient.NewModelKeyValue("Key_example", "Value_example")})), []openapiclient.ModelNodeIdentifier{*openapiclient.NewModelNodeIdentifier("NodeId_example", "NodeType_example")}) // ModelComplianceScanTriggerReq |  (optional)
+    modelComplianceScanTriggerReq := *openapiclient.NewModelComplianceScanTriggerReq([]openapiclient.ModelComplianceScanTrigger{*openapiclient.NewModelComplianceScanTrigger([]string{"BenchmarkTypes_example"}, "NodeId_example", "NodeType_example")}) // ModelComplianceScanTriggerReq |  (optional)
 
     configuration := openapiclient.NewConfiguration()
     apiClient := openapiclient.NewAPIClient(configuration)
-    r, err := apiClient.ComplianceApi.StopComplianceScan(context.Background()).ModelComplianceScanTriggerReq(modelComplianceScanTriggerReq).Execute()
+    resp, r, err := apiClient.ComplianceApi.StopComplianceScan(context.Background()).ModelComplianceScanTriggerReq(modelComplianceScanTriggerReq).Execute()
     if err != nil {
         fmt.Fprintf(os.Stderr, "Error when calling `ComplianceApi.StopComplianceScan``: %v\n", err)
         fmt.Fprintf(os.Stderr, "Full HTTP response: %v\n", r)

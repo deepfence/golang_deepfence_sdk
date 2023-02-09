@@ -17,57 +17,57 @@ import (
 	"io/ioutil"
 	"net/http"
 	"net/url"
-	"reflect"
+	"strings"
 )
 
 
-// CloudScannerApiService CloudScannerApi service
-type CloudScannerApiService service
+// RegistryApiService RegistryApi service
+type RegistryApiService service
 
-type ApiIngestCloudComplianceScanStatusRequest struct {
+type ApiAddRegistryRequest struct {
 	ctx context.Context
-	ApiService *CloudScannerApiService
-	ingestersCloudCompliance *[]IngestersCloudCompliance
+	ApiService *RegistryApiService
+	modelRegistryAddReq *ModelRegistryAddReq
 }
 
-func (r ApiIngestCloudComplianceScanStatusRequest) IngestersCloudCompliance(ingestersCloudCompliance []IngestersCloudCompliance) ApiIngestCloudComplianceScanStatusRequest {
-	r.ingestersCloudCompliance = &ingestersCloudCompliance
+func (r ApiAddRegistryRequest) ModelRegistryAddReq(modelRegistryAddReq ModelRegistryAddReq) ApiAddRegistryRequest {
+	r.modelRegistryAddReq = &modelRegistryAddReq
 	return r
 }
 
-func (r ApiIngestCloudComplianceScanStatusRequest) Execute() (*http.Response, error) {
-	return r.ApiService.IngestCloudComplianceScanStatusExecute(r)
+func (r ApiAddRegistryRequest) Execute() (*http.Response, error) {
+	return r.ApiService.AddRegistryExecute(r)
 }
 
 /*
-IngestCloudComplianceScanStatus Ingest Cloud Compliances
+AddRegistry Add Registry
 
-Ingest Cloud compliances found while scanning cloud provider
+Add a new supported registry
 
  @param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
- @return ApiIngestCloudComplianceScanStatusRequest
+ @return ApiAddRegistryRequest
 */
-func (a *CloudScannerApiService) IngestCloudComplianceScanStatus(ctx context.Context) ApiIngestCloudComplianceScanStatusRequest {
-	return ApiIngestCloudComplianceScanStatusRequest{
+func (a *RegistryApiService) AddRegistry(ctx context.Context) ApiAddRegistryRequest {
+	return ApiAddRegistryRequest{
 		ApiService: a,
 		ctx: ctx,
 	}
 }
 
 // Execute executes the request
-func (a *CloudScannerApiService) IngestCloudComplianceScanStatusExecute(r ApiIngestCloudComplianceScanStatusRequest) (*http.Response, error) {
+func (a *RegistryApiService) AddRegistryExecute(r ApiAddRegistryRequest) (*http.Response, error) {
 	var (
 		localVarHTTPMethod   = http.MethodPost
 		localVarPostBody     interface{}
 		formFiles            []formFile
 	)
 
-	localBasePath, err := a.client.cfg.ServerURLWithContext(r.ctx, "CloudScannerApiService.IngestCloudComplianceScanStatus")
+	localBasePath, err := a.client.cfg.ServerURLWithContext(r.ctx, "RegistryApiService.AddRegistry")
 	if err != nil {
 		return nil, &GenericOpenAPIError{error: err.Error()}
 	}
 
-	localVarPath := localBasePath + "/deepfence/ingest/cloud-compliance-scan-status"
+	localVarPath := localBasePath + "/deepfence/registryaccount/"
 
 	localVarHeaderParams := make(map[string]string)
 	localVarQueryParams := url.Values{}
@@ -91,7 +91,7 @@ func (a *CloudScannerApiService) IngestCloudComplianceScanStatusExecute(r ApiIng
 		localVarHeaderParams["Accept"] = localVarHTTPHeaderAccept
 	}
 	// body params
-	localVarPostBody = r.ingestersCloudCompliance
+	localVarPostBody = r.modelRegistryAddReq
 	req, err := a.client.prepareRequest(r.ctx, localVarPath, localVarHTTPMethod, localVarPostBody, localVarHeaderParams, localVarQueryParams, localVarFormParams, formFiles)
 	if err != nil {
 		return nil, err
@@ -152,57 +152,55 @@ func (a *CloudScannerApiService) IngestCloudComplianceScanStatusExecute(r ApiIng
 	return localVarHTTPResponse, nil
 }
 
-type ApiIngestCloudCompliancesRequest struct {
+type ApiDeleteRegistryRequest struct {
 	ctx context.Context
-	ApiService *CloudScannerApiService
-	ingestersCloudCompliance *[]IngestersCloudCompliance
+	ApiService *RegistryApiService
+	id int32
 }
 
-func (r ApiIngestCloudCompliancesRequest) IngestersCloudCompliance(ingestersCloudCompliance []IngestersCloudCompliance) ApiIngestCloudCompliancesRequest {
-	r.ingestersCloudCompliance = &ingestersCloudCompliance
-	return r
-}
-
-func (r ApiIngestCloudCompliancesRequest) Execute() (*http.Response, error) {
-	return r.ApiService.IngestCloudCompliancesExecute(r)
+func (r ApiDeleteRegistryRequest) Execute() (*http.Response, error) {
+	return r.ApiService.DeleteRegistryExecute(r)
 }
 
 /*
-IngestCloudCompliances Ingest Cloud Compliances
+DeleteRegistry Add Registry
 
-Ingest Cloud compliances found while scanning cloud provider
+Delete registry
 
  @param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
- @return ApiIngestCloudCompliancesRequest
+ @param id
+ @return ApiDeleteRegistryRequest
 */
-func (a *CloudScannerApiService) IngestCloudCompliances(ctx context.Context) ApiIngestCloudCompliancesRequest {
-	return ApiIngestCloudCompliancesRequest{
+func (a *RegistryApiService) DeleteRegistry(ctx context.Context, id int32) ApiDeleteRegistryRequest {
+	return ApiDeleteRegistryRequest{
 		ApiService: a,
 		ctx: ctx,
+		id: id,
 	}
 }
 
 // Execute executes the request
-func (a *CloudScannerApiService) IngestCloudCompliancesExecute(r ApiIngestCloudCompliancesRequest) (*http.Response, error) {
+func (a *RegistryApiService) DeleteRegistryExecute(r ApiDeleteRegistryRequest) (*http.Response, error) {
 	var (
-		localVarHTTPMethod   = http.MethodPost
+		localVarHTTPMethod   = http.MethodDelete
 		localVarPostBody     interface{}
 		formFiles            []formFile
 	)
 
-	localBasePath, err := a.client.cfg.ServerURLWithContext(r.ctx, "CloudScannerApiService.IngestCloudCompliances")
+	localBasePath, err := a.client.cfg.ServerURLWithContext(r.ctx, "RegistryApiService.DeleteRegistry")
 	if err != nil {
 		return nil, &GenericOpenAPIError{error: err.Error()}
 	}
 
-	localVarPath := localBasePath + "/deepfence/ingest/cloud-compliance"
+	localVarPath := localBasePath + "/deepfence/registryaccount/{id}"
+	localVarPath = strings.Replace(localVarPath, "{"+"id"+"}", url.PathEscape(parameterValueToString(r.id, "id")), -1)
 
 	localVarHeaderParams := make(map[string]string)
 	localVarQueryParams := url.Values{}
 	localVarFormParams := url.Values{}
 
 	// to determine the Content-Type header
-	localVarHTTPContentTypes := []string{"application/json"}
+	localVarHTTPContentTypes := []string{}
 
 	// set Content-Type header
 	localVarHTTPContentType := selectHeaderContentType(localVarHTTPContentTypes)
@@ -218,8 +216,6 @@ func (a *CloudScannerApiService) IngestCloudCompliancesExecute(r ApiIngestCloudC
 	if localVarHTTPHeaderAccept != "" {
 		localVarHeaderParams["Accept"] = localVarHTTPHeaderAccept
 	}
-	// body params
-	localVarPostBody = r.ingestersCloudCompliance
 	req, err := a.client.prepareRequest(r.ctx, localVarPath, localVarHTTPMethod, localVarPostBody, localVarHeaderParams, localVarQueryParams, localVarFormParams, formFiles)
 	if err != nil {
 		return nil, err
@@ -280,81 +276,51 @@ func (a *CloudScannerApiService) IngestCloudCompliancesExecute(r ApiIngestCloudC
 	return localVarHTTPResponse, nil
 }
 
-type ApiStatusCloudComplianceScanRequest struct {
+type ApiListRegistryRequest struct {
 	ctx context.Context
-	ApiService *CloudScannerApiService
-	scanIds *[]string
-	bulkScanId *string
+	ApiService *RegistryApiService
 }
 
-func (r ApiStatusCloudComplianceScanRequest) ScanIds(scanIds []string) ApiStatusCloudComplianceScanRequest {
-	r.scanIds = &scanIds
-	return r
-}
-
-func (r ApiStatusCloudComplianceScanRequest) BulkScanId(bulkScanId string) ApiStatusCloudComplianceScanRequest {
-	r.bulkScanId = &bulkScanId
-	return r
-}
-
-func (r ApiStatusCloudComplianceScanRequest) Execute() (*ModelComplianceScanStatusResp, *http.Response, error) {
-	return r.ApiService.StatusCloudComplianceScanExecute(r)
+func (r ApiListRegistryRequest) Execute() ([]ModelRegistryListResp, *http.Response, error) {
+	return r.ApiService.ListRegistryExecute(r)
 }
 
 /*
-StatusCloudComplianceScan Get Cloud Compliance Scan Status
+ListRegistry List Registries
 
-Get Cloud Compliance Scan Status on cloud node
+List all the added Registries
 
  @param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
- @return ApiStatusCloudComplianceScanRequest
+ @return ApiListRegistryRequest
 */
-func (a *CloudScannerApiService) StatusCloudComplianceScan(ctx context.Context) ApiStatusCloudComplianceScanRequest {
-	return ApiStatusCloudComplianceScanRequest{
+func (a *RegistryApiService) ListRegistry(ctx context.Context) ApiListRegistryRequest {
+	return ApiListRegistryRequest{
 		ApiService: a,
 		ctx: ctx,
 	}
 }
 
 // Execute executes the request
-//  @return ModelComplianceScanStatusResp
-func (a *CloudScannerApiService) StatusCloudComplianceScanExecute(r ApiStatusCloudComplianceScanRequest) (*ModelComplianceScanStatusResp, *http.Response, error) {
+//  @return []ModelRegistryListResp
+func (a *RegistryApiService) ListRegistryExecute(r ApiListRegistryRequest) ([]ModelRegistryListResp, *http.Response, error) {
 	var (
 		localVarHTTPMethod   = http.MethodGet
 		localVarPostBody     interface{}
 		formFiles            []formFile
-		localVarReturnValue  *ModelComplianceScanStatusResp
+		localVarReturnValue  []ModelRegistryListResp
 	)
 
-	localBasePath, err := a.client.cfg.ServerURLWithContext(r.ctx, "CloudScannerApiService.StatusCloudComplianceScan")
+	localBasePath, err := a.client.cfg.ServerURLWithContext(r.ctx, "RegistryApiService.ListRegistry")
 	if err != nil {
 		return localVarReturnValue, nil, &GenericOpenAPIError{error: err.Error()}
 	}
 
-	localVarPath := localBasePath + "/deepfence/scan/status/cloud-compliance"
+	localVarPath := localBasePath + "/deepfence/registryaccount/list"
 
 	localVarHeaderParams := make(map[string]string)
 	localVarQueryParams := url.Values{}
 	localVarFormParams := url.Values{}
-	if r.scanIds == nil {
-		return localVarReturnValue, nil, reportError("scanIds is required and must be specified")
-	}
-	if r.bulkScanId == nil {
-		return localVarReturnValue, nil, reportError("bulkScanId is required and must be specified")
-	}
 
-	{
-		t := *r.scanIds
-		if reflect.TypeOf(t).Kind() == reflect.Slice {
-			s := reflect.ValueOf(t)
-			for i := 0; i < s.Len(); i++ {
-				parameterAddToQuery(localVarQueryParams, "scan_ids", s.Index(i), "multi")
-			}
-		} else {
-			parameterAddToQuery(localVarQueryParams, "scan_ids", t, "multi")
-		}
-	}
-	parameterAddToQuery(localVarQueryParams, "bulk_scan_id", r.bulkScanId, "")
 	// to determine the Content-Type header
 	localVarHTTPContentTypes := []string{}
 
