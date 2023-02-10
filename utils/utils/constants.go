@@ -32,6 +32,7 @@ const (
 	CheckAgentUpgradeTask     = "tasks_check_agent_upgrade"
 	SyncRegistryTask          = "task_sync_registry"
 	TriggerConsoleActionsTask = "trigger_console_actions"
+	ReportGeneratorTask       = "tasks_report_generator"
 )
 
 const (
