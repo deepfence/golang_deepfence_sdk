@@ -33,6 +33,7 @@ const (
 	SyncRegistryTask          = "task_sync_registry"
 	TriggerConsoleActionsTask = "trigger_console_actions"
 	ReportGeneratorTask       = "tasks_report_generator"
+	SecretScanTask            = "task_secret_scan"
 )
 
 const (
