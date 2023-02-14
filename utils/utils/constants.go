@@ -23,6 +23,7 @@ const (
 
 // task names
 const (
+	SetUpGraphDBTask          = "set_up_graph_db"
 	CleanUpGraphDBTask        = "clean_up_graph_db"
 	CleanUpPostgresqlTask     = "clean_up_postgresql"
 	RetryFailedScansTask      = "retry_failed_scans"
