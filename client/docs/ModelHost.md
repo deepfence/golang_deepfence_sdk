@@ -5,13 +5,21 @@
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
 **CloudMetadata** | **map[string]interface{}** |  | 
+**ComplianceScanStatus** | Pointer to **string** |  | [optional] 
+**CompliancesCount** | Pointer to **int32** |  | [optional] 
 **ContainerImages** | [**[]ModelContainerImage**](ModelContainerImage.md) |  | 
 **Containers** | [**[]ModelContainer**](ModelContainer.md) |  | 
 **HostName** | **string** |  | 
+**MalwareScanStatus** | Pointer to **string** |  | [optional] 
+**MalwaresCount** | Pointer to **int32** |  | [optional] 
 **Metrics** | [**ModelComputeMetrics**](ModelComputeMetrics.md) |  | 
 **NodeId** | **string** |  | 
 **Pods** | [**[]ModelPod**](ModelPod.md) |  | 
 **Processes** | [**[]ModelProcess**](ModelProcess.md) |  | 
+**SecretScanStatus** | Pointer to **string** |  | [optional] 
+**SecretsCount** | Pointer to **int32** |  | [optional] 
+**VulnerabilitiesCount** | Pointer to **int32** |  | [optional] 
+**VulnerabilityScanStatus** | Pointer to **string** |  | [optional] 
 
 ## Methods
 
@@ -51,6 +59,56 @@ and a boolean to check if the value has been set.
 
 SetCloudMetadata sets CloudMetadata field to given value.
 
+
+### GetComplianceScanStatus
+
+`func (o *ModelHost) GetComplianceScanStatus() string`
+
+GetComplianceScanStatus returns the ComplianceScanStatus field if non-nil, zero value otherwise.
+
+### GetComplianceScanStatusOk
+
+`func (o *ModelHost) GetComplianceScanStatusOk() (*string, bool)`
+
+GetComplianceScanStatusOk returns a tuple with the ComplianceScanStatus field if it's non-nil, zero value otherwise
+and a boolean to check if the value has been set.
+
+### SetComplianceScanStatus
+
+`func (o *ModelHost) SetComplianceScanStatus(v string)`
+
+SetComplianceScanStatus sets ComplianceScanStatus field to given value.
+
+### HasComplianceScanStatus
+
+`func (o *ModelHost) HasComplianceScanStatus() bool`
+
+HasComplianceScanStatus returns a boolean if a field has been set.
+
+### GetCompliancesCount
+
+`func (o *ModelHost) GetCompliancesCount() int32`
+
+GetCompliancesCount returns the CompliancesCount field if non-nil, zero value otherwise.
+
+### GetCompliancesCountOk
+
+`func (o *ModelHost) GetCompliancesCountOk() (*int32, bool)`
+
+GetCompliancesCountOk returns a tuple with the CompliancesCount field if it's non-nil, zero value otherwise
+and a boolean to check if the value has been set.
+
+### SetCompliancesCount
+
+`func (o *ModelHost) SetCompliancesCount(v int32)`
+
+SetCompliancesCount sets CompliancesCount field to given value.
+
+### HasCompliancesCount
+
+`func (o *ModelHost) HasCompliancesCount() bool`
+
+HasCompliancesCount returns a boolean if a field has been set.
 
 ### GetContainerImages
 
@@ -131,6 +189,56 @@ and a boolean to check if the value has been set.
 
 SetHostName sets HostName field to given value.
 
+
+### GetMalwareScanStatus
+
+`func (o *ModelHost) GetMalwareScanStatus() string`
+
+GetMalwareScanStatus returns the MalwareScanStatus field if non-nil, zero value otherwise.
+
+### GetMalwareScanStatusOk
+
+`func (o *ModelHost) GetMalwareScanStatusOk() (*string, bool)`
+
+GetMalwareScanStatusOk returns a tuple with the MalwareScanStatus field if it's non-nil, zero value otherwise
+and a boolean to check if the value has been set.
+
+### SetMalwareScanStatus
+
+`func (o *ModelHost) SetMalwareScanStatus(v string)`
+
+SetMalwareScanStatus sets MalwareScanStatus field to given value.
+
+### HasMalwareScanStatus
+
+`func (o *ModelHost) HasMalwareScanStatus() bool`
+
+HasMalwareScanStatus returns a boolean if a field has been set.
+
+### GetMalwaresCount
+
+`func (o *ModelHost) GetMalwaresCount() int32`
+
+GetMalwaresCount returns the MalwaresCount field if non-nil, zero value otherwise.
+
+### GetMalwaresCountOk
+
+`func (o *ModelHost) GetMalwaresCountOk() (*int32, bool)`
+
+GetMalwaresCountOk returns a tuple with the MalwaresCount field if it's non-nil, zero value otherwise
+and a boolean to check if the value has been set.
+
+### SetMalwaresCount
+
+`func (o *ModelHost) SetMalwaresCount(v int32)`
+
+SetMalwaresCount sets MalwaresCount field to given value.
+
+### HasMalwaresCount
+
+`func (o *ModelHost) HasMalwaresCount() bool`
+
+HasMalwaresCount returns a boolean if a field has been set.
 
 ### GetMetrics
 
@@ -232,6 +340,106 @@ SetProcesses sets Processes field to given value.
 `func (o *ModelHost) UnsetProcesses()`
 
 UnsetProcesses ensures that no value is present for Processes, not even an explicit nil
+### GetSecretScanStatus
+
+`func (o *ModelHost) GetSecretScanStatus() string`
+
+GetSecretScanStatus returns the SecretScanStatus field if non-nil, zero value otherwise.
+
+### GetSecretScanStatusOk
+
+`func (o *ModelHost) GetSecretScanStatusOk() (*string, bool)`
+
+GetSecretScanStatusOk returns a tuple with the SecretScanStatus field if it's non-nil, zero value otherwise
+and a boolean to check if the value has been set.
+
+### SetSecretScanStatus
+
+`func (o *ModelHost) SetSecretScanStatus(v string)`
+
+SetSecretScanStatus sets SecretScanStatus field to given value.
+
+### HasSecretScanStatus
+
+`func (o *ModelHost) HasSecretScanStatus() bool`
+
+HasSecretScanStatus returns a boolean if a field has been set.
+
+### GetSecretsCount
+
+`func (o *ModelHost) GetSecretsCount() int32`
+
+GetSecretsCount returns the SecretsCount field if non-nil, zero value otherwise.
+
+### GetSecretsCountOk
+
+`func (o *ModelHost) GetSecretsCountOk() (*int32, bool)`
+
+GetSecretsCountOk returns a tuple with the SecretsCount field if it's non-nil, zero value otherwise
+and a boolean to check if the value has been set.
+
+### SetSecretsCount
+
+`func (o *ModelHost) SetSecretsCount(v int32)`
+
+SetSecretsCount sets SecretsCount field to given value.
+
+### HasSecretsCount
+
+`func (o *ModelHost) HasSecretsCount() bool`
+
+HasSecretsCount returns a boolean if a field has been set.
+
+### GetVulnerabilitiesCount
+
+`func (o *ModelHost) GetVulnerabilitiesCount() int32`
+
+GetVulnerabilitiesCount returns the VulnerabilitiesCount field if non-nil, zero value otherwise.
+
+### GetVulnerabilitiesCountOk
+
+`func (o *ModelHost) GetVulnerabilitiesCountOk() (*int32, bool)`
+
+GetVulnerabilitiesCountOk returns a tuple with the VulnerabilitiesCount field if it's non-nil, zero value otherwise
+and a boolean to check if the value has been set.
+
+### SetVulnerabilitiesCount
+
+`func (o *ModelHost) SetVulnerabilitiesCount(v int32)`
+
+SetVulnerabilitiesCount sets VulnerabilitiesCount field to given value.
+
+### HasVulnerabilitiesCount
+
+`func (o *ModelHost) HasVulnerabilitiesCount() bool`
+
+HasVulnerabilitiesCount returns a boolean if a field has been set.
+
+### GetVulnerabilityScanStatus
+
+`func (o *ModelHost) GetVulnerabilityScanStatus() string`
+
+GetVulnerabilityScanStatus returns the VulnerabilityScanStatus field if non-nil, zero value otherwise.
+
+### GetVulnerabilityScanStatusOk
+
+`func (o *ModelHost) GetVulnerabilityScanStatusOk() (*string, bool)`
+
+GetVulnerabilityScanStatusOk returns a tuple with the VulnerabilityScanStatus field if it's non-nil, zero value otherwise
+and a boolean to check if the value has been set.
+
+### SetVulnerabilityScanStatus
+
+`func (o *ModelHost) SetVulnerabilityScanStatus(v string)`
+
+SetVulnerabilityScanStatus sets VulnerabilityScanStatus field to given value.
+
+### HasVulnerabilityScanStatus
+
+`func (o *ModelHost) HasVulnerabilityScanStatus() bool`
+
+HasVulnerabilityScanStatus returns a boolean if a field has been set.
+
 
 [[Back to Model list]](../README.md#documentation-for-models) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to README]](../README.md)
 

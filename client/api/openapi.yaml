@@ -5388,8 +5388,8 @@ components:
       type: object
     ModelComputeMetrics:
       example:
-        memory_mb: 6.027456183070403
-        cpu_percent: 0.8008281904610115
+        memory_mb: 5.962133916683182
+        cpu_percent: 1.4658129805029452
       properties:
         cpu_percent:
           type: number
@@ -5406,11 +5406,19 @@ components:
         image:
           metadata:
             key: ""
+          secret_scan_status: secret_scan_status
+          vulnerabilities_count: 2
+          compliance_scan_status: compliance_scan_status
+          secrets_count: 5
+          malwares_count: 6
+          compliances_count: 0
           docker_image_tag: docker_image_tag
+          malware_scan_status: malware_scan_status
           docker_image_size: docker_image_size
           metrics:
-            memory_mb: 6.027456183070403
-            cpu_percent: 0.8008281904610115
+            memory_mb: 5.962133916683182
+            cpu_percent: 1.4658129805029452
+          vulnerability_scan_status: vulnerability_scan_status
           docker_image_name: docker_image_name
           node_id: node_id
         metadata:
@@ -5420,31 +5428,43 @@ components:
             key: ""
           cmdline: cmdline
           name: name
-          threads: 0
+          threads: 1
           pid: pid
           metrics:
-            memory_mb: 6.027456183070403
-            cpu_percent: 0.8008281904610115
+            memory_mb: 5.962133916683182
+            cpu_percent: 1.4658129805029452
           node_id: node_id
           ppid: ppid
         - metadata:
             key: ""
           cmdline: cmdline
           name: name
-          threads: 0
+          threads: 1
           pid: pid
           metrics:
-            memory_mb: 6.027456183070403
-            cpu_percent: 0.8008281904610115
+            memory_mb: 5.962133916683182
+            cpu_percent: 1.4658129805029452
           node_id: node_id
           ppid: ppid
+        secret_scan_status: secret_scan_status
+        vulnerabilities_count: 5
+        compliance_scan_status: compliance_scan_status
+        secrets_count: 5
+        malwares_count: 6
+        compliances_count: 0
+        malware_scan_status: malware_scan_status
         name: name
         metrics:
-          memory_mb: 6.027456183070403
-          cpu_percent: 0.8008281904610115
+          memory_mb: 5.962133916683182
+          cpu_percent: 1.4658129805029452
+        vulnerability_scan_status: vulnerability_scan_status
         host_name: host_name
         node_id: node_id
       properties:
+        compliance_scan_status:
+          type: string
+        compliances_count:
+          type: integer
         docker_labels:
           additionalProperties: {}
           type: object
@@ -5452,6 +5472,10 @@ components:
           type: string
         image:
           $ref: '#/components/schemas/ModelContainerImage'
+        malware_scan_status:
+          type: string
+        malwares_count:
+          type: integer
         metadata:
           additionalProperties: {}
           type: object
@@ -5466,6 +5490,14 @@ components:
             $ref: '#/components/schemas/ModelProcess'
           nullable: true
           type: array
+        secret_scan_status:
+          type: string
+        secrets_count:
+          type: integer
+        vulnerabilities_count:
+          type: integer
+        vulnerability_scan_status:
+          type: string
       required:
       - docker_labels
       - host_name
@@ -5480,26 +5512,50 @@ components:
       example:
         metadata:
           key: ""
+        secret_scan_status: secret_scan_status
+        vulnerabilities_count: 2
+        compliance_scan_status: compliance_scan_status
+        secrets_count: 5
+        malwares_count: 6
+        compliances_count: 0
         docker_image_tag: docker_image_tag
+        malware_scan_status: malware_scan_status
         docker_image_size: docker_image_size
         metrics:
-          memory_mb: 6.027456183070403
-          cpu_percent: 0.8008281904610115
+          memory_mb: 5.962133916683182
+          cpu_percent: 1.4658129805029452
+        vulnerability_scan_status: vulnerability_scan_status
         docker_image_name: docker_image_name
         node_id: node_id
       properties:
+        compliance_scan_status:
+          type: string
+        compliances_count:
+          type: integer
         docker_image_name:
           type: string
         docker_image_size:
           type: string
         docker_image_tag:
           type: string
+        malware_scan_status:
+          type: string
+        malwares_count:
+          type: integer
         metadata:
           additionalProperties: {}
           type: object
         metrics:
           $ref: '#/components/schemas/ModelComputeMetrics'
         node_id:
+          type: string
+        secret_scan_status:
+          type: string
+        secrets_count:
+          type: integer
+        vulnerabilities_count:
+          type: integer
+        vulnerability_scan_status:
           type: string
       required:
       - docker_image_name
@@ -5549,56 +5605,87 @@ components:
             key: ""
           cmdline: cmdline
           name: name
-          threads: 0
+          threads: 1
           pid: pid
           metrics:
-            memory_mb: 6.027456183070403
-            cpu_percent: 0.8008281904610115
+            memory_mb: 5.962133916683182
+            cpu_percent: 1.4658129805029452
           node_id: node_id
           ppid: ppid
         - metadata:
             key: ""
           cmdline: cmdline
           name: name
-          threads: 0
+          threads: 1
           pid: pid
           metrics:
-            memory_mb: 6.027456183070403
-            cpu_percent: 0.8008281904610115
+            memory_mb: 5.962133916683182
+            cpu_percent: 1.4658129805029452
           node_id: node_id
           ppid: ppid
+        secret_scan_status: secret_scan_status
+        vulnerabilities_count: 5
         cloud_metadata:
           key: ""
+        compliance_scan_status: compliance_scan_status
+        secrets_count: 1
         container_images:
         - metadata:
             key: ""
+          secret_scan_status: secret_scan_status
+          vulnerabilities_count: 2
+          compliance_scan_status: compliance_scan_status
+          secrets_count: 5
+          malwares_count: 6
+          compliances_count: 0
           docker_image_tag: docker_image_tag
+          malware_scan_status: malware_scan_status
           docker_image_size: docker_image_size
           metrics:
-            memory_mb: 6.027456183070403
-            cpu_percent: 0.8008281904610115
+            memory_mb: 5.962133916683182
+            cpu_percent: 1.4658129805029452
+          vulnerability_scan_status: vulnerability_scan_status
           docker_image_name: docker_image_name
           node_id: node_id
         - metadata:
             key: ""
+          secret_scan_status: secret_scan_status
+          vulnerabilities_count: 2
+          compliance_scan_status: compliance_scan_status
+          secrets_count: 5
+          malwares_count: 6
+          compliances_count: 0
           docker_image_tag: docker_image_tag
+          malware_scan_status: malware_scan_status
           docker_image_size: docker_image_size
           metrics:
-            memory_mb: 6.027456183070403
-            cpu_percent: 0.8008281904610115
+            memory_mb: 5.962133916683182
+            cpu_percent: 1.4658129805029452
+          vulnerability_scan_status: vulnerability_scan_status
           docker_image_name: docker_image_name
           node_id: node_id
+        malwares_count: 6
+        compliances_count: 0
+        malware_scan_status: malware_scan_status
         containers:
         - docker_labels:
             key: ""
           image:
             metadata:
               key: ""
+            secret_scan_status: secret_scan_status
+            vulnerabilities_count: 2
+            compliance_scan_status: compliance_scan_status
+            secrets_count: 5
+            malwares_count: 6
+            compliances_count: 0
             docker_image_tag: docker_image_tag
+            malware_scan_status: malware_scan_status
             docker_image_size: docker_image_size
             metrics:
-              memory_mb: 6.027456183070403
-              cpu_percent: 0.8008281904610115
+              memory_mb: 5.962133916683182
+              cpu_percent: 1.4658129805029452
+            vulnerability_scan_status: vulnerability_scan_status
             docker_image_name: docker_image_name
             node_id: node_id
           metadata:
@@ -5608,28 +5695,36 @@ components:
               key: ""
             cmdline: cmdline
             name: name
-            threads: 0
+            threads: 1
             pid: pid
             metrics:
-              memory_mb: 6.027456183070403
-              cpu_percent: 0.8008281904610115
+              memory_mb: 5.962133916683182
+              cpu_percent: 1.4658129805029452
             node_id: node_id
             ppid: ppid
           - metadata:
               key: ""
             cmdline: cmdline
             name: name
-            threads: 0
+            threads: 1
             pid: pid
             metrics:
-              memory_mb: 6.027456183070403
-              cpu_percent: 0.8008281904610115
+              memory_mb: 5.962133916683182
+              cpu_percent: 1.4658129805029452
             node_id: node_id
             ppid: ppid
+          secret_scan_status: secret_scan_status
+          vulnerabilities_count: 5
+          compliance_scan_status: compliance_scan_status
+          secrets_count: 5
+          malwares_count: 6
+          compliances_count: 0
+          malware_scan_status: malware_scan_status
           name: name
           metrics:
-            memory_mb: 6.027456183070403
-            cpu_percent: 0.8008281904610115
+            memory_mb: 5.962133916683182
+            cpu_percent: 1.4658129805029452
+          vulnerability_scan_status: vulnerability_scan_status
           host_name: host_name
           node_id: node_id
         - docker_labels:
@@ -5637,11 +5732,19 @@ components:
           image:
             metadata:
               key: ""
+            secret_scan_status: secret_scan_status
+            vulnerabilities_count: 2
+            compliance_scan_status: compliance_scan_status
+            secrets_count: 5
+            malwares_count: 6
+            compliances_count: 0
             docker_image_tag: docker_image_tag
+            malware_scan_status: malware_scan_status
             docker_image_size: docker_image_size
             metrics:
-              memory_mb: 6.027456183070403
-              cpu_percent: 0.8008281904610115
+              memory_mb: 5.962133916683182
+              cpu_percent: 1.4658129805029452
+            vulnerability_scan_status: vulnerability_scan_status
             docker_image_name: docker_image_name
             node_id: node_id
           metadata:
@@ -5651,28 +5754,36 @@ components:
               key: ""
             cmdline: cmdline
             name: name
-            threads: 0
+            threads: 1
             pid: pid
             metrics:
-              memory_mb: 6.027456183070403
-              cpu_percent: 0.8008281904610115
+              memory_mb: 5.962133916683182
+              cpu_percent: 1.4658129805029452
             node_id: node_id
             ppid: ppid
           - metadata:
               key: ""
             cmdline: cmdline
             name: name
-            threads: 0
+            threads: 1
             pid: pid
             metrics:
-              memory_mb: 6.027456183070403
-              cpu_percent: 0.8008281904610115
+              memory_mb: 5.962133916683182
+              cpu_percent: 1.4658129805029452
             node_id: node_id
             ppid: ppid
+          secret_scan_status: secret_scan_status
+          vulnerabilities_count: 5
+          compliance_scan_status: compliance_scan_status
+          secrets_count: 5
+          malwares_count: 6
+          compliances_count: 0
+          malware_scan_status: malware_scan_status
           name: name
           metrics:
-            memory_mb: 6.027456183070403
-            cpu_percent: 0.8008281904610115
+            memory_mb: 5.962133916683182
+            cpu_percent: 1.4658129805029452
+          vulnerability_scan_status: vulnerability_scan_status
           host_name: host_name
           node_id: node_id
         pods:
@@ -5684,22 +5795,22 @@ components:
               key: ""
             cmdline: cmdline
             name: name
-            threads: 0
+            threads: 1
             pid: pid
             metrics:
-              memory_mb: 6.027456183070403
-              cpu_percent: 0.8008281904610115
+              memory_mb: 5.962133916683182
+              cpu_percent: 1.4658129805029452
             node_id: node_id
             ppid: ppid
           - metadata:
               key: ""
             cmdline: cmdline
             name: name
-            threads: 0
+            threads: 1
             pid: pid
             metrics:
-              memory_mb: 6.027456183070403
-              cpu_percent: 0.8008281904610115
+              memory_mb: 5.962133916683182
+              cpu_percent: 1.4658129805029452
             node_id: node_id
             ppid: ppid
           kubernetes_name: kubernetes_name
@@ -5709,11 +5820,19 @@ components:
             image:
               metadata:
                 key: ""
+              secret_scan_status: secret_scan_status
+              vulnerabilities_count: 2
+              compliance_scan_status: compliance_scan_status
+              secrets_count: 5
+              malwares_count: 6
+              compliances_count: 0
               docker_image_tag: docker_image_tag
+              malware_scan_status: malware_scan_status
               docker_image_size: docker_image_size
               metrics:
-                memory_mb: 6.027456183070403
-                cpu_percent: 0.8008281904610115
+                memory_mb: 5.962133916683182
+                cpu_percent: 1.4658129805029452
+              vulnerability_scan_status: vulnerability_scan_status
               docker_image_name: docker_image_name
               node_id: node_id
             metadata:
@@ -5723,28 +5842,36 @@ components:
                 key: ""
               cmdline: cmdline
               name: name
-              threads: 0
+              threads: 1
               pid: pid
               metrics:
-                memory_mb: 6.027456183070403
-                cpu_percent: 0.8008281904610115
+                memory_mb: 5.962133916683182
+                cpu_percent: 1.4658129805029452
               node_id: node_id
               ppid: ppid
             - metadata:
                 key: ""
               cmdline: cmdline
               name: name
-              threads: 0
+              threads: 1
               pid: pid
               metrics:
-                memory_mb: 6.027456183070403
-                cpu_percent: 0.8008281904610115
+                memory_mb: 5.962133916683182
+                cpu_percent: 1.4658129805029452
               node_id: node_id
               ppid: ppid
+            secret_scan_status: secret_scan_status
+            vulnerabilities_count: 5
+            compliance_scan_status: compliance_scan_status
+            secrets_count: 5
+            malwares_count: 6
+            compliances_count: 0
+            malware_scan_status: malware_scan_status
             name: name
             metrics:
-              memory_mb: 6.027456183070403
-              cpu_percent: 0.8008281904610115
+              memory_mb: 5.962133916683182
+              cpu_percent: 1.4658129805029452
+            vulnerability_scan_status: vulnerability_scan_status
             host_name: host_name
             node_id: node_id
           - docker_labels:
@@ -5752,11 +5879,19 @@ components:
             image:
               metadata:
                 key: ""
+              secret_scan_status: secret_scan_status
+              vulnerabilities_count: 2
+              compliance_scan_status: compliance_scan_status
+              secrets_count: 5
+              malwares_count: 6
+              compliances_count: 0
               docker_image_tag: docker_image_tag
+              malware_scan_status: malware_scan_status
               docker_image_size: docker_image_size
               metrics:
-                memory_mb: 6.027456183070403
-                cpu_percent: 0.8008281904610115
+                memory_mb: 5.962133916683182
+                cpu_percent: 1.4658129805029452
+              vulnerability_scan_status: vulnerability_scan_status
               docker_image_name: docker_image_name
               node_id: node_id
             metadata:
@@ -5766,33 +5901,41 @@ components:
                 key: ""
               cmdline: cmdline
               name: name
-              threads: 0
+              threads: 1
               pid: pid
               metrics:
-                memory_mb: 6.027456183070403
-                cpu_percent: 0.8008281904610115
+                memory_mb: 5.962133916683182
+                cpu_percent: 1.4658129805029452
               node_id: node_id
               ppid: ppid
             - metadata:
                 key: ""
               cmdline: cmdline
               name: name
-              threads: 0
+              threads: 1
               pid: pid
               metrics:
-                memory_mb: 6.027456183070403
-                cpu_percent: 0.8008281904610115
+                memory_mb: 5.962133916683182
+                cpu_percent: 1.4658129805029452
               node_id: node_id
               ppid: ppid
+            secret_scan_status: secret_scan_status
+            vulnerabilities_count: 5
+            compliance_scan_status: compliance_scan_status
+            secrets_count: 5
+            malwares_count: 6
+            compliances_count: 0
+            malware_scan_status: malware_scan_status
             name: name
             metrics:
-              memory_mb: 6.027456183070403
-              cpu_percent: 0.8008281904610115
+              memory_mb: 5.962133916683182
+              cpu_percent: 1.4658129805029452
+            vulnerability_scan_status: vulnerability_scan_status
             host_name: host_name
             node_id: node_id
           metrics:
-            memory_mb: 6.027456183070403
-            cpu_percent: 0.8008281904610115
+            memory_mb: 5.962133916683182
+            cpu_percent: 1.4658129805029452
           host_node_id: host_node_id
           node_id: node_id
         - kubernetes_namespace: kubernetes_namespace
@@ -5803,22 +5946,22 @@ components:
               key: ""
             cmdline: cmdline
             name: name
-            threads: 0
+            threads: 1
             pid: pid
             metrics:
-              memory_mb: 6.027456183070403
-              cpu_percent: 0.8008281904610115
+              memory_mb: 5.962133916683182
+              cpu_percent: 1.4658129805029452
             node_id: node_id
             ppid: ppid
           - metadata:
               key: ""
             cmdline: cmdline
             name: name
-            threads: 0
+            threads: 1
             pid: pid
             metrics:
-              memory_mb: 6.027456183070403
-              cpu_percent: 0.8008281904610115
+              memory_mb: 5.962133916683182
+              cpu_percent: 1.4658129805029452
             node_id: node_id
             ppid: ppid
           kubernetes_name: kubernetes_name
@@ -5828,11 +5971,19 @@ components:
             image:
               metadata:
                 key: ""
+              secret_scan_status: secret_scan_status
+              vulnerabilities_count: 2
+              compliance_scan_status: compliance_scan_status
+              secrets_count: 5
+              malwares_count: 6
+              compliances_count: 0
               docker_image_tag: docker_image_tag
+              malware_scan_status: malware_scan_status
               docker_image_size: docker_image_size
               metrics:
-                memory_mb: 6.027456183070403
-                cpu_percent: 0.8008281904610115
+                memory_mb: 5.962133916683182
+                cpu_percent: 1.4658129805029452
+              vulnerability_scan_status: vulnerability_scan_status
               docker_image_name: docker_image_name
               node_id: node_id
             metadata:
@@ -5842,28 +5993,36 @@ components:
                 key: ""
               cmdline: cmdline
               name: name
-              threads: 0
+              threads: 1
               pid: pid
               metrics:
-                memory_mb: 6.027456183070403
-                cpu_percent: 0.8008281904610115
+                memory_mb: 5.962133916683182
+                cpu_percent: 1.4658129805029452
               node_id: node_id
               ppid: ppid
             - metadata:
                 key: ""
               cmdline: cmdline
               name: name
-              threads: 0
+              threads: 1
               pid: pid
               metrics:
-                memory_mb: 6.027456183070403
-                cpu_percent: 0.8008281904610115
+                memory_mb: 5.962133916683182
+                cpu_percent: 1.4658129805029452
               node_id: node_id
               ppid: ppid
+            secret_scan_status: secret_scan_status
+            vulnerabilities_count: 5
+            compliance_scan_status: compliance_scan_status
+            secrets_count: 5
+            malwares_count: 6
+            compliances_count: 0
+            malware_scan_status: malware_scan_status
             name: name
             metrics:
-              memory_mb: 6.027456183070403
-              cpu_percent: 0.8008281904610115
+              memory_mb: 5.962133916683182
+              cpu_percent: 1.4658129805029452
+            vulnerability_scan_status: vulnerability_scan_status
             host_name: host_name
             node_id: node_id
           - docker_labels:
@@ -5871,11 +6030,19 @@ components:
             image:
               metadata:
                 key: ""
+              secret_scan_status: secret_scan_status
+              vulnerabilities_count: 2
+              compliance_scan_status: compliance_scan_status
+              secrets_count: 5
+              malwares_count: 6
+              compliances_count: 0
               docker_image_tag: docker_image_tag
+              malware_scan_status: malware_scan_status
               docker_image_size: docker_image_size
               metrics:
-                memory_mb: 6.027456183070403
-                cpu_percent: 0.8008281904610115
+                memory_mb: 5.962133916683182
+                cpu_percent: 1.4658129805029452
+              vulnerability_scan_status: vulnerability_scan_status
               docker_image_name: docker_image_name
               node_id: node_id
             metadata:
@@ -5885,44 +6052,57 @@ components:
                 key: ""
               cmdline: cmdline
               name: name
-              threads: 0
+              threads: 1
               pid: pid
               metrics:
-                memory_mb: 6.027456183070403
-                cpu_percent: 0.8008281904610115
+                memory_mb: 5.962133916683182
+                cpu_percent: 1.4658129805029452
               node_id: node_id
               ppid: ppid
             - metadata:
                 key: ""
               cmdline: cmdline
               name: name
-              threads: 0
+              threads: 1
               pid: pid
               metrics:
-                memory_mb: 6.027456183070403
-                cpu_percent: 0.8008281904610115
+                memory_mb: 5.962133916683182
+                cpu_percent: 1.4658129805029452
               node_id: node_id
               ppid: ppid
+            secret_scan_status: secret_scan_status
+            vulnerabilities_count: 5
+            compliance_scan_status: compliance_scan_status
+            secrets_count: 5
+            malwares_count: 6
+            compliances_count: 0
+            malware_scan_status: malware_scan_status
             name: name
             metrics:
-              memory_mb: 6.027456183070403
-              cpu_percent: 0.8008281904610115
+              memory_mb: 5.962133916683182
+              cpu_percent: 1.4658129805029452
+            vulnerability_scan_status: vulnerability_scan_status
             host_name: host_name
             node_id: node_id
           metrics:
-            memory_mb: 6.027456183070403
-            cpu_percent: 0.8008281904610115
+            memory_mb: 5.962133916683182
+            cpu_percent: 1.4658129805029452
           host_node_id: host_node_id
           node_id: node_id
         metrics:
-          memory_mb: 6.027456183070403
-          cpu_percent: 0.8008281904610115
+          memory_mb: 5.962133916683182
+          cpu_percent: 1.4658129805029452
+        vulnerability_scan_status: vulnerability_scan_status
         host_name: host_name
         node_id: node_id
       properties:
         cloud_metadata:
           additionalProperties: {}
           type: object
+        compliance_scan_status:
+          type: string
+        compliances_count:
+          type: integer
         container_images:
           items:
             $ref: '#/components/schemas/ModelContainerImage'
@@ -5935,6 +6115,10 @@ components:
           type: array
         host_name:
           type: string
+        malware_scan_status:
+          type: string
+        malwares_count:
+          type: integer
         metrics:
           $ref: '#/components/schemas/ModelComputeMetrics'
         node_id:
@@ -5949,6 +6133,14 @@ components:
             $ref: '#/components/schemas/ModelProcess'
           nullable: true
           type: array
+        secret_scan_status:
+          type: string
+        secrets_count:
+          type: integer
+        vulnerabilities_count:
+          type: integer
+        vulnerability_scan_status:
+          type: string
       required:
       - cloud_metadata
       - container_images
@@ -6042,56 +6234,87 @@ components:
               key: ""
             cmdline: cmdline
             name: name
-            threads: 0
+            threads: 1
             pid: pid
             metrics:
-              memory_mb: 6.027456183070403
-              cpu_percent: 0.8008281904610115
+              memory_mb: 5.962133916683182
+              cpu_percent: 1.4658129805029452
             node_id: node_id
             ppid: ppid
           - metadata:
               key: ""
             cmdline: cmdline
             name: name
-            threads: 0
+            threads: 1
             pid: pid
             metrics:
-              memory_mb: 6.027456183070403
-              cpu_percent: 0.8008281904610115
+              memory_mb: 5.962133916683182
+              cpu_percent: 1.4658129805029452
             node_id: node_id
             ppid: ppid
+          secret_scan_status: secret_scan_status
+          vulnerabilities_count: 5
           cloud_metadata:
             key: ""
+          compliance_scan_status: compliance_scan_status
+          secrets_count: 1
           container_images:
           - metadata:
               key: ""
+            secret_scan_status: secret_scan_status
+            vulnerabilities_count: 2
+            compliance_scan_status: compliance_scan_status
+            secrets_count: 5
+            malwares_count: 6
+            compliances_count: 0
             docker_image_tag: docker_image_tag
+            malware_scan_status: malware_scan_status
             docker_image_size: docker_image_size
             metrics:
-              memory_mb: 6.027456183070403
-              cpu_percent: 0.8008281904610115
+              memory_mb: 5.962133916683182
+              cpu_percent: 1.4658129805029452
+            vulnerability_scan_status: vulnerability_scan_status
             docker_image_name: docker_image_name
             node_id: node_id
           - metadata:
               key: ""
+            secret_scan_status: secret_scan_status
+            vulnerabilities_count: 2
+            compliance_scan_status: compliance_scan_status
+            secrets_count: 5
+            malwares_count: 6
+            compliances_count: 0
             docker_image_tag: docker_image_tag
+            malware_scan_status: malware_scan_status
             docker_image_size: docker_image_size
             metrics:
-              memory_mb: 6.027456183070403
-              cpu_percent: 0.8008281904610115
+              memory_mb: 5.962133916683182
+              cpu_percent: 1.4658129805029452
+            vulnerability_scan_status: vulnerability_scan_status
             docker_image_name: docker_image_name
             node_id: node_id
+          malwares_count: 6
+          compliances_count: 0
+          malware_scan_status: malware_scan_status
           containers:
           - docker_labels:
               key: ""
             image:
               metadata:
                 key: ""
+              secret_scan_status: secret_scan_status
+              vulnerabilities_count: 2
+              compliance_scan_status: compliance_scan_status
+              secrets_count: 5
+              malwares_count: 6
+              compliances_count: 0
               docker_image_tag: docker_image_tag
+              malware_scan_status: malware_scan_status
               docker_image_size: docker_image_size
               metrics:
-                memory_mb: 6.027456183070403
-                cpu_percent: 0.8008281904610115
+                memory_mb: 5.962133916683182
+                cpu_percent: 1.4658129805029452
+              vulnerability_scan_status: vulnerability_scan_status
               docker_image_name: docker_image_name
               node_id: node_id
             metadata:
@@ -6101,28 +6324,36 @@ components:
                 key: ""
               cmdline: cmdline
               name: name
-              threads: 0
+              threads: 1
               pid: pid
               metrics:
-                memory_mb: 6.027456183070403
-                cpu_percent: 0.8008281904610115
+                memory_mb: 5.962133916683182
+                cpu_percent: 1.4658129805029452
               node_id: node_id
               ppid: ppid
             - metadata:
                 key: ""
               cmdline: cmdline
               name: name
-              threads: 0
+              threads: 1
               pid: pid
               metrics:
-                memory_mb: 6.027456183070403
-                cpu_percent: 0.8008281904610115
+                memory_mb: 5.962133916683182
+                cpu_percent: 1.4658129805029452
               node_id: node_id
               ppid: ppid
+            secret_scan_status: secret_scan_status
+            vulnerabilities_count: 5
+            compliance_scan_status: compliance_scan_status
+            secrets_count: 5
+            malwares_count: 6
+            compliances_count: 0
+            malware_scan_status: malware_scan_status
             name: name
             metrics:
-              memory_mb: 6.027456183070403
-              cpu_percent: 0.8008281904610115
+              memory_mb: 5.962133916683182
+              cpu_percent: 1.4658129805029452
+            vulnerability_scan_status: vulnerability_scan_status
             host_name: host_name
             node_id: node_id
           - docker_labels:
@@ -6130,11 +6361,19 @@ components:
             image:
               metadata:
                 key: ""
+              secret_scan_status: secret_scan_status
+              vulnerabilities_count: 2
+              compliance_scan_status: compliance_scan_status
+              secrets_count: 5
+              malwares_count: 6
+              compliances_count: 0
               docker_image_tag: docker_image_tag
+              malware_scan_status: malware_scan_status
               docker_image_size: docker_image_size
               metrics:
-                memory_mb: 6.027456183070403
-                cpu_percent: 0.8008281904610115
+                memory_mb: 5.962133916683182
+                cpu_percent: 1.4658129805029452
+              vulnerability_scan_status: vulnerability_scan_status
               docker_image_name: docker_image_name
               node_id: node_id
             metadata:
@@ -6144,28 +6383,36 @@ components:
                 key: ""
               cmdline: cmdline
               name: name
-              threads: 0
+              threads: 1
               pid: pid
               metrics:
-                memory_mb: 6.027456183070403
-                cpu_percent: 0.8008281904610115
+                memory_mb: 5.962133916683182
+                cpu_percent: 1.4658129805029452
               node_id: node_id
               ppid: ppid
             - metadata:
                 key: ""
               cmdline: cmdline
               name: name
-              threads: 0
+              threads: 1
               pid: pid
               metrics:
-                memory_mb: 6.027456183070403
-                cpu_percent: 0.8008281904610115
+                memory_mb: 5.962133916683182
+                cpu_percent: 1.4658129805029452
               node_id: node_id
               ppid: ppid
+            secret_scan_status: secret_scan_status
+            vulnerabilities_count: 5
+            compliance_scan_status: compliance_scan_status
+            secrets_count: 5
+            malwares_count: 6
+            compliances_count: 0
+            malware_scan_status: malware_scan_status
             name: name
             metrics:
-              memory_mb: 6.027456183070403
-              cpu_percent: 0.8008281904610115
+              memory_mb: 5.962133916683182
+              cpu_percent: 1.4658129805029452
+            vulnerability_scan_status: vulnerability_scan_status
             host_name: host_name
             node_id: node_id
           pods:
@@ -6177,22 +6424,22 @@ components:
                 key: ""
               cmdline: cmdline
               name: name
-              threads: 0
+              threads: 1
               pid: pid
               metrics:
-                memory_mb: 6.027456183070403
-                cpu_percent: 0.8008281904610115
+                memory_mb: 5.962133916683182
+                cpu_percent: 1.4658129805029452
               node_id: node_id
               ppid: ppid
             - metadata:
                 key: ""
               cmdline: cmdline
               name: name
-              threads: 0
+              threads: 1
               pid: pid
               metrics:
-                memory_mb: 6.027456183070403
-                cpu_percent: 0.8008281904610115
+                memory_mb: 5.962133916683182
+                cpu_percent: 1.4658129805029452
               node_id: node_id
               ppid: ppid
             kubernetes_name: kubernetes_name
@@ -6202,11 +6449,19 @@ components:
               image:
                 metadata:
                   key: ""
+                secret_scan_status: secret_scan_status
+                vulnerabilities_count: 2
+                compliance_scan_status: compliance_scan_status
+                secrets_count: 5
+                malwares_count: 6
+                compliances_count: 0
                 docker_image_tag: docker_image_tag
+                malware_scan_status: malware_scan_status
                 docker_image_size: docker_image_size
                 metrics:
-                  memory_mb: 6.027456183070403
-                  cpu_percent: 0.8008281904610115
+                  memory_mb: 5.962133916683182
+                  cpu_percent: 1.4658129805029452
+                vulnerability_scan_status: vulnerability_scan_status
                 docker_image_name: docker_image_name
                 node_id: node_id
               metadata:
@@ -6216,28 +6471,36 @@ components:
                   key: ""
                 cmdline: cmdline
                 name: name
-                threads: 0
+                threads: 1
                 pid: pid
                 metrics:
-                  memory_mb: 6.027456183070403
-                  cpu_percent: 0.8008281904610115
+                  memory_mb: 5.962133916683182
+                  cpu_percent: 1.4658129805029452
                 node_id: node_id
                 ppid: ppid
               - metadata:
                   key: ""
                 cmdline: cmdline
                 name: name
-                threads: 0
+                threads: 1
                 pid: pid
                 metrics:
-                  memory_mb: 6.027456183070403
-                  cpu_percent: 0.8008281904610115
+                  memory_mb: 5.962133916683182
+                  cpu_percent: 1.4658129805029452
                 node_id: node_id
                 ppid: ppid
+              secret_scan_status: secret_scan_status
+              vulnerabilities_count: 5
+              compliance_scan_status: compliance_scan_status
+              secrets_count: 5
+              malwares_count: 6
+              compliances_count: 0
+              malware_scan_status: malware_scan_status
               name: name
               metrics:
-                memory_mb: 6.027456183070403
-                cpu_percent: 0.8008281904610115
+                memory_mb: 5.962133916683182
+                cpu_percent: 1.4658129805029452
+              vulnerability_scan_status: vulnerability_scan_status
               host_name: host_name
               node_id: node_id
             - docker_labels:
@@ -6245,11 +6508,19 @@ components:
               image:
                 metadata:
                   key: ""
+                secret_scan_status: secret_scan_status
+                vulnerabilities_count: 2
+                compliance_scan_status: compliance_scan_status
+                secrets_count: 5
+                malwares_count: 6
+                compliances_count: 0
                 docker_image_tag: docker_image_tag
+                malware_scan_status: malware_scan_status
                 docker_image_size: docker_image_size
                 metrics:
-                  memory_mb: 6.027456183070403
-                  cpu_percent: 0.8008281904610115
+                  memory_mb: 5.962133916683182
+                  cpu_percent: 1.4658129805029452
+                vulnerability_scan_status: vulnerability_scan_status
                 docker_image_name: docker_image_name
                 node_id: node_id
               metadata:
@@ -6259,33 +6530,41 @@ components:
                   key: ""
                 cmdline: cmdline
                 name: name
-                threads: 0
+                threads: 1
                 pid: pid
                 metrics:
-                  memory_mb: 6.027456183070403
-                  cpu_percent: 0.8008281904610115
+                  memory_mb: 5.962133916683182
+                  cpu_percent: 1.4658129805029452
                 node_id: node_id
                 ppid: ppid
               - metadata:
                   key: ""
                 cmdline: cmdline
                 name: name
-                threads: 0
+                threads: 1
                 pid: pid
                 metrics:
-                  memory_mb: 6.027456183070403
-                  cpu_percent: 0.8008281904610115
+                  memory_mb: 5.962133916683182
+                  cpu_percent: 1.4658129805029452
                 node_id: node_id
                 ppid: ppid
+              secret_scan_status: secret_scan_status
+              vulnerabilities_count: 5
+              compliance_scan_status: compliance_scan_status
+              secrets_count: 5
+              malwares_count: 6
+              compliances_count: 0
+              malware_scan_status: malware_scan_status
               name: name
               metrics:
-                memory_mb: 6.027456183070403
-                cpu_percent: 0.8008281904610115
+                memory_mb: 5.962133916683182
+                cpu_percent: 1.4658129805029452
+              vulnerability_scan_status: vulnerability_scan_status
               host_name: host_name
               node_id: node_id
             metrics:
-              memory_mb: 6.027456183070403
-              cpu_percent: 0.8008281904610115
+              memory_mb: 5.962133916683182
+              cpu_percent: 1.4658129805029452
             host_node_id: host_node_id
             node_id: node_id
           - kubernetes_namespace: kubernetes_namespace
@@ -6296,22 +6575,22 @@ components:
                 key: ""
               cmdline: cmdline
               name: name
-              threads: 0
+              threads: 1
               pid: pid
               metrics:
-                memory_mb: 6.027456183070403
-                cpu_percent: 0.8008281904610115
+                memory_mb: 5.962133916683182
+                cpu_percent: 1.4658129805029452
               node_id: node_id
               ppid: ppid
             - metadata:
                 key: ""
               cmdline: cmdline
               name: name
-              threads: 0
+              threads: 1
               pid: pid
               metrics:
-                memory_mb: 6.027456183070403
-                cpu_percent: 0.8008281904610115
+                memory_mb: 5.962133916683182
+                cpu_percent: 1.4658129805029452
               node_id: node_id
               ppid: ppid
             kubernetes_name: kubernetes_name
@@ -6321,11 +6600,19 @@ components:
               image:
                 metadata:
                   key: ""
+                secret_scan_status: secret_scan_status
+                vulnerabilities_count: 2
+                compliance_scan_status: compliance_scan_status
+                secrets_count: 5
+                malwares_count: 6
+                compliances_count: 0
                 docker_image_tag: docker_image_tag
+                malware_scan_status: malware_scan_status
                 docker_image_size: docker_image_size
                 metrics:
-                  memory_mb: 6.027456183070403
-                  cpu_percent: 0.8008281904610115
+                  memory_mb: 5.962133916683182
+                  cpu_percent: 1.4658129805029452
+                vulnerability_scan_status: vulnerability_scan_status
                 docker_image_name: docker_image_name
                 node_id: node_id
               metadata:
@@ -6335,28 +6622,36 @@ components:
                   key: ""
                 cmdline: cmdline
                 name: name
-                threads: 0
+                threads: 1
                 pid: pid
                 metrics:
-                  memory_mb: 6.027456183070403
-                  cpu_percent: 0.8008281904610115
+                  memory_mb: 5.962133916683182
+                  cpu_percent: 1.4658129805029452
                 node_id: node_id
                 ppid: ppid
               - metadata:
                   key: ""
                 cmdline: cmdline
                 name: name
-                threads: 0
+                threads: 1
                 pid: pid
                 metrics:
-                  memory_mb: 6.027456183070403
-                  cpu_percent: 0.8008281904610115
+                  memory_mb: 5.962133916683182
+                  cpu_percent: 1.4658129805029452
                 node_id: node_id
                 ppid: ppid
+              secret_scan_status: secret_scan_status
+              vulnerabilities_count: 5
+              compliance_scan_status: compliance_scan_status
+              secrets_count: 5
+              malwares_count: 6
+              compliances_count: 0
+              malware_scan_status: malware_scan_status
               name: name
               metrics:
-                memory_mb: 6.027456183070403
-                cpu_percent: 0.8008281904610115
+                memory_mb: 5.962133916683182
+                cpu_percent: 1.4658129805029452
+              vulnerability_scan_status: vulnerability_scan_status
               host_name: host_name
               node_id: node_id
             - docker_labels:
@@ -6364,11 +6659,19 @@ components:
               image:
                 metadata:
                   key: ""
+                secret_scan_status: secret_scan_status
+                vulnerabilities_count: 2
+                compliance_scan_status: compliance_scan_status
+                secrets_count: 5
+                malwares_count: 6
+                compliances_count: 0
                 docker_image_tag: docker_image_tag
+                malware_scan_status: malware_scan_status
                 docker_image_size: docker_image_size
                 metrics:
-                  memory_mb: 6.027456183070403
-                  cpu_percent: 0.8008281904610115
+                  memory_mb: 5.962133916683182
+                  cpu_percent: 1.4658129805029452
+                vulnerability_scan_status: vulnerability_scan_status
                 docker_image_name: docker_image_name
                 node_id: node_id
               metadata:
@@ -6378,38 +6681,47 @@ components:
                   key: ""
                 cmdline: cmdline
                 name: name
-                threads: 0
+                threads: 1
                 pid: pid
                 metrics:
-                  memory_mb: 6.027456183070403
-                  cpu_percent: 0.8008281904610115
+                  memory_mb: 5.962133916683182
+                  cpu_percent: 1.4658129805029452
                 node_id: node_id
                 ppid: ppid
               - metadata:
                   key: ""
                 cmdline: cmdline
                 name: name
-                threads: 0
+                threads: 1
                 pid: pid
                 metrics:
-                  memory_mb: 6.027456183070403
-                  cpu_percent: 0.8008281904610115
+                  memory_mb: 5.962133916683182
+                  cpu_percent: 1.4658129805029452
                 node_id: node_id
                 ppid: ppid
+              secret_scan_status: secret_scan_status
+              vulnerabilities_count: 5
+              compliance_scan_status: compliance_scan_status
+              secrets_count: 5
+              malwares_count: 6
+              compliances_count: 0
+              malware_scan_status: malware_scan_status
               name: name
               metrics:
-                memory_mb: 6.027456183070403
-                cpu_percent: 0.8008281904610115
+                memory_mb: 5.962133916683182
+                cpu_percent: 1.4658129805029452
+              vulnerability_scan_status: vulnerability_scan_status
               host_name: host_name
               node_id: node_id
             metrics:
-              memory_mb: 6.027456183070403
-              cpu_percent: 0.8008281904610115
+              memory_mb: 5.962133916683182
+              cpu_percent: 1.4658129805029452
             host_node_id: host_node_id
             node_id: node_id
           metrics:
-            memory_mb: 6.027456183070403
-            cpu_percent: 0.8008281904610115
+            memory_mb: 5.962133916683182
+            cpu_percent: 1.4658129805029452
+          vulnerability_scan_status: vulnerability_scan_status
           host_name: host_name
           node_id: node_id
         - processes:
@@ -6417,56 +6729,87 @@ components:
               key: ""
             cmdline: cmdline
             name: name
-            threads: 0
+            threads: 1
             pid: pid
             metrics:
-              memory_mb: 6.027456183070403
-              cpu_percent: 0.8008281904610115
+              memory_mb: 5.962133916683182
+              cpu_percent: 1.4658129805029452
             node_id: node_id
             ppid: ppid
           - metadata:
               key: ""
             cmdline: cmdline
             name: name
-            threads: 0
+            threads: 1
             pid: pid
             metrics:
-              memory_mb: 6.027456183070403
-              cpu_percent: 0.8008281904610115
+              memory_mb: 5.962133916683182
+              cpu_percent: 1.4658129805029452
             node_id: node_id
             ppid: ppid
+          secret_scan_status: secret_scan_status
+          vulnerabilities_count: 5
           cloud_metadata:
             key: ""
+          compliance_scan_status: compliance_scan_status
+          secrets_count: 1
           container_images:
           - metadata:
               key: ""
+            secret_scan_status: secret_scan_status
+            vulnerabilities_count: 2
+            compliance_scan_status: compliance_scan_status
+            secrets_count: 5
+            malwares_count: 6
+            compliances_count: 0
             docker_image_tag: docker_image_tag
+            malware_scan_status: malware_scan_status
             docker_image_size: docker_image_size
             metrics:
-              memory_mb: 6.027456183070403
-              cpu_percent: 0.8008281904610115
+              memory_mb: 5.962133916683182
+              cpu_percent: 1.4658129805029452
+            vulnerability_scan_status: vulnerability_scan_status
             docker_image_name: docker_image_name
             node_id: node_id
           - metadata:
               key: ""
+            secret_scan_status: secret_scan_status
+            vulnerabilities_count: 2
+            compliance_scan_status: compliance_scan_status
+            secrets_count: 5
+            malwares_count: 6
+            compliances_count: 0
             docker_image_tag: docker_image_tag
+            malware_scan_status: malware_scan_status
             docker_image_size: docker_image_size
             metrics:
-              memory_mb: 6.027456183070403
-              cpu_percent: 0.8008281904610115
+              memory_mb: 5.962133916683182
+              cpu_percent: 1.4658129805029452
+            vulnerability_scan_status: vulnerability_scan_status
             docker_image_name: docker_image_name
             node_id: node_id
+          malwares_count: 6
+          compliances_count: 0
+          malware_scan_status: malware_scan_status
           containers:
           - docker_labels:
               key: ""
             image:
               metadata:
                 key: ""
+              secret_scan_status: secret_scan_status
+              vulnerabilities_count: 2
+              compliance_scan_status: compliance_scan_status
+              secrets_count: 5
+              malwares_count: 6
+              compliances_count: 0
               docker_image_tag: docker_image_tag
+              malware_scan_status: malware_scan_status
               docker_image_size: docker_image_size
               metrics:
-                memory_mb: 6.027456183070403
-                cpu_percent: 0.8008281904610115
+                memory_mb: 5.962133916683182
+                cpu_percent: 1.4658129805029452
+              vulnerability_scan_status: vulnerability_scan_status
               docker_image_name: docker_image_name
               node_id: node_id
             metadata:
@@ -6476,28 +6819,36 @@ components:
                 key: ""
               cmdline: cmdline
               name: name
-              threads: 0
+              threads: 1
               pid: pid
               metrics:
-                memory_mb: 6.027456183070403
-                cpu_percent: 0.8008281904610115
+                memory_mb: 5.962133916683182
+                cpu_percent: 1.4658129805029452
               node_id: node_id
               ppid: ppid
             - metadata:
                 key: ""
               cmdline: cmdline
               name: name
-              threads: 0
+              threads: 1
               pid: pid
               metrics:
-                memory_mb: 6.027456183070403
-                cpu_percent: 0.8008281904610115
+                memory_mb: 5.962133916683182
+                cpu_percent: 1.4658129805029452
               node_id: node_id
               ppid: ppid
+            secret_scan_status: secret_scan_status
+            vulnerabilities_count: 5
+            compliance_scan_status: compliance_scan_status
+            secrets_count: 5
+            malwares_count: 6
+            compliances_count: 0
+            malware_scan_status: malware_scan_status
             name: name
             metrics:
-              memory_mb: 6.027456183070403
-              cpu_percent: 0.8008281904610115
+              memory_mb: 5.962133916683182
+              cpu_percent: 1.4658129805029452
+            vulnerability_scan_status: vulnerability_scan_status
             host_name: host_name
             node_id: node_id
           - docker_labels:
@@ -6505,11 +6856,19 @@ components:
             image:
               metadata:
                 key: ""
+              secret_scan_status: secret_scan_status
+              vulnerabilities_count: 2
+              compliance_scan_status: compliance_scan_status
+              secrets_count: 5
+              malwares_count: 6
+              compliances_count: 0
               docker_image_tag: docker_image_tag
+              malware_scan_status: malware_scan_status
               docker_image_size: docker_image_size
               metrics:
-                memory_mb: 6.027456183070403
-                cpu_percent: 0.8008281904610115
+                memory_mb: 5.962133916683182
+                cpu_percent: 1.4658129805029452
+              vulnerability_scan_status: vulnerability_scan_status
               docker_image_name: docker_image_name
               node_id: node_id
             metadata:
@@ -6519,28 +6878,36 @@ components:
                 key: ""
               cmdline: cmdline
               name: name
-              threads: 0
+              threads: 1
               pid: pid
               metrics:
-                memory_mb: 6.027456183070403
-                cpu_percent: 0.8008281904610115
+                memory_mb: 5.962133916683182
+                cpu_percent: 1.4658129805029452
               node_id: node_id
               ppid: ppid
             - metadata:
                 key: ""
               cmdline: cmdline
               name: name
-              threads: 0
+              threads: 1
               pid: pid
               metrics:
-                memory_mb: 6.027456183070403
-                cpu_percent: 0.8008281904610115
+                memory_mb: 5.962133916683182
+                cpu_percent: 1.4658129805029452
               node_id: node_id
               ppid: ppid
+            secret_scan_status: secret_scan_status
+            vulnerabilities_count: 5
+            compliance_scan_status: compliance_scan_status
+            secrets_count: 5
+            malwares_count: 6
+            compliances_count: 0
+            malware_scan_status: malware_scan_status
             name: name
             metrics:
-              memory_mb: 6.027456183070403
-              cpu_percent: 0.8008281904610115
+              memory_mb: 5.962133916683182
+              cpu_percent: 1.4658129805029452
+            vulnerability_scan_status: vulnerability_scan_status
             host_name: host_name
             node_id: node_id
           pods:
@@ -6552,22 +6919,22 @@ components:
                 key: ""
               cmdline: cmdline
               name: name
-              threads: 0
+              threads: 1
               pid: pid
               metrics:
-                memory_mb: 6.027456183070403
-                cpu_percent: 0.8008281904610115
+                memory_mb: 5.962133916683182
+                cpu_percent: 1.4658129805029452
               node_id: node_id
               ppid: ppid
             - metadata:
                 key: ""
               cmdline: cmdline
               name: name
-              threads: 0
+              threads: 1
               pid: pid
               metrics:
-                memory_mb: 6.027456183070403
-                cpu_percent: 0.8008281904610115
+                memory_mb: 5.962133916683182
+                cpu_percent: 1.4658129805029452
               node_id: node_id
               ppid: ppid
             kubernetes_name: kubernetes_name
@@ -6577,11 +6944,19 @@ components:
               image:
                 metadata:
                   key: ""
+                secret_scan_status: secret_scan_status
+                vulnerabilities_count: 2
+                compliance_scan_status: compliance_scan_status
+                secrets_count: 5
+                malwares_count: 6
+                compliances_count: 0
                 docker_image_tag: docker_image_tag
+                malware_scan_status: malware_scan_status
                 docker_image_size: docker_image_size
                 metrics:
-                  memory_mb: 6.027456183070403
-                  cpu_percent: 0.8008281904610115
+                  memory_mb: 5.962133916683182
+                  cpu_percent: 1.4658129805029452
+                vulnerability_scan_status: vulnerability_scan_status
                 docker_image_name: docker_image_name
                 node_id: node_id
               metadata:
@@ -6591,28 +6966,36 @@ components:
                   key: ""
                 cmdline: cmdline
                 name: name
-                threads: 0
+                threads: 1
                 pid: pid
                 metrics:
-                  memory_mb: 6.027456183070403
-                  cpu_percent: 0.8008281904610115
+                  memory_mb: 5.962133916683182
+                  cpu_percent: 1.4658129805029452
                 node_id: node_id
                 ppid: ppid
               - metadata:
                   key: ""
                 cmdline: cmdline
                 name: name
-                threads: 0
+                threads: 1
                 pid: pid
                 metrics:
-                  memory_mb: 6.027456183070403
-                  cpu_percent: 0.8008281904610115
+                  memory_mb: 5.962133916683182
+                  cpu_percent: 1.4658129805029452
                 node_id: node_id
                 ppid: ppid
+              secret_scan_status: secret_scan_status
+              vulnerabilities_count: 5
+              compliance_scan_status: compliance_scan_status
+              secrets_count: 5
+              malwares_count: 6
+              compliances_count: 0
+              malware_scan_status: malware_scan_status
               name: name
               metrics:
-                memory_mb: 6.027456183070403
-                cpu_percent: 0.8008281904610115
+                memory_mb: 5.962133916683182
+                cpu_percent: 1.4658129805029452
+              vulnerability_scan_status: vulnerability_scan_status
               host_name: host_name
               node_id: node_id
             - docker_labels:
@@ -6620,11 +7003,19 @@ components:
               image:
                 metadata:
                   key: ""
+                secret_scan_status: secret_scan_status
+                vulnerabilities_count: 2
+                compliance_scan_status: compliance_scan_status
+                secrets_count: 5
+                malwares_count: 6
+                compliances_count: 0
                 docker_image_tag: docker_image_tag
+                malware_scan_status: malware_scan_status
                 docker_image_size: docker_image_size
                 metrics:
-                  memory_mb: 6.027456183070403
-                  cpu_percent: 0.8008281904610115
+                  memory_mb: 5.962133916683182
+                  cpu_percent: 1.4658129805029452
+                vulnerability_scan_status: vulnerability_scan_status
                 docker_image_name: docker_image_name
                 node_id: node_id
               metadata:
@@ -6634,33 +7025,41 @@ components:
                   key: ""
                 cmdline: cmdline
                 name: name
-                threads: 0
+                threads: 1
                 pid: pid
                 metrics:
-                  memory_mb: 6.027456183070403
-                  cpu_percent: 0.8008281904610115
+                  memory_mb: 5.962133916683182
+                  cpu_percent: 1.4658129805029452
                 node_id: node_id
                 ppid: ppid
               - metadata:
                   key: ""
                 cmdline: cmdline
                 name: name
-                threads: 0
+                threads: 1
                 pid: pid
                 metrics:
-                  memory_mb: 6.027456183070403
-                  cpu_percent: 0.8008281904610115
+                  memory_mb: 5.962133916683182
+                  cpu_percent: 1.4658129805029452
                 node_id: node_id
                 ppid: ppid
+              secret_scan_status: secret_scan_status
+              vulnerabilities_count: 5
+              compliance_scan_status: compliance_scan_status
+              secrets_count: 5
+              malwares_count: 6
+              compliances_count: 0
+              malware_scan_status: malware_scan_status
               name: name
               metrics:
-                memory_mb: 6.027456183070403
-                cpu_percent: 0.8008281904610115
+                memory_mb: 5.962133916683182
+                cpu_percent: 1.4658129805029452
+              vulnerability_scan_status: vulnerability_scan_status
               host_name: host_name
               node_id: node_id
             metrics:
-              memory_mb: 6.027456183070403
-              cpu_percent: 0.8008281904610115
+              memory_mb: 5.962133916683182
+              cpu_percent: 1.4658129805029452
             host_node_id: host_node_id
             node_id: node_id
           - kubernetes_namespace: kubernetes_namespace
@@ -6671,22 +7070,22 @@ components:
                 key: ""
               cmdline: cmdline
               name: name
-              threads: 0
+              threads: 1
               pid: pid
               metrics:
-                memory_mb: 6.027456183070403
-                cpu_percent: 0.8008281904610115
+                memory_mb: 5.962133916683182
+                cpu_percent: 1.4658129805029452
               node_id: node_id
               ppid: ppid
             - metadata:
                 key: ""
               cmdline: cmdline
               name: name
-              threads: 0
+              threads: 1
               pid: pid
               metrics:
-                memory_mb: 6.027456183070403
-                cpu_percent: 0.8008281904610115
+                memory_mb: 5.962133916683182
+                cpu_percent: 1.4658129805029452
               node_id: node_id
               ppid: ppid
             kubernetes_name: kubernetes_name
@@ -6696,11 +7095,19 @@ components:
               image:
                 metadata:
                   key: ""
+                secret_scan_status: secret_scan_status
+                vulnerabilities_count: 2
+                compliance_scan_status: compliance_scan_status
+                secrets_count: 5
+                malwares_count: 6
+                compliances_count: 0
                 docker_image_tag: docker_image_tag
+                malware_scan_status: malware_scan_status
                 docker_image_size: docker_image_size
                 metrics:
-                  memory_mb: 6.027456183070403
-                  cpu_percent: 0.8008281904610115
+                  memory_mb: 5.962133916683182
+                  cpu_percent: 1.4658129805029452
+                vulnerability_scan_status: vulnerability_scan_status
                 docker_image_name: docker_image_name
                 node_id: node_id
               metadata:
@@ -6710,28 +7117,36 @@ components:
                   key: ""
                 cmdline: cmdline
                 name: name
-                threads: 0
+                threads: 1
                 pid: pid
                 metrics:
-                  memory_mb: 6.027456183070403
-                  cpu_percent: 0.8008281904610115
+                  memory_mb: 5.962133916683182
+                  cpu_percent: 1.4658129805029452
                 node_id: node_id
                 ppid: ppid
               - metadata:
                   key: ""
                 cmdline: cmdline
                 name: name
-                threads: 0
+                threads: 1
                 pid: pid
                 metrics:
-                  memory_mb: 6.027456183070403
-                  cpu_percent: 0.8008281904610115
+                  memory_mb: 5.962133916683182
+                  cpu_percent: 1.4658129805029452
                 node_id: node_id
                 ppid: ppid
+              secret_scan_status: secret_scan_status
+              vulnerabilities_count: 5
+              compliance_scan_status: compliance_scan_status
+              secrets_count: 5
+              malwares_count: 6
+              compliances_count: 0
+              malware_scan_status: malware_scan_status
               name: name
               metrics:
-                memory_mb: 6.027456183070403
-                cpu_percent: 0.8008281904610115
+                memory_mb: 5.962133916683182
+                cpu_percent: 1.4658129805029452
+              vulnerability_scan_status: vulnerability_scan_status
               host_name: host_name
               node_id: node_id
             - docker_labels:
@@ -6739,11 +7154,19 @@ components:
               image:
                 metadata:
                   key: ""
+                secret_scan_status: secret_scan_status
+                vulnerabilities_count: 2
+                compliance_scan_status: compliance_scan_status
+                secrets_count: 5
+                malwares_count: 6
+                compliances_count: 0
                 docker_image_tag: docker_image_tag
+                malware_scan_status: malware_scan_status
                 docker_image_size: docker_image_size
                 metrics:
-                  memory_mb: 6.027456183070403
-                  cpu_percent: 0.8008281904610115
+                  memory_mb: 5.962133916683182
+                  cpu_percent: 1.4658129805029452
+                vulnerability_scan_status: vulnerability_scan_status
                 docker_image_name: docker_image_name
                 node_id: node_id
               metadata:
@@ -6753,43 +7176,52 @@ components:
                   key: ""
                 cmdline: cmdline
                 name: name
-                threads: 0
+                threads: 1
                 pid: pid
                 metrics:
-                  memory_mb: 6.027456183070403
-                  cpu_percent: 0.8008281904610115
+                  memory_mb: 5.962133916683182
+                  cpu_percent: 1.4658129805029452
                 node_id: node_id
                 ppid: ppid
               - metadata:
                   key: ""
                 cmdline: cmdline
                 name: name
-                threads: 0
+                threads: 1
                 pid: pid
                 metrics:
-                  memory_mb: 6.027456183070403
-                  cpu_percent: 0.8008281904610115
+                  memory_mb: 5.962133916683182
+                  cpu_percent: 1.4658129805029452
                 node_id: node_id
                 ppid: ppid
+              secret_scan_status: secret_scan_status
+              vulnerabilities_count: 5
+              compliance_scan_status: compliance_scan_status
+              secrets_count: 5
+              malwares_count: 6
+              compliances_count: 0
+              malware_scan_status: malware_scan_status
               name: name
               metrics:
-                memory_mb: 6.027456183070403
-                cpu_percent: 0.8008281904610115
+                memory_mb: 5.962133916683182
+                cpu_percent: 1.4658129805029452
+              vulnerability_scan_status: vulnerability_scan_status
               host_name: host_name
               node_id: node_id
             metrics:
-              memory_mb: 6.027456183070403
-              cpu_percent: 0.8008281904610115
+              memory_mb: 5.962133916683182
+              cpu_percent: 1.4658129805029452
             host_node_id: host_node_id
             node_id: node_id
           metrics:
-            memory_mb: 6.027456183070403
-            cpu_percent: 0.8008281904610115
+            memory_mb: 5.962133916683182
+            cpu_percent: 1.4658129805029452
+          vulnerability_scan_status: vulnerability_scan_status
           host_name: host_name
           node_id: node_id
         metrics:
-          memory_mb: 6.027456183070403
-          cpu_percent: 0.8008281904610115
+          memory_mb: 5.962133916683182
+          cpu_percent: 1.4658129805029452
         node_id: node_id
       properties:
         cloud_metadata:
@@ -7065,22 +7497,22 @@ components:
             key: ""
           cmdline: cmdline
           name: name
-          threads: 0
+          threads: 1
           pid: pid
           metrics:
-            memory_mb: 6.027456183070403
-            cpu_percent: 0.8008281904610115
+            memory_mb: 5.962133916683182
+            cpu_percent: 1.4658129805029452
           node_id: node_id
           ppid: ppid
         - metadata:
             key: ""
           cmdline: cmdline
           name: name
-          threads: 0
+          threads: 1
           pid: pid
           metrics:
-            memory_mb: 6.027456183070403
-            cpu_percent: 0.8008281904610115
+            memory_mb: 5.962133916683182
+            cpu_percent: 1.4658129805029452
           node_id: node_id
           ppid: ppid
         kubernetes_name: kubernetes_name
@@ -7090,11 +7522,19 @@ components:
           image:
             metadata:
               key: ""
+            secret_scan_status: secret_scan_status
+            vulnerabilities_count: 2
+            compliance_scan_status: compliance_scan_status
+            secrets_count: 5
+            malwares_count: 6
+            compliances_count: 0
             docker_image_tag: docker_image_tag
+            malware_scan_status: malware_scan_status
             docker_image_size: docker_image_size
             metrics:
-              memory_mb: 6.027456183070403
-              cpu_percent: 0.8008281904610115
+              memory_mb: 5.962133916683182
+              cpu_percent: 1.4658129805029452
+            vulnerability_scan_status: vulnerability_scan_status
             docker_image_name: docker_image_name
             node_id: node_id
           metadata:
@@ -7104,28 +7544,36 @@ components:
               key: ""
             cmdline: cmdline
             name: name
-            threads: 0
+            threads: 1
             pid: pid
             metrics:
-              memory_mb: 6.027456183070403
-              cpu_percent: 0.8008281904610115
+              memory_mb: 5.962133916683182
+              cpu_percent: 1.4658129805029452
             node_id: node_id
             ppid: ppid
           - metadata:
               key: ""
             cmdline: cmdline
             name: name
-            threads: 0
+            threads: 1
             pid: pid
             metrics:
-              memory_mb: 6.027456183070403
-              cpu_percent: 0.8008281904610115
+              memory_mb: 5.962133916683182
+              cpu_percent: 1.4658129805029452
             node_id: node_id
             ppid: ppid
+          secret_scan_status: secret_scan_status
+          vulnerabilities_count: 5
+          compliance_scan_status: compliance_scan_status
+          secrets_count: 5
+          malwares_count: 6
+          compliances_count: 0
+          malware_scan_status: malware_scan_status
           name: name
           metrics:
-            memory_mb: 6.027456183070403
-            cpu_percent: 0.8008281904610115
+            memory_mb: 5.962133916683182
+            cpu_percent: 1.4658129805029452
+          vulnerability_scan_status: vulnerability_scan_status
           host_name: host_name
           node_id: node_id
         - docker_labels:
@@ -7133,11 +7581,19 @@ components:
           image:
             metadata:
               key: ""
+            secret_scan_status: secret_scan_status
+            vulnerabilities_count: 2
+            compliance_scan_status: compliance_scan_status
+            secrets_count: 5
+            malwares_count: 6
+            compliances_count: 0
             docker_image_tag: docker_image_tag
+            malware_scan_status: malware_scan_status
             docker_image_size: docker_image_size
             metrics:
-              memory_mb: 6.027456183070403
-              cpu_percent: 0.8008281904610115
+              memory_mb: 5.962133916683182
+              cpu_percent: 1.4658129805029452
+            vulnerability_scan_status: vulnerability_scan_status
             docker_image_name: docker_image_name
             node_id: node_id
           metadata:
@@ -7147,33 +7603,41 @@ components:
               key: ""
             cmdline: cmdline
             name: name
-            threads: 0
+            threads: 1
             pid: pid
             metrics:
-              memory_mb: 6.027456183070403
-              cpu_percent: 0.8008281904610115
+              memory_mb: 5.962133916683182
+              cpu_percent: 1.4658129805029452
             node_id: node_id
             ppid: ppid
           - metadata:
               key: ""
             cmdline: cmdline
             name: name
-            threads: 0
+            threads: 1
             pid: pid
             metrics:
-              memory_mb: 6.027456183070403
-              cpu_percent: 0.8008281904610115
+              memory_mb: 5.962133916683182
+              cpu_percent: 1.4658129805029452
             node_id: node_id
             ppid: ppid
+          secret_scan_status: secret_scan_status
+          vulnerabilities_count: 5
+          compliance_scan_status: compliance_scan_status
+          secrets_count: 5
+          malwares_count: 6
+          compliances_count: 0
+          malware_scan_status: malware_scan_status
           name: name
           metrics:
-            memory_mb: 6.027456183070403
-            cpu_percent: 0.8008281904610115
+            memory_mb: 5.962133916683182
+            cpu_percent: 1.4658129805029452
+          vulnerability_scan_status: vulnerability_scan_status
           host_name: host_name
           node_id: node_id
         metrics:
-          memory_mb: 6.027456183070403
-          cpu_percent: 0.8008281904610115
+          memory_mb: 5.962133916683182
+          cpu_percent: 1.4658129805029452
         host_node_id: host_node_id
         node_id: node_id
       properties:
@@ -7216,11 +7680,11 @@ components:
           key: ""
         cmdline: cmdline
         name: name
-        threads: 0
+        threads: 1
         pid: pid
         metrics:
-          memory_mb: 6.027456183070403
-          cpu_percent: 0.8008281904610115
+          memory_mb: 5.962133916683182
+          cpu_percent: 1.4658129805029452
         node_id: node_id
         ppid: ppid
       properties:
@@ -7281,20 +7745,36 @@ components:
         container_images:
         - metadata:
             key: ""
+          secret_scan_status: secret_scan_status
+          vulnerabilities_count: 2
+          compliance_scan_status: compliance_scan_status
+          secrets_count: 5
+          malwares_count: 6
+          compliances_count: 0
           docker_image_tag: docker_image_tag
+          malware_scan_status: malware_scan_status
           docker_image_size: docker_image_size
           metrics:
-            memory_mb: 6.027456183070403
-            cpu_percent: 0.8008281904610115
+            memory_mb: 5.962133916683182
+            cpu_percent: 1.4658129805029452
+          vulnerability_scan_status: vulnerability_scan_status
           docker_image_name: docker_image_name
           node_id: node_id
         - metadata:
             key: ""
+          secret_scan_status: secret_scan_status
+          vulnerabilities_count: 2
+          compliance_scan_status: compliance_scan_status
+          secrets_count: 5
+          malwares_count: 6
+          compliances_count: 0
           docker_image_tag: docker_image_tag
+          malware_scan_status: malware_scan_status
           docker_image_size: docker_image_size
           metrics:
-            memory_mb: 6.027456183070403
-            cpu_percent: 0.8008281904610115
+            memory_mb: 5.962133916683182
+            cpu_percent: 1.4658129805029452
+          vulnerability_scan_status: vulnerability_scan_status
           docker_image_name: docker_image_name
           node_id: node_id
         host_name: host_name
