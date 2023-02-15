@@ -5,7 +5,7 @@ All URIs are relative to *http://localhost*
 Method | HTTP request | Description
 ------------- | ------------- | -------------
 [**AddRegistry**](RegistryApi.md#AddRegistry) | **Post** /deepfence/registryaccount/ | Add Registry
-[**DeleteRegistry**](RegistryApi.md#DeleteRegistry) | **Delete** /deepfence/registryaccount/{id} | Add Registry
+[**DeleteRegistry**](RegistryApi.md#DeleteRegistry) | **Delete** /deepfence/registryaccount/{id}/ | Add Registry
 [**ListRegistry**](RegistryApi.md#ListRegistry) | **Get** /deepfence/registryaccount/list | List Registries
 
 

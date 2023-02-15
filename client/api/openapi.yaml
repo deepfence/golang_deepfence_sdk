@@ -1810,7 +1810,7 @@ paths:
       summary: Add Registry
       tags:
       - Registry
-  /deepfence/registryaccount/{id}:
+  /deepfence/registryaccount/{id}/:
     delete:
       description: Delete registry
       operationId: deleteRegistry
@@ -2882,6 +2882,366 @@ paths:
       summary: Stop Vulnerability Scan
       tags:
       - Vulnerability
+  /deepfence/search/cloud-compliances:
+    post:
+      description: List all the images present in the given registry
+      operationId: searchCloudCompliances
+      requestBody:
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/ReportersSearchFilter'
+      responses:
+        "200":
+          content:
+            application/json:
+              schema:
+                items:
+                  $ref: '#/components/schemas/ModelCloudCompliance'
+                type: array
+          description: OK
+        "400":
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ApiDocsBadRequestResponse'
+          description: Bad Request
+        "401":
+          description: Unauthorized
+        "403":
+          description: Forbidden
+        "404":
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ApiDocsFailureResponse'
+          description: Not Found
+        "500":
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ApiDocsFailureResponse'
+          description: Internal Server Error
+      security:
+      - bearer_token: []
+      summary: Search Cloud compliances
+      tags:
+      - Lookup
+  /deepfence/search/compliances:
+    post:
+      description: List all the images present in the given registry
+      operationId: searchCompliances
+      requestBody:
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/ReportersSearchFilter'
+      responses:
+        "200":
+          content:
+            application/json:
+              schema:
+                items:
+                  $ref: '#/components/schemas/ModelCompliance'
+                type: array
+          description: OK
+        "400":
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ApiDocsBadRequestResponse'
+          description: Bad Request
+        "401":
+          description: Unauthorized
+        "403":
+          description: Forbidden
+        "404":
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ApiDocsFailureResponse'
+          description: Not Found
+        "500":
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ApiDocsFailureResponse'
+          description: Internal Server Error
+      security:
+      - bearer_token: []
+      summary: Search Compliances
+      tags:
+      - Lookup
+  /deepfence/search/containers:
+    post:
+      description: Retrieve all the data associated with containers
+      operationId: searchContainers
+      requestBody:
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/ReportersSearchFilter'
+      responses:
+        "200":
+          content:
+            application/json:
+              schema:
+                items:
+                  $ref: '#/components/schemas/ModelContainer'
+                type: array
+          description: OK
+        "400":
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ApiDocsBadRequestResponse'
+          description: Bad Request
+        "401":
+          description: Unauthorized
+        "403":
+          description: Forbidden
+        "404":
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ApiDocsFailureResponse'
+          description: Not Found
+        "500":
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ApiDocsFailureResponse'
+          description: Internal Server Error
+      security:
+      - bearer_token: []
+      summary: Search Containers data
+      tags:
+      - Lookup
+  /deepfence/search/hosts:
+    post:
+      description: Retrieve all the data associated with hosts
+      operationId: searchHosts
+      requestBody:
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/ReportersSearchFilter'
+      responses:
+        "200":
+          content:
+            application/json:
+              schema:
+                items:
+                  $ref: '#/components/schemas/ModelHost'
+                type: array
+          description: OK
+        "400":
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ApiDocsBadRequestResponse'
+          description: Bad Request
+        "401":
+          description: Unauthorized
+        "403":
+          description: Forbidden
+        "404":
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ApiDocsFailureResponse'
+          description: Not Found
+        "500":
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ApiDocsFailureResponse'
+          description: Internal Server Error
+      security:
+      - bearer_token: []
+      summary: Search hosts
+      tags:
+      - Lookup
+  /deepfence/search/images:
+    post:
+      description: Retrieve all the data associated with processes
+      operationId: searchContainerImages
+      requestBody:
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/ReportersSearchFilter'
+      responses:
+        "200":
+          content:
+            application/json:
+              schema:
+                items:
+                  $ref: '#/components/schemas/ModelContainerImage'
+                type: array
+          description: OK
+        "400":
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ApiDocsBadRequestResponse'
+          description: Bad Request
+        "401":
+          description: Unauthorized
+        "403":
+          description: Forbidden
+        "404":
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ApiDocsFailureResponse'
+          description: Not Found
+        "500":
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ApiDocsFailureResponse'
+          description: Internal Server Error
+      security:
+      - bearer_token: []
+      summary: Search Container images
+      tags:
+      - Lookup
+  /deepfence/search/malwares:
+    post:
+      description: List all the images present in the given registry
+      operationId: searchMalwares
+      requestBody:
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/ReportersSearchFilter'
+      responses:
+        "200":
+          content:
+            application/json:
+              schema:
+                items:
+                  $ref: '#/components/schemas/ModelMalware'
+                type: array
+          description: OK
+        "400":
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ApiDocsBadRequestResponse'
+          description: Bad Request
+        "401":
+          description: Unauthorized
+        "403":
+          description: Forbidden
+        "404":
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ApiDocsFailureResponse'
+          description: Not Found
+        "500":
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ApiDocsFailureResponse'
+          description: Internal Server Error
+      security:
+      - bearer_token: []
+      summary: Search Malwares
+      tags:
+      - Lookup
+  /deepfence/search/secrets:
+    post:
+      description: Retrieve all the data associated with pods
+      operationId: searchSecrets
+      requestBody:
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/ReportersSearchFilter'
+      responses:
+        "200":
+          content:
+            application/json:
+              schema:
+                items:
+                  $ref: '#/components/schemas/ModelSecret'
+                type: array
+          description: OK
+        "400":
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ApiDocsBadRequestResponse'
+          description: Bad Request
+        "401":
+          description: Unauthorized
+        "403":
+          description: Forbidden
+        "404":
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ApiDocsFailureResponse'
+          description: Not Found
+        "500":
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ApiDocsFailureResponse'
+          description: Internal Server Error
+      security:
+      - bearer_token: []
+      summary: Search Secrets
+      tags:
+      - Lookup
+  /deepfence/search/vulnerabilities:
+    post:
+      description: Retrieve all the data associated with k8s clusters
+      operationId: searchVulnerabilities
+      requestBody:
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/ReportersSearchFilter'
+      responses:
+        "200":
+          content:
+            application/json:
+              schema:
+                items:
+                  $ref: '#/components/schemas/ModelVulnerability'
+                type: array
+          description: OK
+        "400":
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ApiDocsBadRequestResponse'
+          description: Bad Request
+        "401":
+          description: Unauthorized
+        "403":
+          description: Forbidden
+        "404":
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ApiDocsFailureResponse'
+          description: Not Found
+        "500":
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ApiDocsFailureResponse'
+          description: Internal Server Error
+      security:
+      - bearer_token: []
+      summary: Search Vulnerabilities
+      tags:
+      - Lookup
   /deepfence/user:
     delete:
       description: Delete logged in user
@@ -6983,13 +7343,13 @@ components:
         registry_type: registry_type
         name: name
         created_at: 2000-01-23T04:56:07.000+00:00
-        id: 0
+        id: id
       properties:
         created_at:
           format: date-time
           type: string
         id:
-          type: integer
+          type: string
         name:
           type: string
         non_secret: {}
@@ -7854,6 +8214,9 @@ components:
       type: object
     ReportersFieldsFilters:
       example:
+        order_filter:
+          limit: 0
+          order_field: order_field
         contains_filter:
           filter_in:
             key:
@@ -7862,8 +8225,11 @@ components:
       properties:
         contains_filter:
           $ref: '#/components/schemas/ReportersContainsFilter'
+        order_filter:
+          $ref: '#/components/schemas/ReportersOrderFilter'
       required:
       - contains_filter
+      - order_filter
       type: object
     ReportersLookupFilter:
       example:
@@ -7919,6 +8285,19 @@ components:
       - vulnerability_count
       - vulnerability_scan_id
       type: object
+    ReportersOrderFilter:
+      example:
+        limit: 0
+        order_field: order_field
+      properties:
+        limit:
+          type: integer
+        order_field:
+          type: string
+      required:
+      - limit
+      - order_field
+      type: object
     ReportersProviderThreatGraph:
       properties:
         compliance_count:
@@ -7937,6 +8316,32 @@ components:
       - resources
       - secrets_count
       - vulnerability_count
+      type: object
+    ReportersSearchFilter:
+      example:
+        in_field_filter:
+        - in_field_filter
+        - in_field_filter
+        filters:
+          order_filter:
+            limit: 0
+            order_field: order_field
+          contains_filter:
+            filter_in:
+              key:
+              - ""
+              - ""
+      properties:
+        filters:
+          $ref: '#/components/schemas/ReportersFieldsFilters'
+        in_field_filter:
+          items:
+            type: string
+          nullable: true
+          type: array
+      required:
+      - filters
+      - in_field_filter
       type: object
     ReportersThreatGraph:
       additionalProperties:
@@ -7988,6 +8393,9 @@ components:
         - host_filter
         - host_filter
         field_filters:
+          order_filter:
+            limit: 0
+            order_field: order_field
           contains_filter:
             filter_in:
               key:

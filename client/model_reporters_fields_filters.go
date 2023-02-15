@@ -21,15 +21,17 @@ var _ MappedNullable = &ReportersFieldsFilters{}
 // ReportersFieldsFilters struct for ReportersFieldsFilters
 type ReportersFieldsFilters struct {
 	ContainsFilter ReportersContainsFilter `json:"contains_filter"`
+	OrderFilter ReportersOrderFilter `json:"order_filter"`
 }
 
 // NewReportersFieldsFilters instantiates a new ReportersFieldsFilters object
 // This constructor will assign default values to properties that have it defined,
 // and makes sure properties required by API are set, but the set of arguments
 // will change when the set of required properties is changed
-func NewReportersFieldsFilters(containsFilter ReportersContainsFilter) *ReportersFieldsFilters {
+func NewReportersFieldsFilters(containsFilter ReportersContainsFilter, orderFilter ReportersOrderFilter) *ReportersFieldsFilters {
 	this := ReportersFieldsFilters{}
 	this.ContainsFilter = containsFilter
+	this.OrderFilter = orderFilter
 	return &this
 }
 
@@ -65,6 +67,30 @@ func (o *ReportersFieldsFilters) SetContainsFilter(v ReportersContainsFilter) {
 	o.ContainsFilter = v
 }
 
+// GetOrderFilter returns the OrderFilter field value
+func (o *ReportersFieldsFilters) GetOrderFilter() ReportersOrderFilter {
+	if o == nil {
+		var ret ReportersOrderFilter
+		return ret
+	}
+
+	return o.OrderFilter
+}
+
+// GetOrderFilterOk returns a tuple with the OrderFilter field value
+// and a boolean to check if the value has been set.
+func (o *ReportersFieldsFilters) GetOrderFilterOk() (*ReportersOrderFilter, bool) {
+	if o == nil {
+		return nil, false
+	}
+	return &o.OrderFilter, true
+}
+
+// SetOrderFilter sets field value
+func (o *ReportersFieldsFilters) SetOrderFilter(v ReportersOrderFilter) {
+	o.OrderFilter = v
+}
+
 func (o ReportersFieldsFilters) MarshalJSON() ([]byte, error) {
 	toSerialize,err := o.ToMap()
 	if err != nil {
@@ -76,6 +102,7 @@ func (o ReportersFieldsFilters) MarshalJSON() ([]byte, error) {
 func (o ReportersFieldsFilters) ToMap() (map[string]interface{}, error) {
 	toSerialize := map[string]interface{}{}
 	toSerialize["contains_filter"] = o.ContainsFilter
+	toSerialize["order_filter"] = o.OrderFilter
 	return toSerialize, nil
 }
 

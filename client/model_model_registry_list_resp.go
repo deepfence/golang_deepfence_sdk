@@ -22,7 +22,7 @@ var _ MappedNullable = &ModelRegistryListResp{}
 // ModelRegistryListResp struct for ModelRegistryListResp
 type ModelRegistryListResp struct {
 	CreatedAt *time.Time `json:"created_at,omitempty"`
-	Id *int32 `json:"id,omitempty"`
+	Id *string `json:"id,omitempty"`
 	Name *string `json:"name,omitempty"`
 	NonSecret interface{} `json:"non_secret,omitempty"`
 	RegistryType *string `json:"registry_type,omitempty"`
@@ -79,9 +79,9 @@ func (o *ModelRegistryListResp) SetCreatedAt(v time.Time) {
 }
 
 // GetId returns the Id field value if set, zero value otherwise.
-func (o *ModelRegistryListResp) GetId() int32 {
+func (o *ModelRegistryListResp) GetId() string {
 	if o == nil || IsNil(o.Id) {
-		var ret int32
+		var ret string
 		return ret
 	}
 	return *o.Id
@@ -89,7 +89,7 @@ func (o *ModelRegistryListResp) GetId() int32 {
 
 // GetIdOk returns a tuple with the Id field value if set, nil otherwise
 // and a boolean to check if the value has been set.
-func (o *ModelRegistryListResp) GetIdOk() (*int32, bool) {
+func (o *ModelRegistryListResp) GetIdOk() (*string, bool) {
 	if o == nil || IsNil(o.Id) {
 		return nil, false
 	}
@@ -105,8 +105,8 @@ func (o *ModelRegistryListResp) HasId() bool {
 	return false
 }
 
-// SetId gets a reference to the given int32 and assigns it to the Id field.
-func (o *ModelRegistryListResp) SetId(v int32) {
+// SetId gets a reference to the given string and assigns it to the Id field.
+func (o *ModelRegistryListResp) SetId(v string) {
 	o.Id = &v
 }
 

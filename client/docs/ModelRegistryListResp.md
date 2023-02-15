@@ -5,7 +5,7 @@
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
 **CreatedAt** | Pointer to **time.Time** |  | [optional] 
-**Id** | Pointer to **int32** |  | [optional] 
+**Id** | Pointer to **string** |  | [optional] 
 **Name** | Pointer to **string** |  | [optional] 
 **NonSecret** | Pointer to **interface{}** |  | [optional] 
 **RegistryType** | Pointer to **string** |  | [optional] 
@@ -57,20 +57,20 @@ HasCreatedAt returns a boolean if a field has been set.
 
 ### GetId
 
-`func (o *ModelRegistryListResp) GetId() int32`
+`func (o *ModelRegistryListResp) GetId() string`
 
 GetId returns the Id field if non-nil, zero value otherwise.
 
 ### GetIdOk
 
-`func (o *ModelRegistryListResp) GetIdOk() (*int32, bool)`
+`func (o *ModelRegistryListResp) GetIdOk() (*string, bool)`
 
 GetIdOk returns a tuple with the Id field if it's non-nil, zero value otherwise
 and a boolean to check if the value has been set.
 
 ### SetId
 
-`func (o *ModelRegistryListResp) SetId(v int32)`
+`func (o *ModelRegistryListResp) SetId(v string)`
 
 SetId sets Id field to given value.
 

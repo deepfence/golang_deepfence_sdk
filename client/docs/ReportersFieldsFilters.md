@@ -5,12 +5,13 @@
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
 **ContainsFilter** | [**ReportersContainsFilter**](ReportersContainsFilter.md) |  | 
+**OrderFilter** | [**ReportersOrderFilter**](ReportersOrderFilter.md) |  | 
 
 ## Methods
 
 ### NewReportersFieldsFilters
 
-`func NewReportersFieldsFilters(containsFilter ReportersContainsFilter, ) *ReportersFieldsFilters`
+`func NewReportersFieldsFilters(containsFilter ReportersContainsFilter, orderFilter ReportersOrderFilter, ) *ReportersFieldsFilters`
 
 NewReportersFieldsFilters instantiates a new ReportersFieldsFilters object
 This constructor will assign default values to properties that have it defined,
@@ -43,6 +44,26 @@ and a boolean to check if the value has been set.
 `func (o *ReportersFieldsFilters) SetContainsFilter(v ReportersContainsFilter)`
 
 SetContainsFilter sets ContainsFilter field to given value.
+
+
+### GetOrderFilter
+
+`func (o *ReportersFieldsFilters) GetOrderFilter() ReportersOrderFilter`
+
+GetOrderFilter returns the OrderFilter field if non-nil, zero value otherwise.
+
+### GetOrderFilterOk
+
+`func (o *ReportersFieldsFilters) GetOrderFilterOk() (*ReportersOrderFilter, bool)`
+
+GetOrderFilterOk returns a tuple with the OrderFilter field if it's non-nil, zero value otherwise
+and a boolean to check if the value has been set.
+
+### SetOrderFilter
+
+`func (o *ReportersFieldsFilters) SetOrderFilter(v ReportersOrderFilter)`
+
+SetOrderFilter sets OrderFilter field to given value.
 
 
 
