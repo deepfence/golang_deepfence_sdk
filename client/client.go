@@ -72,6 +72,8 @@ type APIClient struct {
 
 	RegistryApi *RegistryApiService
 
+	SearchApi *SearchApiService
+
 	SecretScanApi *SecretScanApiService
 
 	ThreatApi *ThreatApiService
@@ -110,6 +112,7 @@ func NewAPIClient(cfg *Configuration) *APIClient {
 	c.LookupApi = (*LookupApiService)(&c.common)
 	c.MalwareScanApi = (*MalwareScanApiService)(&c.common)
 	c.RegistryApi = (*RegistryApiService)(&c.common)
+	c.SearchApi = (*SearchApiService)(&c.common)
 	c.SecretScanApi = (*SecretScanApiService)(&c.common)
 	c.ThreatApi = (*ThreatApiService)(&c.common)
 	c.TopologyApi = (*TopologyApiService)(&c.common)

@@ -4,28 +4,28 @@
 
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
-**ComplianceScanStatus** | Pointer to **string** |  | [optional] 
-**CompliancesCount** | Pointer to **int32** |  | [optional] 
+**ComplianceScanStatus** | **string** |  | 
+**CompliancesCount** | **int32** |  | 
 **DockerLabels** | **map[string]interface{}** |  | 
 **HostName** | **string** |  | 
 **Image** | [**ModelContainerImage**](ModelContainerImage.md) |  | 
-**MalwareScanStatus** | Pointer to **string** |  | [optional] 
-**MalwaresCount** | Pointer to **int32** |  | [optional] 
+**MalwareScanStatus** | **string** |  | 
+**MalwaresCount** | **int32** |  | 
 **Metadata** | **map[string]interface{}** |  | 
 **Metrics** | [**ModelComputeMetrics**](ModelComputeMetrics.md) |  | 
 **Name** | **string** |  | 
 **NodeId** | **string** |  | 
 **Processes** | [**[]ModelProcess**](ModelProcess.md) |  | 
-**SecretScanStatus** | Pointer to **string** |  | [optional] 
-**SecretsCount** | Pointer to **int32** |  | [optional] 
-**VulnerabilitiesCount** | Pointer to **int32** |  | [optional] 
-**VulnerabilityScanStatus** | Pointer to **string** |  | [optional] 
+**SecretScanStatus** | **string** |  | 
+**SecretsCount** | **int32** |  | 
+**VulnerabilitiesCount** | **int32** |  | 
+**VulnerabilityScanStatus** | **string** |  | 
 
 ## Methods
 
 ### NewModelContainer
 
-`func NewModelContainer(dockerLabels map[string]interface{}, hostName string, image ModelContainerImage, metadata map[string]interface{}, metrics ModelComputeMetrics, name string, nodeId string, processes []ModelProcess, ) *ModelContainer`
+`func NewModelContainer(complianceScanStatus string, compliancesCount int32, dockerLabels map[string]interface{}, hostName string, image ModelContainerImage, malwareScanStatus string, malwaresCount int32, metadata map[string]interface{}, metrics ModelComputeMetrics, name string, nodeId string, processes []ModelProcess, secretScanStatus string, secretsCount int32, vulnerabilitiesCount int32, vulnerabilityScanStatus string, ) *ModelContainer`
 
 NewModelContainer instantiates a new ModelContainer object
 This constructor will assign default values to properties that have it defined,
@@ -59,11 +59,6 @@ and a boolean to check if the value has been set.
 
 SetComplianceScanStatus sets ComplianceScanStatus field to given value.
 
-### HasComplianceScanStatus
-
-`func (o *ModelContainer) HasComplianceScanStatus() bool`
-
-HasComplianceScanStatus returns a boolean if a field has been set.
 
 ### GetCompliancesCount
 
@@ -84,11 +79,6 @@ and a boolean to check if the value has been set.
 
 SetCompliancesCount sets CompliancesCount field to given value.
 
-### HasCompliancesCount
-
-`func (o *ModelContainer) HasCompliancesCount() bool`
-
-HasCompliancesCount returns a boolean if a field has been set.
 
 ### GetDockerLabels
 
@@ -169,11 +159,6 @@ and a boolean to check if the value has been set.
 
 SetMalwareScanStatus sets MalwareScanStatus field to given value.
 
-### HasMalwareScanStatus
-
-`func (o *ModelContainer) HasMalwareScanStatus() bool`
-
-HasMalwareScanStatus returns a boolean if a field has been set.
 
 ### GetMalwaresCount
 
@@ -194,11 +179,6 @@ and a boolean to check if the value has been set.
 
 SetMalwaresCount sets MalwaresCount field to given value.
 
-### HasMalwaresCount
-
-`func (o *ModelContainer) HasMalwaresCount() bool`
-
-HasMalwaresCount returns a boolean if a field has been set.
 
 ### GetMetadata
 
@@ -329,11 +309,6 @@ and a boolean to check if the value has been set.
 
 SetSecretScanStatus sets SecretScanStatus field to given value.
 
-### HasSecretScanStatus
-
-`func (o *ModelContainer) HasSecretScanStatus() bool`
-
-HasSecretScanStatus returns a boolean if a field has been set.
 
 ### GetSecretsCount
 
@@ -354,11 +329,6 @@ and a boolean to check if the value has been set.
 
 SetSecretsCount sets SecretsCount field to given value.
 
-### HasSecretsCount
-
-`func (o *ModelContainer) HasSecretsCount() bool`
-
-HasSecretsCount returns a boolean if a field has been set.
 
 ### GetVulnerabilitiesCount
 
@@ -379,11 +349,6 @@ and a boolean to check if the value has been set.
 
 SetVulnerabilitiesCount sets VulnerabilitiesCount field to given value.
 
-### HasVulnerabilitiesCount
-
-`func (o *ModelContainer) HasVulnerabilitiesCount() bool`
-
-HasVulnerabilitiesCount returns a boolean if a field has been set.
 
 ### GetVulnerabilityScanStatus
 
@@ -404,11 +369,6 @@ and a boolean to check if the value has been set.
 
 SetVulnerabilityScanStatus sets VulnerabilityScanStatus field to given value.
 
-### HasVulnerabilityScanStatus
-
-`func (o *ModelContainer) HasVulnerabilityScanStatus() bool`
-
-HasVulnerabilityScanStatus returns a boolean if a field has been set.
 
 
 [[Back to Model list]](../README.md#documentation-for-models) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to README]](../README.md)

@@ -83,8 +83,8 @@ Class | Method | HTTP request | Description
 *AuthenticationApi* | [**AuthTokenRefresh**](docs/AuthenticationApi.md#authtokenrefresh) | **Post** /deepfence/auth/token/refresh | Refresh access token
 *AuthenticationApi* | [**Login**](docs/AuthenticationApi.md#login) | **Post** /deepfence/user/login | Login API
 *AuthenticationApi* | [**Logout**](docs/AuthenticationApi.md#logout) | **Post** /deepfence/user/logout | Logout API
-*CloudNodesApi* | [**ListCloudNodeAccount**](docs/CloudNodesApi.md#listcloudnodeaccount) | **Post** /deepfence/cloud-node/accounts/list | List Cloud Node Accounts
-*CloudNodesApi* | [**ListCloudProviders**](docs/CloudNodesApi.md#listcloudproviders) | **Post** /deepfence/cloud-node/providers/list | List Cloud Node Providers
+*CloudNodesApi* | [**ListCloudNodeAccount**](docs/CloudNodesApi.md#listcloudnodeaccount) | **Post** /deepfence/cloud-node/list/accounts | List Cloud Node Accounts
+*CloudNodesApi* | [**ListCloudProviders**](docs/CloudNodesApi.md#listcloudproviders) | **Post** /deepfence/cloud-node/list/providers | List Cloud Node Providers
 *CloudNodesApi* | [**RegisterCloudNodeAccount**](docs/CloudNodesApi.md#registercloudnodeaccount) | **Post** /deepfence/cloud-node/account | Register Cloud Node Account
 *CloudResourcesApi* | [**IngestCloudResources**](docs/CloudResourcesApi.md#ingestcloudresources) | **Post** /deepfence/ingest/cloud-resources | Ingest Cloud resources
 *CloudScannerApi* | [**IngestCloudComplianceScanStatus**](docs/CloudScannerApi.md#ingestcloudcompliancescanstatus) | **Post** /deepfence/ingest/cloud-compliance-scan-status | Ingest Cloud Compliances
@@ -113,14 +113,6 @@ Class | Method | HTTP request | Description
 *LookupApi* | [**GetPods**](docs/LookupApi.md#getpods) | **Post** /deepfence/lookup/pods | Retrieve Pods data
 *LookupApi* | [**GetProcesses**](docs/LookupApi.md#getprocesses) | **Post** /deepfence/lookup/processes | Retrieve Processes data
 *LookupApi* | [**GetRegistryAccount**](docs/LookupApi.md#getregistryaccount) | **Post** /deepfence/lookup/registryaccount | Get Images in Registry
-*LookupApi* | [**SearchCloudCompliances**](docs/LookupApi.md#searchcloudcompliances) | **Post** /deepfence/search/cloud-compliances | Search Cloud compliances
-*LookupApi* | [**SearchCompliances**](docs/LookupApi.md#searchcompliances) | **Post** /deepfence/search/compliances | Search Compliances
-*LookupApi* | [**SearchContainerImages**](docs/LookupApi.md#searchcontainerimages) | **Post** /deepfence/search/images | Search Container images
-*LookupApi* | [**SearchContainers**](docs/LookupApi.md#searchcontainers) | **Post** /deepfence/search/containers | Search Containers data
-*LookupApi* | [**SearchHosts**](docs/LookupApi.md#searchhosts) | **Post** /deepfence/search/hosts | Search hosts
-*LookupApi* | [**SearchMalwares**](docs/LookupApi.md#searchmalwares) | **Post** /deepfence/search/malwares | Search Malwares
-*LookupApi* | [**SearchSecrets**](docs/LookupApi.md#searchsecrets) | **Post** /deepfence/search/secrets | Search Secrets
-*LookupApi* | [**SearchVulnerabilities**](docs/LookupApi.md#searchvulnerabilities) | **Post** /deepfence/search/vulnerabilities | Search Vulnerabilities
 *MalwareScanApi* | [**IngestMalware**](docs/MalwareScanApi.md#ingestmalware) | **Post** /deepfence/ingest/malware | Ingest Malware
 *MalwareScanApi* | [**IngestMalwareScanStatus**](docs/MalwareScanApi.md#ingestmalwarescanstatus) | **Post** /deepfence/ingest/malware-scan-logs | Ingest Malware Scan Status
 *MalwareScanApi* | [**ListMalwareScan**](docs/MalwareScanApi.md#listmalwarescan) | **Post** /deepfence/scan/list/malware | Get Malware Scans List
@@ -131,6 +123,19 @@ Class | Method | HTTP request | Description
 *RegistryApi* | [**AddRegistry**](docs/RegistryApi.md#addregistry) | **Post** /deepfence/registryaccount/ | Add Registry
 *RegistryApi* | [**DeleteRegistry**](docs/RegistryApi.md#deleteregistry) | **Delete** /deepfence/registryaccount/{id}/ | Add Registry
 *RegistryApi* | [**ListRegistry**](docs/RegistryApi.md#listregistry) | **Get** /deepfence/registryaccount/list | List Registries
+*SearchApi* | [**SearchCloudComplianceScans**](docs/SearchApi.md#searchcloudcompliancescans) | **Post** /deepfence/search/cloud-compliance/scans | Search Vulnerability Scan results
+*SearchApi* | [**SearchCloudCompliances**](docs/SearchApi.md#searchcloudcompliances) | **Post** /deepfence/search/cloud-compliances | Search Cloud compliances
+*SearchApi* | [**SearchComplianceScans**](docs/SearchApi.md#searchcompliancescans) | **Post** /deepfence/search/compliance/scans | Search Vulnerability Scan results
+*SearchApi* | [**SearchCompliances**](docs/SearchApi.md#searchcompliances) | **Post** /deepfence/search/compliances | Search Compliances
+*SearchApi* | [**SearchContainerImages**](docs/SearchApi.md#searchcontainerimages) | **Post** /deepfence/search/images | Search Container images
+*SearchApi* | [**SearchContainers**](docs/SearchApi.md#searchcontainers) | **Post** /deepfence/search/containers | Search Containers data
+*SearchApi* | [**SearchHosts**](docs/SearchApi.md#searchhosts) | **Post** /deepfence/search/hosts | Search hosts
+*SearchApi* | [**SearchMalwareScans**](docs/SearchApi.md#searchmalwarescans) | **Post** /deepfence/search/malware/scans | Search Vulnerability Scan results
+*SearchApi* | [**SearchMalwares**](docs/SearchApi.md#searchmalwares) | **Post** /deepfence/search/malwares | Search Malwares
+*SearchApi* | [**SearchSecrets**](docs/SearchApi.md#searchsecrets) | **Post** /deepfence/search/secrets | Search Secrets
+*SearchApi* | [**SearchSecretsScans**](docs/SearchApi.md#searchsecretsscans) | **Post** /deepfence/search/secret/scans | Search Vulnerability Scan results
+*SearchApi* | [**SearchVulnerabilities**](docs/SearchApi.md#searchvulnerabilities) | **Post** /deepfence/search/vulnerabilities | Search Vulnerabilities
+*SearchApi* | [**SearchVulnerabilityScans**](docs/SearchApi.md#searchvulnerabilityscans) | **Post** /deepfence/search/vulnerability/scans | Search Vulnerability Scan results
 *SecretScanApi* | [**IngestSecretScanStatus**](docs/SecretScanApi.md#ingestsecretscanstatus) | **Post** /deepfence/ingest/secret-scan-logs | Ingest Secrets Scan Status
 *SecretScanApi* | [**IngestSecrets**](docs/SecretScanApi.md#ingestsecrets) | **Post** /deepfence/ingest/secrets | Ingest Secrets
 *SecretScanApi* | [**ListSecretScan**](docs/SecretScanApi.md#listsecretscan) | **Post** /deepfence/scan/list/secret | Get Secret Scans List
@@ -264,6 +269,7 @@ Class | Method | HTTP request | Description
  - [ReportersOrderFilter](docs/ReportersOrderFilter.md)
  - [ReportersProviderThreatGraph](docs/ReportersProviderThreatGraph.md)
  - [ReportersSearchFilter](docs/ReportersSearchFilter.md)
+ - [ReportersSearchScanReq](docs/ReportersSearchScanReq.md)
  - [ReportersThreatNodeInfo](docs/ReportersThreatNodeInfo.md)
  - [ReportersTopologyFilters](docs/ReportersTopologyFilters.md)
  - [UtilsScanSbomRequest](docs/UtilsScanSbomRequest.md)

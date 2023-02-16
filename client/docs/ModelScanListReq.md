@@ -4,15 +4,14 @@
 
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
-**NodeId** | **string** |  | 
-**NodeType** | **string** |  | 
+**NodeIds** | [**[]ModelNodeIdentifier**](ModelNodeIdentifier.md) |  | 
 **Window** | [**ModelFetchWindow**](ModelFetchWindow.md) |  | 
 
 ## Methods
 
 ### NewModelScanListReq
 
-`func NewModelScanListReq(nodeId string, nodeType string, window ModelFetchWindow, ) *ModelScanListReq`
+`func NewModelScanListReq(nodeIds []ModelNodeIdentifier, window ModelFetchWindow, ) *ModelScanListReq`
 
 NewModelScanListReq instantiates a new ModelScanListReq object
 This constructor will assign default values to properties that have it defined,
@@ -27,46 +26,36 @@ NewModelScanListReqWithDefaults instantiates a new ModelScanListReq object
 This constructor will only assign default values to properties that have it defined,
 but it doesn't guarantee that properties required by API are set
 
-### GetNodeId
+### GetNodeIds
 
-`func (o *ModelScanListReq) GetNodeId() string`
+`func (o *ModelScanListReq) GetNodeIds() []ModelNodeIdentifier`
 
-GetNodeId returns the NodeId field if non-nil, zero value otherwise.
+GetNodeIds returns the NodeIds field if non-nil, zero value otherwise.
 
-### GetNodeIdOk
+### GetNodeIdsOk
 
-`func (o *ModelScanListReq) GetNodeIdOk() (*string, bool)`
+`func (o *ModelScanListReq) GetNodeIdsOk() (*[]ModelNodeIdentifier, bool)`
 
-GetNodeIdOk returns a tuple with the NodeId field if it's non-nil, zero value otherwise
+GetNodeIdsOk returns a tuple with the NodeIds field if it's non-nil, zero value otherwise
 and a boolean to check if the value has been set.
 
-### SetNodeId
+### SetNodeIds
 
-`func (o *ModelScanListReq) SetNodeId(v string)`
+`func (o *ModelScanListReq) SetNodeIds(v []ModelNodeIdentifier)`
 
-SetNodeId sets NodeId field to given value.
-
-
-### GetNodeType
-
-`func (o *ModelScanListReq) GetNodeType() string`
-
-GetNodeType returns the NodeType field if non-nil, zero value otherwise.
-
-### GetNodeTypeOk
-
-`func (o *ModelScanListReq) GetNodeTypeOk() (*string, bool)`
-
-GetNodeTypeOk returns a tuple with the NodeType field if it's non-nil, zero value otherwise
-and a boolean to check if the value has been set.
-
-### SetNodeType
-
-`func (o *ModelScanListReq) SetNodeType(v string)`
-
-SetNodeType sets NodeType field to given value.
+SetNodeIds sets NodeIds field to given value.
 
 
+### SetNodeIdsNil
+
+`func (o *ModelScanListReq) SetNodeIdsNil(b bool)`
+
+ SetNodeIdsNil sets the value for NodeIds to be an explicit nil
+
+### UnsetNodeIds
+`func (o *ModelScanListReq) UnsetNodeIds()`
+
+UnsetNodeIds ensures that no value is present for NodeIds, not even an explicit nil
 ### GetWindow
 
 `func (o *ModelScanListReq) GetWindow() ModelFetchWindow`

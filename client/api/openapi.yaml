@@ -235,7 +235,7 @@ paths:
       summary: Register Cloud Node Account
       tags:
       - Cloud Nodes
-  /deepfence/cloud-node/accounts/list:
+  /deepfence/cloud-node/list/accounts:
     post:
       description: List Cloud Node Accounts registered with the console
       operationId: listCloudNodeAccount
@@ -278,7 +278,7 @@ paths:
       summary: List Cloud Node Accounts
       tags:
       - Cloud Nodes
-  /deepfence/cloud-node/providers/list:
+  /deepfence/cloud-node/list/providers:
     post:
       description: List Cloud Node Providers registered with the console
       operationId: listCloudProviders
@@ -2882,6 +2882,51 @@ paths:
       summary: Stop Vulnerability Scan
       tags:
       - Vulnerability
+  /deepfence/search/cloud-compliance/scans:
+    post:
+      description: Search scan results
+      operationId: searchCloudComplianceScans
+      requestBody:
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/ReportersSearchScanReq'
+      responses:
+        "200":
+          content:
+            application/json:
+              schema:
+                items:
+                  $ref: '#/components/schemas/ModelScanInfo'
+                type: array
+          description: OK
+        "400":
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ApiDocsBadRequestResponse'
+          description: Bad Request
+        "401":
+          description: Unauthorized
+        "403":
+          description: Forbidden
+        "404":
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ApiDocsFailureResponse'
+          description: Not Found
+        "500":
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ApiDocsFailureResponse'
+          description: Internal Server Error
+      security:
+      - bearer_token: []
+      summary: Search Vulnerability Scan results
+      tags:
+      - Search
   /deepfence/search/cloud-compliances:
     post:
       description: List all the images present in the given registry
@@ -2926,7 +2971,52 @@ paths:
       - bearer_token: []
       summary: Search Cloud compliances
       tags:
-      - Lookup
+      - Search
+  /deepfence/search/compliance/scans:
+    post:
+      description: Search scan results
+      operationId: searchComplianceScans
+      requestBody:
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/ReportersSearchScanReq'
+      responses:
+        "200":
+          content:
+            application/json:
+              schema:
+                items:
+                  $ref: '#/components/schemas/ModelScanInfo'
+                type: array
+          description: OK
+        "400":
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ApiDocsBadRequestResponse'
+          description: Bad Request
+        "401":
+          description: Unauthorized
+        "403":
+          description: Forbidden
+        "404":
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ApiDocsFailureResponse'
+          description: Not Found
+        "500":
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ApiDocsFailureResponse'
+          description: Internal Server Error
+      security:
+      - bearer_token: []
+      summary: Search Vulnerability Scan results
+      tags:
+      - Search
   /deepfence/search/compliances:
     post:
       description: List all the images present in the given registry
@@ -2971,7 +3061,7 @@ paths:
       - bearer_token: []
       summary: Search Compliances
       tags:
-      - Lookup
+      - Search
   /deepfence/search/containers:
     post:
       description: Retrieve all the data associated with containers
@@ -3016,7 +3106,7 @@ paths:
       - bearer_token: []
       summary: Search Containers data
       tags:
-      - Lookup
+      - Search
   /deepfence/search/hosts:
     post:
       description: Retrieve all the data associated with hosts
@@ -3061,7 +3151,7 @@ paths:
       - bearer_token: []
       summary: Search hosts
       tags:
-      - Lookup
+      - Search
   /deepfence/search/images:
     post:
       description: Retrieve all the data associated with processes
@@ -3106,7 +3196,52 @@ paths:
       - bearer_token: []
       summary: Search Container images
       tags:
-      - Lookup
+      - Search
+  /deepfence/search/malware/scans:
+    post:
+      description: Search scan results
+      operationId: searchMalwareScans
+      requestBody:
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/ReportersSearchScanReq'
+      responses:
+        "200":
+          content:
+            application/json:
+              schema:
+                items:
+                  $ref: '#/components/schemas/ModelScanInfo'
+                type: array
+          description: OK
+        "400":
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ApiDocsBadRequestResponse'
+          description: Bad Request
+        "401":
+          description: Unauthorized
+        "403":
+          description: Forbidden
+        "404":
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ApiDocsFailureResponse'
+          description: Not Found
+        "500":
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ApiDocsFailureResponse'
+          description: Internal Server Error
+      security:
+      - bearer_token: []
+      summary: Search Vulnerability Scan results
+      tags:
+      - Search
   /deepfence/search/malwares:
     post:
       description: List all the images present in the given registry
@@ -3151,7 +3286,52 @@ paths:
       - bearer_token: []
       summary: Search Malwares
       tags:
-      - Lookup
+      - Search
+  /deepfence/search/secret/scans:
+    post:
+      description: Search scan results
+      operationId: searchSecretsScans
+      requestBody:
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/ReportersSearchScanReq'
+      responses:
+        "200":
+          content:
+            application/json:
+              schema:
+                items:
+                  $ref: '#/components/schemas/ModelScanInfo'
+                type: array
+          description: OK
+        "400":
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ApiDocsBadRequestResponse'
+          description: Bad Request
+        "401":
+          description: Unauthorized
+        "403":
+          description: Forbidden
+        "404":
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ApiDocsFailureResponse'
+          description: Not Found
+        "500":
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ApiDocsFailureResponse'
+          description: Internal Server Error
+      security:
+      - bearer_token: []
+      summary: Search Vulnerability Scan results
+      tags:
+      - Search
   /deepfence/search/secrets:
     post:
       description: Retrieve all the data associated with pods
@@ -3196,7 +3376,7 @@ paths:
       - bearer_token: []
       summary: Search Secrets
       tags:
-      - Lookup
+      - Search
   /deepfence/search/vulnerabilities:
     post:
       description: Retrieve all the data associated with k8s clusters
@@ -3241,7 +3421,52 @@ paths:
       - bearer_token: []
       summary: Search Vulnerabilities
       tags:
-      - Lookup
+      - Search
+  /deepfence/search/vulnerability/scans:
+    post:
+      description: Search scan results
+      operationId: searchVulnerabilityScans
+      requestBody:
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/ReportersSearchScanReq'
+      responses:
+        "200":
+          content:
+            application/json:
+              schema:
+                items:
+                  $ref: '#/components/schemas/ModelScanInfo'
+                type: array
+          description: OK
+        "400":
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ApiDocsBadRequestResponse'
+          description: Bad Request
+        "401":
+          description: Unauthorized
+        "403":
+          description: Forbidden
+        "404":
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ApiDocsFailureResponse'
+          description: Not Found
+        "500":
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ApiDocsFailureResponse'
+          description: Internal Server Error
+      security:
+      - bearer_token: []
+      summary: Search Vulnerability Scan results
+      tags:
+      - Search
   /deepfence/user:
     delete:
       description: Delete logged in user
@@ -5169,9 +5394,11 @@ components:
       type: object
     ModelComplianceScanInfo:
       example:
+        severity_counts:
+          key: 0
         node_type: node_type
         benchmark_type: benchmark_type
-        updated_at: 0
+        updated_at: 6
         scan_id: scan_id
         node_id: node_id
         status: status
@@ -5184,6 +5411,11 @@ components:
           type: string
         scan_id:
           type: string
+        severity_counts:
+          additionalProperties:
+            type: integer
+          nullable: true
+          type: object
         status:
           type: string
         updated_at:
@@ -5194,6 +5426,7 @@ components:
       - node_id
       - node_type
       - scan_id
+      - severity_counts
       - status
       - updated_at
       type: object
@@ -5286,15 +5519,19 @@ components:
     ModelComplianceScanStatusResp:
       example:
         statuses:
-        - node_type: node_type
+        - severity_counts:
+            key: 0
+          node_type: node_type
           benchmark_type: benchmark_type
-          updated_at: 0
+          updated_at: 6
           scan_id: scan_id
           node_id: node_id
           status: status
-        - node_type: node_type
+        - severity_counts:
+            key: 0
+          node_type: node_type
           benchmark_type: benchmark_type
-          updated_at: 0
+          updated_at: 6
           scan_id: scan_id
           node_id: node_id
           status: status
@@ -5499,14 +5736,22 @@ components:
         vulnerability_scan_status:
           type: string
       required:
+      - compliance_scan_status
+      - compliances_count
       - docker_labels
       - host_name
       - image
+      - malware_scan_status
+      - malwares_count
       - metadata
       - metrics
       - name
       - node_id
       - processes
+      - secret_scan_status
+      - secrets_count
+      - vulnerabilities_count
+      - vulnerability_scan_status
       type: object
     ModelContainerImage:
       example:
@@ -5558,12 +5803,20 @@ components:
         vulnerability_scan_status:
           type: string
       required:
+      - compliance_scan_status
+      - compliances_count
       - docker_image_name
       - docker_image_size
       - docker_image_tag
+      - malware_scan_status
+      - malwares_count
       - metadata
       - metrics
       - node_id
+      - secret_scan_status
+      - secrets_count
+      - vulnerabilities_count
+      - vulnerability_scan_status
       type: object
     ModelFetchWindow:
       example:
@@ -6143,13 +6396,21 @@ components:
           type: string
       required:
       - cloud_metadata
+      - compliance_scan_status
+      - compliances_count
       - container_images
       - containers
       - host_name
+      - malware_scan_status
+      - malwares_count
       - metrics
       - node_id
       - pods
       - processes
+      - secret_scan_status
+      - secrets_count
+      - vulnerabilities_count
+      - vulnerability_scan_status
       type: object
     ModelInitAgentReq:
       example:
@@ -7953,8 +8214,10 @@ components:
       type: object
     ModelScanInfo:
       example:
+        severity_counts:
+          key: 0
         node_type: node_type
-        updated_at: 0
+        updated_at: 6
         scan_id: scan_id
         node_id: node_id
         status: status
@@ -7965,6 +8228,11 @@ components:
           type: string
         scan_id:
           type: string
+        severity_counts:
+          additionalProperties:
+            type: integer
+          nullable: true
+          type: object
         status:
           type: string
         updated_at:
@@ -7974,42 +8242,46 @@ components:
       - node_id
       - node_type
       - scan_id
+      - severity_counts
       - status
       - updated_at
       type: object
     ModelScanListReq:
       example:
-        node_type: image
         window:
           offset: 0
           size: 6
-        node_id: node_id
+        node_ids:
+        - node_type: image
+          node_id: node_id
+        - node_type: image
+          node_id: node_id
       properties:
-        node_id:
-          type: string
-        node_type:
-          enum:
-          - image
-          - host
-          - container
-          type: string
+        node_ids:
+          items:
+            $ref: '#/components/schemas/ModelNodeIdentifier'
+          nullable: true
+          type: array
         window:
           $ref: '#/components/schemas/ModelFetchWindow'
       required:
-      - node_id
-      - node_type
+      - node_ids
       - window
       type: object
     ModelScanListResp:
       example:
         scans_info:
-        - node_type: node_type
-          updated_at: 0
+        - severity_counts:
+            key: 0
+          node_type: node_type
+          updated_at: 6
           scan_id: scan_id
           node_id: node_id
           status: status
-        - node_type: node_type
-          updated_at: 0
+        - severity_counts:
+            key: 0
+          node_type: node_type
+          updated_at: 6
           scan_id: scan_id
           node_id: node_id
           status: status
@@ -8041,8 +8313,10 @@ components:
       example:
         statuses:
           key:
+            severity_counts:
+              key: 0
             node_type: node_type
-            updated_at: 0
+            updated_at: 6
             scan_id: scan_id
             node_id: node_id
             status: status
@@ -8822,6 +9096,49 @@ components:
       required:
       - filters
       - in_field_filter
+      type: object
+    ReportersSearchScanReq:
+      example:
+        scan_filters:
+          in_field_filter:
+          - in_field_filter
+          - in_field_filter
+          filters:
+            order_filter:
+              limit: 0
+              order_field: order_field
+            contains_filter:
+              filter_in:
+                key:
+                - ""
+                - ""
+        window:
+          offset: 0
+          size: 6
+        resource_filters:
+          in_field_filter:
+          - in_field_filter
+          - in_field_filter
+          filters:
+            order_filter:
+              limit: 0
+              order_field: order_field
+            contains_filter:
+              filter_in:
+                key:
+                - ""
+                - ""
+      properties:
+        resource_filters:
+          $ref: '#/components/schemas/ReportersSearchFilter'
+        scan_filters:
+          $ref: '#/components/schemas/ReportersSearchFilter'
+        window:
+          $ref: '#/components/schemas/ModelFetchWindow'
+      required:
+      - resource_filters
+      - scan_filters
+      - window
       type: object
     ReportersThreatGraph:
       additionalProperties:

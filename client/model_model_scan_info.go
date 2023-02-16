@@ -23,6 +23,7 @@ type ModelScanInfo struct {
 	NodeId string `json:"node_id"`
 	NodeType string `json:"node_type"`
 	ScanId string `json:"scan_id"`
+	SeverityCounts map[string]int32 `json:"severity_counts"`
 	Status string `json:"status"`
 	UpdatedAt int64 `json:"updated_at"`
 }
@@ -31,11 +32,12 @@ type ModelScanInfo struct {
 // This constructor will assign default values to properties that have it defined,
 // and makes sure properties required by API are set, but the set of arguments
 // will change when the set of required properties is changed
-func NewModelScanInfo(nodeId string, nodeType string, scanId string, status string, updatedAt int64) *ModelScanInfo {
+func NewModelScanInfo(nodeId string, nodeType string, scanId string, severityCounts map[string]int32, status string, updatedAt int64) *ModelScanInfo {
 	this := ModelScanInfo{}
 	this.NodeId = nodeId
 	this.NodeType = nodeType
 	this.ScanId = scanId
+	this.SeverityCounts = severityCounts
 	this.Status = status
 	this.UpdatedAt = updatedAt
 	return &this
@@ -121,6 +123,32 @@ func (o *ModelScanInfo) SetScanId(v string) {
 	o.ScanId = v
 }
 
+// GetSeverityCounts returns the SeverityCounts field value
+// If the value is explicit nil, the zero value for map[string]int32 will be returned
+func (o *ModelScanInfo) GetSeverityCounts() map[string]int32 {
+	if o == nil {
+		var ret map[string]int32
+		return ret
+	}
+
+	return o.SeverityCounts
+}
+
+// GetSeverityCountsOk returns a tuple with the SeverityCounts field value
+// and a boolean to check if the value has been set.
+// NOTE: If the value is an explicit nil, `nil, true` will be returned
+func (o *ModelScanInfo) GetSeverityCountsOk() (*map[string]int32, bool) {
+	if o == nil || IsNil(o.SeverityCounts) {
+		return nil, false
+	}
+	return &o.SeverityCounts, true
+}
+
+// SetSeverityCounts sets field value
+func (o *ModelScanInfo) SetSeverityCounts(v map[string]int32) {
+	o.SeverityCounts = v
+}
+
 // GetStatus returns the Status field value
 func (o *ModelScanInfo) GetStatus() string {
 	if o == nil {
@@ -182,6 +210,9 @@ func (o ModelScanInfo) ToMap() (map[string]interface{}, error) {
 	toSerialize["node_id"] = o.NodeId
 	toSerialize["node_type"] = o.NodeType
 	toSerialize["scan_id"] = o.ScanId
+	if o.SeverityCounts != nil {
+		toSerialize["severity_counts"] = o.SeverityCounts
+	}
 	toSerialize["status"] = o.Status
 	toSerialize["updated_at"] = o.UpdatedAt
 	return toSerialize, nil

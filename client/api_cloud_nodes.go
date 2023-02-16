@@ -68,7 +68,7 @@ func (a *CloudNodesApiService) ListCloudNodeAccountExecute(r ApiListCloudNodeAcc
 		return localVarReturnValue, nil, &GenericOpenAPIError{error: err.Error()}
 	}
 
-	localVarPath := localBasePath + "/deepfence/cloud-node/accounts/list"
+	localVarPath := localBasePath + "/deepfence/cloud-node/list/accounts"
 
 	localVarHeaderParams := make(map[string]string)
 	localVarQueryParams := url.Values{}
@@ -201,7 +201,7 @@ func (a *CloudNodesApiService) ListCloudProvidersExecute(r ApiListCloudProviders
 		return localVarReturnValue, nil, &GenericOpenAPIError{error: err.Error()}
 	}
 
-	localVarPath := localBasePath + "/deepfence/cloud-node/providers/list"
+	localVarPath := localBasePath + "/deepfence/cloud-node/list/providers"
 
 	localVarHeaderParams := make(map[string]string)
 	localVarQueryParams := url.Values{}

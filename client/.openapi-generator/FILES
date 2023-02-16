@@ -13,6 +13,7 @@ api_internal.go
 api_lookup.go
 api_malware_scan.go
 api_registry.go
+api_search.go
 api_secret_scan.go
 api_threat.go
 api_topology.go
@@ -126,8 +127,10 @@ docs/ReportersNodeInfo.md
 docs/ReportersOrderFilter.md
 docs/ReportersProviderThreatGraph.md
 docs/ReportersSearchFilter.md
+docs/ReportersSearchScanReq.md
 docs/ReportersThreatNodeInfo.md
 docs/ReportersTopologyFilters.md
+docs/SearchApi.md
 docs/SecretScanApi.md
 docs/ThreatApi.md
 docs/TopologyApi.md
@@ -232,6 +235,7 @@ model_reporters_node_info.go
 model_reporters_order_filter.go
 model_reporters_provider_threat_graph.go
 model_reporters_search_filter.go
+model_reporters_search_scan_req.go
 model_reporters_threat_node_info.go
 model_reporters_topology_filters.go
 model_utils_scan_sbom_request.go
@@ -247,6 +251,7 @@ test/api_internal_test.go
 test/api_lookup_test.go
 test/api_malware_scan_test.go
 test/api_registry_test.go
+test/api_search_test.go
 test/api_secret_scan_test.go
 test/api_threat_test.go
 test/api_topology_test.go

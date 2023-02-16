@@ -7,6 +7,7 @@ Name | Type | Description | Notes
 **NodeId** | **string** |  | 
 **NodeType** | **string** |  | 
 **ScanId** | **string** |  | 
+**SeverityCounts** | **map[string]int32** |  | 
 **Status** | **string** |  | 
 **UpdatedAt** | **int64** |  | 
 
@@ -14,7 +15,7 @@ Name | Type | Description | Notes
 
 ### NewModelScanInfo
 
-`func NewModelScanInfo(nodeId string, nodeType string, scanId string, status string, updatedAt int64, ) *ModelScanInfo`
+`func NewModelScanInfo(nodeId string, nodeType string, scanId string, severityCounts map[string]int32, status string, updatedAt int64, ) *ModelScanInfo`
 
 NewModelScanInfo instantiates a new ModelScanInfo object
 This constructor will assign default values to properties that have it defined,
@@ -89,6 +90,36 @@ and a boolean to check if the value has been set.
 SetScanId sets ScanId field to given value.
 
 
+### GetSeverityCounts
+
+`func (o *ModelScanInfo) GetSeverityCounts() map[string]int32`
+
+GetSeverityCounts returns the SeverityCounts field if non-nil, zero value otherwise.
+
+### GetSeverityCountsOk
+
+`func (o *ModelScanInfo) GetSeverityCountsOk() (*map[string]int32, bool)`
+
+GetSeverityCountsOk returns a tuple with the SeverityCounts field if it's non-nil, zero value otherwise
+and a boolean to check if the value has been set.
+
+### SetSeverityCounts
+
+`func (o *ModelScanInfo) SetSeverityCounts(v map[string]int32)`
+
+SetSeverityCounts sets SeverityCounts field to given value.
+
+
+### SetSeverityCountsNil
+
+`func (o *ModelScanInfo) SetSeverityCountsNil(b bool)`
+
+ SetSeverityCountsNil sets the value for SeverityCounts to be an explicit nil
+
+### UnsetSeverityCounts
+`func (o *ModelScanInfo) UnsetSeverityCounts()`
+
+UnsetSeverityCounts ensures that no value is present for SeverityCounts, not even an explicit nil
 ### GetStatus
 
 `func (o *ModelScanInfo) GetStatus() string`

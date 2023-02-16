@@ -5,27 +5,27 @@
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
 **CloudMetadata** | **map[string]interface{}** |  | 
-**ComplianceScanStatus** | Pointer to **string** |  | [optional] 
-**CompliancesCount** | Pointer to **int32** |  | [optional] 
+**ComplianceScanStatus** | **string** |  | 
+**CompliancesCount** | **int32** |  | 
 **ContainerImages** | [**[]ModelContainerImage**](ModelContainerImage.md) |  | 
 **Containers** | [**[]ModelContainer**](ModelContainer.md) |  | 
 **HostName** | **string** |  | 
-**MalwareScanStatus** | Pointer to **string** |  | [optional] 
-**MalwaresCount** | Pointer to **int32** |  | [optional] 
+**MalwareScanStatus** | **string** |  | 
+**MalwaresCount** | **int32** |  | 
 **Metrics** | [**ModelComputeMetrics**](ModelComputeMetrics.md) |  | 
 **NodeId** | **string** |  | 
 **Pods** | [**[]ModelPod**](ModelPod.md) |  | 
 **Processes** | [**[]ModelProcess**](ModelProcess.md) |  | 
-**SecretScanStatus** | Pointer to **string** |  | [optional] 
-**SecretsCount** | Pointer to **int32** |  | [optional] 
-**VulnerabilitiesCount** | Pointer to **int32** |  | [optional] 
-**VulnerabilityScanStatus** | Pointer to **string** |  | [optional] 
+**SecretScanStatus** | **string** |  | 
+**SecretsCount** | **int32** |  | 
+**VulnerabilitiesCount** | **int32** |  | 
+**VulnerabilityScanStatus** | **string** |  | 
 
 ## Methods
 
 ### NewModelHost
 
-`func NewModelHost(cloudMetadata map[string]interface{}, containerImages []ModelContainerImage, containers []ModelContainer, hostName string, metrics ModelComputeMetrics, nodeId string, pods []ModelPod, processes []ModelProcess, ) *ModelHost`
+`func NewModelHost(cloudMetadata map[string]interface{}, complianceScanStatus string, compliancesCount int32, containerImages []ModelContainerImage, containers []ModelContainer, hostName string, malwareScanStatus string, malwaresCount int32, metrics ModelComputeMetrics, nodeId string, pods []ModelPod, processes []ModelProcess, secretScanStatus string, secretsCount int32, vulnerabilitiesCount int32, vulnerabilityScanStatus string, ) *ModelHost`
 
 NewModelHost instantiates a new ModelHost object
 This constructor will assign default values to properties that have it defined,
@@ -79,11 +79,6 @@ and a boolean to check if the value has been set.
 
 SetComplianceScanStatus sets ComplianceScanStatus field to given value.
 
-### HasComplianceScanStatus
-
-`func (o *ModelHost) HasComplianceScanStatus() bool`
-
-HasComplianceScanStatus returns a boolean if a field has been set.
 
 ### GetCompliancesCount
 
@@ -104,11 +99,6 @@ and a boolean to check if the value has been set.
 
 SetCompliancesCount sets CompliancesCount field to given value.
 
-### HasCompliancesCount
-
-`func (o *ModelHost) HasCompliancesCount() bool`
-
-HasCompliancesCount returns a boolean if a field has been set.
 
 ### GetContainerImages
 
@@ -209,11 +199,6 @@ and a boolean to check if the value has been set.
 
 SetMalwareScanStatus sets MalwareScanStatus field to given value.
 
-### HasMalwareScanStatus
-
-`func (o *ModelHost) HasMalwareScanStatus() bool`
-
-HasMalwareScanStatus returns a boolean if a field has been set.
 
 ### GetMalwaresCount
 
@@ -234,11 +219,6 @@ and a boolean to check if the value has been set.
 
 SetMalwaresCount sets MalwaresCount field to given value.
 
-### HasMalwaresCount
-
-`func (o *ModelHost) HasMalwaresCount() bool`
-
-HasMalwaresCount returns a boolean if a field has been set.
 
 ### GetMetrics
 
@@ -359,11 +339,6 @@ and a boolean to check if the value has been set.
 
 SetSecretScanStatus sets SecretScanStatus field to given value.
 
-### HasSecretScanStatus
-
-`func (o *ModelHost) HasSecretScanStatus() bool`
-
-HasSecretScanStatus returns a boolean if a field has been set.
 
 ### GetSecretsCount
 
@@ -384,11 +359,6 @@ and a boolean to check if the value has been set.
 
 SetSecretsCount sets SecretsCount field to given value.
 
-### HasSecretsCount
-
-`func (o *ModelHost) HasSecretsCount() bool`
-
-HasSecretsCount returns a boolean if a field has been set.
 
 ### GetVulnerabilitiesCount
 
@@ -409,11 +379,6 @@ and a boolean to check if the value has been set.
 
 SetVulnerabilitiesCount sets VulnerabilitiesCount field to given value.
 
-### HasVulnerabilitiesCount
-
-`func (o *ModelHost) HasVulnerabilitiesCount() bool`
-
-HasVulnerabilitiesCount returns a boolean if a field has been set.
 
 ### GetVulnerabilityScanStatus
 
@@ -434,11 +399,6 @@ and a boolean to check if the value has been set.
 
 SetVulnerabilityScanStatus sets VulnerabilityScanStatus field to given value.
 
-### HasVulnerabilityScanStatus
-
-`func (o *ModelHost) HasVulnerabilityScanStatus() bool`
-
-HasVulnerabilityScanStatus returns a boolean if a field has been set.
 
 
 [[Back to Model list]](../README.md#documentation-for-models) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to README]](../README.md)

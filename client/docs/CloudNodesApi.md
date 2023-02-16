@@ -4,8 +4,8 @@ All URIs are relative to *http://localhost*
 
 Method | HTTP request | Description
 ------------- | ------------- | -------------
-[**ListCloudNodeAccount**](CloudNodesApi.md#ListCloudNodeAccount) | **Post** /deepfence/cloud-node/accounts/list | List Cloud Node Accounts
-[**ListCloudProviders**](CloudNodesApi.md#ListCloudProviders) | **Post** /deepfence/cloud-node/providers/list | List Cloud Node Providers
+[**ListCloudNodeAccount**](CloudNodesApi.md#ListCloudNodeAccount) | **Post** /deepfence/cloud-node/list/accounts | List Cloud Node Accounts
+[**ListCloudProviders**](CloudNodesApi.md#ListCloudProviders) | **Post** /deepfence/cloud-node/list/providers | List Cloud Node Providers
 [**RegisterCloudNodeAccount**](CloudNodesApi.md#RegisterCloudNodeAccount) | **Post** /deepfence/cloud-node/account | Register Cloud Node Account
 
 

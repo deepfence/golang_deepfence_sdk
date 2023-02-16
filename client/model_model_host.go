@@ -21,37 +21,45 @@ var _ MappedNullable = &ModelHost{}
 // ModelHost struct for ModelHost
 type ModelHost struct {
 	CloudMetadata map[string]interface{} `json:"cloud_metadata"`
-	ComplianceScanStatus *string `json:"compliance_scan_status,omitempty"`
-	CompliancesCount *int32 `json:"compliances_count,omitempty"`
+	ComplianceScanStatus string `json:"compliance_scan_status"`
+	CompliancesCount int32 `json:"compliances_count"`
 	ContainerImages []ModelContainerImage `json:"container_images"`
 	Containers []ModelContainer `json:"containers"`
 	HostName string `json:"host_name"`
-	MalwareScanStatus *string `json:"malware_scan_status,omitempty"`
-	MalwaresCount *int32 `json:"malwares_count,omitempty"`
+	MalwareScanStatus string `json:"malware_scan_status"`
+	MalwaresCount int32 `json:"malwares_count"`
 	Metrics ModelComputeMetrics `json:"metrics"`
 	NodeId string `json:"node_id"`
 	Pods []ModelPod `json:"pods"`
 	Processes []ModelProcess `json:"processes"`
-	SecretScanStatus *string `json:"secret_scan_status,omitempty"`
-	SecretsCount *int32 `json:"secrets_count,omitempty"`
-	VulnerabilitiesCount *int32 `json:"vulnerabilities_count,omitempty"`
-	VulnerabilityScanStatus *string `json:"vulnerability_scan_status,omitempty"`
+	SecretScanStatus string `json:"secret_scan_status"`
+	SecretsCount int32 `json:"secrets_count"`
+	VulnerabilitiesCount int32 `json:"vulnerabilities_count"`
+	VulnerabilityScanStatus string `json:"vulnerability_scan_status"`
 }
 
 // NewModelHost instantiates a new ModelHost object
 // This constructor will assign default values to properties that have it defined,
 // and makes sure properties required by API are set, but the set of arguments
 // will change when the set of required properties is changed
-func NewModelHost(cloudMetadata map[string]interface{}, containerImages []ModelContainerImage, containers []ModelContainer, hostName string, metrics ModelComputeMetrics, nodeId string, pods []ModelPod, processes []ModelProcess) *ModelHost {
+func NewModelHost(cloudMetadata map[string]interface{}, complianceScanStatus string, compliancesCount int32, containerImages []ModelContainerImage, containers []ModelContainer, hostName string, malwareScanStatus string, malwaresCount int32, metrics ModelComputeMetrics, nodeId string, pods []ModelPod, processes []ModelProcess, secretScanStatus string, secretsCount int32, vulnerabilitiesCount int32, vulnerabilityScanStatus string) *ModelHost {
 	this := ModelHost{}
 	this.CloudMetadata = cloudMetadata
+	this.ComplianceScanStatus = complianceScanStatus
+	this.CompliancesCount = compliancesCount
 	this.ContainerImages = containerImages
 	this.Containers = containers
 	this.HostName = hostName
+	this.MalwareScanStatus = malwareScanStatus
+	this.MalwaresCount = malwaresCount
 	this.Metrics = metrics
 	this.NodeId = nodeId
 	this.Pods = pods
 	this.Processes = processes
+	this.SecretScanStatus = secretScanStatus
+	this.SecretsCount = secretsCount
+	this.VulnerabilitiesCount = vulnerabilitiesCount
+	this.VulnerabilityScanStatus = vulnerabilityScanStatus
 	return &this
 }
 
@@ -87,68 +95,52 @@ func (o *ModelHost) SetCloudMetadata(v map[string]interface{}) {
 	o.CloudMetadata = v
 }
 
-// GetComplianceScanStatus returns the ComplianceScanStatus field value if set, zero value otherwise.
+// GetComplianceScanStatus returns the ComplianceScanStatus field value
 func (o *ModelHost) GetComplianceScanStatus() string {
-	if o == nil || IsNil(o.ComplianceScanStatus) {
+	if o == nil {
 		var ret string
 		return ret
 	}
-	return *o.ComplianceScanStatus
+
+	return o.ComplianceScanStatus
 }
 
-// GetComplianceScanStatusOk returns a tuple with the ComplianceScanStatus field value if set, nil otherwise
+// GetComplianceScanStatusOk returns a tuple with the ComplianceScanStatus field value
 // and a boolean to check if the value has been set.
 func (o *ModelHost) GetComplianceScanStatusOk() (*string, bool) {
-	if o == nil || IsNil(o.ComplianceScanStatus) {
+	if o == nil {
 		return nil, false
 	}
-	return o.ComplianceScanStatus, true
+	return &o.ComplianceScanStatus, true
 }
 
-// HasComplianceScanStatus returns a boolean if a field has been set.
-func (o *ModelHost) HasComplianceScanStatus() bool {
-	if o != nil && !IsNil(o.ComplianceScanStatus) {
-		return true
-	}
-
-	return false
-}
-
-// SetComplianceScanStatus gets a reference to the given string and assigns it to the ComplianceScanStatus field.
+// SetComplianceScanStatus sets field value
 func (o *ModelHost) SetComplianceScanStatus(v string) {
-	o.ComplianceScanStatus = &v
+	o.ComplianceScanStatus = v
 }
 
-// GetCompliancesCount returns the CompliancesCount field value if set, zero value otherwise.
+// GetCompliancesCount returns the CompliancesCount field value
 func (o *ModelHost) GetCompliancesCount() int32 {
-	if o == nil || IsNil(o.CompliancesCount) {
+	if o == nil {
 		var ret int32
 		return ret
 	}
-	return *o.CompliancesCount
+
+	return o.CompliancesCount
 }
 
-// GetCompliancesCountOk returns a tuple with the CompliancesCount field value if set, nil otherwise
+// GetCompliancesCountOk returns a tuple with the CompliancesCount field value
 // and a boolean to check if the value has been set.
 func (o *ModelHost) GetCompliancesCountOk() (*int32, bool) {
-	if o == nil || IsNil(o.CompliancesCount) {
+	if o == nil {
 		return nil, false
 	}
-	return o.CompliancesCount, true
+	return &o.CompliancesCount, true
 }
 
-// HasCompliancesCount returns a boolean if a field has been set.
-func (o *ModelHost) HasCompliancesCount() bool {
-	if o != nil && !IsNil(o.CompliancesCount) {
-		return true
-	}
-
-	return false
-}
-
-// SetCompliancesCount gets a reference to the given int32 and assigns it to the CompliancesCount field.
+// SetCompliancesCount sets field value
 func (o *ModelHost) SetCompliancesCount(v int32) {
-	o.CompliancesCount = &v
+	o.CompliancesCount = v
 }
 
 // GetContainerImages returns the ContainerImages field value
@@ -227,68 +219,52 @@ func (o *ModelHost) SetHostName(v string) {
 	o.HostName = v
 }
 
-// GetMalwareScanStatus returns the MalwareScanStatus field value if set, zero value otherwise.
+// GetMalwareScanStatus returns the MalwareScanStatus field value
 func (o *ModelHost) GetMalwareScanStatus() string {
-	if o == nil || IsNil(o.MalwareScanStatus) {
+	if o == nil {
 		var ret string
 		return ret
 	}
-	return *o.MalwareScanStatus
+
+	return o.MalwareScanStatus
 }
 
-// GetMalwareScanStatusOk returns a tuple with the MalwareScanStatus field value if set, nil otherwise
+// GetMalwareScanStatusOk returns a tuple with the MalwareScanStatus field value
 // and a boolean to check if the value has been set.
 func (o *ModelHost) GetMalwareScanStatusOk() (*string, bool) {
-	if o == nil || IsNil(o.MalwareScanStatus) {
+	if o == nil {
 		return nil, false
 	}
-	return o.MalwareScanStatus, true
+	return &o.MalwareScanStatus, true
 }
 
-// HasMalwareScanStatus returns a boolean if a field has been set.
-func (o *ModelHost) HasMalwareScanStatus() bool {
-	if o != nil && !IsNil(o.MalwareScanStatus) {
-		return true
-	}
-
-	return false
-}
-
-// SetMalwareScanStatus gets a reference to the given string and assigns it to the MalwareScanStatus field.
+// SetMalwareScanStatus sets field value
 func (o *ModelHost) SetMalwareScanStatus(v string) {
-	o.MalwareScanStatus = &v
+	o.MalwareScanStatus = v
 }
 
-// GetMalwaresCount returns the MalwaresCount field value if set, zero value otherwise.
+// GetMalwaresCount returns the MalwaresCount field value
 func (o *ModelHost) GetMalwaresCount() int32 {
-	if o == nil || IsNil(o.MalwaresCount) {
+	if o == nil {
 		var ret int32
 		return ret
 	}
-	return *o.MalwaresCount
+
+	return o.MalwaresCount
 }
 
-// GetMalwaresCountOk returns a tuple with the MalwaresCount field value if set, nil otherwise
+// GetMalwaresCountOk returns a tuple with the MalwaresCount field value
 // and a boolean to check if the value has been set.
 func (o *ModelHost) GetMalwaresCountOk() (*int32, bool) {
-	if o == nil || IsNil(o.MalwaresCount) {
+	if o == nil {
 		return nil, false
 	}
-	return o.MalwaresCount, true
+	return &o.MalwaresCount, true
 }
 
-// HasMalwaresCount returns a boolean if a field has been set.
-func (o *ModelHost) HasMalwaresCount() bool {
-	if o != nil && !IsNil(o.MalwaresCount) {
-		return true
-	}
-
-	return false
-}
-
-// SetMalwaresCount gets a reference to the given int32 and assigns it to the MalwaresCount field.
+// SetMalwaresCount sets field value
 func (o *ModelHost) SetMalwaresCount(v int32) {
-	o.MalwaresCount = &v
+	o.MalwaresCount = v
 }
 
 // GetMetrics returns the Metrics field value
@@ -391,132 +367,100 @@ func (o *ModelHost) SetProcesses(v []ModelProcess) {
 	o.Processes = v
 }
 
-// GetSecretScanStatus returns the SecretScanStatus field value if set, zero value otherwise.
+// GetSecretScanStatus returns the SecretScanStatus field value
 func (o *ModelHost) GetSecretScanStatus() string {
-	if o == nil || IsNil(o.SecretScanStatus) {
+	if o == nil {
 		var ret string
 		return ret
 	}
-	return *o.SecretScanStatus
+
+	return o.SecretScanStatus
 }
 
-// GetSecretScanStatusOk returns a tuple with the SecretScanStatus field value if set, nil otherwise
+// GetSecretScanStatusOk returns a tuple with the SecretScanStatus field value
 // and a boolean to check if the value has been set.
 func (o *ModelHost) GetSecretScanStatusOk() (*string, bool) {
-	if o == nil || IsNil(o.SecretScanStatus) {
+	if o == nil {
 		return nil, false
 	}
-	return o.SecretScanStatus, true
+	return &o.SecretScanStatus, true
 }
 
-// HasSecretScanStatus returns a boolean if a field has been set.
-func (o *ModelHost) HasSecretScanStatus() bool {
-	if o != nil && !IsNil(o.SecretScanStatus) {
-		return true
-	}
-
-	return false
-}
-
-// SetSecretScanStatus gets a reference to the given string and assigns it to the SecretScanStatus field.
+// SetSecretScanStatus sets field value
 func (o *ModelHost) SetSecretScanStatus(v string) {
-	o.SecretScanStatus = &v
+	o.SecretScanStatus = v
 }
 
-// GetSecretsCount returns the SecretsCount field value if set, zero value otherwise.
+// GetSecretsCount returns the SecretsCount field value
 func (o *ModelHost) GetSecretsCount() int32 {
-	if o == nil || IsNil(o.SecretsCount) {
+	if o == nil {
 		var ret int32
 		return ret
 	}
-	return *o.SecretsCount
+
+	return o.SecretsCount
 }
 
-// GetSecretsCountOk returns a tuple with the SecretsCount field value if set, nil otherwise
+// GetSecretsCountOk returns a tuple with the SecretsCount field value
 // and a boolean to check if the value has been set.
 func (o *ModelHost) GetSecretsCountOk() (*int32, bool) {
-	if o == nil || IsNil(o.SecretsCount) {
+	if o == nil {
 		return nil, false
 	}
-	return o.SecretsCount, true
+	return &o.SecretsCount, true
 }
 
-// HasSecretsCount returns a boolean if a field has been set.
-func (o *ModelHost) HasSecretsCount() bool {
-	if o != nil && !IsNil(o.SecretsCount) {
-		return true
-	}
-
-	return false
-}
-
-// SetSecretsCount gets a reference to the given int32 and assigns it to the SecretsCount field.
+// SetSecretsCount sets field value
 func (o *ModelHost) SetSecretsCount(v int32) {
-	o.SecretsCount = &v
+	o.SecretsCount = v
 }
 
-// GetVulnerabilitiesCount returns the VulnerabilitiesCount field value if set, zero value otherwise.
+// GetVulnerabilitiesCount returns the VulnerabilitiesCount field value
 func (o *ModelHost) GetVulnerabilitiesCount() int32 {
-	if o == nil || IsNil(o.VulnerabilitiesCount) {
+	if o == nil {
 		var ret int32
 		return ret
 	}
-	return *o.VulnerabilitiesCount
+
+	return o.VulnerabilitiesCount
 }
 
-// GetVulnerabilitiesCountOk returns a tuple with the VulnerabilitiesCount field value if set, nil otherwise
+// GetVulnerabilitiesCountOk returns a tuple with the VulnerabilitiesCount field value
 // and a boolean to check if the value has been set.
 func (o *ModelHost) GetVulnerabilitiesCountOk() (*int32, bool) {
-	if o == nil || IsNil(o.VulnerabilitiesCount) {
+	if o == nil {
 		return nil, false
 	}
-	return o.VulnerabilitiesCount, true
+	return &o.VulnerabilitiesCount, true
 }
 
-// HasVulnerabilitiesCount returns a boolean if a field has been set.
-func (o *ModelHost) HasVulnerabilitiesCount() bool {
-	if o != nil && !IsNil(o.VulnerabilitiesCount) {
-		return true
-	}
-
-	return false
-}
-
-// SetVulnerabilitiesCount gets a reference to the given int32 and assigns it to the VulnerabilitiesCount field.
+// SetVulnerabilitiesCount sets field value
 func (o *ModelHost) SetVulnerabilitiesCount(v int32) {
-	o.VulnerabilitiesCount = &v
+	o.VulnerabilitiesCount = v
 }
 
-// GetVulnerabilityScanStatus returns the VulnerabilityScanStatus field value if set, zero value otherwise.
+// GetVulnerabilityScanStatus returns the VulnerabilityScanStatus field value
 func (o *ModelHost) GetVulnerabilityScanStatus() string {
-	if o == nil || IsNil(o.VulnerabilityScanStatus) {
+	if o == nil {
 		var ret string
 		return ret
 	}
-	return *o.VulnerabilityScanStatus
+
+	return o.VulnerabilityScanStatus
 }
 
-// GetVulnerabilityScanStatusOk returns a tuple with the VulnerabilityScanStatus field value if set, nil otherwise
+// GetVulnerabilityScanStatusOk returns a tuple with the VulnerabilityScanStatus field value
 // and a boolean to check if the value has been set.
 func (o *ModelHost) GetVulnerabilityScanStatusOk() (*string, bool) {
-	if o == nil || IsNil(o.VulnerabilityScanStatus) {
+	if o == nil {
 		return nil, false
 	}
-	return o.VulnerabilityScanStatus, true
+	return &o.VulnerabilityScanStatus, true
 }
 
-// HasVulnerabilityScanStatus returns a boolean if a field has been set.
-func (o *ModelHost) HasVulnerabilityScanStatus() bool {
-	if o != nil && !IsNil(o.VulnerabilityScanStatus) {
-		return true
-	}
-
-	return false
-}
-
-// SetVulnerabilityScanStatus gets a reference to the given string and assigns it to the VulnerabilityScanStatus field.
+// SetVulnerabilityScanStatus sets field value
 func (o *ModelHost) SetVulnerabilityScanStatus(v string) {
-	o.VulnerabilityScanStatus = &v
+	o.VulnerabilityScanStatus = v
 }
 
 func (o ModelHost) MarshalJSON() ([]byte, error) {
@@ -530,12 +474,8 @@ func (o ModelHost) MarshalJSON() ([]byte, error) {
 func (o ModelHost) ToMap() (map[string]interface{}, error) {
 	toSerialize := map[string]interface{}{}
 	toSerialize["cloud_metadata"] = o.CloudMetadata
-	if !IsNil(o.ComplianceScanStatus) {
-		toSerialize["compliance_scan_status"] = o.ComplianceScanStatus
-	}
-	if !IsNil(o.CompliancesCount) {
-		toSerialize["compliances_count"] = o.CompliancesCount
-	}
+	toSerialize["compliance_scan_status"] = o.ComplianceScanStatus
+	toSerialize["compliances_count"] = o.CompliancesCount
 	if o.ContainerImages != nil {
 		toSerialize["container_images"] = o.ContainerImages
 	}
@@ -543,12 +483,8 @@ func (o ModelHost) ToMap() (map[string]interface{}, error) {
 		toSerialize["containers"] = o.Containers
 	}
 	toSerialize["host_name"] = o.HostName
-	if !IsNil(o.MalwareScanStatus) {
-		toSerialize["malware_scan_status"] = o.MalwareScanStatus
-	}
-	if !IsNil(o.MalwaresCount) {
-		toSerialize["malwares_count"] = o.MalwaresCount
-	}
+	toSerialize["malware_scan_status"] = o.MalwareScanStatus
+	toSerialize["malwares_count"] = o.MalwaresCount
 	toSerialize["metrics"] = o.Metrics
 	toSerialize["node_id"] = o.NodeId
 	if o.Pods != nil {
@@ -557,18 +493,10 @@ func (o ModelHost) ToMap() (map[string]interface{}, error) {
 	if o.Processes != nil {
 		toSerialize["processes"] = o.Processes
 	}
-	if !IsNil(o.SecretScanStatus) {
-		toSerialize["secret_scan_status"] = o.SecretScanStatus
-	}
-	if !IsNil(o.SecretsCount) {
-		toSerialize["secrets_count"] = o.SecretsCount
-	}
-	if !IsNil(o.VulnerabilitiesCount) {
-		toSerialize["vulnerabilities_count"] = o.VulnerabilitiesCount
-	}
-	if !IsNil(o.VulnerabilityScanStatus) {
-		toSerialize["vulnerability_scan_status"] = o.VulnerabilityScanStatus
-	}
+	toSerialize["secret_scan_status"] = o.SecretScanStatus
+	toSerialize["secrets_count"] = o.SecretsCount
+	toSerialize["vulnerabilities_count"] = o.VulnerabilitiesCount
+	toSerialize["vulnerability_scan_status"] = o.VulnerabilityScanStatus
 	return toSerialize, nil
 }
 
