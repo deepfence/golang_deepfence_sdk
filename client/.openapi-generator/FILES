@@ -6,6 +6,7 @@ api_authentication.go
 api_cloud_nodes.go
 api_cloud_resources.go
 api_cloud_scanner.go
+api_common.go
 api_compliance.go
 api_controls.go
 api_diagnosis.go
@@ -28,6 +29,7 @@ docs/AuthenticationApi.md
 docs/CloudNodesApi.md
 docs/CloudResourcesApi.md
 docs/CloudScannerApi.md
+docs/CommonApi.md
 docs/ComplianceApi.md
 docs/ControlsAction.md
 docs/ControlsAgentControls.md
@@ -106,6 +108,7 @@ docs/ModelScanFilter.md
 docs/ModelScanInfo.md
 docs/ModelScanListReq.md
 docs/ModelScanListResp.md
+docs/ModelScanResultsActionRequest.md
 docs/ModelScanResultsReq.md
 docs/ModelScanStatusResp.md
 docs/ModelScanTriggerResp.md
@@ -214,6 +217,7 @@ model_model_scan_filter.go
 model_model_scan_info.go
 model_model_scan_list_req.go
 model_model_scan_list_resp.go
+model_model_scan_results_action_request.go
 model_model_scan_results_req.go
 model_model_scan_status_resp.go
 model_model_scan_trigger_resp.go
@@ -242,6 +246,7 @@ test/api_authentication_test.go
 test/api_cloud_nodes_test.go
 test/api_cloud_resources_test.go
 test/api_cloud_scanner_test.go
+test/api_common_test.go
 test/api_compliance_test.go
 test/api_controls_test.go
 test/api_diagnosis_test.go

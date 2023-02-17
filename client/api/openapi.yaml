@@ -2064,6 +2064,162 @@ paths:
       summary: Get Vulnerability Scans List
       tags:
       - Vulnerability
+  /deepfence/scan/results/action/delete:
+    post:
+      description: Delete scan results
+      operationId: deleteScanResult
+      requestBody:
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/ModelScanResultsActionRequest'
+      responses:
+        "204":
+          description: No Content
+        "400":
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ApiDocsBadRequestResponse'
+          description: Bad Request
+        "401":
+          description: Unauthorized
+        "403":
+          description: Forbidden
+        "404":
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ApiDocsFailureResponse'
+          description: Not Found
+        "500":
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ApiDocsFailureResponse'
+          description: Internal Server Error
+      security:
+      - bearer_token: []
+      summary: Delete Scans Results
+      tags:
+      - Common
+  /deepfence/scan/results/action/mask:
+    post:
+      description: Mask scan results
+      operationId: maskScanResult
+      requestBody:
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/ModelScanResultsActionRequest'
+      responses:
+        "204":
+          description: No Content
+        "400":
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ApiDocsBadRequestResponse'
+          description: Bad Request
+        "401":
+          description: Unauthorized
+        "403":
+          description: Forbidden
+        "404":
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ApiDocsFailureResponse'
+          description: Not Found
+        "500":
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ApiDocsFailureResponse'
+          description: Internal Server Error
+      security:
+      - bearer_token: []
+      summary: Mask Scans Results
+      tags:
+      - Common
+  /deepfence/scan/results/action/notify:
+    post:
+      description: Notify scan results in connected integration channels
+      operationId: notifyScanResult
+      requestBody:
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/ModelScanResultsActionRequest'
+      responses:
+        "204":
+          description: No Content
+        "400":
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ApiDocsBadRequestResponse'
+          description: Bad Request
+        "401":
+          description: Unauthorized
+        "403":
+          description: Forbidden
+        "404":
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ApiDocsFailureResponse'
+          description: Not Found
+        "500":
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ApiDocsFailureResponse'
+          description: Internal Server Error
+      security:
+      - bearer_token: []
+      summary: Notify Scans Results
+      tags:
+      - Common
+  /deepfence/scan/results/action/unmask:
+    post:
+      description: Unmask scan results
+      operationId: unmaskScanResult
+      requestBody:
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/ModelScanResultsActionRequest'
+      responses:
+        "204":
+          description: No Content
+        "400":
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ApiDocsBadRequestResponse'
+          description: Bad Request
+        "401":
+          description: Unauthorized
+        "403":
+          description: Forbidden
+        "404":
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ApiDocsFailureResponse'
+          description: Not Found
+        "500":
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ApiDocsFailureResponse'
+          description: Internal Server Error
+      security:
+      - bearer_token: []
+      summary: Unmask Scans Results
+      tags:
+      - Common
   /deepfence/scan/results/cloud-compliance:
     post:
       description: Get Cloud Compliance Scan results for cloud node
@@ -8379,6 +8535,30 @@ components:
           type: array
       required:
       - scans_info
+      type: object
+    ModelScanResultsActionRequest:
+      example:
+        scan_type: SecretScan
+        node_ids:
+        - node_ids
+        - node_ids
+      properties:
+        node_ids:
+          items:
+            type: string
+          nullable: true
+          type: array
+        scan_type:
+          enum:
+          - SecretScan
+          - VulnerabilityScan
+          - MalwareScan
+          - ComplianceScan
+          - CloudComplianceScan
+          type: string
+      required:
+      - node_ids
+      - scan_type
       type: object
     ModelScanResultsReq:
       example:

@@ -91,6 +91,10 @@ Class | Method | HTTP request | Description
 *CloudScannerApi* | [**IngestCloudCompliances**](docs/CloudScannerApi.md#ingestcloudcompliances) | **Post** /deepfence/ingest/cloud-compliance | Ingest Cloud Compliances
 *CloudScannerApi* | [**ResultsCloudComplianceScan**](docs/CloudScannerApi.md#resultscloudcompliancescan) | **Post** /deepfence/scan/results/cloud-compliance | Get Cloud Compliance Scan Results
 *CloudScannerApi* | [**StatusCloudComplianceScan**](docs/CloudScannerApi.md#statuscloudcompliancescan) | **Get** /deepfence/scan/status/cloud-compliance | Get Cloud Compliance Scan Status
+*CommonApi* | [**DeleteScanResult**](docs/CommonApi.md#deletescanresult) | **Post** /deepfence/scan/results/action/delete | Delete Scans Results
+*CommonApi* | [**MaskScanResult**](docs/CommonApi.md#maskscanresult) | **Post** /deepfence/scan/results/action/mask | Mask Scans Results
+*CommonApi* | [**NotifyScanResult**](docs/CommonApi.md#notifyscanresult) | **Post** /deepfence/scan/results/action/notify | Notify Scans Results
+*CommonApi* | [**UnmaskScanResult**](docs/CommonApi.md#unmaskscanresult) | **Post** /deepfence/scan/results/action/unmask | Unmask Scans Results
 *ComplianceApi* | [**IngestCompliances**](docs/ComplianceApi.md#ingestcompliances) | **Post** /deepfence/ingest/compliance | Ingest Compliances
 *ComplianceApi* | [**ListComplianceScan**](docs/ComplianceApi.md#listcompliancescan) | **Post** /deepfence/scan/list/compliance | Get Compliance Scans List
 *ComplianceApi* | [**ResultsComplianceScan**](docs/ComplianceApi.md#resultscompliancescan) | **Post** /deepfence/scan/results/compliance | Get Compliance Scans Results
@@ -249,6 +253,7 @@ Class | Method | HTTP request | Description
  - [ModelScanInfo](docs/ModelScanInfo.md)
  - [ModelScanListReq](docs/ModelScanListReq.md)
  - [ModelScanListResp](docs/ModelScanListResp.md)
+ - [ModelScanResultsActionRequest](docs/ModelScanResultsActionRequest.md)
  - [ModelScanResultsReq](docs/ModelScanResultsReq.md)
  - [ModelScanStatusResp](docs/ModelScanStatusResp.md)
  - [ModelScanTriggerResp](docs/ModelScanTriggerResp.md)
