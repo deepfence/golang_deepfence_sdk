@@ -20,7 +20,6 @@ var _ MappedNullable = &ReportersOrderFilter{}
 
 // ReportersOrderFilter struct for ReportersOrderFilter
 type ReportersOrderFilter struct {
-	Limit int32 `json:"limit"`
 	OrderField string `json:"order_field"`
 }
 
@@ -28,9 +27,8 @@ type ReportersOrderFilter struct {
 // This constructor will assign default values to properties that have it defined,
 // and makes sure properties required by API are set, but the set of arguments
 // will change when the set of required properties is changed
-func NewReportersOrderFilter(limit int32, orderField string) *ReportersOrderFilter {
+func NewReportersOrderFilter(orderField string) *ReportersOrderFilter {
 	this := ReportersOrderFilter{}
-	this.Limit = limit
 	this.OrderField = orderField
 	return &this
 }
@@ -41,30 +39,6 @@ func NewReportersOrderFilter(limit int32, orderField string) *ReportersOrderFilt
 func NewReportersOrderFilterWithDefaults() *ReportersOrderFilter {
 	this := ReportersOrderFilter{}
 	return &this
-}
-
-// GetLimit returns the Limit field value
-func (o *ReportersOrderFilter) GetLimit() int32 {
-	if o == nil {
-		var ret int32
-		return ret
-	}
-
-	return o.Limit
-}
-
-// GetLimitOk returns a tuple with the Limit field value
-// and a boolean to check if the value has been set.
-func (o *ReportersOrderFilter) GetLimitOk() (*int32, bool) {
-	if o == nil {
-		return nil, false
-	}
-	return &o.Limit, true
-}
-
-// SetLimit sets field value
-func (o *ReportersOrderFilter) SetLimit(v int32) {
-	o.Limit = v
 }
 
 // GetOrderField returns the OrderField field value
@@ -101,7 +75,6 @@ func (o ReportersOrderFilter) MarshalJSON() ([]byte, error) {
 
 func (o ReportersOrderFilter) ToMap() (map[string]interface{}, error) {
 	toSerialize := map[string]interface{}{}
-	toSerialize["limit"] = o.Limit
 	toSerialize["order_field"] = o.OrderField
 	return toSerialize, nil
 }

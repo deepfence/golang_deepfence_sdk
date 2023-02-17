@@ -2935,7 +2935,7 @@ paths:
         content:
           application/json:
             schema:
-              $ref: '#/components/schemas/ReportersSearchFilter'
+              $ref: '#/components/schemas/ReportersSearchNodeReq'
       responses:
         "200":
           content:
@@ -3025,7 +3025,7 @@ paths:
         content:
           application/json:
             schema:
-              $ref: '#/components/schemas/ReportersSearchFilter'
+              $ref: '#/components/schemas/ReportersSearchNodeReq'
       responses:
         "200":
           content:
@@ -3070,7 +3070,7 @@ paths:
         content:
           application/json:
             schema:
-              $ref: '#/components/schemas/ReportersSearchFilter'
+              $ref: '#/components/schemas/ReportersSearchNodeReq'
       responses:
         "200":
           content:
@@ -3115,7 +3115,7 @@ paths:
         content:
           application/json:
             schema:
-              $ref: '#/components/schemas/ReportersSearchFilter'
+              $ref: '#/components/schemas/ReportersSearchNodeReq'
       responses:
         "200":
           content:
@@ -3160,7 +3160,7 @@ paths:
         content:
           application/json:
             schema:
-              $ref: '#/components/schemas/ReportersSearchFilter'
+              $ref: '#/components/schemas/ReportersSearchNodeReq'
       responses:
         "200":
           content:
@@ -3250,7 +3250,7 @@ paths:
         content:
           application/json:
             schema:
-              $ref: '#/components/schemas/ReportersSearchFilter'
+              $ref: '#/components/schemas/ReportersSearchNodeReq'
       responses:
         "200":
           content:
@@ -3340,7 +3340,7 @@ paths:
         content:
           application/json:
             schema:
-              $ref: '#/components/schemas/ReportersSearchFilter'
+              $ref: '#/components/schemas/ReportersSearchNodeReq'
       responses:
         "200":
           content:
@@ -3385,7 +3385,7 @@ paths:
         content:
           application/json:
             schema:
-              $ref: '#/components/schemas/ReportersSearchFilter'
+              $ref: '#/components/schemas/ReportersSearchNodeReq'
       responses:
         "200":
           content:
@@ -8218,11 +8218,14 @@ components:
           key: 0
         node_type: node_type
         updated_at: 6
+        node_name: node_name
         scan_id: scan_id
         node_id: node_id
         status: status
       properties:
         node_id:
+          type: string
+        node_name:
           type: string
         node_type:
           type: string
@@ -8240,6 +8243,7 @@ components:
           type: integer
       required:
       - node_id
+      - node_name
       - node_type
       - scan_id
       - severity_counts
@@ -8275,6 +8279,7 @@ components:
             key: 0
           node_type: node_type
           updated_at: 6
+          node_name: node_name
           scan_id: scan_id
           node_id: node_id
           status: status
@@ -8282,6 +8287,7 @@ components:
             key: 0
           node_type: node_type
           updated_at: 6
+          node_name: node_name
           scan_id: scan_id
           node_id: node_id
           status: status
@@ -8317,6 +8323,7 @@ components:
               key: 0
             node_type: node_type
             updated_at: 6
+            node_name: node_name
             scan_id: scan_id
             node_id: node_id
             status: status
@@ -8969,7 +8976,6 @@ components:
     ReportersFieldsFilters:
       example:
         order_filter:
-          limit: 0
           order_field: order_field
         contains_filter:
           filter_in:
@@ -8990,6 +8996,9 @@ components:
         in_field_filter:
         - in_field_filter
         - in_field_filter
+        window:
+          offset: 0
+          size: 6
         node_ids:
         - node_ids
         - node_ids
@@ -9004,9 +9013,12 @@ components:
             type: string
           nullable: true
           type: array
+        window:
+          $ref: '#/components/schemas/ModelFetchWindow'
       required:
       - in_field_filter
       - node_ids
+      - window
       type: object
     ReportersNodeInfo:
       properties:
@@ -9041,15 +9053,11 @@ components:
       type: object
     ReportersOrderFilter:
       example:
-        limit: 0
         order_field: order_field
       properties:
-        limit:
-          type: integer
         order_field:
           type: string
       required:
-      - limit
       - order_field
       type: object
     ReportersProviderThreatGraph:
@@ -9078,7 +9086,6 @@ components:
         - in_field_filter
         filters:
           order_filter:
-            limit: 0
             order_field: order_field
           contains_filter:
             filter_in:
@@ -9097,15 +9104,14 @@ components:
       - filters
       - in_field_filter
       type: object
-    ReportersSearchScanReq:
+    ReportersSearchNodeReq:
       example:
-        scan_filters:
+        node_filter:
           in_field_filter:
           - in_field_filter
           - in_field_filter
           filters:
             order_filter:
-              limit: 0
               order_field: order_field
             contains_filter:
               filter_in:
@@ -9115,28 +9121,53 @@ components:
         window:
           offset: 0
           size: 6
-        resource_filters:
+      properties:
+        node_filter:
+          $ref: '#/components/schemas/ReportersSearchFilter'
+        window:
+          $ref: '#/components/schemas/ModelFetchWindow'
+      required:
+      - node_filter
+      - window
+      type: object
+    ReportersSearchScanReq:
+      example:
+        node_filters:
           in_field_filter:
           - in_field_filter
           - in_field_filter
           filters:
             order_filter:
-              limit: 0
               order_field: order_field
             contains_filter:
               filter_in:
                 key:
                 - ""
                 - ""
+        scan_filters:
+          in_field_filter:
+          - in_field_filter
+          - in_field_filter
+          filters:
+            order_filter:
+              order_field: order_field
+            contains_filter:
+              filter_in:
+                key:
+                - ""
+                - ""
+        window:
+          offset: 0
+          size: 6
       properties:
-        resource_filters:
+        node_filters:
           $ref: '#/components/schemas/ReportersSearchFilter'
         scan_filters:
           $ref: '#/components/schemas/ReportersSearchFilter'
         window:
           $ref: '#/components/schemas/ModelFetchWindow'
       required:
-      - resource_filters
+      - node_filters
       - scan_filters
       - window
       type: object
@@ -9191,7 +9222,6 @@ components:
         - host_filter
         field_filters:
           order_filter:
-            limit: 0
             order_field: order_field
           contains_filter:
             filter_in:

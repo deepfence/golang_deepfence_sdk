@@ -165,11 +165,11 @@ func (a *SearchApiService) SearchCloudComplianceScansExecute(r ApiSearchCloudCom
 type ApiSearchCloudCompliancesRequest struct {
 	ctx context.Context
 	ApiService *SearchApiService
-	reportersSearchFilter *ReportersSearchFilter
+	reportersSearchNodeReq *ReportersSearchNodeReq
 }
 
-func (r ApiSearchCloudCompliancesRequest) ReportersSearchFilter(reportersSearchFilter ReportersSearchFilter) ApiSearchCloudCompliancesRequest {
-	r.reportersSearchFilter = &reportersSearchFilter
+func (r ApiSearchCloudCompliancesRequest) ReportersSearchNodeReq(reportersSearchNodeReq ReportersSearchNodeReq) ApiSearchCloudCompliancesRequest {
+	r.reportersSearchNodeReq = &reportersSearchNodeReq
 	return r
 }
 
@@ -231,7 +231,7 @@ func (a *SearchApiService) SearchCloudCompliancesExecute(r ApiSearchCloudComplia
 		localVarHeaderParams["Accept"] = localVarHTTPHeaderAccept
 	}
 	// body params
-	localVarPostBody = r.reportersSearchFilter
+	localVarPostBody = r.reportersSearchNodeReq
 	req, err := a.client.prepareRequest(r.ctx, localVarPath, localVarHTTPMethod, localVarPostBody, localVarHeaderParams, localVarQueryParams, localVarFormParams, formFiles)
 	if err != nil {
 		return localVarReturnValue, nil, err
@@ -443,11 +443,11 @@ func (a *SearchApiService) SearchComplianceScansExecute(r ApiSearchComplianceSca
 type ApiSearchCompliancesRequest struct {
 	ctx context.Context
 	ApiService *SearchApiService
-	reportersSearchFilter *ReportersSearchFilter
+	reportersSearchNodeReq *ReportersSearchNodeReq
 }
 
-func (r ApiSearchCompliancesRequest) ReportersSearchFilter(reportersSearchFilter ReportersSearchFilter) ApiSearchCompliancesRequest {
-	r.reportersSearchFilter = &reportersSearchFilter
+func (r ApiSearchCompliancesRequest) ReportersSearchNodeReq(reportersSearchNodeReq ReportersSearchNodeReq) ApiSearchCompliancesRequest {
+	r.reportersSearchNodeReq = &reportersSearchNodeReq
 	return r
 }
 
@@ -509,7 +509,7 @@ func (a *SearchApiService) SearchCompliancesExecute(r ApiSearchCompliancesReques
 		localVarHeaderParams["Accept"] = localVarHTTPHeaderAccept
 	}
 	// body params
-	localVarPostBody = r.reportersSearchFilter
+	localVarPostBody = r.reportersSearchNodeReq
 	req, err := a.client.prepareRequest(r.ctx, localVarPath, localVarHTTPMethod, localVarPostBody, localVarHeaderParams, localVarQueryParams, localVarFormParams, formFiles)
 	if err != nil {
 		return localVarReturnValue, nil, err
@@ -582,11 +582,11 @@ func (a *SearchApiService) SearchCompliancesExecute(r ApiSearchCompliancesReques
 type ApiSearchContainerImagesRequest struct {
 	ctx context.Context
 	ApiService *SearchApiService
-	reportersSearchFilter *ReportersSearchFilter
+	reportersSearchNodeReq *ReportersSearchNodeReq
 }
 
-func (r ApiSearchContainerImagesRequest) ReportersSearchFilter(reportersSearchFilter ReportersSearchFilter) ApiSearchContainerImagesRequest {
-	r.reportersSearchFilter = &reportersSearchFilter
+func (r ApiSearchContainerImagesRequest) ReportersSearchNodeReq(reportersSearchNodeReq ReportersSearchNodeReq) ApiSearchContainerImagesRequest {
+	r.reportersSearchNodeReq = &reportersSearchNodeReq
 	return r
 }
 
@@ -648,7 +648,7 @@ func (a *SearchApiService) SearchContainerImagesExecute(r ApiSearchContainerImag
 		localVarHeaderParams["Accept"] = localVarHTTPHeaderAccept
 	}
 	// body params
-	localVarPostBody = r.reportersSearchFilter
+	localVarPostBody = r.reportersSearchNodeReq
 	req, err := a.client.prepareRequest(r.ctx, localVarPath, localVarHTTPMethod, localVarPostBody, localVarHeaderParams, localVarQueryParams, localVarFormParams, formFiles)
 	if err != nil {
 		return localVarReturnValue, nil, err
@@ -721,11 +721,11 @@ func (a *SearchApiService) SearchContainerImagesExecute(r ApiSearchContainerImag
 type ApiSearchContainersRequest struct {
 	ctx context.Context
 	ApiService *SearchApiService
-	reportersSearchFilter *ReportersSearchFilter
+	reportersSearchNodeReq *ReportersSearchNodeReq
 }
 
-func (r ApiSearchContainersRequest) ReportersSearchFilter(reportersSearchFilter ReportersSearchFilter) ApiSearchContainersRequest {
-	r.reportersSearchFilter = &reportersSearchFilter
+func (r ApiSearchContainersRequest) ReportersSearchNodeReq(reportersSearchNodeReq ReportersSearchNodeReq) ApiSearchContainersRequest {
+	r.reportersSearchNodeReq = &reportersSearchNodeReq
 	return r
 }
 
@@ -787,7 +787,7 @@ func (a *SearchApiService) SearchContainersExecute(r ApiSearchContainersRequest)
 		localVarHeaderParams["Accept"] = localVarHTTPHeaderAccept
 	}
 	// body params
-	localVarPostBody = r.reportersSearchFilter
+	localVarPostBody = r.reportersSearchNodeReq
 	req, err := a.client.prepareRequest(r.ctx, localVarPath, localVarHTTPMethod, localVarPostBody, localVarHeaderParams, localVarQueryParams, localVarFormParams, formFiles)
 	if err != nil {
 		return localVarReturnValue, nil, err
@@ -860,11 +860,11 @@ func (a *SearchApiService) SearchContainersExecute(r ApiSearchContainersRequest)
 type ApiSearchHostsRequest struct {
 	ctx context.Context
 	ApiService *SearchApiService
-	reportersSearchFilter *ReportersSearchFilter
+	reportersSearchNodeReq *ReportersSearchNodeReq
 }
 
-func (r ApiSearchHostsRequest) ReportersSearchFilter(reportersSearchFilter ReportersSearchFilter) ApiSearchHostsRequest {
-	r.reportersSearchFilter = &reportersSearchFilter
+func (r ApiSearchHostsRequest) ReportersSearchNodeReq(reportersSearchNodeReq ReportersSearchNodeReq) ApiSearchHostsRequest {
+	r.reportersSearchNodeReq = &reportersSearchNodeReq
 	return r
 }
 
@@ -926,7 +926,7 @@ func (a *SearchApiService) SearchHostsExecute(r ApiSearchHostsRequest) ([]ModelH
 		localVarHeaderParams["Accept"] = localVarHTTPHeaderAccept
 	}
 	// body params
-	localVarPostBody = r.reportersSearchFilter
+	localVarPostBody = r.reportersSearchNodeReq
 	req, err := a.client.prepareRequest(r.ctx, localVarPath, localVarHTTPMethod, localVarPostBody, localVarHeaderParams, localVarQueryParams, localVarFormParams, formFiles)
 	if err != nil {
 		return localVarReturnValue, nil, err
@@ -1138,11 +1138,11 @@ func (a *SearchApiService) SearchMalwareScansExecute(r ApiSearchMalwareScansRequ
 type ApiSearchMalwaresRequest struct {
 	ctx context.Context
 	ApiService *SearchApiService
-	reportersSearchFilter *ReportersSearchFilter
+	reportersSearchNodeReq *ReportersSearchNodeReq
 }
 
-func (r ApiSearchMalwaresRequest) ReportersSearchFilter(reportersSearchFilter ReportersSearchFilter) ApiSearchMalwaresRequest {
-	r.reportersSearchFilter = &reportersSearchFilter
+func (r ApiSearchMalwaresRequest) ReportersSearchNodeReq(reportersSearchNodeReq ReportersSearchNodeReq) ApiSearchMalwaresRequest {
+	r.reportersSearchNodeReq = &reportersSearchNodeReq
 	return r
 }
 
@@ -1204,7 +1204,7 @@ func (a *SearchApiService) SearchMalwaresExecute(r ApiSearchMalwaresRequest) ([]
 		localVarHeaderParams["Accept"] = localVarHTTPHeaderAccept
 	}
 	// body params
-	localVarPostBody = r.reportersSearchFilter
+	localVarPostBody = r.reportersSearchNodeReq
 	req, err := a.client.prepareRequest(r.ctx, localVarPath, localVarHTTPMethod, localVarPostBody, localVarHeaderParams, localVarQueryParams, localVarFormParams, formFiles)
 	if err != nil {
 		return localVarReturnValue, nil, err
@@ -1277,11 +1277,11 @@ func (a *SearchApiService) SearchMalwaresExecute(r ApiSearchMalwaresRequest) ([]
 type ApiSearchSecretsRequest struct {
 	ctx context.Context
 	ApiService *SearchApiService
-	reportersSearchFilter *ReportersSearchFilter
+	reportersSearchNodeReq *ReportersSearchNodeReq
 }
 
-func (r ApiSearchSecretsRequest) ReportersSearchFilter(reportersSearchFilter ReportersSearchFilter) ApiSearchSecretsRequest {
-	r.reportersSearchFilter = &reportersSearchFilter
+func (r ApiSearchSecretsRequest) ReportersSearchNodeReq(reportersSearchNodeReq ReportersSearchNodeReq) ApiSearchSecretsRequest {
+	r.reportersSearchNodeReq = &reportersSearchNodeReq
 	return r
 }
 
@@ -1343,7 +1343,7 @@ func (a *SearchApiService) SearchSecretsExecute(r ApiSearchSecretsRequest) ([]Mo
 		localVarHeaderParams["Accept"] = localVarHTTPHeaderAccept
 	}
 	// body params
-	localVarPostBody = r.reportersSearchFilter
+	localVarPostBody = r.reportersSearchNodeReq
 	req, err := a.client.prepareRequest(r.ctx, localVarPath, localVarHTTPMethod, localVarPostBody, localVarHeaderParams, localVarQueryParams, localVarFormParams, formFiles)
 	if err != nil {
 		return localVarReturnValue, nil, err
@@ -1555,11 +1555,11 @@ func (a *SearchApiService) SearchSecretsScansExecute(r ApiSearchSecretsScansRequ
 type ApiSearchVulnerabilitiesRequest struct {
 	ctx context.Context
 	ApiService *SearchApiService
-	reportersSearchFilter *ReportersSearchFilter
+	reportersSearchNodeReq *ReportersSearchNodeReq
 }
 
-func (r ApiSearchVulnerabilitiesRequest) ReportersSearchFilter(reportersSearchFilter ReportersSearchFilter) ApiSearchVulnerabilitiesRequest {
-	r.reportersSearchFilter = &reportersSearchFilter
+func (r ApiSearchVulnerabilitiesRequest) ReportersSearchNodeReq(reportersSearchNodeReq ReportersSearchNodeReq) ApiSearchVulnerabilitiesRequest {
+	r.reportersSearchNodeReq = &reportersSearchNodeReq
 	return r
 }
 
@@ -1621,7 +1621,7 @@ func (a *SearchApiService) SearchVulnerabilitiesExecute(r ApiSearchVulnerabiliti
 		localVarHeaderParams["Accept"] = localVarHTTPHeaderAccept
 	}
 	// body params
-	localVarPostBody = r.reportersSearchFilter
+	localVarPostBody = r.reportersSearchNodeReq
 	req, err := a.client.prepareRequest(r.ctx, localVarPath, localVarHTTPMethod, localVarPostBody, localVarHeaderParams, localVarQueryParams, localVarFormParams, formFiles)
 	if err != nil {
 		return localVarReturnValue, nil, err

@@ -127,6 +127,7 @@ docs/ReportersNodeInfo.md
 docs/ReportersOrderFilter.md
 docs/ReportersProviderThreatGraph.md
 docs/ReportersSearchFilter.md
+docs/ReportersSearchNodeReq.md
 docs/ReportersSearchScanReq.md
 docs/ReportersThreatNodeInfo.md
 docs/ReportersTopologyFilters.md
@@ -235,6 +236,7 @@ model_reporters_node_info.go
 model_reporters_order_filter.go
 model_reporters_provider_threat_graph.go
 model_reporters_search_filter.go
+model_reporters_search_node_req.go
 model_reporters_search_scan_req.go
 model_reporters_threat_node_info.go
 model_reporters_topology_filters.go

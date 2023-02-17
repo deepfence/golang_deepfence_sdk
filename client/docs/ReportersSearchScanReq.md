@@ -4,7 +4,7 @@
 
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
-**ResourceFilters** | [**ReportersSearchFilter**](ReportersSearchFilter.md) |  | 
+**NodeFilters** | [**ReportersSearchFilter**](ReportersSearchFilter.md) |  | 
 **ScanFilters** | [**ReportersSearchFilter**](ReportersSearchFilter.md) |  | 
 **Window** | [**ModelFetchWindow**](ModelFetchWindow.md) |  | 
 
@@ -12,7 +12,7 @@ Name | Type | Description | Notes
 
 ### NewReportersSearchScanReq
 
-`func NewReportersSearchScanReq(resourceFilters ReportersSearchFilter, scanFilters ReportersSearchFilter, window ModelFetchWindow, ) *ReportersSearchScanReq`
+`func NewReportersSearchScanReq(nodeFilters ReportersSearchFilter, scanFilters ReportersSearchFilter, window ModelFetchWindow, ) *ReportersSearchScanReq`
 
 NewReportersSearchScanReq instantiates a new ReportersSearchScanReq object
 This constructor will assign default values to properties that have it defined,
@@ -27,24 +27,24 @@ NewReportersSearchScanReqWithDefaults instantiates a new ReportersSearchScanReq 
 This constructor will only assign default values to properties that have it defined,
 but it doesn't guarantee that properties required by API are set
 
-### GetResourceFilters
+### GetNodeFilters
 
-`func (o *ReportersSearchScanReq) GetResourceFilters() ReportersSearchFilter`
+`func (o *ReportersSearchScanReq) GetNodeFilters() ReportersSearchFilter`
 
-GetResourceFilters returns the ResourceFilters field if non-nil, zero value otherwise.
+GetNodeFilters returns the NodeFilters field if non-nil, zero value otherwise.
 
-### GetResourceFiltersOk
+### GetNodeFiltersOk
 
-`func (o *ReportersSearchScanReq) GetResourceFiltersOk() (*ReportersSearchFilter, bool)`
+`func (o *ReportersSearchScanReq) GetNodeFiltersOk() (*ReportersSearchFilter, bool)`
 
-GetResourceFiltersOk returns a tuple with the ResourceFilters field if it's non-nil, zero value otherwise
+GetNodeFiltersOk returns a tuple with the NodeFilters field if it's non-nil, zero value otherwise
 and a boolean to check if the value has been set.
 
-### SetResourceFilters
+### SetNodeFilters
 
-`func (o *ReportersSearchScanReq) SetResourceFilters(v ReportersSearchFilter)`
+`func (o *ReportersSearchScanReq) SetNodeFilters(v ReportersSearchFilter)`
 
-SetResourceFilters sets ResourceFilters field to given value.
+SetNodeFilters sets NodeFilters field to given value.
 
 
 ### GetScanFilters

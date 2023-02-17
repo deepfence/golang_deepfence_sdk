@@ -22,16 +22,18 @@ var _ MappedNullable = &ReportersLookupFilter{}
 type ReportersLookupFilter struct {
 	InFieldFilter []string `json:"in_field_filter"`
 	NodeIds []string `json:"node_ids"`
+	Window ModelFetchWindow `json:"window"`
 }
 
 // NewReportersLookupFilter instantiates a new ReportersLookupFilter object
 // This constructor will assign default values to properties that have it defined,
 // and makes sure properties required by API are set, but the set of arguments
 // will change when the set of required properties is changed
-func NewReportersLookupFilter(inFieldFilter []string, nodeIds []string) *ReportersLookupFilter {
+func NewReportersLookupFilter(inFieldFilter []string, nodeIds []string, window ModelFetchWindow) *ReportersLookupFilter {
 	this := ReportersLookupFilter{}
 	this.InFieldFilter = inFieldFilter
 	this.NodeIds = nodeIds
+	this.Window = window
 	return &this
 }
 
@@ -95,6 +97,30 @@ func (o *ReportersLookupFilter) SetNodeIds(v []string) {
 	o.NodeIds = v
 }
 
+// GetWindow returns the Window field value
+func (o *ReportersLookupFilter) GetWindow() ModelFetchWindow {
+	if o == nil {
+		var ret ModelFetchWindow
+		return ret
+	}
+
+	return o.Window
+}
+
+// GetWindowOk returns a tuple with the Window field value
+// and a boolean to check if the value has been set.
+func (o *ReportersLookupFilter) GetWindowOk() (*ModelFetchWindow, bool) {
+	if o == nil {
+		return nil, false
+	}
+	return &o.Window, true
+}
+
+// SetWindow sets field value
+func (o *ReportersLookupFilter) SetWindow(v ModelFetchWindow) {
+	o.Window = v
+}
+
 func (o ReportersLookupFilter) MarshalJSON() ([]byte, error) {
 	toSerialize,err := o.ToMap()
 	if err != nil {
@@ -111,6 +137,7 @@ func (o ReportersLookupFilter) ToMap() (map[string]interface{}, error) {
 	if o.NodeIds != nil {
 		toSerialize["node_ids"] = o.NodeIds
 	}
+	toSerialize["window"] = o.Window
 	return toSerialize, nil
 }
 

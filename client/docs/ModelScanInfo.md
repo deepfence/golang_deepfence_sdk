@@ -5,6 +5,7 @@
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
 **NodeId** | **string** |  | 
+**NodeName** | **string** |  | 
 **NodeType** | **string** |  | 
 **ScanId** | **string** |  | 
 **SeverityCounts** | **map[string]int32** |  | 
@@ -15,7 +16,7 @@ Name | Type | Description | Notes
 
 ### NewModelScanInfo
 
-`func NewModelScanInfo(nodeId string, nodeType string, scanId string, severityCounts map[string]int32, status string, updatedAt int64, ) *ModelScanInfo`
+`func NewModelScanInfo(nodeId string, nodeName string, nodeType string, scanId string, severityCounts map[string]int32, status string, updatedAt int64, ) *ModelScanInfo`
 
 NewModelScanInfo instantiates a new ModelScanInfo object
 This constructor will assign default values to properties that have it defined,
@@ -48,6 +49,26 @@ and a boolean to check if the value has been set.
 `func (o *ModelScanInfo) SetNodeId(v string)`
 
 SetNodeId sets NodeId field to given value.
+
+
+### GetNodeName
+
+`func (o *ModelScanInfo) GetNodeName() string`
+
+GetNodeName returns the NodeName field if non-nil, zero value otherwise.
+
+### GetNodeNameOk
+
+`func (o *ModelScanInfo) GetNodeNameOk() (*string, bool)`
+
+GetNodeNameOk returns a tuple with the NodeName field if it's non-nil, zero value otherwise
+and a boolean to check if the value has been set.
+
+### SetNodeName
+
+`func (o *ModelScanInfo) SetNodeName(v string)`
+
+SetNodeName sets NodeName field to given value.
 
 
 ### GetNodeType

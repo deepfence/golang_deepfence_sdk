@@ -4,14 +4,13 @@
 
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
-**Limit** | **int32** |  | 
 **OrderField** | **string** |  | 
 
 ## Methods
 
 ### NewReportersOrderFilter
 
-`func NewReportersOrderFilter(limit int32, orderField string, ) *ReportersOrderFilter`
+`func NewReportersOrderFilter(orderField string, ) *ReportersOrderFilter`
 
 NewReportersOrderFilter instantiates a new ReportersOrderFilter object
 This constructor will assign default values to properties that have it defined,
@@ -25,26 +24,6 @@ will change when the set of required properties is changed
 NewReportersOrderFilterWithDefaults instantiates a new ReportersOrderFilter object
 This constructor will only assign default values to properties that have it defined,
 but it doesn't guarantee that properties required by API are set
-
-### GetLimit
-
-`func (o *ReportersOrderFilter) GetLimit() int32`
-
-GetLimit returns the Limit field if non-nil, zero value otherwise.
-
-### GetLimitOk
-
-`func (o *ReportersOrderFilter) GetLimitOk() (*int32, bool)`
-
-GetLimitOk returns a tuple with the Limit field if it's non-nil, zero value otherwise
-and a boolean to check if the value has been set.
-
-### SetLimit
-
-`func (o *ReportersOrderFilter) SetLimit(v int32)`
-
-SetLimit sets Limit field to given value.
-
 
 ### GetOrderField
 

@@ -20,7 +20,7 @@ var _ MappedNullable = &ReportersSearchScanReq{}
 
 // ReportersSearchScanReq struct for ReportersSearchScanReq
 type ReportersSearchScanReq struct {
-	ResourceFilters ReportersSearchFilter `json:"resource_filters"`
+	NodeFilters ReportersSearchFilter `json:"node_filters"`
 	ScanFilters ReportersSearchFilter `json:"scan_filters"`
 	Window ModelFetchWindow `json:"window"`
 }
@@ -29,9 +29,9 @@ type ReportersSearchScanReq struct {
 // This constructor will assign default values to properties that have it defined,
 // and makes sure properties required by API are set, but the set of arguments
 // will change when the set of required properties is changed
-func NewReportersSearchScanReq(resourceFilters ReportersSearchFilter, scanFilters ReportersSearchFilter, window ModelFetchWindow) *ReportersSearchScanReq {
+func NewReportersSearchScanReq(nodeFilters ReportersSearchFilter, scanFilters ReportersSearchFilter, window ModelFetchWindow) *ReportersSearchScanReq {
 	this := ReportersSearchScanReq{}
-	this.ResourceFilters = resourceFilters
+	this.NodeFilters = nodeFilters
 	this.ScanFilters = scanFilters
 	this.Window = window
 	return &this
@@ -45,28 +45,28 @@ func NewReportersSearchScanReqWithDefaults() *ReportersSearchScanReq {
 	return &this
 }
 
-// GetResourceFilters returns the ResourceFilters field value
-func (o *ReportersSearchScanReq) GetResourceFilters() ReportersSearchFilter {
+// GetNodeFilters returns the NodeFilters field value
+func (o *ReportersSearchScanReq) GetNodeFilters() ReportersSearchFilter {
 	if o == nil {
 		var ret ReportersSearchFilter
 		return ret
 	}
 
-	return o.ResourceFilters
+	return o.NodeFilters
 }
 
-// GetResourceFiltersOk returns a tuple with the ResourceFilters field value
+// GetNodeFiltersOk returns a tuple with the NodeFilters field value
 // and a boolean to check if the value has been set.
-func (o *ReportersSearchScanReq) GetResourceFiltersOk() (*ReportersSearchFilter, bool) {
+func (o *ReportersSearchScanReq) GetNodeFiltersOk() (*ReportersSearchFilter, bool) {
 	if o == nil {
 		return nil, false
 	}
-	return &o.ResourceFilters, true
+	return &o.NodeFilters, true
 }
 
-// SetResourceFilters sets field value
-func (o *ReportersSearchScanReq) SetResourceFilters(v ReportersSearchFilter) {
-	o.ResourceFilters = v
+// SetNodeFilters sets field value
+func (o *ReportersSearchScanReq) SetNodeFilters(v ReportersSearchFilter) {
+	o.NodeFilters = v
 }
 
 // GetScanFilters returns the ScanFilters field value
@@ -127,7 +127,7 @@ func (o ReportersSearchScanReq) MarshalJSON() ([]byte, error) {
 
 func (o ReportersSearchScanReq) ToMap() (map[string]interface{}, error) {
 	toSerialize := map[string]interface{}{}
-	toSerialize["resource_filters"] = o.ResourceFilters
+	toSerialize["node_filters"] = o.NodeFilters
 	toSerialize["scan_filters"] = o.ScanFilters
 	toSerialize["window"] = o.Window
 	return toSerialize, nil

@@ -21,6 +21,7 @@ var _ MappedNullable = &ModelScanInfo{}
 // ModelScanInfo struct for ModelScanInfo
 type ModelScanInfo struct {
 	NodeId string `json:"node_id"`
+	NodeName string `json:"node_name"`
 	NodeType string `json:"node_type"`
 	ScanId string `json:"scan_id"`
 	SeverityCounts map[string]int32 `json:"severity_counts"`
@@ -32,9 +33,10 @@ type ModelScanInfo struct {
 // This constructor will assign default values to properties that have it defined,
 // and makes sure properties required by API are set, but the set of arguments
 // will change when the set of required properties is changed
-func NewModelScanInfo(nodeId string, nodeType string, scanId string, severityCounts map[string]int32, status string, updatedAt int64) *ModelScanInfo {
+func NewModelScanInfo(nodeId string, nodeName string, nodeType string, scanId string, severityCounts map[string]int32, status string, updatedAt int64) *ModelScanInfo {
 	this := ModelScanInfo{}
 	this.NodeId = nodeId
+	this.NodeName = nodeName
 	this.NodeType = nodeType
 	this.ScanId = scanId
 	this.SeverityCounts = severityCounts
@@ -73,6 +75,30 @@ func (o *ModelScanInfo) GetNodeIdOk() (*string, bool) {
 // SetNodeId sets field value
 func (o *ModelScanInfo) SetNodeId(v string) {
 	o.NodeId = v
+}
+
+// GetNodeName returns the NodeName field value
+func (o *ModelScanInfo) GetNodeName() string {
+	if o == nil {
+		var ret string
+		return ret
+	}
+
+	return o.NodeName
+}
+
+// GetNodeNameOk returns a tuple with the NodeName field value
+// and a boolean to check if the value has been set.
+func (o *ModelScanInfo) GetNodeNameOk() (*string, bool) {
+	if o == nil {
+		return nil, false
+	}
+	return &o.NodeName, true
+}
+
+// SetNodeName sets field value
+func (o *ModelScanInfo) SetNodeName(v string) {
+	o.NodeName = v
 }
 
 // GetNodeType returns the NodeType field value
@@ -208,6 +234,7 @@ func (o ModelScanInfo) MarshalJSON() ([]byte, error) {
 func (o ModelScanInfo) ToMap() (map[string]interface{}, error) {
 	toSerialize := map[string]interface{}{}
 	toSerialize["node_id"] = o.NodeId
+	toSerialize["node_name"] = o.NodeName
 	toSerialize["node_type"] = o.NodeType
 	toSerialize["scan_id"] = o.ScanId
 	if o.SeverityCounts != nil {

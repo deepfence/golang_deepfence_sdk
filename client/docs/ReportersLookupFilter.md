@@ -6,12 +6,13 @@ Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
 **InFieldFilter** | **[]string** |  | 
 **NodeIds** | **[]string** |  | 
+**Window** | [**ModelFetchWindow**](ModelFetchWindow.md) |  | 
 
 ## Methods
 
 ### NewReportersLookupFilter
 
-`func NewReportersLookupFilter(inFieldFilter []string, nodeIds []string, ) *ReportersLookupFilter`
+`func NewReportersLookupFilter(inFieldFilter []string, nodeIds []string, window ModelFetchWindow, ) *ReportersLookupFilter`
 
 NewReportersLookupFilter instantiates a new ReportersLookupFilter object
 This constructor will assign default values to properties that have it defined,
@@ -86,6 +87,26 @@ SetNodeIds sets NodeIds field to given value.
 `func (o *ReportersLookupFilter) UnsetNodeIds()`
 
 UnsetNodeIds ensures that no value is present for NodeIds, not even an explicit nil
+### GetWindow
+
+`func (o *ReportersLookupFilter) GetWindow() ModelFetchWindow`
+
+GetWindow returns the Window field if non-nil, zero value otherwise.
+
+### GetWindowOk
+
+`func (o *ReportersLookupFilter) GetWindowOk() (*ModelFetchWindow, bool)`
+
+GetWindowOk returns a tuple with the Window field if it's non-nil, zero value otherwise
+and a boolean to check if the value has been set.
+
+### SetWindow
+
+`func (o *ReportersLookupFilter) SetWindow(v ModelFetchWindow)`
+
+SetWindow sets Window field to given value.
+
+
 
 [[Back to Model list]](../README.md#documentation-for-models) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to README]](../README.md)
 

@@ -269,6 +269,7 @@ Class | Method | HTTP request | Description
  - [ReportersOrderFilter](docs/ReportersOrderFilter.md)
  - [ReportersProviderThreatGraph](docs/ReportersProviderThreatGraph.md)
  - [ReportersSearchFilter](docs/ReportersSearchFilter.md)
+ - [ReportersSearchNodeReq](docs/ReportersSearchNodeReq.md)
  - [ReportersSearchScanReq](docs/ReportersSearchScanReq.md)
  - [ReportersThreatNodeInfo](docs/ReportersThreatNodeInfo.md)
  - [ReportersTopologyFilters](docs/ReportersTopologyFilters.md)

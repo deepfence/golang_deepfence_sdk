@@ -41,7 +41,7 @@ import (
 )
 
 func main() {
-    reportersSearchScanReq := *openapiclient.NewReportersSearchScanReq(*openapiclient.NewReportersSearchFilter(*openapiclient.NewReportersFieldsFilters(*openapiclient.NewReportersContainsFilter(map[string][]interface{}{"key": []interface{}{nil}}), *openapiclient.NewReportersOrderFilter(int32(123), "OrderField_example")), []string{"InFieldFilter_example"}), *openapiclient.NewReportersSearchFilter(*openapiclient.NewReportersFieldsFilters(*openapiclient.NewReportersContainsFilter(map[string][]interface{}{"key": []interface{}{nil}}), *openapiclient.NewReportersOrderFilter(int32(123), "OrderField_example")), []string{"InFieldFilter_example"}), *openapiclient.NewModelFetchWindow(int32(123), int32(123))) // ReportersSearchScanReq |  (optional)
+    reportersSearchScanReq := *openapiclient.NewReportersSearchScanReq(*openapiclient.NewReportersSearchFilter(*openapiclient.NewReportersFieldsFilters(*openapiclient.NewReportersContainsFilter(map[string][]interface{}{"key": []interface{}{nil}}), *openapiclient.NewReportersOrderFilter("OrderField_example")), []string{"InFieldFilter_example"}), *openapiclient.NewReportersSearchFilter(*openapiclient.NewReportersFieldsFilters(*openapiclient.NewReportersContainsFilter(map[string][]interface{}{"key": []interface{}{nil}}), *openapiclient.NewReportersOrderFilter("OrderField_example")), []string{"InFieldFilter_example"}), *openapiclient.NewModelFetchWindow(int32(123), int32(123))) // ReportersSearchScanReq |  (optional)
 
     configuration := openapiclient.NewConfiguration()
     apiClient := openapiclient.NewAPIClient(configuration)
@@ -88,7 +88,7 @@ Name | Type | Description  | Notes
 
 ## SearchCloudCompliances
 
-> []ModelCloudCompliance SearchCloudCompliances(ctx).ReportersSearchFilter(reportersSearchFilter).Execute()
+> []ModelCloudCompliance SearchCloudCompliances(ctx).ReportersSearchNodeReq(reportersSearchNodeReq).Execute()
 
 Search Cloud compliances
 
@@ -107,11 +107,11 @@ import (
 )
 
 func main() {
-    reportersSearchFilter := *openapiclient.NewReportersSearchFilter(*openapiclient.NewReportersFieldsFilters(*openapiclient.NewReportersContainsFilter(map[string][]interface{}{"key": []interface{}{nil}}), *openapiclient.NewReportersOrderFilter(int32(123), "OrderField_example")), []string{"InFieldFilter_example"}) // ReportersSearchFilter |  (optional)
+    reportersSearchNodeReq := *openapiclient.NewReportersSearchNodeReq(*openapiclient.NewReportersSearchFilter(*openapiclient.NewReportersFieldsFilters(*openapiclient.NewReportersContainsFilter(map[string][]interface{}{"key": []interface{}{nil}}), *openapiclient.NewReportersOrderFilter("OrderField_example")), []string{"InFieldFilter_example"}), *openapiclient.NewModelFetchWindow(int32(123), int32(123))) // ReportersSearchNodeReq |  (optional)
 
     configuration := openapiclient.NewConfiguration()
     apiClient := openapiclient.NewAPIClient(configuration)
-    resp, r, err := apiClient.SearchApi.SearchCloudCompliances(context.Background()).ReportersSearchFilter(reportersSearchFilter).Execute()
+    resp, r, err := apiClient.SearchApi.SearchCloudCompliances(context.Background()).ReportersSearchNodeReq(reportersSearchNodeReq).Execute()
     if err != nil {
         fmt.Fprintf(os.Stderr, "Error when calling `SearchApi.SearchCloudCompliances``: %v\n", err)
         fmt.Fprintf(os.Stderr, "Full HTTP response: %v\n", r)
@@ -132,7 +132,7 @@ Other parameters are passed through a pointer to a apiSearchCloudCompliancesRequ
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **reportersSearchFilter** | [**ReportersSearchFilter**](ReportersSearchFilter.md) |  | 
+ **reportersSearchNodeReq** | [**ReportersSearchNodeReq**](ReportersSearchNodeReq.md) |  | 
 
 ### Return type
 
@@ -173,7 +173,7 @@ import (
 )
 
 func main() {
-    reportersSearchScanReq := *openapiclient.NewReportersSearchScanReq(*openapiclient.NewReportersSearchFilter(*openapiclient.NewReportersFieldsFilters(*openapiclient.NewReportersContainsFilter(map[string][]interface{}{"key": []interface{}{nil}}), *openapiclient.NewReportersOrderFilter(int32(123), "OrderField_example")), []string{"InFieldFilter_example"}), *openapiclient.NewReportersSearchFilter(*openapiclient.NewReportersFieldsFilters(*openapiclient.NewReportersContainsFilter(map[string][]interface{}{"key": []interface{}{nil}}), *openapiclient.NewReportersOrderFilter(int32(123), "OrderField_example")), []string{"InFieldFilter_example"}), *openapiclient.NewModelFetchWindow(int32(123), int32(123))) // ReportersSearchScanReq |  (optional)
+    reportersSearchScanReq := *openapiclient.NewReportersSearchScanReq(*openapiclient.NewReportersSearchFilter(*openapiclient.NewReportersFieldsFilters(*openapiclient.NewReportersContainsFilter(map[string][]interface{}{"key": []interface{}{nil}}), *openapiclient.NewReportersOrderFilter("OrderField_example")), []string{"InFieldFilter_example"}), *openapiclient.NewReportersSearchFilter(*openapiclient.NewReportersFieldsFilters(*openapiclient.NewReportersContainsFilter(map[string][]interface{}{"key": []interface{}{nil}}), *openapiclient.NewReportersOrderFilter("OrderField_example")), []string{"InFieldFilter_example"}), *openapiclient.NewModelFetchWindow(int32(123), int32(123))) // ReportersSearchScanReq |  (optional)
 
     configuration := openapiclient.NewConfiguration()
     apiClient := openapiclient.NewAPIClient(configuration)
@@ -220,7 +220,7 @@ Name | Type | Description  | Notes
 
 ## SearchCompliances
 
-> []ModelCompliance SearchCompliances(ctx).ReportersSearchFilter(reportersSearchFilter).Execute()
+> []ModelCompliance SearchCompliances(ctx).ReportersSearchNodeReq(reportersSearchNodeReq).Execute()
 
 Search Compliances
 
@@ -239,11 +239,11 @@ import (
 )
 
 func main() {
-    reportersSearchFilter := *openapiclient.NewReportersSearchFilter(*openapiclient.NewReportersFieldsFilters(*openapiclient.NewReportersContainsFilter(map[string][]interface{}{"key": []interface{}{nil}}), *openapiclient.NewReportersOrderFilter(int32(123), "OrderField_example")), []string{"InFieldFilter_example"}) // ReportersSearchFilter |  (optional)
+    reportersSearchNodeReq := *openapiclient.NewReportersSearchNodeReq(*openapiclient.NewReportersSearchFilter(*openapiclient.NewReportersFieldsFilters(*openapiclient.NewReportersContainsFilter(map[string][]interface{}{"key": []interface{}{nil}}), *openapiclient.NewReportersOrderFilter("OrderField_example")), []string{"InFieldFilter_example"}), *openapiclient.NewModelFetchWindow(int32(123), int32(123))) // ReportersSearchNodeReq |  (optional)
 
     configuration := openapiclient.NewConfiguration()
     apiClient := openapiclient.NewAPIClient(configuration)
-    resp, r, err := apiClient.SearchApi.SearchCompliances(context.Background()).ReportersSearchFilter(reportersSearchFilter).Execute()
+    resp, r, err := apiClient.SearchApi.SearchCompliances(context.Background()).ReportersSearchNodeReq(reportersSearchNodeReq).Execute()
     if err != nil {
         fmt.Fprintf(os.Stderr, "Error when calling `SearchApi.SearchCompliances``: %v\n", err)
         fmt.Fprintf(os.Stderr, "Full HTTP response: %v\n", r)
@@ -264,7 +264,7 @@ Other parameters are passed through a pointer to a apiSearchCompliancesRequest s
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **reportersSearchFilter** | [**ReportersSearchFilter**](ReportersSearchFilter.md) |  | 
+ **reportersSearchNodeReq** | [**ReportersSearchNodeReq**](ReportersSearchNodeReq.md) |  | 
 
 ### Return type
 
@@ -286,7 +286,7 @@ Name | Type | Description  | Notes
 
 ## SearchContainerImages
 
-> []ModelContainerImage SearchContainerImages(ctx).ReportersSearchFilter(reportersSearchFilter).Execute()
+> []ModelContainerImage SearchContainerImages(ctx).ReportersSearchNodeReq(reportersSearchNodeReq).Execute()
 
 Search Container images
 
@@ -305,11 +305,11 @@ import (
 )
 
 func main() {
-    reportersSearchFilter := *openapiclient.NewReportersSearchFilter(*openapiclient.NewReportersFieldsFilters(*openapiclient.NewReportersContainsFilter(map[string][]interface{}{"key": []interface{}{nil}}), *openapiclient.NewReportersOrderFilter(int32(123), "OrderField_example")), []string{"InFieldFilter_example"}) // ReportersSearchFilter |  (optional)
+    reportersSearchNodeReq := *openapiclient.NewReportersSearchNodeReq(*openapiclient.NewReportersSearchFilter(*openapiclient.NewReportersFieldsFilters(*openapiclient.NewReportersContainsFilter(map[string][]interface{}{"key": []interface{}{nil}}), *openapiclient.NewReportersOrderFilter("OrderField_example")), []string{"InFieldFilter_example"}), *openapiclient.NewModelFetchWindow(int32(123), int32(123))) // ReportersSearchNodeReq |  (optional)
 
     configuration := openapiclient.NewConfiguration()
     apiClient := openapiclient.NewAPIClient(configuration)
-    resp, r, err := apiClient.SearchApi.SearchContainerImages(context.Background()).ReportersSearchFilter(reportersSearchFilter).Execute()
+    resp, r, err := apiClient.SearchApi.SearchContainerImages(context.Background()).ReportersSearchNodeReq(reportersSearchNodeReq).Execute()
     if err != nil {
         fmt.Fprintf(os.Stderr, "Error when calling `SearchApi.SearchContainerImages``: %v\n", err)
         fmt.Fprintf(os.Stderr, "Full HTTP response: %v\n", r)
@@ -330,7 +330,7 @@ Other parameters are passed through a pointer to a apiSearchContainerImagesReque
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **reportersSearchFilter** | [**ReportersSearchFilter**](ReportersSearchFilter.md) |  | 
+ **reportersSearchNodeReq** | [**ReportersSearchNodeReq**](ReportersSearchNodeReq.md) |  | 
 
 ### Return type
 
@@ -352,7 +352,7 @@ Name | Type | Description  | Notes
 
 ## SearchContainers
 
-> []ModelContainer SearchContainers(ctx).ReportersSearchFilter(reportersSearchFilter).Execute()
+> []ModelContainer SearchContainers(ctx).ReportersSearchNodeReq(reportersSearchNodeReq).Execute()
 
 Search Containers data
 
@@ -371,11 +371,11 @@ import (
 )
 
 func main() {
-    reportersSearchFilter := *openapiclient.NewReportersSearchFilter(*openapiclient.NewReportersFieldsFilters(*openapiclient.NewReportersContainsFilter(map[string][]interface{}{"key": []interface{}{nil}}), *openapiclient.NewReportersOrderFilter(int32(123), "OrderField_example")), []string{"InFieldFilter_example"}) // ReportersSearchFilter |  (optional)
+    reportersSearchNodeReq := *openapiclient.NewReportersSearchNodeReq(*openapiclient.NewReportersSearchFilter(*openapiclient.NewReportersFieldsFilters(*openapiclient.NewReportersContainsFilter(map[string][]interface{}{"key": []interface{}{nil}}), *openapiclient.NewReportersOrderFilter("OrderField_example")), []string{"InFieldFilter_example"}), *openapiclient.NewModelFetchWindow(int32(123), int32(123))) // ReportersSearchNodeReq |  (optional)
 
     configuration := openapiclient.NewConfiguration()
     apiClient := openapiclient.NewAPIClient(configuration)
-    resp, r, err := apiClient.SearchApi.SearchContainers(context.Background()).ReportersSearchFilter(reportersSearchFilter).Execute()
+    resp, r, err := apiClient.SearchApi.SearchContainers(context.Background()).ReportersSearchNodeReq(reportersSearchNodeReq).Execute()
     if err != nil {
         fmt.Fprintf(os.Stderr, "Error when calling `SearchApi.SearchContainers``: %v\n", err)
         fmt.Fprintf(os.Stderr, "Full HTTP response: %v\n", r)
@@ -396,7 +396,7 @@ Other parameters are passed through a pointer to a apiSearchContainersRequest st
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **reportersSearchFilter** | [**ReportersSearchFilter**](ReportersSearchFilter.md) |  | 
+ **reportersSearchNodeReq** | [**ReportersSearchNodeReq**](ReportersSearchNodeReq.md) |  | 
 
 ### Return type
 
@@ -418,7 +418,7 @@ Name | Type | Description  | Notes
 
 ## SearchHosts
 
-> []ModelHost SearchHosts(ctx).ReportersSearchFilter(reportersSearchFilter).Execute()
+> []ModelHost SearchHosts(ctx).ReportersSearchNodeReq(reportersSearchNodeReq).Execute()
 
 Search hosts
 
@@ -437,11 +437,11 @@ import (
 )
 
 func main() {
-    reportersSearchFilter := *openapiclient.NewReportersSearchFilter(*openapiclient.NewReportersFieldsFilters(*openapiclient.NewReportersContainsFilter(map[string][]interface{}{"key": []interface{}{nil}}), *openapiclient.NewReportersOrderFilter(int32(123), "OrderField_example")), []string{"InFieldFilter_example"}) // ReportersSearchFilter |  (optional)
+    reportersSearchNodeReq := *openapiclient.NewReportersSearchNodeReq(*openapiclient.NewReportersSearchFilter(*openapiclient.NewReportersFieldsFilters(*openapiclient.NewReportersContainsFilter(map[string][]interface{}{"key": []interface{}{nil}}), *openapiclient.NewReportersOrderFilter("OrderField_example")), []string{"InFieldFilter_example"}), *openapiclient.NewModelFetchWindow(int32(123), int32(123))) // ReportersSearchNodeReq |  (optional)
 
     configuration := openapiclient.NewConfiguration()
     apiClient := openapiclient.NewAPIClient(configuration)
-    resp, r, err := apiClient.SearchApi.SearchHosts(context.Background()).ReportersSearchFilter(reportersSearchFilter).Execute()
+    resp, r, err := apiClient.SearchApi.SearchHosts(context.Background()).ReportersSearchNodeReq(reportersSearchNodeReq).Execute()
     if err != nil {
         fmt.Fprintf(os.Stderr, "Error when calling `SearchApi.SearchHosts``: %v\n", err)
         fmt.Fprintf(os.Stderr, "Full HTTP response: %v\n", r)
@@ -462,7 +462,7 @@ Other parameters are passed through a pointer to a apiSearchHostsRequest struct 
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **reportersSearchFilter** | [**ReportersSearchFilter**](ReportersSearchFilter.md) |  | 
+ **reportersSearchNodeReq** | [**ReportersSearchNodeReq**](ReportersSearchNodeReq.md) |  | 
 
 ### Return type
 
@@ -503,7 +503,7 @@ import (
 )
 
 func main() {
-    reportersSearchScanReq := *openapiclient.NewReportersSearchScanReq(*openapiclient.NewReportersSearchFilter(*openapiclient.NewReportersFieldsFilters(*openapiclient.NewReportersContainsFilter(map[string][]interface{}{"key": []interface{}{nil}}), *openapiclient.NewReportersOrderFilter(int32(123), "OrderField_example")), []string{"InFieldFilter_example"}), *openapiclient.NewReportersSearchFilter(*openapiclient.NewReportersFieldsFilters(*openapiclient.NewReportersContainsFilter(map[string][]interface{}{"key": []interface{}{nil}}), *openapiclient.NewReportersOrderFilter(int32(123), "OrderField_example")), []string{"InFieldFilter_example"}), *openapiclient.NewModelFetchWindow(int32(123), int32(123))) // ReportersSearchScanReq |  (optional)
+    reportersSearchScanReq := *openapiclient.NewReportersSearchScanReq(*openapiclient.NewReportersSearchFilter(*openapiclient.NewReportersFieldsFilters(*openapiclient.NewReportersContainsFilter(map[string][]interface{}{"key": []interface{}{nil}}), *openapiclient.NewReportersOrderFilter("OrderField_example")), []string{"InFieldFilter_example"}), *openapiclient.NewReportersSearchFilter(*openapiclient.NewReportersFieldsFilters(*openapiclient.NewReportersContainsFilter(map[string][]interface{}{"key": []interface{}{nil}}), *openapiclient.NewReportersOrderFilter("OrderField_example")), []string{"InFieldFilter_example"}), *openapiclient.NewModelFetchWindow(int32(123), int32(123))) // ReportersSearchScanReq |  (optional)
 
     configuration := openapiclient.NewConfiguration()
     apiClient := openapiclient.NewAPIClient(configuration)
@@ -550,7 +550,7 @@ Name | Type | Description  | Notes
 
 ## SearchMalwares
 
-> []ModelMalware SearchMalwares(ctx).ReportersSearchFilter(reportersSearchFilter).Execute()
+> []ModelMalware SearchMalwares(ctx).ReportersSearchNodeReq(reportersSearchNodeReq).Execute()
 
 Search Malwares
 
@@ -569,11 +569,11 @@ import (
 )
 
 func main() {
-    reportersSearchFilter := *openapiclient.NewReportersSearchFilter(*openapiclient.NewReportersFieldsFilters(*openapiclient.NewReportersContainsFilter(map[string][]interface{}{"key": []interface{}{nil}}), *openapiclient.NewReportersOrderFilter(int32(123), "OrderField_example")), []string{"InFieldFilter_example"}) // ReportersSearchFilter |  (optional)
+    reportersSearchNodeReq := *openapiclient.NewReportersSearchNodeReq(*openapiclient.NewReportersSearchFilter(*openapiclient.NewReportersFieldsFilters(*openapiclient.NewReportersContainsFilter(map[string][]interface{}{"key": []interface{}{nil}}), *openapiclient.NewReportersOrderFilter("OrderField_example")), []string{"InFieldFilter_example"}), *openapiclient.NewModelFetchWindow(int32(123), int32(123))) // ReportersSearchNodeReq |  (optional)
 
     configuration := openapiclient.NewConfiguration()
     apiClient := openapiclient.NewAPIClient(configuration)
-    resp, r, err := apiClient.SearchApi.SearchMalwares(context.Background()).ReportersSearchFilter(reportersSearchFilter).Execute()
+    resp, r, err := apiClient.SearchApi.SearchMalwares(context.Background()).ReportersSearchNodeReq(reportersSearchNodeReq).Execute()
     if err != nil {
         fmt.Fprintf(os.Stderr, "Error when calling `SearchApi.SearchMalwares``: %v\n", err)
         fmt.Fprintf(os.Stderr, "Full HTTP response: %v\n", r)
@@ -594,7 +594,7 @@ Other parameters are passed through a pointer to a apiSearchMalwaresRequest stru
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **reportersSearchFilter** | [**ReportersSearchFilter**](ReportersSearchFilter.md) |  | 
+ **reportersSearchNodeReq** | [**ReportersSearchNodeReq**](ReportersSearchNodeReq.md) |  | 
 
 ### Return type
 
@@ -616,7 +616,7 @@ Name | Type | Description  | Notes
 
 ## SearchSecrets
 
-> []ModelSecret SearchSecrets(ctx).ReportersSearchFilter(reportersSearchFilter).Execute()
+> []ModelSecret SearchSecrets(ctx).ReportersSearchNodeReq(reportersSearchNodeReq).Execute()
 
 Search Secrets
 
@@ -635,11 +635,11 @@ import (
 )
 
 func main() {
-    reportersSearchFilter := *openapiclient.NewReportersSearchFilter(*openapiclient.NewReportersFieldsFilters(*openapiclient.NewReportersContainsFilter(map[string][]interface{}{"key": []interface{}{nil}}), *openapiclient.NewReportersOrderFilter(int32(123), "OrderField_example")), []string{"InFieldFilter_example"}) // ReportersSearchFilter |  (optional)
+    reportersSearchNodeReq := *openapiclient.NewReportersSearchNodeReq(*openapiclient.NewReportersSearchFilter(*openapiclient.NewReportersFieldsFilters(*openapiclient.NewReportersContainsFilter(map[string][]interface{}{"key": []interface{}{nil}}), *openapiclient.NewReportersOrderFilter("OrderField_example")), []string{"InFieldFilter_example"}), *openapiclient.NewModelFetchWindow(int32(123), int32(123))) // ReportersSearchNodeReq |  (optional)
 
     configuration := openapiclient.NewConfiguration()
     apiClient := openapiclient.NewAPIClient(configuration)
-    resp, r, err := apiClient.SearchApi.SearchSecrets(context.Background()).ReportersSearchFilter(reportersSearchFilter).Execute()
+    resp, r, err := apiClient.SearchApi.SearchSecrets(context.Background()).ReportersSearchNodeReq(reportersSearchNodeReq).Execute()
     if err != nil {
         fmt.Fprintf(os.Stderr, "Error when calling `SearchApi.SearchSecrets``: %v\n", err)
         fmt.Fprintf(os.Stderr, "Full HTTP response: %v\n", r)
@@ -660,7 +660,7 @@ Other parameters are passed through a pointer to a apiSearchSecretsRequest struc
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **reportersSearchFilter** | [**ReportersSearchFilter**](ReportersSearchFilter.md) |  | 
+ **reportersSearchNodeReq** | [**ReportersSearchNodeReq**](ReportersSearchNodeReq.md) |  | 
 
 ### Return type
 
@@ -701,7 +701,7 @@ import (
 )
 
 func main() {
-    reportersSearchScanReq := *openapiclient.NewReportersSearchScanReq(*openapiclient.NewReportersSearchFilter(*openapiclient.NewReportersFieldsFilters(*openapiclient.NewReportersContainsFilter(map[string][]interface{}{"key": []interface{}{nil}}), *openapiclient.NewReportersOrderFilter(int32(123), "OrderField_example")), []string{"InFieldFilter_example"}), *openapiclient.NewReportersSearchFilter(*openapiclient.NewReportersFieldsFilters(*openapiclient.NewReportersContainsFilter(map[string][]interface{}{"key": []interface{}{nil}}), *openapiclient.NewReportersOrderFilter(int32(123), "OrderField_example")), []string{"InFieldFilter_example"}), *openapiclient.NewModelFetchWindow(int32(123), int32(123))) // ReportersSearchScanReq |  (optional)
+    reportersSearchScanReq := *openapiclient.NewReportersSearchScanReq(*openapiclient.NewReportersSearchFilter(*openapiclient.NewReportersFieldsFilters(*openapiclient.NewReportersContainsFilter(map[string][]interface{}{"key": []interface{}{nil}}), *openapiclient.NewReportersOrderFilter("OrderField_example")), []string{"InFieldFilter_example"}), *openapiclient.NewReportersSearchFilter(*openapiclient.NewReportersFieldsFilters(*openapiclient.NewReportersContainsFilter(map[string][]interface{}{"key": []interface{}{nil}}), *openapiclient.NewReportersOrderFilter("OrderField_example")), []string{"InFieldFilter_example"}), *openapiclient.NewModelFetchWindow(int32(123), int32(123))) // ReportersSearchScanReq |  (optional)
 
     configuration := openapiclient.NewConfiguration()
     apiClient := openapiclient.NewAPIClient(configuration)
@@ -748,7 +748,7 @@ Name | Type | Description  | Notes
 
 ## SearchVulnerabilities
 
-> []ModelVulnerability SearchVulnerabilities(ctx).ReportersSearchFilter(reportersSearchFilter).Execute()
+> []ModelVulnerability SearchVulnerabilities(ctx).ReportersSearchNodeReq(reportersSearchNodeReq).Execute()
 
 Search Vulnerabilities
 
@@ -767,11 +767,11 @@ import (
 )
 
 func main() {
-    reportersSearchFilter := *openapiclient.NewReportersSearchFilter(*openapiclient.NewReportersFieldsFilters(*openapiclient.NewReportersContainsFilter(map[string][]interface{}{"key": []interface{}{nil}}), *openapiclient.NewReportersOrderFilter(int32(123), "OrderField_example")), []string{"InFieldFilter_example"}) // ReportersSearchFilter |  (optional)
+    reportersSearchNodeReq := *openapiclient.NewReportersSearchNodeReq(*openapiclient.NewReportersSearchFilter(*openapiclient.NewReportersFieldsFilters(*openapiclient.NewReportersContainsFilter(map[string][]interface{}{"key": []interface{}{nil}}), *openapiclient.NewReportersOrderFilter("OrderField_example")), []string{"InFieldFilter_example"}), *openapiclient.NewModelFetchWindow(int32(123), int32(123))) // ReportersSearchNodeReq |  (optional)
 
     configuration := openapiclient.NewConfiguration()
     apiClient := openapiclient.NewAPIClient(configuration)
-    resp, r, err := apiClient.SearchApi.SearchVulnerabilities(context.Background()).ReportersSearchFilter(reportersSearchFilter).Execute()
+    resp, r, err := apiClient.SearchApi.SearchVulnerabilities(context.Background()).ReportersSearchNodeReq(reportersSearchNodeReq).Execute()
     if err != nil {
         fmt.Fprintf(os.Stderr, "Error when calling `SearchApi.SearchVulnerabilities``: %v\n", err)
         fmt.Fprintf(os.Stderr, "Full HTTP response: %v\n", r)
@@ -792,7 +792,7 @@ Other parameters are passed through a pointer to a apiSearchVulnerabilitiesReque
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **reportersSearchFilter** | [**ReportersSearchFilter**](ReportersSearchFilter.md) |  | 
+ **reportersSearchNodeReq** | [**ReportersSearchNodeReq**](ReportersSearchNodeReq.md) |  | 
 
 ### Return type
 
@@ -833,7 +833,7 @@ import (
 )
 
 func main() {
-    reportersSearchScanReq := *openapiclient.NewReportersSearchScanReq(*openapiclient.NewReportersSearchFilter(*openapiclient.NewReportersFieldsFilters(*openapiclient.NewReportersContainsFilter(map[string][]interface{}{"key": []interface{}{nil}}), *openapiclient.NewReportersOrderFilter(int32(123), "OrderField_example")), []string{"InFieldFilter_example"}), *openapiclient.NewReportersSearchFilter(*openapiclient.NewReportersFieldsFilters(*openapiclient.NewReportersContainsFilter(map[string][]interface{}{"key": []interface{}{nil}}), *openapiclient.NewReportersOrderFilter(int32(123), "OrderField_example")), []string{"InFieldFilter_example"}), *openapiclient.NewModelFetchWindow(int32(123), int32(123))) // ReportersSearchScanReq |  (optional)
+    reportersSearchScanReq := *openapiclient.NewReportersSearchScanReq(*openapiclient.NewReportersSearchFilter(*openapiclient.NewReportersFieldsFilters(*openapiclient.NewReportersContainsFilter(map[string][]interface{}{"key": []interface{}{nil}}), *openapiclient.NewReportersOrderFilter("OrderField_example")), []string{"InFieldFilter_example"}), *openapiclient.NewReportersSearchFilter(*openapiclient.NewReportersFieldsFilters(*openapiclient.NewReportersContainsFilter(map[string][]interface{}{"key": []interface{}{nil}}), *openapiclient.NewReportersOrderFilter("OrderField_example")), []string{"InFieldFilter_example"}), *openapiclient.NewModelFetchWindow(int32(123), int32(123))) // ReportersSearchScanReq |  (optional)
 
     configuration := openapiclient.NewConfiguration()
     apiClient := openapiclient.NewAPIClient(configuration)
