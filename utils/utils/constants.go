@@ -35,6 +35,7 @@ const (
 	TriggerConsoleActionsTask = "trigger_console_actions"
 	ReportGeneratorTask       = "tasks_report_generator"
 	SecretScanTask            = "task_secret_scan"
+	MalwareScanTask           = "task_malware_scan"
 )
 
 const (
