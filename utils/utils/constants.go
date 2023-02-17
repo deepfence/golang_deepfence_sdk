@@ -36,6 +36,8 @@ const (
 	ReportGeneratorTask       = "tasks_report_generator"
 	SecretScanTask            = "task_secret_scan"
 	MalwareScanTask           = "task_malware_scan"
+	ReportGeneratorTaskXLSX   = "tasks_generate_xlsx_report"
+	ReportGeneratorTaskPDF    = "tasks_generate_pdf_report"
 )
 
 const (
