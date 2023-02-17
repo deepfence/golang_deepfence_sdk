@@ -26,11 +26,11 @@ type TopologyApiService service
 type ApiGetContainersTopologyGraphRequest struct {
 	ctx context.Context
 	ApiService *TopologyApiService
-	reportersTopologyFilters *ReportersTopologyFilters
+	graphTopologyFilters *GraphTopologyFilters
 }
 
-func (r ApiGetContainersTopologyGraphRequest) ReportersTopologyFilters(reportersTopologyFilters ReportersTopologyFilters) ApiGetContainersTopologyGraphRequest {
-	r.reportersTopologyFilters = &reportersTopologyFilters
+func (r ApiGetContainersTopologyGraphRequest) GraphTopologyFilters(graphTopologyFilters GraphTopologyFilters) ApiGetContainersTopologyGraphRequest {
+	r.graphTopologyFilters = &graphTopologyFilters
 	return r
 }
 
@@ -92,7 +92,7 @@ func (a *TopologyApiService) GetContainersTopologyGraphExecute(r ApiGetContainer
 		localVarHeaderParams["Accept"] = localVarHTTPHeaderAccept
 	}
 	// body params
-	localVarPostBody = r.reportersTopologyFilters
+	localVarPostBody = r.graphTopologyFilters
 	req, err := a.client.prepareRequest(r.ctx, localVarPath, localVarHTTPMethod, localVarPostBody, localVarHeaderParams, localVarQueryParams, localVarFormParams, formFiles)
 	if err != nil {
 		return localVarReturnValue, nil, err
@@ -165,11 +165,11 @@ func (a *TopologyApiService) GetContainersTopologyGraphExecute(r ApiGetContainer
 type ApiGetHostsTopologyGraphRequest struct {
 	ctx context.Context
 	ApiService *TopologyApiService
-	reportersTopologyFilters *ReportersTopologyFilters
+	graphTopologyFilters *GraphTopologyFilters
 }
 
-func (r ApiGetHostsTopologyGraphRequest) ReportersTopologyFilters(reportersTopologyFilters ReportersTopologyFilters) ApiGetHostsTopologyGraphRequest {
-	r.reportersTopologyFilters = &reportersTopologyFilters
+func (r ApiGetHostsTopologyGraphRequest) GraphTopologyFilters(graphTopologyFilters GraphTopologyFilters) ApiGetHostsTopologyGraphRequest {
+	r.graphTopologyFilters = &graphTopologyFilters
 	return r
 }
 
@@ -231,7 +231,7 @@ func (a *TopologyApiService) GetHostsTopologyGraphExecute(r ApiGetHostsTopologyG
 		localVarHeaderParams["Accept"] = localVarHTTPHeaderAccept
 	}
 	// body params
-	localVarPostBody = r.reportersTopologyFilters
+	localVarPostBody = r.graphTopologyFilters
 	req, err := a.client.prepareRequest(r.ctx, localVarPath, localVarHTTPMethod, localVarPostBody, localVarHeaderParams, localVarQueryParams, localVarFormParams, formFiles)
 	if err != nil {
 		return localVarReturnValue, nil, err
@@ -304,11 +304,11 @@ func (a *TopologyApiService) GetHostsTopologyGraphExecute(r ApiGetHostsTopologyG
 type ApiGetKubernetesTopologyGraphRequest struct {
 	ctx context.Context
 	ApiService *TopologyApiService
-	reportersTopologyFilters *ReportersTopologyFilters
+	graphTopologyFilters *GraphTopologyFilters
 }
 
-func (r ApiGetKubernetesTopologyGraphRequest) ReportersTopologyFilters(reportersTopologyFilters ReportersTopologyFilters) ApiGetKubernetesTopologyGraphRequest {
-	r.reportersTopologyFilters = &reportersTopologyFilters
+func (r ApiGetKubernetesTopologyGraphRequest) GraphTopologyFilters(graphTopologyFilters GraphTopologyFilters) ApiGetKubernetesTopologyGraphRequest {
+	r.graphTopologyFilters = &graphTopologyFilters
 	return r
 }
 
@@ -370,7 +370,7 @@ func (a *TopologyApiService) GetKubernetesTopologyGraphExecute(r ApiGetKubernete
 		localVarHeaderParams["Accept"] = localVarHTTPHeaderAccept
 	}
 	// body params
-	localVarPostBody = r.reportersTopologyFilters
+	localVarPostBody = r.graphTopologyFilters
 	req, err := a.client.prepareRequest(r.ctx, localVarPath, localVarHTTPMethod, localVarPostBody, localVarHeaderParams, localVarQueryParams, localVarFormParams, formFiles)
 	if err != nil {
 		return localVarReturnValue, nil, err
@@ -443,11 +443,11 @@ func (a *TopologyApiService) GetKubernetesTopologyGraphExecute(r ApiGetKubernete
 type ApiGetPodsTopologyGraphRequest struct {
 	ctx context.Context
 	ApiService *TopologyApiService
-	reportersTopologyFilters *ReportersTopologyFilters
+	graphTopologyFilters *GraphTopologyFilters
 }
 
-func (r ApiGetPodsTopologyGraphRequest) ReportersTopologyFilters(reportersTopologyFilters ReportersTopologyFilters) ApiGetPodsTopologyGraphRequest {
-	r.reportersTopologyFilters = &reportersTopologyFilters
+func (r ApiGetPodsTopologyGraphRequest) GraphTopologyFilters(graphTopologyFilters GraphTopologyFilters) ApiGetPodsTopologyGraphRequest {
+	r.graphTopologyFilters = &graphTopologyFilters
 	return r
 }
 
@@ -509,7 +509,7 @@ func (a *TopologyApiService) GetPodsTopologyGraphExecute(r ApiGetPodsTopologyGra
 		localVarHeaderParams["Accept"] = localVarHTTPHeaderAccept
 	}
 	// body params
-	localVarPostBody = r.reportersTopologyFilters
+	localVarPostBody = r.graphTopologyFilters
 	req, err := a.client.prepareRequest(r.ctx, localVarPath, localVarHTTPMethod, localVarPostBody, localVarHeaderParams, localVarQueryParams, localVarFormParams, formFiles)
 	if err != nil {
 		return localVarReturnValue, nil, err
@@ -582,11 +582,11 @@ func (a *TopologyApiService) GetPodsTopologyGraphExecute(r ApiGetPodsTopologyGra
 type ApiGetTopologyGraphRequest struct {
 	ctx context.Context
 	ApiService *TopologyApiService
-	reportersTopologyFilters *ReportersTopologyFilters
+	graphTopologyFilters *GraphTopologyFilters
 }
 
-func (r ApiGetTopologyGraphRequest) ReportersTopologyFilters(reportersTopologyFilters ReportersTopologyFilters) ApiGetTopologyGraphRequest {
-	r.reportersTopologyFilters = &reportersTopologyFilters
+func (r ApiGetTopologyGraphRequest) GraphTopologyFilters(graphTopologyFilters GraphTopologyFilters) ApiGetTopologyGraphRequest {
+	r.graphTopologyFilters = &graphTopologyFilters
 	return r
 }
 
@@ -648,7 +648,7 @@ func (a *TopologyApiService) GetTopologyGraphExecute(r ApiGetTopologyGraphReques
 		localVarHeaderParams["Accept"] = localVarHTTPHeaderAccept
 	}
 	// body params
-	localVarPostBody = r.reportersTopologyFilters
+	localVarPostBody = r.graphTopologyFilters
 	req, err := a.client.prepareRequest(r.ctx, localVarPath, localVarHTTPMethod, localVarPostBody, localVarHeaderParams, localVarQueryParams, localVarFormParams, formFiles)
 	if err != nil {
 		return localVarReturnValue, nil, err

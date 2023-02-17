@@ -26,11 +26,11 @@ type LookupApiService service
 type ApiGetContainerImagesRequest struct {
 	ctx context.Context
 	ApiService *LookupApiService
-	reportersLookupFilter *ReportersLookupFilter
+	lookupLookupFilter *LookupLookupFilter
 }
 
-func (r ApiGetContainerImagesRequest) ReportersLookupFilter(reportersLookupFilter ReportersLookupFilter) ApiGetContainerImagesRequest {
-	r.reportersLookupFilter = &reportersLookupFilter
+func (r ApiGetContainerImagesRequest) LookupLookupFilter(lookupLookupFilter LookupLookupFilter) ApiGetContainerImagesRequest {
+	r.lookupLookupFilter = &lookupLookupFilter
 	return r
 }
 
@@ -92,7 +92,7 @@ func (a *LookupApiService) GetContainerImagesExecute(r ApiGetContainerImagesRequ
 		localVarHeaderParams["Accept"] = localVarHTTPHeaderAccept
 	}
 	// body params
-	localVarPostBody = r.reportersLookupFilter
+	localVarPostBody = r.lookupLookupFilter
 	req, err := a.client.prepareRequest(r.ctx, localVarPath, localVarHTTPMethod, localVarPostBody, localVarHeaderParams, localVarQueryParams, localVarFormParams, formFiles)
 	if err != nil {
 		return localVarReturnValue, nil, err
@@ -165,11 +165,11 @@ func (a *LookupApiService) GetContainerImagesExecute(r ApiGetContainerImagesRequ
 type ApiGetContainersRequest struct {
 	ctx context.Context
 	ApiService *LookupApiService
-	reportersLookupFilter *ReportersLookupFilter
+	lookupLookupFilter *LookupLookupFilter
 }
 
-func (r ApiGetContainersRequest) ReportersLookupFilter(reportersLookupFilter ReportersLookupFilter) ApiGetContainersRequest {
-	r.reportersLookupFilter = &reportersLookupFilter
+func (r ApiGetContainersRequest) LookupLookupFilter(lookupLookupFilter LookupLookupFilter) ApiGetContainersRequest {
+	r.lookupLookupFilter = &lookupLookupFilter
 	return r
 }
 
@@ -231,7 +231,7 @@ func (a *LookupApiService) GetContainersExecute(r ApiGetContainersRequest) ([]Mo
 		localVarHeaderParams["Accept"] = localVarHTTPHeaderAccept
 	}
 	// body params
-	localVarPostBody = r.reportersLookupFilter
+	localVarPostBody = r.lookupLookupFilter
 	req, err := a.client.prepareRequest(r.ctx, localVarPath, localVarHTTPMethod, localVarPostBody, localVarHeaderParams, localVarQueryParams, localVarFormParams, formFiles)
 	if err != nil {
 		return localVarReturnValue, nil, err
@@ -304,11 +304,11 @@ func (a *LookupApiService) GetContainersExecute(r ApiGetContainersRequest) ([]Mo
 type ApiGetHostsRequest struct {
 	ctx context.Context
 	ApiService *LookupApiService
-	reportersLookupFilter *ReportersLookupFilter
+	lookupLookupFilter *LookupLookupFilter
 }
 
-func (r ApiGetHostsRequest) ReportersLookupFilter(reportersLookupFilter ReportersLookupFilter) ApiGetHostsRequest {
-	r.reportersLookupFilter = &reportersLookupFilter
+func (r ApiGetHostsRequest) LookupLookupFilter(lookupLookupFilter LookupLookupFilter) ApiGetHostsRequest {
+	r.lookupLookupFilter = &lookupLookupFilter
 	return r
 }
 
@@ -370,7 +370,7 @@ func (a *LookupApiService) GetHostsExecute(r ApiGetHostsRequest) ([]ModelHost, *
 		localVarHeaderParams["Accept"] = localVarHTTPHeaderAccept
 	}
 	// body params
-	localVarPostBody = r.reportersLookupFilter
+	localVarPostBody = r.lookupLookupFilter
 	req, err := a.client.prepareRequest(r.ctx, localVarPath, localVarHTTPMethod, localVarPostBody, localVarHeaderParams, localVarQueryParams, localVarFormParams, formFiles)
 	if err != nil {
 		return localVarReturnValue, nil, err
@@ -443,11 +443,11 @@ func (a *LookupApiService) GetHostsExecute(r ApiGetHostsRequest) ([]ModelHost, *
 type ApiGetKubernetesClustersRequest struct {
 	ctx context.Context
 	ApiService *LookupApiService
-	reportersLookupFilter *ReportersLookupFilter
+	lookupLookupFilter *LookupLookupFilter
 }
 
-func (r ApiGetKubernetesClustersRequest) ReportersLookupFilter(reportersLookupFilter ReportersLookupFilter) ApiGetKubernetesClustersRequest {
-	r.reportersLookupFilter = &reportersLookupFilter
+func (r ApiGetKubernetesClustersRequest) LookupLookupFilter(lookupLookupFilter LookupLookupFilter) ApiGetKubernetesClustersRequest {
+	r.lookupLookupFilter = &lookupLookupFilter
 	return r
 }
 
@@ -509,7 +509,7 @@ func (a *LookupApiService) GetKubernetesClustersExecute(r ApiGetKubernetesCluste
 		localVarHeaderParams["Accept"] = localVarHTTPHeaderAccept
 	}
 	// body params
-	localVarPostBody = r.reportersLookupFilter
+	localVarPostBody = r.lookupLookupFilter
 	req, err := a.client.prepareRequest(r.ctx, localVarPath, localVarHTTPMethod, localVarPostBody, localVarHeaderParams, localVarQueryParams, localVarFormParams, formFiles)
 	if err != nil {
 		return localVarReturnValue, nil, err
@@ -582,11 +582,11 @@ func (a *LookupApiService) GetKubernetesClustersExecute(r ApiGetKubernetesCluste
 type ApiGetPodsRequest struct {
 	ctx context.Context
 	ApiService *LookupApiService
-	reportersLookupFilter *ReportersLookupFilter
+	lookupLookupFilter *LookupLookupFilter
 }
 
-func (r ApiGetPodsRequest) ReportersLookupFilter(reportersLookupFilter ReportersLookupFilter) ApiGetPodsRequest {
-	r.reportersLookupFilter = &reportersLookupFilter
+func (r ApiGetPodsRequest) LookupLookupFilter(lookupLookupFilter LookupLookupFilter) ApiGetPodsRequest {
+	r.lookupLookupFilter = &lookupLookupFilter
 	return r
 }
 
@@ -648,7 +648,7 @@ func (a *LookupApiService) GetPodsExecute(r ApiGetPodsRequest) ([]ModelPod, *htt
 		localVarHeaderParams["Accept"] = localVarHTTPHeaderAccept
 	}
 	// body params
-	localVarPostBody = r.reportersLookupFilter
+	localVarPostBody = r.lookupLookupFilter
 	req, err := a.client.prepareRequest(r.ctx, localVarPath, localVarHTTPMethod, localVarPostBody, localVarHeaderParams, localVarQueryParams, localVarFormParams, formFiles)
 	if err != nil {
 		return localVarReturnValue, nil, err
@@ -721,11 +721,11 @@ func (a *LookupApiService) GetPodsExecute(r ApiGetPodsRequest) ([]ModelPod, *htt
 type ApiGetProcessesRequest struct {
 	ctx context.Context
 	ApiService *LookupApiService
-	reportersLookupFilter *ReportersLookupFilter
+	lookupLookupFilter *LookupLookupFilter
 }
 
-func (r ApiGetProcessesRequest) ReportersLookupFilter(reportersLookupFilter ReportersLookupFilter) ApiGetProcessesRequest {
-	r.reportersLookupFilter = &reportersLookupFilter
+func (r ApiGetProcessesRequest) LookupLookupFilter(lookupLookupFilter LookupLookupFilter) ApiGetProcessesRequest {
+	r.lookupLookupFilter = &lookupLookupFilter
 	return r
 }
 
@@ -787,7 +787,7 @@ func (a *LookupApiService) GetProcessesExecute(r ApiGetProcessesRequest) ([]Mode
 		localVarHeaderParams["Accept"] = localVarHTTPHeaderAccept
 	}
 	// body params
-	localVarPostBody = r.reportersLookupFilter
+	localVarPostBody = r.lookupLookupFilter
 	req, err := a.client.prepareRequest(r.ctx, localVarPath, localVarHTTPMethod, localVarPostBody, localVarHeaderParams, localVarQueryParams, localVarFormParams, formFiles)
 	if err != nil {
 		return localVarReturnValue, nil, err
@@ -860,11 +860,11 @@ func (a *LookupApiService) GetProcessesExecute(r ApiGetProcessesRequest) ([]Mode
 type ApiGetRegistryAccountRequest struct {
 	ctx context.Context
 	ApiService *LookupApiService
-	reportersLookupFilter *ReportersLookupFilter
+	lookupLookupFilter *LookupLookupFilter
 }
 
-func (r ApiGetRegistryAccountRequest) ReportersLookupFilter(reportersLookupFilter ReportersLookupFilter) ApiGetRegistryAccountRequest {
-	r.reportersLookupFilter = &reportersLookupFilter
+func (r ApiGetRegistryAccountRequest) LookupLookupFilter(lookupLookupFilter LookupLookupFilter) ApiGetRegistryAccountRequest {
+	r.lookupLookupFilter = &lookupLookupFilter
 	return r
 }
 
@@ -926,7 +926,7 @@ func (a *LookupApiService) GetRegistryAccountExecute(r ApiGetRegistryAccountRequ
 		localVarHeaderParams["Accept"] = localVarHTTPHeaderAccept
 	}
 	// body params
-	localVarPostBody = r.reportersLookupFilter
+	localVarPostBody = r.lookupLookupFilter
 	req, err := a.client.prepareRequest(r.ctx, localVarPath, localVarHTTPMethod, localVarPostBody, localVarHeaderParams, localVarQueryParams, localVarFormParams, formFiles)
 	if err != nil {
 		return localVarReturnValue, nil, err

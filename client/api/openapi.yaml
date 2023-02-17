@@ -635,7 +635,7 @@ paths:
           content:
             application/json:
               schema:
-                $ref: '#/components/schemas/ReportersThreatGraph'
+                $ref: '#/components/schemas/GraphThreatGraph'
           description: OK
         "400":
           content:
@@ -672,7 +672,7 @@ paths:
         content:
           application/json:
             schema:
-              $ref: '#/components/schemas/ReportersTopologyFilters'
+              $ref: '#/components/schemas/GraphTopologyFilters'
       responses:
         "200":
           content:
@@ -716,7 +716,7 @@ paths:
         content:
           application/json:
             schema:
-              $ref: '#/components/schemas/ReportersTopologyFilters'
+              $ref: '#/components/schemas/GraphTopologyFilters'
       responses:
         "200":
           content:
@@ -760,7 +760,7 @@ paths:
         content:
           application/json:
             schema:
-              $ref: '#/components/schemas/ReportersTopologyFilters'
+              $ref: '#/components/schemas/GraphTopologyFilters'
       responses:
         "200":
           content:
@@ -804,7 +804,7 @@ paths:
         content:
           application/json:
             schema:
-              $ref: '#/components/schemas/ReportersTopologyFilters'
+              $ref: '#/components/schemas/GraphTopologyFilters'
       responses:
         "200":
           content:
@@ -848,7 +848,7 @@ paths:
         content:
           application/json:
             schema:
-              $ref: '#/components/schemas/ReportersTopologyFilters'
+              $ref: '#/components/schemas/GraphTopologyFilters'
       responses:
         "200":
           content:
@@ -1464,7 +1464,7 @@ paths:
         content:
           application/json:
             schema:
-              $ref: '#/components/schemas/ReportersLookupFilter'
+              $ref: '#/components/schemas/LookupLookupFilter'
       responses:
         "200":
           content:
@@ -1509,7 +1509,7 @@ paths:
         content:
           application/json:
             schema:
-              $ref: '#/components/schemas/ReportersLookupFilter'
+              $ref: '#/components/schemas/LookupLookupFilter'
       responses:
         "200":
           content:
@@ -1554,7 +1554,7 @@ paths:
         content:
           application/json:
             schema:
-              $ref: '#/components/schemas/ReportersLookupFilter'
+              $ref: '#/components/schemas/LookupLookupFilter'
       responses:
         "200":
           content:
@@ -1599,7 +1599,7 @@ paths:
         content:
           application/json:
             schema:
-              $ref: '#/components/schemas/ReportersLookupFilter'
+              $ref: '#/components/schemas/LookupLookupFilter'
       responses:
         "200":
           content:
@@ -1644,7 +1644,7 @@ paths:
         content:
           application/json:
             schema:
-              $ref: '#/components/schemas/ReportersLookupFilter'
+              $ref: '#/components/schemas/LookupLookupFilter'
       responses:
         "200":
           content:
@@ -1689,7 +1689,7 @@ paths:
         content:
           application/json:
             schema:
-              $ref: '#/components/schemas/ReportersLookupFilter'
+              $ref: '#/components/schemas/LookupLookupFilter'
       responses:
         "200":
           content:
@@ -1734,7 +1734,7 @@ paths:
         content:
           application/json:
             schema:
-              $ref: '#/components/schemas/ReportersLookupFilter'
+              $ref: '#/components/schemas/LookupLookupFilter'
       responses:
         "200":
           content:
@@ -2890,7 +2890,7 @@ paths:
         content:
           application/json:
             schema:
-              $ref: '#/components/schemas/ReportersSearchScanReq'
+              $ref: '#/components/schemas/SearchSearchScanReq'
       responses:
         "200":
           content:
@@ -2935,7 +2935,7 @@ paths:
         content:
           application/json:
             schema:
-              $ref: '#/components/schemas/ReportersSearchNodeReq'
+              $ref: '#/components/schemas/SearchSearchNodeReq'
       responses:
         "200":
           content:
@@ -2980,7 +2980,7 @@ paths:
         content:
           application/json:
             schema:
-              $ref: '#/components/schemas/ReportersSearchScanReq'
+              $ref: '#/components/schemas/SearchSearchScanReq'
       responses:
         "200":
           content:
@@ -3025,7 +3025,7 @@ paths:
         content:
           application/json:
             schema:
-              $ref: '#/components/schemas/ReportersSearchNodeReq'
+              $ref: '#/components/schemas/SearchSearchNodeReq'
       responses:
         "200":
           content:
@@ -3070,7 +3070,7 @@ paths:
         content:
           application/json:
             schema:
-              $ref: '#/components/schemas/ReportersSearchNodeReq'
+              $ref: '#/components/schemas/SearchSearchNodeReq'
       responses:
         "200":
           content:
@@ -3115,7 +3115,7 @@ paths:
         content:
           application/json:
             schema:
-              $ref: '#/components/schemas/ReportersSearchNodeReq'
+              $ref: '#/components/schemas/SearchSearchNodeReq'
       responses:
         "200":
           content:
@@ -3160,7 +3160,7 @@ paths:
         content:
           application/json:
             schema:
-              $ref: '#/components/schemas/ReportersSearchNodeReq'
+              $ref: '#/components/schemas/SearchSearchNodeReq'
       responses:
         "200":
           content:
@@ -3205,7 +3205,7 @@ paths:
         content:
           application/json:
             schema:
-              $ref: '#/components/schemas/ReportersSearchScanReq'
+              $ref: '#/components/schemas/SearchSearchScanReq'
       responses:
         "200":
           content:
@@ -3250,7 +3250,7 @@ paths:
         content:
           application/json:
             schema:
-              $ref: '#/components/schemas/ReportersSearchNodeReq'
+              $ref: '#/components/schemas/SearchSearchNodeReq'
       responses:
         "200":
           content:
@@ -3295,7 +3295,7 @@ paths:
         content:
           application/json:
             schema:
-              $ref: '#/components/schemas/ReportersSearchScanReq'
+              $ref: '#/components/schemas/SearchSearchScanReq'
       responses:
         "200":
           content:
@@ -3340,7 +3340,7 @@ paths:
         content:
           application/json:
             schema:
-              $ref: '#/components/schemas/ReportersSearchNodeReq'
+              $ref: '#/components/schemas/SearchSearchNodeReq'
       responses:
         "200":
           content:
@@ -3385,7 +3385,7 @@ paths:
         content:
           application/json:
             schema:
-              $ref: '#/components/schemas/ReportersSearchNodeReq'
+              $ref: '#/components/schemas/SearchSearchNodeReq'
       responses:
         "200":
           content:
@@ -3430,7 +3430,7 @@ paths:
         content:
           application/json:
             schema:
-              $ref: '#/components/schemas/ReportersSearchScanReq'
+              $ref: '#/components/schemas/SearchSearchScanReq'
       responses:
         "200":
           content:
@@ -4219,6 +4219,161 @@ components:
         updated_at:
           type: string
       type: object
+    GraphNodeInfo:
+      properties:
+        compliance_count:
+          type: integer
+        compliance_scan_id:
+          type: string
+        image_name:
+          type: string
+        name:
+          type: string
+        node_id:
+          type: string
+        secrets_count:
+          type: integer
+        secrets_scan_id:
+          type: string
+        vulnerability_count:
+          type: integer
+        vulnerability_scan_id:
+          type: string
+      required:
+      - compliance_count
+      - compliance_scan_id
+      - image_name
+      - name
+      - node_id
+      - secrets_count
+      - secrets_scan_id
+      - vulnerability_count
+      - vulnerability_scan_id
+      type: object
+    GraphProviderThreatGraph:
+      properties:
+        compliance_count:
+          type: integer
+        resources:
+          items:
+            $ref: '#/components/schemas/GraphThreatNodeInfo'
+          nullable: true
+          type: array
+        secrets_count:
+          type: integer
+        vulnerability_count:
+          type: integer
+      required:
+      - compliance_count
+      - resources
+      - secrets_count
+      - vulnerability_count
+      type: object
+    GraphThreatGraph:
+      additionalProperties:
+        $ref: '#/components/schemas/GraphProviderThreatGraph'
+      nullable: true
+      type: object
+    GraphThreatNodeInfo:
+      properties:
+        attack_path:
+          items:
+            items:
+              type: string
+            type: array
+          nullable: true
+          type: array
+        compliance_count:
+          type: integer
+        count:
+          type: integer
+        id:
+          type: string
+        label:
+          type: string
+        node_type:
+          type: string
+        nodes:
+          additionalProperties:
+            $ref: '#/components/schemas/GraphNodeInfo'
+          nullable: true
+          type: object
+        secrets_count:
+          type: integer
+        vulnerability_count:
+          type: integer
+      required:
+      - attack_path
+      - compliance_count
+      - count
+      - id
+      - label
+      - node_type
+      - nodes
+      - secrets_count
+      - vulnerability_count
+      type: object
+    GraphTopologyFilters:
+      example:
+        host_filter:
+        - host_filter
+        - host_filter
+        field_filters:
+          order_filter:
+            order_field: order_field
+          contains_filter:
+            filter_in:
+              key:
+              - ""
+              - ""
+        cloud_filter:
+        - cloud_filter
+        - cloud_filter
+        kubernetes_filter:
+        - kubernetes_filter
+        - kubernetes_filter
+        pod_filter:
+        - pod_filter
+        - pod_filter
+        region_filter:
+        - region_filter
+        - region_filter
+      properties:
+        cloud_filter:
+          items:
+            type: string
+          nullable: true
+          type: array
+        field_filters:
+          $ref: '#/components/schemas/ReportersFieldsFilters'
+        host_filter:
+          items:
+            type: string
+          nullable: true
+          type: array
+        kubernetes_filter:
+          items:
+            type: string
+          nullable: true
+          type: array
+        pod_filter:
+          items:
+            type: string
+          nullable: true
+          type: array
+        region_filter:
+          items:
+            type: string
+          nullable: true
+          type: array
+      required:
+      - cloud_filter
+      - field_filters
+      - host_filter
+      - kubernetes_filter
+      - pod_filter
+      - region_filter
+      type: object
     IngestersCloudCompliance:
       example:
         severity: severity
@@ -4928,6 +5083,35 @@ components:
           type: string
         scan_status:
           type: string
+      type: object
+    LookupLookupFilter:
+      example:
+        in_field_filter:
+        - in_field_filter
+        - in_field_filter
+        window:
+          offset: 0
+          size: 6
+        node_ids:
+        - node_ids
+        - node_ids
+      properties:
+        in_field_filter:
+          items:
+            type: string
+          nullable: true
+          type: array
+        node_ids:
+          items:
+            type: string
+          nullable: true
+          type: array
+        window:
+          $ref: '#/components/schemas/ModelFetchWindow'
+      required:
+      - in_field_filter
+      - node_ids
+      - window
       type: object
     ModelAgentId:
       example:
@@ -8991,66 +9175,6 @@ components:
       - contains_filter
       - order_filter
       type: object
-    ReportersLookupFilter:
-      example:
-        in_field_filter:
-        - in_field_filter
-        - in_field_filter
-        window:
-          offset: 0
-          size: 6
-        node_ids:
-        - node_ids
-        - node_ids
-      properties:
-        in_field_filter:
-          items:
-            type: string
-          nullable: true
-          type: array
-        node_ids:
-          items:
-            type: string
-          nullable: true
-          type: array
-        window:
-          $ref: '#/components/schemas/ModelFetchWindow'
-      required:
-      - in_field_filter
-      - node_ids
-      - window
-      type: object
-    ReportersNodeInfo:
-      properties:
-        compliance_count:
-          type: integer
-        compliance_scan_id:
-          type: string
-        image_name:
-          type: string
-        name:
-          type: string
-        node_id:
-          type: string
-        secrets_count:
-          type: integer
-        secrets_scan_id:
-          type: string
-        vulnerability_count:
-          type: integer
-        vulnerability_scan_id:
-          type: string
-      required:
-      - compliance_count
-      - compliance_scan_id
-      - image_name
-      - name
-      - node_id
-      - secrets_count
-      - secrets_scan_id
-      - vulnerability_count
-      - vulnerability_scan_id
-      type: object
     ReportersOrderFilter:
       example:
         order_field: order_field
@@ -9060,26 +9184,7 @@ components:
       required:
       - order_field
       type: object
-    ReportersProviderThreatGraph:
-      properties:
-        compliance_count:
-          type: integer
-        resources:
-          items:
-            $ref: '#/components/schemas/ReportersThreatNodeInfo'
-          nullable: true
-          type: array
-        secrets_count:
-          type: integer
-        vulnerability_count:
-          type: integer
-      required:
-      - compliance_count
-      - resources
-      - secrets_count
-      - vulnerability_count
-      type: object
-    ReportersSearchFilter:
+    SearchSearchFilter:
       example:
         in_field_filter:
         - in_field_filter
@@ -9104,7 +9209,7 @@ components:
       - filters
       - in_field_filter
       type: object
-    ReportersSearchNodeReq:
+    SearchSearchNodeReq:
       example:
         node_filter:
           in_field_filter:
@@ -9123,14 +9228,14 @@ components:
           size: 6
       properties:
         node_filter:
-          $ref: '#/components/schemas/ReportersSearchFilter'
+          $ref: '#/components/schemas/SearchSearchFilter'
         window:
           $ref: '#/components/schemas/ModelFetchWindow'
       required:
       - node_filter
       - window
       type: object
-    ReportersSearchScanReq:
+    SearchSearchScanReq:
       example:
         node_filters:
           in_field_filter:
@@ -9161,120 +9266,15 @@ components:
           size: 6
       properties:
         node_filters:
-          $ref: '#/components/schemas/ReportersSearchFilter'
+          $ref: '#/components/schemas/SearchSearchFilter'
         scan_filters:
-          $ref: '#/components/schemas/ReportersSearchFilter'
+          $ref: '#/components/schemas/SearchSearchFilter'
         window:
           $ref: '#/components/schemas/ModelFetchWindow'
       required:
       - node_filters
       - scan_filters
       - window
-      type: object
-    ReportersThreatGraph:
-      additionalProperties:
-        $ref: '#/components/schemas/ReportersProviderThreatGraph'
-      nullable: true
-      type: object
-    ReportersThreatNodeInfo:
-      properties:
-        attack_path:
-          items:
-            items:
-              type: string
-            type: array
-          nullable: true
-          type: array
-        compliance_count:
-          type: integer
-        count:
-          type: integer
-        id:
-          type: string
-        label:
-          type: string
-        node_type:
-          type: string
-        nodes:
-          additionalProperties:
-            $ref: '#/components/schemas/ReportersNodeInfo'
-          nullable: true
-          type: object
-        secrets_count:
-          type: integer
-        vulnerability_count:
-          type: integer
-      required:
-      - attack_path
-      - compliance_count
-      - count
-      - id
-      - label
-      - node_type
-      - nodes
-      - secrets_count
-      - vulnerability_count
-      type: object
-    ReportersTopologyFilters:
-      example:
-        host_filter:
-        - host_filter
-        - host_filter
-        field_filters:
-          order_filter:
-            order_field: order_field
-          contains_filter:
-            filter_in:
-              key:
-              - ""
-              - ""
-        cloud_filter:
-        - cloud_filter
-        - cloud_filter
-        kubernetes_filter:
-        - kubernetes_filter
-        - kubernetes_filter
-        pod_filter:
-        - pod_filter
-        - pod_filter
-        region_filter:
-        - region_filter
-        - region_filter
-      properties:
-        cloud_filter:
-          items:
-            type: string
-          nullable: true
-          type: array
-        field_filters:
-          $ref: '#/components/schemas/ReportersFieldsFilters'
-        host_filter:
-          items:
-            type: string
-          nullable: true
-          type: array
-        kubernetes_filter:
-          items:
-            type: string
-          nullable: true
-          type: array
-        pod_filter:
-          items:
-            type: string
-          nullable: true
-          type: array
-        region_filter:
-          items:
-            type: string
-          nullable: true
-          type: array
-      required:
-      - cloud_filter
-      - field_filters
-      - host_filter
-      - kubernetes_filter
-      - pod_filter
-      - region_filter
       type: object
     UtilsScanSbomRequest:
       example:

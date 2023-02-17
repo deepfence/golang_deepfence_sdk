@@ -28,7 +28,7 @@ type ApiGetThreatGraphRequest struct {
 	ApiService *ThreatApiService
 }
 
-func (r ApiGetThreatGraphRequest) Execute() (*map[string]ReportersProviderThreatGraph, *http.Response, error) {
+func (r ApiGetThreatGraphRequest) Execute() (*map[string]GraphProviderThreatGraph, *http.Response, error) {
 	return r.ApiService.GetThreatGraphExecute(r)
 }
 
@@ -48,13 +48,13 @@ func (a *ThreatApiService) GetThreatGraph(ctx context.Context) ApiGetThreatGraph
 }
 
 // Execute executes the request
-//  @return map[string]ReportersProviderThreatGraph
-func (a *ThreatApiService) GetThreatGraphExecute(r ApiGetThreatGraphRequest) (*map[string]ReportersProviderThreatGraph, *http.Response, error) {
+//  @return map[string]GraphProviderThreatGraph
+func (a *ThreatApiService) GetThreatGraphExecute(r ApiGetThreatGraphRequest) (*map[string]GraphProviderThreatGraph, *http.Response, error) {
 	var (
 		localVarHTTPMethod   = http.MethodPost
 		localVarPostBody     interface{}
 		formFiles            []formFile
-		localVarReturnValue  *map[string]ReportersProviderThreatGraph
+		localVarReturnValue  *map[string]GraphProviderThreatGraph
 	)
 
 	localBasePath, err := a.client.cfg.ServerURLWithContext(r.ctx, "ThreatApiService.GetThreatGraph")

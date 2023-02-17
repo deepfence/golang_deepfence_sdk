@@ -16,7 +16,7 @@ Method | HTTP request | Description
 
 ## GetContainerImages
 
-> []ModelContainerImage GetContainerImages(ctx).ReportersLookupFilter(reportersLookupFilter).Execute()
+> []ModelContainerImage GetContainerImages(ctx).LookupLookupFilter(lookupLookupFilter).Execute()
 
 Retrieve Container Images data
 
@@ -35,11 +35,11 @@ import (
 )
 
 func main() {
-    reportersLookupFilter := *openapiclient.NewReportersLookupFilter([]string{"InFieldFilter_example"}, []string{"NodeIds_example"}, *openapiclient.NewModelFetchWindow(int32(123), int32(123))) // ReportersLookupFilter |  (optional)
+    lookupLookupFilter := *openapiclient.NewLookupLookupFilter([]string{"InFieldFilter_example"}, []string{"NodeIds_example"}, *openapiclient.NewModelFetchWindow(int32(123), int32(123))) // LookupLookupFilter |  (optional)
 
     configuration := openapiclient.NewConfiguration()
     apiClient := openapiclient.NewAPIClient(configuration)
-    resp, r, err := apiClient.LookupApi.GetContainerImages(context.Background()).ReportersLookupFilter(reportersLookupFilter).Execute()
+    resp, r, err := apiClient.LookupApi.GetContainerImages(context.Background()).LookupLookupFilter(lookupLookupFilter).Execute()
     if err != nil {
         fmt.Fprintf(os.Stderr, "Error when calling `LookupApi.GetContainerImages``: %v\n", err)
         fmt.Fprintf(os.Stderr, "Full HTTP response: %v\n", r)
@@ -60,7 +60,7 @@ Other parameters are passed through a pointer to a apiGetContainerImagesRequest 
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **reportersLookupFilter** | [**ReportersLookupFilter**](ReportersLookupFilter.md) |  | 
+ **lookupLookupFilter** | [**LookupLookupFilter**](LookupLookupFilter.md) |  | 
 
 ### Return type
 
@@ -82,7 +82,7 @@ Name | Type | Description  | Notes
 
 ## GetContainers
 
-> []ModelContainer GetContainers(ctx).ReportersLookupFilter(reportersLookupFilter).Execute()
+> []ModelContainer GetContainers(ctx).LookupLookupFilter(lookupLookupFilter).Execute()
 
 Retrieve Containers data
 
@@ -101,11 +101,11 @@ import (
 )
 
 func main() {
-    reportersLookupFilter := *openapiclient.NewReportersLookupFilter([]string{"InFieldFilter_example"}, []string{"NodeIds_example"}, *openapiclient.NewModelFetchWindow(int32(123), int32(123))) // ReportersLookupFilter |  (optional)
+    lookupLookupFilter := *openapiclient.NewLookupLookupFilter([]string{"InFieldFilter_example"}, []string{"NodeIds_example"}, *openapiclient.NewModelFetchWindow(int32(123), int32(123))) // LookupLookupFilter |  (optional)
 
     configuration := openapiclient.NewConfiguration()
     apiClient := openapiclient.NewAPIClient(configuration)
-    resp, r, err := apiClient.LookupApi.GetContainers(context.Background()).ReportersLookupFilter(reportersLookupFilter).Execute()
+    resp, r, err := apiClient.LookupApi.GetContainers(context.Background()).LookupLookupFilter(lookupLookupFilter).Execute()
     if err != nil {
         fmt.Fprintf(os.Stderr, "Error when calling `LookupApi.GetContainers``: %v\n", err)
         fmt.Fprintf(os.Stderr, "Full HTTP response: %v\n", r)
@@ -126,7 +126,7 @@ Other parameters are passed through a pointer to a apiGetContainersRequest struc
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **reportersLookupFilter** | [**ReportersLookupFilter**](ReportersLookupFilter.md) |  | 
+ **lookupLookupFilter** | [**LookupLookupFilter**](LookupLookupFilter.md) |  | 
 
 ### Return type
 
@@ -148,7 +148,7 @@ Name | Type | Description  | Notes
 
 ## GetHosts
 
-> []ModelHost GetHosts(ctx).ReportersLookupFilter(reportersLookupFilter).Execute()
+> []ModelHost GetHosts(ctx).LookupLookupFilter(lookupLookupFilter).Execute()
 
 Retrieve Hosts data
 
@@ -167,11 +167,11 @@ import (
 )
 
 func main() {
-    reportersLookupFilter := *openapiclient.NewReportersLookupFilter([]string{"InFieldFilter_example"}, []string{"NodeIds_example"}, *openapiclient.NewModelFetchWindow(int32(123), int32(123))) // ReportersLookupFilter |  (optional)
+    lookupLookupFilter := *openapiclient.NewLookupLookupFilter([]string{"InFieldFilter_example"}, []string{"NodeIds_example"}, *openapiclient.NewModelFetchWindow(int32(123), int32(123))) // LookupLookupFilter |  (optional)
 
     configuration := openapiclient.NewConfiguration()
     apiClient := openapiclient.NewAPIClient(configuration)
-    resp, r, err := apiClient.LookupApi.GetHosts(context.Background()).ReportersLookupFilter(reportersLookupFilter).Execute()
+    resp, r, err := apiClient.LookupApi.GetHosts(context.Background()).LookupLookupFilter(lookupLookupFilter).Execute()
     if err != nil {
         fmt.Fprintf(os.Stderr, "Error when calling `LookupApi.GetHosts``: %v\n", err)
         fmt.Fprintf(os.Stderr, "Full HTTP response: %v\n", r)
@@ -192,7 +192,7 @@ Other parameters are passed through a pointer to a apiGetHostsRequest struct via
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **reportersLookupFilter** | [**ReportersLookupFilter**](ReportersLookupFilter.md) |  | 
+ **lookupLookupFilter** | [**LookupLookupFilter**](LookupLookupFilter.md) |  | 
 
 ### Return type
 
@@ -214,7 +214,7 @@ Name | Type | Description  | Notes
 
 ## GetKubernetesClusters
 
-> []ModelKubernetesCluster GetKubernetesClusters(ctx).ReportersLookupFilter(reportersLookupFilter).Execute()
+> []ModelKubernetesCluster GetKubernetesClusters(ctx).LookupLookupFilter(lookupLookupFilter).Execute()
 
 Retrieve K8s data
 
@@ -233,11 +233,11 @@ import (
 )
 
 func main() {
-    reportersLookupFilter := *openapiclient.NewReportersLookupFilter([]string{"InFieldFilter_example"}, []string{"NodeIds_example"}, *openapiclient.NewModelFetchWindow(int32(123), int32(123))) // ReportersLookupFilter |  (optional)
+    lookupLookupFilter := *openapiclient.NewLookupLookupFilter([]string{"InFieldFilter_example"}, []string{"NodeIds_example"}, *openapiclient.NewModelFetchWindow(int32(123), int32(123))) // LookupLookupFilter |  (optional)
 
     configuration := openapiclient.NewConfiguration()
     apiClient := openapiclient.NewAPIClient(configuration)
-    resp, r, err := apiClient.LookupApi.GetKubernetesClusters(context.Background()).ReportersLookupFilter(reportersLookupFilter).Execute()
+    resp, r, err := apiClient.LookupApi.GetKubernetesClusters(context.Background()).LookupLookupFilter(lookupLookupFilter).Execute()
     if err != nil {
         fmt.Fprintf(os.Stderr, "Error when calling `LookupApi.GetKubernetesClusters``: %v\n", err)
         fmt.Fprintf(os.Stderr, "Full HTTP response: %v\n", r)
@@ -258,7 +258,7 @@ Other parameters are passed through a pointer to a apiGetKubernetesClustersReque
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **reportersLookupFilter** | [**ReportersLookupFilter**](ReportersLookupFilter.md) |  | 
+ **lookupLookupFilter** | [**LookupLookupFilter**](LookupLookupFilter.md) |  | 
 
 ### Return type
 
@@ -280,7 +280,7 @@ Name | Type | Description  | Notes
 
 ## GetPods
 
-> []ModelPod GetPods(ctx).ReportersLookupFilter(reportersLookupFilter).Execute()
+> []ModelPod GetPods(ctx).LookupLookupFilter(lookupLookupFilter).Execute()
 
 Retrieve Pods data
 
@@ -299,11 +299,11 @@ import (
 )
 
 func main() {
-    reportersLookupFilter := *openapiclient.NewReportersLookupFilter([]string{"InFieldFilter_example"}, []string{"NodeIds_example"}, *openapiclient.NewModelFetchWindow(int32(123), int32(123))) // ReportersLookupFilter |  (optional)
+    lookupLookupFilter := *openapiclient.NewLookupLookupFilter([]string{"InFieldFilter_example"}, []string{"NodeIds_example"}, *openapiclient.NewModelFetchWindow(int32(123), int32(123))) // LookupLookupFilter |  (optional)
 
     configuration := openapiclient.NewConfiguration()
     apiClient := openapiclient.NewAPIClient(configuration)
-    resp, r, err := apiClient.LookupApi.GetPods(context.Background()).ReportersLookupFilter(reportersLookupFilter).Execute()
+    resp, r, err := apiClient.LookupApi.GetPods(context.Background()).LookupLookupFilter(lookupLookupFilter).Execute()
     if err != nil {
         fmt.Fprintf(os.Stderr, "Error when calling `LookupApi.GetPods``: %v\n", err)
         fmt.Fprintf(os.Stderr, "Full HTTP response: %v\n", r)
@@ -324,7 +324,7 @@ Other parameters are passed through a pointer to a apiGetPodsRequest struct via 
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **reportersLookupFilter** | [**ReportersLookupFilter**](ReportersLookupFilter.md) |  | 
+ **lookupLookupFilter** | [**LookupLookupFilter**](LookupLookupFilter.md) |  | 
 
 ### Return type
 
@@ -346,7 +346,7 @@ Name | Type | Description  | Notes
 
 ## GetProcesses
 
-> []ModelProcess GetProcesses(ctx).ReportersLookupFilter(reportersLookupFilter).Execute()
+> []ModelProcess GetProcesses(ctx).LookupLookupFilter(lookupLookupFilter).Execute()
 
 Retrieve Processes data
 
@@ -365,11 +365,11 @@ import (
 )
 
 func main() {
-    reportersLookupFilter := *openapiclient.NewReportersLookupFilter([]string{"InFieldFilter_example"}, []string{"NodeIds_example"}, *openapiclient.NewModelFetchWindow(int32(123), int32(123))) // ReportersLookupFilter |  (optional)
+    lookupLookupFilter := *openapiclient.NewLookupLookupFilter([]string{"InFieldFilter_example"}, []string{"NodeIds_example"}, *openapiclient.NewModelFetchWindow(int32(123), int32(123))) // LookupLookupFilter |  (optional)
 
     configuration := openapiclient.NewConfiguration()
     apiClient := openapiclient.NewAPIClient(configuration)
-    resp, r, err := apiClient.LookupApi.GetProcesses(context.Background()).ReportersLookupFilter(reportersLookupFilter).Execute()
+    resp, r, err := apiClient.LookupApi.GetProcesses(context.Background()).LookupLookupFilter(lookupLookupFilter).Execute()
     if err != nil {
         fmt.Fprintf(os.Stderr, "Error when calling `LookupApi.GetProcesses``: %v\n", err)
         fmt.Fprintf(os.Stderr, "Full HTTP response: %v\n", r)
@@ -390,7 +390,7 @@ Other parameters are passed through a pointer to a apiGetProcessesRequest struct
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **reportersLookupFilter** | [**ReportersLookupFilter**](ReportersLookupFilter.md) |  | 
+ **lookupLookupFilter** | [**LookupLookupFilter**](LookupLookupFilter.md) |  | 
 
 ### Return type
 
@@ -412,7 +412,7 @@ Name | Type | Description  | Notes
 
 ## GetRegistryAccount
 
-> []ModelRegistryAccount GetRegistryAccount(ctx).ReportersLookupFilter(reportersLookupFilter).Execute()
+> []ModelRegistryAccount GetRegistryAccount(ctx).LookupLookupFilter(lookupLookupFilter).Execute()
 
 Get Images in Registry
 
@@ -431,11 +431,11 @@ import (
 )
 
 func main() {
-    reportersLookupFilter := *openapiclient.NewReportersLookupFilter([]string{"InFieldFilter_example"}, []string{"NodeIds_example"}, *openapiclient.NewModelFetchWindow(int32(123), int32(123))) // ReportersLookupFilter |  (optional)
+    lookupLookupFilter := *openapiclient.NewLookupLookupFilter([]string{"InFieldFilter_example"}, []string{"NodeIds_example"}, *openapiclient.NewModelFetchWindow(int32(123), int32(123))) // LookupLookupFilter |  (optional)
 
     configuration := openapiclient.NewConfiguration()
     apiClient := openapiclient.NewAPIClient(configuration)
-    resp, r, err := apiClient.LookupApi.GetRegistryAccount(context.Background()).ReportersLookupFilter(reportersLookupFilter).Execute()
+    resp, r, err := apiClient.LookupApi.GetRegistryAccount(context.Background()).LookupLookupFilter(lookupLookupFilter).Execute()
     if err != nil {
         fmt.Fprintf(os.Stderr, "Error when calling `LookupApi.GetRegistryAccount``: %v\n", err)
         fmt.Fprintf(os.Stderr, "Full HTTP response: %v\n", r)
@@ -456,7 +456,7 @@ Other parameters are passed through a pointer to a apiGetRegistryAccountRequest 
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **reportersLookupFilter** | [**ReportersLookupFilter**](ReportersLookupFilter.md) |  | 
+ **lookupLookupFilter** | [**LookupLookupFilter**](LookupLookupFilter.md) |  | 
 
 ### Return type
 

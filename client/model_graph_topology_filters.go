@@ -15,11 +15,11 @@ import (
 	"encoding/json"
 )
 
-// checks if the ReportersTopologyFilters type satisfies the MappedNullable interface at compile time
-var _ MappedNullable = &ReportersTopologyFilters{}
+// checks if the GraphTopologyFilters type satisfies the MappedNullable interface at compile time
+var _ MappedNullable = &GraphTopologyFilters{}
 
-// ReportersTopologyFilters struct for ReportersTopologyFilters
-type ReportersTopologyFilters struct {
+// GraphTopologyFilters struct for GraphTopologyFilters
+type GraphTopologyFilters struct {
 	CloudFilter []string `json:"cloud_filter"`
 	FieldFilters ReportersFieldsFilters `json:"field_filters"`
 	HostFilter []string `json:"host_filter"`
@@ -28,12 +28,12 @@ type ReportersTopologyFilters struct {
 	RegionFilter []string `json:"region_filter"`
 }
 
-// NewReportersTopologyFilters instantiates a new ReportersTopologyFilters object
+// NewGraphTopologyFilters instantiates a new GraphTopologyFilters object
 // This constructor will assign default values to properties that have it defined,
 // and makes sure properties required by API are set, but the set of arguments
 // will change when the set of required properties is changed
-func NewReportersTopologyFilters(cloudFilter []string, fieldFilters ReportersFieldsFilters, hostFilter []string, kubernetesFilter []string, podFilter []string, regionFilter []string) *ReportersTopologyFilters {
-	this := ReportersTopologyFilters{}
+func NewGraphTopologyFilters(cloudFilter []string, fieldFilters ReportersFieldsFilters, hostFilter []string, kubernetesFilter []string, podFilter []string, regionFilter []string) *GraphTopologyFilters {
+	this := GraphTopologyFilters{}
 	this.CloudFilter = cloudFilter
 	this.FieldFilters = fieldFilters
 	this.HostFilter = hostFilter
@@ -43,17 +43,17 @@ func NewReportersTopologyFilters(cloudFilter []string, fieldFilters ReportersFie
 	return &this
 }
 
-// NewReportersTopologyFiltersWithDefaults instantiates a new ReportersTopologyFilters object
+// NewGraphTopologyFiltersWithDefaults instantiates a new GraphTopologyFilters object
 // This constructor will only assign default values to properties that have it defined,
 // but it doesn't guarantee that properties required by API are set
-func NewReportersTopologyFiltersWithDefaults() *ReportersTopologyFilters {
-	this := ReportersTopologyFilters{}
+func NewGraphTopologyFiltersWithDefaults() *GraphTopologyFilters {
+	this := GraphTopologyFilters{}
 	return &this
 }
 
 // GetCloudFilter returns the CloudFilter field value
 // If the value is explicit nil, the zero value for []string will be returned
-func (o *ReportersTopologyFilters) GetCloudFilter() []string {
+func (o *GraphTopologyFilters) GetCloudFilter() []string {
 	if o == nil {
 		var ret []string
 		return ret
@@ -65,7 +65,7 @@ func (o *ReportersTopologyFilters) GetCloudFilter() []string {
 // GetCloudFilterOk returns a tuple with the CloudFilter field value
 // and a boolean to check if the value has been set.
 // NOTE: If the value is an explicit nil, `nil, true` will be returned
-func (o *ReportersTopologyFilters) GetCloudFilterOk() ([]string, bool) {
+func (o *GraphTopologyFilters) GetCloudFilterOk() ([]string, bool) {
 	if o == nil || IsNil(o.CloudFilter) {
 		return nil, false
 	}
@@ -73,12 +73,12 @@ func (o *ReportersTopologyFilters) GetCloudFilterOk() ([]string, bool) {
 }
 
 // SetCloudFilter sets field value
-func (o *ReportersTopologyFilters) SetCloudFilter(v []string) {
+func (o *GraphTopologyFilters) SetCloudFilter(v []string) {
 	o.CloudFilter = v
 }
 
 // GetFieldFilters returns the FieldFilters field value
-func (o *ReportersTopologyFilters) GetFieldFilters() ReportersFieldsFilters {
+func (o *GraphTopologyFilters) GetFieldFilters() ReportersFieldsFilters {
 	if o == nil {
 		var ret ReportersFieldsFilters
 		return ret
@@ -89,7 +89,7 @@ func (o *ReportersTopologyFilters) GetFieldFilters() ReportersFieldsFilters {
 
 // GetFieldFiltersOk returns a tuple with the FieldFilters field value
 // and a boolean to check if the value has been set.
-func (o *ReportersTopologyFilters) GetFieldFiltersOk() (*ReportersFieldsFilters, bool) {
+func (o *GraphTopologyFilters) GetFieldFiltersOk() (*ReportersFieldsFilters, bool) {
 	if o == nil {
 		return nil, false
 	}
@@ -97,13 +97,13 @@ func (o *ReportersTopologyFilters) GetFieldFiltersOk() (*ReportersFieldsFilters,
 }
 
 // SetFieldFilters sets field value
-func (o *ReportersTopologyFilters) SetFieldFilters(v ReportersFieldsFilters) {
+func (o *GraphTopologyFilters) SetFieldFilters(v ReportersFieldsFilters) {
 	o.FieldFilters = v
 }
 
 // GetHostFilter returns the HostFilter field value
 // If the value is explicit nil, the zero value for []string will be returned
-func (o *ReportersTopologyFilters) GetHostFilter() []string {
+func (o *GraphTopologyFilters) GetHostFilter() []string {
 	if o == nil {
 		var ret []string
 		return ret
@@ -115,7 +115,7 @@ func (o *ReportersTopologyFilters) GetHostFilter() []string {
 // GetHostFilterOk returns a tuple with the HostFilter field value
 // and a boolean to check if the value has been set.
 // NOTE: If the value is an explicit nil, `nil, true` will be returned
-func (o *ReportersTopologyFilters) GetHostFilterOk() ([]string, bool) {
+func (o *GraphTopologyFilters) GetHostFilterOk() ([]string, bool) {
 	if o == nil || IsNil(o.HostFilter) {
 		return nil, false
 	}
@@ -123,13 +123,13 @@ func (o *ReportersTopologyFilters) GetHostFilterOk() ([]string, bool) {
 }
 
 // SetHostFilter sets field value
-func (o *ReportersTopologyFilters) SetHostFilter(v []string) {
+func (o *GraphTopologyFilters) SetHostFilter(v []string) {
 	o.HostFilter = v
 }
 
 // GetKubernetesFilter returns the KubernetesFilter field value
 // If the value is explicit nil, the zero value for []string will be returned
-func (o *ReportersTopologyFilters) GetKubernetesFilter() []string {
+func (o *GraphTopologyFilters) GetKubernetesFilter() []string {
 	if o == nil {
 		var ret []string
 		return ret
@@ -141,7 +141,7 @@ func (o *ReportersTopologyFilters) GetKubernetesFilter() []string {
 // GetKubernetesFilterOk returns a tuple with the KubernetesFilter field value
 // and a boolean to check if the value has been set.
 // NOTE: If the value is an explicit nil, `nil, true` will be returned
-func (o *ReportersTopologyFilters) GetKubernetesFilterOk() ([]string, bool) {
+func (o *GraphTopologyFilters) GetKubernetesFilterOk() ([]string, bool) {
 	if o == nil || IsNil(o.KubernetesFilter) {
 		return nil, false
 	}
@@ -149,13 +149,13 @@ func (o *ReportersTopologyFilters) GetKubernetesFilterOk() ([]string, bool) {
 }
 
 // SetKubernetesFilter sets field value
-func (o *ReportersTopologyFilters) SetKubernetesFilter(v []string) {
+func (o *GraphTopologyFilters) SetKubernetesFilter(v []string) {
 	o.KubernetesFilter = v
 }
 
 // GetPodFilter returns the PodFilter field value
 // If the value is explicit nil, the zero value for []string will be returned
-func (o *ReportersTopologyFilters) GetPodFilter() []string {
+func (o *GraphTopologyFilters) GetPodFilter() []string {
 	if o == nil {
 		var ret []string
 		return ret
@@ -167,7 +167,7 @@ func (o *ReportersTopologyFilters) GetPodFilter() []string {
 // GetPodFilterOk returns a tuple with the PodFilter field value
 // and a boolean to check if the value has been set.
 // NOTE: If the value is an explicit nil, `nil, true` will be returned
-func (o *ReportersTopologyFilters) GetPodFilterOk() ([]string, bool) {
+func (o *GraphTopologyFilters) GetPodFilterOk() ([]string, bool) {
 	if o == nil || IsNil(o.PodFilter) {
 		return nil, false
 	}
@@ -175,13 +175,13 @@ func (o *ReportersTopologyFilters) GetPodFilterOk() ([]string, bool) {
 }
 
 // SetPodFilter sets field value
-func (o *ReportersTopologyFilters) SetPodFilter(v []string) {
+func (o *GraphTopologyFilters) SetPodFilter(v []string) {
 	o.PodFilter = v
 }
 
 // GetRegionFilter returns the RegionFilter field value
 // If the value is explicit nil, the zero value for []string will be returned
-func (o *ReportersTopologyFilters) GetRegionFilter() []string {
+func (o *GraphTopologyFilters) GetRegionFilter() []string {
 	if o == nil {
 		var ret []string
 		return ret
@@ -193,7 +193,7 @@ func (o *ReportersTopologyFilters) GetRegionFilter() []string {
 // GetRegionFilterOk returns a tuple with the RegionFilter field value
 // and a boolean to check if the value has been set.
 // NOTE: If the value is an explicit nil, `nil, true` will be returned
-func (o *ReportersTopologyFilters) GetRegionFilterOk() ([]string, bool) {
+func (o *GraphTopologyFilters) GetRegionFilterOk() ([]string, bool) {
 	if o == nil || IsNil(o.RegionFilter) {
 		return nil, false
 	}
@@ -201,11 +201,11 @@ func (o *ReportersTopologyFilters) GetRegionFilterOk() ([]string, bool) {
 }
 
 // SetRegionFilter sets field value
-func (o *ReportersTopologyFilters) SetRegionFilter(v []string) {
+func (o *GraphTopologyFilters) SetRegionFilter(v []string) {
 	o.RegionFilter = v
 }
 
-func (o ReportersTopologyFilters) MarshalJSON() ([]byte, error) {
+func (o GraphTopologyFilters) MarshalJSON() ([]byte, error) {
 	toSerialize,err := o.ToMap()
 	if err != nil {
 		return []byte{}, err
@@ -213,7 +213,7 @@ func (o ReportersTopologyFilters) MarshalJSON() ([]byte, error) {
 	return json.Marshal(toSerialize)
 }
 
-func (o ReportersTopologyFilters) ToMap() (map[string]interface{}, error) {
+func (o GraphTopologyFilters) ToMap() (map[string]interface{}, error) {
 	toSerialize := map[string]interface{}{}
 	if o.CloudFilter != nil {
 		toSerialize["cloud_filter"] = o.CloudFilter
@@ -234,38 +234,38 @@ func (o ReportersTopologyFilters) ToMap() (map[string]interface{}, error) {
 	return toSerialize, nil
 }
 
-type NullableReportersTopologyFilters struct {
-	value *ReportersTopologyFilters
+type NullableGraphTopologyFilters struct {
+	value *GraphTopologyFilters
 	isSet bool
 }
 
-func (v NullableReportersTopologyFilters) Get() *ReportersTopologyFilters {
+func (v NullableGraphTopologyFilters) Get() *GraphTopologyFilters {
 	return v.value
 }
 
-func (v *NullableReportersTopologyFilters) Set(val *ReportersTopologyFilters) {
+func (v *NullableGraphTopologyFilters) Set(val *GraphTopologyFilters) {
 	v.value = val
 	v.isSet = true
 }
 
-func (v NullableReportersTopologyFilters) IsSet() bool {
+func (v NullableGraphTopologyFilters) IsSet() bool {
 	return v.isSet
 }
 
-func (v *NullableReportersTopologyFilters) Unset() {
+func (v *NullableGraphTopologyFilters) Unset() {
 	v.value = nil
 	v.isSet = false
 }
 
-func NewNullableReportersTopologyFilters(val *ReportersTopologyFilters) *NullableReportersTopologyFilters {
-	return &NullableReportersTopologyFilters{value: val, isSet: true}
+func NewNullableGraphTopologyFilters(val *GraphTopologyFilters) *NullableGraphTopologyFilters {
+	return &NullableGraphTopologyFilters{value: val, isSet: true}
 }
 
-func (v NullableReportersTopologyFilters) MarshalJSON() ([]byte, error) {
+func (v NullableGraphTopologyFilters) MarshalJSON() ([]byte, error) {
 	return json.Marshal(v.value)
 }
 
-func (v *NullableReportersTopologyFilters) UnmarshalJSON(src []byte) error {
+func (v *NullableGraphTopologyFilters) UnmarshalJSON(src []byte) error {
 	v.isSet = true
 	return json.Unmarshal(src, &v.value)
 }

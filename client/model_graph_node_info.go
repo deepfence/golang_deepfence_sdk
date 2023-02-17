@@ -15,11 +15,11 @@ import (
 	"encoding/json"
 )
 
-// checks if the ReportersNodeInfo type satisfies the MappedNullable interface at compile time
-var _ MappedNullable = &ReportersNodeInfo{}
+// checks if the GraphNodeInfo type satisfies the MappedNullable interface at compile time
+var _ MappedNullable = &GraphNodeInfo{}
 
-// ReportersNodeInfo struct for ReportersNodeInfo
-type ReportersNodeInfo struct {
+// GraphNodeInfo struct for GraphNodeInfo
+type GraphNodeInfo struct {
 	ComplianceCount int32 `json:"compliance_count"`
 	ComplianceScanId string `json:"compliance_scan_id"`
 	ImageName string `json:"image_name"`
@@ -31,12 +31,12 @@ type ReportersNodeInfo struct {
 	VulnerabilityScanId string `json:"vulnerability_scan_id"`
 }
 
-// NewReportersNodeInfo instantiates a new ReportersNodeInfo object
+// NewGraphNodeInfo instantiates a new GraphNodeInfo object
 // This constructor will assign default values to properties that have it defined,
 // and makes sure properties required by API are set, but the set of arguments
 // will change when the set of required properties is changed
-func NewReportersNodeInfo(complianceCount int32, complianceScanId string, imageName string, name string, nodeId string, secretsCount int32, secretsScanId string, vulnerabilityCount int32, vulnerabilityScanId string) *ReportersNodeInfo {
-	this := ReportersNodeInfo{}
+func NewGraphNodeInfo(complianceCount int32, complianceScanId string, imageName string, name string, nodeId string, secretsCount int32, secretsScanId string, vulnerabilityCount int32, vulnerabilityScanId string) *GraphNodeInfo {
+	this := GraphNodeInfo{}
 	this.ComplianceCount = complianceCount
 	this.ComplianceScanId = complianceScanId
 	this.ImageName = imageName
@@ -49,16 +49,16 @@ func NewReportersNodeInfo(complianceCount int32, complianceScanId string, imageN
 	return &this
 }
 
-// NewReportersNodeInfoWithDefaults instantiates a new ReportersNodeInfo object
+// NewGraphNodeInfoWithDefaults instantiates a new GraphNodeInfo object
 // This constructor will only assign default values to properties that have it defined,
 // but it doesn't guarantee that properties required by API are set
-func NewReportersNodeInfoWithDefaults() *ReportersNodeInfo {
-	this := ReportersNodeInfo{}
+func NewGraphNodeInfoWithDefaults() *GraphNodeInfo {
+	this := GraphNodeInfo{}
 	return &this
 }
 
 // GetComplianceCount returns the ComplianceCount field value
-func (o *ReportersNodeInfo) GetComplianceCount() int32 {
+func (o *GraphNodeInfo) GetComplianceCount() int32 {
 	if o == nil {
 		var ret int32
 		return ret
@@ -69,7 +69,7 @@ func (o *ReportersNodeInfo) GetComplianceCount() int32 {
 
 // GetComplianceCountOk returns a tuple with the ComplianceCount field value
 // and a boolean to check if the value has been set.
-func (o *ReportersNodeInfo) GetComplianceCountOk() (*int32, bool) {
+func (o *GraphNodeInfo) GetComplianceCountOk() (*int32, bool) {
 	if o == nil {
 		return nil, false
 	}
@@ -77,12 +77,12 @@ func (o *ReportersNodeInfo) GetComplianceCountOk() (*int32, bool) {
 }
 
 // SetComplianceCount sets field value
-func (o *ReportersNodeInfo) SetComplianceCount(v int32) {
+func (o *GraphNodeInfo) SetComplianceCount(v int32) {
 	o.ComplianceCount = v
 }
 
 // GetComplianceScanId returns the ComplianceScanId field value
-func (o *ReportersNodeInfo) GetComplianceScanId() string {
+func (o *GraphNodeInfo) GetComplianceScanId() string {
 	if o == nil {
 		var ret string
 		return ret
@@ -93,7 +93,7 @@ func (o *ReportersNodeInfo) GetComplianceScanId() string {
 
 // GetComplianceScanIdOk returns a tuple with the ComplianceScanId field value
 // and a boolean to check if the value has been set.
-func (o *ReportersNodeInfo) GetComplianceScanIdOk() (*string, bool) {
+func (o *GraphNodeInfo) GetComplianceScanIdOk() (*string, bool) {
 	if o == nil {
 		return nil, false
 	}
@@ -101,12 +101,12 @@ func (o *ReportersNodeInfo) GetComplianceScanIdOk() (*string, bool) {
 }
 
 // SetComplianceScanId sets field value
-func (o *ReportersNodeInfo) SetComplianceScanId(v string) {
+func (o *GraphNodeInfo) SetComplianceScanId(v string) {
 	o.ComplianceScanId = v
 }
 
 // GetImageName returns the ImageName field value
-func (o *ReportersNodeInfo) GetImageName() string {
+func (o *GraphNodeInfo) GetImageName() string {
 	if o == nil {
 		var ret string
 		return ret
@@ -117,7 +117,7 @@ func (o *ReportersNodeInfo) GetImageName() string {
 
 // GetImageNameOk returns a tuple with the ImageName field value
 // and a boolean to check if the value has been set.
-func (o *ReportersNodeInfo) GetImageNameOk() (*string, bool) {
+func (o *GraphNodeInfo) GetImageNameOk() (*string, bool) {
 	if o == nil {
 		return nil, false
 	}
@@ -125,12 +125,12 @@ func (o *ReportersNodeInfo) GetImageNameOk() (*string, bool) {
 }
 
 // SetImageName sets field value
-func (o *ReportersNodeInfo) SetImageName(v string) {
+func (o *GraphNodeInfo) SetImageName(v string) {
 	o.ImageName = v
 }
 
 // GetName returns the Name field value
-func (o *ReportersNodeInfo) GetName() string {
+func (o *GraphNodeInfo) GetName() string {
 	if o == nil {
 		var ret string
 		return ret
@@ -141,7 +141,7 @@ func (o *ReportersNodeInfo) GetName() string {
 
 // GetNameOk returns a tuple with the Name field value
 // and a boolean to check if the value has been set.
-func (o *ReportersNodeInfo) GetNameOk() (*string, bool) {
+func (o *GraphNodeInfo) GetNameOk() (*string, bool) {
 	if o == nil {
 		return nil, false
 	}
@@ -149,12 +149,12 @@ func (o *ReportersNodeInfo) GetNameOk() (*string, bool) {
 }
 
 // SetName sets field value
-func (o *ReportersNodeInfo) SetName(v string) {
+func (o *GraphNodeInfo) SetName(v string) {
 	o.Name = v
 }
 
 // GetNodeId returns the NodeId field value
-func (o *ReportersNodeInfo) GetNodeId() string {
+func (o *GraphNodeInfo) GetNodeId() string {
 	if o == nil {
 		var ret string
 		return ret
@@ -165,7 +165,7 @@ func (o *ReportersNodeInfo) GetNodeId() string {
 
 // GetNodeIdOk returns a tuple with the NodeId field value
 // and a boolean to check if the value has been set.
-func (o *ReportersNodeInfo) GetNodeIdOk() (*string, bool) {
+func (o *GraphNodeInfo) GetNodeIdOk() (*string, bool) {
 	if o == nil {
 		return nil, false
 	}
@@ -173,12 +173,12 @@ func (o *ReportersNodeInfo) GetNodeIdOk() (*string, bool) {
 }
 
 // SetNodeId sets field value
-func (o *ReportersNodeInfo) SetNodeId(v string) {
+func (o *GraphNodeInfo) SetNodeId(v string) {
 	o.NodeId = v
 }
 
 // GetSecretsCount returns the SecretsCount field value
-func (o *ReportersNodeInfo) GetSecretsCount() int32 {
+func (o *GraphNodeInfo) GetSecretsCount() int32 {
 	if o == nil {
 		var ret int32
 		return ret
@@ -189,7 +189,7 @@ func (o *ReportersNodeInfo) GetSecretsCount() int32 {
 
 // GetSecretsCountOk returns a tuple with the SecretsCount field value
 // and a boolean to check if the value has been set.
-func (o *ReportersNodeInfo) GetSecretsCountOk() (*int32, bool) {
+func (o *GraphNodeInfo) GetSecretsCountOk() (*int32, bool) {
 	if o == nil {
 		return nil, false
 	}
@@ -197,12 +197,12 @@ func (o *ReportersNodeInfo) GetSecretsCountOk() (*int32, bool) {
 }
 
 // SetSecretsCount sets field value
-func (o *ReportersNodeInfo) SetSecretsCount(v int32) {
+func (o *GraphNodeInfo) SetSecretsCount(v int32) {
 	o.SecretsCount = v
 }
 
 // GetSecretsScanId returns the SecretsScanId field value
-func (o *ReportersNodeInfo) GetSecretsScanId() string {
+func (o *GraphNodeInfo) GetSecretsScanId() string {
 	if o == nil {
 		var ret string
 		return ret
@@ -213,7 +213,7 @@ func (o *ReportersNodeInfo) GetSecretsScanId() string {
 
 // GetSecretsScanIdOk returns a tuple with the SecretsScanId field value
 // and a boolean to check if the value has been set.
-func (o *ReportersNodeInfo) GetSecretsScanIdOk() (*string, bool) {
+func (o *GraphNodeInfo) GetSecretsScanIdOk() (*string, bool) {
 	if o == nil {
 		return nil, false
 	}
@@ -221,12 +221,12 @@ func (o *ReportersNodeInfo) GetSecretsScanIdOk() (*string, bool) {
 }
 
 // SetSecretsScanId sets field value
-func (o *ReportersNodeInfo) SetSecretsScanId(v string) {
+func (o *GraphNodeInfo) SetSecretsScanId(v string) {
 	o.SecretsScanId = v
 }
 
 // GetVulnerabilityCount returns the VulnerabilityCount field value
-func (o *ReportersNodeInfo) GetVulnerabilityCount() int32 {
+func (o *GraphNodeInfo) GetVulnerabilityCount() int32 {
 	if o == nil {
 		var ret int32
 		return ret
@@ -237,7 +237,7 @@ func (o *ReportersNodeInfo) GetVulnerabilityCount() int32 {
 
 // GetVulnerabilityCountOk returns a tuple with the VulnerabilityCount field value
 // and a boolean to check if the value has been set.
-func (o *ReportersNodeInfo) GetVulnerabilityCountOk() (*int32, bool) {
+func (o *GraphNodeInfo) GetVulnerabilityCountOk() (*int32, bool) {
 	if o == nil {
 		return nil, false
 	}
@@ -245,12 +245,12 @@ func (o *ReportersNodeInfo) GetVulnerabilityCountOk() (*int32, bool) {
 }
 
 // SetVulnerabilityCount sets field value
-func (o *ReportersNodeInfo) SetVulnerabilityCount(v int32) {
+func (o *GraphNodeInfo) SetVulnerabilityCount(v int32) {
 	o.VulnerabilityCount = v
 }
 
 // GetVulnerabilityScanId returns the VulnerabilityScanId field value
-func (o *ReportersNodeInfo) GetVulnerabilityScanId() string {
+func (o *GraphNodeInfo) GetVulnerabilityScanId() string {
 	if o == nil {
 		var ret string
 		return ret
@@ -261,7 +261,7 @@ func (o *ReportersNodeInfo) GetVulnerabilityScanId() string {
 
 // GetVulnerabilityScanIdOk returns a tuple with the VulnerabilityScanId field value
 // and a boolean to check if the value has been set.
-func (o *ReportersNodeInfo) GetVulnerabilityScanIdOk() (*string, bool) {
+func (o *GraphNodeInfo) GetVulnerabilityScanIdOk() (*string, bool) {
 	if o == nil {
 		return nil, false
 	}
@@ -269,11 +269,11 @@ func (o *ReportersNodeInfo) GetVulnerabilityScanIdOk() (*string, bool) {
 }
 
 // SetVulnerabilityScanId sets field value
-func (o *ReportersNodeInfo) SetVulnerabilityScanId(v string) {
+func (o *GraphNodeInfo) SetVulnerabilityScanId(v string) {
 	o.VulnerabilityScanId = v
 }
 
-func (o ReportersNodeInfo) MarshalJSON() ([]byte, error) {
+func (o GraphNodeInfo) MarshalJSON() ([]byte, error) {
 	toSerialize,err := o.ToMap()
 	if err != nil {
 		return []byte{}, err
@@ -281,7 +281,7 @@ func (o ReportersNodeInfo) MarshalJSON() ([]byte, error) {
 	return json.Marshal(toSerialize)
 }
 
-func (o ReportersNodeInfo) ToMap() (map[string]interface{}, error) {
+func (o GraphNodeInfo) ToMap() (map[string]interface{}, error) {
 	toSerialize := map[string]interface{}{}
 	toSerialize["compliance_count"] = o.ComplianceCount
 	toSerialize["compliance_scan_id"] = o.ComplianceScanId
@@ -295,38 +295,38 @@ func (o ReportersNodeInfo) ToMap() (map[string]interface{}, error) {
 	return toSerialize, nil
 }
 
-type NullableReportersNodeInfo struct {
-	value *ReportersNodeInfo
+type NullableGraphNodeInfo struct {
+	value *GraphNodeInfo
 	isSet bool
 }
 
-func (v NullableReportersNodeInfo) Get() *ReportersNodeInfo {
+func (v NullableGraphNodeInfo) Get() *GraphNodeInfo {
 	return v.value
 }
 
-func (v *NullableReportersNodeInfo) Set(val *ReportersNodeInfo) {
+func (v *NullableGraphNodeInfo) Set(val *GraphNodeInfo) {
 	v.value = val
 	v.isSet = true
 }
 
-func (v NullableReportersNodeInfo) IsSet() bool {
+func (v NullableGraphNodeInfo) IsSet() bool {
 	return v.isSet
 }
 
-func (v *NullableReportersNodeInfo) Unset() {
+func (v *NullableGraphNodeInfo) Unset() {
 	v.value = nil
 	v.isSet = false
 }
 
-func NewNullableReportersNodeInfo(val *ReportersNodeInfo) *NullableReportersNodeInfo {
-	return &NullableReportersNodeInfo{value: val, isSet: true}
+func NewNullableGraphNodeInfo(val *GraphNodeInfo) *NullableGraphNodeInfo {
+	return &NullableGraphNodeInfo{value: val, isSet: true}
 }
 
-func (v NullableReportersNodeInfo) MarshalJSON() ([]byte, error) {
+func (v NullableGraphNodeInfo) MarshalJSON() ([]byte, error) {
 	return json.Marshal(v.value)
 }
 
-func (v *NullableReportersNodeInfo) UnmarshalJSON(src []byte) error {
+func (v *NullableGraphNodeInfo) UnmarshalJSON(src []byte) error {
 	v.isSet = true
 	return json.Unmarshal(src, &v.value)
 }

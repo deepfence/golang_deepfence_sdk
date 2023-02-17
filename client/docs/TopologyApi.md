@@ -16,7 +16,7 @@ Method | HTTP request | Description
 
 ## GetContainersTopologyGraph
 
-> ApiDocsGraphResult GetContainersTopologyGraph(ctx).ReportersTopologyFilters(reportersTopologyFilters).Execute()
+> ApiDocsGraphResult GetContainersTopologyGraph(ctx).GraphTopologyFilters(graphTopologyFilters).Execute()
 
 Get Containers Topology Graph
 
@@ -35,11 +35,11 @@ import (
 )
 
 func main() {
-    reportersTopologyFilters := *openapiclient.NewReportersTopologyFilters([]string{"CloudFilter_example"}, *openapiclient.NewReportersFieldsFilters(*openapiclient.NewReportersContainsFilter(map[string][]interface{}{"key": []interface{}{nil}}), *openapiclient.NewReportersOrderFilter("OrderField_example")), []string{"HostFilter_example"}, []string{"KubernetesFilter_example"}, []string{"PodFilter_example"}, []string{"RegionFilter_example"}) // ReportersTopologyFilters |  (optional)
+    graphTopologyFilters := *openapiclient.NewGraphTopologyFilters([]string{"CloudFilter_example"}, *openapiclient.NewReportersFieldsFilters(*openapiclient.NewReportersContainsFilter(map[string][]interface{}{"key": []interface{}{nil}}), *openapiclient.NewReportersOrderFilter("OrderField_example")), []string{"HostFilter_example"}, []string{"KubernetesFilter_example"}, []string{"PodFilter_example"}, []string{"RegionFilter_example"}) // GraphTopologyFilters |  (optional)
 
     configuration := openapiclient.NewConfiguration()
     apiClient := openapiclient.NewAPIClient(configuration)
-    resp, r, err := apiClient.TopologyApi.GetContainersTopologyGraph(context.Background()).ReportersTopologyFilters(reportersTopologyFilters).Execute()
+    resp, r, err := apiClient.TopologyApi.GetContainersTopologyGraph(context.Background()).GraphTopologyFilters(graphTopologyFilters).Execute()
     if err != nil {
         fmt.Fprintf(os.Stderr, "Error when calling `TopologyApi.GetContainersTopologyGraph``: %v\n", err)
         fmt.Fprintf(os.Stderr, "Full HTTP response: %v\n", r)
@@ -60,7 +60,7 @@ Other parameters are passed through a pointer to a apiGetContainersTopologyGraph
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **reportersTopologyFilters** | [**ReportersTopologyFilters**](ReportersTopologyFilters.md) |  | 
+ **graphTopologyFilters** | [**GraphTopologyFilters**](GraphTopologyFilters.md) |  | 
 
 ### Return type
 
@@ -82,7 +82,7 @@ Name | Type | Description  | Notes
 
 ## GetHostsTopologyGraph
 
-> ApiDocsGraphResult GetHostsTopologyGraph(ctx).ReportersTopologyFilters(reportersTopologyFilters).Execute()
+> ApiDocsGraphResult GetHostsTopologyGraph(ctx).GraphTopologyFilters(graphTopologyFilters).Execute()
 
 Get Hosts Topology Graph
 
@@ -101,11 +101,11 @@ import (
 )
 
 func main() {
-    reportersTopologyFilters := *openapiclient.NewReportersTopologyFilters([]string{"CloudFilter_example"}, *openapiclient.NewReportersFieldsFilters(*openapiclient.NewReportersContainsFilter(map[string][]interface{}{"key": []interface{}{nil}}), *openapiclient.NewReportersOrderFilter("OrderField_example")), []string{"HostFilter_example"}, []string{"KubernetesFilter_example"}, []string{"PodFilter_example"}, []string{"RegionFilter_example"}) // ReportersTopologyFilters |  (optional)
+    graphTopologyFilters := *openapiclient.NewGraphTopologyFilters([]string{"CloudFilter_example"}, *openapiclient.NewReportersFieldsFilters(*openapiclient.NewReportersContainsFilter(map[string][]interface{}{"key": []interface{}{nil}}), *openapiclient.NewReportersOrderFilter("OrderField_example")), []string{"HostFilter_example"}, []string{"KubernetesFilter_example"}, []string{"PodFilter_example"}, []string{"RegionFilter_example"}) // GraphTopologyFilters |  (optional)
 
     configuration := openapiclient.NewConfiguration()
     apiClient := openapiclient.NewAPIClient(configuration)
-    resp, r, err := apiClient.TopologyApi.GetHostsTopologyGraph(context.Background()).ReportersTopologyFilters(reportersTopologyFilters).Execute()
+    resp, r, err := apiClient.TopologyApi.GetHostsTopologyGraph(context.Background()).GraphTopologyFilters(graphTopologyFilters).Execute()
     if err != nil {
         fmt.Fprintf(os.Stderr, "Error when calling `TopologyApi.GetHostsTopologyGraph``: %v\n", err)
         fmt.Fprintf(os.Stderr, "Full HTTP response: %v\n", r)
@@ -126,7 +126,7 @@ Other parameters are passed through a pointer to a apiGetHostsTopologyGraphReque
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **reportersTopologyFilters** | [**ReportersTopologyFilters**](ReportersTopologyFilters.md) |  | 
+ **graphTopologyFilters** | [**GraphTopologyFilters**](GraphTopologyFilters.md) |  | 
 
 ### Return type
 
@@ -148,7 +148,7 @@ Name | Type | Description  | Notes
 
 ## GetKubernetesTopologyGraph
 
-> ApiDocsGraphResult GetKubernetesTopologyGraph(ctx).ReportersTopologyFilters(reportersTopologyFilters).Execute()
+> ApiDocsGraphResult GetKubernetesTopologyGraph(ctx).GraphTopologyFilters(graphTopologyFilters).Execute()
 
 Get Kubernetes Topology Graph
 
@@ -167,11 +167,11 @@ import (
 )
 
 func main() {
-    reportersTopologyFilters := *openapiclient.NewReportersTopologyFilters([]string{"CloudFilter_example"}, *openapiclient.NewReportersFieldsFilters(*openapiclient.NewReportersContainsFilter(map[string][]interface{}{"key": []interface{}{nil}}), *openapiclient.NewReportersOrderFilter("OrderField_example")), []string{"HostFilter_example"}, []string{"KubernetesFilter_example"}, []string{"PodFilter_example"}, []string{"RegionFilter_example"}) // ReportersTopologyFilters |  (optional)
+    graphTopologyFilters := *openapiclient.NewGraphTopologyFilters([]string{"CloudFilter_example"}, *openapiclient.NewReportersFieldsFilters(*openapiclient.NewReportersContainsFilter(map[string][]interface{}{"key": []interface{}{nil}}), *openapiclient.NewReportersOrderFilter("OrderField_example")), []string{"HostFilter_example"}, []string{"KubernetesFilter_example"}, []string{"PodFilter_example"}, []string{"RegionFilter_example"}) // GraphTopologyFilters |  (optional)
 
     configuration := openapiclient.NewConfiguration()
     apiClient := openapiclient.NewAPIClient(configuration)
-    resp, r, err := apiClient.TopologyApi.GetKubernetesTopologyGraph(context.Background()).ReportersTopologyFilters(reportersTopologyFilters).Execute()
+    resp, r, err := apiClient.TopologyApi.GetKubernetesTopologyGraph(context.Background()).GraphTopologyFilters(graphTopologyFilters).Execute()
     if err != nil {
         fmt.Fprintf(os.Stderr, "Error when calling `TopologyApi.GetKubernetesTopologyGraph``: %v\n", err)
         fmt.Fprintf(os.Stderr, "Full HTTP response: %v\n", r)
@@ -192,7 +192,7 @@ Other parameters are passed through a pointer to a apiGetKubernetesTopologyGraph
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **reportersTopologyFilters** | [**ReportersTopologyFilters**](ReportersTopologyFilters.md) |  | 
+ **graphTopologyFilters** | [**GraphTopologyFilters**](GraphTopologyFilters.md) |  | 
 
 ### Return type
 
@@ -214,7 +214,7 @@ Name | Type | Description  | Notes
 
 ## GetPodsTopologyGraph
 
-> ApiDocsGraphResult GetPodsTopologyGraph(ctx).ReportersTopologyFilters(reportersTopologyFilters).Execute()
+> ApiDocsGraphResult GetPodsTopologyGraph(ctx).GraphTopologyFilters(graphTopologyFilters).Execute()
 
 Get Pods Topology Graph
 
@@ -233,11 +233,11 @@ import (
 )
 
 func main() {
-    reportersTopologyFilters := *openapiclient.NewReportersTopologyFilters([]string{"CloudFilter_example"}, *openapiclient.NewReportersFieldsFilters(*openapiclient.NewReportersContainsFilter(map[string][]interface{}{"key": []interface{}{nil}}), *openapiclient.NewReportersOrderFilter("OrderField_example")), []string{"HostFilter_example"}, []string{"KubernetesFilter_example"}, []string{"PodFilter_example"}, []string{"RegionFilter_example"}) // ReportersTopologyFilters |  (optional)
+    graphTopologyFilters := *openapiclient.NewGraphTopologyFilters([]string{"CloudFilter_example"}, *openapiclient.NewReportersFieldsFilters(*openapiclient.NewReportersContainsFilter(map[string][]interface{}{"key": []interface{}{nil}}), *openapiclient.NewReportersOrderFilter("OrderField_example")), []string{"HostFilter_example"}, []string{"KubernetesFilter_example"}, []string{"PodFilter_example"}, []string{"RegionFilter_example"}) // GraphTopologyFilters |  (optional)
 
     configuration := openapiclient.NewConfiguration()
     apiClient := openapiclient.NewAPIClient(configuration)
-    resp, r, err := apiClient.TopologyApi.GetPodsTopologyGraph(context.Background()).ReportersTopologyFilters(reportersTopologyFilters).Execute()
+    resp, r, err := apiClient.TopologyApi.GetPodsTopologyGraph(context.Background()).GraphTopologyFilters(graphTopologyFilters).Execute()
     if err != nil {
         fmt.Fprintf(os.Stderr, "Error when calling `TopologyApi.GetPodsTopologyGraph``: %v\n", err)
         fmt.Fprintf(os.Stderr, "Full HTTP response: %v\n", r)
@@ -258,7 +258,7 @@ Other parameters are passed through a pointer to a apiGetPodsTopologyGraphReques
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **reportersTopologyFilters** | [**ReportersTopologyFilters**](ReportersTopologyFilters.md) |  | 
+ **graphTopologyFilters** | [**GraphTopologyFilters**](GraphTopologyFilters.md) |  | 
 
 ### Return type
 
@@ -280,7 +280,7 @@ Name | Type | Description  | Notes
 
 ## GetTopologyGraph
 
-> ApiDocsGraphResult GetTopologyGraph(ctx).ReportersTopologyFilters(reportersTopologyFilters).Execute()
+> ApiDocsGraphResult GetTopologyGraph(ctx).GraphTopologyFilters(graphTopologyFilters).Execute()
 
 Get Topology Graph
 
@@ -299,11 +299,11 @@ import (
 )
 
 func main() {
-    reportersTopologyFilters := *openapiclient.NewReportersTopologyFilters([]string{"CloudFilter_example"}, *openapiclient.NewReportersFieldsFilters(*openapiclient.NewReportersContainsFilter(map[string][]interface{}{"key": []interface{}{nil}}), *openapiclient.NewReportersOrderFilter("OrderField_example")), []string{"HostFilter_example"}, []string{"KubernetesFilter_example"}, []string{"PodFilter_example"}, []string{"RegionFilter_example"}) // ReportersTopologyFilters |  (optional)
+    graphTopologyFilters := *openapiclient.NewGraphTopologyFilters([]string{"CloudFilter_example"}, *openapiclient.NewReportersFieldsFilters(*openapiclient.NewReportersContainsFilter(map[string][]interface{}{"key": []interface{}{nil}}), *openapiclient.NewReportersOrderFilter("OrderField_example")), []string{"HostFilter_example"}, []string{"KubernetesFilter_example"}, []string{"PodFilter_example"}, []string{"RegionFilter_example"}) // GraphTopologyFilters |  (optional)
 
     configuration := openapiclient.NewConfiguration()
     apiClient := openapiclient.NewAPIClient(configuration)
-    resp, r, err := apiClient.TopologyApi.GetTopologyGraph(context.Background()).ReportersTopologyFilters(reportersTopologyFilters).Execute()
+    resp, r, err := apiClient.TopologyApi.GetTopologyGraph(context.Background()).GraphTopologyFilters(graphTopologyFilters).Execute()
     if err != nil {
         fmt.Fprintf(os.Stderr, "Error when calling `TopologyApi.GetTopologyGraph``: %v\n", err)
         fmt.Fprintf(os.Stderr, "Full HTTP response: %v\n", r)
@@ -324,7 +324,7 @@ Other parameters are passed through a pointer to a apiGetTopologyGraphRequest st
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **reportersTopologyFilters** | [**ReportersTopologyFilters**](ReportersTopologyFilters.md) |  | 
+ **graphTopologyFilters** | [**GraphTopologyFilters**](GraphTopologyFilters.md) |  | 
 
 ### Return type
 

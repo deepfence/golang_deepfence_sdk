@@ -15,36 +15,36 @@ import (
 	"encoding/json"
 )
 
-// checks if the ReportersSearchFilter type satisfies the MappedNullable interface at compile time
-var _ MappedNullable = &ReportersSearchFilter{}
+// checks if the SearchSearchFilter type satisfies the MappedNullable interface at compile time
+var _ MappedNullable = &SearchSearchFilter{}
 
-// ReportersSearchFilter struct for ReportersSearchFilter
-type ReportersSearchFilter struct {
+// SearchSearchFilter struct for SearchSearchFilter
+type SearchSearchFilter struct {
 	Filters ReportersFieldsFilters `json:"filters"`
 	InFieldFilter []string `json:"in_field_filter"`
 }
 
-// NewReportersSearchFilter instantiates a new ReportersSearchFilter object
+// NewSearchSearchFilter instantiates a new SearchSearchFilter object
 // This constructor will assign default values to properties that have it defined,
 // and makes sure properties required by API are set, but the set of arguments
 // will change when the set of required properties is changed
-func NewReportersSearchFilter(filters ReportersFieldsFilters, inFieldFilter []string) *ReportersSearchFilter {
-	this := ReportersSearchFilter{}
+func NewSearchSearchFilter(filters ReportersFieldsFilters, inFieldFilter []string) *SearchSearchFilter {
+	this := SearchSearchFilter{}
 	this.Filters = filters
 	this.InFieldFilter = inFieldFilter
 	return &this
 }
 
-// NewReportersSearchFilterWithDefaults instantiates a new ReportersSearchFilter object
+// NewSearchSearchFilterWithDefaults instantiates a new SearchSearchFilter object
 // This constructor will only assign default values to properties that have it defined,
 // but it doesn't guarantee that properties required by API are set
-func NewReportersSearchFilterWithDefaults() *ReportersSearchFilter {
-	this := ReportersSearchFilter{}
+func NewSearchSearchFilterWithDefaults() *SearchSearchFilter {
+	this := SearchSearchFilter{}
 	return &this
 }
 
 // GetFilters returns the Filters field value
-func (o *ReportersSearchFilter) GetFilters() ReportersFieldsFilters {
+func (o *SearchSearchFilter) GetFilters() ReportersFieldsFilters {
 	if o == nil {
 		var ret ReportersFieldsFilters
 		return ret
@@ -55,7 +55,7 @@ func (o *ReportersSearchFilter) GetFilters() ReportersFieldsFilters {
 
 // GetFiltersOk returns a tuple with the Filters field value
 // and a boolean to check if the value has been set.
-func (o *ReportersSearchFilter) GetFiltersOk() (*ReportersFieldsFilters, bool) {
+func (o *SearchSearchFilter) GetFiltersOk() (*ReportersFieldsFilters, bool) {
 	if o == nil {
 		return nil, false
 	}
@@ -63,13 +63,13 @@ func (o *ReportersSearchFilter) GetFiltersOk() (*ReportersFieldsFilters, bool) {
 }
 
 // SetFilters sets field value
-func (o *ReportersSearchFilter) SetFilters(v ReportersFieldsFilters) {
+func (o *SearchSearchFilter) SetFilters(v ReportersFieldsFilters) {
 	o.Filters = v
 }
 
 // GetInFieldFilter returns the InFieldFilter field value
 // If the value is explicit nil, the zero value for []string will be returned
-func (o *ReportersSearchFilter) GetInFieldFilter() []string {
+func (o *SearchSearchFilter) GetInFieldFilter() []string {
 	if o == nil {
 		var ret []string
 		return ret
@@ -81,7 +81,7 @@ func (o *ReportersSearchFilter) GetInFieldFilter() []string {
 // GetInFieldFilterOk returns a tuple with the InFieldFilter field value
 // and a boolean to check if the value has been set.
 // NOTE: If the value is an explicit nil, `nil, true` will be returned
-func (o *ReportersSearchFilter) GetInFieldFilterOk() ([]string, bool) {
+func (o *SearchSearchFilter) GetInFieldFilterOk() ([]string, bool) {
 	if o == nil || IsNil(o.InFieldFilter) {
 		return nil, false
 	}
@@ -89,11 +89,11 @@ func (o *ReportersSearchFilter) GetInFieldFilterOk() ([]string, bool) {
 }
 
 // SetInFieldFilter sets field value
-func (o *ReportersSearchFilter) SetInFieldFilter(v []string) {
+func (o *SearchSearchFilter) SetInFieldFilter(v []string) {
 	o.InFieldFilter = v
 }
 
-func (o ReportersSearchFilter) MarshalJSON() ([]byte, error) {
+func (o SearchSearchFilter) MarshalJSON() ([]byte, error) {
 	toSerialize,err := o.ToMap()
 	if err != nil {
 		return []byte{}, err
@@ -101,7 +101,7 @@ func (o ReportersSearchFilter) MarshalJSON() ([]byte, error) {
 	return json.Marshal(toSerialize)
 }
 
-func (o ReportersSearchFilter) ToMap() (map[string]interface{}, error) {
+func (o SearchSearchFilter) ToMap() (map[string]interface{}, error) {
 	toSerialize := map[string]interface{}{}
 	toSerialize["filters"] = o.Filters
 	if o.InFieldFilter != nil {
@@ -110,38 +110,38 @@ func (o ReportersSearchFilter) ToMap() (map[string]interface{}, error) {
 	return toSerialize, nil
 }
 
-type NullableReportersSearchFilter struct {
-	value *ReportersSearchFilter
+type NullableSearchSearchFilter struct {
+	value *SearchSearchFilter
 	isSet bool
 }
 
-func (v NullableReportersSearchFilter) Get() *ReportersSearchFilter {
+func (v NullableSearchSearchFilter) Get() *SearchSearchFilter {
 	return v.value
 }
 
-func (v *NullableReportersSearchFilter) Set(val *ReportersSearchFilter) {
+func (v *NullableSearchSearchFilter) Set(val *SearchSearchFilter) {
 	v.value = val
 	v.isSet = true
 }
 
-func (v NullableReportersSearchFilter) IsSet() bool {
+func (v NullableSearchSearchFilter) IsSet() bool {
 	return v.isSet
 }
 
-func (v *NullableReportersSearchFilter) Unset() {
+func (v *NullableSearchSearchFilter) Unset() {
 	v.value = nil
 	v.isSet = false
 }
 
-func NewNullableReportersSearchFilter(val *ReportersSearchFilter) *NullableReportersSearchFilter {
-	return &NullableReportersSearchFilter{value: val, isSet: true}
+func NewNullableSearchSearchFilter(val *SearchSearchFilter) *NullableSearchSearchFilter {
+	return &NullableSearchSearchFilter{value: val, isSet: true}
 }
 
-func (v NullableReportersSearchFilter) MarshalJSON() ([]byte, error) {
+func (v NullableSearchSearchFilter) MarshalJSON() ([]byte, error) {
 	return json.Marshal(v.value)
 }
 
-func (v *NullableReportersSearchFilter) UnmarshalJSON(src []byte) error {
+func (v *NullableSearchSearchFilter) UnmarshalJSON(src []byte) error {
 	v.isSet = true
 	return json.Unmarshal(src, &v.value)
 }

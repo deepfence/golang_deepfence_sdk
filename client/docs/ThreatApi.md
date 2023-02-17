@@ -10,7 +10,7 @@ Method | HTTP request | Description
 
 ## GetThreatGraph
 
-> map[string]ReportersProviderThreatGraph GetThreatGraph(ctx).Execute()
+> map[string]GraphProviderThreatGraph GetThreatGraph(ctx).Execute()
 
 Get Threat Graph
 
@@ -37,7 +37,7 @@ func main() {
         fmt.Fprintf(os.Stderr, "Error when calling `ThreatApi.GetThreatGraph``: %v\n", err)
         fmt.Fprintf(os.Stderr, "Full HTTP response: %v\n", r)
     }
-    // response from `GetThreatGraph`: map[string]ReportersProviderThreatGraph
+    // response from `GetThreatGraph`: map[string]GraphProviderThreatGraph
     fmt.Fprintf(os.Stdout, "Response from `ThreatApi.GetThreatGraph`: %v\n", resp)
 }
 ```
@@ -53,7 +53,7 @@ Other parameters are passed through a pointer to a apiGetThreatGraphRequest stru
 
 ### Return type
 
-[**map[string]ReportersProviderThreatGraph**](ReportersProviderThreatGraph.md)
+[**map[string]GraphProviderThreatGraph**](GraphProviderThreatGraph.md)
 
 ### Authorization
 

@@ -15,40 +15,40 @@ import (
 	"encoding/json"
 )
 
-// checks if the ReportersSearchScanReq type satisfies the MappedNullable interface at compile time
-var _ MappedNullable = &ReportersSearchScanReq{}
+// checks if the SearchSearchScanReq type satisfies the MappedNullable interface at compile time
+var _ MappedNullable = &SearchSearchScanReq{}
 
-// ReportersSearchScanReq struct for ReportersSearchScanReq
-type ReportersSearchScanReq struct {
-	NodeFilters ReportersSearchFilter `json:"node_filters"`
-	ScanFilters ReportersSearchFilter `json:"scan_filters"`
+// SearchSearchScanReq struct for SearchSearchScanReq
+type SearchSearchScanReq struct {
+	NodeFilters SearchSearchFilter `json:"node_filters"`
+	ScanFilters SearchSearchFilter `json:"scan_filters"`
 	Window ModelFetchWindow `json:"window"`
 }
 
-// NewReportersSearchScanReq instantiates a new ReportersSearchScanReq object
+// NewSearchSearchScanReq instantiates a new SearchSearchScanReq object
 // This constructor will assign default values to properties that have it defined,
 // and makes sure properties required by API are set, but the set of arguments
 // will change when the set of required properties is changed
-func NewReportersSearchScanReq(nodeFilters ReportersSearchFilter, scanFilters ReportersSearchFilter, window ModelFetchWindow) *ReportersSearchScanReq {
-	this := ReportersSearchScanReq{}
+func NewSearchSearchScanReq(nodeFilters SearchSearchFilter, scanFilters SearchSearchFilter, window ModelFetchWindow) *SearchSearchScanReq {
+	this := SearchSearchScanReq{}
 	this.NodeFilters = nodeFilters
 	this.ScanFilters = scanFilters
 	this.Window = window
 	return &this
 }
 
-// NewReportersSearchScanReqWithDefaults instantiates a new ReportersSearchScanReq object
+// NewSearchSearchScanReqWithDefaults instantiates a new SearchSearchScanReq object
 // This constructor will only assign default values to properties that have it defined,
 // but it doesn't guarantee that properties required by API are set
-func NewReportersSearchScanReqWithDefaults() *ReportersSearchScanReq {
-	this := ReportersSearchScanReq{}
+func NewSearchSearchScanReqWithDefaults() *SearchSearchScanReq {
+	this := SearchSearchScanReq{}
 	return &this
 }
 
 // GetNodeFilters returns the NodeFilters field value
-func (o *ReportersSearchScanReq) GetNodeFilters() ReportersSearchFilter {
+func (o *SearchSearchScanReq) GetNodeFilters() SearchSearchFilter {
 	if o == nil {
-		var ret ReportersSearchFilter
+		var ret SearchSearchFilter
 		return ret
 	}
 
@@ -57,7 +57,7 @@ func (o *ReportersSearchScanReq) GetNodeFilters() ReportersSearchFilter {
 
 // GetNodeFiltersOk returns a tuple with the NodeFilters field value
 // and a boolean to check if the value has been set.
-func (o *ReportersSearchScanReq) GetNodeFiltersOk() (*ReportersSearchFilter, bool) {
+func (o *SearchSearchScanReq) GetNodeFiltersOk() (*SearchSearchFilter, bool) {
 	if o == nil {
 		return nil, false
 	}
@@ -65,14 +65,14 @@ func (o *ReportersSearchScanReq) GetNodeFiltersOk() (*ReportersSearchFilter, boo
 }
 
 // SetNodeFilters sets field value
-func (o *ReportersSearchScanReq) SetNodeFilters(v ReportersSearchFilter) {
+func (o *SearchSearchScanReq) SetNodeFilters(v SearchSearchFilter) {
 	o.NodeFilters = v
 }
 
 // GetScanFilters returns the ScanFilters field value
-func (o *ReportersSearchScanReq) GetScanFilters() ReportersSearchFilter {
+func (o *SearchSearchScanReq) GetScanFilters() SearchSearchFilter {
 	if o == nil {
-		var ret ReportersSearchFilter
+		var ret SearchSearchFilter
 		return ret
 	}
 
@@ -81,7 +81,7 @@ func (o *ReportersSearchScanReq) GetScanFilters() ReportersSearchFilter {
 
 // GetScanFiltersOk returns a tuple with the ScanFilters field value
 // and a boolean to check if the value has been set.
-func (o *ReportersSearchScanReq) GetScanFiltersOk() (*ReportersSearchFilter, bool) {
+func (o *SearchSearchScanReq) GetScanFiltersOk() (*SearchSearchFilter, bool) {
 	if o == nil {
 		return nil, false
 	}
@@ -89,12 +89,12 @@ func (o *ReportersSearchScanReq) GetScanFiltersOk() (*ReportersSearchFilter, boo
 }
 
 // SetScanFilters sets field value
-func (o *ReportersSearchScanReq) SetScanFilters(v ReportersSearchFilter) {
+func (o *SearchSearchScanReq) SetScanFilters(v SearchSearchFilter) {
 	o.ScanFilters = v
 }
 
 // GetWindow returns the Window field value
-func (o *ReportersSearchScanReq) GetWindow() ModelFetchWindow {
+func (o *SearchSearchScanReq) GetWindow() ModelFetchWindow {
 	if o == nil {
 		var ret ModelFetchWindow
 		return ret
@@ -105,7 +105,7 @@ func (o *ReportersSearchScanReq) GetWindow() ModelFetchWindow {
 
 // GetWindowOk returns a tuple with the Window field value
 // and a boolean to check if the value has been set.
-func (o *ReportersSearchScanReq) GetWindowOk() (*ModelFetchWindow, bool) {
+func (o *SearchSearchScanReq) GetWindowOk() (*ModelFetchWindow, bool) {
 	if o == nil {
 		return nil, false
 	}
@@ -113,11 +113,11 @@ func (o *ReportersSearchScanReq) GetWindowOk() (*ModelFetchWindow, bool) {
 }
 
 // SetWindow sets field value
-func (o *ReportersSearchScanReq) SetWindow(v ModelFetchWindow) {
+func (o *SearchSearchScanReq) SetWindow(v ModelFetchWindow) {
 	o.Window = v
 }
 
-func (o ReportersSearchScanReq) MarshalJSON() ([]byte, error) {
+func (o SearchSearchScanReq) MarshalJSON() ([]byte, error) {
 	toSerialize,err := o.ToMap()
 	if err != nil {
 		return []byte{}, err
@@ -125,7 +125,7 @@ func (o ReportersSearchScanReq) MarshalJSON() ([]byte, error) {
 	return json.Marshal(toSerialize)
 }
 
-func (o ReportersSearchScanReq) ToMap() (map[string]interface{}, error) {
+func (o SearchSearchScanReq) ToMap() (map[string]interface{}, error) {
 	toSerialize := map[string]interface{}{}
 	toSerialize["node_filters"] = o.NodeFilters
 	toSerialize["scan_filters"] = o.ScanFilters
@@ -133,38 +133,38 @@ func (o ReportersSearchScanReq) ToMap() (map[string]interface{}, error) {
 	return toSerialize, nil
 }
 
-type NullableReportersSearchScanReq struct {
-	value *ReportersSearchScanReq
+type NullableSearchSearchScanReq struct {
+	value *SearchSearchScanReq
 	isSet bool
 }
 
-func (v NullableReportersSearchScanReq) Get() *ReportersSearchScanReq {
+func (v NullableSearchSearchScanReq) Get() *SearchSearchScanReq {
 	return v.value
 }
 
-func (v *NullableReportersSearchScanReq) Set(val *ReportersSearchScanReq) {
+func (v *NullableSearchSearchScanReq) Set(val *SearchSearchScanReq) {
 	v.value = val
 	v.isSet = true
 }
 
-func (v NullableReportersSearchScanReq) IsSet() bool {
+func (v NullableSearchSearchScanReq) IsSet() bool {
 	return v.isSet
 }
 
-func (v *NullableReportersSearchScanReq) Unset() {
+func (v *NullableSearchSearchScanReq) Unset() {
 	v.value = nil
 	v.isSet = false
 }
 
-func NewNullableReportersSearchScanReq(val *ReportersSearchScanReq) *NullableReportersSearchScanReq {
-	return &NullableReportersSearchScanReq{value: val, isSet: true}
+func NewNullableSearchSearchScanReq(val *SearchSearchScanReq) *NullableSearchSearchScanReq {
+	return &NullableSearchSearchScanReq{value: val, isSet: true}
 }
 
-func (v NullableReportersSearchScanReq) MarshalJSON() ([]byte, error) {
+func (v NullableSearchSearchScanReq) MarshalJSON() ([]byte, error) {
 	return json.Marshal(v.value)
 }
 
-func (v *NullableReportersSearchScanReq) UnmarshalJSON(src []byte) error {
+func (v *NullableSearchSearchScanReq) UnmarshalJSON(src []byte) error {
 	v.isSet = true
 	return json.Unmarshal(src, &v.value)
 }
