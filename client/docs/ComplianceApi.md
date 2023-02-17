@@ -164,7 +164,7 @@ import (
 )
 
 func main() {
-    modelScanResultsReq := *openapiclient.NewModelScanResultsReq("ScanId_example", *openapiclient.NewModelFetchWindow(int32(123), int32(123))) // ModelScanResultsReq |  (optional)
+    modelScanResultsReq := *openapiclient.NewModelScanResultsReq(*openapiclient.NewReportersFieldsFilters(*openapiclient.NewReportersContainsFilter(map[string][]interface{}{"key": []interface{}{nil}}), *openapiclient.NewReportersOrderFilter("OrderField_example")), "ScanId_example", *openapiclient.NewModelFetchWindow(int32(123), int32(123))) // ModelScanResultsReq |  (optional)
 
     configuration := openapiclient.NewConfiguration()
     apiClient := openapiclient.NewAPIClient(configuration)
@@ -230,7 +230,7 @@ import (
 )
 
 func main() {
-    modelComplianceScanTriggerReq := *openapiclient.NewModelComplianceScanTriggerReq([]string{"BenchmarkTypes_example"}, *openapiclient.NewModelScanFilter(*openapiclient.NewModelFieldsFilter([]openapiclient.ModelKeyValues{*openapiclient.NewModelKeyValues("Key_example", []string{"Values_example"})}), *openapiclient.NewModelFieldsFilter([]openapiclient.ModelKeyValues{*openapiclient.NewModelKeyValues("Key_example", []string{"Values_example"})}), *openapiclient.NewModelFieldsFilter([]openapiclient.ModelKeyValues{*openapiclient.NewModelKeyValues("Key_example", []string{"Values_example"})}), *openapiclient.NewModelFieldsFilter([]openapiclient.ModelKeyValues{*openapiclient.NewModelKeyValues("Key_example", []string{"Values_example"})}), *openapiclient.NewModelFieldsFilter([]openapiclient.ModelKeyValues{*openapiclient.NewModelKeyValues("Key_example", []string{"Values_example"})})), []openapiclient.ModelNodeIdentifier{*openapiclient.NewModelNodeIdentifier("NodeId_example", "NodeType_example")}) // ModelComplianceScanTriggerReq |  (optional)
+    modelComplianceScanTriggerReq := *openapiclient.NewModelComplianceScanTriggerReq([]string{"BenchmarkTypes_example"}, *openapiclient.NewModelScanFilter(*openapiclient.NewReportersContainsFilter(map[string][]interface{}{"key": []interface{}{nil}}), *openapiclient.NewReportersContainsFilter(map[string][]interface{}{"key": []interface{}{nil}}), *openapiclient.NewReportersContainsFilter(map[string][]interface{}{"key": []interface{}{nil}}), *openapiclient.NewReportersContainsFilter(map[string][]interface{}{"key": []interface{}{nil}}), *openapiclient.NewReportersContainsFilter(map[string][]interface{}{"key": []interface{}{nil}})), []openapiclient.ModelNodeIdentifier{*openapiclient.NewModelNodeIdentifier("NodeId_example", "NodeType_example")}) // ModelComplianceScanTriggerReq |  (optional)
 
     configuration := openapiclient.NewConfiguration()
     apiClient := openapiclient.NewAPIClient(configuration)
@@ -364,7 +364,7 @@ import (
 )
 
 func main() {
-    modelComplianceScanTriggerReq := *openapiclient.NewModelComplianceScanTriggerReq([]string{"BenchmarkTypes_example"}, *openapiclient.NewModelScanFilter(*openapiclient.NewModelFieldsFilter([]openapiclient.ModelKeyValues{*openapiclient.NewModelKeyValues("Key_example", []string{"Values_example"})}), *openapiclient.NewModelFieldsFilter([]openapiclient.ModelKeyValues{*openapiclient.NewModelKeyValues("Key_example", []string{"Values_example"})}), *openapiclient.NewModelFieldsFilter([]openapiclient.ModelKeyValues{*openapiclient.NewModelKeyValues("Key_example", []string{"Values_example"})}), *openapiclient.NewModelFieldsFilter([]openapiclient.ModelKeyValues{*openapiclient.NewModelKeyValues("Key_example", []string{"Values_example"})}), *openapiclient.NewModelFieldsFilter([]openapiclient.ModelKeyValues{*openapiclient.NewModelKeyValues("Key_example", []string{"Values_example"})})), []openapiclient.ModelNodeIdentifier{*openapiclient.NewModelNodeIdentifier("NodeId_example", "NodeType_example")}) // ModelComplianceScanTriggerReq |  (optional)
+    modelComplianceScanTriggerReq := *openapiclient.NewModelComplianceScanTriggerReq([]string{"BenchmarkTypes_example"}, *openapiclient.NewModelScanFilter(*openapiclient.NewReportersContainsFilter(map[string][]interface{}{"key": []interface{}{nil}}), *openapiclient.NewReportersContainsFilter(map[string][]interface{}{"key": []interface{}{nil}}), *openapiclient.NewReportersContainsFilter(map[string][]interface{}{"key": []interface{}{nil}}), *openapiclient.NewReportersContainsFilter(map[string][]interface{}{"key": []interface{}{nil}}), *openapiclient.NewReportersContainsFilter(map[string][]interface{}{"key": []interface{}{nil}})), []openapiclient.ModelNodeIdentifier{*openapiclient.NewModelNodeIdentifier("NodeId_example", "NodeType_example")}) // ModelComplianceScanTriggerReq |  (optional)
 
     configuration := openapiclient.NewConfiguration()
     apiClient := openapiclient.NewAPIClient(configuration)

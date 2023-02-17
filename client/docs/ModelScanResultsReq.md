@@ -4,6 +4,7 @@
 
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
+**FieldsFilter** | [**ReportersFieldsFilters**](ReportersFieldsFilters.md) |  | 
 **ScanId** | **string** |  | 
 **Window** | [**ModelFetchWindow**](ModelFetchWindow.md) |  | 
 
@@ -11,7 +12,7 @@ Name | Type | Description | Notes
 
 ### NewModelScanResultsReq
 
-`func NewModelScanResultsReq(scanId string, window ModelFetchWindow, ) *ModelScanResultsReq`
+`func NewModelScanResultsReq(fieldsFilter ReportersFieldsFilters, scanId string, window ModelFetchWindow, ) *ModelScanResultsReq`
 
 NewModelScanResultsReq instantiates a new ModelScanResultsReq object
 This constructor will assign default values to properties that have it defined,
@@ -25,6 +26,26 @@ will change when the set of required properties is changed
 NewModelScanResultsReqWithDefaults instantiates a new ModelScanResultsReq object
 This constructor will only assign default values to properties that have it defined,
 but it doesn't guarantee that properties required by API are set
+
+### GetFieldsFilter
+
+`func (o *ModelScanResultsReq) GetFieldsFilter() ReportersFieldsFilters`
+
+GetFieldsFilter returns the FieldsFilter field if non-nil, zero value otherwise.
+
+### GetFieldsFilterOk
+
+`func (o *ModelScanResultsReq) GetFieldsFilterOk() (*ReportersFieldsFilters, bool)`
+
+GetFieldsFilterOk returns a tuple with the FieldsFilter field if it's non-nil, zero value otherwise
+and a boolean to check if the value has been set.
+
+### SetFieldsFilter
+
+`func (o *ModelScanResultsReq) SetFieldsFilter(v ReportersFieldsFilters)`
+
+SetFieldsFilter sets FieldsFilter field to given value.
+
 
 ### GetScanId
 

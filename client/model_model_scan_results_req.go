@@ -20,6 +20,7 @@ var _ MappedNullable = &ModelScanResultsReq{}
 
 // ModelScanResultsReq struct for ModelScanResultsReq
 type ModelScanResultsReq struct {
+	FieldsFilter ReportersFieldsFilters `json:"fields_filter"`
 	ScanId string `json:"scan_id"`
 	Window ModelFetchWindow `json:"window"`
 }
@@ -28,8 +29,9 @@ type ModelScanResultsReq struct {
 // This constructor will assign default values to properties that have it defined,
 // and makes sure properties required by API are set, but the set of arguments
 // will change when the set of required properties is changed
-func NewModelScanResultsReq(scanId string, window ModelFetchWindow) *ModelScanResultsReq {
+func NewModelScanResultsReq(fieldsFilter ReportersFieldsFilters, scanId string, window ModelFetchWindow) *ModelScanResultsReq {
 	this := ModelScanResultsReq{}
+	this.FieldsFilter = fieldsFilter
 	this.ScanId = scanId
 	this.Window = window
 	return &this
@@ -41,6 +43,30 @@ func NewModelScanResultsReq(scanId string, window ModelFetchWindow) *ModelScanRe
 func NewModelScanResultsReqWithDefaults() *ModelScanResultsReq {
 	this := ModelScanResultsReq{}
 	return &this
+}
+
+// GetFieldsFilter returns the FieldsFilter field value
+func (o *ModelScanResultsReq) GetFieldsFilter() ReportersFieldsFilters {
+	if o == nil {
+		var ret ReportersFieldsFilters
+		return ret
+	}
+
+	return o.FieldsFilter
+}
+
+// GetFieldsFilterOk returns a tuple with the FieldsFilter field value
+// and a boolean to check if the value has been set.
+func (o *ModelScanResultsReq) GetFieldsFilterOk() (*ReportersFieldsFilters, bool) {
+	if o == nil {
+		return nil, false
+	}
+	return &o.FieldsFilter, true
+}
+
+// SetFieldsFilter sets field value
+func (o *ModelScanResultsReq) SetFieldsFilter(v ReportersFieldsFilters) {
+	o.FieldsFilter = v
 }
 
 // GetScanId returns the ScanId field value
@@ -101,6 +127,7 @@ func (o ModelScanResultsReq) MarshalJSON() ([]byte, error) {
 
 func (o ModelScanResultsReq) ToMap() (map[string]interface{}, error) {
 	toSerialize := map[string]interface{}{}
+	toSerialize["fields_filter"] = o.FieldsFilter
 	toSerialize["scan_id"] = o.ScanId
 	toSerialize["window"] = o.Window
 	return toSerialize, nil

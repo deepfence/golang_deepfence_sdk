@@ -20,18 +20,18 @@ var _ MappedNullable = &ModelScanFilter{}
 
 // ModelScanFilter struct for ModelScanFilter
 type ModelScanFilter struct {
-	CloudAccountScanFilter ModelFieldsFilter `json:"cloud_account_scan_filter"`
-	ContainerScanFilter ModelFieldsFilter `json:"container_scan_filter"`
-	HostScanFilter ModelFieldsFilter `json:"host_scan_filter"`
-	ImageScanFilter ModelFieldsFilter `json:"image_scan_filter"`
-	KubernetesClusterScanFilter ModelFieldsFilter `json:"kubernetes_cluster_scan_filter"`
+	CloudAccountScanFilter ReportersContainsFilter `json:"cloud_account_scan_filter"`
+	ContainerScanFilter ReportersContainsFilter `json:"container_scan_filter"`
+	HostScanFilter ReportersContainsFilter `json:"host_scan_filter"`
+	ImageScanFilter ReportersContainsFilter `json:"image_scan_filter"`
+	KubernetesClusterScanFilter ReportersContainsFilter `json:"kubernetes_cluster_scan_filter"`
 }
 
 // NewModelScanFilter instantiates a new ModelScanFilter object
 // This constructor will assign default values to properties that have it defined,
 // and makes sure properties required by API are set, but the set of arguments
 // will change when the set of required properties is changed
-func NewModelScanFilter(cloudAccountScanFilter ModelFieldsFilter, containerScanFilter ModelFieldsFilter, hostScanFilter ModelFieldsFilter, imageScanFilter ModelFieldsFilter, kubernetesClusterScanFilter ModelFieldsFilter) *ModelScanFilter {
+func NewModelScanFilter(cloudAccountScanFilter ReportersContainsFilter, containerScanFilter ReportersContainsFilter, hostScanFilter ReportersContainsFilter, imageScanFilter ReportersContainsFilter, kubernetesClusterScanFilter ReportersContainsFilter) *ModelScanFilter {
 	this := ModelScanFilter{}
 	this.CloudAccountScanFilter = cloudAccountScanFilter
 	this.ContainerScanFilter = containerScanFilter
@@ -50,9 +50,9 @@ func NewModelScanFilterWithDefaults() *ModelScanFilter {
 }
 
 // GetCloudAccountScanFilter returns the CloudAccountScanFilter field value
-func (o *ModelScanFilter) GetCloudAccountScanFilter() ModelFieldsFilter {
+func (o *ModelScanFilter) GetCloudAccountScanFilter() ReportersContainsFilter {
 	if o == nil {
-		var ret ModelFieldsFilter
+		var ret ReportersContainsFilter
 		return ret
 	}
 
@@ -61,7 +61,7 @@ func (o *ModelScanFilter) GetCloudAccountScanFilter() ModelFieldsFilter {
 
 // GetCloudAccountScanFilterOk returns a tuple with the CloudAccountScanFilter field value
 // and a boolean to check if the value has been set.
-func (o *ModelScanFilter) GetCloudAccountScanFilterOk() (*ModelFieldsFilter, bool) {
+func (o *ModelScanFilter) GetCloudAccountScanFilterOk() (*ReportersContainsFilter, bool) {
 	if o == nil {
 		return nil, false
 	}
@@ -69,14 +69,14 @@ func (o *ModelScanFilter) GetCloudAccountScanFilterOk() (*ModelFieldsFilter, boo
 }
 
 // SetCloudAccountScanFilter sets field value
-func (o *ModelScanFilter) SetCloudAccountScanFilter(v ModelFieldsFilter) {
+func (o *ModelScanFilter) SetCloudAccountScanFilter(v ReportersContainsFilter) {
 	o.CloudAccountScanFilter = v
 }
 
 // GetContainerScanFilter returns the ContainerScanFilter field value
-func (o *ModelScanFilter) GetContainerScanFilter() ModelFieldsFilter {
+func (o *ModelScanFilter) GetContainerScanFilter() ReportersContainsFilter {
 	if o == nil {
-		var ret ModelFieldsFilter
+		var ret ReportersContainsFilter
 		return ret
 	}
 
@@ -85,7 +85,7 @@ func (o *ModelScanFilter) GetContainerScanFilter() ModelFieldsFilter {
 
 // GetContainerScanFilterOk returns a tuple with the ContainerScanFilter field value
 // and a boolean to check if the value has been set.
-func (o *ModelScanFilter) GetContainerScanFilterOk() (*ModelFieldsFilter, bool) {
+func (o *ModelScanFilter) GetContainerScanFilterOk() (*ReportersContainsFilter, bool) {
 	if o == nil {
 		return nil, false
 	}
@@ -93,14 +93,14 @@ func (o *ModelScanFilter) GetContainerScanFilterOk() (*ModelFieldsFilter, bool) 
 }
 
 // SetContainerScanFilter sets field value
-func (o *ModelScanFilter) SetContainerScanFilter(v ModelFieldsFilter) {
+func (o *ModelScanFilter) SetContainerScanFilter(v ReportersContainsFilter) {
 	o.ContainerScanFilter = v
 }
 
 // GetHostScanFilter returns the HostScanFilter field value
-func (o *ModelScanFilter) GetHostScanFilter() ModelFieldsFilter {
+func (o *ModelScanFilter) GetHostScanFilter() ReportersContainsFilter {
 	if o == nil {
-		var ret ModelFieldsFilter
+		var ret ReportersContainsFilter
 		return ret
 	}
 
@@ -109,7 +109,7 @@ func (o *ModelScanFilter) GetHostScanFilter() ModelFieldsFilter {
 
 // GetHostScanFilterOk returns a tuple with the HostScanFilter field value
 // and a boolean to check if the value has been set.
-func (o *ModelScanFilter) GetHostScanFilterOk() (*ModelFieldsFilter, bool) {
+func (o *ModelScanFilter) GetHostScanFilterOk() (*ReportersContainsFilter, bool) {
 	if o == nil {
 		return nil, false
 	}
@@ -117,14 +117,14 @@ func (o *ModelScanFilter) GetHostScanFilterOk() (*ModelFieldsFilter, bool) {
 }
 
 // SetHostScanFilter sets field value
-func (o *ModelScanFilter) SetHostScanFilter(v ModelFieldsFilter) {
+func (o *ModelScanFilter) SetHostScanFilter(v ReportersContainsFilter) {
 	o.HostScanFilter = v
 }
 
 // GetImageScanFilter returns the ImageScanFilter field value
-func (o *ModelScanFilter) GetImageScanFilter() ModelFieldsFilter {
+func (o *ModelScanFilter) GetImageScanFilter() ReportersContainsFilter {
 	if o == nil {
-		var ret ModelFieldsFilter
+		var ret ReportersContainsFilter
 		return ret
 	}
 
@@ -133,7 +133,7 @@ func (o *ModelScanFilter) GetImageScanFilter() ModelFieldsFilter {
 
 // GetImageScanFilterOk returns a tuple with the ImageScanFilter field value
 // and a boolean to check if the value has been set.
-func (o *ModelScanFilter) GetImageScanFilterOk() (*ModelFieldsFilter, bool) {
+func (o *ModelScanFilter) GetImageScanFilterOk() (*ReportersContainsFilter, bool) {
 	if o == nil {
 		return nil, false
 	}
@@ -141,14 +141,14 @@ func (o *ModelScanFilter) GetImageScanFilterOk() (*ModelFieldsFilter, bool) {
 }
 
 // SetImageScanFilter sets field value
-func (o *ModelScanFilter) SetImageScanFilter(v ModelFieldsFilter) {
+func (o *ModelScanFilter) SetImageScanFilter(v ReportersContainsFilter) {
 	o.ImageScanFilter = v
 }
 
 // GetKubernetesClusterScanFilter returns the KubernetesClusterScanFilter field value
-func (o *ModelScanFilter) GetKubernetesClusterScanFilter() ModelFieldsFilter {
+func (o *ModelScanFilter) GetKubernetesClusterScanFilter() ReportersContainsFilter {
 	if o == nil {
-		var ret ModelFieldsFilter
+		var ret ReportersContainsFilter
 		return ret
 	}
 
@@ -157,7 +157,7 @@ func (o *ModelScanFilter) GetKubernetesClusterScanFilter() ModelFieldsFilter {
 
 // GetKubernetesClusterScanFilterOk returns a tuple with the KubernetesClusterScanFilter field value
 // and a boolean to check if the value has been set.
-func (o *ModelScanFilter) GetKubernetesClusterScanFilterOk() (*ModelFieldsFilter, bool) {
+func (o *ModelScanFilter) GetKubernetesClusterScanFilterOk() (*ReportersContainsFilter, bool) {
 	if o == nil {
 		return nil, false
 	}
@@ -165,7 +165,7 @@ func (o *ModelScanFilter) GetKubernetesClusterScanFilterOk() (*ModelFieldsFilter
 }
 
 // SetKubernetesClusterScanFilter sets field value
-func (o *ModelScanFilter) SetKubernetesClusterScanFilter(v ModelFieldsFilter) {
+func (o *ModelScanFilter) SetKubernetesClusterScanFilter(v ReportersContainsFilter) {
 	o.KubernetesClusterScanFilter = v
 }
 

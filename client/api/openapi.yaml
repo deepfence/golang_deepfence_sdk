@@ -4618,75 +4618,84 @@ components:
       type: object
     IngestersMalware:
       example:
-        Meta:
-        - Meta
-        - Meta
-        ImageLayerId: ImageLayerId
-        SeverityScore: 6.027456183070403
-        FileSevScore: 0.8008281904610115
-        StringsToMatch:
-        - StringsToMatch
-        - StringsToMatch
+        summary: summary
+        image_layer_id: image_layer_id
+        rule_name: rule_name
         kubernetes_cluster_name: kubernetes_cluster_name
-        masked: masked
-        FileSeverity: FileSeverity
-        Meta Rules:
-          key: Meta Rules
+        masked: true
+        file_severity: file_severity
+        strings_to_match:
+        - strings_to_match
+        - strings_to_match
+        scan_type: scan_type
+        registry_id: registry_id
+        image_name: image_name
         '@timestamp': 2000-01-23T04:56:07.000+00:00
-        CompleteFilename: CompleteFilename
         node_type: node_type
         container_name: container_name
-        Summary: Summary
-        Class: Class
+        meta:
+        - meta
+        - meta
+        complete_filename: complete_filename
         scan_id: scan_id
-        RuleName: RuleName
+        image_id: image_id
+        class: class
         host_name: host_name
+        meta_rules:
+          key: meta_rules
         node_id: node_id
       properties:
         '@timestamp':
           format: date-time
           type: string
-        Class:
+        class:
           type: string
-        CompleteFilename:
-          type: string
-        FileSevScore:
-          type: number
-        FileSeverity:
-          type: string
-        ImageLayerId:
-          type: string
-        Meta:
-          items:
-            type: string
-          type: array
-        Meta Rules:
-          additionalProperties:
-            type: string
-          type: object
-        RuleName:
-          type: string
-        SeverityScore:
-          type: number
-        StringsToMatch:
-          items:
-            type: string
-          type: array
-        Summary:
+        complete_filename:
           type: string
         container_name:
           type: string
+        file_severity:
+          type: string
         host_name:
+          type: string
+        image_id:
+          type: string
+        image_layer_id:
+          type: string
+        image_name:
           type: string
         kubernetes_cluster_name:
           type: string
         masked:
-          type: string
+          type: boolean
+        meta:
+          items:
+            type: string
+          nullable: true
+          type: array
+        meta_rules:
+          additionalProperties:
+            type: string
+          nullable: true
+          type: object
         node_id:
           type: string
         node_type:
           type: string
+        registry_id:
+          type: string
+        rule_name:
+          type: string
         scan_id:
+          type: string
+        scan_type:
+          type: string
+        strings_to_match:
+          items:
+            type: string
+          nullable: true
+          type: array
+        summary:
           type: string
       type: object
     IngestersMalwareScanStatus:
@@ -5735,55 +5744,30 @@ components:
         - benchmark_types
         filters:
           container_scan_filter:
-            fields_values:
-            - values:
-              - values
-              - values
-              key: key
-            - values:
-              - values
-              - values
-              key: key
+            filter_in:
+              key:
+              - ""
+              - ""
           cloud_account_scan_filter:
-            fields_values:
-            - values:
-              - values
-              - values
-              key: key
-            - values:
-              - values
-              - values
-              key: key
+            filter_in:
+              key:
+              - ""
+              - ""
           image_scan_filter:
-            fields_values:
-            - values:
-              - values
-              - values
-              key: key
-            - values:
-              - values
-              - values
-              key: key
+            filter_in:
+              key:
+              - ""
+              - ""
           kubernetes_cluster_scan_filter:
-            fields_values:
-            - values:
-              - values
-              - values
-              key: key
-            - values:
-              - values
-              - values
-              key: key
+            filter_in:
+              key:
+              - ""
+              - ""
           host_scan_filter:
-            fields_values:
-            - values:
-              - values
-              - values
-              key: key
-            - values:
-              - values
-              - values
-              key: key
+            filter_in:
+              key:
+              - ""
+              - ""
         node_ids:
         - node_type: image
           node_id: node_id
@@ -6014,26 +5998,6 @@ components:
       required:
       - offset
       - size
-      type: object
-    ModelFieldsFilter:
-      example:
-        fields_values:
-        - values:
-          - values
-          - values
-          key: key
-        - values:
-          - values
-          - values
-          key: key
-      properties:
-        fields_values:
-          items:
-            $ref: '#/components/schemas/ModelKeyValues'
-          nullable: true
-          type: array
-      required:
-      - fields_values
       type: object
     ModelHost:
       example:
@@ -6649,24 +6613,6 @@ components:
           type: string
         message:
           type: string
-      type: object
-    ModelKeyValues:
-      example:
-        values:
-        - values
-        - values
-        key: key
-      properties:
-        key:
-          type: string
-        values:
-          items:
-            type: string
-          nullable: true
-          type: array
-      required:
-      - key
-      - values
       type: object
     ModelKubernetesCluster:
       example:
@@ -7812,55 +7758,30 @@ components:
       example:
         filters:
           container_scan_filter:
-            fields_values:
-            - values:
-              - values
-              - values
-              key: key
-            - values:
-              - values
-              - values
-              key: key
+            filter_in:
+              key:
+              - ""
+              - ""
           cloud_account_scan_filter:
-            fields_values:
-            - values:
-              - values
-              - values
-              key: key
-            - values:
-              - values
-              - values
-              key: key
+            filter_in:
+              key:
+              - ""
+              - ""
           image_scan_filter:
-            fields_values:
-            - values:
-              - values
-              - values
-              key: key
-            - values:
-              - values
-              - values
-              key: key
+            filter_in:
+              key:
+              - ""
+              - ""
           kubernetes_cluster_scan_filter:
-            fields_values:
-            - values:
-              - values
-              - values
-              key: key
-            - values:
-              - values
-              - values
-              key: key
+            filter_in:
+              key:
+              - ""
+              - ""
           host_scan_filter:
-            fields_values:
-            - values:
-              - values
-              - values
-              key: key
-            - values:
-              - values
-              - values
-              key: key
+            filter_in:
+              key:
+              - ""
+              - ""
         node_ids:
         - node_type: image
           node_id: node_id
@@ -8329,66 +8250,41 @@ components:
     ModelScanFilter:
       example:
         container_scan_filter:
-          fields_values:
-          - values:
-            - values
-            - values
-            key: key
-          - values:
-            - values
-            - values
-            key: key
+          filter_in:
+            key:
+            - ""
+            - ""
         cloud_account_scan_filter:
-          fields_values:
-          - values:
-            - values
-            - values
-            key: key
-          - values:
-            - values
-            - values
-            key: key
+          filter_in:
+            key:
+            - ""
+            - ""
         image_scan_filter:
-          fields_values:
-          - values:
-            - values
-            - values
-            key: key
-          - values:
-            - values
-            - values
-            key: key
+          filter_in:
+            key:
+            - ""
+            - ""
         kubernetes_cluster_scan_filter:
-          fields_values:
-          - values:
-            - values
-            - values
-            key: key
-          - values:
-            - values
-            - values
-            key: key
+          filter_in:
+            key:
+            - ""
+            - ""
         host_scan_filter:
-          fields_values:
-          - values:
-            - values
-            - values
-            key: key
-          - values:
-            - values
-            - values
-            key: key
+          filter_in:
+            key:
+            - ""
+            - ""
       properties:
         cloud_account_scan_filter:
-          $ref: '#/components/schemas/ModelFieldsFilter'
+          $ref: '#/components/schemas/ReportersContainsFilter'
         container_scan_filter:
-          $ref: '#/components/schemas/ModelFieldsFilter'
+          $ref: '#/components/schemas/ReportersContainsFilter'
         host_scan_filter:
-          $ref: '#/components/schemas/ModelFieldsFilter'
+          $ref: '#/components/schemas/ReportersContainsFilter'
         image_scan_filter:
-          $ref: '#/components/schemas/ModelFieldsFilter'
+          $ref: '#/components/schemas/ReportersContainsFilter'
         kubernetes_cluster_scan_filter:
-          $ref: '#/components/schemas/ModelFieldsFilter'
+          $ref: '#/components/schemas/ReportersContainsFilter'
       required:
       - cloud_account_scan_filter
       - container_scan_filter
@@ -8490,12 +8386,23 @@ components:
         window:
           offset: 0
           size: 6
+        fields_filter:
+          order_filter:
+            order_field: order_field
+          contains_filter:
+            filter_in:
+              key:
+              - ""
+              - ""
       properties:
+        fields_filter:
+          $ref: '#/components/schemas/ReportersFieldsFilters'
         scan_id:
           type: string
         window:
           $ref: '#/components/schemas/ModelFetchWindow'
       required:
+      - fields_filter
       - scan_id
       - window
       type: object
@@ -8660,55 +8567,30 @@ components:
       example:
         filters:
           container_scan_filter:
-            fields_values:
-            - values:
-              - values
-              - values
-              key: key
-            - values:
-              - values
-              - values
-              key: key
+            filter_in:
+              key:
+              - ""
+              - ""
           cloud_account_scan_filter:
-            fields_values:
-            - values:
-              - values
-              - values
-              key: key
-            - values:
-              - values
-              - values
-              key: key
+            filter_in:
+              key:
+              - ""
+              - ""
           image_scan_filter:
-            fields_values:
-            - values:
-              - values
-              - values
-              key: key
-            - values:
-              - values
-              - values
-              key: key
+            filter_in:
+              key:
+              - ""
+              - ""
           kubernetes_cluster_scan_filter:
-            fields_values:
-            - values:
-              - values
-              - values
-              key: key
-            - values:
-              - values
-              - values
-              key: key
+            filter_in:
+              key:
+              - ""
+              - ""
           host_scan_filter:
-            fields_values:
-            - values:
-              - values
-              - values
-              key: key
-            - values:
-              - values
-              - values
-              key: key
+            filter_in:
+              key:
+              - ""
+              - ""
         node_ids:
         - node_type: image
           node_id: node_id
@@ -8955,55 +8837,30 @@ components:
         scan_config: all
         filters:
           container_scan_filter:
-            fields_values:
-            - values:
-              - values
-              - values
-              key: key
-            - values:
-              - values
-              - values
-              key: key
+            filter_in:
+              key:
+              - ""
+              - ""
           cloud_account_scan_filter:
-            fields_values:
-            - values:
-              - values
-              - values
-              key: key
-            - values:
-              - values
-              - values
-              key: key
+            filter_in:
+              key:
+              - ""
+              - ""
           image_scan_filter:
-            fields_values:
-            - values:
-              - values
-              - values
-              key: key
-            - values:
-              - values
-              - values
-              key: key
+            filter_in:
+              key:
+              - ""
+              - ""
           kubernetes_cluster_scan_filter:
-            fields_values:
-            - values:
-              - values
-              - values
-              key: key
-            - values:
-              - values
-              - values
-              key: key
+            filter_in:
+              key:
+              - ""
+              - ""
           host_scan_filter:
-            fields_values:
-            - values:
-              - values
-              - values
-              key: key
-            - values:
-              - values
-              - values
-              key: key
+            filter_in:
+              key:
+              - ""
+              - ""
         node_ids:
         - node_type: image
           node_id: node_id

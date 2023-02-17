@@ -81,12 +81,10 @@ docs/ModelComputeMetrics.md
 docs/ModelContainer.md
 docs/ModelContainerImage.md
 docs/ModelFetchWindow.md
-docs/ModelFieldsFilter.md
 docs/ModelHost.md
 docs/ModelInitAgentReq.md
 docs/ModelInviteUserRequest.md
 docs/ModelInviteUserResponse.md
-docs/ModelKeyValues.md
 docs/ModelKubernetesCluster.md
 docs/ModelLoginRequest.md
 docs/ModelMalware.md
@@ -191,12 +189,10 @@ model_model_compute_metrics.go
 model_model_container.go
 model_model_container_image.go
 model_model_fetch_window.go
-model_model_fields_filter.go
 model_model_host.go
 model_model_init_agent_req.go
 model_model_invite_user_request.go
 model_model_invite_user_response.go
-model_model_key_values.go
 model_model_kubernetes_cluster.go
 model_model_login_request.go
 model_model_malware.go
