@@ -418,7 +418,8 @@ SELECT container_registry.id,
        container_registry.encrypted_secret,
        container_registry.non_secret,
        container_registry.created_at,
-       container_registry.updated_at
+       container_registry.updated_at,
+       container_registry.extras
 FROM container_registry
 WHERE container_registry.id = $1
 LIMIT 1;
@@ -441,7 +442,8 @@ SELECT container_registry.id,
        container_registry.encrypted_secret,
        container_registry.non_secret,
        container_registry.created_at,
-       container_registry.updated_at
+       container_registry.updated_at,
+       container_registry.extras
 FROM container_registry;
 
 -- name: GetContainerRegistriesSafe :many
@@ -460,7 +462,8 @@ SELECT container_registry.id,
        container_registry.encrypted_secret,
        container_registry.non_secret,
        container_registry.created_at,
-       container_registry.updated_at
+       container_registry.updated_at,
+       container_registry.extras
 FROM container_registry
 WHERE container_registry.registry_type = $1;
 
@@ -471,7 +474,8 @@ SELECT container_registry.id,
        container_registry.encrypted_secret,
        container_registry.non_secret,
        container_registry.created_at,
-       container_registry.updated_at
+       container_registry.updated_at,
+       container_registry.extras
 FROM container_registry
 WHERE container_registry.registry_type = $1
   AND container_registry.name = $2

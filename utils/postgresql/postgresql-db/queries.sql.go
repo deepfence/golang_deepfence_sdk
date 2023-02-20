@@ -872,7 +872,8 @@ SELECT container_registry.id,
        container_registry.encrypted_secret,
        container_registry.non_secret,
        container_registry.created_at,
-       container_registry.updated_at
+       container_registry.updated_at,
+       container_registry.extras
 FROM container_registry
 `
 
@@ -884,6 +885,7 @@ type GetContainerRegistriesRow struct {
 	NonSecret       json.RawMessage
 	CreatedAt       time.Time
 	UpdatedAt       time.Time
+	Extras          json.RawMessage
 }
 
 func (q *Queries) GetContainerRegistries(ctx context.Context) ([]GetContainerRegistriesRow, error) {
@@ -903,6 +905,7 @@ func (q *Queries) GetContainerRegistries(ctx context.Context) ([]GetContainerReg
 			&i.NonSecret,
 			&i.CreatedAt,
 			&i.UpdatedAt,
+			&i.Extras,
 		); err != nil {
 			return nil, err
 		}
@@ -973,7 +976,8 @@ SELECT container_registry.id,
        container_registry.encrypted_secret,
        container_registry.non_secret,
        container_registry.created_at,
-       container_registry.updated_at
+       container_registry.updated_at,
+       container_registry.extras
 FROM container_registry
 WHERE container_registry.id = $1
 LIMIT 1
@@ -987,6 +991,7 @@ type GetContainerRegistryRow struct {
 	NonSecret       json.RawMessage
 	CreatedAt       time.Time
 	UpdatedAt       time.Time
+	Extras          json.RawMessage
 }
 
 func (q *Queries) GetContainerRegistry(ctx context.Context, id int32) (GetContainerRegistryRow, error) {
@@ -1000,6 +1005,7 @@ func (q *Queries) GetContainerRegistry(ctx context.Context, id int32) (GetContai
 		&i.NonSecret,
 		&i.CreatedAt,
 		&i.UpdatedAt,
+		&i.Extras,
 	)
 	return i, err
 }
@@ -1011,7 +1017,8 @@ SELECT container_registry.id,
        container_registry.encrypted_secret,
        container_registry.non_secret,
        container_registry.created_at,
-       container_registry.updated_at
+       container_registry.updated_at,
+       container_registry.extras
 FROM container_registry
 WHERE container_registry.registry_type = $1
 `
@@ -1024,6 +1031,7 @@ type GetContainerRegistryByTypeRow struct {
 	NonSecret       json.RawMessage
 	CreatedAt       time.Time
 	UpdatedAt       time.Time
+	Extras          json.RawMessage
 }
 
 func (q *Queries) GetContainerRegistryByType(ctx context.Context, registryType string) ([]GetContainerRegistryByTypeRow, error) {
@@ -1043,6 +1051,7 @@ func (q *Queries) GetContainerRegistryByType(ctx context.Context, registryType s
 			&i.NonSecret,
 			&i.CreatedAt,
 			&i.UpdatedAt,
+			&i.Extras,
 		); err != nil {
 			return nil, err
 		}
@@ -1064,7 +1073,8 @@ SELECT container_registry.id,
        container_registry.encrypted_secret,
        container_registry.non_secret,
        container_registry.created_at,
-       container_registry.updated_at
+       container_registry.updated_at,
+       container_registry.extras
 FROM container_registry
 WHERE container_registry.registry_type = $1
   AND container_registry.name = $2
@@ -1084,6 +1094,7 @@ type GetContainerRegistryByTypeAndNameRow struct {
 	NonSecret       json.RawMessage
 	CreatedAt       time.Time
 	UpdatedAt       time.Time
+	Extras          json.RawMessage
 }
 
 func (q *Queries) GetContainerRegistryByTypeAndName(ctx context.Context, arg GetContainerRegistryByTypeAndNameParams) (GetContainerRegistryByTypeAndNameRow, error) {
@@ -1097,6 +1108,7 @@ func (q *Queries) GetContainerRegistryByTypeAndName(ctx context.Context, arg Get
 		&i.NonSecret,
 		&i.CreatedAt,
 		&i.UpdatedAt,
+		&i.Extras,
 	)
 	return i, err
 }
