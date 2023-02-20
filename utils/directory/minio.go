@@ -8,6 +8,7 @@ import (
 	"net/http"
 	"net/url"
 	"path"
+	"strings"
 	"time"
 
 	"github.com/minio/minio-go/v7"
@@ -33,7 +34,7 @@ func (e AlreadyPresentError) Error() string {
 type FileManager interface {
 	UploadFile(context.Context, string, []byte, interface{}) (UploadResult, error)
 	DownloadFile(context.Context, string, string, interface{}) error
-	ExposeFile(context.Context, string) (string, error)
+	ExposeFile(context.Context, string, time.Duration, url.Values) (string, error)
 	Client() interface{}
 	Bucket() string
 }
@@ -94,27 +95,26 @@ func (mfm *MinioFileManager) DownloadFile(ctx context.Context, remoteFile string
 	return mfm.client.FGetObject(ctx, mfm.namespace, path.Join(mfm.namespace, remoteFile), localFile, extra.(minio.GetObjectOptions))
 }
 
-func (mfm *MinioFileManager) ExposeFile(ctx context.Context, filepath string) (string, error) {
-
-	console_ip, err := GetManagementHost(NewGlobalContext())
+func (mfm *MinioFileManager) ExposeFile(ctx context.Context, filepath string, expires time.Duration, reqParams url.Values) (string, error) {
+	consoleIp, err := GetManagementHost(NewGlobalContext())
 	if err != nil {
 		return "", err
 	}
 
-	headers := http.Header{"Host": []string{console_ip}}
+	headers := http.Header{"Host": []string{consoleIp}}
 
-	url, err := mfm.client.PresignHeader(context.Background(),
+	urlLink, err := mfm.client.PresignHeader(context.Background(),
 		"GET",
 		mfm.namespace,
 		filepath,
-		time.Hour*10,
-		url.Values{},
+		expires,
+		reqParams,
 		headers)
 
 	if err != nil {
 		return "", err
 	}
-	return url.String(), nil
+	return strings.ReplaceAll(urlLink.String(), "deepfence-file-server:9000", fmt.Sprintf("%s/file-server", consoleIp)), nil
 }
 
 func (mfm *MinioFileManager) Client() interface{} {
