@@ -41,7 +41,7 @@ import (
 )
 
 func main() {
-    searchSearchScanReq := *openapiclient.NewSearchSearchScanReq(*openapiclient.NewSearchSearchFilter(*openapiclient.NewReportersFieldsFilters(*openapiclient.NewReportersContainsFilter(map[string][]interface{}{"key": []interface{}{nil}}), *openapiclient.NewReportersOrderFilter("OrderField_example")), []string{"InFieldFilter_example"}), *openapiclient.NewSearchSearchFilter(*openapiclient.NewReportersFieldsFilters(*openapiclient.NewReportersContainsFilter(map[string][]interface{}{"key": []interface{}{nil}}), *openapiclient.NewReportersOrderFilter("OrderField_example")), []string{"InFieldFilter_example"}), *openapiclient.NewModelFetchWindow(int32(123), int32(123))) // SearchSearchScanReq |  (optional)
+    searchSearchScanReq := *openapiclient.NewSearchSearchScanReq(*openapiclient.NewSearchSearchFilter(*openapiclient.NewReportersFieldsFilters(*openapiclient.NewReportersContainsFilter(map[string][]interface{}{"key": []interface{}{nil}}), *openapiclient.NewReportersMatchFilter(map[string][]interface{}{"key": []interface{}{nil}}), *openapiclient.NewReportersOrderFilter("OrderField_example")), []string{"InFieldFilter_example"}), *openapiclient.NewSearchSearchFilter(*openapiclient.NewReportersFieldsFilters(*openapiclient.NewReportersContainsFilter(map[string][]interface{}{"key": []interface{}{nil}}), *openapiclient.NewReportersMatchFilter(map[string][]interface{}{"key": []interface{}{nil}}), *openapiclient.NewReportersOrderFilter("OrderField_example")), []string{"InFieldFilter_example"}), *openapiclient.NewModelFetchWindow(int32(123), int32(123))) // SearchSearchScanReq |  (optional)
 
     configuration := openapiclient.NewConfiguration()
     apiClient := openapiclient.NewAPIClient(configuration)
@@ -107,7 +107,7 @@ import (
 )
 
 func main() {
-    searchSearchNodeReq := *openapiclient.NewSearchSearchNodeReq(*openapiclient.NewSearchSearchFilter(*openapiclient.NewReportersFieldsFilters(*openapiclient.NewReportersContainsFilter(map[string][]interface{}{"key": []interface{}{nil}}), *openapiclient.NewReportersOrderFilter("OrderField_example")), []string{"InFieldFilter_example"}), *openapiclient.NewModelFetchWindow(int32(123), int32(123))) // SearchSearchNodeReq |  (optional)
+    searchSearchNodeReq := *openapiclient.NewSearchSearchNodeReq(*openapiclient.NewSearchSearchFilter(*openapiclient.NewReportersFieldsFilters(*openapiclient.NewReportersContainsFilter(map[string][]interface{}{"key": []interface{}{nil}}), *openapiclient.NewReportersMatchFilter(map[string][]interface{}{"key": []interface{}{nil}}), *openapiclient.NewReportersOrderFilter("OrderField_example")), []string{"InFieldFilter_example"}), *openapiclient.NewModelFetchWindow(int32(123), int32(123))) // SearchSearchNodeReq |  (optional)
 
     configuration := openapiclient.NewConfiguration()
     apiClient := openapiclient.NewAPIClient(configuration)
@@ -173,7 +173,7 @@ import (
 )
 
 func main() {
-    searchSearchScanReq := *openapiclient.NewSearchSearchScanReq(*openapiclient.NewSearchSearchFilter(*openapiclient.NewReportersFieldsFilters(*openapiclient.NewReportersContainsFilter(map[string][]interface{}{"key": []interface{}{nil}}), *openapiclient.NewReportersOrderFilter("OrderField_example")), []string{"InFieldFilter_example"}), *openapiclient.NewSearchSearchFilter(*openapiclient.NewReportersFieldsFilters(*openapiclient.NewReportersContainsFilter(map[string][]interface{}{"key": []interface{}{nil}}), *openapiclient.NewReportersOrderFilter("OrderField_example")), []string{"InFieldFilter_example"}), *openapiclient.NewModelFetchWindow(int32(123), int32(123))) // SearchSearchScanReq |  (optional)
+    searchSearchScanReq := *openapiclient.NewSearchSearchScanReq(*openapiclient.NewSearchSearchFilter(*openapiclient.NewReportersFieldsFilters(*openapiclient.NewReportersContainsFilter(map[string][]interface{}{"key": []interface{}{nil}}), *openapiclient.NewReportersMatchFilter(map[string][]interface{}{"key": []interface{}{nil}}), *openapiclient.NewReportersOrderFilter("OrderField_example")), []string{"InFieldFilter_example"}), *openapiclient.NewSearchSearchFilter(*openapiclient.NewReportersFieldsFilters(*openapiclient.NewReportersContainsFilter(map[string][]interface{}{"key": []interface{}{nil}}), *openapiclient.NewReportersMatchFilter(map[string][]interface{}{"key": []interface{}{nil}}), *openapiclient.NewReportersOrderFilter("OrderField_example")), []string{"InFieldFilter_example"}), *openapiclient.NewModelFetchWindow(int32(123), int32(123))) // SearchSearchScanReq |  (optional)
 
     configuration := openapiclient.NewConfiguration()
     apiClient := openapiclient.NewAPIClient(configuration)
@@ -239,7 +239,7 @@ import (
 )
 
 func main() {
-    searchSearchNodeReq := *openapiclient.NewSearchSearchNodeReq(*openapiclient.NewSearchSearchFilter(*openapiclient.NewReportersFieldsFilters(*openapiclient.NewReportersContainsFilter(map[string][]interface{}{"key": []interface{}{nil}}), *openapiclient.NewReportersOrderFilter("OrderField_example")), []string{"InFieldFilter_example"}), *openapiclient.NewModelFetchWindow(int32(123), int32(123))) // SearchSearchNodeReq |  (optional)
+    searchSearchNodeReq := *openapiclient.NewSearchSearchNodeReq(*openapiclient.NewSearchSearchFilter(*openapiclient.NewReportersFieldsFilters(*openapiclient.NewReportersContainsFilter(map[string][]interface{}{"key": []interface{}{nil}}), *openapiclient.NewReportersMatchFilter(map[string][]interface{}{"key": []interface{}{nil}}), *openapiclient.NewReportersOrderFilter("OrderField_example")), []string{"InFieldFilter_example"}), *openapiclient.NewModelFetchWindow(int32(123), int32(123))) // SearchSearchNodeReq |  (optional)
 
     configuration := openapiclient.NewConfiguration()
     apiClient := openapiclient.NewAPIClient(configuration)
@@ -305,7 +305,7 @@ import (
 )
 
 func main() {
-    searchSearchNodeReq := *openapiclient.NewSearchSearchNodeReq(*openapiclient.NewSearchSearchFilter(*openapiclient.NewReportersFieldsFilters(*openapiclient.NewReportersContainsFilter(map[string][]interface{}{"key": []interface{}{nil}}), *openapiclient.NewReportersOrderFilter("OrderField_example")), []string{"InFieldFilter_example"}), *openapiclient.NewModelFetchWindow(int32(123), int32(123))) // SearchSearchNodeReq |  (optional)
+    searchSearchNodeReq := *openapiclient.NewSearchSearchNodeReq(*openapiclient.NewSearchSearchFilter(*openapiclient.NewReportersFieldsFilters(*openapiclient.NewReportersContainsFilter(map[string][]interface{}{"key": []interface{}{nil}}), *openapiclient.NewReportersMatchFilter(map[string][]interface{}{"key": []interface{}{nil}}), *openapiclient.NewReportersOrderFilter("OrderField_example")), []string{"InFieldFilter_example"}), *openapiclient.NewModelFetchWindow(int32(123), int32(123))) // SearchSearchNodeReq |  (optional)
 
     configuration := openapiclient.NewConfiguration()
     apiClient := openapiclient.NewAPIClient(configuration)
@@ -371,7 +371,7 @@ import (
 )
 
 func main() {
-    searchSearchNodeReq := *openapiclient.NewSearchSearchNodeReq(*openapiclient.NewSearchSearchFilter(*openapiclient.NewReportersFieldsFilters(*openapiclient.NewReportersContainsFilter(map[string][]interface{}{"key": []interface{}{nil}}), *openapiclient.NewReportersOrderFilter("OrderField_example")), []string{"InFieldFilter_example"}), *openapiclient.NewModelFetchWindow(int32(123), int32(123))) // SearchSearchNodeReq |  (optional)
+    searchSearchNodeReq := *openapiclient.NewSearchSearchNodeReq(*openapiclient.NewSearchSearchFilter(*openapiclient.NewReportersFieldsFilters(*openapiclient.NewReportersContainsFilter(map[string][]interface{}{"key": []interface{}{nil}}), *openapiclient.NewReportersMatchFilter(map[string][]interface{}{"key": []interface{}{nil}}), *openapiclient.NewReportersOrderFilter("OrderField_example")), []string{"InFieldFilter_example"}), *openapiclient.NewModelFetchWindow(int32(123), int32(123))) // SearchSearchNodeReq |  (optional)
 
     configuration := openapiclient.NewConfiguration()
     apiClient := openapiclient.NewAPIClient(configuration)
@@ -437,7 +437,7 @@ import (
 )
 
 func main() {
-    searchSearchNodeReq := *openapiclient.NewSearchSearchNodeReq(*openapiclient.NewSearchSearchFilter(*openapiclient.NewReportersFieldsFilters(*openapiclient.NewReportersContainsFilter(map[string][]interface{}{"key": []interface{}{nil}}), *openapiclient.NewReportersOrderFilter("OrderField_example")), []string{"InFieldFilter_example"}), *openapiclient.NewModelFetchWindow(int32(123), int32(123))) // SearchSearchNodeReq |  (optional)
+    searchSearchNodeReq := *openapiclient.NewSearchSearchNodeReq(*openapiclient.NewSearchSearchFilter(*openapiclient.NewReportersFieldsFilters(*openapiclient.NewReportersContainsFilter(map[string][]interface{}{"key": []interface{}{nil}}), *openapiclient.NewReportersMatchFilter(map[string][]interface{}{"key": []interface{}{nil}}), *openapiclient.NewReportersOrderFilter("OrderField_example")), []string{"InFieldFilter_example"}), *openapiclient.NewModelFetchWindow(int32(123), int32(123))) // SearchSearchNodeReq |  (optional)
 
     configuration := openapiclient.NewConfiguration()
     apiClient := openapiclient.NewAPIClient(configuration)
@@ -503,7 +503,7 @@ import (
 )
 
 func main() {
-    searchSearchScanReq := *openapiclient.NewSearchSearchScanReq(*openapiclient.NewSearchSearchFilter(*openapiclient.NewReportersFieldsFilters(*openapiclient.NewReportersContainsFilter(map[string][]interface{}{"key": []interface{}{nil}}), *openapiclient.NewReportersOrderFilter("OrderField_example")), []string{"InFieldFilter_example"}), *openapiclient.NewSearchSearchFilter(*openapiclient.NewReportersFieldsFilters(*openapiclient.NewReportersContainsFilter(map[string][]interface{}{"key": []interface{}{nil}}), *openapiclient.NewReportersOrderFilter("OrderField_example")), []string{"InFieldFilter_example"}), *openapiclient.NewModelFetchWindow(int32(123), int32(123))) // SearchSearchScanReq |  (optional)
+    searchSearchScanReq := *openapiclient.NewSearchSearchScanReq(*openapiclient.NewSearchSearchFilter(*openapiclient.NewReportersFieldsFilters(*openapiclient.NewReportersContainsFilter(map[string][]interface{}{"key": []interface{}{nil}}), *openapiclient.NewReportersMatchFilter(map[string][]interface{}{"key": []interface{}{nil}}), *openapiclient.NewReportersOrderFilter("OrderField_example")), []string{"InFieldFilter_example"}), *openapiclient.NewSearchSearchFilter(*openapiclient.NewReportersFieldsFilters(*openapiclient.NewReportersContainsFilter(map[string][]interface{}{"key": []interface{}{nil}}), *openapiclient.NewReportersMatchFilter(map[string][]interface{}{"key": []interface{}{nil}}), *openapiclient.NewReportersOrderFilter("OrderField_example")), []string{"InFieldFilter_example"}), *openapiclient.NewModelFetchWindow(int32(123), int32(123))) // SearchSearchScanReq |  (optional)
 
     configuration := openapiclient.NewConfiguration()
     apiClient := openapiclient.NewAPIClient(configuration)
@@ -569,7 +569,7 @@ import (
 )
 
 func main() {
-    searchSearchNodeReq := *openapiclient.NewSearchSearchNodeReq(*openapiclient.NewSearchSearchFilter(*openapiclient.NewReportersFieldsFilters(*openapiclient.NewReportersContainsFilter(map[string][]interface{}{"key": []interface{}{nil}}), *openapiclient.NewReportersOrderFilter("OrderField_example")), []string{"InFieldFilter_example"}), *openapiclient.NewModelFetchWindow(int32(123), int32(123))) // SearchSearchNodeReq |  (optional)
+    searchSearchNodeReq := *openapiclient.NewSearchSearchNodeReq(*openapiclient.NewSearchSearchFilter(*openapiclient.NewReportersFieldsFilters(*openapiclient.NewReportersContainsFilter(map[string][]interface{}{"key": []interface{}{nil}}), *openapiclient.NewReportersMatchFilter(map[string][]interface{}{"key": []interface{}{nil}}), *openapiclient.NewReportersOrderFilter("OrderField_example")), []string{"InFieldFilter_example"}), *openapiclient.NewModelFetchWindow(int32(123), int32(123))) // SearchSearchNodeReq |  (optional)
 
     configuration := openapiclient.NewConfiguration()
     apiClient := openapiclient.NewAPIClient(configuration)
@@ -635,7 +635,7 @@ import (
 )
 
 func main() {
-    searchSearchNodeReq := *openapiclient.NewSearchSearchNodeReq(*openapiclient.NewSearchSearchFilter(*openapiclient.NewReportersFieldsFilters(*openapiclient.NewReportersContainsFilter(map[string][]interface{}{"key": []interface{}{nil}}), *openapiclient.NewReportersOrderFilter("OrderField_example")), []string{"InFieldFilter_example"}), *openapiclient.NewModelFetchWindow(int32(123), int32(123))) // SearchSearchNodeReq |  (optional)
+    searchSearchNodeReq := *openapiclient.NewSearchSearchNodeReq(*openapiclient.NewSearchSearchFilter(*openapiclient.NewReportersFieldsFilters(*openapiclient.NewReportersContainsFilter(map[string][]interface{}{"key": []interface{}{nil}}), *openapiclient.NewReportersMatchFilter(map[string][]interface{}{"key": []interface{}{nil}}), *openapiclient.NewReportersOrderFilter("OrderField_example")), []string{"InFieldFilter_example"}), *openapiclient.NewModelFetchWindow(int32(123), int32(123))) // SearchSearchNodeReq |  (optional)
 
     configuration := openapiclient.NewConfiguration()
     apiClient := openapiclient.NewAPIClient(configuration)
@@ -701,7 +701,7 @@ import (
 )
 
 func main() {
-    searchSearchScanReq := *openapiclient.NewSearchSearchScanReq(*openapiclient.NewSearchSearchFilter(*openapiclient.NewReportersFieldsFilters(*openapiclient.NewReportersContainsFilter(map[string][]interface{}{"key": []interface{}{nil}}), *openapiclient.NewReportersOrderFilter("OrderField_example")), []string{"InFieldFilter_example"}), *openapiclient.NewSearchSearchFilter(*openapiclient.NewReportersFieldsFilters(*openapiclient.NewReportersContainsFilter(map[string][]interface{}{"key": []interface{}{nil}}), *openapiclient.NewReportersOrderFilter("OrderField_example")), []string{"InFieldFilter_example"}), *openapiclient.NewModelFetchWindow(int32(123), int32(123))) // SearchSearchScanReq |  (optional)
+    searchSearchScanReq := *openapiclient.NewSearchSearchScanReq(*openapiclient.NewSearchSearchFilter(*openapiclient.NewReportersFieldsFilters(*openapiclient.NewReportersContainsFilter(map[string][]interface{}{"key": []interface{}{nil}}), *openapiclient.NewReportersMatchFilter(map[string][]interface{}{"key": []interface{}{nil}}), *openapiclient.NewReportersOrderFilter("OrderField_example")), []string{"InFieldFilter_example"}), *openapiclient.NewSearchSearchFilter(*openapiclient.NewReportersFieldsFilters(*openapiclient.NewReportersContainsFilter(map[string][]interface{}{"key": []interface{}{nil}}), *openapiclient.NewReportersMatchFilter(map[string][]interface{}{"key": []interface{}{nil}}), *openapiclient.NewReportersOrderFilter("OrderField_example")), []string{"InFieldFilter_example"}), *openapiclient.NewModelFetchWindow(int32(123), int32(123))) // SearchSearchScanReq |  (optional)
 
     configuration := openapiclient.NewConfiguration()
     apiClient := openapiclient.NewAPIClient(configuration)
@@ -767,7 +767,7 @@ import (
 )
 
 func main() {
-    searchSearchNodeReq := *openapiclient.NewSearchSearchNodeReq(*openapiclient.NewSearchSearchFilter(*openapiclient.NewReportersFieldsFilters(*openapiclient.NewReportersContainsFilter(map[string][]interface{}{"key": []interface{}{nil}}), *openapiclient.NewReportersOrderFilter("OrderField_example")), []string{"InFieldFilter_example"}), *openapiclient.NewModelFetchWindow(int32(123), int32(123))) // SearchSearchNodeReq |  (optional)
+    searchSearchNodeReq := *openapiclient.NewSearchSearchNodeReq(*openapiclient.NewSearchSearchFilter(*openapiclient.NewReportersFieldsFilters(*openapiclient.NewReportersContainsFilter(map[string][]interface{}{"key": []interface{}{nil}}), *openapiclient.NewReportersMatchFilter(map[string][]interface{}{"key": []interface{}{nil}}), *openapiclient.NewReportersOrderFilter("OrderField_example")), []string{"InFieldFilter_example"}), *openapiclient.NewModelFetchWindow(int32(123), int32(123))) // SearchSearchNodeReq |  (optional)
 
     configuration := openapiclient.NewConfiguration()
     apiClient := openapiclient.NewAPIClient(configuration)
@@ -833,7 +833,7 @@ import (
 )
 
 func main() {
-    searchSearchScanReq := *openapiclient.NewSearchSearchScanReq(*openapiclient.NewSearchSearchFilter(*openapiclient.NewReportersFieldsFilters(*openapiclient.NewReportersContainsFilter(map[string][]interface{}{"key": []interface{}{nil}}), *openapiclient.NewReportersOrderFilter("OrderField_example")), []string{"InFieldFilter_example"}), *openapiclient.NewSearchSearchFilter(*openapiclient.NewReportersFieldsFilters(*openapiclient.NewReportersContainsFilter(map[string][]interface{}{"key": []interface{}{nil}}), *openapiclient.NewReportersOrderFilter("OrderField_example")), []string{"InFieldFilter_example"}), *openapiclient.NewModelFetchWindow(int32(123), int32(123))) // SearchSearchScanReq |  (optional)
+    searchSearchScanReq := *openapiclient.NewSearchSearchScanReq(*openapiclient.NewSearchSearchFilter(*openapiclient.NewReportersFieldsFilters(*openapiclient.NewReportersContainsFilter(map[string][]interface{}{"key": []interface{}{nil}}), *openapiclient.NewReportersMatchFilter(map[string][]interface{}{"key": []interface{}{nil}}), *openapiclient.NewReportersOrderFilter("OrderField_example")), []string{"InFieldFilter_example"}), *openapiclient.NewSearchSearchFilter(*openapiclient.NewReportersFieldsFilters(*openapiclient.NewReportersContainsFilter(map[string][]interface{}{"key": []interface{}{nil}}), *openapiclient.NewReportersMatchFilter(map[string][]interface{}{"key": []interface{}{nil}}), *openapiclient.NewReportersOrderFilter("OrderField_example")), []string{"InFieldFilter_example"}), *openapiclient.NewModelFetchWindow(int32(123), int32(123))) // SearchSearchScanReq |  (optional)
 
     configuration := openapiclient.NewConfiguration()
     apiClient := openapiclient.NewAPIClient(configuration)

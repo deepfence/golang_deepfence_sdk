@@ -21,6 +21,7 @@ var _ MappedNullable = &ReportersFieldsFilters{}
 // ReportersFieldsFilters struct for ReportersFieldsFilters
 type ReportersFieldsFilters struct {
 	ContainsFilter ReportersContainsFilter `json:"contains_filter"`
+	MatchFilter ReportersMatchFilter `json:"match_filter"`
 	OrderFilter ReportersOrderFilter `json:"order_filter"`
 }
 
@@ -28,9 +29,10 @@ type ReportersFieldsFilters struct {
 // This constructor will assign default values to properties that have it defined,
 // and makes sure properties required by API are set, but the set of arguments
 // will change when the set of required properties is changed
-func NewReportersFieldsFilters(containsFilter ReportersContainsFilter, orderFilter ReportersOrderFilter) *ReportersFieldsFilters {
+func NewReportersFieldsFilters(containsFilter ReportersContainsFilter, matchFilter ReportersMatchFilter, orderFilter ReportersOrderFilter) *ReportersFieldsFilters {
 	this := ReportersFieldsFilters{}
 	this.ContainsFilter = containsFilter
+	this.MatchFilter = matchFilter
 	this.OrderFilter = orderFilter
 	return &this
 }
@@ -65,6 +67,30 @@ func (o *ReportersFieldsFilters) GetContainsFilterOk() (*ReportersContainsFilter
 // SetContainsFilter sets field value
 func (o *ReportersFieldsFilters) SetContainsFilter(v ReportersContainsFilter) {
 	o.ContainsFilter = v
+}
+
+// GetMatchFilter returns the MatchFilter field value
+func (o *ReportersFieldsFilters) GetMatchFilter() ReportersMatchFilter {
+	if o == nil {
+		var ret ReportersMatchFilter
+		return ret
+	}
+
+	return o.MatchFilter
+}
+
+// GetMatchFilterOk returns a tuple with the MatchFilter field value
+// and a boolean to check if the value has been set.
+func (o *ReportersFieldsFilters) GetMatchFilterOk() (*ReportersMatchFilter, bool) {
+	if o == nil {
+		return nil, false
+	}
+	return &o.MatchFilter, true
+}
+
+// SetMatchFilter sets field value
+func (o *ReportersFieldsFilters) SetMatchFilter(v ReportersMatchFilter) {
+	o.MatchFilter = v
 }
 
 // GetOrderFilter returns the OrderFilter field value
@@ -102,6 +128,7 @@ func (o ReportersFieldsFilters) MarshalJSON() ([]byte, error) {
 func (o ReportersFieldsFilters) ToMap() (map[string]interface{}, error) {
 	toSerialize := map[string]interface{}{}
 	toSerialize["contains_filter"] = o.ContainsFilter
+	toSerialize["match_filter"] = o.MatchFilter
 	toSerialize["order_filter"] = o.OrderFilter
 	return toSerialize, nil
 }

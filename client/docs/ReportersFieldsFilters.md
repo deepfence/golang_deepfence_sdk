@@ -5,13 +5,14 @@
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
 **ContainsFilter** | [**ReportersContainsFilter**](ReportersContainsFilter.md) |  | 
+**MatchFilter** | [**ReportersMatchFilter**](ReportersMatchFilter.md) |  | 
 **OrderFilter** | [**ReportersOrderFilter**](ReportersOrderFilter.md) |  | 
 
 ## Methods
 
 ### NewReportersFieldsFilters
 
-`func NewReportersFieldsFilters(containsFilter ReportersContainsFilter, orderFilter ReportersOrderFilter, ) *ReportersFieldsFilters`
+`func NewReportersFieldsFilters(containsFilter ReportersContainsFilter, matchFilter ReportersMatchFilter, orderFilter ReportersOrderFilter, ) *ReportersFieldsFilters`
 
 NewReportersFieldsFilters instantiates a new ReportersFieldsFilters object
 This constructor will assign default values to properties that have it defined,
@@ -44,6 +45,26 @@ and a boolean to check if the value has been set.
 `func (o *ReportersFieldsFilters) SetContainsFilter(v ReportersContainsFilter)`
 
 SetContainsFilter sets ContainsFilter field to given value.
+
+
+### GetMatchFilter
+
+`func (o *ReportersFieldsFilters) GetMatchFilter() ReportersMatchFilter`
+
+GetMatchFilter returns the MatchFilter field if non-nil, zero value otherwise.
+
+### GetMatchFilterOk
+
+`func (o *ReportersFieldsFilters) GetMatchFilterOk() (*ReportersMatchFilter, bool)`
+
+GetMatchFilterOk returns a tuple with the MatchFilter field if it's non-nil, zero value otherwise
+and a boolean to check if the value has been set.
+
+### SetMatchFilter
+
+`func (o *ReportersFieldsFilters) SetMatchFilter(v ReportersMatchFilter)`
+
+SetMatchFilter sets MatchFilter field to given value.
 
 
 ### GetOrderFilter
