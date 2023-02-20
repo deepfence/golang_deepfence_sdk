@@ -110,11 +110,13 @@ func (mfm *MinioFileManager) ExposeFile(ctx context.Context, filepath string, ex
 		expires,
 		reqParams,
 		headers)
-
 	if err != nil {
 		return "", err
 	}
-	return strings.ReplaceAll(urlLink.String(), "deepfence-file-server:9000", fmt.Sprintf("%s/file-server", consoleIp)), nil
+
+	exposedUrl := strings.ReplaceAll(urlLink.String(), "deepfence-file-server:9000", fmt.Sprintf("%s/file-server", consoleIp))
+	exposedUrl = strings.ReplaceAll(exposedUrl, "http://", "https://")
+	return exposedUrl, nil
 }
 
 func (mfm *MinioFileManager) Client() interface{} {
