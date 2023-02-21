@@ -6,6 +6,7 @@ Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
 **ComplianceScanStatus** | **string** |  | 
 **CompliancesCount** | **int32** |  | 
+**DockerContainerName** | **string** |  | 
 **DockerLabels** | **map[string]interface{}** |  | 
 **HostName** | **string** |  | 
 **Image** | [**ModelContainerImage**](ModelContainerImage.md) |  | 
@@ -13,7 +14,6 @@ Name | Type | Description | Notes
 **MalwaresCount** | **int32** |  | 
 **Metadata** | **map[string]interface{}** |  | 
 **Metrics** | [**ModelComputeMetrics**](ModelComputeMetrics.md) |  | 
-**Name** | **string** |  | 
 **NodeId** | **string** |  | 
 **Processes** | [**[]ModelProcess**](ModelProcess.md) |  | 
 **SecretScanStatus** | **string** |  | 
@@ -25,7 +25,7 @@ Name | Type | Description | Notes
 
 ### NewModelContainer
 
-`func NewModelContainer(complianceScanStatus string, compliancesCount int32, dockerLabels map[string]interface{}, hostName string, image ModelContainerImage, malwareScanStatus string, malwaresCount int32, metadata map[string]interface{}, metrics ModelComputeMetrics, name string, nodeId string, processes []ModelProcess, secretScanStatus string, secretsCount int32, vulnerabilitiesCount int32, vulnerabilityScanStatus string, ) *ModelContainer`
+`func NewModelContainer(complianceScanStatus string, compliancesCount int32, dockerContainerName string, dockerLabels map[string]interface{}, hostName string, image ModelContainerImage, malwareScanStatus string, malwaresCount int32, metadata map[string]interface{}, metrics ModelComputeMetrics, nodeId string, processes []ModelProcess, secretScanStatus string, secretsCount int32, vulnerabilitiesCount int32, vulnerabilityScanStatus string, ) *ModelContainer`
 
 NewModelContainer instantiates a new ModelContainer object
 This constructor will assign default values to properties that have it defined,
@@ -78,6 +78,26 @@ and a boolean to check if the value has been set.
 `func (o *ModelContainer) SetCompliancesCount(v int32)`
 
 SetCompliancesCount sets CompliancesCount field to given value.
+
+
+### GetDockerContainerName
+
+`func (o *ModelContainer) GetDockerContainerName() string`
+
+GetDockerContainerName returns the DockerContainerName field if non-nil, zero value otherwise.
+
+### GetDockerContainerNameOk
+
+`func (o *ModelContainer) GetDockerContainerNameOk() (*string, bool)`
+
+GetDockerContainerNameOk returns a tuple with the DockerContainerName field if it's non-nil, zero value otherwise
+and a boolean to check if the value has been set.
+
+### SetDockerContainerName
+
+`func (o *ModelContainer) SetDockerContainerName(v string)`
+
+SetDockerContainerName sets DockerContainerName field to given value.
 
 
 ### GetDockerLabels
@@ -218,26 +238,6 @@ and a boolean to check if the value has been set.
 `func (o *ModelContainer) SetMetrics(v ModelComputeMetrics)`
 
 SetMetrics sets Metrics field to given value.
-
-
-### GetName
-
-`func (o *ModelContainer) GetName() string`
-
-GetName returns the Name field if non-nil, zero value otherwise.
-
-### GetNameOk
-
-`func (o *ModelContainer) GetNameOk() (*string, bool)`
-
-GetNameOk returns a tuple with the Name field if it's non-nil, zero value otherwise
-and a boolean to check if the value has been set.
-
-### SetName
-
-`func (o *ModelContainer) SetName(v string)`
-
-SetName sets Name field to given value.
 
 
 ### GetNodeId

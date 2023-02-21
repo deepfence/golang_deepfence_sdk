@@ -21,6 +21,7 @@ var _ MappedNullable = &ModelScanResultsActionRequest{}
 // ModelScanResultsActionRequest struct for ModelScanResultsActionRequest
 type ModelScanResultsActionRequest struct {
 	NodeIds []string `json:"node_ids"`
+	ScanId string `json:"scan_id"`
 	ScanType string `json:"scan_type"`
 }
 
@@ -28,9 +29,10 @@ type ModelScanResultsActionRequest struct {
 // This constructor will assign default values to properties that have it defined,
 // and makes sure properties required by API are set, but the set of arguments
 // will change when the set of required properties is changed
-func NewModelScanResultsActionRequest(nodeIds []string, scanType string) *ModelScanResultsActionRequest {
+func NewModelScanResultsActionRequest(nodeIds []string, scanId string, scanType string) *ModelScanResultsActionRequest {
 	this := ModelScanResultsActionRequest{}
 	this.NodeIds = nodeIds
+	this.ScanId = scanId
 	this.ScanType = scanType
 	return &this
 }
@@ -67,6 +69,30 @@ func (o *ModelScanResultsActionRequest) GetNodeIdsOk() ([]string, bool) {
 // SetNodeIds sets field value
 func (o *ModelScanResultsActionRequest) SetNodeIds(v []string) {
 	o.NodeIds = v
+}
+
+// GetScanId returns the ScanId field value
+func (o *ModelScanResultsActionRequest) GetScanId() string {
+	if o == nil {
+		var ret string
+		return ret
+	}
+
+	return o.ScanId
+}
+
+// GetScanIdOk returns a tuple with the ScanId field value
+// and a boolean to check if the value has been set.
+func (o *ModelScanResultsActionRequest) GetScanIdOk() (*string, bool) {
+	if o == nil {
+		return nil, false
+	}
+	return &o.ScanId, true
+}
+
+// SetScanId sets field value
+func (o *ModelScanResultsActionRequest) SetScanId(v string) {
+	o.ScanId = v
 }
 
 // GetScanType returns the ScanType field value
@@ -106,6 +132,7 @@ func (o ModelScanResultsActionRequest) ToMap() (map[string]interface{}, error) {
 	if o.NodeIds != nil {
 		toSerialize["node_ids"] = o.NodeIds
 	}
+	toSerialize["scan_id"] = o.ScanId
 	toSerialize["scan_type"] = o.ScanType
 	return toSerialize, nil
 }

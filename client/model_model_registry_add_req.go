@@ -20,6 +20,7 @@ var _ MappedNullable = &ModelRegistryAddReq{}
 
 // ModelRegistryAddReq struct for ModelRegistryAddReq
 type ModelRegistryAddReq struct {
+	Extras map[string]interface{} `json:"extras,omitempty"`
 	Name *string `json:"name,omitempty"`
 	NonSecret map[string]interface{} `json:"non_secret,omitempty"`
 	RegistryType *string `json:"registry_type,omitempty"`
@@ -41,6 +42,39 @@ func NewModelRegistryAddReq() *ModelRegistryAddReq {
 func NewModelRegistryAddReqWithDefaults() *ModelRegistryAddReq {
 	this := ModelRegistryAddReq{}
 	return &this
+}
+
+// GetExtras returns the Extras field value if set, zero value otherwise (both if not set or set to explicit null).
+func (o *ModelRegistryAddReq) GetExtras() map[string]interface{} {
+	if o == nil {
+		var ret map[string]interface{}
+		return ret
+	}
+	return o.Extras
+}
+
+// GetExtrasOk returns a tuple with the Extras field value if set, nil otherwise
+// and a boolean to check if the value has been set.
+// NOTE: If the value is an explicit nil, `nil, true` will be returned
+func (o *ModelRegistryAddReq) GetExtrasOk() (map[string]interface{}, bool) {
+	if o == nil || IsNil(o.Extras) {
+		return map[string]interface{}{}, false
+	}
+	return o.Extras, true
+}
+
+// HasExtras returns a boolean if a field has been set.
+func (o *ModelRegistryAddReq) HasExtras() bool {
+	if o != nil && IsNil(o.Extras) {
+		return true
+	}
+
+	return false
+}
+
+// SetExtras gets a reference to the given map[string]interface{} and assigns it to the Extras field.
+func (o *ModelRegistryAddReq) SetExtras(v map[string]interface{}) {
+	o.Extras = v
 }
 
 // GetName returns the Name field value if set, zero value otherwise.
@@ -183,6 +217,9 @@ func (o ModelRegistryAddReq) MarshalJSON() ([]byte, error) {
 
 func (o ModelRegistryAddReq) ToMap() (map[string]interface{}, error) {
 	toSerialize := map[string]interface{}{}
+	if o.Extras != nil {
+		toSerialize["extras"] = o.Extras
+	}
 	if !IsNil(o.Name) {
 		toSerialize["name"] = o.Name
 	}

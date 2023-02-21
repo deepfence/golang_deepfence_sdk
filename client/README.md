@@ -91,7 +91,9 @@ Class | Method | HTTP request | Description
 *CloudScannerApi* | [**IngestCloudCompliances**](docs/CloudScannerApi.md#ingestcloudcompliances) | **Post** /deepfence/ingest/cloud-compliance | Ingest Cloud Compliances
 *CloudScannerApi* | [**ResultsCloudComplianceScan**](docs/CloudScannerApi.md#resultscloudcompliancescan) | **Post** /deepfence/scan/results/cloud-compliance | Get Cloud Compliance Scan Results
 *CloudScannerApi* | [**StatusCloudComplianceScan**](docs/CloudScannerApi.md#statuscloudcompliancescan) | **Get** /deepfence/scan/status/cloud-compliance | Get Cloud Compliance Scan Status
-*CommonApi* | [**DeleteScanResult**](docs/CommonApi.md#deletescanresult) | **Post** /deepfence/scan/results/action/delete | Delete Scans Results
+*CommonApi* | [**DeleteScanResult**](docs/CommonApi.md#deletescanresult) | **Post** /deepfence/scan/results/action/delete | Delete selected scan results
+*CommonApi* | [**DeleteScanResultsForScanID**](docs/CommonApi.md#deletescanresultsforscanid) | **Delete** /scan/{scan_type}/{scan_id} | Delete all scan results for a scan id
+*CommonApi* | [**DownloadScanResults**](docs/CommonApi.md#downloadscanresults) | **Get** /scan/{scan_type}/{scan_id}/download | Download Scans Results
 *CommonApi* | [**MaskScanResult**](docs/CommonApi.md#maskscanresult) | **Post** /deepfence/scan/results/action/mask | Mask Scans Results
 *CommonApi* | [**NotifyScanResult**](docs/CommonApi.md#notifyscanresult) | **Post** /deepfence/scan/results/action/notify | Notify Scans Results
 *CommonApi* | [**UnmaskScanResult**](docs/CommonApi.md#unmaskscanresult) | **Post** /deepfence/scan/results/action/unmask | Unmask Scans Results
@@ -166,6 +168,8 @@ Class | Method | HTTP request | Description
 *UserApi* | [**ResetPasswordRequest**](docs/UserApi.md#resetpasswordrequest) | **Post** /deepfence/user/reset-password/request | Reset Password Request
 *UserApi* | [**UpdateCurrentUser**](docs/UserApi.md#updatecurrentuser) | **Put** /deepfence/user | Update Current User
 *UserApi* | [**VerifyResetPasswordRequest**](docs/UserApi.md#verifyresetpasswordrequest) | **Post** /deepfence/user/reset-password/verify | Verify and Reset Password
+*VulnerabilityApi* | [**DownloadSBOM**](docs/VulnerabilityApi.md#downloadsbom) | **Post** /deepfence/scan/sbom/download | Download SBOM for a node or scan id
+*VulnerabilityApi* | [**GetSBOM**](docs/VulnerabilityApi.md#getsbom) | **Post** /deepfence/scan/sbom | Get SBOM for a node or scan id
 *VulnerabilityApi* | [**IngestSbom**](docs/VulnerabilityApi.md#ingestsbom) | **Post** /deepfence/ingest/sbom | Ingest SBOM from Scan
 *VulnerabilityApi* | [**IngestVulnerabilities**](docs/VulnerabilityApi.md#ingestvulnerabilities) | **Post** /deepfence/ingest/vulnerabilities | Ingest Vulnerabilities
 *VulnerabilityApi* | [**IngestVulnerabilitiesScanStatus**](docs/VulnerabilityApi.md#ingestvulnerabilitiesscanstatus) | **Post** /deepfence/ingest/vulnerabilities-scan-logs | Ingest Vulnerabilities Scan Status
@@ -249,11 +253,14 @@ Class | Method | HTTP request | Description
  - [ModelRegistryListResp](docs/ModelRegistryListResp.md)
  - [ModelResponseAccessToken](docs/ModelResponseAccessToken.md)
  - [ModelRule](docs/ModelRule.md)
+ - [ModelSbomRequest](docs/ModelSbomRequest.md)
+ - [ModelSbomResponse](docs/ModelSbomResponse.md)
  - [ModelScanFilter](docs/ModelScanFilter.md)
  - [ModelScanInfo](docs/ModelScanInfo.md)
  - [ModelScanListReq](docs/ModelScanListReq.md)
  - [ModelScanListResp](docs/ModelScanListResp.md)
  - [ModelScanResultsActionRequest](docs/ModelScanResultsActionRequest.md)
+ - [ModelScanResultsMaskRequest](docs/ModelScanResultsMaskRequest.md)
  - [ModelScanResultsReq](docs/ModelScanResultsReq.md)
  - [ModelScanStatusResp](docs/ModelScanStatusResp.md)
  - [ModelScanTriggerResp](docs/ModelScanTriggerResp.md)

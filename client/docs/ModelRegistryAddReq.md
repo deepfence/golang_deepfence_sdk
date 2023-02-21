@@ -4,6 +4,7 @@
 
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
+**Extras** | Pointer to **map[string]interface{}** |  | [optional] 
 **Name** | Pointer to **string** |  | [optional] 
 **NonSecret** | Pointer to **map[string]interface{}** |  | [optional] 
 **RegistryType** | Pointer to **string** |  | [optional] 
@@ -28,6 +29,41 @@ NewModelRegistryAddReqWithDefaults instantiates a new ModelRegistryAddReq object
 This constructor will only assign default values to properties that have it defined,
 but it doesn't guarantee that properties required by API are set
 
+### GetExtras
+
+`func (o *ModelRegistryAddReq) GetExtras() map[string]interface{}`
+
+GetExtras returns the Extras field if non-nil, zero value otherwise.
+
+### GetExtrasOk
+
+`func (o *ModelRegistryAddReq) GetExtrasOk() (*map[string]interface{}, bool)`
+
+GetExtrasOk returns a tuple with the Extras field if it's non-nil, zero value otherwise
+and a boolean to check if the value has been set.
+
+### SetExtras
+
+`func (o *ModelRegistryAddReq) SetExtras(v map[string]interface{})`
+
+SetExtras sets Extras field to given value.
+
+### HasExtras
+
+`func (o *ModelRegistryAddReq) HasExtras() bool`
+
+HasExtras returns a boolean if a field has been set.
+
+### SetExtrasNil
+
+`func (o *ModelRegistryAddReq) SetExtrasNil(b bool)`
+
+ SetExtrasNil sets the value for Extras to be an explicit nil
+
+### UnsetExtras
+`func (o *ModelRegistryAddReq) UnsetExtras()`
+
+UnsetExtras ensures that no value is present for Extras, not even an explicit nil
 ### GetName
 
 `func (o *ModelRegistryAddReq) GetName() string`

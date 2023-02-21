@@ -32,13 +32,14 @@ type ModelCloudComplianceScanResult struct {
 	NodeType string `json:"node_type"`
 	ScanId string `json:"scan_id"`
 	StatusCounts map[string]int32 `json:"status_counts"`
+	UpdatedAt int32 `json:"updated_at"`
 }
 
 // NewModelCloudComplianceScanResult instantiates a new ModelCloudComplianceScanResult object
 // This constructor will assign default values to properties that have it defined,
 // and makes sure properties required by API are set, but the set of arguments
 // will change when the set of required properties is changed
-func NewModelCloudComplianceScanResult(benchmarkType string, compliancePercentage float32, compliances []ModelCloudCompliance, dockerContainerName string, dockerImageName string, hostName string, kubernetesClusterName string, nodeId string, nodeName string, nodeType string, scanId string, statusCounts map[string]int32) *ModelCloudComplianceScanResult {
+func NewModelCloudComplianceScanResult(benchmarkType string, compliancePercentage float32, compliances []ModelCloudCompliance, dockerContainerName string, dockerImageName string, hostName string, kubernetesClusterName string, nodeId string, nodeName string, nodeType string, scanId string, statusCounts map[string]int32, updatedAt int32) *ModelCloudComplianceScanResult {
 	this := ModelCloudComplianceScanResult{}
 	this.BenchmarkType = benchmarkType
 	this.CompliancePercentage = compliancePercentage
@@ -52,6 +53,7 @@ func NewModelCloudComplianceScanResult(benchmarkType string, compliancePercentag
 	this.NodeType = nodeType
 	this.ScanId = scanId
 	this.StatusCounts = statusCounts
+	this.UpdatedAt = updatedAt
 	return &this
 }
 
@@ -355,6 +357,30 @@ func (o *ModelCloudComplianceScanResult) SetStatusCounts(v map[string]int32) {
 	o.StatusCounts = v
 }
 
+// GetUpdatedAt returns the UpdatedAt field value
+func (o *ModelCloudComplianceScanResult) GetUpdatedAt() int32 {
+	if o == nil {
+		var ret int32
+		return ret
+	}
+
+	return o.UpdatedAt
+}
+
+// GetUpdatedAtOk returns a tuple with the UpdatedAt field value
+// and a boolean to check if the value has been set.
+func (o *ModelCloudComplianceScanResult) GetUpdatedAtOk() (*int32, bool) {
+	if o == nil {
+		return nil, false
+	}
+	return &o.UpdatedAt, true
+}
+
+// SetUpdatedAt sets field value
+func (o *ModelCloudComplianceScanResult) SetUpdatedAt(v int32) {
+	o.UpdatedAt = v
+}
+
 func (o ModelCloudComplianceScanResult) MarshalJSON() ([]byte, error) {
 	toSerialize,err := o.ToMap()
 	if err != nil {
@@ -381,6 +407,7 @@ func (o ModelCloudComplianceScanResult) ToMap() (map[string]interface{}, error) 
 	if o.StatusCounts != nil {
 		toSerialize["status_counts"] = o.StatusCounts
 	}
+	toSerialize["updated_at"] = o.UpdatedAt
 	return toSerialize, nil
 }
 

@@ -16,12 +16,13 @@ Name | Type | Description | Notes
 **NodeType** | **string** |  | 
 **ScanId** | **string** |  | 
 **StatusCounts** | **map[string]int32** |  | 
+**UpdatedAt** | **int32** |  | 
 
 ## Methods
 
 ### NewModelComplianceScanResult
 
-`func NewModelComplianceScanResult(benchmarkType string, compliancePercentage float32, compliances []ModelCompliance, dockerContainerName string, dockerImageName string, hostName string, kubernetesClusterName string, nodeId string, nodeName string, nodeType string, scanId string, statusCounts map[string]int32, ) *ModelComplianceScanResult`
+`func NewModelComplianceScanResult(benchmarkType string, compliancePercentage float32, compliances []ModelCompliance, dockerContainerName string, dockerImageName string, hostName string, kubernetesClusterName string, nodeId string, nodeName string, nodeType string, scanId string, statusCounts map[string]int32, updatedAt int32, ) *ModelComplianceScanResult`
 
 NewModelComplianceScanResult instantiates a new ModelComplianceScanResult object
 This constructor will assign default values to properties that have it defined,
@@ -296,6 +297,26 @@ SetStatusCounts sets StatusCounts field to given value.
 `func (o *ModelComplianceScanResult) UnsetStatusCounts()`
 
 UnsetStatusCounts ensures that no value is present for StatusCounts, not even an explicit nil
+### GetUpdatedAt
+
+`func (o *ModelComplianceScanResult) GetUpdatedAt() int32`
+
+GetUpdatedAt returns the UpdatedAt field if non-nil, zero value otherwise.
+
+### GetUpdatedAtOk
+
+`func (o *ModelComplianceScanResult) GetUpdatedAtOk() (*int32, bool)`
+
+GetUpdatedAtOk returns a tuple with the UpdatedAt field if it's non-nil, zero value otherwise
+and a boolean to check if the value has been set.
+
+### SetUpdatedAt
+
+`func (o *ModelComplianceScanResult) SetUpdatedAt(v int32)`
+
+SetUpdatedAt sets UpdatedAt field to given value.
+
+
 
 [[Back to Model list]](../README.md#documentation-for-models) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to README]](../README.md)
 

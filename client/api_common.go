@@ -17,6 +17,7 @@ import (
 	"io"
 	"net/http"
 	"net/url"
+	"strings"
 )
 
 
@@ -39,9 +40,9 @@ func (r ApiDeleteScanResultRequest) Execute() (*http.Response, error) {
 }
 
 /*
-DeleteScanResult Delete Scans Results
+DeleteScanResult Delete selected scan results
 
-Delete scan results
+Delete selected scan results
 
  @param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
  @return ApiDeleteScanResultRequest
@@ -151,14 +152,270 @@ func (a *CommonApiService) DeleteScanResultExecute(r ApiDeleteScanResultRequest)
 	return localVarHTTPResponse, nil
 }
 
+type ApiDeleteScanResultsForScanIDRequest struct {
+	ctx context.Context
+	ApiService *CommonApiService
+	scanId string
+	scanType string
+}
+
+func (r ApiDeleteScanResultsForScanIDRequest) Execute() (*http.Response, error) {
+	return r.ApiService.DeleteScanResultsForScanIDExecute(r)
+}
+
+/*
+DeleteScanResultsForScanID Delete all scan results for a scan id
+
+Delete all scan results for a scan id
+
+ @param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
+ @param scanId
+ @param scanType
+ @return ApiDeleteScanResultsForScanIDRequest
+*/
+func (a *CommonApiService) DeleteScanResultsForScanID(ctx context.Context, scanId string, scanType string) ApiDeleteScanResultsForScanIDRequest {
+	return ApiDeleteScanResultsForScanIDRequest{
+		ApiService: a,
+		ctx: ctx,
+		scanId: scanId,
+		scanType: scanType,
+	}
+}
+
+// Execute executes the request
+func (a *CommonApiService) DeleteScanResultsForScanIDExecute(r ApiDeleteScanResultsForScanIDRequest) (*http.Response, error) {
+	var (
+		localVarHTTPMethod   = http.MethodDelete
+		localVarPostBody     interface{}
+		formFiles            []formFile
+	)
+
+	localBasePath, err := a.client.cfg.ServerURLWithContext(r.ctx, "CommonApiService.DeleteScanResultsForScanID")
+	if err != nil {
+		return nil, &GenericOpenAPIError{error: err.Error()}
+	}
+
+	localVarPath := localBasePath + "/scan/{scan_type}/{scan_id}"
+	localVarPath = strings.Replace(localVarPath, "{"+"scan_id"+"}", url.PathEscape(parameterValueToString(r.scanId, "scanId")), -1)
+	localVarPath = strings.Replace(localVarPath, "{"+"scan_type"+"}", url.PathEscape(parameterValueToString(r.scanType, "scanType")), -1)
+
+	localVarHeaderParams := make(map[string]string)
+	localVarQueryParams := url.Values{}
+	localVarFormParams := url.Values{}
+
+	// to determine the Content-Type header
+	localVarHTTPContentTypes := []string{}
+
+	// set Content-Type header
+	localVarHTTPContentType := selectHeaderContentType(localVarHTTPContentTypes)
+	if localVarHTTPContentType != "" {
+		localVarHeaderParams["Content-Type"] = localVarHTTPContentType
+	}
+
+	// to determine the Accept header
+	localVarHTTPHeaderAccepts := []string{"application/json"}
+
+	// set Accept header
+	localVarHTTPHeaderAccept := selectHeaderAccept(localVarHTTPHeaderAccepts)
+	if localVarHTTPHeaderAccept != "" {
+		localVarHeaderParams["Accept"] = localVarHTTPHeaderAccept
+	}
+	req, err := a.client.prepareRequest(r.ctx, localVarPath, localVarHTTPMethod, localVarPostBody, localVarHeaderParams, localVarQueryParams, localVarFormParams, formFiles)
+	if err != nil {
+		return nil, err
+	}
+
+	localVarHTTPResponse, err := a.client.callAPI(req)
+	if err != nil || localVarHTTPResponse == nil {
+		return localVarHTTPResponse, err
+	}
+
+	localVarBody, err := io.ReadAll(localVarHTTPResponse.Body)
+	localVarHTTPResponse.Body.Close()
+	localVarHTTPResponse.Body = io.NopCloser(bytes.NewBuffer(localVarBody))
+	if err != nil {
+		return localVarHTTPResponse, err
+	}
+
+	if localVarHTTPResponse.StatusCode >= 300 {
+		newErr := &GenericOpenAPIError{
+			body:  localVarBody,
+			error: localVarHTTPResponse.Status,
+		}
+		if localVarHTTPResponse.StatusCode == 400 {
+			var v ApiDocsBadRequestResponse
+			err = a.client.decode(&v, localVarBody, localVarHTTPResponse.Header.Get("Content-Type"))
+			if err != nil {
+				newErr.error = err.Error()
+				return localVarHTTPResponse, newErr
+			}
+					newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
+					newErr.model = v
+			return localVarHTTPResponse, newErr
+		}
+		if localVarHTTPResponse.StatusCode == 404 {
+			var v ApiDocsFailureResponse
+			err = a.client.decode(&v, localVarBody, localVarHTTPResponse.Header.Get("Content-Type"))
+			if err != nil {
+				newErr.error = err.Error()
+				return localVarHTTPResponse, newErr
+			}
+					newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
+					newErr.model = v
+			return localVarHTTPResponse, newErr
+		}
+		if localVarHTTPResponse.StatusCode == 500 {
+			var v ApiDocsFailureResponse
+			err = a.client.decode(&v, localVarBody, localVarHTTPResponse.Header.Get("Content-Type"))
+			if err != nil {
+				newErr.error = err.Error()
+				return localVarHTTPResponse, newErr
+			}
+					newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
+					newErr.model = v
+		}
+		return localVarHTTPResponse, newErr
+	}
+
+	return localVarHTTPResponse, nil
+}
+
+type ApiDownloadScanResultsRequest struct {
+	ctx context.Context
+	ApiService *CommonApiService
+	scanId string
+	scanType string
+}
+
+func (r ApiDownloadScanResultsRequest) Execute() (*http.Response, error) {
+	return r.ApiService.DownloadScanResultsExecute(r)
+}
+
+/*
+DownloadScanResults Download Scans Results
+
+Download scan results
+
+ @param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
+ @param scanId
+ @param scanType
+ @return ApiDownloadScanResultsRequest
+*/
+func (a *CommonApiService) DownloadScanResults(ctx context.Context, scanId string, scanType string) ApiDownloadScanResultsRequest {
+	return ApiDownloadScanResultsRequest{
+		ApiService: a,
+		ctx: ctx,
+		scanId: scanId,
+		scanType: scanType,
+	}
+}
+
+// Execute executes the request
+func (a *CommonApiService) DownloadScanResultsExecute(r ApiDownloadScanResultsRequest) (*http.Response, error) {
+	var (
+		localVarHTTPMethod   = http.MethodGet
+		localVarPostBody     interface{}
+		formFiles            []formFile
+	)
+
+	localBasePath, err := a.client.cfg.ServerURLWithContext(r.ctx, "CommonApiService.DownloadScanResults")
+	if err != nil {
+		return nil, &GenericOpenAPIError{error: err.Error()}
+	}
+
+	localVarPath := localBasePath + "/scan/{scan_type}/{scan_id}/download"
+	localVarPath = strings.Replace(localVarPath, "{"+"scan_id"+"}", url.PathEscape(parameterValueToString(r.scanId, "scanId")), -1)
+	localVarPath = strings.Replace(localVarPath, "{"+"scan_type"+"}", url.PathEscape(parameterValueToString(r.scanType, "scanType")), -1)
+
+	localVarHeaderParams := make(map[string]string)
+	localVarQueryParams := url.Values{}
+	localVarFormParams := url.Values{}
+
+	// to determine the Content-Type header
+	localVarHTTPContentTypes := []string{}
+
+	// set Content-Type header
+	localVarHTTPContentType := selectHeaderContentType(localVarHTTPContentTypes)
+	if localVarHTTPContentType != "" {
+		localVarHeaderParams["Content-Type"] = localVarHTTPContentType
+	}
+
+	// to determine the Accept header
+	localVarHTTPHeaderAccepts := []string{"application/json"}
+
+	// set Accept header
+	localVarHTTPHeaderAccept := selectHeaderAccept(localVarHTTPHeaderAccepts)
+	if localVarHTTPHeaderAccept != "" {
+		localVarHeaderParams["Accept"] = localVarHTTPHeaderAccept
+	}
+	req, err := a.client.prepareRequest(r.ctx, localVarPath, localVarHTTPMethod, localVarPostBody, localVarHeaderParams, localVarQueryParams, localVarFormParams, formFiles)
+	if err != nil {
+		return nil, err
+	}
+
+	localVarHTTPResponse, err := a.client.callAPI(req)
+	if err != nil || localVarHTTPResponse == nil {
+		return localVarHTTPResponse, err
+	}
+
+	localVarBody, err := io.ReadAll(localVarHTTPResponse.Body)
+	localVarHTTPResponse.Body.Close()
+	localVarHTTPResponse.Body = io.NopCloser(bytes.NewBuffer(localVarBody))
+	if err != nil {
+		return localVarHTTPResponse, err
+	}
+
+	if localVarHTTPResponse.StatusCode >= 300 {
+		newErr := &GenericOpenAPIError{
+			body:  localVarBody,
+			error: localVarHTTPResponse.Status,
+		}
+		if localVarHTTPResponse.StatusCode == 400 {
+			var v ApiDocsBadRequestResponse
+			err = a.client.decode(&v, localVarBody, localVarHTTPResponse.Header.Get("Content-Type"))
+			if err != nil {
+				newErr.error = err.Error()
+				return localVarHTTPResponse, newErr
+			}
+					newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
+					newErr.model = v
+			return localVarHTTPResponse, newErr
+		}
+		if localVarHTTPResponse.StatusCode == 404 {
+			var v ApiDocsFailureResponse
+			err = a.client.decode(&v, localVarBody, localVarHTTPResponse.Header.Get("Content-Type"))
+			if err != nil {
+				newErr.error = err.Error()
+				return localVarHTTPResponse, newErr
+			}
+					newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
+					newErr.model = v
+			return localVarHTTPResponse, newErr
+		}
+		if localVarHTTPResponse.StatusCode == 500 {
+			var v ApiDocsFailureResponse
+			err = a.client.decode(&v, localVarBody, localVarHTTPResponse.Header.Get("Content-Type"))
+			if err != nil {
+				newErr.error = err.Error()
+				return localVarHTTPResponse, newErr
+			}
+					newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
+					newErr.model = v
+		}
+		return localVarHTTPResponse, newErr
+	}
+
+	return localVarHTTPResponse, nil
+}
+
 type ApiMaskScanResultRequest struct {
 	ctx context.Context
 	ApiService *CommonApiService
-	modelScanResultsActionRequest *ModelScanResultsActionRequest
+	modelScanResultsMaskRequest *ModelScanResultsMaskRequest
 }
 
-func (r ApiMaskScanResultRequest) ModelScanResultsActionRequest(modelScanResultsActionRequest ModelScanResultsActionRequest) ApiMaskScanResultRequest {
-	r.modelScanResultsActionRequest = &modelScanResultsActionRequest
+func (r ApiMaskScanResultRequest) ModelScanResultsMaskRequest(modelScanResultsMaskRequest ModelScanResultsMaskRequest) ApiMaskScanResultRequest {
+	r.modelScanResultsMaskRequest = &modelScanResultsMaskRequest
 	return r
 }
 
@@ -218,7 +475,7 @@ func (a *CommonApiService) MaskScanResultExecute(r ApiMaskScanResultRequest) (*h
 		localVarHeaderParams["Accept"] = localVarHTTPHeaderAccept
 	}
 	// body params
-	localVarPostBody = r.modelScanResultsActionRequest
+	localVarPostBody = r.modelScanResultsMaskRequest
 	req, err := a.client.prepareRequest(r.ctx, localVarPath, localVarHTTPMethod, localVarPostBody, localVarHeaderParams, localVarQueryParams, localVarFormParams, formFiles)
 	if err != nil {
 		return nil, err
@@ -410,11 +667,11 @@ func (a *CommonApiService) NotifyScanResultExecute(r ApiNotifyScanResultRequest)
 type ApiUnmaskScanResultRequest struct {
 	ctx context.Context
 	ApiService *CommonApiService
-	modelScanResultsActionRequest *ModelScanResultsActionRequest
+	modelScanResultsMaskRequest *ModelScanResultsMaskRequest
 }
 
-func (r ApiUnmaskScanResultRequest) ModelScanResultsActionRequest(modelScanResultsActionRequest ModelScanResultsActionRequest) ApiUnmaskScanResultRequest {
-	r.modelScanResultsActionRequest = &modelScanResultsActionRequest
+func (r ApiUnmaskScanResultRequest) ModelScanResultsMaskRequest(modelScanResultsMaskRequest ModelScanResultsMaskRequest) ApiUnmaskScanResultRequest {
+	r.modelScanResultsMaskRequest = &modelScanResultsMaskRequest
 	return r
 }
 
@@ -474,7 +731,7 @@ func (a *CommonApiService) UnmaskScanResultExecute(r ApiUnmaskScanResultRequest)
 		localVarHeaderParams["Accept"] = localVarHTTPHeaderAccept
 	}
 	// body params
-	localVarPostBody = r.modelScanResultsActionRequest
+	localVarPostBody = r.modelScanResultsMaskRequest
 	req, err := a.client.prepareRequest(r.ctx, localVarPath, localVarHTTPMethod, localVarPostBody, localVarHeaderParams, localVarQueryParams, localVarFormParams, formFiles)
 	if err != nil {
 		return nil, err

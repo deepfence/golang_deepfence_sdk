@@ -2066,7 +2066,7 @@ paths:
       - Vulnerability
   /deepfence/scan/results/action/delete:
     post:
-      description: Delete scan results
+      description: Delete selected scan results
       operationId: deleteScanResult
       requestBody:
         content:
@@ -2100,7 +2100,7 @@ paths:
           description: Internal Server Error
       security:
       - bearer_token: []
-      summary: Delete Scans Results
+      summary: Delete selected scan results
       tags:
       - Common
   /deepfence/scan/results/action/mask:
@@ -2111,7 +2111,7 @@ paths:
         content:
           application/json:
             schema:
-              $ref: '#/components/schemas/ModelScanResultsActionRequest'
+              $ref: '#/components/schemas/ModelScanResultsMaskRequest'
       responses:
         "204":
           description: No Content
@@ -2189,7 +2189,7 @@ paths:
         content:
           application/json:
             schema:
-              $ref: '#/components/schemas/ModelScanResultsActionRequest'
+              $ref: '#/components/schemas/ModelScanResultsMaskRequest'
       responses:
         "204":
           description: No Content
@@ -2433,6 +2433,90 @@ paths:
       security:
       - bearer_token: []
       summary: Get Vulnerability Scans Results
+      tags:
+      - Vulnerability
+  /deepfence/scan/sbom:
+    post:
+      description: Get SBOM for a node or scan id
+      operationId: getSBOM
+      requestBody:
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/ModelSbomRequest'
+      responses:
+        "200":
+          content:
+            application/json:
+              schema:
+                items:
+                  $ref: '#/components/schemas/ModelSbomResponse'
+                type: array
+          description: OK
+        "400":
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ApiDocsBadRequestResponse'
+          description: Bad Request
+        "401":
+          description: Unauthorized
+        "403":
+          description: Forbidden
+        "404":
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ApiDocsFailureResponse'
+          description: Not Found
+        "500":
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ApiDocsFailureResponse'
+          description: Internal Server Error
+      security:
+      - bearer_token: []
+      summary: Get SBOM for a node or scan id
+      tags:
+      - Vulnerability
+  /deepfence/scan/sbom/download:
+    post:
+      description: Download SBOM for a node or scan id
+      operationId: downloadSBOM
+      requestBody:
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/ModelSbomRequest'
+      responses:
+        "200":
+          description: OK
+        "400":
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ApiDocsBadRequestResponse'
+          description: Bad Request
+        "401":
+          description: Unauthorized
+        "403":
+          description: Forbidden
+        "404":
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ApiDocsFailureResponse'
+          description: Not Found
+        "500":
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ApiDocsFailureResponse'
+          description: Internal Server Error
+      security:
+      - bearer_token: []
+      summary: Download SBOM for a node or scan id
       tags:
       - Vulnerability
   /deepfence/scan/start/compliance:
@@ -4054,6 +4138,116 @@ paths:
       summary: Get users
       tags:
       - User
+  /scan/{scan_type}/{scan_id}:
+    delete:
+      description: Delete all scan results for a scan id
+      operationId: deleteScanResultsForScanID
+      parameters:
+      - explode: false
+        in: path
+        name: scan_id
+        required: true
+        schema:
+          type: string
+        style: simple
+      - explode: false
+        in: path
+        name: scan_type
+        required: true
+        schema:
+          enum:
+          - SecretScan
+          - VulnerabilityScan
+          - MalwareScan
+          - ComplianceScan
+          - CloudComplianceScan
+          type: string
+        style: simple
+      responses:
+        "204":
+          description: No Content
+        "400":
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ApiDocsBadRequestResponse'
+          description: Bad Request
+        "401":
+          description: Unauthorized
+        "403":
+          description: Forbidden
+        "404":
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ApiDocsFailureResponse'
+          description: Not Found
+        "500":
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ApiDocsFailureResponse'
+          description: Internal Server Error
+      security:
+      - bearer_token: []
+      summary: Delete all scan results for a scan id
+      tags:
+      - Common
+  /scan/{scan_type}/{scan_id}/download:
+    get:
+      description: Download scan results
+      operationId: downloadScanResults
+      parameters:
+      - explode: false
+        in: path
+        name: scan_id
+        required: true
+        schema:
+          type: string
+        style: simple
+      - explode: false
+        in: path
+        name: scan_type
+        required: true
+        schema:
+          enum:
+          - SecretScan
+          - VulnerabilityScan
+          - MalwareScan
+          - ComplianceScan
+          - CloudComplianceScan
+          type: string
+        style: simple
+      responses:
+        "200":
+          description: OK
+        "400":
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ApiDocsBadRequestResponse'
+          description: Bad Request
+        "401":
+          description: Unauthorized
+        "403":
+          description: Forbidden
+        "404":
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ApiDocsFailureResponse'
+          description: Not Found
+        "500":
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ApiDocsFailureResponse'
+          description: Internal Server Error
+      security:
+      - bearer_token: []
+      summary: Download Scans Results
+      tags:
+      - Common
 components:
   schemas:
     ApiDocsBadRequestResponse:
@@ -5426,6 +5620,10 @@ components:
       type: object
     ModelCloudComplianceScanResult:
       example:
+        benchmark_type: benchmark_type
+        docker_container_name: docker_container_name
+        kubernetes_cluster_name: kubernetes_cluster_name
+        node_name: node_name
         compliances:
         - severity: severity
           reason: reason
@@ -5469,10 +5667,7 @@ components:
           status: status
         compliance_percentage: 0.8008281904610115
         node_type: node_type
-        benchmark_type: benchmark_type
-        docker_container_name: docker_container_name
-        kubernetes_cluster_name: kubernetes_cluster_name
-        node_name: node_name
+        updated_at: 5
         scan_id: scan_id
         status_counts:
           key: 1
@@ -5510,6 +5705,8 @@ components:
             type: integer
           nullable: true
           type: object
+        updated_at:
+          type: integer
       required:
       - benchmark_type
       - compliance_percentage
@@ -5523,6 +5720,7 @@ components:
       - node_type
       - scan_id
       - status_counts
+      - updated_at
       type: object
     ModelCloudNodeAccountInfo:
       example:
@@ -5786,6 +5984,10 @@ components:
       type: object
     ModelComplianceScanResult:
       example:
+        benchmark_type: benchmark_type
+        docker_container_name: docker_container_name
+        kubernetes_cluster_name: kubernetes_cluster_name
+        node_name: node_name
         compliances:
         - resource: resource
           compliance_node_type: compliance_node_type
@@ -5815,10 +6017,7 @@ components:
           test_number: test_number
         compliance_percentage: 0.8008281904610115
         node_type: node_type
-        benchmark_type: benchmark_type
-        docker_container_name: docker_container_name
-        kubernetes_cluster_name: kubernetes_cluster_name
-        node_name: node_name
+        updated_at: 1
         scan_id: scan_id
         status_counts:
           key: 6
@@ -5856,6 +6055,8 @@ components:
             type: integer
           nullable: true
           type: object
+        updated_at:
+          type: integer
       required:
       - benchmark_type
       - compliance_percentage
@@ -5869,6 +6070,7 @@ components:
       - node_type
       - scan_id
       - status_counts
+      - updated_at
       type: object
     ModelComplianceScanStatusResp:
       example:
@@ -6016,10 +6218,10 @@ components:
         vulnerabilities_count: 5
         compliance_scan_status: compliance_scan_status
         secrets_count: 5
+        docker_container_name: docker_container_name
         malwares_count: 6
         compliances_count: 0
         malware_scan_status: malware_scan_status
-        name: name
         metrics:
           memory_mb: 5.962133916683182
           cpu_percent: 1.4658129805029452
@@ -6031,6 +6233,8 @@ components:
           type: string
         compliances_count:
           type: integer
+        docker_container_name:
+          type: string
         docker_labels:
           additionalProperties: {}
           type: object
@@ -6047,8 +6251,6 @@ components:
           type: object
         metrics:
           $ref: '#/components/schemas/ModelComputeMetrics'
-        name:
-          type: string
         node_id:
           type: string
         processes:
@@ -6067,6 +6269,7 @@ components:
       required:
       - compliance_scan_status
       - compliances_count
+      - docker_container_name
       - docker_labels
       - host_name
       - image
@@ -6074,7 +6277,6 @@ components:
       - malwares_count
       - metadata
       - metrics
-      - name
       - node_id
       - processes
       - secret_scan_status
@@ -6279,10 +6481,10 @@ components:
           vulnerabilities_count: 5
           compliance_scan_status: compliance_scan_status
           secrets_count: 5
+          docker_container_name: docker_container_name
           malwares_count: 6
           compliances_count: 0
           malware_scan_status: malware_scan_status
-          name: name
           metrics:
             memory_mb: 5.962133916683182
             cpu_percent: 1.4658129805029452
@@ -6338,10 +6540,10 @@ components:
           vulnerabilities_count: 5
           compliance_scan_status: compliance_scan_status
           secrets_count: 5
+          docker_container_name: docker_container_name
           malwares_count: 6
           compliances_count: 0
           malware_scan_status: malware_scan_status
-          name: name
           metrics:
             memory_mb: 5.962133916683182
             cpu_percent: 1.4658129805029452
@@ -6426,10 +6628,10 @@ components:
             vulnerabilities_count: 5
             compliance_scan_status: compliance_scan_status
             secrets_count: 5
+            docker_container_name: docker_container_name
             malwares_count: 6
             compliances_count: 0
             malware_scan_status: malware_scan_status
-            name: name
             metrics:
               memory_mb: 5.962133916683182
               cpu_percent: 1.4658129805029452
@@ -6485,10 +6687,10 @@ components:
             vulnerabilities_count: 5
             compliance_scan_status: compliance_scan_status
             secrets_count: 5
+            docker_container_name: docker_container_name
             malwares_count: 6
             compliances_count: 0
             malware_scan_status: malware_scan_status
-            name: name
             metrics:
               memory_mb: 5.962133916683182
               cpu_percent: 1.4658129805029452
@@ -6577,10 +6779,10 @@ components:
             vulnerabilities_count: 5
             compliance_scan_status: compliance_scan_status
             secrets_count: 5
+            docker_container_name: docker_container_name
             malwares_count: 6
             compliances_count: 0
             malware_scan_status: malware_scan_status
-            name: name
             metrics:
               memory_mb: 5.962133916683182
               cpu_percent: 1.4658129805029452
@@ -6636,10 +6838,10 @@ components:
             vulnerabilities_count: 5
             compliance_scan_status: compliance_scan_status
             secrets_count: 5
+            docker_container_name: docker_container_name
             malwares_count: 6
             compliances_count: 0
             malware_scan_status: malware_scan_status
-            name: name
             metrics:
               memory_mb: 5.962133916683182
               cpu_percent: 1.4658129805029452
@@ -6898,10 +7100,10 @@ components:
             vulnerabilities_count: 5
             compliance_scan_status: compliance_scan_status
             secrets_count: 5
+            docker_container_name: docker_container_name
             malwares_count: 6
             compliances_count: 0
             malware_scan_status: malware_scan_status
-            name: name
             metrics:
               memory_mb: 5.962133916683182
               cpu_percent: 1.4658129805029452
@@ -6957,10 +7159,10 @@ components:
             vulnerabilities_count: 5
             compliance_scan_status: compliance_scan_status
             secrets_count: 5
+            docker_container_name: docker_container_name
             malwares_count: 6
             compliances_count: 0
             malware_scan_status: malware_scan_status
-            name: name
             metrics:
               memory_mb: 5.962133916683182
               cpu_percent: 1.4658129805029452
@@ -7045,10 +7247,10 @@ components:
               vulnerabilities_count: 5
               compliance_scan_status: compliance_scan_status
               secrets_count: 5
+              docker_container_name: docker_container_name
               malwares_count: 6
               compliances_count: 0
               malware_scan_status: malware_scan_status
-              name: name
               metrics:
                 memory_mb: 5.962133916683182
                 cpu_percent: 1.4658129805029452
@@ -7104,10 +7306,10 @@ components:
               vulnerabilities_count: 5
               compliance_scan_status: compliance_scan_status
               secrets_count: 5
+              docker_container_name: docker_container_name
               malwares_count: 6
               compliances_count: 0
               malware_scan_status: malware_scan_status
-              name: name
               metrics:
                 memory_mb: 5.962133916683182
                 cpu_percent: 1.4658129805029452
@@ -7196,10 +7398,10 @@ components:
               vulnerabilities_count: 5
               compliance_scan_status: compliance_scan_status
               secrets_count: 5
+              docker_container_name: docker_container_name
               malwares_count: 6
               compliances_count: 0
               malware_scan_status: malware_scan_status
-              name: name
               metrics:
                 memory_mb: 5.962133916683182
                 cpu_percent: 1.4658129805029452
@@ -7255,10 +7457,10 @@ components:
               vulnerabilities_count: 5
               compliance_scan_status: compliance_scan_status
               secrets_count: 5
+              docker_container_name: docker_container_name
               malwares_count: 6
               compliances_count: 0
               malware_scan_status: malware_scan_status
-              name: name
               metrics:
                 memory_mb: 5.962133916683182
                 cpu_percent: 1.4658129805029452
@@ -7393,10 +7595,10 @@ components:
             vulnerabilities_count: 5
             compliance_scan_status: compliance_scan_status
             secrets_count: 5
+            docker_container_name: docker_container_name
             malwares_count: 6
             compliances_count: 0
             malware_scan_status: malware_scan_status
-            name: name
             metrics:
               memory_mb: 5.962133916683182
               cpu_percent: 1.4658129805029452
@@ -7452,10 +7654,10 @@ components:
             vulnerabilities_count: 5
             compliance_scan_status: compliance_scan_status
             secrets_count: 5
+            docker_container_name: docker_container_name
             malwares_count: 6
             compliances_count: 0
             malware_scan_status: malware_scan_status
-            name: name
             metrics:
               memory_mb: 5.962133916683182
               cpu_percent: 1.4658129805029452
@@ -7540,10 +7742,10 @@ components:
               vulnerabilities_count: 5
               compliance_scan_status: compliance_scan_status
               secrets_count: 5
+              docker_container_name: docker_container_name
               malwares_count: 6
               compliances_count: 0
               malware_scan_status: malware_scan_status
-              name: name
               metrics:
                 memory_mb: 5.962133916683182
                 cpu_percent: 1.4658129805029452
@@ -7599,10 +7801,10 @@ components:
               vulnerabilities_count: 5
               compliance_scan_status: compliance_scan_status
               secrets_count: 5
+              docker_container_name: docker_container_name
               malwares_count: 6
               compliances_count: 0
               malware_scan_status: malware_scan_status
-              name: name
               metrics:
                 memory_mb: 5.962133916683182
                 cpu_percent: 1.4658129805029452
@@ -7691,10 +7893,10 @@ components:
               vulnerabilities_count: 5
               compliance_scan_status: compliance_scan_status
               secrets_count: 5
+              docker_container_name: docker_container_name
               malwares_count: 6
               compliances_count: 0
               malware_scan_status: malware_scan_status
-              name: name
               metrics:
                 memory_mb: 5.962133916683182
                 cpu_percent: 1.4658129805029452
@@ -7750,10 +7952,10 @@ components:
               vulnerabilities_count: 5
               compliance_scan_status: compliance_scan_status
               secrets_count: 5
+              docker_container_name: docker_container_name
               malwares_count: 6
               compliances_count: 0
               malware_scan_status: malware_scan_status
-              name: name
               metrics:
                 memory_mb: 5.962133916683182
                 cpu_percent: 1.4658129805029452
@@ -7853,6 +8055,7 @@ components:
           key: 1
         node_type: node_type
         docker_container_name: docker_container_name
+        updated_at: 5
         kubernetes_cluster_name: kubernetes_cluster_name
         node_name: node_name
         scan_id: scan_id
@@ -7903,6 +8106,8 @@ components:
             type: integer
           nullable: true
           type: object
+        updated_at:
+          type: integer
       required:
       - docker_container_name
       - docker_image_name
@@ -7914,6 +8119,7 @@ components:
       - node_type
       - scan_id
       - severity_counts
+      - updated_at
       type: object
     ModelMalwareScanTriggerReq:
       example:
@@ -8093,10 +8299,10 @@ components:
           vulnerabilities_count: 5
           compliance_scan_status: compliance_scan_status
           secrets_count: 5
+          docker_container_name: docker_container_name
           malwares_count: 6
           compliances_count: 0
           malware_scan_status: malware_scan_status
-          name: name
           metrics:
             memory_mb: 5.962133916683182
             cpu_percent: 1.4658129805029452
@@ -8152,10 +8358,10 @@ components:
           vulnerabilities_count: 5
           compliance_scan_status: compliance_scan_status
           secrets_count: 5
+          docker_container_name: docker_container_name
           malwares_count: 6
           compliances_count: 0
           malware_scan_status: malware_scan_status
-          name: name
           metrics:
             memory_mb: 5.962133916683182
             cpu_percent: 1.4658129805029452
@@ -8327,9 +8533,15 @@ components:
           key: ""
         registry_type: registry_type
         name: name
+        extras:
+          key: ""
         secret:
           key: ""
       properties:
+        extras:
+          additionalProperties: {}
+          nullable: true
+          type: object
         name:
           type: string
         non_secret:
@@ -8407,6 +8619,51 @@ components:
       - part
       - score
       - signature_to_match
+      type: object
+    ModelSbomRequest:
+      example:
+        node_type: node_type
+        scan_id: scan_id
+        node_id: node_id
+      properties:
+        node_id:
+          type: string
+        node_type:
+          type: string
+        scan_id:
+          type: string
+      type: object
+    ModelSbomResponse:
+      example:
+        severity: severity
+        licenses:
+        - licenses
+        - licenses
+        cve_id: cve_id
+        package_name: package_name
+        locations:
+        - locations
+        - locations
+        version: version
+      properties:
+        cve_id:
+          type: string
+        licenses:
+          items:
+            type: string
+          nullable: true
+          type: array
+        locations:
+          items:
+            type: string
+          nullable: true
+          type: array
+        package_name:
+          type: string
+        severity:
+          type: string
+        version:
+          type: string
       type: object
     ModelScanFilter:
       example:
@@ -8544,6 +8801,7 @@ components:
     ModelScanResultsActionRequest:
       example:
         scan_type: SecretScan
+        scan_id: scan_id
         node_ids:
         - node_ids
         - node_ids
@@ -8553,6 +8811,8 @@ components:
             type: string
           nullable: true
           type: array
+        scan_id:
+          type: string
         scan_type:
           enum:
           - SecretScan
@@ -8563,6 +8823,38 @@ components:
           type: string
       required:
       - node_ids
+      - scan_id
+      - scan_type
+      type: object
+    ModelScanResultsMaskRequest:
+      example:
+        mask_across_hosts_and_images: true
+        scan_type: SecretScan
+        scan_id: scan_id
+        node_ids:
+        - node_ids
+        - node_ids
+      properties:
+        mask_across_hosts_and_images:
+          type: boolean
+        node_ids:
+          items:
+            type: string
+          nullable: true
+          type: array
+        scan_id:
+          type: string
+        scan_type:
+          enum:
+          - SecretScan
+          - VulnerabilityScan
+          - MalwareScan
+          - ComplianceScan
+          - CloudComplianceScan
+          type: string
+      required:
+      - node_ids
+      - scan_id
       - scan_type
       type: object
     ModelScanResultsReq:
@@ -8664,7 +8956,6 @@ components:
       example:
         severity_counts:
           key: 7
-        node_type: node_type
         docker_container_name: docker_container_name
         kubernetes_cluster_name: kubernetes_cluster_name
         node_name: node_name
@@ -8681,11 +8972,6 @@ components:
           name: name
           signature_to_match: signature_to_match
           id: 6
-        scan_id: scan_id
-        rule_2_secrets:
-          key:
-          - 0
-          - 0
         secrets:
         - full_filename: full_filename
           matched_content: matched_content
@@ -8697,6 +8983,13 @@ components:
           relative_ending_index: 5
           starting_index: 2
           relative_starting_index: 5
+        node_type: node_type
+        updated_at: 9
+        scan_id: scan_id
+        rule_2_secrets:
+          key:
+          - 0
+          - 0
         docker_image_name: docker_image_name
         host_name: host_name
         node_id: node_id
@@ -8739,6 +9032,8 @@ components:
             type: integer
           nullable: true
           type: object
+        updated_at:
+          type: integer
       required:
       - docker_container_name
       - docker_image_name
@@ -8752,6 +9047,7 @@ components:
       - scan_id
       - secrets
       - severity_counts
+      - updated_at
       type: object
     ModelSecretScanTriggerReq:
       example:
@@ -8876,10 +9172,10 @@ components:
       example:
         cve_container_layer: cve_container_layer
         cve_description: cve_description
-        cve_overall_score: 1.4658129805029452
+        cve_overall_score: 5.962133916683182
         cve_caused_by_package: cve_caused_by_package
         cve_attack_vector: cve_attack_vector
-        cve_cvss_score: 6.027456183070403
+        cve_cvss_score: 1.4658129805029452
         urls:
         - urls
         - urls
@@ -8964,15 +9260,16 @@ components:
           key: 0
         node_type: node_type
         docker_container_name: docker_container_name
+        updated_at: 6
         kubernetes_cluster_name: kubernetes_cluster_name
         node_name: node_name
         vulnerabilities:
         - cve_container_layer: cve_container_layer
           cve_description: cve_description
-          cve_overall_score: 1.4658129805029452
+          cve_overall_score: 5.962133916683182
           cve_caused_by_package: cve_caused_by_package
           cve_attack_vector: cve_attack_vector
-          cve_cvss_score: 6.027456183070403
+          cve_cvss_score: 1.4658129805029452
           urls:
           - urls
           - urls
@@ -8985,10 +9282,10 @@ components:
           cve_link: cve_link
         - cve_container_layer: cve_container_layer
           cve_description: cve_description
-          cve_overall_score: 1.4658129805029452
+          cve_overall_score: 5.962133916683182
           cve_caused_by_package: cve_caused_by_package
           cve_attack_vector: cve_attack_vector
-          cve_cvss_score: 6.027456183070403
+          cve_cvss_score: 1.4658129805029452
           urls:
           - urls
           - urls
@@ -9025,6 +9322,8 @@ components:
             type: integer
           nullable: true
           type: object
+        updated_at:
+          type: integer
         vulnerabilities:
           items:
             $ref: '#/components/schemas/ModelVulnerability'
@@ -9040,6 +9339,7 @@ components:
       - node_type
       - scan_id
       - severity_counts
+      - updated_at
       - vulnerabilities
       type: object
     ModelVulnerabilityScanTriggerReq:

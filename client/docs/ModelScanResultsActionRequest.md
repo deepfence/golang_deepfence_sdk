@@ -5,13 +5,14 @@
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
 **NodeIds** | **[]string** |  | 
+**ScanId** | **string** |  | 
 **ScanType** | **string** |  | 
 
 ## Methods
 
 ### NewModelScanResultsActionRequest
 
-`func NewModelScanResultsActionRequest(nodeIds []string, scanType string, ) *ModelScanResultsActionRequest`
+`func NewModelScanResultsActionRequest(nodeIds []string, scanId string, scanType string, ) *ModelScanResultsActionRequest`
 
 NewModelScanResultsActionRequest instantiates a new ModelScanResultsActionRequest object
 This constructor will assign default values to properties that have it defined,
@@ -56,6 +57,26 @@ SetNodeIds sets NodeIds field to given value.
 `func (o *ModelScanResultsActionRequest) UnsetNodeIds()`
 
 UnsetNodeIds ensures that no value is present for NodeIds, not even an explicit nil
+### GetScanId
+
+`func (o *ModelScanResultsActionRequest) GetScanId() string`
+
+GetScanId returns the ScanId field if non-nil, zero value otherwise.
+
+### GetScanIdOk
+
+`func (o *ModelScanResultsActionRequest) GetScanIdOk() (*string, bool)`
+
+GetScanIdOk returns a tuple with the ScanId field if it's non-nil, zero value otherwise
+and a boolean to check if the value has been set.
+
+### SetScanId
+
+`func (o *ModelScanResultsActionRequest) SetScanId(v string)`
+
+SetScanId sets ScanId field to given value.
+
+
 ### GetScanType
 
 `func (o *ModelScanResultsActionRequest) GetScanType() string`

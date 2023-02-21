@@ -22,6 +22,7 @@ var _ MappedNullable = &ModelContainer{}
 type ModelContainer struct {
 	ComplianceScanStatus string `json:"compliance_scan_status"`
 	CompliancesCount int32 `json:"compliances_count"`
+	DockerContainerName string `json:"docker_container_name"`
 	DockerLabels map[string]interface{} `json:"docker_labels"`
 	HostName string `json:"host_name"`
 	Image ModelContainerImage `json:"image"`
@@ -29,7 +30,6 @@ type ModelContainer struct {
 	MalwaresCount int32 `json:"malwares_count"`
 	Metadata map[string]interface{} `json:"metadata"`
 	Metrics ModelComputeMetrics `json:"metrics"`
-	Name string `json:"name"`
 	NodeId string `json:"node_id"`
 	Processes []ModelProcess `json:"processes"`
 	SecretScanStatus string `json:"secret_scan_status"`
@@ -42,10 +42,11 @@ type ModelContainer struct {
 // This constructor will assign default values to properties that have it defined,
 // and makes sure properties required by API are set, but the set of arguments
 // will change when the set of required properties is changed
-func NewModelContainer(complianceScanStatus string, compliancesCount int32, dockerLabels map[string]interface{}, hostName string, image ModelContainerImage, malwareScanStatus string, malwaresCount int32, metadata map[string]interface{}, metrics ModelComputeMetrics, name string, nodeId string, processes []ModelProcess, secretScanStatus string, secretsCount int32, vulnerabilitiesCount int32, vulnerabilityScanStatus string) *ModelContainer {
+func NewModelContainer(complianceScanStatus string, compliancesCount int32, dockerContainerName string, dockerLabels map[string]interface{}, hostName string, image ModelContainerImage, malwareScanStatus string, malwaresCount int32, metadata map[string]interface{}, metrics ModelComputeMetrics, nodeId string, processes []ModelProcess, secretScanStatus string, secretsCount int32, vulnerabilitiesCount int32, vulnerabilityScanStatus string) *ModelContainer {
 	this := ModelContainer{}
 	this.ComplianceScanStatus = complianceScanStatus
 	this.CompliancesCount = compliancesCount
+	this.DockerContainerName = dockerContainerName
 	this.DockerLabels = dockerLabels
 	this.HostName = hostName
 	this.Image = image
@@ -53,7 +54,6 @@ func NewModelContainer(complianceScanStatus string, compliancesCount int32, dock
 	this.MalwaresCount = malwaresCount
 	this.Metadata = metadata
 	this.Metrics = metrics
-	this.Name = name
 	this.NodeId = nodeId
 	this.Processes = processes
 	this.SecretScanStatus = secretScanStatus
@@ -117,6 +117,30 @@ func (o *ModelContainer) GetCompliancesCountOk() (*int32, bool) {
 // SetCompliancesCount sets field value
 func (o *ModelContainer) SetCompliancesCount(v int32) {
 	o.CompliancesCount = v
+}
+
+// GetDockerContainerName returns the DockerContainerName field value
+func (o *ModelContainer) GetDockerContainerName() string {
+	if o == nil {
+		var ret string
+		return ret
+	}
+
+	return o.DockerContainerName
+}
+
+// GetDockerContainerNameOk returns a tuple with the DockerContainerName field value
+// and a boolean to check if the value has been set.
+func (o *ModelContainer) GetDockerContainerNameOk() (*string, bool) {
+	if o == nil {
+		return nil, false
+	}
+	return &o.DockerContainerName, true
+}
+
+// SetDockerContainerName sets field value
+func (o *ModelContainer) SetDockerContainerName(v string) {
+	o.DockerContainerName = v
 }
 
 // GetDockerLabels returns the DockerLabels field value
@@ -287,30 +311,6 @@ func (o *ModelContainer) SetMetrics(v ModelComputeMetrics) {
 	o.Metrics = v
 }
 
-// GetName returns the Name field value
-func (o *ModelContainer) GetName() string {
-	if o == nil {
-		var ret string
-		return ret
-	}
-
-	return o.Name
-}
-
-// GetNameOk returns a tuple with the Name field value
-// and a boolean to check if the value has been set.
-func (o *ModelContainer) GetNameOk() (*string, bool) {
-	if o == nil {
-		return nil, false
-	}
-	return &o.Name, true
-}
-
-// SetName sets field value
-func (o *ModelContainer) SetName(v string) {
-	o.Name = v
-}
-
 // GetNodeId returns the NodeId field value
 func (o *ModelContainer) GetNodeId() string {
 	if o == nil {
@@ -469,6 +469,7 @@ func (o ModelContainer) ToMap() (map[string]interface{}, error) {
 	toSerialize := map[string]interface{}{}
 	toSerialize["compliance_scan_status"] = o.ComplianceScanStatus
 	toSerialize["compliances_count"] = o.CompliancesCount
+	toSerialize["docker_container_name"] = o.DockerContainerName
 	toSerialize["docker_labels"] = o.DockerLabels
 	toSerialize["host_name"] = o.HostName
 	toSerialize["image"] = o.Image
@@ -476,7 +477,6 @@ func (o ModelContainer) ToMap() (map[string]interface{}, error) {
 	toSerialize["malwares_count"] = o.MalwaresCount
 	toSerialize["metadata"] = o.Metadata
 	toSerialize["metrics"] = o.Metrics
-	toSerialize["name"] = o.Name
 	toSerialize["node_id"] = o.NodeId
 	if o.Processes != nil {
 		toSerialize["processes"] = o.Processes
