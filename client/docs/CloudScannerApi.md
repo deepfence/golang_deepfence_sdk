@@ -207,7 +207,7 @@ Name | Type | Description  | Notes
 
 ## StatusCloudComplianceScan
 
-> ModelComplianceScanStatusResp StatusCloudComplianceScan(ctx).ScanIds(scanIds).BulkScanId(bulkScanId).BulkScanId2(bulkScanId2).ScanIds2(scanIds2).Execute()
+> ModelComplianceScanStatusResp StatusCloudComplianceScan(ctx).ModelScanStatusReq(modelScanStatusReq).Execute()
 
 Get Cloud Compliance Scan Status
 
@@ -226,14 +226,11 @@ import (
 )
 
 func main() {
-    scanIds := []string{"Inner_example"} // []string | 
-    bulkScanId := "bulkScanId_example" // string | 
-    bulkScanId2 := "bulkScanId_example" // string | 
-    scanIds2 := []string{"Inner_example"} // []string | 
+    modelScanStatusReq := *openapiclient.NewModelScanStatusReq("BulkScanId_example", []string{"ScanIds_example"}) // ModelScanStatusReq |  (optional)
 
     configuration := openapiclient.NewConfiguration()
     apiClient := openapiclient.NewAPIClient(configuration)
-    resp, r, err := apiClient.CloudScannerApi.StatusCloudComplianceScan(context.Background()).ScanIds(scanIds).BulkScanId(bulkScanId).BulkScanId2(bulkScanId2).ScanIds2(scanIds2).Execute()
+    resp, r, err := apiClient.CloudScannerApi.StatusCloudComplianceScan(context.Background()).ModelScanStatusReq(modelScanStatusReq).Execute()
     if err != nil {
         fmt.Fprintf(os.Stderr, "Error when calling `CloudScannerApi.StatusCloudComplianceScan``: %v\n", err)
         fmt.Fprintf(os.Stderr, "Full HTTP response: %v\n", r)
@@ -254,10 +251,7 @@ Other parameters are passed through a pointer to a apiStatusCloudComplianceScanR
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **scanIds** | **[]string** |  | 
- **bulkScanId** | **string** |  | 
- **bulkScanId2** | **string** |  | 
- **scanIds2** | **[]string** |  | 
+ **modelScanStatusReq** | [**ModelScanStatusReq**](ModelScanStatusReq.md) |  | 
 
 ### Return type
 
@@ -269,7 +263,7 @@ Name | Type | Description  | Notes
 
 ### HTTP request headers
 
-- **Content-Type**: application/x-www-form-urlencoded
+- **Content-Type**: application/json
 - **Accept**: application/json
 
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints)

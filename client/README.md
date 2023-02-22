@@ -262,6 +262,7 @@ Class | Method | HTTP request | Description
  - [ModelScanResultsActionRequest](docs/ModelScanResultsActionRequest.md)
  - [ModelScanResultsMaskRequest](docs/ModelScanResultsMaskRequest.md)
  - [ModelScanResultsReq](docs/ModelScanResultsReq.md)
+ - [ModelScanStatusReq](docs/ModelScanStatusReq.md)
  - [ModelScanStatusResp](docs/ModelScanStatusResp.md)
  - [ModelScanTriggerResp](docs/ModelScanTriggerResp.md)
  - [ModelSecret](docs/ModelSecret.md)

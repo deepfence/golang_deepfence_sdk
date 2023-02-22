@@ -17,7 +17,6 @@ import (
 	"io"
 	"net/http"
 	"net/url"
-	"reflect"
 )
 
 
@@ -572,29 +571,11 @@ func (a *ComplianceApiService) StartComplianceScanExecute(r ApiStartComplianceSc
 type ApiStatusComplianceScanRequest struct {
 	ctx context.Context
 	ApiService *ComplianceApiService
-	scanIds *[]string
-	bulkScanId *string
-	bulkScanId2 *string
-	scanIds2 *[]string
+	modelScanStatusReq *ModelScanStatusReq
 }
 
-func (r ApiStatusComplianceScanRequest) ScanIds(scanIds []string) ApiStatusComplianceScanRequest {
-	r.scanIds = &scanIds
-	return r
-}
-
-func (r ApiStatusComplianceScanRequest) BulkScanId(bulkScanId string) ApiStatusComplianceScanRequest {
-	r.bulkScanId = &bulkScanId
-	return r
-}
-
-func (r ApiStatusComplianceScanRequest) BulkScanId2(bulkScanId2 string) ApiStatusComplianceScanRequest {
-	r.bulkScanId2 = &bulkScanId2
-	return r
-}
-
-func (r ApiStatusComplianceScanRequest) ScanIds2(scanIds2 []string) ApiStatusComplianceScanRequest {
-	r.scanIds2 = &scanIds2
+func (r ApiStatusComplianceScanRequest) ModelScanStatusReq(modelScanStatusReq ModelScanStatusReq) ApiStatusComplianceScanRequest {
+	r.modelScanStatusReq = &modelScanStatusReq
 	return r
 }
 
@@ -637,33 +618,9 @@ func (a *ComplianceApiService) StatusComplianceScanExecute(r ApiStatusCompliance
 	localVarHeaderParams := make(map[string]string)
 	localVarQueryParams := url.Values{}
 	localVarFormParams := url.Values{}
-	if r.scanIds == nil {
-		return localVarReturnValue, nil, reportError("scanIds is required and must be specified")
-	}
-	if r.bulkScanId == nil {
-		return localVarReturnValue, nil, reportError("bulkScanId is required and must be specified")
-	}
-	if r.bulkScanId2 == nil {
-		return localVarReturnValue, nil, reportError("bulkScanId2 is required and must be specified")
-	}
-	if r.scanIds2 == nil {
-		return localVarReturnValue, nil, reportError("scanIds2 is required and must be specified")
-	}
 
-	{
-		t := *r.scanIds
-		if reflect.TypeOf(t).Kind() == reflect.Slice {
-			s := reflect.ValueOf(t)
-			for i := 0; i < s.Len(); i++ {
-				parameterAddToHeaderOrQuery(localVarQueryParams, "scan_ids", s.Index(i), "multi")
-			}
-		} else {
-			parameterAddToHeaderOrQuery(localVarQueryParams, "scan_ids", t, "multi")
-		}
-	}
-	parameterAddToHeaderOrQuery(localVarQueryParams, "bulk_scan_id", r.bulkScanId, "")
 	// to determine the Content-Type header
-	localVarHTTPContentTypes := []string{"application/x-www-form-urlencoded"}
+	localVarHTTPContentTypes := []string{"application/json"}
 
 	// set Content-Type header
 	localVarHTTPContentType := selectHeaderContentType(localVarHTTPContentTypes)
@@ -679,8 +636,8 @@ func (a *ComplianceApiService) StatusComplianceScanExecute(r ApiStatusCompliance
 	if localVarHTTPHeaderAccept != "" {
 		localVarHeaderParams["Accept"] = localVarHTTPHeaderAccept
 	}
-	parameterAddToHeaderOrQuery(localVarFormParams, "bulk_scan_id", r.bulkScanId2, "")
-	parameterAddToHeaderOrQuery(localVarFormParams, "scan_ids", r.scanIds2, "csv")
+	// body params
+	localVarPostBody = r.modelScanStatusReq
 	req, err := a.client.prepareRequest(r.ctx, localVarPath, localVarHTTPMethod, localVarPostBody, localVarHeaderParams, localVarQueryParams, localVarFormParams, formFiles)
 	if err != nil {
 		return localVarReturnValue, nil, err

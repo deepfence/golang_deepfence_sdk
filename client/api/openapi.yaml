@@ -2695,28 +2695,11 @@ paths:
     post:
       description: Get Cloud Compliance Scan Status on cloud node
       operationId: statusCloudComplianceScan
-      parameters:
-      - explode: true
-        in: query
-        name: scan_ids
-        required: true
-        schema:
-          items:
-            type: string
-          type: array
-        style: form
-      - explode: true
-        in: query
-        name: bulk_scan_id
-        required: true
-        schema:
-          type: string
-        style: form
       requestBody:
         content:
-          application/x-www-form-urlencoded:
+          application/json:
             schema:
-              $ref: '#/components/schemas/FormDataModelScanStatusReq'
+              $ref: '#/components/schemas/ModelScanStatusReq'
       responses:
         "200":
           content:
@@ -2755,28 +2738,11 @@ paths:
     post:
       description: Get Compliance Scan Status on agent or registry
       operationId: statusComplianceScan
-      parameters:
-      - explode: true
-        in: query
-        name: scan_ids
-        required: true
-        schema:
-          items:
-            type: string
-          type: array
-        style: form
-      - explode: true
-        in: query
-        name: bulk_scan_id
-        required: true
-        schema:
-          type: string
-        style: form
       requestBody:
         content:
-          application/x-www-form-urlencoded:
+          application/json:
             schema:
-              $ref: '#/components/schemas/FormDataModelScanStatusReq'
+              $ref: '#/components/schemas/ModelScanStatusReq'
       responses:
         "200":
           content:
@@ -2815,28 +2781,11 @@ paths:
     post:
       description: Get Malware Scan status on agent or registry
       operationId: statusMalwareScan
-      parameters:
-      - explode: true
-        in: query
-        name: scan_ids
-        required: true
-        schema:
-          items:
-            type: string
-          type: array
-        style: form
-      - explode: true
-        in: query
-        name: bulk_scan_id
-        required: true
-        schema:
-          type: string
-        style: form
       requestBody:
         content:
-          application/x-www-form-urlencoded:
+          application/json:
             schema:
-              $ref: '#/components/schemas/FormDataModelScanStatusReq'
+              $ref: '#/components/schemas/ModelScanStatusReq'
       responses:
         "200":
           content:
@@ -2875,28 +2824,11 @@ paths:
     post:
       description: Get Secret Scan Status on agent or registry
       operationId: statusSecretScan
-      parameters:
-      - explode: true
-        in: query
-        name: scan_ids
-        required: true
-        schema:
-          items:
-            type: string
-          type: array
-        style: form
-      - explode: true
-        in: query
-        name: bulk_scan_id
-        required: true
-        schema:
-          type: string
-        style: form
       requestBody:
         content:
-          application/x-www-form-urlencoded:
+          application/json:
             schema:
-              $ref: '#/components/schemas/FormDataModelScanStatusReq'
+              $ref: '#/components/schemas/ModelScanStatusReq'
       responses:
         "200":
           content:
@@ -2935,28 +2867,11 @@ paths:
     post:
       description: Get Vulnerability Scan Status on agent or registry
       operationId: statusVulnerabilityScan
-      parameters:
-      - explode: true
-        in: query
-        name: scan_ids
-        required: true
-        schema:
-          items:
-            type: string
-          type: array
-        style: form
-      - explode: true
-        in: query
-        name: bulk_scan_id
-        required: true
-        schema:
-          type: string
-        style: form
       requestBody:
         content:
-          application/x-www-form-urlencoded:
+          application/json:
             schema:
-              $ref: '#/components/schemas/FormDataModelScanStatusReq'
+              $ref: '#/components/schemas/ModelScanStatusReq'
       responses:
         "200":
           content:
@@ -4593,19 +4508,6 @@ components:
           type: string
         updated_at:
           type: string
-      type: object
-    FormDataModelScanStatusReq:
-      properties:
-        bulk_scan_id:
-          type: string
-        scan_ids:
-          items:
-            type: string
-          nullable: true
-          type: array
-      required:
-      - bulk_scan_id
-      - scan_ids
       type: object
     GraphNodeInfo:
       properties:
@@ -8925,6 +8827,24 @@ components:
       - fields_filter
       - scan_id
       - window
+      type: object
+    ModelScanStatusReq:
+      example:
+        bulk_scan_id: bulk_scan_id
+        scan_ids:
+        - scan_ids
+        - scan_ids
+      properties:
+        bulk_scan_id:
+          type: string
+        scan_ids:
+          items:
+            type: string
+          nullable: true
+          type: array
+      required:
+      - bulk_scan_id
+      - scan_ids
       type: object
     ModelScanStatusResp:
       example:

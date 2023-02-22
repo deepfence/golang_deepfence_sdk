@@ -113,6 +113,7 @@ docs/ModelScanListResp.md
 docs/ModelScanResultsActionRequest.md
 docs/ModelScanResultsMaskRequest.md
 docs/ModelScanResultsReq.md
+docs/ModelScanStatusReq.md
 docs/ModelScanStatusResp.md
 docs/ModelScanTriggerResp.md
 docs/ModelSecret.md
@@ -227,6 +228,7 @@ model_model_scan_list_resp.go
 model_model_scan_results_action_request.go
 model_model_scan_results_mask_request.go
 model_model_scan_results_req.go
+model_model_scan_status_req.go
 model_model_scan_status_resp.go
 model_model_scan_trigger_resp.go
 model_model_secret.go
