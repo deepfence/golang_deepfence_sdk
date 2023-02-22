@@ -424,6 +424,8 @@ type ApiStatusCloudComplianceScanRequest struct {
 	ApiService *CloudScannerApiService
 	scanIds *[]string
 	bulkScanId *string
+	bulkScanId2 *string
+	scanIds2 *[]string
 }
 
 func (r ApiStatusCloudComplianceScanRequest) ScanIds(scanIds []string) ApiStatusCloudComplianceScanRequest {
@@ -433,6 +435,16 @@ func (r ApiStatusCloudComplianceScanRequest) ScanIds(scanIds []string) ApiStatus
 
 func (r ApiStatusCloudComplianceScanRequest) BulkScanId(bulkScanId string) ApiStatusCloudComplianceScanRequest {
 	r.bulkScanId = &bulkScanId
+	return r
+}
+
+func (r ApiStatusCloudComplianceScanRequest) BulkScanId2(bulkScanId2 string) ApiStatusCloudComplianceScanRequest {
+	r.bulkScanId2 = &bulkScanId2
+	return r
+}
+
+func (r ApiStatusCloudComplianceScanRequest) ScanIds2(scanIds2 []string) ApiStatusCloudComplianceScanRequest {
+	r.scanIds2 = &scanIds2
 	return r
 }
 
@@ -459,7 +471,7 @@ func (a *CloudScannerApiService) StatusCloudComplianceScan(ctx context.Context) 
 //  @return ModelComplianceScanStatusResp
 func (a *CloudScannerApiService) StatusCloudComplianceScanExecute(r ApiStatusCloudComplianceScanRequest) (*ModelComplianceScanStatusResp, *http.Response, error) {
 	var (
-		localVarHTTPMethod   = http.MethodGet
+		localVarHTTPMethod   = http.MethodPost
 		localVarPostBody     interface{}
 		formFiles            []formFile
 		localVarReturnValue  *ModelComplianceScanStatusResp
@@ -481,6 +493,12 @@ func (a *CloudScannerApiService) StatusCloudComplianceScanExecute(r ApiStatusClo
 	if r.bulkScanId == nil {
 		return localVarReturnValue, nil, reportError("bulkScanId is required and must be specified")
 	}
+	if r.bulkScanId2 == nil {
+		return localVarReturnValue, nil, reportError("bulkScanId2 is required and must be specified")
+	}
+	if r.scanIds2 == nil {
+		return localVarReturnValue, nil, reportError("scanIds2 is required and must be specified")
+	}
 
 	{
 		t := *r.scanIds
@@ -495,7 +513,7 @@ func (a *CloudScannerApiService) StatusCloudComplianceScanExecute(r ApiStatusClo
 	}
 	parameterAddToHeaderOrQuery(localVarQueryParams, "bulk_scan_id", r.bulkScanId, "")
 	// to determine the Content-Type header
-	localVarHTTPContentTypes := []string{}
+	localVarHTTPContentTypes := []string{"application/x-www-form-urlencoded"}
 
 	// set Content-Type header
 	localVarHTTPContentType := selectHeaderContentType(localVarHTTPContentTypes)
@@ -511,6 +529,8 @@ func (a *CloudScannerApiService) StatusCloudComplianceScanExecute(r ApiStatusClo
 	if localVarHTTPHeaderAccept != "" {
 		localVarHeaderParams["Accept"] = localVarHTTPHeaderAccept
 	}
+	parameterAddToHeaderOrQuery(localVarFormParams, "bulk_scan_id", r.bulkScanId2, "")
+	parameterAddToHeaderOrQuery(localVarFormParams, "scan_ids", r.scanIds2, "csv")
 	req, err := a.client.prepareRequest(r.ctx, localVarPath, localVarHTTPMethod, localVarPostBody, localVarHeaderParams, localVarQueryParams, localVarFormParams, formFiles)
 	if err != nil {
 		return localVarReturnValue, nil, err

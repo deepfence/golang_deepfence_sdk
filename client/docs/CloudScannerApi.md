@@ -7,7 +7,7 @@ Method | HTTP request | Description
 [**IngestCloudComplianceScanStatus**](CloudScannerApi.md#IngestCloudComplianceScanStatus) | **Post** /deepfence/ingest/cloud-compliance-scan-status | Ingest Cloud Compliances
 [**IngestCloudCompliances**](CloudScannerApi.md#IngestCloudCompliances) | **Post** /deepfence/ingest/cloud-compliance | Ingest Cloud Compliances
 [**ResultsCloudComplianceScan**](CloudScannerApi.md#ResultsCloudComplianceScan) | **Post** /deepfence/scan/results/cloud-compliance | Get Cloud Compliance Scan Results
-[**StatusCloudComplianceScan**](CloudScannerApi.md#StatusCloudComplianceScan) | **Get** /deepfence/scan/status/cloud-compliance | Get Cloud Compliance Scan Status
+[**StatusCloudComplianceScan**](CloudScannerApi.md#StatusCloudComplianceScan) | **Post** /deepfence/scan/status/cloud-compliance | Get Cloud Compliance Scan Status
 
 
 
@@ -207,7 +207,7 @@ Name | Type | Description  | Notes
 
 ## StatusCloudComplianceScan
 
-> ModelComplianceScanStatusResp StatusCloudComplianceScan(ctx).ScanIds(scanIds).BulkScanId(bulkScanId).Execute()
+> ModelComplianceScanStatusResp StatusCloudComplianceScan(ctx).ScanIds(scanIds).BulkScanId(bulkScanId).BulkScanId2(bulkScanId2).ScanIds2(scanIds2).Execute()
 
 Get Cloud Compliance Scan Status
 
@@ -228,10 +228,12 @@ import (
 func main() {
     scanIds := []string{"Inner_example"} // []string | 
     bulkScanId := "bulkScanId_example" // string | 
+    bulkScanId2 := "bulkScanId_example" // string | 
+    scanIds2 := []string{"Inner_example"} // []string | 
 
     configuration := openapiclient.NewConfiguration()
     apiClient := openapiclient.NewAPIClient(configuration)
-    resp, r, err := apiClient.CloudScannerApi.StatusCloudComplianceScan(context.Background()).ScanIds(scanIds).BulkScanId(bulkScanId).Execute()
+    resp, r, err := apiClient.CloudScannerApi.StatusCloudComplianceScan(context.Background()).ScanIds(scanIds).BulkScanId(bulkScanId).BulkScanId2(bulkScanId2).ScanIds2(scanIds2).Execute()
     if err != nil {
         fmt.Fprintf(os.Stderr, "Error when calling `CloudScannerApi.StatusCloudComplianceScan``: %v\n", err)
         fmt.Fprintf(os.Stderr, "Full HTTP response: %v\n", r)
@@ -254,6 +256,8 @@ Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
  **scanIds** | **[]string** |  | 
  **bulkScanId** | **string** |  | 
+ **bulkScanId2** | **string** |  | 
+ **scanIds2** | **[]string** |  | 
 
 ### Return type
 
@@ -265,7 +269,7 @@ Name | Type | Description  | Notes
 
 ### HTTP request headers
 
-- **Content-Type**: Not defined
+- **Content-Type**: application/x-www-form-urlencoded
 - **Accept**: application/json
 
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints)

@@ -9,7 +9,7 @@ Method | HTTP request | Description
 [**ListSecretScan**](SecretScanApi.md#ListSecretScan) | **Post** /deepfence/scan/list/secret | Get Secret Scans List
 [**ResultsSecretScan**](SecretScanApi.md#ResultsSecretScan) | **Post** /deepfence/scan/results/secret | Get Secret Scans Results
 [**StartSecretScan**](SecretScanApi.md#StartSecretScan) | **Post** /deepfence/scan/start/secret | Start Secret Scan
-[**StatusSecretScan**](SecretScanApi.md#StatusSecretScan) | **Get** /deepfence/scan/status/secret | Get Secret Scan Status
+[**StatusSecretScan**](SecretScanApi.md#StatusSecretScan) | **Post** /deepfence/scan/status/secret | Get Secret Scan Status
 [**StopSecretScan**](SecretScanApi.md#StopSecretScan) | **Post** /deepfence/scan/stop/secret | Stop Secret Scan
 
 
@@ -342,7 +342,7 @@ Name | Type | Description  | Notes
 
 ## StatusSecretScan
 
-> ModelScanStatusResp StatusSecretScan(ctx).ScanIds(scanIds).BulkScanId(bulkScanId).Execute()
+> ModelScanStatusResp StatusSecretScan(ctx).ScanIds(scanIds).BulkScanId(bulkScanId).BulkScanId2(bulkScanId2).ScanIds2(scanIds2).Execute()
 
 Get Secret Scan Status
 
@@ -363,10 +363,12 @@ import (
 func main() {
     scanIds := []string{"Inner_example"} // []string | 
     bulkScanId := "bulkScanId_example" // string | 
+    bulkScanId2 := "bulkScanId_example" // string | 
+    scanIds2 := []string{"Inner_example"} // []string | 
 
     configuration := openapiclient.NewConfiguration()
     apiClient := openapiclient.NewAPIClient(configuration)
-    resp, r, err := apiClient.SecretScanApi.StatusSecretScan(context.Background()).ScanIds(scanIds).BulkScanId(bulkScanId).Execute()
+    resp, r, err := apiClient.SecretScanApi.StatusSecretScan(context.Background()).ScanIds(scanIds).BulkScanId(bulkScanId).BulkScanId2(bulkScanId2).ScanIds2(scanIds2).Execute()
     if err != nil {
         fmt.Fprintf(os.Stderr, "Error when calling `SecretScanApi.StatusSecretScan``: %v\n", err)
         fmt.Fprintf(os.Stderr, "Full HTTP response: %v\n", r)
@@ -389,6 +391,8 @@ Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
  **scanIds** | **[]string** |  | 
  **bulkScanId** | **string** |  | 
+ **bulkScanId2** | **string** |  | 
+ **scanIds2** | **[]string** |  | 
 
 ### Return type
 
@@ -400,7 +404,7 @@ Name | Type | Description  | Notes
 
 ### HTTP request headers
 
-- **Content-Type**: Not defined
+- **Content-Type**: application/x-www-form-urlencoded
 - **Accept**: application/json
 
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints)

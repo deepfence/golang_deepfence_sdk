@@ -8,7 +8,7 @@ Method | HTTP request | Description
 [**ListComplianceScan**](ComplianceApi.md#ListComplianceScan) | **Post** /deepfence/scan/list/compliance | Get Compliance Scans List
 [**ResultsComplianceScan**](ComplianceApi.md#ResultsComplianceScan) | **Post** /deepfence/scan/results/compliance | Get Compliance Scans Results
 [**StartComplianceScan**](ComplianceApi.md#StartComplianceScan) | **Post** /deepfence/scan/start/compliance | Start Compliance Scan
-[**StatusComplianceScan**](ComplianceApi.md#StatusComplianceScan) | **Get** /deepfence/scan/status/compliance | Get Compliance Scan Status
+[**StatusComplianceScan**](ComplianceApi.md#StatusComplianceScan) | **Post** /deepfence/scan/status/compliance | Get Compliance Scan Status
 [**StopComplianceScan**](ComplianceApi.md#StopComplianceScan) | **Post** /deepfence/scan/stop/compliance | Stop Compliance Scan
 
 
@@ -277,7 +277,7 @@ Name | Type | Description  | Notes
 
 ## StatusComplianceScan
 
-> ModelComplianceScanStatusResp StatusComplianceScan(ctx).ScanIds(scanIds).BulkScanId(bulkScanId).Execute()
+> ModelComplianceScanStatusResp StatusComplianceScan(ctx).ScanIds(scanIds).BulkScanId(bulkScanId).BulkScanId2(bulkScanId2).ScanIds2(scanIds2).Execute()
 
 Get Compliance Scan Status
 
@@ -298,10 +298,12 @@ import (
 func main() {
     scanIds := []string{"Inner_example"} // []string | 
     bulkScanId := "bulkScanId_example" // string | 
+    bulkScanId2 := "bulkScanId_example" // string | 
+    scanIds2 := []string{"Inner_example"} // []string | 
 
     configuration := openapiclient.NewConfiguration()
     apiClient := openapiclient.NewAPIClient(configuration)
-    resp, r, err := apiClient.ComplianceApi.StatusComplianceScan(context.Background()).ScanIds(scanIds).BulkScanId(bulkScanId).Execute()
+    resp, r, err := apiClient.ComplianceApi.StatusComplianceScan(context.Background()).ScanIds(scanIds).BulkScanId(bulkScanId).BulkScanId2(bulkScanId2).ScanIds2(scanIds2).Execute()
     if err != nil {
         fmt.Fprintf(os.Stderr, "Error when calling `ComplianceApi.StatusComplianceScan``: %v\n", err)
         fmt.Fprintf(os.Stderr, "Full HTTP response: %v\n", r)
@@ -324,6 +326,8 @@ Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
  **scanIds** | **[]string** |  | 
  **bulkScanId** | **string** |  | 
+ **bulkScanId2** | **string** |  | 
+ **scanIds2** | **[]string** |  | 
 
 ### Return type
 
@@ -335,7 +339,7 @@ Name | Type | Description  | Notes
 
 ### HTTP request headers
 
-- **Content-Type**: Not defined
+- **Content-Type**: application/x-www-form-urlencoded
 - **Accept**: application/json
 
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints)

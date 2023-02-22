@@ -2692,7 +2692,7 @@ paths:
       tags:
       - Vulnerability
   /deepfence/scan/status/cloud-compliance:
-    get:
+    post:
       description: Get Cloud Compliance Scan Status on cloud node
       operationId: statusCloudComplianceScan
       parameters:
@@ -2712,6 +2712,11 @@ paths:
         schema:
           type: string
         style: form
+      requestBody:
+        content:
+          application/x-www-form-urlencoded:
+            schema:
+              $ref: '#/components/schemas/FormDataModelScanStatusReq'
       responses:
         "200":
           content:
@@ -2747,7 +2752,7 @@ paths:
       tags:
       - Cloud Scanner
   /deepfence/scan/status/compliance:
-    get:
+    post:
       description: Get Compliance Scan Status on agent or registry
       operationId: statusComplianceScan
       parameters:
@@ -2767,6 +2772,11 @@ paths:
         schema:
           type: string
         style: form
+      requestBody:
+        content:
+          application/x-www-form-urlencoded:
+            schema:
+              $ref: '#/components/schemas/FormDataModelScanStatusReq'
       responses:
         "200":
           content:
@@ -2802,7 +2812,7 @@ paths:
       tags:
       - Compliance
   /deepfence/scan/status/malware:
-    get:
+    post:
       description: Get Malware Scan status on agent or registry
       operationId: statusMalwareScan
       parameters:
@@ -2822,6 +2832,11 @@ paths:
         schema:
           type: string
         style: form
+      requestBody:
+        content:
+          application/x-www-form-urlencoded:
+            schema:
+              $ref: '#/components/schemas/FormDataModelScanStatusReq'
       responses:
         "200":
           content:
@@ -2857,7 +2872,7 @@ paths:
       tags:
       - Malware Scan
   /deepfence/scan/status/secret:
-    get:
+    post:
       description: Get Secret Scan Status on agent or registry
       operationId: statusSecretScan
       parameters:
@@ -2877,6 +2892,11 @@ paths:
         schema:
           type: string
         style: form
+      requestBody:
+        content:
+          application/x-www-form-urlencoded:
+            schema:
+              $ref: '#/components/schemas/FormDataModelScanStatusReq'
       responses:
         "200":
           content:
@@ -2912,7 +2932,7 @@ paths:
       tags:
       - Secret Scan
   /deepfence/scan/status/vulnerability:
-    get:
+    post:
       description: Get Vulnerability Scan Status on agent or registry
       operationId: statusVulnerabilityScan
       parameters:
@@ -2932,6 +2952,11 @@ paths:
         schema:
           type: string
         style: form
+      requestBody:
+        content:
+          application/x-www-form-urlencoded:
+            schema:
+              $ref: '#/components/schemas/FormDataModelScanStatusReq'
       responses:
         "200":
           content:
@@ -4568,6 +4593,19 @@ components:
           type: string
         updated_at:
           type: string
+      type: object
+    FormDataModelScanStatusReq:
+      properties:
+        bulk_scan_id:
+          type: string
+        scan_ids:
+          items:
+            type: string
+          nullable: true
+          type: array
+      required:
+      - bulk_scan_id
+      - scan_ids
       type: object
     GraphNodeInfo:
       properties:

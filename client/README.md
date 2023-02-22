@@ -90,7 +90,7 @@ Class | Method | HTTP request | Description
 *CloudScannerApi* | [**IngestCloudComplianceScanStatus**](docs/CloudScannerApi.md#ingestcloudcompliancescanstatus) | **Post** /deepfence/ingest/cloud-compliance-scan-status | Ingest Cloud Compliances
 *CloudScannerApi* | [**IngestCloudCompliances**](docs/CloudScannerApi.md#ingestcloudcompliances) | **Post** /deepfence/ingest/cloud-compliance | Ingest Cloud Compliances
 *CloudScannerApi* | [**ResultsCloudComplianceScan**](docs/CloudScannerApi.md#resultscloudcompliancescan) | **Post** /deepfence/scan/results/cloud-compliance | Get Cloud Compliance Scan Results
-*CloudScannerApi* | [**StatusCloudComplianceScan**](docs/CloudScannerApi.md#statuscloudcompliancescan) | **Get** /deepfence/scan/status/cloud-compliance | Get Cloud Compliance Scan Status
+*CloudScannerApi* | [**StatusCloudComplianceScan**](docs/CloudScannerApi.md#statuscloudcompliancescan) | **Post** /deepfence/scan/status/cloud-compliance | Get Cloud Compliance Scan Status
 *CommonApi* | [**DeleteScanResult**](docs/CommonApi.md#deletescanresult) | **Post** /deepfence/scan/results/action/delete | Delete selected scan results
 *CommonApi* | [**DeleteScanResultsForScanID**](docs/CommonApi.md#deletescanresultsforscanid) | **Delete** /scan/{scan_type}/{scan_id} | Delete all scan results for a scan id
 *CommonApi* | [**DownloadScanResults**](docs/CommonApi.md#downloadscanresults) | **Get** /scan/{scan_type}/{scan_id}/download | Download Scans Results
@@ -101,7 +101,7 @@ Class | Method | HTTP request | Description
 *ComplianceApi* | [**ListComplianceScan**](docs/ComplianceApi.md#listcompliancescan) | **Post** /deepfence/scan/list/compliance | Get Compliance Scans List
 *ComplianceApi* | [**ResultsComplianceScan**](docs/ComplianceApi.md#resultscompliancescan) | **Post** /deepfence/scan/results/compliance | Get Compliance Scans Results
 *ComplianceApi* | [**StartComplianceScan**](docs/ComplianceApi.md#startcompliancescan) | **Post** /deepfence/scan/start/compliance | Start Compliance Scan
-*ComplianceApi* | [**StatusComplianceScan**](docs/ComplianceApi.md#statuscompliancescan) | **Get** /deepfence/scan/status/compliance | Get Compliance Scan Status
+*ComplianceApi* | [**StatusComplianceScan**](docs/ComplianceApi.md#statuscompliancescan) | **Post** /deepfence/scan/status/compliance | Get Compliance Scan Status
 *ComplianceApi* | [**StopComplianceScan**](docs/ComplianceApi.md#stopcompliancescan) | **Post** /deepfence/scan/stop/compliance | Stop Compliance Scan
 *ControlsApi* | [**GetAgentControls**](docs/ControlsApi.md#getagentcontrols) | **Post** /deepfence/controls/agent | Fetch Agent Actions
 *ControlsApi* | [**GetAgentInitControls**](docs/ControlsApi.md#getagentinitcontrols) | **Post** /deepfence/controls/agent-init | Fetch Agent Init Actions
@@ -124,7 +124,7 @@ Class | Method | HTTP request | Description
 *MalwareScanApi* | [**ListMalwareScan**](docs/MalwareScanApi.md#listmalwarescan) | **Post** /deepfence/scan/list/malware | Get Malware Scans List
 *MalwareScanApi* | [**ResultsMalwareScan**](docs/MalwareScanApi.md#resultsmalwarescan) | **Post** /deepfence/scan/results/malware | Get Malware Scans Results
 *MalwareScanApi* | [**StartMalwareScan**](docs/MalwareScanApi.md#startmalwarescan) | **Post** /deepfence/scan/start/malware | Start Malware Scan
-*MalwareScanApi* | [**StatusMalwareScan**](docs/MalwareScanApi.md#statusmalwarescan) | **Get** /deepfence/scan/status/malware | Get Malware Scan Status
+*MalwareScanApi* | [**StatusMalwareScan**](docs/MalwareScanApi.md#statusmalwarescan) | **Post** /deepfence/scan/status/malware | Get Malware Scan Status
 *MalwareScanApi* | [**StopMalwareScan**](docs/MalwareScanApi.md#stopmalwarescan) | **Post** /deepfence/scan/stop/malware | Stop Malware Scan
 *RegistryApi* | [**AddRegistry**](docs/RegistryApi.md#addregistry) | **Post** /deepfence/registryaccount/ | Add Registry
 *RegistryApi* | [**DeleteRegistry**](docs/RegistryApi.md#deleteregistry) | **Delete** /deepfence/registryaccount/{id}/ | Add Registry
@@ -147,7 +147,7 @@ Class | Method | HTTP request | Description
 *SecretScanApi* | [**ListSecretScan**](docs/SecretScanApi.md#listsecretscan) | **Post** /deepfence/scan/list/secret | Get Secret Scans List
 *SecretScanApi* | [**ResultsSecretScan**](docs/SecretScanApi.md#resultssecretscan) | **Post** /deepfence/scan/results/secret | Get Secret Scans Results
 *SecretScanApi* | [**StartSecretScan**](docs/SecretScanApi.md#startsecretscan) | **Post** /deepfence/scan/start/secret | Start Secret Scan
-*SecretScanApi* | [**StatusSecretScan**](docs/SecretScanApi.md#statussecretscan) | **Get** /deepfence/scan/status/secret | Get Secret Scan Status
+*SecretScanApi* | [**StatusSecretScan**](docs/SecretScanApi.md#statussecretscan) | **Post** /deepfence/scan/status/secret | Get Secret Scan Status
 *SecretScanApi* | [**StopSecretScan**](docs/SecretScanApi.md#stopsecretscan) | **Post** /deepfence/scan/stop/secret | Stop Secret Scan
 *ThreatApi* | [**GetThreatGraph**](docs/ThreatApi.md#getthreatgraph) | **Post** /deepfence/graph/threat | Get Threat Graph
 *TopologyApi* | [**GetContainersTopologyGraph**](docs/TopologyApi.md#getcontainerstopologygraph) | **Post** /deepfence/graph/topology/containers | Get Containers Topology Graph
@@ -176,7 +176,7 @@ Class | Method | HTTP request | Description
 *VulnerabilityApi* | [**ListVulnerabilityScans**](docs/VulnerabilityApi.md#listvulnerabilityscans) | **Post** /deepfence/scan/list/vulnerability | Get Vulnerability Scans List
 *VulnerabilityApi* | [**ResultsVulnerabilityScans**](docs/VulnerabilityApi.md#resultsvulnerabilityscans) | **Post** /deepfence/scan/results/vulnerability | Get Vulnerability Scans Results
 *VulnerabilityApi* | [**StartVulnerabilityScan**](docs/VulnerabilityApi.md#startvulnerabilityscan) | **Post** /deepfence/scan/start/vulnerability | Start Vulnerability Scan
-*VulnerabilityApi* | [**StatusVulnerabilityScan**](docs/VulnerabilityApi.md#statusvulnerabilityscan) | **Get** /deepfence/scan/status/vulnerability | Get Vulnerability Scan Status
+*VulnerabilityApi* | [**StatusVulnerabilityScan**](docs/VulnerabilityApi.md#statusvulnerabilityscan) | **Post** /deepfence/scan/status/vulnerability | Get Vulnerability Scan Status
 *VulnerabilityApi* | [**StopVulnerabilityScan**](docs/VulnerabilityApi.md#stopvulnerabilityscan) | **Post** /deepfence/scan/stop/vulnerability | Stop Vulnerability Scan
 
 
