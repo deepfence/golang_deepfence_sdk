@@ -58,8 +58,6 @@ type APIClient struct {
 
 	CloudScannerApi *CloudScannerApiService
 
-	CommonApi *CommonApiService
-
 	ComplianceApi *ComplianceApiService
 
 	ControlsApi *ControlsApiService
@@ -73,6 +71,8 @@ type APIClient struct {
 	MalwareScanApi *MalwareScanApiService
 
 	RegistryApi *RegistryApiService
+
+	ScanResultsApi *ScanResultsApiService
 
 	SearchApi *SearchApiService
 
@@ -107,7 +107,6 @@ func NewAPIClient(cfg *Configuration) *APIClient {
 	c.CloudNodesApi = (*CloudNodesApiService)(&c.common)
 	c.CloudResourcesApi = (*CloudResourcesApiService)(&c.common)
 	c.CloudScannerApi = (*CloudScannerApiService)(&c.common)
-	c.CommonApi = (*CommonApiService)(&c.common)
 	c.ComplianceApi = (*ComplianceApiService)(&c.common)
 	c.ControlsApi = (*ControlsApiService)(&c.common)
 	c.DiagnosisApi = (*DiagnosisApiService)(&c.common)
@@ -115,6 +114,7 @@ func NewAPIClient(cfg *Configuration) *APIClient {
 	c.LookupApi = (*LookupApiService)(&c.common)
 	c.MalwareScanApi = (*MalwareScanApiService)(&c.common)
 	c.RegistryApi = (*RegistryApiService)(&c.common)
+	c.ScanResultsApi = (*ScanResultsApiService)(&c.common)
 	c.SearchApi = (*SearchApiService)(&c.common)
 	c.SecretScanApi = (*SecretScanApiService)(&c.common)
 	c.ThreatApi = (*ThreatApiService)(&c.common)

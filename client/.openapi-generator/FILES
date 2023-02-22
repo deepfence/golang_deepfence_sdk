@@ -6,7 +6,6 @@ api_authentication.go
 api_cloud_nodes.go
 api_cloud_resources.go
 api_cloud_scanner.go
-api_common.go
 api_compliance.go
 api_controls.go
 api_diagnosis.go
@@ -14,6 +13,7 @@ api_internal.go
 api_lookup.go
 api_malware_scan.go
 api_registry.go
+api_scan_results.go
 api_search.go
 api_secret_scan.go
 api_threat.go
@@ -29,7 +29,6 @@ docs/AuthenticationApi.md
 docs/CloudNodesApi.md
 docs/CloudResourcesApi.md
 docs/CloudScannerApi.md
-docs/CommonApi.md
 docs/ComplianceApi.md
 docs/ControlsAction.md
 docs/ControlsAgentControls.md
@@ -82,6 +81,8 @@ docs/ModelComplianceScanTriggerReq.md
 docs/ModelComputeMetrics.md
 docs/ModelContainer.md
 docs/ModelContainerImage.md
+docs/ModelDownloadReportResponse.md
+docs/ModelEditUserRequest.md
 docs/ModelFetchWindow.md
 docs/ModelHost.md
 docs/ModelInitAgentReq.md
@@ -135,6 +136,7 @@ docs/ReportersContainsFilter.md
 docs/ReportersFieldsFilters.md
 docs/ReportersMatchFilter.md
 docs/ReportersOrderFilter.md
+docs/ScanResultsApi.md
 docs/SearchApi.md
 docs/SearchSearchFilter.md
 docs/SearchSearchNodeReq.md
@@ -197,6 +199,8 @@ model_model_compliance_scan_trigger_req.go
 model_model_compute_metrics.go
 model_model_container.go
 model_model_container_image.go
+model_model_download_report_response.go
+model_model_edit_user_request.go
 model_model_fetch_window.go
 model_model_host.go
 model_model_init_agent_req.go
@@ -258,7 +262,6 @@ test/api_authentication_test.go
 test/api_cloud_nodes_test.go
 test/api_cloud_resources_test.go
 test/api_cloud_scanner_test.go
-test/api_common_test.go
 test/api_compliance_test.go
 test/api_controls_test.go
 test/api_diagnosis_test.go
@@ -266,6 +269,7 @@ test/api_internal_test.go
 test/api_lookup_test.go
 test/api_malware_scan_test.go
 test/api_registry_test.go
+test/api_scan_results_test.go
 test/api_search_test.go
 test/api_secret_scan_test.go
 test/api_threat_test.go

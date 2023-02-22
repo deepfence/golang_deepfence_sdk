@@ -2065,7 +2065,7 @@ paths:
       tags:
       - Vulnerability
   /deepfence/scan/results/action/delete:
-    post:
+    patch:
       description: Delete selected scan results
       operationId: deleteScanResult
       requestBody:
@@ -2102,7 +2102,7 @@ paths:
       - bearer_token: []
       summary: Delete selected scan results
       tags:
-      - Common
+      - Scan Results
   /deepfence/scan/results/action/mask:
     post:
       description: Mask scan results
@@ -2141,7 +2141,7 @@ paths:
       - bearer_token: []
       summary: Mask Scans Results
       tags:
-      - Common
+      - Scan Results
   /deepfence/scan/results/action/notify:
     post:
       description: Notify scan results in connected integration channels
@@ -2180,7 +2180,7 @@ paths:
       - bearer_token: []
       summary: Notify Scans Results
       tags:
-      - Common
+      - Scan Results
   /deepfence/scan/results/action/unmask:
     post:
       description: Unmask scan results
@@ -2219,7 +2219,7 @@ paths:
       - bearer_token: []
       summary: Unmask Scans Results
       tags:
-      - Common
+      - Scan Results
   /deepfence/scan/results/cloud-compliance:
     post:
       description: Get Cloud Compliance Scan results for cloud node
@@ -2491,6 +2491,10 @@ paths:
               $ref: '#/components/schemas/ModelSbomRequest'
       responses:
         "200":
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ModelDownloadReportResponse'
           description: OK
         "400":
           content:
@@ -3718,48 +3722,6 @@ paths:
       summary: Get Current User
       tags:
       - User
-    put:
-      description: Update logged in user information
-      operationId: updateCurrentUser
-      requestBody:
-        content:
-          application/json:
-            schema:
-              $ref: '#/components/schemas/ModelUser'
-      responses:
-        "200":
-          content:
-            application/json:
-              schema:
-                $ref: '#/components/schemas/ModelUser'
-          description: OK
-        "400":
-          content:
-            application/json:
-              schema:
-                $ref: '#/components/schemas/ApiDocsBadRequestResponse'
-          description: Bad Request
-        "401":
-          description: Unauthorized
-        "403":
-          description: Forbidden
-        "404":
-          content:
-            application/json:
-              schema:
-                $ref: '#/components/schemas/ApiDocsFailureResponse'
-          description: Not Found
-        "500":
-          content:
-            application/json:
-              schema:
-                $ref: '#/components/schemas/ApiDocsFailureResponse'
-          description: Internal Server Error
-      security:
-      - bearer_token: []
-      summary: Update Current User
-      tags:
-      - User
   /deepfence/user/invite:
     post:
       description: Invite a user
@@ -4040,7 +4002,7 @@ paths:
       - User
   /deepfence/users:
     get:
-      description: Get users
+      description: Get all users
       operationId: getUsers
       responses:
         "200":
@@ -4075,7 +4037,144 @@ paths:
           description: Internal Server Error
       security:
       - bearer_token: []
-      summary: Get users
+      summary: Get all users
+      tags:
+      - User
+  /deepfence/users/{id}:
+    delete:
+      description: Delete User by User ID
+      operationId: deleteUser
+      parameters:
+      - explode: false
+        in: path
+        name: id
+        required: true
+        schema:
+          type: integer
+        style: simple
+      responses:
+        "204":
+          description: No Content
+        "400":
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ApiDocsBadRequestResponse'
+          description: Bad Request
+        "401":
+          description: Unauthorized
+        "403":
+          description: Forbidden
+        "404":
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ApiDocsFailureResponse'
+          description: Not Found
+        "500":
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ApiDocsFailureResponse'
+          description: Internal Server Error
+      security:
+      - bearer_token: []
+      summary: Delete User by User ID
+      tags:
+      - User
+    get:
+      description: Get User by User ID
+      operationId: getUser
+      parameters:
+      - explode: false
+        in: path
+        name: id
+        required: true
+        schema:
+          type: integer
+        style: simple
+      responses:
+        "200":
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ModelUser'
+          description: OK
+        "400":
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ApiDocsBadRequestResponse'
+          description: Bad Request
+        "401":
+          description: Unauthorized
+        "403":
+          description: Forbidden
+        "404":
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ApiDocsFailureResponse'
+          description: Not Found
+        "500":
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ApiDocsFailureResponse'
+          description: Internal Server Error
+      security:
+      - bearer_token: []
+      summary: Get User by User ID
+      tags:
+      - User
+    put:
+      description: Update User by User ID
+      operationId: updateUser
+      parameters:
+      - explode: false
+        in: path
+        name: id
+        required: true
+        schema:
+          type: integer
+        style: simple
+      requestBody:
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/ModelEditUserRequest'
+      responses:
+        "200":
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ModelUser'
+          description: OK
+        "400":
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ApiDocsBadRequestResponse'
+          description: Bad Request
+        "401":
+          description: Unauthorized
+        "403":
+          description: Forbidden
+        "404":
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ApiDocsFailureResponse'
+          description: Not Found
+        "500":
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ApiDocsFailureResponse'
+          description: Internal Server Error
+      security:
+      - bearer_token: []
+      summary: Update User by User ID
       tags:
       - User
   /scan/{scan_type}/{scan_id}:
@@ -4132,7 +4231,7 @@ paths:
       - bearer_token: []
       summary: Delete all scan results for a scan id
       tags:
-      - Common
+      - Scan Results
   /scan/{scan_type}/{scan_id}/download:
     get:
       description: Download scan results
@@ -4160,6 +4259,10 @@ paths:
         style: simple
       responses:
         "200":
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ModelDownloadReportResponse'
           description: OK
         "400":
           content:
@@ -4187,7 +4290,7 @@ paths:
       - bearer_token: []
       summary: Download Scans Results
       tags:
-      - Common
+      - Scan Results
 components:
   schemas:
     ApiDocsBadRequestResponse:
@@ -6288,6 +6391,29 @@ components:
       - secrets_count
       - vulnerabilities_count
       - vulnerability_scan_status
+      type: object
+    ModelDownloadReportResponse:
+      example:
+        url_link: url_link
+      properties:
+        url_link:
+          type: string
+      type: object
+    ModelEditUserRequest:
+      example:
+        is_active: true
+        role: role
+        last_name: last_name
+        first_name: first_name
+      properties:
+        first_name:
+          type: string
+        is_active:
+          type: boolean
+        last_name:
+          type: string
+        role:
+          type: string
       type: object
     ModelFetchWindow:
       example:
@@ -9066,11 +9192,15 @@ components:
         password_invalidated: true
         first_name: first_name
         email: email
+        current_user: true
       properties:
         company:
           type: string
         company_id:
           type: integer
+        current_user:
+          nullable: true
+          type: boolean
         email:
           type: string
         first_name:

@@ -1,15 +1,15 @@
-# \CommonApi
+# \ScanResultsApi
 
 All URIs are relative to *http://localhost*
 
 Method | HTTP request | Description
 ------------- | ------------- | -------------
-[**DeleteScanResult**](CommonApi.md#DeleteScanResult) | **Post** /deepfence/scan/results/action/delete | Delete selected scan results
-[**DeleteScanResultsForScanID**](CommonApi.md#DeleteScanResultsForScanID) | **Delete** /scan/{scan_type}/{scan_id} | Delete all scan results for a scan id
-[**DownloadScanResults**](CommonApi.md#DownloadScanResults) | **Get** /scan/{scan_type}/{scan_id}/download | Download Scans Results
-[**MaskScanResult**](CommonApi.md#MaskScanResult) | **Post** /deepfence/scan/results/action/mask | Mask Scans Results
-[**NotifyScanResult**](CommonApi.md#NotifyScanResult) | **Post** /deepfence/scan/results/action/notify | Notify Scans Results
-[**UnmaskScanResult**](CommonApi.md#UnmaskScanResult) | **Post** /deepfence/scan/results/action/unmask | Unmask Scans Results
+[**DeleteScanResult**](ScanResultsApi.md#DeleteScanResult) | **Patch** /deepfence/scan/results/action/delete | Delete selected scan results
+[**DeleteScanResultsForScanID**](ScanResultsApi.md#DeleteScanResultsForScanID) | **Delete** /scan/{scan_type}/{scan_id} | Delete all scan results for a scan id
+[**DownloadScanResults**](ScanResultsApi.md#DownloadScanResults) | **Get** /scan/{scan_type}/{scan_id}/download | Download Scans Results
+[**MaskScanResult**](ScanResultsApi.md#MaskScanResult) | **Post** /deepfence/scan/results/action/mask | Mask Scans Results
+[**NotifyScanResult**](ScanResultsApi.md#NotifyScanResult) | **Post** /deepfence/scan/results/action/notify | Notify Scans Results
+[**UnmaskScanResult**](ScanResultsApi.md#UnmaskScanResult) | **Post** /deepfence/scan/results/action/unmask | Unmask Scans Results
 
 
 
@@ -38,9 +38,9 @@ func main() {
 
     configuration := openapiclient.NewConfiguration()
     apiClient := openapiclient.NewAPIClient(configuration)
-    r, err := apiClient.CommonApi.DeleteScanResult(context.Background()).ModelScanResultsActionRequest(modelScanResultsActionRequest).Execute()
+    r, err := apiClient.ScanResultsApi.DeleteScanResult(context.Background()).ModelScanResultsActionRequest(modelScanResultsActionRequest).Execute()
     if err != nil {
-        fmt.Fprintf(os.Stderr, "Error when calling `CommonApi.DeleteScanResult``: %v\n", err)
+        fmt.Fprintf(os.Stderr, "Error when calling `ScanResultsApi.DeleteScanResult``: %v\n", err)
         fmt.Fprintf(os.Stderr, "Full HTTP response: %v\n", r)
     }
 }
@@ -103,9 +103,9 @@ func main() {
 
     configuration := openapiclient.NewConfiguration()
     apiClient := openapiclient.NewAPIClient(configuration)
-    r, err := apiClient.CommonApi.DeleteScanResultsForScanID(context.Background(), scanId, scanType).Execute()
+    r, err := apiClient.ScanResultsApi.DeleteScanResultsForScanID(context.Background(), scanId, scanType).Execute()
     if err != nil {
-        fmt.Fprintf(os.Stderr, "Error when calling `CommonApi.DeleteScanResultsForScanID``: %v\n", err)
+        fmt.Fprintf(os.Stderr, "Error when calling `ScanResultsApi.DeleteScanResultsForScanID``: %v\n", err)
         fmt.Fprintf(os.Stderr, "Full HTTP response: %v\n", r)
     }
 }
@@ -150,7 +150,7 @@ Name | Type | Description  | Notes
 
 ## DownloadScanResults
 
-> DownloadScanResults(ctx, scanId, scanType).Execute()
+> ModelDownloadReportResponse DownloadScanResults(ctx, scanId, scanType).Execute()
 
 Download Scans Results
 
@@ -174,11 +174,13 @@ func main() {
 
     configuration := openapiclient.NewConfiguration()
     apiClient := openapiclient.NewAPIClient(configuration)
-    r, err := apiClient.CommonApi.DownloadScanResults(context.Background(), scanId, scanType).Execute()
+    resp, r, err := apiClient.ScanResultsApi.DownloadScanResults(context.Background(), scanId, scanType).Execute()
     if err != nil {
-        fmt.Fprintf(os.Stderr, "Error when calling `CommonApi.DownloadScanResults``: %v\n", err)
+        fmt.Fprintf(os.Stderr, "Error when calling `ScanResultsApi.DownloadScanResults``: %v\n", err)
         fmt.Fprintf(os.Stderr, "Full HTTP response: %v\n", r)
     }
+    // response from `DownloadScanResults`: ModelDownloadReportResponse
+    fmt.Fprintf(os.Stdout, "Response from `ScanResultsApi.DownloadScanResults`: %v\n", resp)
 }
 ```
 
@@ -203,7 +205,7 @@ Name | Type | Description  | Notes
 
 ### Return type
 
- (empty response body)
+[**ModelDownloadReportResponse**](ModelDownloadReportResponse.md)
 
 ### Authorization
 
@@ -244,9 +246,9 @@ func main() {
 
     configuration := openapiclient.NewConfiguration()
     apiClient := openapiclient.NewAPIClient(configuration)
-    r, err := apiClient.CommonApi.MaskScanResult(context.Background()).ModelScanResultsMaskRequest(modelScanResultsMaskRequest).Execute()
+    r, err := apiClient.ScanResultsApi.MaskScanResult(context.Background()).ModelScanResultsMaskRequest(modelScanResultsMaskRequest).Execute()
     if err != nil {
-        fmt.Fprintf(os.Stderr, "Error when calling `CommonApi.MaskScanResult``: %v\n", err)
+        fmt.Fprintf(os.Stderr, "Error when calling `ScanResultsApi.MaskScanResult``: %v\n", err)
         fmt.Fprintf(os.Stderr, "Full HTTP response: %v\n", r)
     }
 }
@@ -308,9 +310,9 @@ func main() {
 
     configuration := openapiclient.NewConfiguration()
     apiClient := openapiclient.NewAPIClient(configuration)
-    r, err := apiClient.CommonApi.NotifyScanResult(context.Background()).ModelScanResultsActionRequest(modelScanResultsActionRequest).Execute()
+    r, err := apiClient.ScanResultsApi.NotifyScanResult(context.Background()).ModelScanResultsActionRequest(modelScanResultsActionRequest).Execute()
     if err != nil {
-        fmt.Fprintf(os.Stderr, "Error when calling `CommonApi.NotifyScanResult``: %v\n", err)
+        fmt.Fprintf(os.Stderr, "Error when calling `ScanResultsApi.NotifyScanResult``: %v\n", err)
         fmt.Fprintf(os.Stderr, "Full HTTP response: %v\n", r)
     }
 }
@@ -372,9 +374,9 @@ func main() {
 
     configuration := openapiclient.NewConfiguration()
     apiClient := openapiclient.NewAPIClient(configuration)
-    r, err := apiClient.CommonApi.UnmaskScanResult(context.Background()).ModelScanResultsMaskRequest(modelScanResultsMaskRequest).Execute()
+    r, err := apiClient.ScanResultsApi.UnmaskScanResult(context.Background()).ModelScanResultsMaskRequest(modelScanResultsMaskRequest).Execute()
     if err != nil {
-        fmt.Fprintf(os.Stderr, "Error when calling `CommonApi.UnmaskScanResult``: %v\n", err)
+        fmt.Fprintf(os.Stderr, "Error when calling `ScanResultsApi.UnmaskScanResult``: %v\n", err)
         fmt.Fprintf(os.Stderr, "Full HTTP response: %v\n", r)
     }
 }

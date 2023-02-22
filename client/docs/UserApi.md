@@ -5,15 +5,17 @@ All URIs are relative to *http://localhost*
 Method | HTTP request | Description
 ------------- | ------------- | -------------
 [**DeleteCurrentUser**](UserApi.md#DeleteCurrentUser) | **Delete** /deepfence/user | Delete Current User
+[**DeleteUser**](UserApi.md#DeleteUser) | **Delete** /deepfence/users/{id} | Delete User by User ID
 [**GetApiTokens**](UserApi.md#GetApiTokens) | **Get** /deepfence/api-token | Get User&#39;s API Tokens
 [**GetCurrentUser**](UserApi.md#GetCurrentUser) | **Get** /deepfence/user | Get Current User
-[**GetUsers**](UserApi.md#GetUsers) | **Get** /deepfence/users | Get users
+[**GetUser**](UserApi.md#GetUser) | **Get** /deepfence/users/{id} | Get User by User ID
+[**GetUsers**](UserApi.md#GetUsers) | **Get** /deepfence/users | Get all users
 [**InviteUser**](UserApi.md#InviteUser) | **Post** /deepfence/user/invite | Invite User
 [**RegisterInvitedUser**](UserApi.md#RegisterInvitedUser) | **Post** /deepfence/user/invite/register | Register Invited User
 [**RegisterUser**](UserApi.md#RegisterUser) | **Post** /deepfence/user/register | Register User
 [**ResetApiTokens**](UserApi.md#ResetApiTokens) | **Post** /deepfence/api-token/reset | Reset User&#39;s API Tokens
 [**ResetPasswordRequest**](UserApi.md#ResetPasswordRequest) | **Post** /deepfence/user/reset-password/request | Reset Password Request
-[**UpdateCurrentUser**](UserApi.md#UpdateCurrentUser) | **Put** /deepfence/user | Update Current User
+[**UpdateUser**](UserApi.md#UpdateUser) | **Put** /deepfence/users/{id} | Update User by User ID
 [**VerifyResetPasswordRequest**](UserApi.md#VerifyResetPasswordRequest) | **Post** /deepfence/user/reset-password/verify | Verify and Reset Password
 
 
@@ -57,6 +59,74 @@ This endpoint does not need any parameter.
 ### Other Parameters
 
 Other parameters are passed through a pointer to a apiDeleteCurrentUserRequest struct via the builder pattern
+
+
+### Return type
+
+ (empty response body)
+
+### Authorization
+
+[bearer_token](../README.md#bearer_token)
+
+### HTTP request headers
+
+- **Content-Type**: Not defined
+- **Accept**: application/json
+
+[[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints)
+[[Back to Model list]](../README.md#documentation-for-models)
+[[Back to README]](../README.md)
+
+
+## DeleteUser
+
+> DeleteUser(ctx, id).Execute()
+
+Delete User by User ID
+
+
+
+### Example
+
+```go
+package main
+
+import (
+    "context"
+    "fmt"
+    "os"
+    openapiclient "github.com/deepfence/golang_deepfence_sdk/client"
+)
+
+func main() {
+    id := int32(56) // int32 | 
+
+    configuration := openapiclient.NewConfiguration()
+    apiClient := openapiclient.NewAPIClient(configuration)
+    r, err := apiClient.UserApi.DeleteUser(context.Background(), id).Execute()
+    if err != nil {
+        fmt.Fprintf(os.Stderr, "Error when calling `UserApi.DeleteUser``: %v\n", err)
+        fmt.Fprintf(os.Stderr, "Full HTTP response: %v\n", r)
+    }
+}
+```
+
+### Path Parameters
+
+
+Name | Type | Description  | Notes
+------------- | ------------- | ------------- | -------------
+**ctx** | **context.Context** | context for authentication, logging, cancellation, deadlines, tracing, etc.
+**id** | **int32** |  | 
+
+### Other Parameters
+
+Other parameters are passed through a pointer to a apiDeleteUserRequest struct via the builder pattern
+
+
+Name | Type | Description  | Notes
+------------- | ------------- | ------------- | -------------
 
 
 ### Return type
@@ -199,11 +269,81 @@ Other parameters are passed through a pointer to a apiGetCurrentUserRequest stru
 [[Back to README]](../README.md)
 
 
+## GetUser
+
+> ModelUser GetUser(ctx, id).Execute()
+
+Get User by User ID
+
+
+
+### Example
+
+```go
+package main
+
+import (
+    "context"
+    "fmt"
+    "os"
+    openapiclient "github.com/deepfence/golang_deepfence_sdk/client"
+)
+
+func main() {
+    id := int32(56) // int32 | 
+
+    configuration := openapiclient.NewConfiguration()
+    apiClient := openapiclient.NewAPIClient(configuration)
+    resp, r, err := apiClient.UserApi.GetUser(context.Background(), id).Execute()
+    if err != nil {
+        fmt.Fprintf(os.Stderr, "Error when calling `UserApi.GetUser``: %v\n", err)
+        fmt.Fprintf(os.Stderr, "Full HTTP response: %v\n", r)
+    }
+    // response from `GetUser`: ModelUser
+    fmt.Fprintf(os.Stdout, "Response from `UserApi.GetUser`: %v\n", resp)
+}
+```
+
+### Path Parameters
+
+
+Name | Type | Description  | Notes
+------------- | ------------- | ------------- | -------------
+**ctx** | **context.Context** | context for authentication, logging, cancellation, deadlines, tracing, etc.
+**id** | **int32** |  | 
+
+### Other Parameters
+
+Other parameters are passed through a pointer to a apiGetUserRequest struct via the builder pattern
+
+
+Name | Type | Description  | Notes
+------------- | ------------- | ------------- | -------------
+
+
+### Return type
+
+[**ModelUser**](ModelUser.md)
+
+### Authorization
+
+[bearer_token](../README.md#bearer_token)
+
+### HTTP request headers
+
+- **Content-Type**: Not defined
+- **Accept**: application/json
+
+[[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints)
+[[Back to Model list]](../README.md#documentation-for-models)
+[[Back to README]](../README.md)
+
+
 ## GetUsers
 
 > []ModelUser GetUsers(ctx).Execute()
 
-Get users
+Get all users
 
 
 
@@ -585,11 +725,11 @@ No authorization required
 [[Back to README]](../README.md)
 
 
-## UpdateCurrentUser
+## UpdateUser
 
-> ModelUser UpdateCurrentUser(ctx).ModelUser(modelUser).Execute()
+> ModelUser UpdateUser(ctx, id).ModelEditUserRequest(modelEditUserRequest).Execute()
 
-Update Current User
+Update User by User ID
 
 
 
@@ -606,32 +746,38 @@ import (
 )
 
 func main() {
-    modelUser := *openapiclient.NewModelUser() // ModelUser |  (optional)
+    id := int32(56) // int32 | 
+    modelEditUserRequest := *openapiclient.NewModelEditUserRequest() // ModelEditUserRequest |  (optional)
 
     configuration := openapiclient.NewConfiguration()
     apiClient := openapiclient.NewAPIClient(configuration)
-    resp, r, err := apiClient.UserApi.UpdateCurrentUser(context.Background()).ModelUser(modelUser).Execute()
+    resp, r, err := apiClient.UserApi.UpdateUser(context.Background(), id).ModelEditUserRequest(modelEditUserRequest).Execute()
     if err != nil {
-        fmt.Fprintf(os.Stderr, "Error when calling `UserApi.UpdateCurrentUser``: %v\n", err)
+        fmt.Fprintf(os.Stderr, "Error when calling `UserApi.UpdateUser``: %v\n", err)
         fmt.Fprintf(os.Stderr, "Full HTTP response: %v\n", r)
     }
-    // response from `UpdateCurrentUser`: ModelUser
-    fmt.Fprintf(os.Stdout, "Response from `UserApi.UpdateCurrentUser`: %v\n", resp)
+    // response from `UpdateUser`: ModelUser
+    fmt.Fprintf(os.Stdout, "Response from `UserApi.UpdateUser`: %v\n", resp)
 }
 ```
 
 ### Path Parameters
 
 
+Name | Type | Description  | Notes
+------------- | ------------- | ------------- | -------------
+**ctx** | **context.Context** | context for authentication, logging, cancellation, deadlines, tracing, etc.
+**id** | **int32** |  | 
 
 ### Other Parameters
 
-Other parameters are passed through a pointer to a apiUpdateCurrentUserRequest struct via the builder pattern
+Other parameters are passed through a pointer to a apiUpdateUserRequest struct via the builder pattern
 
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **modelUser** | [**ModelUser**](ModelUser.md) |  | 
+
+ **modelEditUserRequest** | [**ModelEditUserRequest**](ModelEditUserRequest.md) |  | 
 
 ### Return type
 

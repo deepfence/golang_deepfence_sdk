@@ -6,6 +6,7 @@ Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
 **Company** | Pointer to **string** |  | [optional] 
 **CompanyId** | Pointer to **int32** |  | [optional] 
+**CurrentUser** | Pointer to **NullableBool** |  | [optional] 
 **Email** | Pointer to **string** |  | [optional] 
 **FirstName** | Pointer to **string** |  | [optional] 
 **Groups** | Pointer to **map[string]string** |  | [optional] 
@@ -85,6 +86,41 @@ SetCompanyId sets CompanyId field to given value.
 
 HasCompanyId returns a boolean if a field has been set.
 
+### GetCurrentUser
+
+`func (o *ModelUser) GetCurrentUser() bool`
+
+GetCurrentUser returns the CurrentUser field if non-nil, zero value otherwise.
+
+### GetCurrentUserOk
+
+`func (o *ModelUser) GetCurrentUserOk() (*bool, bool)`
+
+GetCurrentUserOk returns a tuple with the CurrentUser field if it's non-nil, zero value otherwise
+and a boolean to check if the value has been set.
+
+### SetCurrentUser
+
+`func (o *ModelUser) SetCurrentUser(v bool)`
+
+SetCurrentUser sets CurrentUser field to given value.
+
+### HasCurrentUser
+
+`func (o *ModelUser) HasCurrentUser() bool`
+
+HasCurrentUser returns a boolean if a field has been set.
+
+### SetCurrentUserNil
+
+`func (o *ModelUser) SetCurrentUserNil(b bool)`
+
+ SetCurrentUserNil sets the value for CurrentUser to be an explicit nil
+
+### UnsetCurrentUser
+`func (o *ModelUser) UnsetCurrentUser()`
+
+UnsetCurrentUser ensures that no value is present for CurrentUser, not even an explicit nil
 ### GetEmail
 
 `func (o *ModelUser) GetEmail() string`

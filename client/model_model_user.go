@@ -22,6 +22,7 @@ var _ MappedNullable = &ModelUser{}
 type ModelUser struct {
 	Company *string `json:"company,omitempty"`
 	CompanyId *int32 `json:"company_id,omitempty"`
+	CurrentUser NullableBool `json:"current_user,omitempty"`
 	Email *string `json:"email,omitempty"`
 	FirstName *string `json:"first_name,omitempty"`
 	Groups map[string]string `json:"groups,omitempty"`
@@ -112,6 +113,48 @@ func (o *ModelUser) HasCompanyId() bool {
 // SetCompanyId gets a reference to the given int32 and assigns it to the CompanyId field.
 func (o *ModelUser) SetCompanyId(v int32) {
 	o.CompanyId = &v
+}
+
+// GetCurrentUser returns the CurrentUser field value if set, zero value otherwise (both if not set or set to explicit null).
+func (o *ModelUser) GetCurrentUser() bool {
+	if o == nil || IsNil(o.CurrentUser.Get()) {
+		var ret bool
+		return ret
+	}
+	return *o.CurrentUser.Get()
+}
+
+// GetCurrentUserOk returns a tuple with the CurrentUser field value if set, nil otherwise
+// and a boolean to check if the value has been set.
+// NOTE: If the value is an explicit nil, `nil, true` will be returned
+func (o *ModelUser) GetCurrentUserOk() (*bool, bool) {
+	if o == nil {
+		return nil, false
+	}
+	return o.CurrentUser.Get(), o.CurrentUser.IsSet()
+}
+
+// HasCurrentUser returns a boolean if a field has been set.
+func (o *ModelUser) HasCurrentUser() bool {
+	if o != nil && o.CurrentUser.IsSet() {
+		return true
+	}
+
+	return false
+}
+
+// SetCurrentUser gets a reference to the given NullableBool and assigns it to the CurrentUser field.
+func (o *ModelUser) SetCurrentUser(v bool) {
+	o.CurrentUser.Set(&v)
+}
+// SetCurrentUserNil sets the value for CurrentUser to be an explicit nil
+func (o *ModelUser) SetCurrentUserNil() {
+	o.CurrentUser.Set(nil)
+}
+
+// UnsetCurrentUser ensures that no value is present for CurrentUser, not even an explicit nil
+func (o *ModelUser) UnsetCurrentUser() {
+	o.CurrentUser.Unset()
 }
 
 // GetEmail returns the Email field value if set, zero value otherwise.
@@ -418,6 +461,9 @@ func (o ModelUser) ToMap() (map[string]interface{}, error) {
 	}
 	if !IsNil(o.CompanyId) {
 		toSerialize["company_id"] = o.CompanyId
+	}
+	if o.CurrentUser.IsSet() {
+		toSerialize["current_user"] = o.CurrentUser.Get()
 	}
 	if !IsNil(o.Email) {
 		toSerialize["email"] = o.Email
