@@ -4,6 +4,7 @@ All URIs are relative to *http://localhost*
 
 Method | HTTP request | Description
 ------------- | ------------- | -------------
+[**CountResultsComplianceScan**](ComplianceApi.md#CountResultsComplianceScan) | **Post** /deepfence/scan/results/count/compliance | Get Compliance Scans Results
 [**IngestCompliances**](ComplianceApi.md#IngestCompliances) | **Post** /deepfence/ingest/compliance | Ingest Compliances
 [**ListComplianceScan**](ComplianceApi.md#ListComplianceScan) | **Post** /deepfence/scan/list/compliance | Get Compliance Scans List
 [**ResultsComplianceScan**](ComplianceApi.md#ResultsComplianceScan) | **Post** /deepfence/scan/results/compliance | Get Compliance Scans Results
@@ -11,6 +12,72 @@ Method | HTTP request | Description
 [**StatusComplianceScan**](ComplianceApi.md#StatusComplianceScan) | **Post** /deepfence/scan/status/compliance | Get Compliance Scan Status
 [**StopComplianceScan**](ComplianceApi.md#StopComplianceScan) | **Post** /deepfence/scan/stop/compliance | Stop Compliance Scan
 
+
+
+## CountResultsComplianceScan
+
+> SearchSearchCountResp CountResultsComplianceScan(ctx).ModelScanResultsReq(modelScanResultsReq).Execute()
+
+Get Compliance Scans Results
+
+
+
+### Example
+
+```go
+package main
+
+import (
+    "context"
+    "fmt"
+    "os"
+    openapiclient "github.com/deepfence/golang_deepfence_sdk/client"
+)
+
+func main() {
+    modelScanResultsReq := *openapiclient.NewModelScanResultsReq(*openapiclient.NewReportersFieldsFilters(*openapiclient.NewReportersContainsFilter(map[string][]interface{}{"key": []interface{}{nil}}), *openapiclient.NewReportersMatchFilter(map[string][]interface{}{"key": []interface{}{nil}}), *openapiclient.NewReportersOrderFilter("OrderField_example")), "ScanId_example", *openapiclient.NewModelFetchWindow(int32(123), int32(123))) // ModelScanResultsReq |  (optional)
+
+    configuration := openapiclient.NewConfiguration()
+    apiClient := openapiclient.NewAPIClient(configuration)
+    resp, r, err := apiClient.ComplianceApi.CountResultsComplianceScan(context.Background()).ModelScanResultsReq(modelScanResultsReq).Execute()
+    if err != nil {
+        fmt.Fprintf(os.Stderr, "Error when calling `ComplianceApi.CountResultsComplianceScan``: %v\n", err)
+        fmt.Fprintf(os.Stderr, "Full HTTP response: %v\n", r)
+    }
+    // response from `CountResultsComplianceScan`: SearchSearchCountResp
+    fmt.Fprintf(os.Stdout, "Response from `ComplianceApi.CountResultsComplianceScan`: %v\n", resp)
+}
+```
+
+### Path Parameters
+
+
+
+### Other Parameters
+
+Other parameters are passed through a pointer to a apiCountResultsComplianceScanRequest struct via the builder pattern
+
+
+Name | Type | Description  | Notes
+------------- | ------------- | ------------- | -------------
+ **modelScanResultsReq** | [**ModelScanResultsReq**](ModelScanResultsReq.md) |  | 
+
+### Return type
+
+[**SearchSearchCountResp**](SearchSearchCountResp.md)
+
+### Authorization
+
+[bearer_token](../README.md#bearer_token)
+
+### HTTP request headers
+
+- **Content-Type**: application/json
+- **Accept**: application/json
+
+[[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints)
+[[Back to Model list]](../README.md#documentation-for-models)
+[[Back to README]](../README.md)
 
 
 ## IngestCompliances

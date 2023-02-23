@@ -4,11 +4,78 @@ All URIs are relative to *http://localhost*
 
 Method | HTTP request | Description
 ------------- | ------------- | -------------
+[**CountResultsCloudComplianceScan**](CloudScannerApi.md#CountResultsCloudComplianceScan) | **Post** /deepfence/scan/results/count/cloud-compliance | Get Cloud Compliance Scan Results
 [**IngestCloudComplianceScanStatus**](CloudScannerApi.md#IngestCloudComplianceScanStatus) | **Post** /deepfence/ingest/cloud-compliance-scan-status | Ingest Cloud Compliances
 [**IngestCloudCompliances**](CloudScannerApi.md#IngestCloudCompliances) | **Post** /deepfence/ingest/cloud-compliance | Ingest Cloud Compliances
 [**ResultsCloudComplianceScan**](CloudScannerApi.md#ResultsCloudComplianceScan) | **Post** /deepfence/scan/results/cloud-compliance | Get Cloud Compliance Scan Results
 [**StatusCloudComplianceScan**](CloudScannerApi.md#StatusCloudComplianceScan) | **Post** /deepfence/scan/status/cloud-compliance | Get Cloud Compliance Scan Status
 
+
+
+## CountResultsCloudComplianceScan
+
+> SearchSearchCountResp CountResultsCloudComplianceScan(ctx).ModelScanResultsReq(modelScanResultsReq).Execute()
+
+Get Cloud Compliance Scan Results
+
+
+
+### Example
+
+```go
+package main
+
+import (
+    "context"
+    "fmt"
+    "os"
+    openapiclient "github.com/deepfence/golang_deepfence_sdk/client"
+)
+
+func main() {
+    modelScanResultsReq := *openapiclient.NewModelScanResultsReq(*openapiclient.NewReportersFieldsFilters(*openapiclient.NewReportersContainsFilter(map[string][]interface{}{"key": []interface{}{nil}}), *openapiclient.NewReportersMatchFilter(map[string][]interface{}{"key": []interface{}{nil}}), *openapiclient.NewReportersOrderFilter("OrderField_example")), "ScanId_example", *openapiclient.NewModelFetchWindow(int32(123), int32(123))) // ModelScanResultsReq |  (optional)
+
+    configuration := openapiclient.NewConfiguration()
+    apiClient := openapiclient.NewAPIClient(configuration)
+    resp, r, err := apiClient.CloudScannerApi.CountResultsCloudComplianceScan(context.Background()).ModelScanResultsReq(modelScanResultsReq).Execute()
+    if err != nil {
+        fmt.Fprintf(os.Stderr, "Error when calling `CloudScannerApi.CountResultsCloudComplianceScan``: %v\n", err)
+        fmt.Fprintf(os.Stderr, "Full HTTP response: %v\n", r)
+    }
+    // response from `CountResultsCloudComplianceScan`: SearchSearchCountResp
+    fmt.Fprintf(os.Stdout, "Response from `CloudScannerApi.CountResultsCloudComplianceScan`: %v\n", resp)
+}
+```
+
+### Path Parameters
+
+
+
+### Other Parameters
+
+Other parameters are passed through a pointer to a apiCountResultsCloudComplianceScanRequest struct via the builder pattern
+
+
+Name | Type | Description  | Notes
+------------- | ------------- | ------------- | -------------
+ **modelScanResultsReq** | [**ModelScanResultsReq**](ModelScanResultsReq.md) |  | 
+
+### Return type
+
+[**SearchSearchCountResp**](SearchSearchCountResp.md)
+
+### Authorization
+
+[bearer_token](../README.md#bearer_token)
+
+### HTTP request headers
+
+- **Content-Type**: application/json
+- **Accept**: application/json
+
+[[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints)
+[[Back to Model list]](../README.md#documentation-for-models)
+[[Back to README]](../README.md)
 
 
 ## IngestCloudComplianceScanStatus

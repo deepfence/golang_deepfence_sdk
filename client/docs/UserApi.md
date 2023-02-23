@@ -15,6 +15,7 @@ Method | HTTP request | Description
 [**RegisterUser**](UserApi.md#RegisterUser) | **Post** /deepfence/user/register | Register User
 [**ResetApiTokens**](UserApi.md#ResetApiTokens) | **Post** /deepfence/api-token/reset | Reset User&#39;s API Tokens
 [**ResetPasswordRequest**](UserApi.md#ResetPasswordRequest) | **Post** /deepfence/user/reset-password/request | Reset Password Request
+[**UpdateCurrentUser**](UserApi.md#UpdateCurrentUser) | **Put** /deepfence/user | Update Current User
 [**UpdatePassword**](UserApi.md#UpdatePassword) | **Put** /deepfence/user/password | Update Password
 [**UpdateUser**](UserApi.md#UpdateUser) | **Put** /deepfence/users/{id} | Update User by User ID
 [**VerifyResetPasswordRequest**](UserApi.md#VerifyResetPasswordRequest) | **Post** /deepfence/user/reset-password/verify | Verify and Reset Password
@@ -726,6 +727,72 @@ No authorization required
 [[Back to README]](../README.md)
 
 
+## UpdateCurrentUser
+
+> ModelUser UpdateCurrentUser(ctx).ModelUpdateUserRequest(modelUpdateUserRequest).Execute()
+
+Update Current User
+
+
+
+### Example
+
+```go
+package main
+
+import (
+    "context"
+    "fmt"
+    "os"
+    openapiclient "github.com/deepfence/golang_deepfence_sdk/client"
+)
+
+func main() {
+    modelUpdateUserRequest := *openapiclient.NewModelUpdateUserRequest() // ModelUpdateUserRequest |  (optional)
+
+    configuration := openapiclient.NewConfiguration()
+    apiClient := openapiclient.NewAPIClient(configuration)
+    resp, r, err := apiClient.UserApi.UpdateCurrentUser(context.Background()).ModelUpdateUserRequest(modelUpdateUserRequest).Execute()
+    if err != nil {
+        fmt.Fprintf(os.Stderr, "Error when calling `UserApi.UpdateCurrentUser``: %v\n", err)
+        fmt.Fprintf(os.Stderr, "Full HTTP response: %v\n", r)
+    }
+    // response from `UpdateCurrentUser`: ModelUser
+    fmt.Fprintf(os.Stdout, "Response from `UserApi.UpdateCurrentUser`: %v\n", resp)
+}
+```
+
+### Path Parameters
+
+
+
+### Other Parameters
+
+Other parameters are passed through a pointer to a apiUpdateCurrentUserRequest struct via the builder pattern
+
+
+Name | Type | Description  | Notes
+------------- | ------------- | ------------- | -------------
+ **modelUpdateUserRequest** | [**ModelUpdateUserRequest**](ModelUpdateUserRequest.md) |  | 
+
+### Return type
+
+[**ModelUser**](ModelUser.md)
+
+### Authorization
+
+[bearer_token](../README.md#bearer_token)
+
+### HTTP request headers
+
+- **Content-Type**: application/json
+- **Accept**: application/json
+
+[[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints)
+[[Back to Model list]](../README.md#documentation-for-models)
+[[Back to README]](../README.md)
+
+
 ## UpdatePassword
 
 > UpdatePassword(ctx).ModelUpdateUserPasswordRequest(modelUpdateUserPasswordRequest).Execute()
@@ -792,7 +859,7 @@ Name | Type | Description  | Notes
 
 ## UpdateUser
 
-> ModelUser UpdateUser(ctx, id).ModelUpdateUserRequest(modelUpdateUserRequest).Execute()
+> ModelUser UpdateUser(ctx, id).ModelUpdateUserIdRequest(modelUpdateUserIdRequest).Execute()
 
 Update User by User ID
 
@@ -812,11 +879,11 @@ import (
 
 func main() {
     id := int32(56) // int32 | 
-    modelUpdateUserRequest := *openapiclient.NewModelUpdateUserRequest() // ModelUpdateUserRequest |  (optional)
+    modelUpdateUserIdRequest := *openapiclient.NewModelUpdateUserIdRequest() // ModelUpdateUserIdRequest |  (optional)
 
     configuration := openapiclient.NewConfiguration()
     apiClient := openapiclient.NewAPIClient(configuration)
-    resp, r, err := apiClient.UserApi.UpdateUser(context.Background(), id).ModelUpdateUserRequest(modelUpdateUserRequest).Execute()
+    resp, r, err := apiClient.UserApi.UpdateUser(context.Background(), id).ModelUpdateUserIdRequest(modelUpdateUserIdRequest).Execute()
     if err != nil {
         fmt.Fprintf(os.Stderr, "Error when calling `UserApi.UpdateUser``: %v\n", err)
         fmt.Fprintf(os.Stderr, "Full HTTP response: %v\n", r)
@@ -842,7 +909,7 @@ Other parameters are passed through a pointer to a apiUpdateUserRequest struct v
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
 
- **modelUpdateUserRequest** | [**ModelUpdateUserRequest**](ModelUpdateUserRequest.md) |  | 
+ **modelUpdateUserIdRequest** | [**ModelUpdateUserIdRequest**](ModelUpdateUserIdRequest.md) |  | 
 
 ### Return type
 

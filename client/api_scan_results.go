@@ -195,7 +195,7 @@ func (a *ScanResultsApiService) DeleteScanResultsForScanIDExecute(r ApiDeleteSca
 		return nil, &GenericOpenAPIError{error: err.Error()}
 	}
 
-	localVarPath := localBasePath + "/scan/{scan_type}/{scan_id}"
+	localVarPath := localBasePath + "/deepfence/scan/{scan_type}/{scan_id}"
 	localVarPath = strings.Replace(localVarPath, "{"+"scan_id"+"}", url.PathEscape(parameterValueToString(r.scanId, "scanId")), -1)
 	localVarPath = strings.Replace(localVarPath, "{"+"scan_type"+"}", url.PathEscape(parameterValueToString(r.scanType, "scanType")), -1)
 
@@ -325,7 +325,7 @@ func (a *ScanResultsApiService) DownloadScanResultsExecute(r ApiDownloadScanResu
 		return localVarReturnValue, nil, &GenericOpenAPIError{error: err.Error()}
 	}
 
-	localVarPath := localBasePath + "/scan/{scan_type}/{scan_id}/download"
+	localVarPath := localBasePath + "/deepfence/scan/{scan_type}/{scan_id}/download"
 	localVarPath = strings.Replace(localVarPath, "{"+"scan_id"+"}", url.PathEscape(parameterValueToString(r.scanId, "scanId")), -1)
 	localVarPath = strings.Replace(localVarPath, "{"+"scan_type"+"}", url.PathEscape(parameterValueToString(r.scanType, "scanType")), -1)
 
@@ -467,7 +467,7 @@ func (a *ScanResultsApiService) GetAllNodesOfScanResultDocumentExecute(r ApiGetA
 		return localVarReturnValue, nil, &GenericOpenAPIError{error: err.Error()}
 	}
 
-	localVarPath := localBasePath + "/scan/{scan_type}/{scan_id}/{doc_id}/nodes"
+	localVarPath := localBasePath + "/deepfence/scan/{scan_type}/{scan_id}/{doc_id}/nodes"
 	localVarPath = strings.Replace(localVarPath, "{"+"doc_id"+"}", url.PathEscape(parameterValueToString(r.docId, "docId")), -1)
 	localVarPath = strings.Replace(localVarPath, "{"+"scan_id"+"}", url.PathEscape(parameterValueToString(r.scanId, "scanId")), -1)
 	localVarPath = strings.Replace(localVarPath, "{"+"scan_type"+"}", url.PathEscape(parameterValueToString(r.scanType, "scanType")), -1)
@@ -610,7 +610,7 @@ func (a *ScanResultsApiService) GetScanResultDocumentExecute(r ApiGetScanResultD
 		return localVarReturnValue, nil, &GenericOpenAPIError{error: err.Error()}
 	}
 
-	localVarPath := localBasePath + "/scan/{scan_type}/{scan_id}/{doc_id}"
+	localVarPath := localBasePath + "/deepfence/scan/{scan_type}/{scan_id}/{doc_id}"
 	localVarPath = strings.Replace(localVarPath, "{"+"doc_id"+"}", url.PathEscape(parameterValueToString(r.docId, "docId")), -1)
 	localVarPath = strings.Replace(localVarPath, "{"+"scan_id"+"}", url.PathEscape(parameterValueToString(r.scanId, "scanId")), -1)
 	localVarPath = strings.Replace(localVarPath, "{"+"scan_type"+"}", url.PathEscape(parameterValueToString(r.scanType, "scanType")), -1)

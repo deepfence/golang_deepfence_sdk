@@ -5,10 +5,10 @@ All URIs are relative to *http://localhost*
 Method | HTTP request | Description
 ------------- | ------------- | -------------
 [**DeleteScanResult**](ScanResultsApi.md#DeleteScanResult) | **Patch** /deepfence/scan/results/action/delete | Delete selected scan results
-[**DeleteScanResultsForScanID**](ScanResultsApi.md#DeleteScanResultsForScanID) | **Delete** /scan/{scan_type}/{scan_id} | Delete all scan results for a scan id
-[**DownloadScanResults**](ScanResultsApi.md#DownloadScanResults) | **Get** /scan/{scan_type}/{scan_id}/download | Download Scans Results
-[**GetAllNodesOfScanResultDocument**](ScanResultsApi.md#GetAllNodesOfScanResultDocument) | **Get** /scan/{scan_type}/{scan_id}/{doc_id}/nodes | Get all nodes for given result document
-[**GetScanResultDocument**](ScanResultsApi.md#GetScanResultDocument) | **Get** /scan/{scan_type}/{scan_id}/{doc_id} | Get Scans Result Document
+[**DeleteScanResultsForScanID**](ScanResultsApi.md#DeleteScanResultsForScanID) | **Delete** /deepfence/scan/{scan_type}/{scan_id} | Delete all scan results for a scan id
+[**DownloadScanResults**](ScanResultsApi.md#DownloadScanResults) | **Get** /deepfence/scan/{scan_type}/{scan_id}/download | Download Scans Results
+[**GetAllNodesOfScanResultDocument**](ScanResultsApi.md#GetAllNodesOfScanResultDocument) | **Get** /deepfence/scan/{scan_type}/{scan_id}/{doc_id}/nodes | Get all nodes for given result document
+[**GetScanResultDocument**](ScanResultsApi.md#GetScanResultDocument) | **Get** /deepfence/scan/{scan_type}/{scan_id}/{doc_id} | Get Scans Result Document
 [**MaskScanResult**](ScanResultsApi.md#MaskScanResult) | **Post** /deepfence/scan/results/action/mask | Mask Scans Results
 [**NotifyScanResult**](ScanResultsApi.md#NotifyScanResult) | **Post** /deepfence/scan/results/action/notify | Notify Scans Results
 [**UnmaskScanResult**](ScanResultsApi.md#UnmaskScanResult) | **Post** /deepfence/scan/results/action/unmask | Unmask Scans Results

@@ -1892,6 +1892,258 @@ paths:
       summary: List Registries
       tags:
       - Registry
+  /deepfence/scan/{scan_type}/{scan_id}:
+    delete:
+      description: Delete all scan results for a scan id
+      operationId: deleteScanResultsForScanID
+      parameters:
+      - explode: false
+        in: path
+        name: scan_id
+        required: true
+        schema:
+          type: string
+        style: simple
+      - explode: false
+        in: path
+        name: scan_type
+        required: true
+        schema:
+          enum:
+          - SecretScan
+          - VulnerabilityScan
+          - MalwareScan
+          - ComplianceScan
+          - CloudComplianceScan
+          type: string
+        style: simple
+      responses:
+        "204":
+          description: No Content
+        "400":
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ApiDocsBadRequestResponse'
+          description: Bad Request
+        "401":
+          description: Unauthorized
+        "403":
+          description: Forbidden
+        "404":
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ApiDocsFailureResponse'
+          description: Not Found
+        "500":
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ApiDocsFailureResponse'
+          description: Internal Server Error
+      security:
+      - bearer_token: []
+      summary: Delete all scan results for a scan id
+      tags:
+      - Scan Results
+  /deepfence/scan/{scan_type}/{scan_id}/{doc_id}:
+    get:
+      description: Get Scans Result Document
+      operationId: getScanResultDocument
+      parameters:
+      - explode: false
+        in: path
+        name: doc_id
+        required: true
+        schema:
+          type: string
+        style: simple
+      - explode: false
+        in: path
+        name: scan_id
+        required: true
+        schema:
+          type: string
+        style: simple
+      - explode: false
+        in: path
+        name: scan_type
+        required: true
+        schema:
+          enum:
+          - SecretScan
+          - VulnerabilityScan
+          - MalwareScan
+          - ComplianceScan
+          - CloudComplianceScan
+          type: string
+        style: simple
+      responses:
+        "200":
+          content:
+            application/json:
+              schema:
+                additionalProperties:
+                  type: string
+                type: object
+          description: OK
+        "400":
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ApiDocsBadRequestResponse'
+          description: Bad Request
+        "401":
+          description: Unauthorized
+        "403":
+          description: Forbidden
+        "404":
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ApiDocsFailureResponse'
+          description: Not Found
+        "500":
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ApiDocsFailureResponse'
+          description: Internal Server Error
+      security:
+      - bearer_token: []
+      summary: Get Scans Result Document
+      tags:
+      - Scan Results
+  /deepfence/scan/{scan_type}/{scan_id}/{doc_id}/nodes:
+    get:
+      description: Get all nodes for given result document
+      operationId: getAllNodesOfScanResultDocument
+      parameters:
+      - explode: false
+        in: path
+        name: doc_id
+        required: true
+        schema:
+          type: string
+        style: simple
+      - explode: false
+        in: path
+        name: scan_id
+        required: true
+        schema:
+          type: string
+        style: simple
+      - explode: false
+        in: path
+        name: scan_type
+        required: true
+        schema:
+          enum:
+          - SecretScan
+          - VulnerabilityScan
+          - MalwareScan
+          - ComplianceScan
+          - CloudComplianceScan
+          type: string
+        style: simple
+      responses:
+        "200":
+          content:
+            application/json:
+              schema:
+                items:
+                  additionalProperties:
+                    type: string
+                  type: object
+                type: array
+          description: OK
+        "400":
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ApiDocsBadRequestResponse'
+          description: Bad Request
+        "401":
+          description: Unauthorized
+        "403":
+          description: Forbidden
+        "404":
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ApiDocsFailureResponse'
+          description: Not Found
+        "500":
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ApiDocsFailureResponse'
+          description: Internal Server Error
+      security:
+      - bearer_token: []
+      summary: Get all nodes for given result document
+      tags:
+      - Scan Results
+  /deepfence/scan/{scan_type}/{scan_id}/download:
+    get:
+      description: Download scan results
+      operationId: downloadScanResults
+      parameters:
+      - explode: false
+        in: path
+        name: scan_id
+        required: true
+        schema:
+          type: string
+        style: simple
+      - explode: false
+        in: path
+        name: scan_type
+        required: true
+        schema:
+          enum:
+          - SecretScan
+          - VulnerabilityScan
+          - MalwareScan
+          - ComplianceScan
+          - CloudComplianceScan
+          type: string
+        style: simple
+      responses:
+        "200":
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ModelDownloadReportResponse'
+          description: OK
+        "400":
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ApiDocsBadRequestResponse'
+          description: Bad Request
+        "401":
+          description: Unauthorized
+        "403":
+          description: Forbidden
+        "404":
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ApiDocsFailureResponse'
+          description: Not Found
+        "500":
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ApiDocsFailureResponse'
+          description: Internal Server Error
+      security:
+      - bearer_token: []
+      summary: Download Scans Results
+      tags:
+      - Scan Results
   /deepfence/scan/list/compliance:
     post:
       description: Get Compliance Scans list on agent or registry
@@ -2306,6 +2558,221 @@ paths:
       summary: Get Compliance Scans Results
       tags:
       - Compliance
+  /deepfence/scan/results/count/cloud-compliance:
+    post:
+      description: Get Cloud Compliance Scan results for cloud node
+      operationId: countResultsCloudComplianceScan
+      requestBody:
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/ModelScanResultsReq'
+      responses:
+        "200":
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/SearchSearchCountResp'
+          description: OK
+        "400":
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ApiDocsBadRequestResponse'
+          description: Bad Request
+        "401":
+          description: Unauthorized
+        "403":
+          description: Forbidden
+        "404":
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ApiDocsFailureResponse'
+          description: Not Found
+        "500":
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ApiDocsFailureResponse'
+          description: Internal Server Error
+      security:
+      - bearer_token: []
+      summary: Get Cloud Compliance Scan Results
+      tags:
+      - Cloud Scanner
+  /deepfence/scan/results/count/compliance:
+    post:
+      description: Get Compliance Scans results on agent or registry
+      operationId: countResultsComplianceScan
+      requestBody:
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/ModelScanResultsReq'
+      responses:
+        "200":
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/SearchSearchCountResp'
+          description: OK
+        "400":
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ApiDocsBadRequestResponse'
+          description: Bad Request
+        "401":
+          description: Unauthorized
+        "403":
+          description: Forbidden
+        "404":
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ApiDocsFailureResponse'
+          description: Not Found
+        "500":
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ApiDocsFailureResponse'
+          description: Internal Server Error
+      security:
+      - bearer_token: []
+      summary: Get Compliance Scans Results
+      tags:
+      - Compliance
+  /deepfence/scan/results/count/malware:
+    post:
+      description: Get Malware Scans results on agent or registry
+      operationId: countResultsMalwareScan
+      requestBody:
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/ModelScanResultsReq'
+      responses:
+        "200":
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/SearchSearchCountResp'
+          description: OK
+        "400":
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ApiDocsBadRequestResponse'
+          description: Bad Request
+        "401":
+          description: Unauthorized
+        "403":
+          description: Forbidden
+        "404":
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ApiDocsFailureResponse'
+          description: Not Found
+        "500":
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ApiDocsFailureResponse'
+          description: Internal Server Error
+      security:
+      - bearer_token: []
+      summary: Get Malware Scans Results
+      tags:
+      - Malware Scan
+  /deepfence/scan/results/count/secret:
+    post:
+      description: Get Secret Scans results on agent or registry
+      operationId: countResultsSecretScan
+      requestBody:
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/ModelScanResultsReq'
+      responses:
+        "200":
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/SearchSearchCountResp'
+          description: OK
+        "400":
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ApiDocsBadRequestResponse'
+          description: Bad Request
+        "401":
+          description: Unauthorized
+        "403":
+          description: Forbidden
+        "404":
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ApiDocsFailureResponse'
+          description: Not Found
+        "500":
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ApiDocsFailureResponse'
+          description: Internal Server Error
+      security:
+      - bearer_token: []
+      summary: Get Secret Scans Results
+      tags:
+      - Secret Scan
+  /deepfence/scan/results/count/vulnerability:
+    post:
+      description: Get Vulnerability Scan results on agent or registry
+      operationId: countResultsVulnerabilityScans
+      requestBody:
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/ModelScanResultsReq'
+      responses:
+        "200":
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/SearchSearchCountResp'
+          description: OK
+        "400":
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ApiDocsBadRequestResponse'
+          description: Bad Request
+        "401":
+          description: Unauthorized
+        "403":
+          description: Forbidden
+        "404":
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ApiDocsFailureResponse'
+          description: Not Found
+        "500":
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ApiDocsFailureResponse'
+          description: Internal Server Error
+      security:
+      - bearer_token: []
+      summary: Get Vulnerability Scans Results
+      tags:
+      - Vulnerability
   /deepfence/scan/results/malware:
     post:
       description: Get Malware Scans results on agent or registry
@@ -4281,6 +4748,48 @@ paths:
       summary: Get Current User
       tags:
       - User
+    put:
+      description: Update logged in user information
+      operationId: updateCurrentUser
+      requestBody:
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/ModelUpdateUserRequest'
+      responses:
+        "200":
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ModelUser'
+          description: OK
+        "400":
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ApiDocsBadRequestResponse'
+          description: Bad Request
+        "401":
+          description: Unauthorized
+        "403":
+          description: Forbidden
+        "404":
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ApiDocsFailureResponse'
+          description: Not Found
+        "500":
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ApiDocsFailureResponse'
+          description: Internal Server Error
+      security:
+      - bearer_token: []
+      summary: Update Current User
+      tags:
+      - User
   /deepfence/user/invite:
     post:
       description: Invite a user
@@ -4740,7 +5249,7 @@ paths:
         content:
           application/json:
             schema:
-              $ref: '#/components/schemas/ModelUpdateUserRequest'
+              $ref: '#/components/schemas/ModelUpdateUserIdRequest'
       responses:
         "200":
           content:
@@ -4775,258 +5284,6 @@ paths:
       summary: Update User by User ID
       tags:
       - User
-  /scan/{scan_type}/{scan_id}:
-    delete:
-      description: Delete all scan results for a scan id
-      operationId: deleteScanResultsForScanID
-      parameters:
-      - explode: false
-        in: path
-        name: scan_id
-        required: true
-        schema:
-          type: string
-        style: simple
-      - explode: false
-        in: path
-        name: scan_type
-        required: true
-        schema:
-          enum:
-          - SecretScan
-          - VulnerabilityScan
-          - MalwareScan
-          - ComplianceScan
-          - CloudComplianceScan
-          type: string
-        style: simple
-      responses:
-        "204":
-          description: No Content
-        "400":
-          content:
-            application/json:
-              schema:
-                $ref: '#/components/schemas/ApiDocsBadRequestResponse'
-          description: Bad Request
-        "401":
-          description: Unauthorized
-        "403":
-          description: Forbidden
-        "404":
-          content:
-            application/json:
-              schema:
-                $ref: '#/components/schemas/ApiDocsFailureResponse'
-          description: Not Found
-        "500":
-          content:
-            application/json:
-              schema:
-                $ref: '#/components/schemas/ApiDocsFailureResponse'
-          description: Internal Server Error
-      security:
-      - bearer_token: []
-      summary: Delete all scan results for a scan id
-      tags:
-      - Scan Results
-  /scan/{scan_type}/{scan_id}/{doc_id}:
-    get:
-      description: Get Scans Result Document
-      operationId: getScanResultDocument
-      parameters:
-      - explode: false
-        in: path
-        name: doc_id
-        required: true
-        schema:
-          type: string
-        style: simple
-      - explode: false
-        in: path
-        name: scan_id
-        required: true
-        schema:
-          type: string
-        style: simple
-      - explode: false
-        in: path
-        name: scan_type
-        required: true
-        schema:
-          enum:
-          - SecretScan
-          - VulnerabilityScan
-          - MalwareScan
-          - ComplianceScan
-          - CloudComplianceScan
-          type: string
-        style: simple
-      responses:
-        "200":
-          content:
-            application/json:
-              schema:
-                additionalProperties:
-                  type: string
-                type: object
-          description: OK
-        "400":
-          content:
-            application/json:
-              schema:
-                $ref: '#/components/schemas/ApiDocsBadRequestResponse'
-          description: Bad Request
-        "401":
-          description: Unauthorized
-        "403":
-          description: Forbidden
-        "404":
-          content:
-            application/json:
-              schema:
-                $ref: '#/components/schemas/ApiDocsFailureResponse'
-          description: Not Found
-        "500":
-          content:
-            application/json:
-              schema:
-                $ref: '#/components/schemas/ApiDocsFailureResponse'
-          description: Internal Server Error
-      security:
-      - bearer_token: []
-      summary: Get Scans Result Document
-      tags:
-      - Scan Results
-  /scan/{scan_type}/{scan_id}/{doc_id}/nodes:
-    get:
-      description: Get all nodes for given result document
-      operationId: getAllNodesOfScanResultDocument
-      parameters:
-      - explode: false
-        in: path
-        name: doc_id
-        required: true
-        schema:
-          type: string
-        style: simple
-      - explode: false
-        in: path
-        name: scan_id
-        required: true
-        schema:
-          type: string
-        style: simple
-      - explode: false
-        in: path
-        name: scan_type
-        required: true
-        schema:
-          enum:
-          - SecretScan
-          - VulnerabilityScan
-          - MalwareScan
-          - ComplianceScan
-          - CloudComplianceScan
-          type: string
-        style: simple
-      responses:
-        "200":
-          content:
-            application/json:
-              schema:
-                items:
-                  additionalProperties:
-                    type: string
-                  type: object
-                type: array
-          description: OK
-        "400":
-          content:
-            application/json:
-              schema:
-                $ref: '#/components/schemas/ApiDocsBadRequestResponse'
-          description: Bad Request
-        "401":
-          description: Unauthorized
-        "403":
-          description: Forbidden
-        "404":
-          content:
-            application/json:
-              schema:
-                $ref: '#/components/schemas/ApiDocsFailureResponse'
-          description: Not Found
-        "500":
-          content:
-            application/json:
-              schema:
-                $ref: '#/components/schemas/ApiDocsFailureResponse'
-          description: Internal Server Error
-      security:
-      - bearer_token: []
-      summary: Get all nodes for given result document
-      tags:
-      - Scan Results
-  /scan/{scan_type}/{scan_id}/download:
-    get:
-      description: Download scan results
-      operationId: downloadScanResults
-      parameters:
-      - explode: false
-        in: path
-        name: scan_id
-        required: true
-        schema:
-          type: string
-        style: simple
-      - explode: false
-        in: path
-        name: scan_type
-        required: true
-        schema:
-          enum:
-          - SecretScan
-          - VulnerabilityScan
-          - MalwareScan
-          - ComplianceScan
-          - CloudComplianceScan
-          type: string
-        style: simple
-      responses:
-        "200":
-          content:
-            application/json:
-              schema:
-                $ref: '#/components/schemas/ModelDownloadReportResponse'
-          description: OK
-        "400":
-          content:
-            application/json:
-              schema:
-                $ref: '#/components/schemas/ApiDocsBadRequestResponse'
-          description: Bad Request
-        "401":
-          description: Unauthorized
-        "403":
-          description: Forbidden
-        "404":
-          content:
-            application/json:
-              schema:
-                $ref: '#/components/schemas/ApiDocsFailureResponse'
-          description: Not Found
-        "500":
-          content:
-            application/json:
-              schema:
-                $ref: '#/components/schemas/ApiDocsFailureResponse'
-          description: Internal Server Error
-      security:
-      - bearer_token: []
-      summary: Download Scans Results
-      tags:
-      - Scan Results
 components:
   schemas:
     ApiDocsBadRequestResponse:
@@ -9897,6 +10154,22 @@ components:
       required:
       - filters
       - node_ids
+      type: object
+    ModelUpdateUserIdRequest:
+      example:
+        is_active: true
+        role: role
+        last_name: last_name
+        first_name: first_name
+      properties:
+        first_name:
+          type: string
+        is_active:
+          type: boolean
+        last_name:
+          type: string
+        role:
+          type: string
       type: object
     ModelUpdateUserPasswordRequest:
       example:

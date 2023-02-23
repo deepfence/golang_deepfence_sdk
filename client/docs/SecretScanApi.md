@@ -4,6 +4,7 @@ All URIs are relative to *http://localhost*
 
 Method | HTTP request | Description
 ------------- | ------------- | -------------
+[**CountResultsSecretScan**](SecretScanApi.md#CountResultsSecretScan) | **Post** /deepfence/scan/results/count/secret | Get Secret Scans Results
 [**IngestSecretScanStatus**](SecretScanApi.md#IngestSecretScanStatus) | **Post** /deepfence/ingest/secret-scan-logs | Ingest Secrets Scan Status
 [**IngestSecrets**](SecretScanApi.md#IngestSecrets) | **Post** /deepfence/ingest/secrets | Ingest Secrets
 [**ListSecretScan**](SecretScanApi.md#ListSecretScan) | **Post** /deepfence/scan/list/secret | Get Secret Scans List
@@ -12,6 +13,72 @@ Method | HTTP request | Description
 [**StatusSecretScan**](SecretScanApi.md#StatusSecretScan) | **Post** /deepfence/scan/status/secret | Get Secret Scan Status
 [**StopSecretScan**](SecretScanApi.md#StopSecretScan) | **Post** /deepfence/scan/stop/secret | Stop Secret Scan
 
+
+
+## CountResultsSecretScan
+
+> SearchSearchCountResp CountResultsSecretScan(ctx).ModelScanResultsReq(modelScanResultsReq).Execute()
+
+Get Secret Scans Results
+
+
+
+### Example
+
+```go
+package main
+
+import (
+    "context"
+    "fmt"
+    "os"
+    openapiclient "github.com/deepfence/golang_deepfence_sdk/client"
+)
+
+func main() {
+    modelScanResultsReq := *openapiclient.NewModelScanResultsReq(*openapiclient.NewReportersFieldsFilters(*openapiclient.NewReportersContainsFilter(map[string][]interface{}{"key": []interface{}{nil}}), *openapiclient.NewReportersMatchFilter(map[string][]interface{}{"key": []interface{}{nil}}), *openapiclient.NewReportersOrderFilter("OrderField_example")), "ScanId_example", *openapiclient.NewModelFetchWindow(int32(123), int32(123))) // ModelScanResultsReq |  (optional)
+
+    configuration := openapiclient.NewConfiguration()
+    apiClient := openapiclient.NewAPIClient(configuration)
+    resp, r, err := apiClient.SecretScanApi.CountResultsSecretScan(context.Background()).ModelScanResultsReq(modelScanResultsReq).Execute()
+    if err != nil {
+        fmt.Fprintf(os.Stderr, "Error when calling `SecretScanApi.CountResultsSecretScan``: %v\n", err)
+        fmt.Fprintf(os.Stderr, "Full HTTP response: %v\n", r)
+    }
+    // response from `CountResultsSecretScan`: SearchSearchCountResp
+    fmt.Fprintf(os.Stdout, "Response from `SecretScanApi.CountResultsSecretScan`: %v\n", resp)
+}
+```
+
+### Path Parameters
+
+
+
+### Other Parameters
+
+Other parameters are passed through a pointer to a apiCountResultsSecretScanRequest struct via the builder pattern
+
+
+Name | Type | Description  | Notes
+------------- | ------------- | ------------- | -------------
+ **modelScanResultsReq** | [**ModelScanResultsReq**](ModelScanResultsReq.md) |  | 
+
+### Return type
+
+[**SearchSearchCountResp**](SearchSearchCountResp.md)
+
+### Authorization
+
+[bearer_token](../README.md#bearer_token)
+
+### HTTP request headers
+
+- **Content-Type**: application/json
+- **Accept**: application/json
+
+[[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints)
+[[Back to Model list]](../README.md#documentation-for-models)
+[[Back to README]](../README.md)
 
 
 ## IngestSecretScanStatus

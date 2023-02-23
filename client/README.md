@@ -87,10 +87,12 @@ Class | Method | HTTP request | Description
 *CloudNodesApi* | [**ListCloudProviders**](docs/CloudNodesApi.md#listcloudproviders) | **Post** /deepfence/cloud-node/list/providers | List Cloud Node Providers
 *CloudNodesApi* | [**RegisterCloudNodeAccount**](docs/CloudNodesApi.md#registercloudnodeaccount) | **Post** /deepfence/cloud-node/account | Register Cloud Node Account
 *CloudResourcesApi* | [**IngestCloudResources**](docs/CloudResourcesApi.md#ingestcloudresources) | **Post** /deepfence/ingest/cloud-resources | Ingest Cloud resources
+*CloudScannerApi* | [**CountResultsCloudComplianceScan**](docs/CloudScannerApi.md#countresultscloudcompliancescan) | **Post** /deepfence/scan/results/count/cloud-compliance | Get Cloud Compliance Scan Results
 *CloudScannerApi* | [**IngestCloudComplianceScanStatus**](docs/CloudScannerApi.md#ingestcloudcompliancescanstatus) | **Post** /deepfence/ingest/cloud-compliance-scan-status | Ingest Cloud Compliances
 *CloudScannerApi* | [**IngestCloudCompliances**](docs/CloudScannerApi.md#ingestcloudcompliances) | **Post** /deepfence/ingest/cloud-compliance | Ingest Cloud Compliances
 *CloudScannerApi* | [**ResultsCloudComplianceScan**](docs/CloudScannerApi.md#resultscloudcompliancescan) | **Post** /deepfence/scan/results/cloud-compliance | Get Cloud Compliance Scan Results
 *CloudScannerApi* | [**StatusCloudComplianceScan**](docs/CloudScannerApi.md#statuscloudcompliancescan) | **Post** /deepfence/scan/status/cloud-compliance | Get Cloud Compliance Scan Status
+*ComplianceApi* | [**CountResultsComplianceScan**](docs/ComplianceApi.md#countresultscompliancescan) | **Post** /deepfence/scan/results/count/compliance | Get Compliance Scans Results
 *ComplianceApi* | [**IngestCompliances**](docs/ComplianceApi.md#ingestcompliances) | **Post** /deepfence/ingest/compliance | Ingest Compliances
 *ComplianceApi* | [**ListComplianceScan**](docs/ComplianceApi.md#listcompliancescan) | **Post** /deepfence/scan/list/compliance | Get Compliance Scans List
 *ComplianceApi* | [**ResultsComplianceScan**](docs/ComplianceApi.md#resultscompliancescan) | **Post** /deepfence/scan/results/compliance | Get Compliance Scans Results
@@ -113,6 +115,7 @@ Class | Method | HTTP request | Description
 *LookupApi* | [**GetPods**](docs/LookupApi.md#getpods) | **Post** /deepfence/lookup/pods | Retrieve Pods data
 *LookupApi* | [**GetProcesses**](docs/LookupApi.md#getprocesses) | **Post** /deepfence/lookup/processes | Retrieve Processes data
 *LookupApi* | [**GetRegistryAccount**](docs/LookupApi.md#getregistryaccount) | **Post** /deepfence/lookup/registryaccount | Get Images in Registry
+*MalwareScanApi* | [**CountResultsMalwareScan**](docs/MalwareScanApi.md#countresultsmalwarescan) | **Post** /deepfence/scan/results/count/malware | Get Malware Scans Results
 *MalwareScanApi* | [**IngestMalware**](docs/MalwareScanApi.md#ingestmalware) | **Post** /deepfence/ingest/malware | Ingest Malware
 *MalwareScanApi* | [**IngestMalwareScanStatus**](docs/MalwareScanApi.md#ingestmalwarescanstatus) | **Post** /deepfence/ingest/malware-scan-logs | Ingest Malware Scan Status
 *MalwareScanApi* | [**ListMalwareScan**](docs/MalwareScanApi.md#listmalwarescan) | **Post** /deepfence/scan/list/malware | Get Malware Scans List
@@ -124,10 +127,10 @@ Class | Method | HTTP request | Description
 *RegistryApi* | [**DeleteRegistry**](docs/RegistryApi.md#deleteregistry) | **Delete** /deepfence/registryaccount/{id}/ | Add Registry
 *RegistryApi* | [**ListRegistry**](docs/RegistryApi.md#listregistry) | **Get** /deepfence/registryaccount/list | List Registries
 *ScanResultsApi* | [**DeleteScanResult**](docs/ScanResultsApi.md#deletescanresult) | **Patch** /deepfence/scan/results/action/delete | Delete selected scan results
-*ScanResultsApi* | [**DeleteScanResultsForScanID**](docs/ScanResultsApi.md#deletescanresultsforscanid) | **Delete** /scan/{scan_type}/{scan_id} | Delete all scan results for a scan id
-*ScanResultsApi* | [**DownloadScanResults**](docs/ScanResultsApi.md#downloadscanresults) | **Get** /scan/{scan_type}/{scan_id}/download | Download Scans Results
-*ScanResultsApi* | [**GetAllNodesOfScanResultDocument**](docs/ScanResultsApi.md#getallnodesofscanresultdocument) | **Get** /scan/{scan_type}/{scan_id}/{doc_id}/nodes | Get all nodes for given result document
-*ScanResultsApi* | [**GetScanResultDocument**](docs/ScanResultsApi.md#getscanresultdocument) | **Get** /scan/{scan_type}/{scan_id}/{doc_id} | Get Scans Result Document
+*ScanResultsApi* | [**DeleteScanResultsForScanID**](docs/ScanResultsApi.md#deletescanresultsforscanid) | **Delete** /deepfence/scan/{scan_type}/{scan_id} | Delete all scan results for a scan id
+*ScanResultsApi* | [**DownloadScanResults**](docs/ScanResultsApi.md#downloadscanresults) | **Get** /deepfence/scan/{scan_type}/{scan_id}/download | Download Scans Results
+*ScanResultsApi* | [**GetAllNodesOfScanResultDocument**](docs/ScanResultsApi.md#getallnodesofscanresultdocument) | **Get** /deepfence/scan/{scan_type}/{scan_id}/{doc_id}/nodes | Get all nodes for given result document
+*ScanResultsApi* | [**GetScanResultDocument**](docs/ScanResultsApi.md#getscanresultdocument) | **Get** /deepfence/scan/{scan_type}/{scan_id}/{doc_id} | Get Scans Result Document
 *ScanResultsApi* | [**MaskScanResult**](docs/ScanResultsApi.md#maskscanresult) | **Post** /deepfence/scan/results/action/mask | Mask Scans Results
 *ScanResultsApi* | [**NotifyScanResult**](docs/ScanResultsApi.md#notifyscanresult) | **Post** /deepfence/scan/results/action/notify | Notify Scans Results
 *ScanResultsApi* | [**UnmaskScanResult**](docs/ScanResultsApi.md#unmaskscanresult) | **Post** /deepfence/scan/results/action/unmask | Unmask Scans Results
@@ -157,6 +160,7 @@ Class | Method | HTTP request | Description
 *SearchApi* | [**SearchSecretsScans**](docs/SearchApi.md#searchsecretsscans) | **Post** /deepfence/search/secret/scans | Search Vulnerability Scan results
 *SearchApi* | [**SearchVulnerabilities**](docs/SearchApi.md#searchvulnerabilities) | **Post** /deepfence/search/vulnerabilities | Search Vulnerabilities
 *SearchApi* | [**SearchVulnerabilityScans**](docs/SearchApi.md#searchvulnerabilityscans) | **Post** /deepfence/search/vulnerability/scans | Search Vulnerability Scan results
+*SecretScanApi* | [**CountResultsSecretScan**](docs/SecretScanApi.md#countresultssecretscan) | **Post** /deepfence/scan/results/count/secret | Get Secret Scans Results
 *SecretScanApi* | [**IngestSecretScanStatus**](docs/SecretScanApi.md#ingestsecretscanstatus) | **Post** /deepfence/ingest/secret-scan-logs | Ingest Secrets Scan Status
 *SecretScanApi* | [**IngestSecrets**](docs/SecretScanApi.md#ingestsecrets) | **Post** /deepfence/ingest/secrets | Ingest Secrets
 *SecretScanApi* | [**ListSecretScan**](docs/SecretScanApi.md#listsecretscan) | **Post** /deepfence/scan/list/secret | Get Secret Scans List
@@ -183,9 +187,11 @@ Class | Method | HTTP request | Description
 *UserApi* | [**RegisterUser**](docs/UserApi.md#registeruser) | **Post** /deepfence/user/register | Register User
 *UserApi* | [**ResetApiTokens**](docs/UserApi.md#resetapitokens) | **Post** /deepfence/api-token/reset | Reset User&#39;s API Tokens
 *UserApi* | [**ResetPasswordRequest**](docs/UserApi.md#resetpasswordrequest) | **Post** /deepfence/user/reset-password/request | Reset Password Request
+*UserApi* | [**UpdateCurrentUser**](docs/UserApi.md#updatecurrentuser) | **Put** /deepfence/user | Update Current User
 *UserApi* | [**UpdatePassword**](docs/UserApi.md#updatepassword) | **Put** /deepfence/user/password | Update Password
 *UserApi* | [**UpdateUser**](docs/UserApi.md#updateuser) | **Put** /deepfence/users/{id} | Update User by User ID
 *UserApi* | [**VerifyResetPasswordRequest**](docs/UserApi.md#verifyresetpasswordrequest) | **Post** /deepfence/user/reset-password/verify | Verify and Reset Password
+*VulnerabilityApi* | [**CountResultsVulnerabilityScans**](docs/VulnerabilityApi.md#countresultsvulnerabilityscans) | **Post** /deepfence/scan/results/count/vulnerability | Get Vulnerability Scans Results
 *VulnerabilityApi* | [**DownloadSBOM**](docs/VulnerabilityApi.md#downloadsbom) | **Post** /deepfence/scan/sbom/download | Download SBOM for a node or scan id
 *VulnerabilityApi* | [**GetSBOM**](docs/VulnerabilityApi.md#getsbom) | **Post** /deepfence/scan/sbom | Get SBOM for a node or scan id
 *VulnerabilityApi* | [**IngestSbom**](docs/VulnerabilityApi.md#ingestsbom) | **Post** /deepfence/ingest/sbom | Ingest SBOM from Scan
@@ -287,6 +293,7 @@ Class | Method | HTTP request | Description
  - [ModelSecret](docs/ModelSecret.md)
  - [ModelSecretScanResult](docs/ModelSecretScanResult.md)
  - [ModelSecretScanTriggerReq](docs/ModelSecretScanTriggerReq.md)
+ - [ModelUpdateUserIdRequest](docs/ModelUpdateUserIdRequest.md)
  - [ModelUpdateUserPasswordRequest](docs/ModelUpdateUserPasswordRequest.md)
  - [ModelUpdateUserRequest](docs/ModelUpdateUserRequest.md)
  - [ModelUser](docs/ModelUser.md)

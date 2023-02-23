@@ -119,6 +119,7 @@ docs/ModelScanTriggerResp.md
 docs/ModelSecret.md
 docs/ModelSecretScanResult.md
 docs/ModelSecretScanTriggerReq.md
+docs/ModelUpdateUserIdRequest.md
 docs/ModelUpdateUserPasswordRequest.md
 docs/ModelUpdateUserRequest.md
 docs/ModelUser.md
@@ -239,6 +240,7 @@ model_model_scan_trigger_resp.go
 model_model_secret.go
 model_model_secret_scan_result.go
 model_model_secret_scan_trigger_req.go
+model_model_update_user_id_request.go
 model_model_update_user_password_request.go
 model_model_update_user_request.go
 model_model_user.go
