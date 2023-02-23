@@ -129,6 +129,19 @@ Class | Method | HTTP request | Description
 *ScanResultsApi* | [**MaskScanResult**](docs/ScanResultsApi.md#maskscanresult) | **Post** /deepfence/scan/results/action/mask | Mask Scans Results
 *ScanResultsApi* | [**NotifyScanResult**](docs/ScanResultsApi.md#notifyscanresult) | **Post** /deepfence/scan/results/action/notify | Notify Scans Results
 *ScanResultsApi* | [**UnmaskScanResult**](docs/ScanResultsApi.md#unmaskscanresult) | **Post** /deepfence/scan/results/action/unmask | Unmask Scans Results
+*SearchApi* | [**CountCloudComplianceScans**](docs/SearchApi.md#countcloudcompliancescans) | **Post** /deepfence/search/count/cloud-compliance/scans | Search Vulnerability Scan results
+*SearchApi* | [**CountCloudCompliances**](docs/SearchApi.md#countcloudcompliances) | **Post** /deepfence/search/count/cloud-compliances | Search Cloud compliances
+*SearchApi* | [**CountComplianceScans**](docs/SearchApi.md#countcompliancescans) | **Post** /deepfence/search/count/compliance/scans | Search Vulnerability Scan results
+*SearchApi* | [**CountCompliances**](docs/SearchApi.md#countcompliances) | **Post** /deepfence/search/count/compliances | Search Compliances
+*SearchApi* | [**CountContainerImages**](docs/SearchApi.md#countcontainerimages) | **Post** /deepfence/search/count/images | Search Container images
+*SearchApi* | [**CountContainers**](docs/SearchApi.md#countcontainers) | **Post** /deepfence/search/count/containers | Search Containers data
+*SearchApi* | [**CountHosts**](docs/SearchApi.md#counthosts) | **Post** /deepfence/search/count/hosts | Search hosts
+*SearchApi* | [**CountMalwareScans**](docs/SearchApi.md#countmalwarescans) | **Post** /deepfence/search/count/malware/scans | Search Vulnerability Scan results
+*SearchApi* | [**CountMalwares**](docs/SearchApi.md#countmalwares) | **Post** /deepfence/search/count/malwares | Search Malwares
+*SearchApi* | [**CountSecrets**](docs/SearchApi.md#countsecrets) | **Post** /deepfence/search/count/secrets | Search Secrets
+*SearchApi* | [**CountSecretsScans**](docs/SearchApi.md#countsecretsscans) | **Post** /deepfence/search/count/secret/scans | Search Vulnerability Scan results
+*SearchApi* | [**CountVulnerabilities**](docs/SearchApi.md#countvulnerabilities) | **Post** /deepfence/search/count/vulnerabilities | Search Vulnerabilities
+*SearchApi* | [**CountVulnerabilityScans**](docs/SearchApi.md#countvulnerabilityscans) | **Post** /deepfence/search/count/vulnerability/scans | Search Vulnerability Scan results
 *SearchApi* | [**SearchCloudComplianceScans**](docs/SearchApi.md#searchcloudcompliancescans) | **Post** /deepfence/search/cloud-compliance/scans | Search Vulnerability Scan results
 *SearchApi* | [**SearchCloudCompliances**](docs/SearchApi.md#searchcloudcompliances) | **Post** /deepfence/search/cloud-compliances | Search Cloud compliances
 *SearchApi* | [**SearchComplianceScans**](docs/SearchApi.md#searchcompliancescans) | **Post** /deepfence/search/compliance/scans | Search Vulnerability Scan results
@@ -287,6 +300,7 @@ Class | Method | HTTP request | Description
  - [ReportersFieldsFilters](docs/ReportersFieldsFilters.md)
  - [ReportersMatchFilter](docs/ReportersMatchFilter.md)
  - [ReportersOrderFilter](docs/ReportersOrderFilter.md)
+ - [SearchSearchCountResp](docs/SearchSearchCountResp.md)
  - [SearchSearchFilter](docs/SearchSearchFilter.md)
  - [SearchSearchNodeReq](docs/SearchSearchNodeReq.md)
  - [SearchSearchScanReq](docs/SearchSearchScanReq.md)

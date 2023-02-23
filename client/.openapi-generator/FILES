@@ -138,6 +138,7 @@ docs/ReportersMatchFilter.md
 docs/ReportersOrderFilter.md
 docs/ScanResultsApi.md
 docs/SearchApi.md
+docs/SearchSearchCountResp.md
 docs/SearchSearchFilter.md
 docs/SearchSearchNodeReq.md
 docs/SearchSearchScanReq.md
@@ -253,6 +254,7 @@ model_reporters_contains_filter.go
 model_reporters_fields_filters.go
 model_reporters_match_filter.go
 model_reporters_order_filter.go
+model_search_search_count_resp.go
 model_search_search_filter.go
 model_search_search_node_req.go
 model_search_search_scan_req.go
