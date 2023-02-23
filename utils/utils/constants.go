@@ -39,6 +39,7 @@ const (
 	ReportGeneratorTaskXLSX   = "tasks_generate_xlsx_report"
 	ReportGeneratorTaskPDF    = "tasks_generate_pdf_report"
 	ComputeThreatTask         = "compute_threat"
+	SendNotificationTask      = "tasks_send_notification"
 )
 
 const (
