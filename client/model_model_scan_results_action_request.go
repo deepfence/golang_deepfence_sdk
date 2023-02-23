@@ -20,7 +20,7 @@ var _ MappedNullable = &ModelScanResultsActionRequest{}
 
 // ModelScanResultsActionRequest struct for ModelScanResultsActionRequest
 type ModelScanResultsActionRequest struct {
-	NodeIds []string `json:"node_ids"`
+	DocIds []string `json:"doc_ids"`
 	ScanId string `json:"scan_id"`
 	ScanType string `json:"scan_type"`
 }
@@ -29,9 +29,9 @@ type ModelScanResultsActionRequest struct {
 // This constructor will assign default values to properties that have it defined,
 // and makes sure properties required by API are set, but the set of arguments
 // will change when the set of required properties is changed
-func NewModelScanResultsActionRequest(nodeIds []string, scanId string, scanType string) *ModelScanResultsActionRequest {
+func NewModelScanResultsActionRequest(docIds []string, scanId string, scanType string) *ModelScanResultsActionRequest {
 	this := ModelScanResultsActionRequest{}
-	this.NodeIds = nodeIds
+	this.DocIds = docIds
 	this.ScanId = scanId
 	this.ScanType = scanType
 	return &this
@@ -45,30 +45,30 @@ func NewModelScanResultsActionRequestWithDefaults() *ModelScanResultsActionReque
 	return &this
 }
 
-// GetNodeIds returns the NodeIds field value
+// GetDocIds returns the DocIds field value
 // If the value is explicit nil, the zero value for []string will be returned
-func (o *ModelScanResultsActionRequest) GetNodeIds() []string {
+func (o *ModelScanResultsActionRequest) GetDocIds() []string {
 	if o == nil {
 		var ret []string
 		return ret
 	}
 
-	return o.NodeIds
+	return o.DocIds
 }
 
-// GetNodeIdsOk returns a tuple with the NodeIds field value
+// GetDocIdsOk returns a tuple with the DocIds field value
 // and a boolean to check if the value has been set.
 // NOTE: If the value is an explicit nil, `nil, true` will be returned
-func (o *ModelScanResultsActionRequest) GetNodeIdsOk() ([]string, bool) {
-	if o == nil || IsNil(o.NodeIds) {
+func (o *ModelScanResultsActionRequest) GetDocIdsOk() ([]string, bool) {
+	if o == nil || IsNil(o.DocIds) {
 		return nil, false
 	}
-	return o.NodeIds, true
+	return o.DocIds, true
 }
 
-// SetNodeIds sets field value
-func (o *ModelScanResultsActionRequest) SetNodeIds(v []string) {
-	o.NodeIds = v
+// SetDocIds sets field value
+func (o *ModelScanResultsActionRequest) SetDocIds(v []string) {
+	o.DocIds = v
 }
 
 // GetScanId returns the ScanId field value
@@ -129,8 +129,8 @@ func (o ModelScanResultsActionRequest) MarshalJSON() ([]byte, error) {
 
 func (o ModelScanResultsActionRequest) ToMap() (map[string]interface{}, error) {
 	toSerialize := map[string]interface{}{}
-	if o.NodeIds != nil {
-		toSerialize["node_ids"] = o.NodeIds
+	if o.DocIds != nil {
+		toSerialize["doc_ids"] = o.DocIds
 	}
 	toSerialize["scan_id"] = o.ScanId
 	toSerialize["scan_type"] = o.ScanType

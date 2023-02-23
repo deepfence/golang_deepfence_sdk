@@ -126,6 +126,8 @@ Class | Method | HTTP request | Description
 *ScanResultsApi* | [**DeleteScanResult**](docs/ScanResultsApi.md#deletescanresult) | **Patch** /deepfence/scan/results/action/delete | Delete selected scan results
 *ScanResultsApi* | [**DeleteScanResultsForScanID**](docs/ScanResultsApi.md#deletescanresultsforscanid) | **Delete** /scan/{scan_type}/{scan_id} | Delete all scan results for a scan id
 *ScanResultsApi* | [**DownloadScanResults**](docs/ScanResultsApi.md#downloadscanresults) | **Get** /scan/{scan_type}/{scan_id}/download | Download Scans Results
+*ScanResultsApi* | [**GetAllNodesOfScanResultDocument**](docs/ScanResultsApi.md#getallnodesofscanresultdocument) | **Get** /scan/{scan_type}/{scan_id}/{doc_id}/nodes | Get all nodes for given result document
+*ScanResultsApi* | [**GetScanResultDocument**](docs/ScanResultsApi.md#getscanresultdocument) | **Get** /scan/{scan_type}/{scan_id}/{doc_id} | Get Scans Result Document
 *ScanResultsApi* | [**MaskScanResult**](docs/ScanResultsApi.md#maskscanresult) | **Post** /deepfence/scan/results/action/mask | Mask Scans Results
 *ScanResultsApi* | [**NotifyScanResult**](docs/ScanResultsApi.md#notifyscanresult) | **Post** /deepfence/scan/results/action/notify | Notify Scans Results
 *ScanResultsApi* | [**UnmaskScanResult**](docs/ScanResultsApi.md#unmaskscanresult) | **Post** /deepfence/scan/results/action/unmask | Unmask Scans Results
@@ -181,6 +183,7 @@ Class | Method | HTTP request | Description
 *UserApi* | [**RegisterUser**](docs/UserApi.md#registeruser) | **Post** /deepfence/user/register | Register User
 *UserApi* | [**ResetApiTokens**](docs/UserApi.md#resetapitokens) | **Post** /deepfence/api-token/reset | Reset User&#39;s API Tokens
 *UserApi* | [**ResetPasswordRequest**](docs/UserApi.md#resetpasswordrequest) | **Post** /deepfence/user/reset-password/request | Reset Password Request
+*UserApi* | [**UpdatePassword**](docs/UserApi.md#updatepassword) | **Put** /deepfence/user/password | Update Password
 *UserApi* | [**UpdateUser**](docs/UserApi.md#updateuser) | **Put** /deepfence/users/{id} | Update User by User ID
 *UserApi* | [**VerifyResetPasswordRequest**](docs/UserApi.md#verifyresetpasswordrequest) | **Post** /deepfence/user/reset-password/verify | Verify and Reset Password
 *VulnerabilityApi* | [**DownloadSBOM**](docs/VulnerabilityApi.md#downloadsbom) | **Post** /deepfence/scan/sbom/download | Download SBOM for a node or scan id
@@ -247,7 +250,6 @@ Class | Method | HTTP request | Description
  - [ModelContainer](docs/ModelContainer.md)
  - [ModelContainerImage](docs/ModelContainerImage.md)
  - [ModelDownloadReportResponse](docs/ModelDownloadReportResponse.md)
- - [ModelEditUserRequest](docs/ModelEditUserRequest.md)
  - [ModelFetchWindow](docs/ModelFetchWindow.md)
  - [ModelHost](docs/ModelHost.md)
  - [ModelInitAgentReq](docs/ModelInitAgentReq.md)
@@ -285,6 +287,8 @@ Class | Method | HTTP request | Description
  - [ModelSecret](docs/ModelSecret.md)
  - [ModelSecretScanResult](docs/ModelSecretScanResult.md)
  - [ModelSecretScanTriggerReq](docs/ModelSecretScanTriggerReq.md)
+ - [ModelUpdateUserPasswordRequest](docs/ModelUpdateUserPasswordRequest.md)
+ - [ModelUpdateUserRequest](docs/ModelUpdateUserRequest.md)
  - [ModelUser](docs/ModelUser.md)
  - [ModelUserRegisterRequest](docs/ModelUserRegisterRequest.md)
  - [ModelVulnerability](docs/ModelVulnerability.md)

@@ -4440,6 +4440,45 @@ paths:
       summary: Logout API
       tags:
       - Authentication
+  /deepfence/user/password:
+    put:
+      description: Update current user's password
+      operationId: updatePassword
+      requestBody:
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/ModelUpdateUserPasswordRequest'
+      responses:
+        "204":
+          description: No Content
+        "400":
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ApiDocsBadRequestResponse'
+          description: Bad Request
+        "401":
+          description: Unauthorized
+        "403":
+          description: Forbidden
+        "404":
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ApiDocsFailureResponse'
+          description: Not Found
+        "500":
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ApiDocsFailureResponse'
+          description: Internal Server Error
+      security:
+      - bearer_token: []
+      summary: Update Password
+      tags:
+      - User
   /deepfence/user/register:
     post:
       description: First user registration. Further users needs to be invited.
@@ -4532,8 +4571,8 @@ paths:
             schema:
               $ref: '#/components/schemas/ModelPasswordResetVerifyRequest'
       responses:
-        "200":
-          description: OK
+        "204":
+          description: No Content
         "400":
           content:
             application/json:
@@ -4701,7 +4740,7 @@ paths:
         content:
           application/json:
             schema:
-              $ref: '#/components/schemas/ModelEditUserRequest'
+              $ref: '#/components/schemas/ModelUpdateUserRequest'
       responses:
         "200":
           content:
@@ -4789,6 +4828,144 @@ paths:
       security:
       - bearer_token: []
       summary: Delete all scan results for a scan id
+      tags:
+      - Scan Results
+  /scan/{scan_type}/{scan_id}/{doc_id}:
+    get:
+      description: Get Scans Result Document
+      operationId: getScanResultDocument
+      parameters:
+      - explode: false
+        in: path
+        name: doc_id
+        required: true
+        schema:
+          type: string
+        style: simple
+      - explode: false
+        in: path
+        name: scan_id
+        required: true
+        schema:
+          type: string
+        style: simple
+      - explode: false
+        in: path
+        name: scan_type
+        required: true
+        schema:
+          enum:
+          - SecretScan
+          - VulnerabilityScan
+          - MalwareScan
+          - ComplianceScan
+          - CloudComplianceScan
+          type: string
+        style: simple
+      responses:
+        "200":
+          content:
+            application/json:
+              schema:
+                additionalProperties:
+                  type: string
+                type: object
+          description: OK
+        "400":
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ApiDocsBadRequestResponse'
+          description: Bad Request
+        "401":
+          description: Unauthorized
+        "403":
+          description: Forbidden
+        "404":
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ApiDocsFailureResponse'
+          description: Not Found
+        "500":
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ApiDocsFailureResponse'
+          description: Internal Server Error
+      security:
+      - bearer_token: []
+      summary: Get Scans Result Document
+      tags:
+      - Scan Results
+  /scan/{scan_type}/{scan_id}/{doc_id}/nodes:
+    get:
+      description: Get all nodes for given result document
+      operationId: getAllNodesOfScanResultDocument
+      parameters:
+      - explode: false
+        in: path
+        name: doc_id
+        required: true
+        schema:
+          type: string
+        style: simple
+      - explode: false
+        in: path
+        name: scan_id
+        required: true
+        schema:
+          type: string
+        style: simple
+      - explode: false
+        in: path
+        name: scan_type
+        required: true
+        schema:
+          enum:
+          - SecretScan
+          - VulnerabilityScan
+          - MalwareScan
+          - ComplianceScan
+          - CloudComplianceScan
+          type: string
+        style: simple
+      responses:
+        "200":
+          content:
+            application/json:
+              schema:
+                items:
+                  additionalProperties:
+                    type: string
+                  type: object
+                type: array
+          description: OK
+        "400":
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ApiDocsBadRequestResponse'
+          description: Bad Request
+        "401":
+          description: Unauthorized
+        "403":
+          description: Forbidden
+        "404":
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ApiDocsFailureResponse'
+          description: Not Found
+        "500":
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ApiDocsFailureResponse'
+          description: Internal Server Error
+      security:
+      - bearer_token: []
+      summary: Get all nodes for given result document
       tags:
       - Scan Results
   /scan/{scan_type}/{scan_id}/download:
@@ -6956,22 +7133,6 @@ components:
         url_link: url_link
       properties:
         url_link:
-          type: string
-      type: object
-    ModelEditUserRequest:
-      example:
-        is_active: true
-        role: role
-        last_name: last_name
-        first_name: first_name
-      properties:
-        first_name:
-          type: string
-        is_active:
-          type: boolean
-        last_name:
-          type: string
-        role:
           type: string
       type: object
     ModelFetchWindow:
@@ -9425,13 +9586,13 @@ components:
       type: object
     ModelScanResultsActionRequest:
       example:
+        doc_ids:
+        - doc_ids
+        - doc_ids
         scan_type: SecretScan
         scan_id: scan_id
-        node_ids:
-        - node_ids
-        - node_ids
       properties:
-        node_ids:
+        doc_ids:
           items:
             type: string
           nullable: true
@@ -9447,26 +9608,26 @@ components:
           - CloudComplianceScan
           type: string
       required:
-      - node_ids
+      - doc_ids
       - scan_id
       - scan_type
       type: object
     ModelScanResultsMaskRequest:
       example:
         mask_across_hosts_and_images: true
+        doc_ids:
+        - doc_ids
+        - doc_ids
         scan_type: SecretScan
         scan_id: scan_id
-        node_ids:
-        - node_ids
-        - node_ids
       properties:
-        mask_across_hosts_and_images:
-          type: boolean
-        node_ids:
+        doc_ids:
           items:
             type: string
           nullable: true
           type: array
+        mask_across_hosts_and_images:
+          type: boolean
         scan_id:
           type: string
         scan_type:
@@ -9478,7 +9639,7 @@ components:
           - CloudComplianceScan
           type: string
       required:
-      - node_ids
+      - doc_ids
       - scan_id
       - scan_type
       type: object
@@ -9736,6 +9897,32 @@ components:
       required:
       - filters
       - node_ids
+      type: object
+    ModelUpdateUserPasswordRequest:
+      example:
+        old_password: old_password
+        new_password: new_password
+      properties:
+        new_password:
+          type: string
+        old_password:
+          type: string
+      type: object
+    ModelUpdateUserRequest:
+      example:
+        is_active: true
+        role: role
+        last_name: last_name
+        first_name: first_name
+      properties:
+        first_name:
+          type: string
+        is_active:
+          type: boolean
+        last_name:
+          type: string
+        role:
+          type: string
       type: object
     ModelUser:
       example:

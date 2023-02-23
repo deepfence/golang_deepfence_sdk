@@ -15,36 +15,36 @@ import (
 	"encoding/json"
 )
 
-// checks if the ModelEditUserRequest type satisfies the MappedNullable interface at compile time
-var _ MappedNullable = &ModelEditUserRequest{}
+// checks if the ModelUpdateUserRequest type satisfies the MappedNullable interface at compile time
+var _ MappedNullable = &ModelUpdateUserRequest{}
 
-// ModelEditUserRequest struct for ModelEditUserRequest
-type ModelEditUserRequest struct {
+// ModelUpdateUserRequest struct for ModelUpdateUserRequest
+type ModelUpdateUserRequest struct {
 	FirstName *string `json:"first_name,omitempty"`
 	IsActive *bool `json:"is_active,omitempty"`
 	LastName *string `json:"last_name,omitempty"`
 	Role *string `json:"role,omitempty"`
 }
 
-// NewModelEditUserRequest instantiates a new ModelEditUserRequest object
+// NewModelUpdateUserRequest instantiates a new ModelUpdateUserRequest object
 // This constructor will assign default values to properties that have it defined,
 // and makes sure properties required by API are set, but the set of arguments
 // will change when the set of required properties is changed
-func NewModelEditUserRequest() *ModelEditUserRequest {
-	this := ModelEditUserRequest{}
+func NewModelUpdateUserRequest() *ModelUpdateUserRequest {
+	this := ModelUpdateUserRequest{}
 	return &this
 }
 
-// NewModelEditUserRequestWithDefaults instantiates a new ModelEditUserRequest object
+// NewModelUpdateUserRequestWithDefaults instantiates a new ModelUpdateUserRequest object
 // This constructor will only assign default values to properties that have it defined,
 // but it doesn't guarantee that properties required by API are set
-func NewModelEditUserRequestWithDefaults() *ModelEditUserRequest {
-	this := ModelEditUserRequest{}
+func NewModelUpdateUserRequestWithDefaults() *ModelUpdateUserRequest {
+	this := ModelUpdateUserRequest{}
 	return &this
 }
 
 // GetFirstName returns the FirstName field value if set, zero value otherwise.
-func (o *ModelEditUserRequest) GetFirstName() string {
+func (o *ModelUpdateUserRequest) GetFirstName() string {
 	if o == nil || IsNil(o.FirstName) {
 		var ret string
 		return ret
@@ -54,7 +54,7 @@ func (o *ModelEditUserRequest) GetFirstName() string {
 
 // GetFirstNameOk returns a tuple with the FirstName field value if set, nil otherwise
 // and a boolean to check if the value has been set.
-func (o *ModelEditUserRequest) GetFirstNameOk() (*string, bool) {
+func (o *ModelUpdateUserRequest) GetFirstNameOk() (*string, bool) {
 	if o == nil || IsNil(o.FirstName) {
 		return nil, false
 	}
@@ -62,7 +62,7 @@ func (o *ModelEditUserRequest) GetFirstNameOk() (*string, bool) {
 }
 
 // HasFirstName returns a boolean if a field has been set.
-func (o *ModelEditUserRequest) HasFirstName() bool {
+func (o *ModelUpdateUserRequest) HasFirstName() bool {
 	if o != nil && !IsNil(o.FirstName) {
 		return true
 	}
@@ -71,12 +71,12 @@ func (o *ModelEditUserRequest) HasFirstName() bool {
 }
 
 // SetFirstName gets a reference to the given string and assigns it to the FirstName field.
-func (o *ModelEditUserRequest) SetFirstName(v string) {
+func (o *ModelUpdateUserRequest) SetFirstName(v string) {
 	o.FirstName = &v
 }
 
 // GetIsActive returns the IsActive field value if set, zero value otherwise.
-func (o *ModelEditUserRequest) GetIsActive() bool {
+func (o *ModelUpdateUserRequest) GetIsActive() bool {
 	if o == nil || IsNil(o.IsActive) {
 		var ret bool
 		return ret
@@ -86,7 +86,7 @@ func (o *ModelEditUserRequest) GetIsActive() bool {
 
 // GetIsActiveOk returns a tuple with the IsActive field value if set, nil otherwise
 // and a boolean to check if the value has been set.
-func (o *ModelEditUserRequest) GetIsActiveOk() (*bool, bool) {
+func (o *ModelUpdateUserRequest) GetIsActiveOk() (*bool, bool) {
 	if o == nil || IsNil(o.IsActive) {
 		return nil, false
 	}
@@ -94,7 +94,7 @@ func (o *ModelEditUserRequest) GetIsActiveOk() (*bool, bool) {
 }
 
 // HasIsActive returns a boolean if a field has been set.
-func (o *ModelEditUserRequest) HasIsActive() bool {
+func (o *ModelUpdateUserRequest) HasIsActive() bool {
 	if o != nil && !IsNil(o.IsActive) {
 		return true
 	}
@@ -103,12 +103,12 @@ func (o *ModelEditUserRequest) HasIsActive() bool {
 }
 
 // SetIsActive gets a reference to the given bool and assigns it to the IsActive field.
-func (o *ModelEditUserRequest) SetIsActive(v bool) {
+func (o *ModelUpdateUserRequest) SetIsActive(v bool) {
 	o.IsActive = &v
 }
 
 // GetLastName returns the LastName field value if set, zero value otherwise.
-func (o *ModelEditUserRequest) GetLastName() string {
+func (o *ModelUpdateUserRequest) GetLastName() string {
 	if o == nil || IsNil(o.LastName) {
 		var ret string
 		return ret
@@ -118,7 +118,7 @@ func (o *ModelEditUserRequest) GetLastName() string {
 
 // GetLastNameOk returns a tuple with the LastName field value if set, nil otherwise
 // and a boolean to check if the value has been set.
-func (o *ModelEditUserRequest) GetLastNameOk() (*string, bool) {
+func (o *ModelUpdateUserRequest) GetLastNameOk() (*string, bool) {
 	if o == nil || IsNil(o.LastName) {
 		return nil, false
 	}
@@ -126,7 +126,7 @@ func (o *ModelEditUserRequest) GetLastNameOk() (*string, bool) {
 }
 
 // HasLastName returns a boolean if a field has been set.
-func (o *ModelEditUserRequest) HasLastName() bool {
+func (o *ModelUpdateUserRequest) HasLastName() bool {
 	if o != nil && !IsNil(o.LastName) {
 		return true
 	}
@@ -135,12 +135,12 @@ func (o *ModelEditUserRequest) HasLastName() bool {
 }
 
 // SetLastName gets a reference to the given string and assigns it to the LastName field.
-func (o *ModelEditUserRequest) SetLastName(v string) {
+func (o *ModelUpdateUserRequest) SetLastName(v string) {
 	o.LastName = &v
 }
 
 // GetRole returns the Role field value if set, zero value otherwise.
-func (o *ModelEditUserRequest) GetRole() string {
+func (o *ModelUpdateUserRequest) GetRole() string {
 	if o == nil || IsNil(o.Role) {
 		var ret string
 		return ret
@@ -150,7 +150,7 @@ func (o *ModelEditUserRequest) GetRole() string {
 
 // GetRoleOk returns a tuple with the Role field value if set, nil otherwise
 // and a boolean to check if the value has been set.
-func (o *ModelEditUserRequest) GetRoleOk() (*string, bool) {
+func (o *ModelUpdateUserRequest) GetRoleOk() (*string, bool) {
 	if o == nil || IsNil(o.Role) {
 		return nil, false
 	}
@@ -158,7 +158,7 @@ func (o *ModelEditUserRequest) GetRoleOk() (*string, bool) {
 }
 
 // HasRole returns a boolean if a field has been set.
-func (o *ModelEditUserRequest) HasRole() bool {
+func (o *ModelUpdateUserRequest) HasRole() bool {
 	if o != nil && !IsNil(o.Role) {
 		return true
 	}
@@ -167,11 +167,11 @@ func (o *ModelEditUserRequest) HasRole() bool {
 }
 
 // SetRole gets a reference to the given string and assigns it to the Role field.
-func (o *ModelEditUserRequest) SetRole(v string) {
+func (o *ModelUpdateUserRequest) SetRole(v string) {
 	o.Role = &v
 }
 
-func (o ModelEditUserRequest) MarshalJSON() ([]byte, error) {
+func (o ModelUpdateUserRequest) MarshalJSON() ([]byte, error) {
 	toSerialize,err := o.ToMap()
 	if err != nil {
 		return []byte{}, err
@@ -179,7 +179,7 @@ func (o ModelEditUserRequest) MarshalJSON() ([]byte, error) {
 	return json.Marshal(toSerialize)
 }
 
-func (o ModelEditUserRequest) ToMap() (map[string]interface{}, error) {
+func (o ModelUpdateUserRequest) ToMap() (map[string]interface{}, error) {
 	toSerialize := map[string]interface{}{}
 	if !IsNil(o.FirstName) {
 		toSerialize["first_name"] = o.FirstName
@@ -196,38 +196,38 @@ func (o ModelEditUserRequest) ToMap() (map[string]interface{}, error) {
 	return toSerialize, nil
 }
 
-type NullableModelEditUserRequest struct {
-	value *ModelEditUserRequest
+type NullableModelUpdateUserRequest struct {
+	value *ModelUpdateUserRequest
 	isSet bool
 }
 
-func (v NullableModelEditUserRequest) Get() *ModelEditUserRequest {
+func (v NullableModelUpdateUserRequest) Get() *ModelUpdateUserRequest {
 	return v.value
 }
 
-func (v *NullableModelEditUserRequest) Set(val *ModelEditUserRequest) {
+func (v *NullableModelUpdateUserRequest) Set(val *ModelUpdateUserRequest) {
 	v.value = val
 	v.isSet = true
 }
 
-func (v NullableModelEditUserRequest) IsSet() bool {
+func (v NullableModelUpdateUserRequest) IsSet() bool {
 	return v.isSet
 }
 
-func (v *NullableModelEditUserRequest) Unset() {
+func (v *NullableModelUpdateUserRequest) Unset() {
 	v.value = nil
 	v.isSet = false
 }
 
-func NewNullableModelEditUserRequest(val *ModelEditUserRequest) *NullableModelEditUserRequest {
-	return &NullableModelEditUserRequest{value: val, isSet: true}
+func NewNullableModelUpdateUserRequest(val *ModelUpdateUserRequest) *NullableModelUpdateUserRequest {
+	return &NullableModelUpdateUserRequest{value: val, isSet: true}
 }
 
-func (v NullableModelEditUserRequest) MarshalJSON() ([]byte, error) {
+func (v NullableModelUpdateUserRequest) MarshalJSON() ([]byte, error) {
 	return json.Marshal(v.value)
 }
 
-func (v *NullableModelEditUserRequest) UnmarshalJSON(src []byte) error {
+func (v *NullableModelUpdateUserRequest) UnmarshalJSON(src []byte) error {
 	v.isSet = true
 	return json.Unmarshal(src, &v.value)
 }

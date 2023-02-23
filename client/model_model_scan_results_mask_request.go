@@ -20,8 +20,8 @@ var _ MappedNullable = &ModelScanResultsMaskRequest{}
 
 // ModelScanResultsMaskRequest struct for ModelScanResultsMaskRequest
 type ModelScanResultsMaskRequest struct {
+	DocIds []string `json:"doc_ids"`
 	MaskAcrossHostsAndImages *bool `json:"mask_across_hosts_and_images,omitempty"`
-	NodeIds []string `json:"node_ids"`
 	ScanId string `json:"scan_id"`
 	ScanType string `json:"scan_type"`
 }
@@ -30,9 +30,9 @@ type ModelScanResultsMaskRequest struct {
 // This constructor will assign default values to properties that have it defined,
 // and makes sure properties required by API are set, but the set of arguments
 // will change when the set of required properties is changed
-func NewModelScanResultsMaskRequest(nodeIds []string, scanId string, scanType string) *ModelScanResultsMaskRequest {
+func NewModelScanResultsMaskRequest(docIds []string, scanId string, scanType string) *ModelScanResultsMaskRequest {
 	this := ModelScanResultsMaskRequest{}
-	this.NodeIds = nodeIds
+	this.DocIds = docIds
 	this.ScanId = scanId
 	this.ScanType = scanType
 	return &this
@@ -44,6 +44,32 @@ func NewModelScanResultsMaskRequest(nodeIds []string, scanId string, scanType st
 func NewModelScanResultsMaskRequestWithDefaults() *ModelScanResultsMaskRequest {
 	this := ModelScanResultsMaskRequest{}
 	return &this
+}
+
+// GetDocIds returns the DocIds field value
+// If the value is explicit nil, the zero value for []string will be returned
+func (o *ModelScanResultsMaskRequest) GetDocIds() []string {
+	if o == nil {
+		var ret []string
+		return ret
+	}
+
+	return o.DocIds
+}
+
+// GetDocIdsOk returns a tuple with the DocIds field value
+// and a boolean to check if the value has been set.
+// NOTE: If the value is an explicit nil, `nil, true` will be returned
+func (o *ModelScanResultsMaskRequest) GetDocIdsOk() ([]string, bool) {
+	if o == nil || IsNil(o.DocIds) {
+		return nil, false
+	}
+	return o.DocIds, true
+}
+
+// SetDocIds sets field value
+func (o *ModelScanResultsMaskRequest) SetDocIds(v []string) {
+	o.DocIds = v
 }
 
 // GetMaskAcrossHostsAndImages returns the MaskAcrossHostsAndImages field value if set, zero value otherwise.
@@ -76,32 +102,6 @@ func (o *ModelScanResultsMaskRequest) HasMaskAcrossHostsAndImages() bool {
 // SetMaskAcrossHostsAndImages gets a reference to the given bool and assigns it to the MaskAcrossHostsAndImages field.
 func (o *ModelScanResultsMaskRequest) SetMaskAcrossHostsAndImages(v bool) {
 	o.MaskAcrossHostsAndImages = &v
-}
-
-// GetNodeIds returns the NodeIds field value
-// If the value is explicit nil, the zero value for []string will be returned
-func (o *ModelScanResultsMaskRequest) GetNodeIds() []string {
-	if o == nil {
-		var ret []string
-		return ret
-	}
-
-	return o.NodeIds
-}
-
-// GetNodeIdsOk returns a tuple with the NodeIds field value
-// and a boolean to check if the value has been set.
-// NOTE: If the value is an explicit nil, `nil, true` will be returned
-func (o *ModelScanResultsMaskRequest) GetNodeIdsOk() ([]string, bool) {
-	if o == nil || IsNil(o.NodeIds) {
-		return nil, false
-	}
-	return o.NodeIds, true
-}
-
-// SetNodeIds sets field value
-func (o *ModelScanResultsMaskRequest) SetNodeIds(v []string) {
-	o.NodeIds = v
 }
 
 // GetScanId returns the ScanId field value
@@ -162,11 +162,11 @@ func (o ModelScanResultsMaskRequest) MarshalJSON() ([]byte, error) {
 
 func (o ModelScanResultsMaskRequest) ToMap() (map[string]interface{}, error) {
 	toSerialize := map[string]interface{}{}
+	if o.DocIds != nil {
+		toSerialize["doc_ids"] = o.DocIds
+	}
 	if !IsNil(o.MaskAcrossHostsAndImages) {
 		toSerialize["mask_across_hosts_and_images"] = o.MaskAcrossHostsAndImages
-	}
-	if o.NodeIds != nil {
-		toSerialize["node_ids"] = o.NodeIds
 	}
 	toSerialize["scan_id"] = o.ScanId
 	toSerialize["scan_type"] = o.ScanType

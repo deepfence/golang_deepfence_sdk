@@ -15,6 +15,7 @@ Method | HTTP request | Description
 [**RegisterUser**](UserApi.md#RegisterUser) | **Post** /deepfence/user/register | Register User
 [**ResetApiTokens**](UserApi.md#ResetApiTokens) | **Post** /deepfence/api-token/reset | Reset User&#39;s API Tokens
 [**ResetPasswordRequest**](UserApi.md#ResetPasswordRequest) | **Post** /deepfence/user/reset-password/request | Reset Password Request
+[**UpdatePassword**](UserApi.md#UpdatePassword) | **Put** /deepfence/user/password | Update Password
 [**UpdateUser**](UserApi.md#UpdateUser) | **Put** /deepfence/users/{id} | Update User by User ID
 [**VerifyResetPasswordRequest**](UserApi.md#VerifyResetPasswordRequest) | **Post** /deepfence/user/reset-password/verify | Verify and Reset Password
 
@@ -725,9 +726,73 @@ No authorization required
 [[Back to README]](../README.md)
 
 
+## UpdatePassword
+
+> UpdatePassword(ctx).ModelUpdateUserPasswordRequest(modelUpdateUserPasswordRequest).Execute()
+
+Update Password
+
+
+
+### Example
+
+```go
+package main
+
+import (
+    "context"
+    "fmt"
+    "os"
+    openapiclient "github.com/deepfence/golang_deepfence_sdk/client"
+)
+
+func main() {
+    modelUpdateUserPasswordRequest := *openapiclient.NewModelUpdateUserPasswordRequest() // ModelUpdateUserPasswordRequest |  (optional)
+
+    configuration := openapiclient.NewConfiguration()
+    apiClient := openapiclient.NewAPIClient(configuration)
+    r, err := apiClient.UserApi.UpdatePassword(context.Background()).ModelUpdateUserPasswordRequest(modelUpdateUserPasswordRequest).Execute()
+    if err != nil {
+        fmt.Fprintf(os.Stderr, "Error when calling `UserApi.UpdatePassword``: %v\n", err)
+        fmt.Fprintf(os.Stderr, "Full HTTP response: %v\n", r)
+    }
+}
+```
+
+### Path Parameters
+
+
+
+### Other Parameters
+
+Other parameters are passed through a pointer to a apiUpdatePasswordRequest struct via the builder pattern
+
+
+Name | Type | Description  | Notes
+------------- | ------------- | ------------- | -------------
+ **modelUpdateUserPasswordRequest** | [**ModelUpdateUserPasswordRequest**](ModelUpdateUserPasswordRequest.md) |  | 
+
+### Return type
+
+ (empty response body)
+
+### Authorization
+
+[bearer_token](../README.md#bearer_token)
+
+### HTTP request headers
+
+- **Content-Type**: application/json
+- **Accept**: application/json
+
+[[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints)
+[[Back to Model list]](../README.md#documentation-for-models)
+[[Back to README]](../README.md)
+
+
 ## UpdateUser
 
-> ModelUser UpdateUser(ctx, id).ModelEditUserRequest(modelEditUserRequest).Execute()
+> ModelUser UpdateUser(ctx, id).ModelUpdateUserRequest(modelUpdateUserRequest).Execute()
 
 Update User by User ID
 
@@ -747,11 +812,11 @@ import (
 
 func main() {
     id := int32(56) // int32 | 
-    modelEditUserRequest := *openapiclient.NewModelEditUserRequest() // ModelEditUserRequest |  (optional)
+    modelUpdateUserRequest := *openapiclient.NewModelUpdateUserRequest() // ModelUpdateUserRequest |  (optional)
 
     configuration := openapiclient.NewConfiguration()
     apiClient := openapiclient.NewAPIClient(configuration)
-    resp, r, err := apiClient.UserApi.UpdateUser(context.Background(), id).ModelEditUserRequest(modelEditUserRequest).Execute()
+    resp, r, err := apiClient.UserApi.UpdateUser(context.Background(), id).ModelUpdateUserRequest(modelUpdateUserRequest).Execute()
     if err != nil {
         fmt.Fprintf(os.Stderr, "Error when calling `UserApi.UpdateUser``: %v\n", err)
         fmt.Fprintf(os.Stderr, "Full HTTP response: %v\n", r)
@@ -777,7 +842,7 @@ Other parameters are passed through a pointer to a apiUpdateUserRequest struct v
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
 
- **modelEditUserRequest** | [**ModelEditUserRequest**](ModelEditUserRequest.md) |  | 
+ **modelUpdateUserRequest** | [**ModelUpdateUserRequest**](ModelUpdateUserRequest.md) |  | 
 
 ### Return type
 

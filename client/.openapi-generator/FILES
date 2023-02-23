@@ -82,7 +82,6 @@ docs/ModelComputeMetrics.md
 docs/ModelContainer.md
 docs/ModelContainerImage.md
 docs/ModelDownloadReportResponse.md
-docs/ModelEditUserRequest.md
 docs/ModelFetchWindow.md
 docs/ModelHost.md
 docs/ModelInitAgentReq.md
@@ -120,6 +119,8 @@ docs/ModelScanTriggerResp.md
 docs/ModelSecret.md
 docs/ModelSecretScanResult.md
 docs/ModelSecretScanTriggerReq.md
+docs/ModelUpdateUserPasswordRequest.md
+docs/ModelUpdateUserRequest.md
 docs/ModelUser.md
 docs/ModelUserRegisterRequest.md
 docs/ModelVulnerability.md
@@ -201,7 +202,6 @@ model_model_compute_metrics.go
 model_model_container.go
 model_model_container_image.go
 model_model_download_report_response.go
-model_model_edit_user_request.go
 model_model_fetch_window.go
 model_model_host.go
 model_model_init_agent_req.go
@@ -239,6 +239,8 @@ model_model_scan_trigger_resp.go
 model_model_secret.go
 model_model_secret_scan_result.go
 model_model_secret_scan_trigger_req.go
+model_model_update_user_password_request.go
+model_model_update_user_request.go
 model_model_user.go
 model_model_user_register_request.go
 model_model_vulnerability.go
