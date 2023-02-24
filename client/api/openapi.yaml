@@ -10139,7 +10139,7 @@ components:
     ModelUpdateUserIdRequest:
       example:
         is_active: true
-        role: role
+        role: admin
         last_name: last_name
         first_name: first_name
       properties:
@@ -10150,7 +10150,13 @@ components:
         last_name:
           type: string
         role:
+          enum:
+          - admin
+          - standard-user
+          - read-only-user
           type: string
+      required:
+      - role
       type: object
     ModelUpdateUserPasswordRequest:
       example:
@@ -10161,11 +10167,14 @@ components:
           type: string
         old_password:
           type: string
+      required:
+      - new_password
+      - old_password
       type: object
     ModelUpdateUserRequest:
       example:
         is_active: true
-        role: role
+        role: admin
         last_name: last_name
         first_name: first_name
       properties:
@@ -10176,12 +10185,18 @@ components:
         last_name:
           type: string
         role:
+          enum:
+          - admin
+          - standard-user
+          - read-only-user
           type: string
+      required:
+      - role
       type: object
     ModelUser:
       example:
         is_active: true
-        role: role
+        role: admin
         company_id: 0
         role_id: 1
         groups:
@@ -10219,9 +10234,18 @@ components:
         password_invalidated:
           type: boolean
         role:
+          enum:
+          - admin
+          - standard-user
+          - read-only-user
           type: string
         role_id:
           type: integer
+      required:
+      - company
+      - email
+      - first_name
+      - last_name
       type: object
     ModelUserRegisterRequest:
       example:

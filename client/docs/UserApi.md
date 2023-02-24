@@ -748,7 +748,7 @@ import (
 )
 
 func main() {
-    modelUpdateUserRequest := *openapiclient.NewModelUpdateUserRequest() // ModelUpdateUserRequest |  (optional)
+    modelUpdateUserRequest := *openapiclient.NewModelUpdateUserRequest("Role_example") // ModelUpdateUserRequest |  (optional)
 
     configuration := openapiclient.NewConfiguration()
     apiClient := openapiclient.NewAPIClient(configuration)
@@ -814,7 +814,7 @@ import (
 )
 
 func main() {
-    modelUpdateUserPasswordRequest := *openapiclient.NewModelUpdateUserPasswordRequest() // ModelUpdateUserPasswordRequest |  (optional)
+    modelUpdateUserPasswordRequest := *openapiclient.NewModelUpdateUserPasswordRequest("NewPassword_example", "OldPassword_example") // ModelUpdateUserPasswordRequest |  (optional)
 
     configuration := openapiclient.NewConfiguration()
     apiClient := openapiclient.NewAPIClient(configuration)
@@ -879,7 +879,7 @@ import (
 
 func main() {
     id := int32(56) // int32 | 
-    modelUpdateUserIdRequest := *openapiclient.NewModelUpdateUserIdRequest() // ModelUpdateUserIdRequest |  (optional)
+    modelUpdateUserIdRequest := *openapiclient.NewModelUpdateUserIdRequest("Role_example") // ModelUpdateUserIdRequest |  (optional)
 
     configuration := openapiclient.NewConfiguration()
     apiClient := openapiclient.NewAPIClient(configuration)

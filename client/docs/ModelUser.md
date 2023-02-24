@@ -4,15 +4,15 @@
 
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
-**Company** | Pointer to **string** |  | [optional] 
+**Company** | **string** |  | 
 **CompanyId** | Pointer to **int32** |  | [optional] 
 **CurrentUser** | Pointer to **NullableBool** |  | [optional] 
-**Email** | Pointer to **string** |  | [optional] 
-**FirstName** | Pointer to **string** |  | [optional] 
+**Email** | **string** |  | 
+**FirstName** | **string** |  | 
 **Groups** | Pointer to **map[string]string** |  | [optional] 
 **Id** | Pointer to **int32** |  | [optional] 
 **IsActive** | Pointer to **bool** |  | [optional] 
-**LastName** | Pointer to **string** |  | [optional] 
+**LastName** | **string** |  | 
 **PasswordInvalidated** | Pointer to **bool** |  | [optional] 
 **Role** | Pointer to **string** |  | [optional] 
 **RoleId** | Pointer to **int32** |  | [optional] 
@@ -21,7 +21,7 @@ Name | Type | Description | Notes
 
 ### NewModelUser
 
-`func NewModelUser() *ModelUser`
+`func NewModelUser(company string, email string, firstName string, lastName string, ) *ModelUser`
 
 NewModelUser instantiates a new ModelUser object
 This constructor will assign default values to properties that have it defined,
@@ -55,11 +55,6 @@ and a boolean to check if the value has been set.
 
 SetCompany sets Company field to given value.
 
-### HasCompany
-
-`func (o *ModelUser) HasCompany() bool`
-
-HasCompany returns a boolean if a field has been set.
 
 ### GetCompanyId
 
@@ -140,11 +135,6 @@ and a boolean to check if the value has been set.
 
 SetEmail sets Email field to given value.
 
-### HasEmail
-
-`func (o *ModelUser) HasEmail() bool`
-
-HasEmail returns a boolean if a field has been set.
 
 ### GetFirstName
 
@@ -165,11 +155,6 @@ and a boolean to check if the value has been set.
 
 SetFirstName sets FirstName field to given value.
 
-### HasFirstName
-
-`func (o *ModelUser) HasFirstName() bool`
-
-HasFirstName returns a boolean if a field has been set.
 
 ### GetGroups
 
@@ -275,11 +260,6 @@ and a boolean to check if the value has been set.
 
 SetLastName sets LastName field to given value.
 
-### HasLastName
-
-`func (o *ModelUser) HasLastName() bool`
-
-HasLastName returns a boolean if a field has been set.
 
 ### GetPasswordInvalidated
 

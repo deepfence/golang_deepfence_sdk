@@ -20,16 +20,18 @@ var _ MappedNullable = &ModelUpdateUserPasswordRequest{}
 
 // ModelUpdateUserPasswordRequest struct for ModelUpdateUserPasswordRequest
 type ModelUpdateUserPasswordRequest struct {
-	NewPassword *string `json:"new_password,omitempty"`
-	OldPassword *string `json:"old_password,omitempty"`
+	NewPassword string `json:"new_password"`
+	OldPassword string `json:"old_password"`
 }
 
 // NewModelUpdateUserPasswordRequest instantiates a new ModelUpdateUserPasswordRequest object
 // This constructor will assign default values to properties that have it defined,
 // and makes sure properties required by API are set, but the set of arguments
 // will change when the set of required properties is changed
-func NewModelUpdateUserPasswordRequest() *ModelUpdateUserPasswordRequest {
+func NewModelUpdateUserPasswordRequest(newPassword string, oldPassword string) *ModelUpdateUserPasswordRequest {
 	this := ModelUpdateUserPasswordRequest{}
+	this.NewPassword = newPassword
+	this.OldPassword = oldPassword
 	return &this
 }
 
@@ -41,68 +43,52 @@ func NewModelUpdateUserPasswordRequestWithDefaults() *ModelUpdateUserPasswordReq
 	return &this
 }
 
-// GetNewPassword returns the NewPassword field value if set, zero value otherwise.
+// GetNewPassword returns the NewPassword field value
 func (o *ModelUpdateUserPasswordRequest) GetNewPassword() string {
-	if o == nil || IsNil(o.NewPassword) {
+	if o == nil {
 		var ret string
 		return ret
 	}
-	return *o.NewPassword
+
+	return o.NewPassword
 }
 
-// GetNewPasswordOk returns a tuple with the NewPassword field value if set, nil otherwise
+// GetNewPasswordOk returns a tuple with the NewPassword field value
 // and a boolean to check if the value has been set.
 func (o *ModelUpdateUserPasswordRequest) GetNewPasswordOk() (*string, bool) {
-	if o == nil || IsNil(o.NewPassword) {
+	if o == nil {
 		return nil, false
 	}
-	return o.NewPassword, true
+	return &o.NewPassword, true
 }
 
-// HasNewPassword returns a boolean if a field has been set.
-func (o *ModelUpdateUserPasswordRequest) HasNewPassword() bool {
-	if o != nil && !IsNil(o.NewPassword) {
-		return true
-	}
-
-	return false
-}
-
-// SetNewPassword gets a reference to the given string and assigns it to the NewPassword field.
+// SetNewPassword sets field value
 func (o *ModelUpdateUserPasswordRequest) SetNewPassword(v string) {
-	o.NewPassword = &v
+	o.NewPassword = v
 }
 
-// GetOldPassword returns the OldPassword field value if set, zero value otherwise.
+// GetOldPassword returns the OldPassword field value
 func (o *ModelUpdateUserPasswordRequest) GetOldPassword() string {
-	if o == nil || IsNil(o.OldPassword) {
+	if o == nil {
 		var ret string
 		return ret
 	}
-	return *o.OldPassword
+
+	return o.OldPassword
 }
 
-// GetOldPasswordOk returns a tuple with the OldPassword field value if set, nil otherwise
+// GetOldPasswordOk returns a tuple with the OldPassword field value
 // and a boolean to check if the value has been set.
 func (o *ModelUpdateUserPasswordRequest) GetOldPasswordOk() (*string, bool) {
-	if o == nil || IsNil(o.OldPassword) {
+	if o == nil {
 		return nil, false
 	}
-	return o.OldPassword, true
+	return &o.OldPassword, true
 }
 
-// HasOldPassword returns a boolean if a field has been set.
-func (o *ModelUpdateUserPasswordRequest) HasOldPassword() bool {
-	if o != nil && !IsNil(o.OldPassword) {
-		return true
-	}
-
-	return false
-}
-
-// SetOldPassword gets a reference to the given string and assigns it to the OldPassword field.
+// SetOldPassword sets field value
 func (o *ModelUpdateUserPasswordRequest) SetOldPassword(v string) {
-	o.OldPassword = &v
+	o.OldPassword = v
 }
 
 func (o ModelUpdateUserPasswordRequest) MarshalJSON() ([]byte, error) {
@@ -115,12 +101,8 @@ func (o ModelUpdateUserPasswordRequest) MarshalJSON() ([]byte, error) {
 
 func (o ModelUpdateUserPasswordRequest) ToMap() (map[string]interface{}, error) {
 	toSerialize := map[string]interface{}{}
-	if !IsNil(o.NewPassword) {
-		toSerialize["new_password"] = o.NewPassword
-	}
-	if !IsNil(o.OldPassword) {
-		toSerialize["old_password"] = o.OldPassword
-	}
+	toSerialize["new_password"] = o.NewPassword
+	toSerialize["old_password"] = o.OldPassword
 	return toSerialize, nil
 }
 

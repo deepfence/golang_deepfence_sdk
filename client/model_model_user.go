@@ -20,15 +20,15 @@ var _ MappedNullable = &ModelUser{}
 
 // ModelUser struct for ModelUser
 type ModelUser struct {
-	Company *string `json:"company,omitempty"`
+	Company string `json:"company"`
 	CompanyId *int32 `json:"company_id,omitempty"`
 	CurrentUser NullableBool `json:"current_user,omitempty"`
-	Email *string `json:"email,omitempty"`
-	FirstName *string `json:"first_name,omitempty"`
+	Email string `json:"email"`
+	FirstName string `json:"first_name"`
 	Groups map[string]string `json:"groups,omitempty"`
 	Id *int32 `json:"id,omitempty"`
 	IsActive *bool `json:"is_active,omitempty"`
-	LastName *string `json:"last_name,omitempty"`
+	LastName string `json:"last_name"`
 	PasswordInvalidated *bool `json:"password_invalidated,omitempty"`
 	Role *string `json:"role,omitempty"`
 	RoleId *int32 `json:"role_id,omitempty"`
@@ -38,8 +38,12 @@ type ModelUser struct {
 // This constructor will assign default values to properties that have it defined,
 // and makes sure properties required by API are set, but the set of arguments
 // will change when the set of required properties is changed
-func NewModelUser() *ModelUser {
+func NewModelUser(company string, email string, firstName string, lastName string) *ModelUser {
 	this := ModelUser{}
+	this.Company = company
+	this.Email = email
+	this.FirstName = firstName
+	this.LastName = lastName
 	return &this
 }
 
@@ -51,36 +55,28 @@ func NewModelUserWithDefaults() *ModelUser {
 	return &this
 }
 
-// GetCompany returns the Company field value if set, zero value otherwise.
+// GetCompany returns the Company field value
 func (o *ModelUser) GetCompany() string {
-	if o == nil || IsNil(o.Company) {
+	if o == nil {
 		var ret string
 		return ret
 	}
-	return *o.Company
+
+	return o.Company
 }
 
-// GetCompanyOk returns a tuple with the Company field value if set, nil otherwise
+// GetCompanyOk returns a tuple with the Company field value
 // and a boolean to check if the value has been set.
 func (o *ModelUser) GetCompanyOk() (*string, bool) {
-	if o == nil || IsNil(o.Company) {
+	if o == nil {
 		return nil, false
 	}
-	return o.Company, true
+	return &o.Company, true
 }
 
-// HasCompany returns a boolean if a field has been set.
-func (o *ModelUser) HasCompany() bool {
-	if o != nil && !IsNil(o.Company) {
-		return true
-	}
-
-	return false
-}
-
-// SetCompany gets a reference to the given string and assigns it to the Company field.
+// SetCompany sets field value
 func (o *ModelUser) SetCompany(v string) {
-	o.Company = &v
+	o.Company = v
 }
 
 // GetCompanyId returns the CompanyId field value if set, zero value otherwise.
@@ -157,68 +153,52 @@ func (o *ModelUser) UnsetCurrentUser() {
 	o.CurrentUser.Unset()
 }
 
-// GetEmail returns the Email field value if set, zero value otherwise.
+// GetEmail returns the Email field value
 func (o *ModelUser) GetEmail() string {
-	if o == nil || IsNil(o.Email) {
+	if o == nil {
 		var ret string
 		return ret
 	}
-	return *o.Email
+
+	return o.Email
 }
 
-// GetEmailOk returns a tuple with the Email field value if set, nil otherwise
+// GetEmailOk returns a tuple with the Email field value
 // and a boolean to check if the value has been set.
 func (o *ModelUser) GetEmailOk() (*string, bool) {
-	if o == nil || IsNil(o.Email) {
+	if o == nil {
 		return nil, false
 	}
-	return o.Email, true
+	return &o.Email, true
 }
 
-// HasEmail returns a boolean if a field has been set.
-func (o *ModelUser) HasEmail() bool {
-	if o != nil && !IsNil(o.Email) {
-		return true
-	}
-
-	return false
-}
-
-// SetEmail gets a reference to the given string and assigns it to the Email field.
+// SetEmail sets field value
 func (o *ModelUser) SetEmail(v string) {
-	o.Email = &v
+	o.Email = v
 }
 
-// GetFirstName returns the FirstName field value if set, zero value otherwise.
+// GetFirstName returns the FirstName field value
 func (o *ModelUser) GetFirstName() string {
-	if o == nil || IsNil(o.FirstName) {
+	if o == nil {
 		var ret string
 		return ret
 	}
-	return *o.FirstName
+
+	return o.FirstName
 }
 
-// GetFirstNameOk returns a tuple with the FirstName field value if set, nil otherwise
+// GetFirstNameOk returns a tuple with the FirstName field value
 // and a boolean to check if the value has been set.
 func (o *ModelUser) GetFirstNameOk() (*string, bool) {
-	if o == nil || IsNil(o.FirstName) {
+	if o == nil {
 		return nil, false
 	}
-	return o.FirstName, true
+	return &o.FirstName, true
 }
 
-// HasFirstName returns a boolean if a field has been set.
-func (o *ModelUser) HasFirstName() bool {
-	if o != nil && !IsNil(o.FirstName) {
-		return true
-	}
-
-	return false
-}
-
-// SetFirstName gets a reference to the given string and assigns it to the FirstName field.
+// SetFirstName sets field value
 func (o *ModelUser) SetFirstName(v string) {
-	o.FirstName = &v
+	o.FirstName = v
 }
 
 // GetGroups returns the Groups field value if set, zero value otherwise (both if not set or set to explicit null).
@@ -318,36 +298,28 @@ func (o *ModelUser) SetIsActive(v bool) {
 	o.IsActive = &v
 }
 
-// GetLastName returns the LastName field value if set, zero value otherwise.
+// GetLastName returns the LastName field value
 func (o *ModelUser) GetLastName() string {
-	if o == nil || IsNil(o.LastName) {
+	if o == nil {
 		var ret string
 		return ret
 	}
-	return *o.LastName
+
+	return o.LastName
 }
 
-// GetLastNameOk returns a tuple with the LastName field value if set, nil otherwise
+// GetLastNameOk returns a tuple with the LastName field value
 // and a boolean to check if the value has been set.
 func (o *ModelUser) GetLastNameOk() (*string, bool) {
-	if o == nil || IsNil(o.LastName) {
+	if o == nil {
 		return nil, false
 	}
-	return o.LastName, true
+	return &o.LastName, true
 }
 
-// HasLastName returns a boolean if a field has been set.
-func (o *ModelUser) HasLastName() bool {
-	if o != nil && !IsNil(o.LastName) {
-		return true
-	}
-
-	return false
-}
-
-// SetLastName gets a reference to the given string and assigns it to the LastName field.
+// SetLastName sets field value
 func (o *ModelUser) SetLastName(v string) {
-	o.LastName = &v
+	o.LastName = v
 }
 
 // GetPasswordInvalidated returns the PasswordInvalidated field value if set, zero value otherwise.
@@ -456,21 +428,15 @@ func (o ModelUser) MarshalJSON() ([]byte, error) {
 
 func (o ModelUser) ToMap() (map[string]interface{}, error) {
 	toSerialize := map[string]interface{}{}
-	if !IsNil(o.Company) {
-		toSerialize["company"] = o.Company
-	}
+	toSerialize["company"] = o.Company
 	if !IsNil(o.CompanyId) {
 		toSerialize["company_id"] = o.CompanyId
 	}
 	if o.CurrentUser.IsSet() {
 		toSerialize["current_user"] = o.CurrentUser.Get()
 	}
-	if !IsNil(o.Email) {
-		toSerialize["email"] = o.Email
-	}
-	if !IsNil(o.FirstName) {
-		toSerialize["first_name"] = o.FirstName
-	}
+	toSerialize["email"] = o.Email
+	toSerialize["first_name"] = o.FirstName
 	if o.Groups != nil {
 		toSerialize["groups"] = o.Groups
 	}
@@ -480,9 +446,7 @@ func (o ModelUser) ToMap() (map[string]interface{}, error) {
 	if !IsNil(o.IsActive) {
 		toSerialize["is_active"] = o.IsActive
 	}
-	if !IsNil(o.LastName) {
-		toSerialize["last_name"] = o.LastName
-	}
+	toSerialize["last_name"] = o.LastName
 	if !IsNil(o.PasswordInvalidated) {
 		toSerialize["password_invalidated"] = o.PasswordInvalidated
 	}

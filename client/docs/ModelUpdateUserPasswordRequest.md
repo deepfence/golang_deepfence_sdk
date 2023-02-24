@@ -4,14 +4,14 @@
 
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
-**NewPassword** | Pointer to **string** |  | [optional] 
-**OldPassword** | Pointer to **string** |  | [optional] 
+**NewPassword** | **string** |  | 
+**OldPassword** | **string** |  | 
 
 ## Methods
 
 ### NewModelUpdateUserPasswordRequest
 
-`func NewModelUpdateUserPasswordRequest() *ModelUpdateUserPasswordRequest`
+`func NewModelUpdateUserPasswordRequest(newPassword string, oldPassword string, ) *ModelUpdateUserPasswordRequest`
 
 NewModelUpdateUserPasswordRequest instantiates a new ModelUpdateUserPasswordRequest object
 This constructor will assign default values to properties that have it defined,
@@ -45,11 +45,6 @@ and a boolean to check if the value has been set.
 
 SetNewPassword sets NewPassword field to given value.
 
-### HasNewPassword
-
-`func (o *ModelUpdateUserPasswordRequest) HasNewPassword() bool`
-
-HasNewPassword returns a boolean if a field has been set.
 
 ### GetOldPassword
 
@@ -70,11 +65,6 @@ and a boolean to check if the value has been set.
 
 SetOldPassword sets OldPassword field to given value.
 
-### HasOldPassword
-
-`func (o *ModelUpdateUserPasswordRequest) HasOldPassword() bool`
-
-HasOldPassword returns a boolean if a field has been set.
 
 
 [[Back to Model list]](../README.md#documentation-for-models) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to README]](../README.md)
