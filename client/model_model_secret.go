@@ -21,7 +21,7 @@ var _ MappedNullable = &ModelSecret{}
 // ModelSecret struct for ModelSecret
 type ModelSecret struct {
 	FullFilename string `json:"full_filename"`
-	Masked string `json:"masked"`
+	Masked bool `json:"masked"`
 	MatchedContent string `json:"matched_content"`
 	RelativeEndingIndex int32 `json:"relative_ending_index"`
 	RelativeStartingIndex int32 `json:"relative_starting_index"`
@@ -32,7 +32,7 @@ type ModelSecret struct {
 // This constructor will assign default values to properties that have it defined,
 // and makes sure properties required by API are set, but the set of arguments
 // will change when the set of required properties is changed
-func NewModelSecret(fullFilename string, masked string, matchedContent string, relativeEndingIndex int32, relativeStartingIndex int32, startingIndex int32) *ModelSecret {
+func NewModelSecret(fullFilename string, masked bool, matchedContent string, relativeEndingIndex int32, relativeStartingIndex int32, startingIndex int32) *ModelSecret {
 	this := ModelSecret{}
 	this.FullFilename = fullFilename
 	this.Masked = masked
@@ -76,9 +76,9 @@ func (o *ModelSecret) SetFullFilename(v string) {
 }
 
 // GetMasked returns the Masked field value
-func (o *ModelSecret) GetMasked() string {
+func (o *ModelSecret) GetMasked() bool {
 	if o == nil {
-		var ret string
+		var ret bool
 		return ret
 	}
 
@@ -87,7 +87,7 @@ func (o *ModelSecret) GetMasked() string {
 
 // GetMaskedOk returns a tuple with the Masked field value
 // and a boolean to check if the value has been set.
-func (o *ModelSecret) GetMaskedOk() (*string, bool) {
+func (o *ModelSecret) GetMaskedOk() (*bool, bool) {
 	if o == nil {
 		return nil, false
 	}
@@ -95,7 +95,7 @@ func (o *ModelSecret) GetMaskedOk() (*string, bool) {
 }
 
 // SetMasked sets field value
-func (o *ModelSecret) SetMasked(v string) {
+func (o *ModelSecret) SetMasked(v bool) {
 	o.Masked = v
 }
 

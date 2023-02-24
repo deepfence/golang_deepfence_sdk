@@ -12,7 +12,7 @@ Name | Type | Description | Notes
 **Count** | **int32** |  | 
 **Description** | **string** |  | 
 **Group** | **string** |  | 
-**Masked** | **string** |  | 
+**Masked** | **bool** |  | 
 **NodeId** | **string** |  | 
 **NodeName** | **string** |  | 
 **Reason** | **string** |  | 
@@ -29,7 +29,7 @@ Name | Type | Description | Notes
 
 ### NewModelCloudCompliance
 
-`func NewModelCloudCompliance(timestamp string, accountId string, cloudProvider string, complianceCheckType string, controlId string, count int32, description string, group string, masked string, nodeId string, nodeName string, reason string, region string, resource string, scanId string, service string, severity string, status string, title string, type_ string, ) *ModelCloudCompliance`
+`func NewModelCloudCompliance(timestamp string, accountId string, cloudProvider string, complianceCheckType string, controlId string, count int32, description string, group string, masked bool, nodeId string, nodeName string, reason string, region string, resource string, scanId string, service string, severity string, status string, title string, type_ string, ) *ModelCloudCompliance`
 
 NewModelCloudCompliance instantiates a new ModelCloudCompliance object
 This constructor will assign default values to properties that have it defined,
@@ -206,20 +206,20 @@ SetGroup sets Group field to given value.
 
 ### GetMasked
 
-`func (o *ModelCloudCompliance) GetMasked() string`
+`func (o *ModelCloudCompliance) GetMasked() bool`
 
 GetMasked returns the Masked field if non-nil, zero value otherwise.
 
 ### GetMaskedOk
 
-`func (o *ModelCloudCompliance) GetMaskedOk() (*string, bool)`
+`func (o *ModelCloudCompliance) GetMaskedOk() (*bool, bool)`
 
 GetMaskedOk returns a tuple with the Masked field if it's non-nil, zero value otherwise
 and a boolean to check if the value has been set.
 
 ### SetMasked
 
-`func (o *ModelCloudCompliance) SetMasked(v string)`
+`func (o *ModelCloudCompliance) SetMasked(v bool)`
 
 SetMasked sets Masked field to given value.
 

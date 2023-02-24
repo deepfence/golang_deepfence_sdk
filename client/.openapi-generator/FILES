@@ -62,6 +62,7 @@ docs/MalwareScanApi.md
 docs/ModelAgentId.md
 docs/ModelAgentUpgrade.md
 docs/ModelApiAuthRequest.md
+docs/ModelBasicNode.md
 docs/ModelCloudCompliance.md
 docs/ModelCloudComplianceScanDetails.md
 docs/ModelCloudComplianceScanResult.md
@@ -183,6 +184,7 @@ model_lookup_lookup_filter.go
 model_model_agent_id.go
 model_model_agent_upgrade.go
 model_model_api_auth_request.go
+model_model_basic_node.go
 model_model_cloud_compliance.go
 model_model_cloud_compliance_scan_details.go
 model_model_cloud_compliance_scan_result.go

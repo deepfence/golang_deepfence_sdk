@@ -5,7 +5,7 @@
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
 **FullFilename** | **string** |  | 
-**Masked** | **string** |  | 
+**Masked** | **bool** |  | 
 **MatchedContent** | **string** |  | 
 **RelativeEndingIndex** | **int32** |  | 
 **RelativeStartingIndex** | **int32** |  | 
@@ -15,7 +15,7 @@ Name | Type | Description | Notes
 
 ### NewModelSecret
 
-`func NewModelSecret(fullFilename string, masked string, matchedContent string, relativeEndingIndex int32, relativeStartingIndex int32, startingIndex int32, ) *ModelSecret`
+`func NewModelSecret(fullFilename string, masked bool, matchedContent string, relativeEndingIndex int32, relativeStartingIndex int32, startingIndex int32, ) *ModelSecret`
 
 NewModelSecret instantiates a new ModelSecret object
 This constructor will assign default values to properties that have it defined,
@@ -52,20 +52,20 @@ SetFullFilename sets FullFilename field to given value.
 
 ### GetMasked
 
-`func (o *ModelSecret) GetMasked() string`
+`func (o *ModelSecret) GetMasked() bool`
 
 GetMasked returns the Masked field if non-nil, zero value otherwise.
 
 ### GetMaskedOk
 
-`func (o *ModelSecret) GetMaskedOk() (*string, bool)`
+`func (o *ModelSecret) GetMaskedOk() (*bool, bool)`
 
 GetMaskedOk returns a tuple with the Masked field if it's non-nil, zero value otherwise
 and a boolean to check if the value has been set.
 
 ### SetMasked
 
-`func (o *ModelSecret) SetMasked(v string)`
+`func (o *ModelSecret) SetMasked(v bool)`
 
 SetMasked sets Masked field to given value.
 

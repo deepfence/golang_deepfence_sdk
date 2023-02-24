@@ -23,7 +23,7 @@ type ModelCompliance struct {
 	ComplianceCheckType string `json:"compliance_check_type"`
 	ComplianceNodeType string `json:"compliance_node_type"`
 	Description string `json:"description"`
-	Masked string `json:"masked"`
+	Masked bool `json:"masked"`
 	RemediationAnsible string `json:"remediation_ansible"`
 	RemediationPuppet string `json:"remediation_puppet"`
 	RemediationScript string `json:"remediation_script"`
@@ -40,7 +40,7 @@ type ModelCompliance struct {
 // This constructor will assign default values to properties that have it defined,
 // and makes sure properties required by API are set, but the set of arguments
 // will change when the set of required properties is changed
-func NewModelCompliance(complianceCheckType string, complianceNodeType string, description string, masked string, remediationAnsible string, remediationPuppet string, remediationScript string, resource string, status string, testCategory string, testDesc string, testNumber string, testRationale string, testSeverity string) *ModelCompliance {
+func NewModelCompliance(complianceCheckType string, complianceNodeType string, description string, masked bool, remediationAnsible string, remediationPuppet string, remediationScript string, resource string, status string, testCategory string, testDesc string, testNumber string, testRationale string, testSeverity string) *ModelCompliance {
 	this := ModelCompliance{}
 	this.ComplianceCheckType = complianceCheckType
 	this.ComplianceNodeType = complianceNodeType
@@ -140,9 +140,9 @@ func (o *ModelCompliance) SetDescription(v string) {
 }
 
 // GetMasked returns the Masked field value
-func (o *ModelCompliance) GetMasked() string {
+func (o *ModelCompliance) GetMasked() bool {
 	if o == nil {
-		var ret string
+		var ret bool
 		return ret
 	}
 
@@ -151,7 +151,7 @@ func (o *ModelCompliance) GetMasked() string {
 
 // GetMaskedOk returns a tuple with the Masked field value
 // and a boolean to check if the value has been set.
-func (o *ModelCompliance) GetMaskedOk() (*string, bool) {
+func (o *ModelCompliance) GetMaskedOk() (*bool, bool) {
 	if o == nil {
 		return nil, false
 	}
@@ -159,7 +159,7 @@ func (o *ModelCompliance) GetMaskedOk() (*string, bool) {
 }
 
 // SetMasked sets field value
-func (o *ModelCompliance) SetMasked(v string) {
+func (o *ModelCompliance) SetMasked(v bool) {
 	o.Masked = v
 }
 

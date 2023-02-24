@@ -28,7 +28,7 @@ type ModelCloudCompliance struct {
 	Count int32 `json:"count"`
 	Description string `json:"description"`
 	Group string `json:"group"`
-	Masked string `json:"masked"`
+	Masked bool `json:"masked"`
 	NodeId string `json:"node_id"`
 	NodeName string `json:"node_name"`
 	Reason string `json:"reason"`
@@ -46,7 +46,7 @@ type ModelCloudCompliance struct {
 // This constructor will assign default values to properties that have it defined,
 // and makes sure properties required by API are set, but the set of arguments
 // will change when the set of required properties is changed
-func NewModelCloudCompliance(timestamp string, accountId string, cloudProvider string, complianceCheckType string, controlId string, count int32, description string, group string, masked string, nodeId string, nodeName string, reason string, region string, resource string, scanId string, service string, severity string, status string, title string, type_ string) *ModelCloudCompliance {
+func NewModelCloudCompliance(timestamp string, accountId string, cloudProvider string, complianceCheckType string, controlId string, count int32, description string, group string, masked bool, nodeId string, nodeName string, reason string, region string, resource string, scanId string, service string, severity string, status string, title string, type_ string) *ModelCloudCompliance {
 	this := ModelCloudCompliance{}
 	this.Timestamp = timestamp
 	this.AccountId = accountId
@@ -272,9 +272,9 @@ func (o *ModelCloudCompliance) SetGroup(v string) {
 }
 
 // GetMasked returns the Masked field value
-func (o *ModelCloudCompliance) GetMasked() string {
+func (o *ModelCloudCompliance) GetMasked() bool {
 	if o == nil {
-		var ret string
+		var ret bool
 		return ret
 	}
 
@@ -283,7 +283,7 @@ func (o *ModelCloudCompliance) GetMasked() string {
 
 // GetMaskedOk returns a tuple with the Masked field value
 // and a boolean to check if the value has been set.
-func (o *ModelCloudCompliance) GetMaskedOk() (*string, bool) {
+func (o *ModelCloudCompliance) GetMaskedOk() (*bool, bool) {
 	if o == nil {
 		return nil, false
 	}
@@ -291,7 +291,7 @@ func (o *ModelCloudCompliance) GetMaskedOk() (*string, bool) {
 }
 
 // SetMasked sets field value
-func (o *ModelCloudCompliance) SetMasked(v string) {
+func (o *ModelCloudCompliance) SetMasked(v bool) {
 	o.Masked = v
 }
 

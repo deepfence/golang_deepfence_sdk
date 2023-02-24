@@ -1947,6 +1947,74 @@ paths:
       summary: Delete all scan results for a scan id
       tags:
       - Scan Results
+  /deepfence/scan/{scan_type}/{scan_id}/{doc_id}/nodes:
+    get:
+      description: Get all nodes for given result document
+      operationId: getAllNodesOfScanResultDocument
+      parameters:
+      - explode: false
+        in: path
+        name: doc_id
+        required: true
+        schema:
+          type: string
+        style: simple
+      - explode: false
+        in: path
+        name: scan_id
+        required: true
+        schema:
+          type: string
+        style: simple
+      - explode: false
+        in: path
+        name: scan_type
+        required: true
+        schema:
+          enum:
+          - SecretScan
+          - VulnerabilityScan
+          - MalwareScan
+          - ComplianceScan
+          - CloudComplianceScan
+          type: string
+        style: simple
+      responses:
+        "200":
+          content:
+            application/json:
+              schema:
+                items:
+                  $ref: '#/components/schemas/ModelBasicNode'
+                type: array
+          description: OK
+        "400":
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ApiDocsBadRequestResponse'
+          description: Bad Request
+        "401":
+          description: Unauthorized
+        "403":
+          description: Forbidden
+        "404":
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ApiDocsFailureResponse'
+          description: Not Found
+        "500":
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ApiDocsFailureResponse'
+          description: Internal Server Error
+      security:
+      - bearer_token: []
+      summary: Get all nodes for given result document
+      tags:
+      - Scan Results
   /deepfence/scan/{scan_type}/{scan_id}/download:
     get:
       description: Download scan results
@@ -6410,13 +6478,34 @@ components:
       required:
       - api_token
       type: object
+    ModelBasicNode:
+      example:
+        node_type: node_type
+        name: name
+        host_name: host_name
+        node_id: node_id
+      properties:
+        host_name:
+          type: string
+        name:
+          type: string
+        node_id:
+          type: string
+        node_type:
+          type: string
+      required:
+      - host_name
+      - name
+      - node_id
+      - node_type
+      type: object
     ModelCloudCompliance:
       example:
         severity: severity
         reason: reason
         control_id: control_id
         resource: resource
-        masked: masked
+        masked: true
         count: 6
         node_name: node_name
         description: description
@@ -6450,7 +6539,7 @@ components:
         group:
           type: string
         masked:
-          type: string
+          type: boolean
         node_id:
           type: string
         node_name:
@@ -6527,7 +6616,7 @@ components:
           reason: reason
           control_id: control_id
           resource: resource
-          masked: masked
+          masked: true
           count: 6
           node_name: node_name
           description: description
@@ -6547,7 +6636,7 @@ components:
           reason: reason
           control_id: control_id
           resource: resource
-          masked: masked
+          masked: true
           count: 6
           node_name: node_name
           description: description
@@ -6790,7 +6879,7 @@ components:
       example:
         resource: resource
         compliance_node_type: compliance_node_type
-        masked: masked
+        masked: true
         description: description
         test_category: test_category
         remediation_ansible: remediation_ansible
@@ -6810,7 +6899,7 @@ components:
         description:
           type: string
         masked:
-          type: string
+          type: boolean
         remediation_ansible:
           type: string
         remediation_puppet:
@@ -6894,7 +6983,7 @@ components:
         compliances:
         - resource: resource
           compliance_node_type: compliance_node_type
-          masked: masked
+          masked: true
           description: description
           test_category: test_category
           remediation_ansible: remediation_ansible
@@ -6908,7 +6997,7 @@ components:
           test_number: test_number
         - resource: resource
           compliance_node_type: compliance_node_type
-          masked: masked
+          masked: true
           description: description
           test_category: test_category
           remediation_ansible: remediation_ansible
@@ -8931,7 +9020,7 @@ components:
         image_layer_id: image_layer_id
         file_sevScore: 0.8008281904610115
         rule_name: rule_name
-        masked: masked
+        masked: true
         complete_filename: complete_filename
         file_severity: file_severity
         class: class
@@ -8948,7 +9037,7 @@ components:
         image_layer_id:
           type: string
         masked:
-          type: string
+          type: boolean
         rule_name:
           type: string
         severity_score:
@@ -8981,7 +9070,7 @@ components:
           image_layer_id: image_layer_id
           file_sevScore: 0.8008281904610115
           rule_name: rule_name
-          masked: masked
+          masked: true
           complete_filename: complete_filename
           file_severity: file_severity
           class: class
@@ -8990,7 +9079,7 @@ components:
           image_layer_id: image_layer_id
           file_sevScore: 0.8008281904610115
           rule_name: rule_name
-          masked: masked
+          masked: true
           complete_filename: complete_filename
           file_severity: file_severity
           class: class
@@ -9877,7 +9966,7 @@ components:
       example:
         full_filename: full_filename
         matched_content: matched_content
-        masked: masked
+        masked: true
         relative_ending_index: 5
         starting_index: 2
         relative_starting_index: 5
@@ -9885,7 +9974,7 @@ components:
         full_filename:
           type: string
         masked:
-          type: string
+          type: boolean
         matched_content:
           type: string
         relative_ending_index:
@@ -9925,13 +10014,13 @@ components:
         secrets:
         - full_filename: full_filename
           matched_content: matched_content
-          masked: masked
+          masked: true
           relative_ending_index: 5
           starting_index: 2
           relative_starting_index: 5
         - full_filename: full_filename
           matched_content: matched_content
-          masked: masked
+          masked: true
           relative_ending_index: 5
           starting_index: 2
           relative_starting_index: 5
@@ -10170,7 +10259,7 @@ components:
     ModelVulnerability:
       example:
         cve_container_layer: cve_container_layer
-        masked: masked
+        masked: true
         cve_description: cve_description
         cve_overall_score: 5.962133916683182
         cve_caused_by_package: cve_caused_by_package
@@ -10214,7 +10303,7 @@ components:
         exploit_poc:
           type: string
         masked:
-          type: string
+          type: boolean
         urls:
           items:
             type: string
@@ -10268,7 +10357,7 @@ components:
         node_name: node_name
         vulnerabilities:
         - cve_container_layer: cve_container_layer
-          masked: masked
+          masked: true
           cve_description: cve_description
           cve_overall_score: 5.962133916683182
           cve_caused_by_package: cve_caused_by_package
@@ -10285,7 +10374,7 @@ components:
           cve_fixed_in: cve_fixed_in
           cve_link: cve_link
         - cve_container_layer: cve_container_layer
-          masked: masked
+          masked: true
           cve_description: cve_description
           cve_overall_score: 5.962133916683182
           cve_caused_by_package: cve_caused_by_package
