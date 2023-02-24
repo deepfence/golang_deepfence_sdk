@@ -32,14 +32,14 @@ type ModelSecretScanResult struct {
 	ScanId string `json:"scan_id"`
 	Secrets []ModelSecret `json:"secrets"`
 	SeverityCounts map[string]int32 `json:"severity_counts"`
-	UpdatedAt int32 `json:"updated_at"`
+	UpdatedAt int64 `json:"updated_at"`
 }
 
 // NewModelSecretScanResult instantiates a new ModelSecretScanResult object
 // This constructor will assign default values to properties that have it defined,
 // and makes sure properties required by API are set, but the set of arguments
 // will change when the set of required properties is changed
-func NewModelSecretScanResult(dockerContainerName string, dockerImageName string, hostName string, kubernetesClusterName string, nodeId string, nodeName string, nodeType string, rule2Secrets map[string][]int32, rules []ModelRule, scanId string, secrets []ModelSecret, severityCounts map[string]int32, updatedAt int32) *ModelSecretScanResult {
+func NewModelSecretScanResult(dockerContainerName string, dockerImageName string, hostName string, kubernetesClusterName string, nodeId string, nodeName string, nodeType string, rule2Secrets map[string][]int32, rules []ModelRule, scanId string, secrets []ModelSecret, severityCounts map[string]int32, updatedAt int64) *ModelSecretScanResult {
 	this := ModelSecretScanResult{}
 	this.DockerContainerName = dockerContainerName
 	this.DockerImageName = dockerImageName
@@ -362,9 +362,9 @@ func (o *ModelSecretScanResult) SetSeverityCounts(v map[string]int32) {
 }
 
 // GetUpdatedAt returns the UpdatedAt field value
-func (o *ModelSecretScanResult) GetUpdatedAt() int32 {
+func (o *ModelSecretScanResult) GetUpdatedAt() int64 {
 	if o == nil {
-		var ret int32
+		var ret int64
 		return ret
 	}
 
@@ -373,7 +373,7 @@ func (o *ModelSecretScanResult) GetUpdatedAt() int32 {
 
 // GetUpdatedAtOk returns a tuple with the UpdatedAt field value
 // and a boolean to check if the value has been set.
-func (o *ModelSecretScanResult) GetUpdatedAtOk() (*int32, bool) {
+func (o *ModelSecretScanResult) GetUpdatedAtOk() (*int64, bool) {
 	if o == nil {
 		return nil, false
 	}
@@ -381,7 +381,7 @@ func (o *ModelSecretScanResult) GetUpdatedAtOk() (*int32, bool) {
 }
 
 // SetUpdatedAt sets field value
-func (o *ModelSecretScanResult) SetUpdatedAt(v int32) {
+func (o *ModelSecretScanResult) SetUpdatedAt(v int64) {
 	o.UpdatedAt = v
 }
 

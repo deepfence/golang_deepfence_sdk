@@ -16,13 +16,13 @@ Name | Type | Description | Notes
 **ScanId** | **string** |  | 
 **Secrets** | [**[]ModelSecret**](ModelSecret.md) |  | 
 **SeverityCounts** | **map[string]int32** |  | 
-**UpdatedAt** | **int32** |  | 
+**UpdatedAt** | **int64** |  | 
 
 ## Methods
 
 ### NewModelSecretScanResult
 
-`func NewModelSecretScanResult(dockerContainerName string, dockerImageName string, hostName string, kubernetesClusterName string, nodeId string, nodeName string, nodeType string, rule2Secrets map[string][]int32, rules []ModelRule, scanId string, secrets []ModelSecret, severityCounts map[string]int32, updatedAt int32, ) *ModelSecretScanResult`
+`func NewModelSecretScanResult(dockerContainerName string, dockerImageName string, hostName string, kubernetesClusterName string, nodeId string, nodeName string, nodeType string, rule2Secrets map[string][]int32, rules []ModelRule, scanId string, secrets []ModelSecret, severityCounts map[string]int32, updatedAt int64, ) *ModelSecretScanResult`
 
 NewModelSecretScanResult instantiates a new ModelSecretScanResult object
 This constructor will assign default values to properties that have it defined,
@@ -319,20 +319,20 @@ SetSeverityCounts sets SeverityCounts field to given value.
 UnsetSeverityCounts ensures that no value is present for SeverityCounts, not even an explicit nil
 ### GetUpdatedAt
 
-`func (o *ModelSecretScanResult) GetUpdatedAt() int32`
+`func (o *ModelSecretScanResult) GetUpdatedAt() int64`
 
 GetUpdatedAt returns the UpdatedAt field if non-nil, zero value otherwise.
 
 ### GetUpdatedAtOk
 
-`func (o *ModelSecretScanResult) GetUpdatedAtOk() (*int32, bool)`
+`func (o *ModelSecretScanResult) GetUpdatedAtOk() (*int64, bool)`
 
 GetUpdatedAtOk returns a tuple with the UpdatedAt field if it's non-nil, zero value otherwise
 and a boolean to check if the value has been set.
 
 ### SetUpdatedAt
 
-`func (o *ModelSecretScanResult) SetUpdatedAt(v int32)`
+`func (o *ModelSecretScanResult) SetUpdatedAt(v int64)`
 
 SetUpdatedAt sets UpdatedAt field to given value.
 

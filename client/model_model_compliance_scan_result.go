@@ -32,14 +32,14 @@ type ModelComplianceScanResult struct {
 	NodeType string `json:"node_type"`
 	ScanId string `json:"scan_id"`
 	StatusCounts map[string]int32 `json:"status_counts"`
-	UpdatedAt int32 `json:"updated_at"`
+	UpdatedAt int64 `json:"updated_at"`
 }
 
 // NewModelComplianceScanResult instantiates a new ModelComplianceScanResult object
 // This constructor will assign default values to properties that have it defined,
 // and makes sure properties required by API are set, but the set of arguments
 // will change when the set of required properties is changed
-func NewModelComplianceScanResult(benchmarkType string, compliancePercentage float32, compliances []ModelCompliance, dockerContainerName string, dockerImageName string, hostName string, kubernetesClusterName string, nodeId string, nodeName string, nodeType string, scanId string, statusCounts map[string]int32, updatedAt int32) *ModelComplianceScanResult {
+func NewModelComplianceScanResult(benchmarkType string, compliancePercentage float32, compliances []ModelCompliance, dockerContainerName string, dockerImageName string, hostName string, kubernetesClusterName string, nodeId string, nodeName string, nodeType string, scanId string, statusCounts map[string]int32, updatedAt int64) *ModelComplianceScanResult {
 	this := ModelComplianceScanResult{}
 	this.BenchmarkType = benchmarkType
 	this.CompliancePercentage = compliancePercentage
@@ -358,9 +358,9 @@ func (o *ModelComplianceScanResult) SetStatusCounts(v map[string]int32) {
 }
 
 // GetUpdatedAt returns the UpdatedAt field value
-func (o *ModelComplianceScanResult) GetUpdatedAt() int32 {
+func (o *ModelComplianceScanResult) GetUpdatedAt() int64 {
 	if o == nil {
-		var ret int32
+		var ret int64
 		return ret
 	}
 
@@ -369,7 +369,7 @@ func (o *ModelComplianceScanResult) GetUpdatedAt() int32 {
 
 // GetUpdatedAtOk returns a tuple with the UpdatedAt field value
 // and a boolean to check if the value has been set.
-func (o *ModelComplianceScanResult) GetUpdatedAtOk() (*int32, bool) {
+func (o *ModelComplianceScanResult) GetUpdatedAtOk() (*int64, bool) {
 	if o == nil {
 		return nil, false
 	}
@@ -377,7 +377,7 @@ func (o *ModelComplianceScanResult) GetUpdatedAtOk() (*int32, bool) {
 }
 
 // SetUpdatedAt sets field value
-func (o *ModelComplianceScanResult) SetUpdatedAt(v int32) {
+func (o *ModelComplianceScanResult) SetUpdatedAt(v int64) {
 	o.UpdatedAt = v
 }
 

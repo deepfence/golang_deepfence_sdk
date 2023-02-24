@@ -6742,6 +6742,7 @@ components:
           nullable: true
           type: object
         updated_at:
+          format: int64
           type: integer
       required:
       - benchmark_type
@@ -7092,6 +7093,7 @@ components:
           nullable: true
           type: object
         updated_at:
+          format: int64
           type: integer
       required:
       - benchmark_type
@@ -9150,6 +9152,7 @@ components:
           nullable: true
           type: object
         updated_at:
+          format: int64
           type: integer
       required:
       - docker_container_name
@@ -10094,6 +10097,7 @@ components:
           nullable: true
           type: object
         updated_at:
+          format: int64
           type: integer
       required:
       - docker_container_name
@@ -10430,6 +10434,7 @@ components:
           nullable: true
           type: object
         updated_at:
+          format: int64
           type: integer
         vulnerabilities:
           items:
@@ -10678,11 +10683,19 @@ components:
       type: object
     SearchSearchCountResp:
       example:
-        count: 0
+        count: 6
+        categories:
+          key: 0
       properties:
+        categories:
+          additionalProperties:
+            type: integer
+          nullable: true
+          type: object
         count:
           type: integer
       required:
+      - categories
       - count
       type: object
     SearchSearchFilter:

@@ -4,13 +4,14 @@
 
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
+**Categories** | **map[string]int32** |  | 
 **Count** | **int32** |  | 
 
 ## Methods
 
 ### NewSearchSearchCountResp
 
-`func NewSearchSearchCountResp(count int32, ) *SearchSearchCountResp`
+`func NewSearchSearchCountResp(categories map[string]int32, count int32, ) *SearchSearchCountResp`
 
 NewSearchSearchCountResp instantiates a new SearchSearchCountResp object
 This constructor will assign default values to properties that have it defined,
@@ -25,6 +26,36 @@ NewSearchSearchCountRespWithDefaults instantiates a new SearchSearchCountResp ob
 This constructor will only assign default values to properties that have it defined,
 but it doesn't guarantee that properties required by API are set
 
+### GetCategories
+
+`func (o *SearchSearchCountResp) GetCategories() map[string]int32`
+
+GetCategories returns the Categories field if non-nil, zero value otherwise.
+
+### GetCategoriesOk
+
+`func (o *SearchSearchCountResp) GetCategoriesOk() (*map[string]int32, bool)`
+
+GetCategoriesOk returns a tuple with the Categories field if it's non-nil, zero value otherwise
+and a boolean to check if the value has been set.
+
+### SetCategories
+
+`func (o *SearchSearchCountResp) SetCategories(v map[string]int32)`
+
+SetCategories sets Categories field to given value.
+
+
+### SetCategoriesNil
+
+`func (o *SearchSearchCountResp) SetCategoriesNil(b bool)`
+
+ SetCategoriesNil sets the value for Categories to be an explicit nil
+
+### UnsetCategories
+`func (o *SearchSearchCountResp) UnsetCategories()`
+
+UnsetCategories ensures that no value is present for Categories, not even an explicit nil
 ### GetCount
 
 `func (o *SearchSearchCountResp) GetCount() int32`

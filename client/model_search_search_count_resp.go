@@ -20,6 +20,7 @@ var _ MappedNullable = &SearchSearchCountResp{}
 
 // SearchSearchCountResp struct for SearchSearchCountResp
 type SearchSearchCountResp struct {
+	Categories map[string]int32 `json:"categories"`
 	Count int32 `json:"count"`
 }
 
@@ -27,8 +28,9 @@ type SearchSearchCountResp struct {
 // This constructor will assign default values to properties that have it defined,
 // and makes sure properties required by API are set, but the set of arguments
 // will change when the set of required properties is changed
-func NewSearchSearchCountResp(count int32) *SearchSearchCountResp {
+func NewSearchSearchCountResp(categories map[string]int32, count int32) *SearchSearchCountResp {
 	this := SearchSearchCountResp{}
+	this.Categories = categories
 	this.Count = count
 	return &this
 }
@@ -39,6 +41,32 @@ func NewSearchSearchCountResp(count int32) *SearchSearchCountResp {
 func NewSearchSearchCountRespWithDefaults() *SearchSearchCountResp {
 	this := SearchSearchCountResp{}
 	return &this
+}
+
+// GetCategories returns the Categories field value
+// If the value is explicit nil, the zero value for map[string]int32 will be returned
+func (o *SearchSearchCountResp) GetCategories() map[string]int32 {
+	if o == nil {
+		var ret map[string]int32
+		return ret
+	}
+
+	return o.Categories
+}
+
+// GetCategoriesOk returns a tuple with the Categories field value
+// and a boolean to check if the value has been set.
+// NOTE: If the value is an explicit nil, `nil, true` will be returned
+func (o *SearchSearchCountResp) GetCategoriesOk() (*map[string]int32, bool) {
+	if o == nil || IsNil(o.Categories) {
+		return nil, false
+	}
+	return &o.Categories, true
+}
+
+// SetCategories sets field value
+func (o *SearchSearchCountResp) SetCategories(v map[string]int32) {
+	o.Categories = v
 }
 
 // GetCount returns the Count field value
@@ -75,6 +103,9 @@ func (o SearchSearchCountResp) MarshalJSON() ([]byte, error) {
 
 func (o SearchSearchCountResp) ToMap() (map[string]interface{}, error) {
 	toSerialize := map[string]interface{}{}
+	if o.Categories != nil {
+		toSerialize["categories"] = o.Categories
+	}
 	toSerialize["count"] = o.Count
 	return toSerialize, nil
 }
