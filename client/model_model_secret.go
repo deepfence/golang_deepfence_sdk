@@ -21,6 +21,7 @@ var _ MappedNullable = &ModelSecret{}
 // ModelSecret struct for ModelSecret
 type ModelSecret struct {
 	FullFilename string `json:"full_filename"`
+	Masked string `json:"masked"`
 	MatchedContent string `json:"matched_content"`
 	RelativeEndingIndex int32 `json:"relative_ending_index"`
 	RelativeStartingIndex int32 `json:"relative_starting_index"`
@@ -31,9 +32,10 @@ type ModelSecret struct {
 // This constructor will assign default values to properties that have it defined,
 // and makes sure properties required by API are set, but the set of arguments
 // will change when the set of required properties is changed
-func NewModelSecret(fullFilename string, matchedContent string, relativeEndingIndex int32, relativeStartingIndex int32, startingIndex int32) *ModelSecret {
+func NewModelSecret(fullFilename string, masked string, matchedContent string, relativeEndingIndex int32, relativeStartingIndex int32, startingIndex int32) *ModelSecret {
 	this := ModelSecret{}
 	this.FullFilename = fullFilename
+	this.Masked = masked
 	this.MatchedContent = matchedContent
 	this.RelativeEndingIndex = relativeEndingIndex
 	this.RelativeStartingIndex = relativeStartingIndex
@@ -71,6 +73,30 @@ func (o *ModelSecret) GetFullFilenameOk() (*string, bool) {
 // SetFullFilename sets field value
 func (o *ModelSecret) SetFullFilename(v string) {
 	o.FullFilename = v
+}
+
+// GetMasked returns the Masked field value
+func (o *ModelSecret) GetMasked() string {
+	if o == nil {
+		var ret string
+		return ret
+	}
+
+	return o.Masked
+}
+
+// GetMaskedOk returns a tuple with the Masked field value
+// and a boolean to check if the value has been set.
+func (o *ModelSecret) GetMaskedOk() (*string, bool) {
+	if o == nil {
+		return nil, false
+	}
+	return &o.Masked, true
+}
+
+// SetMasked sets field value
+func (o *ModelSecret) SetMasked(v string) {
+	o.Masked = v
 }
 
 // GetMatchedContent returns the MatchedContent field value
@@ -180,6 +206,7 @@ func (o ModelSecret) MarshalJSON() ([]byte, error) {
 func (o ModelSecret) ToMap() (map[string]interface{}, error) {
 	toSerialize := map[string]interface{}{}
 	toSerialize["full_filename"] = o.FullFilename
+	toSerialize["masked"] = o.Masked
 	toSerialize["matched_content"] = o.MatchedContent
 	toSerialize["relative_ending_index"] = o.RelativeEndingIndex
 	toSerialize["relative_starting_index"] = o.RelativeStartingIndex

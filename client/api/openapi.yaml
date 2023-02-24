@@ -6928,6 +6928,7 @@ components:
       example:
         resource: resource
         compliance_node_type: compliance_node_type
+        masked: masked
         description: description
         test_category: test_category
         remediation_ansible: remediation_ansible
@@ -6945,6 +6946,8 @@ components:
         compliance_node_type:
           type: string
         description:
+          type: string
+        masked:
           type: string
         remediation_ansible:
           type: string
@@ -6970,6 +6973,7 @@ components:
       - compliance_check_type
       - compliance_node_type
       - description
+      - masked
       - remediation_ansible
       - remediation_puppet
       - remediation_script
@@ -7028,6 +7032,7 @@ components:
         compliances:
         - resource: resource
           compliance_node_type: compliance_node_type
+          masked: masked
           description: description
           test_category: test_category
           remediation_ansible: remediation_ansible
@@ -7041,6 +7046,7 @@ components:
           test_number: test_number
         - resource: resource
           compliance_node_type: compliance_node_type
+          masked: masked
           description: description
           test_category: test_category
           remediation_ansible: remediation_ansible
@@ -9063,6 +9069,7 @@ components:
         image_layer_id: image_layer_id
         file_sevScore: 0.8008281904610115
         rule_name: rule_name
+        masked: masked
         complete_filename: complete_filename
         file_severity: file_severity
         class: class
@@ -9078,6 +9085,8 @@ components:
           type: string
         image_layer_id:
           type: string
+        masked:
+          type: string
         rule_name:
           type: string
         severity_score:
@@ -9090,6 +9099,7 @@ components:
       - file_sevScore
       - file_severity
       - image_layer_id
+      - masked
       - rule_name
       - severity_score
       - summary
@@ -9109,6 +9119,7 @@ components:
           image_layer_id: image_layer_id
           file_sevScore: 0.8008281904610115
           rule_name: rule_name
+          masked: masked
           complete_filename: complete_filename
           file_severity: file_severity
           class: class
@@ -9117,6 +9128,7 @@ components:
           image_layer_id: image_layer_id
           file_sevScore: 0.8008281904610115
           rule_name: rule_name
+          masked: masked
           complete_filename: complete_filename
           file_severity: file_severity
           class: class
@@ -9995,11 +10007,14 @@ components:
       example:
         full_filename: full_filename
         matched_content: matched_content
+        masked: masked
         relative_ending_index: 5
         starting_index: 2
         relative_starting_index: 5
       properties:
         full_filename:
+          type: string
+        masked:
           type: string
         matched_content:
           type: string
@@ -10011,6 +10026,7 @@ components:
           type: integer
       required:
       - full_filename
+      - masked
       - matched_content
       - relative_ending_index
       - relative_starting_index
@@ -10039,11 +10055,13 @@ components:
         secrets:
         - full_filename: full_filename
           matched_content: matched_content
+          masked: masked
           relative_ending_index: 5
           starting_index: 2
           relative_starting_index: 5
         - full_filename: full_filename
           matched_content: matched_content
+          masked: masked
           relative_ending_index: 5
           starting_index: 2
           relative_starting_index: 5
@@ -10282,6 +10300,7 @@ components:
     ModelVulnerability:
       example:
         cve_container_layer: cve_container_layer
+        masked: masked
         cve_description: cve_description
         cve_overall_score: 5.962133916683182
         cve_caused_by_package: cve_caused_by_package
@@ -10324,6 +10343,8 @@ components:
           type: string
         exploit_poc:
           type: string
+        masked:
+          type: string
         urls:
           items:
             type: string
@@ -10343,6 +10364,7 @@ components:
       - cve_severity
       - cve_type
       - exploit_poc
+      - masked
       - urls
       type: object
     ModelVulnerabilityScanConfigLanguage:
@@ -10376,6 +10398,7 @@ components:
         node_name: node_name
         vulnerabilities:
         - cve_container_layer: cve_container_layer
+          masked: masked
           cve_description: cve_description
           cve_overall_score: 5.962133916683182
           cve_caused_by_package: cve_caused_by_package
@@ -10392,6 +10415,7 @@ components:
           cve_fixed_in: cve_fixed_in
           cve_link: cve_link
         - cve_container_layer: cve_container_layer
+          masked: masked
           cve_description: cve_description
           cve_overall_score: 5.962133916683182
           cve_caused_by_package: cve_caused_by_package

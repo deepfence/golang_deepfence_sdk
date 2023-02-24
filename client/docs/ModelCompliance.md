@@ -7,6 +7,7 @@ Name | Type | Description | Notes
 **ComplianceCheckType** | **string** |  | 
 **ComplianceNodeType** | **string** |  | 
 **Description** | **string** |  | 
+**Masked** | **string** |  | 
 **RemediationAnsible** | **string** |  | 
 **RemediationPuppet** | **string** |  | 
 **RemediationScript** | **string** |  | 
@@ -22,7 +23,7 @@ Name | Type | Description | Notes
 
 ### NewModelCompliance
 
-`func NewModelCompliance(complianceCheckType string, complianceNodeType string, description string, remediationAnsible string, remediationPuppet string, remediationScript string, resource string, status string, testCategory string, testDesc string, testNumber string, testRationale string, testSeverity string, ) *ModelCompliance`
+`func NewModelCompliance(complianceCheckType string, complianceNodeType string, description string, masked string, remediationAnsible string, remediationPuppet string, remediationScript string, resource string, status string, testCategory string, testDesc string, testNumber string, testRationale string, testSeverity string, ) *ModelCompliance`
 
 NewModelCompliance instantiates a new ModelCompliance object
 This constructor will assign default values to properties that have it defined,
@@ -95,6 +96,26 @@ and a boolean to check if the value has been set.
 `func (o *ModelCompliance) SetDescription(v string)`
 
 SetDescription sets Description field to given value.
+
+
+### GetMasked
+
+`func (o *ModelCompliance) GetMasked() string`
+
+GetMasked returns the Masked field if non-nil, zero value otherwise.
+
+### GetMaskedOk
+
+`func (o *ModelCompliance) GetMaskedOk() (*string, bool)`
+
+GetMaskedOk returns a tuple with the Masked field if it's non-nil, zero value otherwise
+and a boolean to check if the value has been set.
+
+### SetMasked
+
+`func (o *ModelCompliance) SetMasked(v string)`
+
+SetMasked sets Masked field to given value.
 
 
 ### GetRemediationAnsible
