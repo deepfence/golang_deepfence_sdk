@@ -133,11 +133,15 @@ SET first_name           = $1,
     last_name            = $2,
     role_id              = $3,
     group_ids            = $4,
-    password_hash        = $5,
-    is_active            = $6,
-    password_invalidated = $7
-WHERE id = $8
+    is_active            = $5,
+    password_invalidated = $6
+WHERE id = $7
 RETURNING *;
+
+-- name: UpdatePassword :exec
+UPDATE users
+SET password_hash = $1
+WHERE id = $2;
 
 -- name: GetPasswordHash :one
 SELECT password_hash
@@ -155,7 +159,6 @@ SELECT users.id,
        users.group_ids,
        users.company_id,
        company.name      as company_name,
-       users.password_hash,
        users.is_active,
        users.password_invalidated,
        users.created_at,
@@ -176,7 +179,6 @@ SELECT users.id,
        users.group_ids,
        users.company_id,
        company.name      as company_name,
-       users.password_hash,
        users.is_active,
        users.password_invalidated,
        users.created_at,
@@ -198,7 +200,6 @@ SELECT users.id,
        users.group_ids,
        users.company_id,
        company.name      as company_name,
-       users.password_hash,
        users.is_active,
        users.password_invalidated,
        users.created_at,
@@ -220,7 +221,6 @@ SELECT users.id,
        users.group_ids,
        users.company_id,
        company.name      as company_name,
-       users.password_hash,
        users.is_active,
        users.password_invalidated,
        users.created_at,
