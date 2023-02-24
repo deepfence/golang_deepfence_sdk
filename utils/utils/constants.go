@@ -59,6 +59,16 @@ const (
 	NEO4J_CLOUD_COMPLIANCE_SCAN Neo4jScanType = "CloudComplianceScan"
 )
 
+var (
+	ScanTypeDetectedNode = map[Neo4jScanType]string{
+		NEO4J_VULNERABILITY_SCAN:    "Vulnerability",
+		NEO4J_SECRET_SCAN:           "Secret",
+		NEO4J_MALWARE_SCAN:          "Malware",
+		NEO4J_COMPLIANCE_SCAN:       "Compliance",
+		NEO4J_CLOUD_COMPLIANCE_SCAN: "CloudCompliance",
+	}
+)
+
 type CloudProvider int
 
 const (
