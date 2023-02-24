@@ -129,8 +129,6 @@ Class | Method | HTTP request | Description
 *ScanResultsApi* | [**DeleteScanResult**](docs/ScanResultsApi.md#deletescanresult) | **Patch** /deepfence/scan/results/action/delete | Delete selected scan results
 *ScanResultsApi* | [**DeleteScanResultsForScanID**](docs/ScanResultsApi.md#deletescanresultsforscanid) | **Delete** /deepfence/scan/{scan_type}/{scan_id} | Delete all scan results for a scan id
 *ScanResultsApi* | [**DownloadScanResults**](docs/ScanResultsApi.md#downloadscanresults) | **Get** /deepfence/scan/{scan_type}/{scan_id}/download | Download Scans Results
-*ScanResultsApi* | [**GetAllNodesOfScanResultDocument**](docs/ScanResultsApi.md#getallnodesofscanresultdocument) | **Get** /deepfence/scan/{scan_type}/{scan_id}/{doc_id}/nodes | Get all nodes for given result document
-*ScanResultsApi* | [**GetScanResultDocument**](docs/ScanResultsApi.md#getscanresultdocument) | **Get** /deepfence/scan/{scan_type}/{scan_id}/{doc_id} | Get Scans Result Document
 *ScanResultsApi* | [**MaskScanResult**](docs/ScanResultsApi.md#maskscanresult) | **Post** /deepfence/scan/results/action/mask | Mask Scans Results
 *ScanResultsApi* | [**NotifyScanResult**](docs/ScanResultsApi.md#notifyscanresult) | **Post** /deepfence/scan/results/action/notify | Notify Scans Results
 *ScanResultsApi* | [**UnmaskScanResult**](docs/ScanResultsApi.md#unmaskscanresult) | **Post** /deepfence/scan/results/action/unmask | Unmask Scans Results
