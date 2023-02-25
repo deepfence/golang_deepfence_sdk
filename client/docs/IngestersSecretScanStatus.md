@@ -8,7 +8,6 @@ Name | Type | Description | Notes
 **ContainerName** | Pointer to **string** |  | [optional] 
 **HostName** | Pointer to **string** |  | [optional] 
 **KubernetesClusterName** | Pointer to **string** |  | [optional] 
-**Masked** | Pointer to **string** |  | [optional] 
 **NodeId** | Pointer to **string** |  | [optional] 
 **NodeName** | Pointer to **string** |  | [optional] 
 **NodeType** | Pointer to **string** |  | [optional] 
@@ -133,31 +132,6 @@ SetKubernetesClusterName sets KubernetesClusterName field to given value.
 `func (o *IngestersSecretScanStatus) HasKubernetesClusterName() bool`
 
 HasKubernetesClusterName returns a boolean if a field has been set.
-
-### GetMasked
-
-`func (o *IngestersSecretScanStatus) GetMasked() string`
-
-GetMasked returns the Masked field if non-nil, zero value otherwise.
-
-### GetMaskedOk
-
-`func (o *IngestersSecretScanStatus) GetMaskedOk() (*string, bool)`
-
-GetMaskedOk returns a tuple with the Masked field if it's non-nil, zero value otherwise
-and a boolean to check if the value has been set.
-
-### SetMasked
-
-`func (o *IngestersSecretScanStatus) SetMasked(v string)`
-
-SetMasked sets Masked field to given value.
-
-### HasMasked
-
-`func (o *IngestersSecretScanStatus) HasMasked() bool`
-
-HasMasked returns a boolean if a field has been set.
 
 ### GetNodeId
 

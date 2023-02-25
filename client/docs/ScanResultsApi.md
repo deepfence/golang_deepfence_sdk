@@ -7,7 +7,7 @@ Method | HTTP request | Description
 [**DeleteScanResult**](ScanResultsApi.md#DeleteScanResult) | **Patch** /deepfence/scan/results/action/delete | Delete selected scan results
 [**DeleteScanResultsForScanID**](ScanResultsApi.md#DeleteScanResultsForScanID) | **Delete** /deepfence/scan/{scan_type}/{scan_id} | Delete all scan results for a scan id
 [**DownloadScanResults**](ScanResultsApi.md#DownloadScanResults) | **Get** /deepfence/scan/{scan_type}/{scan_id}/download | Download Scans Results
-[**GetAllNodesOfScanResultDocument**](ScanResultsApi.md#GetAllNodesOfScanResultDocument) | **Get** /deepfence/scan/{scan_type}/{scan_id}/{doc_id}/nodes | Get all nodes for given result document
+[**GetAllNodesOfScanResultDocument**](ScanResultsApi.md#GetAllNodesOfScanResultDocument) | **Get** /deepfence/scan/nodes/{scan_type}/{doc_id} | Get all nodes for given result document
 [**MaskScanResult**](ScanResultsApi.md#MaskScanResult) | **Post** /deepfence/scan/results/action/mask | Mask Scans Results
 [**NotifyScanResult**](ScanResultsApi.md#NotifyScanResult) | **Post** /deepfence/scan/results/action/notify | Notify Scans Results
 [**UnmaskScanResult**](ScanResultsApi.md#UnmaskScanResult) | **Post** /deepfence/scan/results/action/unmask | Unmask Scans Results
@@ -224,7 +224,7 @@ Name | Type | Description  | Notes
 
 ## GetAllNodesOfScanResultDocument
 
-> []ModelBasicNode GetAllNodesOfScanResultDocument(ctx, docId, scanId, scanType).Execute()
+> []ModelBasicNode GetAllNodesOfScanResultDocument(ctx, docId, scanType).Execute()
 
 Get all nodes for given result document
 
@@ -244,12 +244,11 @@ import (
 
 func main() {
     docId := "docId_example" // string | 
-    scanId := "scanId_example" // string | 
     scanType := "scanType_example" // string | 
 
     configuration := openapiclient.NewConfiguration()
     apiClient := openapiclient.NewAPIClient(configuration)
-    resp, r, err := apiClient.ScanResultsApi.GetAllNodesOfScanResultDocument(context.Background(), docId, scanId, scanType).Execute()
+    resp, r, err := apiClient.ScanResultsApi.GetAllNodesOfScanResultDocument(context.Background(), docId, scanType).Execute()
     if err != nil {
         fmt.Fprintf(os.Stderr, "Error when calling `ScanResultsApi.GetAllNodesOfScanResultDocument``: %v\n", err)
         fmt.Fprintf(os.Stderr, "Full HTTP response: %v\n", r)
@@ -266,7 +265,6 @@ Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
 **ctx** | **context.Context** | context for authentication, logging, cancellation, deadlines, tracing, etc.
 **docId** | **string** |  | 
-**scanId** | **string** |  | 
 **scanType** | **string** |  | 
 
 ### Other Parameters
@@ -276,7 +274,6 @@ Other parameters are passed through a pointer to a apiGetAllNodesOfScanResultDoc
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
-
 
 
 

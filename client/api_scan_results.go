@@ -423,7 +423,6 @@ type ApiGetAllNodesOfScanResultDocumentRequest struct {
 	ctx context.Context
 	ApiService *ScanResultsApiService
 	docId string
-	scanId string
 	scanType string
 }
 
@@ -438,16 +437,14 @@ Get all nodes for given result document
 
  @param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
  @param docId
- @param scanId
  @param scanType
  @return ApiGetAllNodesOfScanResultDocumentRequest
 */
-func (a *ScanResultsApiService) GetAllNodesOfScanResultDocument(ctx context.Context, docId string, scanId string, scanType string) ApiGetAllNodesOfScanResultDocumentRequest {
+func (a *ScanResultsApiService) GetAllNodesOfScanResultDocument(ctx context.Context, docId string, scanType string) ApiGetAllNodesOfScanResultDocumentRequest {
 	return ApiGetAllNodesOfScanResultDocumentRequest{
 		ApiService: a,
 		ctx: ctx,
 		docId: docId,
-		scanId: scanId,
 		scanType: scanType,
 	}
 }
@@ -467,9 +464,8 @@ func (a *ScanResultsApiService) GetAllNodesOfScanResultDocumentExecute(r ApiGetA
 		return localVarReturnValue, nil, &GenericOpenAPIError{error: err.Error()}
 	}
 
-	localVarPath := localBasePath + "/deepfence/scan/{scan_type}/{scan_id}/{doc_id}/nodes"
+	localVarPath := localBasePath + "/deepfence/scan/nodes/{scan_type}/{doc_id}"
 	localVarPath = strings.Replace(localVarPath, "{"+"doc_id"+"}", url.PathEscape(parameterValueToString(r.docId, "docId")), -1)
-	localVarPath = strings.Replace(localVarPath, "{"+"scan_id"+"}", url.PathEscape(parameterValueToString(r.scanId, "scanId")), -1)
 	localVarPath = strings.Replace(localVarPath, "{"+"scan_type"+"}", url.PathEscape(parameterValueToString(r.scanType, "scanType")), -1)
 
 	localVarHeaderParams := make(map[string]string)

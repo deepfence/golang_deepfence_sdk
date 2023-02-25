@@ -13,7 +13,7 @@ Name | Type | Description | Notes
 **Description** | Pointer to **string** |  | [optional] 
 **DocId** | Pointer to **string** |  | [optional] 
 **Group** | Pointer to **string** |  | [optional] 
-**Masked** | Pointer to **string** |  | [optional] 
+**Masked** | Pointer to **bool** |  | [optional] 
 **NodeId** | Pointer to **string** |  | [optional] 
 **NodeName** | Pointer to **string** |  | [optional] 
 **Reason** | Pointer to **string** |  | [optional] 
@@ -272,20 +272,20 @@ HasGroup returns a boolean if a field has been set.
 
 ### GetMasked
 
-`func (o *IngestersCloudCompliance) GetMasked() string`
+`func (o *IngestersCloudCompliance) GetMasked() bool`
 
 GetMasked returns the Masked field if non-nil, zero value otherwise.
 
 ### GetMaskedOk
 
-`func (o *IngestersCloudCompliance) GetMaskedOk() (*string, bool)`
+`func (o *IngestersCloudCompliance) GetMaskedOk() (*bool, bool)`
 
 GetMaskedOk returns a tuple with the Masked field if it's non-nil, zero value otherwise
 and a boolean to check if the value has been set.
 
 ### SetMasked
 
-`func (o *IngestersCloudCompliance) SetMasked(v string)`
+`func (o *IngestersCloudCompliance) SetMasked(v bool)`
 
 SetMasked sets Masked field to given value.
 

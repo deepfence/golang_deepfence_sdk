@@ -29,7 +29,7 @@ type IngestersCloudCompliance struct {
 	Description *string `json:"description,omitempty"`
 	DocId *string `json:"doc_id,omitempty"`
 	Group *string `json:"group,omitempty"`
-	Masked *string `json:"masked,omitempty"`
+	Masked *bool `json:"masked,omitempty"`
 	NodeId *string `json:"node_id,omitempty"`
 	NodeName *string `json:"node_name,omitempty"`
 	Reason *string `json:"reason,omitempty"`
@@ -349,9 +349,9 @@ func (o *IngestersCloudCompliance) SetGroup(v string) {
 }
 
 // GetMasked returns the Masked field value if set, zero value otherwise.
-func (o *IngestersCloudCompliance) GetMasked() string {
+func (o *IngestersCloudCompliance) GetMasked() bool {
 	if o == nil || IsNil(o.Masked) {
-		var ret string
+		var ret bool
 		return ret
 	}
 	return *o.Masked
@@ -359,7 +359,7 @@ func (o *IngestersCloudCompliance) GetMasked() string {
 
 // GetMaskedOk returns a tuple with the Masked field value if set, nil otherwise
 // and a boolean to check if the value has been set.
-func (o *IngestersCloudCompliance) GetMaskedOk() (*string, bool) {
+func (o *IngestersCloudCompliance) GetMaskedOk() (*bool, bool) {
 	if o == nil || IsNil(o.Masked) {
 		return nil, false
 	}
@@ -375,8 +375,8 @@ func (o *IngestersCloudCompliance) HasMasked() bool {
 	return false
 }
 
-// SetMasked gets a reference to the given string and assigns it to the Masked field.
-func (o *IngestersCloudCompliance) SetMasked(v string) {
+// SetMasked gets a reference to the given bool and assigns it to the Masked field.
+func (o *IngestersCloudCompliance) SetMasked(v bool) {
 	o.Masked = &v
 }
 

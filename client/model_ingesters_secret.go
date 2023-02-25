@@ -29,7 +29,7 @@ type IngestersSecret struct {
 	ContainerName *string `json:"container_name,omitempty"`
 	HostName *string `json:"host_name,omitempty"`
 	KubernetesClusterName *string `json:"kubernetes_cluster_name,omitempty"`
-	Masked *string `json:"masked,omitempty"`
+	Masked *bool `json:"masked,omitempty"`
 	NodeId *string `json:"node_id,omitempty"`
 	NodeName *string `json:"node_name,omitempty"`
 	NodeType *string `json:"node_type,omitempty"`
@@ -310,9 +310,9 @@ func (o *IngestersSecret) SetKubernetesClusterName(v string) {
 }
 
 // GetMasked returns the Masked field value if set, zero value otherwise.
-func (o *IngestersSecret) GetMasked() string {
+func (o *IngestersSecret) GetMasked() bool {
 	if o == nil || IsNil(o.Masked) {
-		var ret string
+		var ret bool
 		return ret
 	}
 	return *o.Masked
@@ -320,7 +320,7 @@ func (o *IngestersSecret) GetMasked() string {
 
 // GetMaskedOk returns a tuple with the Masked field value if set, nil otherwise
 // and a boolean to check if the value has been set.
-func (o *IngestersSecret) GetMaskedOk() (*string, bool) {
+func (o *IngestersSecret) GetMaskedOk() (*bool, bool) {
 	if o == nil || IsNil(o.Masked) {
 		return nil, false
 	}
@@ -336,8 +336,8 @@ func (o *IngestersSecret) HasMasked() bool {
 	return false
 }
 
-// SetMasked gets a reference to the given string and assigns it to the Masked field.
-func (o *IngestersSecret) SetMasked(v string) {
+// SetMasked gets a reference to the given bool and assigns it to the Masked field.
+func (o *IngestersSecret) SetMasked(v bool) {
 	o.Masked = &v
 }
 

@@ -1947,74 +1947,6 @@ paths:
       summary: Delete all scan results for a scan id
       tags:
       - Scan Results
-  /deepfence/scan/{scan_type}/{scan_id}/{doc_id}/nodes:
-    get:
-      description: Get all nodes for given result document
-      operationId: getAllNodesOfScanResultDocument
-      parameters:
-      - explode: false
-        in: path
-        name: doc_id
-        required: true
-        schema:
-          type: string
-        style: simple
-      - explode: false
-        in: path
-        name: scan_id
-        required: true
-        schema:
-          type: string
-        style: simple
-      - explode: false
-        in: path
-        name: scan_type
-        required: true
-        schema:
-          enum:
-          - SecretScan
-          - VulnerabilityScan
-          - MalwareScan
-          - ComplianceScan
-          - CloudComplianceScan
-          type: string
-        style: simple
-      responses:
-        "200":
-          content:
-            application/json:
-              schema:
-                items:
-                  $ref: '#/components/schemas/ModelBasicNode'
-                type: array
-          description: OK
-        "400":
-          content:
-            application/json:
-              schema:
-                $ref: '#/components/schemas/ApiDocsBadRequestResponse'
-          description: Bad Request
-        "401":
-          description: Unauthorized
-        "403":
-          description: Forbidden
-        "404":
-          content:
-            application/json:
-              schema:
-                $ref: '#/components/schemas/ApiDocsFailureResponse'
-          description: Not Found
-        "500":
-          content:
-            application/json:
-              schema:
-                $ref: '#/components/schemas/ApiDocsFailureResponse'
-          description: Internal Server Error
-      security:
-      - bearer_token: []
-      summary: Get all nodes for given result document
-      tags:
-      - Scan Results
   /deepfence/scan/{scan_type}/{scan_id}/download:
     get:
       description: Download scan results
@@ -2246,6 +2178,67 @@ paths:
       summary: Get Vulnerability Scans List
       tags:
       - Vulnerability
+  /deepfence/scan/nodes/{scan_type}/{doc_id}:
+    get:
+      description: Get all nodes for given result document
+      operationId: getAllNodesOfScanResultDocument
+      parameters:
+      - explode: false
+        in: path
+        name: doc_id
+        required: true
+        schema:
+          type: string
+        style: simple
+      - explode: false
+        in: path
+        name: scan_type
+        required: true
+        schema:
+          enum:
+          - SecretScan
+          - VulnerabilityScan
+          - MalwareScan
+          - ComplianceScan
+          - CloudComplianceScan
+          type: string
+        style: simple
+      responses:
+        "200":
+          content:
+            application/json:
+              schema:
+                items:
+                  $ref: '#/components/schemas/ModelBasicNode'
+                type: array
+          description: OK
+        "400":
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ApiDocsBadRequestResponse'
+          description: Bad Request
+        "401":
+          description: Unauthorized
+        "403":
+          description: Forbidden
+        "404":
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ApiDocsFailureResponse'
+          description: Not Found
+        "500":
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ApiDocsFailureResponse'
+          description: Internal Server Error
+      security:
+      - bearer_token: []
+      summary: Get all nodes for given result document
+      tags:
+      - Scan Results
   /deepfence/scan/results/action/delete:
     patch:
       description: Delete selected scan results
@@ -5701,7 +5694,7 @@ components:
         reason: reason
         control_id: control_id
         resource: resource
-        masked: masked
+        masked: true
         count: 0
         node_name: node_name
         description: description
@@ -5738,7 +5731,7 @@ components:
         group:
           type: string
         masked:
-          type: string
+          type: boolean
         node_id:
           type: string
         node_name:
@@ -5868,7 +5861,7 @@ components:
         compliance_node_type: compliance_node_type
         kubernetes_cluster_id: kubernetes_cluster_id
         kubernetes_cluster_name: kubernetes_cluster_name
-        masked: masked
+        masked: true
         node_name: node_name
         description: description
         test_category: test_category
@@ -5903,7 +5896,7 @@ components:
         kubernetes_cluster_name:
           type: string
         masked:
-          type: string
+          type: boolean
         node_id:
           type: string
         node_name:
@@ -6026,7 +6019,6 @@ components:
         container_name: container_name
         scan_status: scan_status
         kubernetes_cluster_name: kubernetes_cluster_name
-        masked: masked
         node_name: node_name
         scan_id: scan_id
         host_name: host_name
@@ -6040,8 +6032,6 @@ components:
         host_name:
           type: string
         kubernetes_cluster_name:
-          type: string
-        masked:
           type: string
         node_id:
           type: string
@@ -6200,7 +6190,7 @@ components:
       example:
         ImageLayerId: ImageLayerId
         kubernetes_cluster_name: kubernetes_cluster_name
-        masked: masked
+        masked: true
         node_name: node_name
         Severity:
           score: 5.637376656633329
@@ -6241,7 +6231,7 @@ components:
         kubernetes_cluster_name:
           type: string
         masked:
-          type: string
+          type: boolean
         node_id:
           type: string
         node_name:
@@ -6258,7 +6248,6 @@ components:
         container_name: container_name
         scan_status: scan_status
         kubernetes_cluster_name: kubernetes_cluster_name
-        masked: masked
         node_name: node_name
         scan_id: scan_id
         host_name: host_name
@@ -6272,8 +6261,6 @@ components:
         host_name:
           type: string
         kubernetes_cluster_name:
-          type: string
-        masked:
           type: string
         node_id:
           type: string
@@ -6290,7 +6277,7 @@ components:
       example:
         cve_container_layer: cve_container_layer
         kubernetes_cluster_name: kubernetes_cluster_name
-        masked: masked
+        masked: true
         cve_container_image: cve_container_image
         cve_caused_by_package: cve_caused_by_package
         type: type
@@ -6366,7 +6353,7 @@ components:
         kubernetes_cluster_name:
           type: string
         masked:
-          type: string
+          type: boolean
         node_type:
           type: string
         scan_id:
@@ -6386,7 +6373,6 @@ components:
         container_name: container_name
         scan_status: scan_status
         kubernetes_cluster_name: kubernetes_cluster_name
-        masked: masked
         node_name: node_name
         scan_id: scan_id
         host_name: host_name
@@ -6400,8 +6386,6 @@ components:
         host_name:
           type: string
         kubernetes_cluster_name:
-          type: string
-        masked:
           type: string
         node_id:
           type: string

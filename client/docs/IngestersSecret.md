@@ -12,7 +12,7 @@ Name | Type | Description | Notes
 **ContainerName** | Pointer to **string** |  | [optional] 
 **HostName** | Pointer to **string** |  | [optional] 
 **KubernetesClusterName** | Pointer to **string** |  | [optional] 
-**Masked** | Pointer to **string** |  | [optional] 
+**Masked** | Pointer to **bool** |  | [optional] 
 **NodeId** | Pointer to **string** |  | [optional] 
 **NodeName** | Pointer to **string** |  | [optional] 
 **NodeType** | Pointer to **string** |  | [optional] 
@@ -239,20 +239,20 @@ HasKubernetesClusterName returns a boolean if a field has been set.
 
 ### GetMasked
 
-`func (o *IngestersSecret) GetMasked() string`
+`func (o *IngestersSecret) GetMasked() bool`
 
 GetMasked returns the Masked field if non-nil, zero value otherwise.
 
 ### GetMaskedOk
 
-`func (o *IngestersSecret) GetMaskedOk() (*string, bool)`
+`func (o *IngestersSecret) GetMaskedOk() (*bool, bool)`
 
 GetMaskedOk returns a tuple with the Masked field if it's non-nil, zero value otherwise
 and a boolean to check if the value has been set.
 
 ### SetMasked
 
-`func (o *IngestersSecret) SetMasked(v string)`
+`func (o *IngestersSecret) SetMasked(v bool)`
 
 SetMasked sets Masked field to given value.
 
