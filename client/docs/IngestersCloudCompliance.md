@@ -14,8 +14,6 @@ Name | Type | Description | Notes
 **DocId** | Pointer to **string** |  | [optional] 
 **Group** | Pointer to **string** |  | [optional] 
 **Masked** | Pointer to **bool** |  | [optional] 
-**NodeId** | Pointer to **string** |  | [optional] 
-**NodeName** | Pointer to **string** |  | [optional] 
 **Reason** | Pointer to **string** |  | [optional] 
 **Region** | Pointer to **string** |  | [optional] 
 **Resource** | Pointer to **string** |  | [optional] 
@@ -294,56 +292,6 @@ SetMasked sets Masked field to given value.
 `func (o *IngestersCloudCompliance) HasMasked() bool`
 
 HasMasked returns a boolean if a field has been set.
-
-### GetNodeId
-
-`func (o *IngestersCloudCompliance) GetNodeId() string`
-
-GetNodeId returns the NodeId field if non-nil, zero value otherwise.
-
-### GetNodeIdOk
-
-`func (o *IngestersCloudCompliance) GetNodeIdOk() (*string, bool)`
-
-GetNodeIdOk returns a tuple with the NodeId field if it's non-nil, zero value otherwise
-and a boolean to check if the value has been set.
-
-### SetNodeId
-
-`func (o *IngestersCloudCompliance) SetNodeId(v string)`
-
-SetNodeId sets NodeId field to given value.
-
-### HasNodeId
-
-`func (o *IngestersCloudCompliance) HasNodeId() bool`
-
-HasNodeId returns a boolean if a field has been set.
-
-### GetNodeName
-
-`func (o *IngestersCloudCompliance) GetNodeName() string`
-
-GetNodeName returns the NodeName field if non-nil, zero value otherwise.
-
-### GetNodeNameOk
-
-`func (o *IngestersCloudCompliance) GetNodeNameOk() (*string, bool)`
-
-GetNodeNameOk returns a tuple with the NodeName field if it's non-nil, zero value otherwise
-and a boolean to check if the value has been set.
-
-### SetNodeName
-
-`func (o *IngestersCloudCompliance) SetNodeName(v string)`
-
-SetNodeName sets NodeName field to given value.
-
-### HasNodeName
-
-`func (o *IngestersCloudCompliance) HasNodeName() bool`
-
-HasNodeName returns a boolean if a field has been set.
 
 ### GetReason
 

@@ -9,13 +9,7 @@ Name | Type | Description | Notes
 **Match** | Pointer to [**IngestersSecretMatch**](IngestersSecretMatch.md) |  | [optional] 
 **Rule** | Pointer to [**IngestersSecretRule**](IngestersSecretRule.md) |  | [optional] 
 **Severity** | Pointer to [**IngestersSecretSeverity**](IngestersSecretSeverity.md) |  | [optional] 
-**ContainerName** | Pointer to **string** |  | [optional] 
-**HostName** | Pointer to **string** |  | [optional] 
-**KubernetesClusterName** | Pointer to **string** |  | [optional] 
 **Masked** | Pointer to **bool** |  | [optional] 
-**NodeId** | Pointer to **string** |  | [optional] 
-**NodeName** | Pointer to **string** |  | [optional] 
-**NodeType** | Pointer to **string** |  | [optional] 
 **ScanId** | Pointer to **string** |  | [optional] 
 
 ## Methods
@@ -162,81 +156,6 @@ SetSeverity sets Severity field to given value.
 
 HasSeverity returns a boolean if a field has been set.
 
-### GetContainerName
-
-`func (o *IngestersSecret) GetContainerName() string`
-
-GetContainerName returns the ContainerName field if non-nil, zero value otherwise.
-
-### GetContainerNameOk
-
-`func (o *IngestersSecret) GetContainerNameOk() (*string, bool)`
-
-GetContainerNameOk returns a tuple with the ContainerName field if it's non-nil, zero value otherwise
-and a boolean to check if the value has been set.
-
-### SetContainerName
-
-`func (o *IngestersSecret) SetContainerName(v string)`
-
-SetContainerName sets ContainerName field to given value.
-
-### HasContainerName
-
-`func (o *IngestersSecret) HasContainerName() bool`
-
-HasContainerName returns a boolean if a field has been set.
-
-### GetHostName
-
-`func (o *IngestersSecret) GetHostName() string`
-
-GetHostName returns the HostName field if non-nil, zero value otherwise.
-
-### GetHostNameOk
-
-`func (o *IngestersSecret) GetHostNameOk() (*string, bool)`
-
-GetHostNameOk returns a tuple with the HostName field if it's non-nil, zero value otherwise
-and a boolean to check if the value has been set.
-
-### SetHostName
-
-`func (o *IngestersSecret) SetHostName(v string)`
-
-SetHostName sets HostName field to given value.
-
-### HasHostName
-
-`func (o *IngestersSecret) HasHostName() bool`
-
-HasHostName returns a boolean if a field has been set.
-
-### GetKubernetesClusterName
-
-`func (o *IngestersSecret) GetKubernetesClusterName() string`
-
-GetKubernetesClusterName returns the KubernetesClusterName field if non-nil, zero value otherwise.
-
-### GetKubernetesClusterNameOk
-
-`func (o *IngestersSecret) GetKubernetesClusterNameOk() (*string, bool)`
-
-GetKubernetesClusterNameOk returns a tuple with the KubernetesClusterName field if it's non-nil, zero value otherwise
-and a boolean to check if the value has been set.
-
-### SetKubernetesClusterName
-
-`func (o *IngestersSecret) SetKubernetesClusterName(v string)`
-
-SetKubernetesClusterName sets KubernetesClusterName field to given value.
-
-### HasKubernetesClusterName
-
-`func (o *IngestersSecret) HasKubernetesClusterName() bool`
-
-HasKubernetesClusterName returns a boolean if a field has been set.
-
 ### GetMasked
 
 `func (o *IngestersSecret) GetMasked() bool`
@@ -261,81 +180,6 @@ SetMasked sets Masked field to given value.
 `func (o *IngestersSecret) HasMasked() bool`
 
 HasMasked returns a boolean if a field has been set.
-
-### GetNodeId
-
-`func (o *IngestersSecret) GetNodeId() string`
-
-GetNodeId returns the NodeId field if non-nil, zero value otherwise.
-
-### GetNodeIdOk
-
-`func (o *IngestersSecret) GetNodeIdOk() (*string, bool)`
-
-GetNodeIdOk returns a tuple with the NodeId field if it's non-nil, zero value otherwise
-and a boolean to check if the value has been set.
-
-### SetNodeId
-
-`func (o *IngestersSecret) SetNodeId(v string)`
-
-SetNodeId sets NodeId field to given value.
-
-### HasNodeId
-
-`func (o *IngestersSecret) HasNodeId() bool`
-
-HasNodeId returns a boolean if a field has been set.
-
-### GetNodeName
-
-`func (o *IngestersSecret) GetNodeName() string`
-
-GetNodeName returns the NodeName field if non-nil, zero value otherwise.
-
-### GetNodeNameOk
-
-`func (o *IngestersSecret) GetNodeNameOk() (*string, bool)`
-
-GetNodeNameOk returns a tuple with the NodeName field if it's non-nil, zero value otherwise
-and a boolean to check if the value has been set.
-
-### SetNodeName
-
-`func (o *IngestersSecret) SetNodeName(v string)`
-
-SetNodeName sets NodeName field to given value.
-
-### HasNodeName
-
-`func (o *IngestersSecret) HasNodeName() bool`
-
-HasNodeName returns a boolean if a field has been set.
-
-### GetNodeType
-
-`func (o *IngestersSecret) GetNodeType() string`
-
-GetNodeType returns the NodeType field if non-nil, zero value otherwise.
-
-### GetNodeTypeOk
-
-`func (o *IngestersSecret) GetNodeTypeOk() (*string, bool)`
-
-GetNodeTypeOk returns a tuple with the NodeType field if it's non-nil, zero value otherwise
-and a boolean to check if the value has been set.
-
-### SetNodeType
-
-`func (o *IngestersSecret) SetNodeType(v string)`
-
-SetNodeType sets NodeType field to given value.
-
-### HasNodeType
-
-`func (o *IngestersSecret) HasNodeType() bool`
-
-HasNodeType returns a boolean if a field has been set.
 
 ### GetScanId
 

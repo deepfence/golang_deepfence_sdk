@@ -8,13 +8,7 @@ Name | Type | Description | Notes
 **ComplianceCheckType** | Pointer to **string** |  | [optional] 
 **ComplianceNodeType** | Pointer to **string** |  | [optional] 
 **Description** | Pointer to **string** |  | [optional] 
-**DocId** | Pointer to **string** |  | [optional] 
-**KubernetesClusterId** | Pointer to **string** |  | [optional] 
-**KubernetesClusterName** | Pointer to **string** |  | [optional] 
 **Masked** | Pointer to **bool** |  | [optional] 
-**NodeId** | Pointer to **string** |  | [optional] 
-**NodeName** | Pointer to **string** |  | [optional] 
-**NodeType** | Pointer to **string** |  | [optional] 
 **RemediationAnsible** | Pointer to **string** |  | [optional] 
 **RemediationPuppet** | Pointer to **string** |  | [optional] 
 **RemediationScript** | Pointer to **string** |  | [optional] 
@@ -26,7 +20,6 @@ Name | Type | Description | Notes
 **TestNumber** | Pointer to **string** |  | [optional] 
 **TestRationale** | Pointer to **string** |  | [optional] 
 **TestSeverity** | Pointer to **string** |  | [optional] 
-**TimeStamp** | Pointer to **int32** |  | [optional] 
 **Type** | Pointer to **string** |  | [optional] 
 
 ## Methods
@@ -148,81 +141,6 @@ SetDescription sets Description field to given value.
 
 HasDescription returns a boolean if a field has been set.
 
-### GetDocId
-
-`func (o *IngestersCompliance) GetDocId() string`
-
-GetDocId returns the DocId field if non-nil, zero value otherwise.
-
-### GetDocIdOk
-
-`func (o *IngestersCompliance) GetDocIdOk() (*string, bool)`
-
-GetDocIdOk returns a tuple with the DocId field if it's non-nil, zero value otherwise
-and a boolean to check if the value has been set.
-
-### SetDocId
-
-`func (o *IngestersCompliance) SetDocId(v string)`
-
-SetDocId sets DocId field to given value.
-
-### HasDocId
-
-`func (o *IngestersCompliance) HasDocId() bool`
-
-HasDocId returns a boolean if a field has been set.
-
-### GetKubernetesClusterId
-
-`func (o *IngestersCompliance) GetKubernetesClusterId() string`
-
-GetKubernetesClusterId returns the KubernetesClusterId field if non-nil, zero value otherwise.
-
-### GetKubernetesClusterIdOk
-
-`func (o *IngestersCompliance) GetKubernetesClusterIdOk() (*string, bool)`
-
-GetKubernetesClusterIdOk returns a tuple with the KubernetesClusterId field if it's non-nil, zero value otherwise
-and a boolean to check if the value has been set.
-
-### SetKubernetesClusterId
-
-`func (o *IngestersCompliance) SetKubernetesClusterId(v string)`
-
-SetKubernetesClusterId sets KubernetesClusterId field to given value.
-
-### HasKubernetesClusterId
-
-`func (o *IngestersCompliance) HasKubernetesClusterId() bool`
-
-HasKubernetesClusterId returns a boolean if a field has been set.
-
-### GetKubernetesClusterName
-
-`func (o *IngestersCompliance) GetKubernetesClusterName() string`
-
-GetKubernetesClusterName returns the KubernetesClusterName field if non-nil, zero value otherwise.
-
-### GetKubernetesClusterNameOk
-
-`func (o *IngestersCompliance) GetKubernetesClusterNameOk() (*string, bool)`
-
-GetKubernetesClusterNameOk returns a tuple with the KubernetesClusterName field if it's non-nil, zero value otherwise
-and a boolean to check if the value has been set.
-
-### SetKubernetesClusterName
-
-`func (o *IngestersCompliance) SetKubernetesClusterName(v string)`
-
-SetKubernetesClusterName sets KubernetesClusterName field to given value.
-
-### HasKubernetesClusterName
-
-`func (o *IngestersCompliance) HasKubernetesClusterName() bool`
-
-HasKubernetesClusterName returns a boolean if a field has been set.
-
 ### GetMasked
 
 `func (o *IngestersCompliance) GetMasked() bool`
@@ -247,81 +165,6 @@ SetMasked sets Masked field to given value.
 `func (o *IngestersCompliance) HasMasked() bool`
 
 HasMasked returns a boolean if a field has been set.
-
-### GetNodeId
-
-`func (o *IngestersCompliance) GetNodeId() string`
-
-GetNodeId returns the NodeId field if non-nil, zero value otherwise.
-
-### GetNodeIdOk
-
-`func (o *IngestersCompliance) GetNodeIdOk() (*string, bool)`
-
-GetNodeIdOk returns a tuple with the NodeId field if it's non-nil, zero value otherwise
-and a boolean to check if the value has been set.
-
-### SetNodeId
-
-`func (o *IngestersCompliance) SetNodeId(v string)`
-
-SetNodeId sets NodeId field to given value.
-
-### HasNodeId
-
-`func (o *IngestersCompliance) HasNodeId() bool`
-
-HasNodeId returns a boolean if a field has been set.
-
-### GetNodeName
-
-`func (o *IngestersCompliance) GetNodeName() string`
-
-GetNodeName returns the NodeName field if non-nil, zero value otherwise.
-
-### GetNodeNameOk
-
-`func (o *IngestersCompliance) GetNodeNameOk() (*string, bool)`
-
-GetNodeNameOk returns a tuple with the NodeName field if it's non-nil, zero value otherwise
-and a boolean to check if the value has been set.
-
-### SetNodeName
-
-`func (o *IngestersCompliance) SetNodeName(v string)`
-
-SetNodeName sets NodeName field to given value.
-
-### HasNodeName
-
-`func (o *IngestersCompliance) HasNodeName() bool`
-
-HasNodeName returns a boolean if a field has been set.
-
-### GetNodeType
-
-`func (o *IngestersCompliance) GetNodeType() string`
-
-GetNodeType returns the NodeType field if non-nil, zero value otherwise.
-
-### GetNodeTypeOk
-
-`func (o *IngestersCompliance) GetNodeTypeOk() (*string, bool)`
-
-GetNodeTypeOk returns a tuple with the NodeType field if it's non-nil, zero value otherwise
-and a boolean to check if the value has been set.
-
-### SetNodeType
-
-`func (o *IngestersCompliance) SetNodeType(v string)`
-
-SetNodeType sets NodeType field to given value.
-
-### HasNodeType
-
-`func (o *IngestersCompliance) HasNodeType() bool`
-
-HasNodeType returns a boolean if a field has been set.
 
 ### GetRemediationAnsible
 
@@ -597,31 +440,6 @@ SetTestSeverity sets TestSeverity field to given value.
 `func (o *IngestersCompliance) HasTestSeverity() bool`
 
 HasTestSeverity returns a boolean if a field has been set.
-
-### GetTimeStamp
-
-`func (o *IngestersCompliance) GetTimeStamp() int32`
-
-GetTimeStamp returns the TimeStamp field if non-nil, zero value otherwise.
-
-### GetTimeStampOk
-
-`func (o *IngestersCompliance) GetTimeStampOk() (*int32, bool)`
-
-GetTimeStampOk returns a tuple with the TimeStamp field if it's non-nil, zero value otherwise
-and a boolean to check if the value has been set.
-
-### SetTimeStamp
-
-`func (o *IngestersCompliance) SetTimeStamp(v int32)`
-
-SetTimeStamp sets TimeStamp field to given value.
-
-### HasTimeStamp
-
-`func (o *IngestersCompliance) HasTimeStamp() bool`
-
-HasTimeStamp returns a boolean if a field has been set.
 
 ### GetType
 

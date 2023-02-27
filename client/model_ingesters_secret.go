@@ -26,13 +26,7 @@ type IngestersSecret struct {
 	Match *IngestersSecretMatch `json:"Match,omitempty"`
 	Rule *IngestersSecretRule `json:"Rule,omitempty"`
 	Severity *IngestersSecretSeverity `json:"Severity,omitempty"`
-	ContainerName *string `json:"container_name,omitempty"`
-	HostName *string `json:"host_name,omitempty"`
-	KubernetesClusterName *string `json:"kubernetes_cluster_name,omitempty"`
 	Masked *bool `json:"masked,omitempty"`
-	NodeId *string `json:"node_id,omitempty"`
-	NodeName *string `json:"node_name,omitempty"`
-	NodeType *string `json:"node_type,omitempty"`
 	ScanId *string `json:"scan_id,omitempty"`
 }
 
@@ -213,102 +207,6 @@ func (o *IngestersSecret) SetSeverity(v IngestersSecretSeverity) {
 	o.Severity = &v
 }
 
-// GetContainerName returns the ContainerName field value if set, zero value otherwise.
-func (o *IngestersSecret) GetContainerName() string {
-	if o == nil || IsNil(o.ContainerName) {
-		var ret string
-		return ret
-	}
-	return *o.ContainerName
-}
-
-// GetContainerNameOk returns a tuple with the ContainerName field value if set, nil otherwise
-// and a boolean to check if the value has been set.
-func (o *IngestersSecret) GetContainerNameOk() (*string, bool) {
-	if o == nil || IsNil(o.ContainerName) {
-		return nil, false
-	}
-	return o.ContainerName, true
-}
-
-// HasContainerName returns a boolean if a field has been set.
-func (o *IngestersSecret) HasContainerName() bool {
-	if o != nil && !IsNil(o.ContainerName) {
-		return true
-	}
-
-	return false
-}
-
-// SetContainerName gets a reference to the given string and assigns it to the ContainerName field.
-func (o *IngestersSecret) SetContainerName(v string) {
-	o.ContainerName = &v
-}
-
-// GetHostName returns the HostName field value if set, zero value otherwise.
-func (o *IngestersSecret) GetHostName() string {
-	if o == nil || IsNil(o.HostName) {
-		var ret string
-		return ret
-	}
-	return *o.HostName
-}
-
-// GetHostNameOk returns a tuple with the HostName field value if set, nil otherwise
-// and a boolean to check if the value has been set.
-func (o *IngestersSecret) GetHostNameOk() (*string, bool) {
-	if o == nil || IsNil(o.HostName) {
-		return nil, false
-	}
-	return o.HostName, true
-}
-
-// HasHostName returns a boolean if a field has been set.
-func (o *IngestersSecret) HasHostName() bool {
-	if o != nil && !IsNil(o.HostName) {
-		return true
-	}
-
-	return false
-}
-
-// SetHostName gets a reference to the given string and assigns it to the HostName field.
-func (o *IngestersSecret) SetHostName(v string) {
-	o.HostName = &v
-}
-
-// GetKubernetesClusterName returns the KubernetesClusterName field value if set, zero value otherwise.
-func (o *IngestersSecret) GetKubernetesClusterName() string {
-	if o == nil || IsNil(o.KubernetesClusterName) {
-		var ret string
-		return ret
-	}
-	return *o.KubernetesClusterName
-}
-
-// GetKubernetesClusterNameOk returns a tuple with the KubernetesClusterName field value if set, nil otherwise
-// and a boolean to check if the value has been set.
-func (o *IngestersSecret) GetKubernetesClusterNameOk() (*string, bool) {
-	if o == nil || IsNil(o.KubernetesClusterName) {
-		return nil, false
-	}
-	return o.KubernetesClusterName, true
-}
-
-// HasKubernetesClusterName returns a boolean if a field has been set.
-func (o *IngestersSecret) HasKubernetesClusterName() bool {
-	if o != nil && !IsNil(o.KubernetesClusterName) {
-		return true
-	}
-
-	return false
-}
-
-// SetKubernetesClusterName gets a reference to the given string and assigns it to the KubernetesClusterName field.
-func (o *IngestersSecret) SetKubernetesClusterName(v string) {
-	o.KubernetesClusterName = &v
-}
-
 // GetMasked returns the Masked field value if set, zero value otherwise.
 func (o *IngestersSecret) GetMasked() bool {
 	if o == nil || IsNil(o.Masked) {
@@ -339,102 +237,6 @@ func (o *IngestersSecret) HasMasked() bool {
 // SetMasked gets a reference to the given bool and assigns it to the Masked field.
 func (o *IngestersSecret) SetMasked(v bool) {
 	o.Masked = &v
-}
-
-// GetNodeId returns the NodeId field value if set, zero value otherwise.
-func (o *IngestersSecret) GetNodeId() string {
-	if o == nil || IsNil(o.NodeId) {
-		var ret string
-		return ret
-	}
-	return *o.NodeId
-}
-
-// GetNodeIdOk returns a tuple with the NodeId field value if set, nil otherwise
-// and a boolean to check if the value has been set.
-func (o *IngestersSecret) GetNodeIdOk() (*string, bool) {
-	if o == nil || IsNil(o.NodeId) {
-		return nil, false
-	}
-	return o.NodeId, true
-}
-
-// HasNodeId returns a boolean if a field has been set.
-func (o *IngestersSecret) HasNodeId() bool {
-	if o != nil && !IsNil(o.NodeId) {
-		return true
-	}
-
-	return false
-}
-
-// SetNodeId gets a reference to the given string and assigns it to the NodeId field.
-func (o *IngestersSecret) SetNodeId(v string) {
-	o.NodeId = &v
-}
-
-// GetNodeName returns the NodeName field value if set, zero value otherwise.
-func (o *IngestersSecret) GetNodeName() string {
-	if o == nil || IsNil(o.NodeName) {
-		var ret string
-		return ret
-	}
-	return *o.NodeName
-}
-
-// GetNodeNameOk returns a tuple with the NodeName field value if set, nil otherwise
-// and a boolean to check if the value has been set.
-func (o *IngestersSecret) GetNodeNameOk() (*string, bool) {
-	if o == nil || IsNil(o.NodeName) {
-		return nil, false
-	}
-	return o.NodeName, true
-}
-
-// HasNodeName returns a boolean if a field has been set.
-func (o *IngestersSecret) HasNodeName() bool {
-	if o != nil && !IsNil(o.NodeName) {
-		return true
-	}
-
-	return false
-}
-
-// SetNodeName gets a reference to the given string and assigns it to the NodeName field.
-func (o *IngestersSecret) SetNodeName(v string) {
-	o.NodeName = &v
-}
-
-// GetNodeType returns the NodeType field value if set, zero value otherwise.
-func (o *IngestersSecret) GetNodeType() string {
-	if o == nil || IsNil(o.NodeType) {
-		var ret string
-		return ret
-	}
-	return *o.NodeType
-}
-
-// GetNodeTypeOk returns a tuple with the NodeType field value if set, nil otherwise
-// and a boolean to check if the value has been set.
-func (o *IngestersSecret) GetNodeTypeOk() (*string, bool) {
-	if o == nil || IsNil(o.NodeType) {
-		return nil, false
-	}
-	return o.NodeType, true
-}
-
-// HasNodeType returns a boolean if a field has been set.
-func (o *IngestersSecret) HasNodeType() bool {
-	if o != nil && !IsNil(o.NodeType) {
-		return true
-	}
-
-	return false
-}
-
-// SetNodeType gets a reference to the given string and assigns it to the NodeType field.
-func (o *IngestersSecret) SetNodeType(v string) {
-	o.NodeType = &v
 }
 
 // GetScanId returns the ScanId field value if set, zero value otherwise.
@@ -494,26 +296,8 @@ func (o IngestersSecret) ToMap() (map[string]interface{}, error) {
 	if !IsNil(o.Severity) {
 		toSerialize["Severity"] = o.Severity
 	}
-	if !IsNil(o.ContainerName) {
-		toSerialize["container_name"] = o.ContainerName
-	}
-	if !IsNil(o.HostName) {
-		toSerialize["host_name"] = o.HostName
-	}
-	if !IsNil(o.KubernetesClusterName) {
-		toSerialize["kubernetes_cluster_name"] = o.KubernetesClusterName
-	}
 	if !IsNil(o.Masked) {
 		toSerialize["masked"] = o.Masked
-	}
-	if !IsNil(o.NodeId) {
-		toSerialize["node_id"] = o.NodeId
-	}
-	if !IsNil(o.NodeName) {
-		toSerialize["node_name"] = o.NodeName
-	}
-	if !IsNil(o.NodeType) {
-		toSerialize["node_type"] = o.NodeType
 	}
 	if !IsNil(o.ScanId) {
 		toSerialize["scan_id"] = o.ScanId

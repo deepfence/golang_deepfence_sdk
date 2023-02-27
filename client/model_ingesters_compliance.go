@@ -24,13 +24,7 @@ type IngestersCompliance struct {
 	ComplianceCheckType *string `json:"compliance_check_type,omitempty"`
 	ComplianceNodeType *string `json:"compliance_node_type,omitempty"`
 	Description *string `json:"description,omitempty"`
-	DocId *string `json:"doc_id,omitempty"`
-	KubernetesClusterId *string `json:"kubernetes_cluster_id,omitempty"`
-	KubernetesClusterName *string `json:"kubernetes_cluster_name,omitempty"`
 	Masked *bool `json:"masked,omitempty"`
-	NodeId *string `json:"node_id,omitempty"`
-	NodeName *string `json:"node_name,omitempty"`
-	NodeType *string `json:"node_type,omitempty"`
 	RemediationAnsible *string `json:"remediation_ansible,omitempty"`
 	RemediationPuppet *string `json:"remediation_puppet,omitempty"`
 	RemediationScript *string `json:"remediation_script,omitempty"`
@@ -42,7 +36,6 @@ type IngestersCompliance struct {
 	TestNumber *string `json:"test_number,omitempty"`
 	TestRationale *string `json:"test_rationale,omitempty"`
 	TestSeverity *string `json:"test_severity,omitempty"`
-	TimeStamp *int32 `json:"time_stamp,omitempty"`
 	Type *string `json:"type,omitempty"`
 }
 
@@ -191,102 +184,6 @@ func (o *IngestersCompliance) SetDescription(v string) {
 	o.Description = &v
 }
 
-// GetDocId returns the DocId field value if set, zero value otherwise.
-func (o *IngestersCompliance) GetDocId() string {
-	if o == nil || IsNil(o.DocId) {
-		var ret string
-		return ret
-	}
-	return *o.DocId
-}
-
-// GetDocIdOk returns a tuple with the DocId field value if set, nil otherwise
-// and a boolean to check if the value has been set.
-func (o *IngestersCompliance) GetDocIdOk() (*string, bool) {
-	if o == nil || IsNil(o.DocId) {
-		return nil, false
-	}
-	return o.DocId, true
-}
-
-// HasDocId returns a boolean if a field has been set.
-func (o *IngestersCompliance) HasDocId() bool {
-	if o != nil && !IsNil(o.DocId) {
-		return true
-	}
-
-	return false
-}
-
-// SetDocId gets a reference to the given string and assigns it to the DocId field.
-func (o *IngestersCompliance) SetDocId(v string) {
-	o.DocId = &v
-}
-
-// GetKubernetesClusterId returns the KubernetesClusterId field value if set, zero value otherwise.
-func (o *IngestersCompliance) GetKubernetesClusterId() string {
-	if o == nil || IsNil(o.KubernetesClusterId) {
-		var ret string
-		return ret
-	}
-	return *o.KubernetesClusterId
-}
-
-// GetKubernetesClusterIdOk returns a tuple with the KubernetesClusterId field value if set, nil otherwise
-// and a boolean to check if the value has been set.
-func (o *IngestersCompliance) GetKubernetesClusterIdOk() (*string, bool) {
-	if o == nil || IsNil(o.KubernetesClusterId) {
-		return nil, false
-	}
-	return o.KubernetesClusterId, true
-}
-
-// HasKubernetesClusterId returns a boolean if a field has been set.
-func (o *IngestersCompliance) HasKubernetesClusterId() bool {
-	if o != nil && !IsNil(o.KubernetesClusterId) {
-		return true
-	}
-
-	return false
-}
-
-// SetKubernetesClusterId gets a reference to the given string and assigns it to the KubernetesClusterId field.
-func (o *IngestersCompliance) SetKubernetesClusterId(v string) {
-	o.KubernetesClusterId = &v
-}
-
-// GetKubernetesClusterName returns the KubernetesClusterName field value if set, zero value otherwise.
-func (o *IngestersCompliance) GetKubernetesClusterName() string {
-	if o == nil || IsNil(o.KubernetesClusterName) {
-		var ret string
-		return ret
-	}
-	return *o.KubernetesClusterName
-}
-
-// GetKubernetesClusterNameOk returns a tuple with the KubernetesClusterName field value if set, nil otherwise
-// and a boolean to check if the value has been set.
-func (o *IngestersCompliance) GetKubernetesClusterNameOk() (*string, bool) {
-	if o == nil || IsNil(o.KubernetesClusterName) {
-		return nil, false
-	}
-	return o.KubernetesClusterName, true
-}
-
-// HasKubernetesClusterName returns a boolean if a field has been set.
-func (o *IngestersCompliance) HasKubernetesClusterName() bool {
-	if o != nil && !IsNil(o.KubernetesClusterName) {
-		return true
-	}
-
-	return false
-}
-
-// SetKubernetesClusterName gets a reference to the given string and assigns it to the KubernetesClusterName field.
-func (o *IngestersCompliance) SetKubernetesClusterName(v string) {
-	o.KubernetesClusterName = &v
-}
-
 // GetMasked returns the Masked field value if set, zero value otherwise.
 func (o *IngestersCompliance) GetMasked() bool {
 	if o == nil || IsNil(o.Masked) {
@@ -317,102 +214,6 @@ func (o *IngestersCompliance) HasMasked() bool {
 // SetMasked gets a reference to the given bool and assigns it to the Masked field.
 func (o *IngestersCompliance) SetMasked(v bool) {
 	o.Masked = &v
-}
-
-// GetNodeId returns the NodeId field value if set, zero value otherwise.
-func (o *IngestersCompliance) GetNodeId() string {
-	if o == nil || IsNil(o.NodeId) {
-		var ret string
-		return ret
-	}
-	return *o.NodeId
-}
-
-// GetNodeIdOk returns a tuple with the NodeId field value if set, nil otherwise
-// and a boolean to check if the value has been set.
-func (o *IngestersCompliance) GetNodeIdOk() (*string, bool) {
-	if o == nil || IsNil(o.NodeId) {
-		return nil, false
-	}
-	return o.NodeId, true
-}
-
-// HasNodeId returns a boolean if a field has been set.
-func (o *IngestersCompliance) HasNodeId() bool {
-	if o != nil && !IsNil(o.NodeId) {
-		return true
-	}
-
-	return false
-}
-
-// SetNodeId gets a reference to the given string and assigns it to the NodeId field.
-func (o *IngestersCompliance) SetNodeId(v string) {
-	o.NodeId = &v
-}
-
-// GetNodeName returns the NodeName field value if set, zero value otherwise.
-func (o *IngestersCompliance) GetNodeName() string {
-	if o == nil || IsNil(o.NodeName) {
-		var ret string
-		return ret
-	}
-	return *o.NodeName
-}
-
-// GetNodeNameOk returns a tuple with the NodeName field value if set, nil otherwise
-// and a boolean to check if the value has been set.
-func (o *IngestersCompliance) GetNodeNameOk() (*string, bool) {
-	if o == nil || IsNil(o.NodeName) {
-		return nil, false
-	}
-	return o.NodeName, true
-}
-
-// HasNodeName returns a boolean if a field has been set.
-func (o *IngestersCompliance) HasNodeName() bool {
-	if o != nil && !IsNil(o.NodeName) {
-		return true
-	}
-
-	return false
-}
-
-// SetNodeName gets a reference to the given string and assigns it to the NodeName field.
-func (o *IngestersCompliance) SetNodeName(v string) {
-	o.NodeName = &v
-}
-
-// GetNodeType returns the NodeType field value if set, zero value otherwise.
-func (o *IngestersCompliance) GetNodeType() string {
-	if o == nil || IsNil(o.NodeType) {
-		var ret string
-		return ret
-	}
-	return *o.NodeType
-}
-
-// GetNodeTypeOk returns a tuple with the NodeType field value if set, nil otherwise
-// and a boolean to check if the value has been set.
-func (o *IngestersCompliance) GetNodeTypeOk() (*string, bool) {
-	if o == nil || IsNil(o.NodeType) {
-		return nil, false
-	}
-	return o.NodeType, true
-}
-
-// HasNodeType returns a boolean if a field has been set.
-func (o *IngestersCompliance) HasNodeType() bool {
-	if o != nil && !IsNil(o.NodeType) {
-		return true
-	}
-
-	return false
-}
-
-// SetNodeType gets a reference to the given string and assigns it to the NodeType field.
-func (o *IngestersCompliance) SetNodeType(v string) {
-	o.NodeType = &v
 }
 
 // GetRemediationAnsible returns the RemediationAnsible field value if set, zero value otherwise.
@@ -767,38 +568,6 @@ func (o *IngestersCompliance) SetTestSeverity(v string) {
 	o.TestSeverity = &v
 }
 
-// GetTimeStamp returns the TimeStamp field value if set, zero value otherwise.
-func (o *IngestersCompliance) GetTimeStamp() int32 {
-	if o == nil || IsNil(o.TimeStamp) {
-		var ret int32
-		return ret
-	}
-	return *o.TimeStamp
-}
-
-// GetTimeStampOk returns a tuple with the TimeStamp field value if set, nil otherwise
-// and a boolean to check if the value has been set.
-func (o *IngestersCompliance) GetTimeStampOk() (*int32, bool) {
-	if o == nil || IsNil(o.TimeStamp) {
-		return nil, false
-	}
-	return o.TimeStamp, true
-}
-
-// HasTimeStamp returns a boolean if a field has been set.
-func (o *IngestersCompliance) HasTimeStamp() bool {
-	if o != nil && !IsNil(o.TimeStamp) {
-		return true
-	}
-
-	return false
-}
-
-// SetTimeStamp gets a reference to the given int32 and assigns it to the TimeStamp field.
-func (o *IngestersCompliance) SetTimeStamp(v int32) {
-	o.TimeStamp = &v
-}
-
 // GetType returns the Type field value if set, zero value otherwise.
 func (o *IngestersCompliance) GetType() string {
 	if o == nil || IsNil(o.Type) {
@@ -853,26 +622,8 @@ func (o IngestersCompliance) ToMap() (map[string]interface{}, error) {
 	if !IsNil(o.Description) {
 		toSerialize["description"] = o.Description
 	}
-	if !IsNil(o.DocId) {
-		toSerialize["doc_id"] = o.DocId
-	}
-	if !IsNil(o.KubernetesClusterId) {
-		toSerialize["kubernetes_cluster_id"] = o.KubernetesClusterId
-	}
-	if !IsNil(o.KubernetesClusterName) {
-		toSerialize["kubernetes_cluster_name"] = o.KubernetesClusterName
-	}
 	if !IsNil(o.Masked) {
 		toSerialize["masked"] = o.Masked
-	}
-	if !IsNil(o.NodeId) {
-		toSerialize["node_id"] = o.NodeId
-	}
-	if !IsNil(o.NodeName) {
-		toSerialize["node_name"] = o.NodeName
-	}
-	if !IsNil(o.NodeType) {
-		toSerialize["node_type"] = o.NodeType
 	}
 	if !IsNil(o.RemediationAnsible) {
 		toSerialize["remediation_ansible"] = o.RemediationAnsible
@@ -906,9 +657,6 @@ func (o IngestersCompliance) ToMap() (map[string]interface{}, error) {
 	}
 	if !IsNil(o.TestSeverity) {
 		toSerialize["test_severity"] = o.TestSeverity
-	}
-	if !IsNil(o.TimeStamp) {
-		toSerialize["time_stamp"] = o.TimeStamp
 	}
 	if !IsNil(o.Type) {
 		toSerialize["type"] = o.Type

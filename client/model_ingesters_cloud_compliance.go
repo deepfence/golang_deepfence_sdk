@@ -30,8 +30,6 @@ type IngestersCloudCompliance struct {
 	DocId *string `json:"doc_id,omitempty"`
 	Group *string `json:"group,omitempty"`
 	Masked *bool `json:"masked,omitempty"`
-	NodeId *string `json:"node_id,omitempty"`
-	NodeName *string `json:"node_name,omitempty"`
 	Reason *string `json:"reason,omitempty"`
 	Region *string `json:"region,omitempty"`
 	Resource *string `json:"resource,omitempty"`
@@ -380,70 +378,6 @@ func (o *IngestersCloudCompliance) SetMasked(v bool) {
 	o.Masked = &v
 }
 
-// GetNodeId returns the NodeId field value if set, zero value otherwise.
-func (o *IngestersCloudCompliance) GetNodeId() string {
-	if o == nil || IsNil(o.NodeId) {
-		var ret string
-		return ret
-	}
-	return *o.NodeId
-}
-
-// GetNodeIdOk returns a tuple with the NodeId field value if set, nil otherwise
-// and a boolean to check if the value has been set.
-func (o *IngestersCloudCompliance) GetNodeIdOk() (*string, bool) {
-	if o == nil || IsNil(o.NodeId) {
-		return nil, false
-	}
-	return o.NodeId, true
-}
-
-// HasNodeId returns a boolean if a field has been set.
-func (o *IngestersCloudCompliance) HasNodeId() bool {
-	if o != nil && !IsNil(o.NodeId) {
-		return true
-	}
-
-	return false
-}
-
-// SetNodeId gets a reference to the given string and assigns it to the NodeId field.
-func (o *IngestersCloudCompliance) SetNodeId(v string) {
-	o.NodeId = &v
-}
-
-// GetNodeName returns the NodeName field value if set, zero value otherwise.
-func (o *IngestersCloudCompliance) GetNodeName() string {
-	if o == nil || IsNil(o.NodeName) {
-		var ret string
-		return ret
-	}
-	return *o.NodeName
-}
-
-// GetNodeNameOk returns a tuple with the NodeName field value if set, nil otherwise
-// and a boolean to check if the value has been set.
-func (o *IngestersCloudCompliance) GetNodeNameOk() (*string, bool) {
-	if o == nil || IsNil(o.NodeName) {
-		return nil, false
-	}
-	return o.NodeName, true
-}
-
-// HasNodeName returns a boolean if a field has been set.
-func (o *IngestersCloudCompliance) HasNodeName() bool {
-	if o != nil && !IsNil(o.NodeName) {
-		return true
-	}
-
-	return false
-}
-
-// SetNodeName gets a reference to the given string and assigns it to the NodeName field.
-func (o *IngestersCloudCompliance) SetNodeName(v string) {
-	o.NodeName = &v
-}
-
 // GetReason returns the Reason field value if set, zero value otherwise.
 func (o *IngestersCloudCompliance) GetReason() string {
 	if o == nil || IsNil(o.Reason) {
@@ -771,12 +705,6 @@ func (o IngestersCloudCompliance) ToMap() (map[string]interface{}, error) {
 	}
 	if !IsNil(o.Masked) {
 		toSerialize["masked"] = o.Masked
-	}
-	if !IsNil(o.NodeId) {
-		toSerialize["node_id"] = o.NodeId
-	}
-	if !IsNil(o.NodeName) {
-		toSerialize["node_name"] = o.NodeName
 	}
 	if !IsNil(o.Reason) {
 		toSerialize["reason"] = o.Reason

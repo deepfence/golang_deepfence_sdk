@@ -22,13 +22,8 @@ var _ MappedNullable = &IngestersSecretScanStatus{}
 // IngestersSecretScanStatus struct for IngestersSecretScanStatus
 type IngestersSecretScanStatus struct {
 	Timestamp *time.Time `json:"@timestamp,omitempty"`
-	ContainerName *string `json:"container_name,omitempty"`
-	HostName *string `json:"host_name,omitempty"`
-	KubernetesClusterName *string `json:"kubernetes_cluster_name,omitempty"`
-	NodeId *string `json:"node_id,omitempty"`
-	NodeName *string `json:"node_name,omitempty"`
-	NodeType *string `json:"node_type,omitempty"`
 	ScanId *string `json:"scan_id,omitempty"`
+	ScanMessage *string `json:"scan_message,omitempty"`
 	ScanStatus *string `json:"scan_status,omitempty"`
 }
 
@@ -81,198 +76,6 @@ func (o *IngestersSecretScanStatus) SetTimestamp(v time.Time) {
 	o.Timestamp = &v
 }
 
-// GetContainerName returns the ContainerName field value if set, zero value otherwise.
-func (o *IngestersSecretScanStatus) GetContainerName() string {
-	if o == nil || IsNil(o.ContainerName) {
-		var ret string
-		return ret
-	}
-	return *o.ContainerName
-}
-
-// GetContainerNameOk returns a tuple with the ContainerName field value if set, nil otherwise
-// and a boolean to check if the value has been set.
-func (o *IngestersSecretScanStatus) GetContainerNameOk() (*string, bool) {
-	if o == nil || IsNil(o.ContainerName) {
-		return nil, false
-	}
-	return o.ContainerName, true
-}
-
-// HasContainerName returns a boolean if a field has been set.
-func (o *IngestersSecretScanStatus) HasContainerName() bool {
-	if o != nil && !IsNil(o.ContainerName) {
-		return true
-	}
-
-	return false
-}
-
-// SetContainerName gets a reference to the given string and assigns it to the ContainerName field.
-func (o *IngestersSecretScanStatus) SetContainerName(v string) {
-	o.ContainerName = &v
-}
-
-// GetHostName returns the HostName field value if set, zero value otherwise.
-func (o *IngestersSecretScanStatus) GetHostName() string {
-	if o == nil || IsNil(o.HostName) {
-		var ret string
-		return ret
-	}
-	return *o.HostName
-}
-
-// GetHostNameOk returns a tuple with the HostName field value if set, nil otherwise
-// and a boolean to check if the value has been set.
-func (o *IngestersSecretScanStatus) GetHostNameOk() (*string, bool) {
-	if o == nil || IsNil(o.HostName) {
-		return nil, false
-	}
-	return o.HostName, true
-}
-
-// HasHostName returns a boolean if a field has been set.
-func (o *IngestersSecretScanStatus) HasHostName() bool {
-	if o != nil && !IsNil(o.HostName) {
-		return true
-	}
-
-	return false
-}
-
-// SetHostName gets a reference to the given string and assigns it to the HostName field.
-func (o *IngestersSecretScanStatus) SetHostName(v string) {
-	o.HostName = &v
-}
-
-// GetKubernetesClusterName returns the KubernetesClusterName field value if set, zero value otherwise.
-func (o *IngestersSecretScanStatus) GetKubernetesClusterName() string {
-	if o == nil || IsNil(o.KubernetesClusterName) {
-		var ret string
-		return ret
-	}
-	return *o.KubernetesClusterName
-}
-
-// GetKubernetesClusterNameOk returns a tuple with the KubernetesClusterName field value if set, nil otherwise
-// and a boolean to check if the value has been set.
-func (o *IngestersSecretScanStatus) GetKubernetesClusterNameOk() (*string, bool) {
-	if o == nil || IsNil(o.KubernetesClusterName) {
-		return nil, false
-	}
-	return o.KubernetesClusterName, true
-}
-
-// HasKubernetesClusterName returns a boolean if a field has been set.
-func (o *IngestersSecretScanStatus) HasKubernetesClusterName() bool {
-	if o != nil && !IsNil(o.KubernetesClusterName) {
-		return true
-	}
-
-	return false
-}
-
-// SetKubernetesClusterName gets a reference to the given string and assigns it to the KubernetesClusterName field.
-func (o *IngestersSecretScanStatus) SetKubernetesClusterName(v string) {
-	o.KubernetesClusterName = &v
-}
-
-// GetNodeId returns the NodeId field value if set, zero value otherwise.
-func (o *IngestersSecretScanStatus) GetNodeId() string {
-	if o == nil || IsNil(o.NodeId) {
-		var ret string
-		return ret
-	}
-	return *o.NodeId
-}
-
-// GetNodeIdOk returns a tuple with the NodeId field value if set, nil otherwise
-// and a boolean to check if the value has been set.
-func (o *IngestersSecretScanStatus) GetNodeIdOk() (*string, bool) {
-	if o == nil || IsNil(o.NodeId) {
-		return nil, false
-	}
-	return o.NodeId, true
-}
-
-// HasNodeId returns a boolean if a field has been set.
-func (o *IngestersSecretScanStatus) HasNodeId() bool {
-	if o != nil && !IsNil(o.NodeId) {
-		return true
-	}
-
-	return false
-}
-
-// SetNodeId gets a reference to the given string and assigns it to the NodeId field.
-func (o *IngestersSecretScanStatus) SetNodeId(v string) {
-	o.NodeId = &v
-}
-
-// GetNodeName returns the NodeName field value if set, zero value otherwise.
-func (o *IngestersSecretScanStatus) GetNodeName() string {
-	if o == nil || IsNil(o.NodeName) {
-		var ret string
-		return ret
-	}
-	return *o.NodeName
-}
-
-// GetNodeNameOk returns a tuple with the NodeName field value if set, nil otherwise
-// and a boolean to check if the value has been set.
-func (o *IngestersSecretScanStatus) GetNodeNameOk() (*string, bool) {
-	if o == nil || IsNil(o.NodeName) {
-		return nil, false
-	}
-	return o.NodeName, true
-}
-
-// HasNodeName returns a boolean if a field has been set.
-func (o *IngestersSecretScanStatus) HasNodeName() bool {
-	if o != nil && !IsNil(o.NodeName) {
-		return true
-	}
-
-	return false
-}
-
-// SetNodeName gets a reference to the given string and assigns it to the NodeName field.
-func (o *IngestersSecretScanStatus) SetNodeName(v string) {
-	o.NodeName = &v
-}
-
-// GetNodeType returns the NodeType field value if set, zero value otherwise.
-func (o *IngestersSecretScanStatus) GetNodeType() string {
-	if o == nil || IsNil(o.NodeType) {
-		var ret string
-		return ret
-	}
-	return *o.NodeType
-}
-
-// GetNodeTypeOk returns a tuple with the NodeType field value if set, nil otherwise
-// and a boolean to check if the value has been set.
-func (o *IngestersSecretScanStatus) GetNodeTypeOk() (*string, bool) {
-	if o == nil || IsNil(o.NodeType) {
-		return nil, false
-	}
-	return o.NodeType, true
-}
-
-// HasNodeType returns a boolean if a field has been set.
-func (o *IngestersSecretScanStatus) HasNodeType() bool {
-	if o != nil && !IsNil(o.NodeType) {
-		return true
-	}
-
-	return false
-}
-
-// SetNodeType gets a reference to the given string and assigns it to the NodeType field.
-func (o *IngestersSecretScanStatus) SetNodeType(v string) {
-	o.NodeType = &v
-}
-
 // GetScanId returns the ScanId field value if set, zero value otherwise.
 func (o *IngestersSecretScanStatus) GetScanId() string {
 	if o == nil || IsNil(o.ScanId) {
@@ -303,6 +106,38 @@ func (o *IngestersSecretScanStatus) HasScanId() bool {
 // SetScanId gets a reference to the given string and assigns it to the ScanId field.
 func (o *IngestersSecretScanStatus) SetScanId(v string) {
 	o.ScanId = &v
+}
+
+// GetScanMessage returns the ScanMessage field value if set, zero value otherwise.
+func (o *IngestersSecretScanStatus) GetScanMessage() string {
+	if o == nil || IsNil(o.ScanMessage) {
+		var ret string
+		return ret
+	}
+	return *o.ScanMessage
+}
+
+// GetScanMessageOk returns a tuple with the ScanMessage field value if set, nil otherwise
+// and a boolean to check if the value has been set.
+func (o *IngestersSecretScanStatus) GetScanMessageOk() (*string, bool) {
+	if o == nil || IsNil(o.ScanMessage) {
+		return nil, false
+	}
+	return o.ScanMessage, true
+}
+
+// HasScanMessage returns a boolean if a field has been set.
+func (o *IngestersSecretScanStatus) HasScanMessage() bool {
+	if o != nil && !IsNil(o.ScanMessage) {
+		return true
+	}
+
+	return false
+}
+
+// SetScanMessage gets a reference to the given string and assigns it to the ScanMessage field.
+func (o *IngestersSecretScanStatus) SetScanMessage(v string) {
+	o.ScanMessage = &v
 }
 
 // GetScanStatus returns the ScanStatus field value if set, zero value otherwise.
@@ -350,26 +185,11 @@ func (o IngestersSecretScanStatus) ToMap() (map[string]interface{}, error) {
 	if !IsNil(o.Timestamp) {
 		toSerialize["@timestamp"] = o.Timestamp
 	}
-	if !IsNil(o.ContainerName) {
-		toSerialize["container_name"] = o.ContainerName
-	}
-	if !IsNil(o.HostName) {
-		toSerialize["host_name"] = o.HostName
-	}
-	if !IsNil(o.KubernetesClusterName) {
-		toSerialize["kubernetes_cluster_name"] = o.KubernetesClusterName
-	}
-	if !IsNil(o.NodeId) {
-		toSerialize["node_id"] = o.NodeId
-	}
-	if !IsNil(o.NodeName) {
-		toSerialize["node_name"] = o.NodeName
-	}
-	if !IsNil(o.NodeType) {
-		toSerialize["node_type"] = o.NodeType
-	}
 	if !IsNil(o.ScanId) {
 		toSerialize["scan_id"] = o.ScanId
+	}
+	if !IsNil(o.ScanMessage) {
+		toSerialize["scan_message"] = o.ScanMessage
 	}
 	if !IsNil(o.ScanStatus) {
 		toSerialize["scan_status"] = o.ScanStatus
