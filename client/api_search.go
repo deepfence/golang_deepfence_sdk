@@ -39,9 +39,9 @@ func (r ApiCountCloudComplianceScansRequest) Execute() (*SearchSearchCountResp, 
 }
 
 /*
-CountCloudComplianceScans Search Vulnerability Scan results
+CountCloudComplianceScans Count Cloud Compliance Scan results
 
-Search scan results
+Count across all the data associated with cloud-compliance scans
 
  @param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
  @return ApiCountCloudComplianceScansRequest
@@ -178,9 +178,9 @@ func (r ApiCountCloudCompliancesRequest) Execute() (*SearchSearchCountResp, *htt
 }
 
 /*
-CountCloudCompliances Search Cloud compliances
+CountCloudCompliances Count Cloud compliances
 
-List all the images present in the given registry
+Count across all the data ssociated with cloud compliances
 
  @param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
  @return ApiCountCloudCompliancesRequest
@@ -317,9 +317,9 @@ func (r ApiCountComplianceScansRequest) Execute() (*SearchSearchCountResp, *http
 }
 
 /*
-CountComplianceScans Search Vulnerability Scan results
+CountComplianceScans Count Compliance Scan results
 
-Search scan results
+Count across all the data associated with compliance scans
 
  @param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
  @return ApiCountComplianceScansRequest
@@ -456,9 +456,9 @@ func (r ApiCountCompliancesRequest) Execute() (*SearchSearchCountResp, *http.Res
 }
 
 /*
-CountCompliances Search Compliances
+CountCompliances Count Compliances
 
-List all the images present in the given registry
+Count across all the data associated with compliances
 
  @param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
  @return ApiCountCompliancesRequest
@@ -595,9 +595,9 @@ func (r ApiCountContainerImagesRequest) Execute() (*SearchSearchCountResp, *http
 }
 
 /*
-CountContainerImages Search Container images
+CountContainerImages Count Container images
 
-Retrieve all the data associated with processes
+Count across all the data associated with container images
 
  @param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
  @return ApiCountContainerImagesRequest
@@ -734,9 +734,9 @@ func (r ApiCountContainersRequest) Execute() (*SearchSearchCountResp, *http.Resp
 }
 
 /*
-CountContainers Search Containers data
+CountContainers Count Containers data
 
-Retrieve all the data associated with containers
+Count across all the data associated with containers
 
  @param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
  @return ApiCountContainersRequest
@@ -873,9 +873,9 @@ func (r ApiCountHostsRequest) Execute() (*SearchSearchCountResp, *http.Response,
 }
 
 /*
-CountHosts Search hosts
+CountHosts Count hosts
 
-Retrieve all the data associated with hosts
+Count across all the data associated with hosts
 
  @param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
  @return ApiCountHostsRequest
@@ -1012,9 +1012,9 @@ func (r ApiCountMalwareScansRequest) Execute() (*SearchSearchCountResp, *http.Re
 }
 
 /*
-CountMalwareScans Search Vulnerability Scan results
+CountMalwareScans Count Malware Scan results
 
-Search scan results
+Count across all the data associated with malware scans
 
  @param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
  @return ApiCountMalwareScansRequest
@@ -1151,9 +1151,9 @@ func (r ApiCountMalwaresRequest) Execute() (*SearchSearchCountResp, *http.Respon
 }
 
 /*
-CountMalwares Search Malwares
+CountMalwares Count Malwares
 
-List all the images present in the given registry
+Count across all the data associated with malwares
 
  @param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
  @return ApiCountMalwaresRequest
@@ -1290,9 +1290,9 @@ func (r ApiCountSecretsRequest) Execute() (*SearchSearchCountResp, *http.Respons
 }
 
 /*
-CountSecrets Search Secrets
+CountSecrets Count Secrets
 
-Retrieve all the data associated with pods
+Count across all the data associated with secrets
 
  @param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
  @return ApiCountSecretsRequest
@@ -1429,9 +1429,9 @@ func (r ApiCountSecretsScansRequest) Execute() (*SearchSearchCountResp, *http.Re
 }
 
 /*
-CountSecretsScans Search Vulnerability Scan results
+CountSecretsScans Count Secret Scan results
 
-Search scan results
+Count across all the data associated with secret scans
 
  @param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
  @return ApiCountSecretsScansRequest
@@ -1568,9 +1568,9 @@ func (r ApiCountVulnerabilitiesRequest) Execute() (*SearchSearchCountResp, *http
 }
 
 /*
-CountVulnerabilities Search Vulnerabilities
+CountVulnerabilities Count Vulnerabilities
 
-Retrieve all the data associated with k8s clusters
+Search across all the data associated with vulnerabilities
 
  @param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
  @return ApiCountVulnerabilitiesRequest
@@ -1707,9 +1707,9 @@ func (r ApiCountVulnerabilityScansRequest) Execute() (*SearchSearchCountResp, *h
 }
 
 /*
-CountVulnerabilityScans Search Vulnerability Scan results
+CountVulnerabilityScans Count Vulnerability Scan results
 
-Search scan results
+Count across all the data associated with vulnerability scans
 
  @param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
  @return ApiCountVulnerabilityScansRequest
@@ -1846,9 +1846,9 @@ func (r ApiSearchCloudComplianceScansRequest) Execute() ([]ModelScanInfo, *http.
 }
 
 /*
-SearchCloudComplianceScans Search Vulnerability Scan results
+SearchCloudComplianceScans Search Cloud Compliance Scan results
 
-Search scan results
+Search across all the data associated with cloud-compliance scan
 
  @param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
  @return ApiSearchCloudComplianceScansRequest
@@ -1987,7 +1987,7 @@ func (r ApiSearchCloudCompliancesRequest) Execute() ([]ModelCloudCompliance, *ht
 /*
 SearchCloudCompliances Search Cloud compliances
 
-List all the images present in the given registry
+Search across all the data associated with cloud-compliances
 
  @param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
  @return ApiSearchCloudCompliancesRequest
@@ -2124,9 +2124,9 @@ func (r ApiSearchComplianceScansRequest) Execute() ([]ModelScanInfo, *http.Respo
 }
 
 /*
-SearchComplianceScans Search Vulnerability Scan results
+SearchComplianceScans Search Compliance Scan results
 
-Search scan results
+Search across all the data associated with compliance scan
 
  @param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
  @return ApiSearchComplianceScansRequest
@@ -2265,7 +2265,7 @@ func (r ApiSearchCompliancesRequest) Execute() ([]ModelCompliance, *http.Respons
 /*
 SearchCompliances Search Compliances
 
-List all the images present in the given registry
+Search across all the data associated with compliances
 
  @param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
  @return ApiSearchCompliancesRequest
@@ -2404,7 +2404,7 @@ func (r ApiSearchContainerImagesRequest) Execute() ([]ModelContainerImage, *http
 /*
 SearchContainerImages Search Container images
 
-Retrieve all the data associated with processes
+Search across all the data associated with container images
 
  @param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
  @return ApiSearchContainerImagesRequest
@@ -2543,7 +2543,7 @@ func (r ApiSearchContainersRequest) Execute() ([]ModelContainer, *http.Response,
 /*
 SearchContainers Search Containers data
 
-Retrieve all the data associated with containers
+Search across all data associated with containers
 
  @param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
  @return ApiSearchContainersRequest
@@ -2682,7 +2682,7 @@ func (r ApiSearchHostsRequest) Execute() ([]ModelHost, *http.Response, error) {
 /*
 SearchHosts Search hosts
 
-Retrieve all the data associated with hosts
+Search across all data associated with hosts
 
  @param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
  @return ApiSearchHostsRequest
@@ -2819,9 +2819,9 @@ func (r ApiSearchMalwareScansRequest) Execute() ([]ModelScanInfo, *http.Response
 }
 
 /*
-SearchMalwareScans Search Vulnerability Scan results
+SearchMalwareScans Search Malware Scan results
 
-Search scan results
+Search across all the data associated with malwares scan
 
  @param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
  @return ApiSearchMalwareScansRequest
@@ -2960,7 +2960,7 @@ func (r ApiSearchMalwaresRequest) Execute() ([]ModelMalware, *http.Response, err
 /*
 SearchMalwares Search Malwares
 
-List all the images present in the given registry
+Search across all the data associated with malwares
 
  @param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
  @return ApiSearchMalwaresRequest
@@ -3099,7 +3099,7 @@ func (r ApiSearchSecretsRequest) Execute() ([]ModelSecret, *http.Response, error
 /*
 SearchSecrets Search Secrets
 
-Retrieve all the data associated with pods
+Search across all the data associated with secrets
 
  @param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
  @return ApiSearchSecretsRequest
@@ -3236,9 +3236,9 @@ func (r ApiSearchSecretsScansRequest) Execute() ([]ModelScanInfo, *http.Response
 }
 
 /*
-SearchSecretsScans Search Vulnerability Scan results
+SearchSecretsScans Search Secrets Scan results
 
-Search scan results
+Search across all the data associated with secrets scan
 
  @param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
  @return ApiSearchSecretsScansRequest
@@ -3377,7 +3377,7 @@ func (r ApiSearchVulnerabilitiesRequest) Execute() ([]ModelVulnerability, *http.
 /*
 SearchVulnerabilities Search Vulnerabilities
 
-Retrieve all the data associated with k8s clusters
+Search across all the data associated with vulnerabilities
 
  @param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
  @return ApiSearchVulnerabilitiesRequest
@@ -3516,7 +3516,7 @@ func (r ApiSearchVulnerabilityScansRequest) Execute() ([]ModelScanInfo, *http.Re
 /*
 SearchVulnerabilityScans Search Vulnerability Scan results
 
-Search scan results
+Search across all the data associated with vulnerability scan
 
  @param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
  @return ApiSearchVulnerabilityScansRequest

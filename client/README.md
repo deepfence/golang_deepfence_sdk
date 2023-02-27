@@ -129,34 +129,34 @@ Class | Method | HTTP request | Description
 *ScanResultsApi* | [**DeleteScanResult**](docs/ScanResultsApi.md#deletescanresult) | **Patch** /deepfence/scan/results/action/delete | Delete selected scan results
 *ScanResultsApi* | [**DeleteScanResultsForScanID**](docs/ScanResultsApi.md#deletescanresultsforscanid) | **Delete** /deepfence/scan/{scan_type}/{scan_id} | Delete all scan results for a scan id
 *ScanResultsApi* | [**DownloadScanResults**](docs/ScanResultsApi.md#downloadscanresults) | **Get** /deepfence/scan/{scan_type}/{scan_id}/download | Download Scans Results
-*ScanResultsApi* | [**GetAllNodesOfScanResultDocument**](docs/ScanResultsApi.md#getallnodesofscanresultdocument) | **Get** /deepfence/scan/nodes/{scan_type}/{doc_id} | Get all nodes for given result document
+*ScanResultsApi* | [**GetAllNodesFromScanResult**](docs/ScanResultsApi.md#getallnodesfromscanresult) | **Get** /deepfence/scan/nodes/{scan_type}/{result_id} | Get all nodes for given scan result
 *ScanResultsApi* | [**MaskScanResult**](docs/ScanResultsApi.md#maskscanresult) | **Post** /deepfence/scan/results/action/mask | Mask Scans Results
 *ScanResultsApi* | [**NotifyScanResult**](docs/ScanResultsApi.md#notifyscanresult) | **Post** /deepfence/scan/results/action/notify | Notify Scans Results
 *ScanResultsApi* | [**UnmaskScanResult**](docs/ScanResultsApi.md#unmaskscanresult) | **Post** /deepfence/scan/results/action/unmask | Unmask Scans Results
-*SearchApi* | [**CountCloudComplianceScans**](docs/SearchApi.md#countcloudcompliancescans) | **Post** /deepfence/search/count/cloud-compliance/scans | Search Vulnerability Scan results
-*SearchApi* | [**CountCloudCompliances**](docs/SearchApi.md#countcloudcompliances) | **Post** /deepfence/search/count/cloud-compliances | Search Cloud compliances
-*SearchApi* | [**CountComplianceScans**](docs/SearchApi.md#countcompliancescans) | **Post** /deepfence/search/count/compliance/scans | Search Vulnerability Scan results
-*SearchApi* | [**CountCompliances**](docs/SearchApi.md#countcompliances) | **Post** /deepfence/search/count/compliances | Search Compliances
-*SearchApi* | [**CountContainerImages**](docs/SearchApi.md#countcontainerimages) | **Post** /deepfence/search/count/images | Search Container images
-*SearchApi* | [**CountContainers**](docs/SearchApi.md#countcontainers) | **Post** /deepfence/search/count/containers | Search Containers data
-*SearchApi* | [**CountHosts**](docs/SearchApi.md#counthosts) | **Post** /deepfence/search/count/hosts | Search hosts
-*SearchApi* | [**CountMalwareScans**](docs/SearchApi.md#countmalwarescans) | **Post** /deepfence/search/count/malware/scans | Search Vulnerability Scan results
-*SearchApi* | [**CountMalwares**](docs/SearchApi.md#countmalwares) | **Post** /deepfence/search/count/malwares | Search Malwares
-*SearchApi* | [**CountSecrets**](docs/SearchApi.md#countsecrets) | **Post** /deepfence/search/count/secrets | Search Secrets
-*SearchApi* | [**CountSecretsScans**](docs/SearchApi.md#countsecretsscans) | **Post** /deepfence/search/count/secret/scans | Search Vulnerability Scan results
-*SearchApi* | [**CountVulnerabilities**](docs/SearchApi.md#countvulnerabilities) | **Post** /deepfence/search/count/vulnerabilities | Search Vulnerabilities
-*SearchApi* | [**CountVulnerabilityScans**](docs/SearchApi.md#countvulnerabilityscans) | **Post** /deepfence/search/count/vulnerability/scans | Search Vulnerability Scan results
-*SearchApi* | [**SearchCloudComplianceScans**](docs/SearchApi.md#searchcloudcompliancescans) | **Post** /deepfence/search/cloud-compliance/scans | Search Vulnerability Scan results
+*SearchApi* | [**CountCloudComplianceScans**](docs/SearchApi.md#countcloudcompliancescans) | **Post** /deepfence/search/count/cloud-compliance/scans | Count Cloud Compliance Scan results
+*SearchApi* | [**CountCloudCompliances**](docs/SearchApi.md#countcloudcompliances) | **Post** /deepfence/search/count/cloud-compliances | Count Cloud compliances
+*SearchApi* | [**CountComplianceScans**](docs/SearchApi.md#countcompliancescans) | **Post** /deepfence/search/count/compliance/scans | Count Compliance Scan results
+*SearchApi* | [**CountCompliances**](docs/SearchApi.md#countcompliances) | **Post** /deepfence/search/count/compliances | Count Compliances
+*SearchApi* | [**CountContainerImages**](docs/SearchApi.md#countcontainerimages) | **Post** /deepfence/search/count/images | Count Container images
+*SearchApi* | [**CountContainers**](docs/SearchApi.md#countcontainers) | **Post** /deepfence/search/count/containers | Count Containers data
+*SearchApi* | [**CountHosts**](docs/SearchApi.md#counthosts) | **Post** /deepfence/search/count/hosts | Count hosts
+*SearchApi* | [**CountMalwareScans**](docs/SearchApi.md#countmalwarescans) | **Post** /deepfence/search/count/malware/scans | Count Malware Scan results
+*SearchApi* | [**CountMalwares**](docs/SearchApi.md#countmalwares) | **Post** /deepfence/search/count/malwares | Count Malwares
+*SearchApi* | [**CountSecrets**](docs/SearchApi.md#countsecrets) | **Post** /deepfence/search/count/secrets | Count Secrets
+*SearchApi* | [**CountSecretsScans**](docs/SearchApi.md#countsecretsscans) | **Post** /deepfence/search/count/secret/scans | Count Secret Scan results
+*SearchApi* | [**CountVulnerabilities**](docs/SearchApi.md#countvulnerabilities) | **Post** /deepfence/search/count/vulnerabilities | Count Vulnerabilities
+*SearchApi* | [**CountVulnerabilityScans**](docs/SearchApi.md#countvulnerabilityscans) | **Post** /deepfence/search/count/vulnerability/scans | Count Vulnerability Scan results
+*SearchApi* | [**SearchCloudComplianceScans**](docs/SearchApi.md#searchcloudcompliancescans) | **Post** /deepfence/search/cloud-compliance/scans | Search Cloud Compliance Scan results
 *SearchApi* | [**SearchCloudCompliances**](docs/SearchApi.md#searchcloudcompliances) | **Post** /deepfence/search/cloud-compliances | Search Cloud compliances
-*SearchApi* | [**SearchComplianceScans**](docs/SearchApi.md#searchcompliancescans) | **Post** /deepfence/search/compliance/scans | Search Vulnerability Scan results
+*SearchApi* | [**SearchComplianceScans**](docs/SearchApi.md#searchcompliancescans) | **Post** /deepfence/search/compliance/scans | Search Compliance Scan results
 *SearchApi* | [**SearchCompliances**](docs/SearchApi.md#searchcompliances) | **Post** /deepfence/search/compliances | Search Compliances
 *SearchApi* | [**SearchContainerImages**](docs/SearchApi.md#searchcontainerimages) | **Post** /deepfence/search/images | Search Container images
 *SearchApi* | [**SearchContainers**](docs/SearchApi.md#searchcontainers) | **Post** /deepfence/search/containers | Search Containers data
 *SearchApi* | [**SearchHosts**](docs/SearchApi.md#searchhosts) | **Post** /deepfence/search/hosts | Search hosts
-*SearchApi* | [**SearchMalwareScans**](docs/SearchApi.md#searchmalwarescans) | **Post** /deepfence/search/malware/scans | Search Vulnerability Scan results
+*SearchApi* | [**SearchMalwareScans**](docs/SearchApi.md#searchmalwarescans) | **Post** /deepfence/search/malware/scans | Search Malware Scan results
 *SearchApi* | [**SearchMalwares**](docs/SearchApi.md#searchmalwares) | **Post** /deepfence/search/malwares | Search Malwares
 *SearchApi* | [**SearchSecrets**](docs/SearchApi.md#searchsecrets) | **Post** /deepfence/search/secrets | Search Secrets
-*SearchApi* | [**SearchSecretsScans**](docs/SearchApi.md#searchsecretsscans) | **Post** /deepfence/search/secret/scans | Search Vulnerability Scan results
+*SearchApi* | [**SearchSecretsScans**](docs/SearchApi.md#searchsecretsscans) | **Post** /deepfence/search/secret/scans | Search Secrets Scan results
 *SearchApi* | [**SearchVulnerabilities**](docs/SearchApi.md#searchvulnerabilities) | **Post** /deepfence/search/vulnerabilities | Search Vulnerabilities
 *SearchApi* | [**SearchVulnerabilityScans**](docs/SearchApi.md#searchvulnerabilityscans) | **Post** /deepfence/search/vulnerability/scans | Search Vulnerability Scan results
 *SecretScanApi* | [**CountResultsSecretScan**](docs/SecretScanApi.md#countresultssecretscan) | **Post** /deepfence/scan/results/count/secret | Get Secret Scans Results

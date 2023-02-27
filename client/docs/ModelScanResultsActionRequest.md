@@ -4,7 +4,7 @@
 
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
-**DocIds** | **[]string** |  | 
+**ResultIds** | **[]string** |  | 
 **ScanId** | **string** |  | 
 **ScanType** | **string** |  | 
 
@@ -12,7 +12,7 @@ Name | Type | Description | Notes
 
 ### NewModelScanResultsActionRequest
 
-`func NewModelScanResultsActionRequest(docIds []string, scanId string, scanType string, ) *ModelScanResultsActionRequest`
+`func NewModelScanResultsActionRequest(resultIds []string, scanId string, scanType string, ) *ModelScanResultsActionRequest`
 
 NewModelScanResultsActionRequest instantiates a new ModelScanResultsActionRequest object
 This constructor will assign default values to properties that have it defined,
@@ -27,36 +27,36 @@ NewModelScanResultsActionRequestWithDefaults instantiates a new ModelScanResults
 This constructor will only assign default values to properties that have it defined,
 but it doesn't guarantee that properties required by API are set
 
-### GetDocIds
+### GetResultIds
 
-`func (o *ModelScanResultsActionRequest) GetDocIds() []string`
+`func (o *ModelScanResultsActionRequest) GetResultIds() []string`
 
-GetDocIds returns the DocIds field if non-nil, zero value otherwise.
+GetResultIds returns the ResultIds field if non-nil, zero value otherwise.
 
-### GetDocIdsOk
+### GetResultIdsOk
 
-`func (o *ModelScanResultsActionRequest) GetDocIdsOk() (*[]string, bool)`
+`func (o *ModelScanResultsActionRequest) GetResultIdsOk() (*[]string, bool)`
 
-GetDocIdsOk returns a tuple with the DocIds field if it's non-nil, zero value otherwise
+GetResultIdsOk returns a tuple with the ResultIds field if it's non-nil, zero value otherwise
 and a boolean to check if the value has been set.
 
-### SetDocIds
+### SetResultIds
 
-`func (o *ModelScanResultsActionRequest) SetDocIds(v []string)`
+`func (o *ModelScanResultsActionRequest) SetResultIds(v []string)`
 
-SetDocIds sets DocIds field to given value.
+SetResultIds sets ResultIds field to given value.
 
 
-### SetDocIdsNil
+### SetResultIdsNil
 
-`func (o *ModelScanResultsActionRequest) SetDocIdsNil(b bool)`
+`func (o *ModelScanResultsActionRequest) SetResultIdsNil(b bool)`
 
- SetDocIdsNil sets the value for DocIds to be an explicit nil
+ SetResultIdsNil sets the value for ResultIds to be an explicit nil
 
-### UnsetDocIds
-`func (o *ModelScanResultsActionRequest) UnsetDocIds()`
+### UnsetResultIds
+`func (o *ModelScanResultsActionRequest) UnsetResultIds()`
 
-UnsetDocIds ensures that no value is present for DocIds, not even an explicit nil
+UnsetResultIds ensures that no value is present for ResultIds, not even an explicit nil
 ### GetScanId
 
 `func (o *ModelScanResultsActionRequest) GetScanId() string`

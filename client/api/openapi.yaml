@@ -2178,14 +2178,14 @@ paths:
       summary: Get Vulnerability Scans List
       tags:
       - Vulnerability
-  /deepfence/scan/nodes/{scan_type}/{doc_id}:
+  /deepfence/scan/nodes/{scan_type}/{result_id}:
     get:
-      description: Get all nodes for given result document
-      operationId: getAllNodesOfScanResultDocument
+      description: Get all nodes for given scan result
+      operationId: getAllNodesFromScanResult
       parameters:
       - explode: false
         in: path
-        name: doc_id
+        name: result_id
         required: true
         schema:
           type: string
@@ -2236,7 +2236,7 @@ paths:
           description: Internal Server Error
       security:
       - bearer_token: []
-      summary: Get all nodes for given result document
+      summary: Get all nodes for given scan result
       tags:
       - Scan Results
   /deepfence/scan/results/action/delete:
@@ -3458,7 +3458,7 @@ paths:
       - Vulnerability
   /deepfence/search/cloud-compliance/scans:
     post:
-      description: Search scan results
+      description: Search across all the data associated with cloud-compliance scan
       operationId: searchCloudComplianceScans
       requestBody:
         content:
@@ -3498,12 +3498,12 @@ paths:
           description: Internal Server Error
       security:
       - bearer_token: []
-      summary: Search Vulnerability Scan results
+      summary: Search Cloud Compliance Scan results
       tags:
       - Search
   /deepfence/search/cloud-compliances:
     post:
-      description: List all the images present in the given registry
+      description: Search across all the data associated with cloud-compliances
       operationId: searchCloudCompliances
       requestBody:
         content:
@@ -3548,7 +3548,7 @@ paths:
       - Search
   /deepfence/search/compliance/scans:
     post:
-      description: Search scan results
+      description: Search across all the data associated with compliance scan
       operationId: searchComplianceScans
       requestBody:
         content:
@@ -3588,12 +3588,12 @@ paths:
           description: Internal Server Error
       security:
       - bearer_token: []
-      summary: Search Vulnerability Scan results
+      summary: Search Compliance Scan results
       tags:
       - Search
   /deepfence/search/compliances:
     post:
-      description: List all the images present in the given registry
+      description: Search across all the data associated with compliances
       operationId: searchCompliances
       requestBody:
         content:
@@ -3638,7 +3638,7 @@ paths:
       - Search
   /deepfence/search/containers:
     post:
-      description: Retrieve all the data associated with containers
+      description: Search across all data associated with containers
       operationId: searchContainers
       requestBody:
         content:
@@ -3683,7 +3683,7 @@ paths:
       - Search
   /deepfence/search/count/cloud-compliance/scans:
     post:
-      description: Search scan results
+      description: Count across all the data associated with cloud-compliance scans
       operationId: countCloudComplianceScans
       requestBody:
         content:
@@ -3721,12 +3721,12 @@ paths:
           description: Internal Server Error
       security:
       - bearer_token: []
-      summary: Search Vulnerability Scan results
+      summary: Count Cloud Compliance Scan results
       tags:
       - Search
   /deepfence/search/count/cloud-compliances:
     post:
-      description: List all the images present in the given registry
+      description: Count across all the data ssociated with cloud compliances
       operationId: countCloudCompliances
       requestBody:
         content:
@@ -3764,12 +3764,12 @@ paths:
           description: Internal Server Error
       security:
       - bearer_token: []
-      summary: Search Cloud compliances
+      summary: Count Cloud compliances
       tags:
       - Search
   /deepfence/search/count/compliance/scans:
     post:
-      description: Search scan results
+      description: Count across all the data associated with compliance scans
       operationId: countComplianceScans
       requestBody:
         content:
@@ -3807,12 +3807,12 @@ paths:
           description: Internal Server Error
       security:
       - bearer_token: []
-      summary: Search Vulnerability Scan results
+      summary: Count Compliance Scan results
       tags:
       - Search
   /deepfence/search/count/compliances:
     post:
-      description: List all the images present in the given registry
+      description: Count across all the data associated with compliances
       operationId: countCompliances
       requestBody:
         content:
@@ -3850,12 +3850,12 @@ paths:
           description: Internal Server Error
       security:
       - bearer_token: []
-      summary: Search Compliances
+      summary: Count Compliances
       tags:
       - Search
   /deepfence/search/count/containers:
     post:
-      description: Retrieve all the data associated with containers
+      description: Count across all the data associated with containers
       operationId: countContainers
       requestBody:
         content:
@@ -3893,12 +3893,12 @@ paths:
           description: Internal Server Error
       security:
       - bearer_token: []
-      summary: Search Containers data
+      summary: Count Containers data
       tags:
       - Search
   /deepfence/search/count/hosts:
     post:
-      description: Retrieve all the data associated with hosts
+      description: Count across all the data associated with hosts
       operationId: countHosts
       requestBody:
         content:
@@ -3936,12 +3936,12 @@ paths:
           description: Internal Server Error
       security:
       - bearer_token: []
-      summary: Search hosts
+      summary: Count hosts
       tags:
       - Search
   /deepfence/search/count/images:
     post:
-      description: Retrieve all the data associated with processes
+      description: Count across all the data associated with container images
       operationId: countContainerImages
       requestBody:
         content:
@@ -3979,12 +3979,12 @@ paths:
           description: Internal Server Error
       security:
       - bearer_token: []
-      summary: Search Container images
+      summary: Count Container images
       tags:
       - Search
   /deepfence/search/count/malware/scans:
     post:
-      description: Search scan results
+      description: Count across all the data associated with malware scans
       operationId: countMalwareScans
       requestBody:
         content:
@@ -4022,12 +4022,12 @@ paths:
           description: Internal Server Error
       security:
       - bearer_token: []
-      summary: Search Vulnerability Scan results
+      summary: Count Malware Scan results
       tags:
       - Search
   /deepfence/search/count/malwares:
     post:
-      description: List all the images present in the given registry
+      description: Count across all the data associated with malwares
       operationId: countMalwares
       requestBody:
         content:
@@ -4065,12 +4065,12 @@ paths:
           description: Internal Server Error
       security:
       - bearer_token: []
-      summary: Search Malwares
+      summary: Count Malwares
       tags:
       - Search
   /deepfence/search/count/secret/scans:
     post:
-      description: Search scan results
+      description: Count across all the data associated with secret scans
       operationId: countSecretsScans
       requestBody:
         content:
@@ -4108,12 +4108,12 @@ paths:
           description: Internal Server Error
       security:
       - bearer_token: []
-      summary: Search Vulnerability Scan results
+      summary: Count Secret Scan results
       tags:
       - Search
   /deepfence/search/count/secrets:
     post:
-      description: Retrieve all the data associated with pods
+      description: Count across all the data associated with secrets
       operationId: countSecrets
       requestBody:
         content:
@@ -4151,12 +4151,12 @@ paths:
           description: Internal Server Error
       security:
       - bearer_token: []
-      summary: Search Secrets
+      summary: Count Secrets
       tags:
       - Search
   /deepfence/search/count/vulnerabilities:
     post:
-      description: Retrieve all the data associated with k8s clusters
+      description: Search across all the data associated with vulnerabilities
       operationId: countVulnerabilities
       requestBody:
         content:
@@ -4194,12 +4194,12 @@ paths:
           description: Internal Server Error
       security:
       - bearer_token: []
-      summary: Search Vulnerabilities
+      summary: Count Vulnerabilities
       tags:
       - Search
   /deepfence/search/count/vulnerability/scans:
     post:
-      description: Search scan results
+      description: Count across all the data associated with vulnerability scans
       operationId: countVulnerabilityScans
       requestBody:
         content:
@@ -4237,12 +4237,12 @@ paths:
           description: Internal Server Error
       security:
       - bearer_token: []
-      summary: Search Vulnerability Scan results
+      summary: Count Vulnerability Scan results
       tags:
       - Search
   /deepfence/search/hosts:
     post:
-      description: Retrieve all the data associated with hosts
+      description: Search across all data associated with hosts
       operationId: searchHosts
       requestBody:
         content:
@@ -4287,7 +4287,7 @@ paths:
       - Search
   /deepfence/search/images:
     post:
-      description: Retrieve all the data associated with processes
+      description: Search across all the data associated with container images
       operationId: searchContainerImages
       requestBody:
         content:
@@ -4332,7 +4332,7 @@ paths:
       - Search
   /deepfence/search/malware/scans:
     post:
-      description: Search scan results
+      description: Search across all the data associated with malwares scan
       operationId: searchMalwareScans
       requestBody:
         content:
@@ -4372,12 +4372,12 @@ paths:
           description: Internal Server Error
       security:
       - bearer_token: []
-      summary: Search Vulnerability Scan results
+      summary: Search Malware Scan results
       tags:
       - Search
   /deepfence/search/malwares:
     post:
-      description: List all the images present in the given registry
+      description: Search across all the data associated with malwares
       operationId: searchMalwares
       requestBody:
         content:
@@ -4422,7 +4422,7 @@ paths:
       - Search
   /deepfence/search/secret/scans:
     post:
-      description: Search scan results
+      description: Search across all the data associated with secrets scan
       operationId: searchSecretsScans
       requestBody:
         content:
@@ -4462,12 +4462,12 @@ paths:
           description: Internal Server Error
       security:
       - bearer_token: []
-      summary: Search Vulnerability Scan results
+      summary: Search Secrets Scan results
       tags:
       - Search
   /deepfence/search/secrets:
     post:
-      description: Retrieve all the data associated with pods
+      description: Search across all the data associated with secrets
       operationId: searchSecrets
       requestBody:
         content:
@@ -4512,7 +4512,7 @@ paths:
       - Search
   /deepfence/search/vulnerabilities:
     post:
-      description: Retrieve all the data associated with k8s clusters
+      description: Search across all the data associated with vulnerabilities
       operationId: searchVulnerabilities
       requestBody:
         content:
@@ -4557,7 +4557,7 @@ paths:
       - Search
   /deepfence/search/vulnerability/scans:
     post:
-      description: Search scan results
+      description: Search across all the data associated with vulnerability scan
       operationId: searchVulnerabilityScans
       requestBody:
         content:
@@ -6499,6 +6499,7 @@ components:
         compliance_check_type: compliance_check_type
         '@timestamp': '@timestamp'
         account_id: account_id
+        updated_at: 1
         service: service
         scan_id: scan_id
         region: region
@@ -6546,6 +6547,8 @@ components:
           type: string
         type:
           type: string
+        updated_at:
+          type: integer
       required:
       - '@timestamp'
       - account_id
@@ -6567,6 +6570,7 @@ components:
       - status
       - title
       - type
+      - updated_at
       type: object
     ModelCloudComplianceScanDetails:
       example:
@@ -6610,6 +6614,7 @@ components:
           compliance_check_type: compliance_check_type
           '@timestamp': '@timestamp'
           account_id: account_id
+          updated_at: 1
           service: service
           scan_id: scan_id
           region: region
@@ -6630,6 +6635,7 @@ components:
           compliance_check_type: compliance_check_type
           '@timestamp': '@timestamp'
           account_id: account_id
+          updated_at: 1
           service: service
           scan_id: scan_id
           region: region
@@ -6641,7 +6647,7 @@ components:
         updated_at: 5
         scan_id: scan_id
         status_counts:
-          key: 1
+          key: 5
         docker_image_name: docker_image_name
         host_name: host_name
         node_id: node_id
@@ -6870,6 +6876,7 @@ components:
         compliance_check_type: compliance_check_type
         test_rationale: test_rationale
         test_severity: test_severity
+        updated_at: 6
         remediation_puppet: remediation_puppet
         remediation_script: remediation_script
         status: status
@@ -6904,6 +6911,8 @@ components:
           type: string
         test_severity:
           type: string
+        updated_at:
+          type: integer
       required:
       - compliance_check_type
       - compliance_node_type
@@ -6919,6 +6928,7 @@ components:
       - test_number
       - test_rationale
       - test_severity
+      - updated_at
       type: object
     ModelComplianceScanInfo:
       example:
@@ -6974,6 +6984,7 @@ components:
           compliance_check_type: compliance_check_type
           test_rationale: test_rationale
           test_severity: test_severity
+          updated_at: 6
           remediation_puppet: remediation_puppet
           remediation_script: remediation_script
           status: status
@@ -6988,6 +6999,7 @@ components:
           compliance_check_type: compliance_check_type
           test_rationale: test_rationale
           test_severity: test_severity
+          updated_at: 6
           remediation_puppet: remediation_puppet
           remediation_script: remediation_script
           status: status
@@ -6995,10 +7007,10 @@ components:
           test_number: test_number
         compliance_percentage: 0.8008281904610115
         node_type: node_type
-        updated_at: 1
+        updated_at: 5
         scan_id: scan_id
         status_counts:
-          key: 6
+          key: 1
         docker_image_name: docker_image_name
         host_name: host_name
         node_id: node_id
@@ -9002,6 +9014,7 @@ components:
       example:
         summary: summary
         image_layer_id: image_layer_id
+        updated_at: 1
         file_sevScore: 0.8008281904610115
         rule_name: rule_name
         masked: true
@@ -9028,6 +9041,8 @@ components:
           type: number
         summary:
           type: string
+        updated_at:
+          type: integer
       required:
       - class
       - complete_filename
@@ -9038,11 +9053,12 @@ components:
       - rule_name
       - severity_score
       - summary
+      - updated_at
       type: object
     ModelMalwareScanResult:
       example:
         severity_counts:
-          key: 1
+          key: 5
         node_type: node_type
         docker_container_name: docker_container_name
         updated_at: 5
@@ -9052,6 +9068,7 @@ components:
         malwares:
         - summary: summary
           image_layer_id: image_layer_id
+          updated_at: 1
           file_sevScore: 0.8008281904610115
           rule_name: rule_name
           masked: true
@@ -9061,6 +9078,7 @@ components:
           severity_score: 6.027456183070403
         - summary: summary
           image_layer_id: image_layer_id
+          updated_at: 1
           file_sevScore: 0.8008281904610115
           rule_name: rule_name
           masked: true
@@ -9801,13 +9819,13 @@ components:
       type: object
     ModelScanResultsActionRequest:
       example:
-        doc_ids:
-        - doc_ids
-        - doc_ids
+        result_ids:
+        - result_ids
+        - result_ids
         scan_type: SecretScan
         scan_id: scan_id
       properties:
-        doc_ids:
+        result_ids:
           items:
             type: string
           nullable: true
@@ -9823,26 +9841,26 @@ components:
           - CloudComplianceScan
           type: string
       required:
-      - doc_ids
+      - result_ids
       - scan_id
       - scan_type
       type: object
     ModelScanResultsMaskRequest:
       example:
         mask_across_hosts_and_images: true
-        doc_ids:
-        - doc_ids
-        - doc_ids
+        result_ids:
+        - result_ids
+        - result_ids
         scan_type: SecretScan
         scan_id: scan_id
       properties:
-        doc_ids:
+        mask_across_hosts_and_images:
+          type: boolean
+        result_ids:
           items:
             type: string
           nullable: true
           type: array
-        mask_across_hosts_and_images:
-          type: boolean
         scan_id:
           type: string
         scan_type:
@@ -9854,7 +9872,7 @@ components:
           - CloudComplianceScan
           type: string
       required:
-      - doc_ids
+      - result_ids
       - scan_id
       - scan_type
       type: object
@@ -9950,6 +9968,7 @@ components:
       example:
         full_filename: full_filename
         matched_content: matched_content
+        updated_at: 7
         masked: true
         relative_ending_index: 5
         starting_index: 2
@@ -9967,6 +9986,8 @@ components:
           type: integer
         starting_index:
           type: integer
+        updated_at:
+          type: integer
       required:
       - full_filename
       - masked
@@ -9974,11 +9995,12 @@ components:
       - relative_ending_index
       - relative_starting_index
       - starting_index
+      - updated_at
       type: object
     ModelSecretScanResult:
       example:
         severity_counts:
-          key: 7
+          key: 9
         docker_container_name: docker_container_name
         kubernetes_cluster_name: kubernetes_cluster_name
         node_name: node_name
@@ -9998,18 +10020,20 @@ components:
         secrets:
         - full_filename: full_filename
           matched_content: matched_content
+          updated_at: 7
           masked: true
           relative_ending_index: 5
           starting_index: 2
           relative_starting_index: 5
         - full_filename: full_filename
           matched_content: matched_content
+          updated_at: 7
           masked: true
           relative_ending_index: 5
           starting_index: 2
           relative_starting_index: 5
         node_type: node_type
-        updated_at: 9
+        updated_at: 3
         scan_id: scan_id
         rule_2_secrets:
           key:
@@ -10278,6 +10302,7 @@ components:
         - urls
         cve_severity: cve_severity
         cve_caused_by_package_path: cve_caused_by_package_path
+        updated_at: 5
         cve_id: cve_id
         exploit_poc: exploit_poc
         cve_type: cve_type
@@ -10312,6 +10337,8 @@ components:
           type: string
         masked:
           type: boolean
+        updated_at:
+          type: integer
         urls:
           items:
             type: string
@@ -10332,6 +10359,7 @@ components:
       - cve_type
       - exploit_poc
       - masked
+      - updated_at
       - urls
       type: object
     ModelVulnerabilityScanConfigLanguage:
@@ -10376,6 +10404,7 @@ components:
           - urls
           cve_severity: cve_severity
           cve_caused_by_package_path: cve_caused_by_package_path
+          updated_at: 5
           cve_id: cve_id
           exploit_poc: exploit_poc
           cve_type: cve_type
@@ -10393,6 +10422,7 @@ components:
           - urls
           cve_severity: cve_severity
           cve_caused_by_package_path: cve_caused_by_package_path
+          updated_at: 5
           cve_id: cve_id
           exploit_poc: exploit_poc
           cve_type: cve_type

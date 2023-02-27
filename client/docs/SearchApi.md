@@ -4,30 +4,30 @@ All URIs are relative to *http://localhost*
 
 Method | HTTP request | Description
 ------------- | ------------- | -------------
-[**CountCloudComplianceScans**](SearchApi.md#CountCloudComplianceScans) | **Post** /deepfence/search/count/cloud-compliance/scans | Search Vulnerability Scan results
-[**CountCloudCompliances**](SearchApi.md#CountCloudCompliances) | **Post** /deepfence/search/count/cloud-compliances | Search Cloud compliances
-[**CountComplianceScans**](SearchApi.md#CountComplianceScans) | **Post** /deepfence/search/count/compliance/scans | Search Vulnerability Scan results
-[**CountCompliances**](SearchApi.md#CountCompliances) | **Post** /deepfence/search/count/compliances | Search Compliances
-[**CountContainerImages**](SearchApi.md#CountContainerImages) | **Post** /deepfence/search/count/images | Search Container images
-[**CountContainers**](SearchApi.md#CountContainers) | **Post** /deepfence/search/count/containers | Search Containers data
-[**CountHosts**](SearchApi.md#CountHosts) | **Post** /deepfence/search/count/hosts | Search hosts
-[**CountMalwareScans**](SearchApi.md#CountMalwareScans) | **Post** /deepfence/search/count/malware/scans | Search Vulnerability Scan results
-[**CountMalwares**](SearchApi.md#CountMalwares) | **Post** /deepfence/search/count/malwares | Search Malwares
-[**CountSecrets**](SearchApi.md#CountSecrets) | **Post** /deepfence/search/count/secrets | Search Secrets
-[**CountSecretsScans**](SearchApi.md#CountSecretsScans) | **Post** /deepfence/search/count/secret/scans | Search Vulnerability Scan results
-[**CountVulnerabilities**](SearchApi.md#CountVulnerabilities) | **Post** /deepfence/search/count/vulnerabilities | Search Vulnerabilities
-[**CountVulnerabilityScans**](SearchApi.md#CountVulnerabilityScans) | **Post** /deepfence/search/count/vulnerability/scans | Search Vulnerability Scan results
-[**SearchCloudComplianceScans**](SearchApi.md#SearchCloudComplianceScans) | **Post** /deepfence/search/cloud-compliance/scans | Search Vulnerability Scan results
+[**CountCloudComplianceScans**](SearchApi.md#CountCloudComplianceScans) | **Post** /deepfence/search/count/cloud-compliance/scans | Count Cloud Compliance Scan results
+[**CountCloudCompliances**](SearchApi.md#CountCloudCompliances) | **Post** /deepfence/search/count/cloud-compliances | Count Cloud compliances
+[**CountComplianceScans**](SearchApi.md#CountComplianceScans) | **Post** /deepfence/search/count/compliance/scans | Count Compliance Scan results
+[**CountCompliances**](SearchApi.md#CountCompliances) | **Post** /deepfence/search/count/compliances | Count Compliances
+[**CountContainerImages**](SearchApi.md#CountContainerImages) | **Post** /deepfence/search/count/images | Count Container images
+[**CountContainers**](SearchApi.md#CountContainers) | **Post** /deepfence/search/count/containers | Count Containers data
+[**CountHosts**](SearchApi.md#CountHosts) | **Post** /deepfence/search/count/hosts | Count hosts
+[**CountMalwareScans**](SearchApi.md#CountMalwareScans) | **Post** /deepfence/search/count/malware/scans | Count Malware Scan results
+[**CountMalwares**](SearchApi.md#CountMalwares) | **Post** /deepfence/search/count/malwares | Count Malwares
+[**CountSecrets**](SearchApi.md#CountSecrets) | **Post** /deepfence/search/count/secrets | Count Secrets
+[**CountSecretsScans**](SearchApi.md#CountSecretsScans) | **Post** /deepfence/search/count/secret/scans | Count Secret Scan results
+[**CountVulnerabilities**](SearchApi.md#CountVulnerabilities) | **Post** /deepfence/search/count/vulnerabilities | Count Vulnerabilities
+[**CountVulnerabilityScans**](SearchApi.md#CountVulnerabilityScans) | **Post** /deepfence/search/count/vulnerability/scans | Count Vulnerability Scan results
+[**SearchCloudComplianceScans**](SearchApi.md#SearchCloudComplianceScans) | **Post** /deepfence/search/cloud-compliance/scans | Search Cloud Compliance Scan results
 [**SearchCloudCompliances**](SearchApi.md#SearchCloudCompliances) | **Post** /deepfence/search/cloud-compliances | Search Cloud compliances
-[**SearchComplianceScans**](SearchApi.md#SearchComplianceScans) | **Post** /deepfence/search/compliance/scans | Search Vulnerability Scan results
+[**SearchComplianceScans**](SearchApi.md#SearchComplianceScans) | **Post** /deepfence/search/compliance/scans | Search Compliance Scan results
 [**SearchCompliances**](SearchApi.md#SearchCompliances) | **Post** /deepfence/search/compliances | Search Compliances
 [**SearchContainerImages**](SearchApi.md#SearchContainerImages) | **Post** /deepfence/search/images | Search Container images
 [**SearchContainers**](SearchApi.md#SearchContainers) | **Post** /deepfence/search/containers | Search Containers data
 [**SearchHosts**](SearchApi.md#SearchHosts) | **Post** /deepfence/search/hosts | Search hosts
-[**SearchMalwareScans**](SearchApi.md#SearchMalwareScans) | **Post** /deepfence/search/malware/scans | Search Vulnerability Scan results
+[**SearchMalwareScans**](SearchApi.md#SearchMalwareScans) | **Post** /deepfence/search/malware/scans | Search Malware Scan results
 [**SearchMalwares**](SearchApi.md#SearchMalwares) | **Post** /deepfence/search/malwares | Search Malwares
 [**SearchSecrets**](SearchApi.md#SearchSecrets) | **Post** /deepfence/search/secrets | Search Secrets
-[**SearchSecretsScans**](SearchApi.md#SearchSecretsScans) | **Post** /deepfence/search/secret/scans | Search Vulnerability Scan results
+[**SearchSecretsScans**](SearchApi.md#SearchSecretsScans) | **Post** /deepfence/search/secret/scans | Search Secrets Scan results
 [**SearchVulnerabilities**](SearchApi.md#SearchVulnerabilities) | **Post** /deepfence/search/vulnerabilities | Search Vulnerabilities
 [**SearchVulnerabilityScans**](SearchApi.md#SearchVulnerabilityScans) | **Post** /deepfence/search/vulnerability/scans | Search Vulnerability Scan results
 
@@ -37,7 +37,7 @@ Method | HTTP request | Description
 
 > SearchSearchCountResp CountCloudComplianceScans(ctx).SearchSearchScanReq(searchSearchScanReq).Execute()
 
-Search Vulnerability Scan results
+Count Cloud Compliance Scan results
 
 
 
@@ -103,7 +103,7 @@ Name | Type | Description  | Notes
 
 > SearchSearchCountResp CountCloudCompliances(ctx).SearchSearchNodeReq(searchSearchNodeReq).Execute()
 
-Search Cloud compliances
+Count Cloud compliances
 
 
 
@@ -169,7 +169,7 @@ Name | Type | Description  | Notes
 
 > SearchSearchCountResp CountComplianceScans(ctx).SearchSearchScanReq(searchSearchScanReq).Execute()
 
-Search Vulnerability Scan results
+Count Compliance Scan results
 
 
 
@@ -235,7 +235,7 @@ Name | Type | Description  | Notes
 
 > SearchSearchCountResp CountCompliances(ctx).SearchSearchNodeReq(searchSearchNodeReq).Execute()
 
-Search Compliances
+Count Compliances
 
 
 
@@ -301,7 +301,7 @@ Name | Type | Description  | Notes
 
 > SearchSearchCountResp CountContainerImages(ctx).SearchSearchNodeReq(searchSearchNodeReq).Execute()
 
-Search Container images
+Count Container images
 
 
 
@@ -367,7 +367,7 @@ Name | Type | Description  | Notes
 
 > SearchSearchCountResp CountContainers(ctx).SearchSearchNodeReq(searchSearchNodeReq).Execute()
 
-Search Containers data
+Count Containers data
 
 
 
@@ -433,7 +433,7 @@ Name | Type | Description  | Notes
 
 > SearchSearchCountResp CountHosts(ctx).SearchSearchNodeReq(searchSearchNodeReq).Execute()
 
-Search hosts
+Count hosts
 
 
 
@@ -499,7 +499,7 @@ Name | Type | Description  | Notes
 
 > SearchSearchCountResp CountMalwareScans(ctx).SearchSearchScanReq(searchSearchScanReq).Execute()
 
-Search Vulnerability Scan results
+Count Malware Scan results
 
 
 
@@ -565,7 +565,7 @@ Name | Type | Description  | Notes
 
 > SearchSearchCountResp CountMalwares(ctx).SearchSearchNodeReq(searchSearchNodeReq).Execute()
 
-Search Malwares
+Count Malwares
 
 
 
@@ -631,7 +631,7 @@ Name | Type | Description  | Notes
 
 > SearchSearchCountResp CountSecrets(ctx).SearchSearchNodeReq(searchSearchNodeReq).Execute()
 
-Search Secrets
+Count Secrets
 
 
 
@@ -697,7 +697,7 @@ Name | Type | Description  | Notes
 
 > SearchSearchCountResp CountSecretsScans(ctx).SearchSearchScanReq(searchSearchScanReq).Execute()
 
-Search Vulnerability Scan results
+Count Secret Scan results
 
 
 
@@ -763,7 +763,7 @@ Name | Type | Description  | Notes
 
 > SearchSearchCountResp CountVulnerabilities(ctx).SearchSearchNodeReq(searchSearchNodeReq).Execute()
 
-Search Vulnerabilities
+Count Vulnerabilities
 
 
 
@@ -829,7 +829,7 @@ Name | Type | Description  | Notes
 
 > SearchSearchCountResp CountVulnerabilityScans(ctx).SearchSearchScanReq(searchSearchScanReq).Execute()
 
-Search Vulnerability Scan results
+Count Vulnerability Scan results
 
 
 
@@ -895,7 +895,7 @@ Name | Type | Description  | Notes
 
 > []ModelScanInfo SearchCloudComplianceScans(ctx).SearchSearchScanReq(searchSearchScanReq).Execute()
 
-Search Vulnerability Scan results
+Search Cloud Compliance Scan results
 
 
 
@@ -1027,7 +1027,7 @@ Name | Type | Description  | Notes
 
 > []ModelScanInfo SearchComplianceScans(ctx).SearchSearchScanReq(searchSearchScanReq).Execute()
 
-Search Vulnerability Scan results
+Search Compliance Scan results
 
 
 
@@ -1357,7 +1357,7 @@ Name | Type | Description  | Notes
 
 > []ModelScanInfo SearchMalwareScans(ctx).SearchSearchScanReq(searchSearchScanReq).Execute()
 
-Search Vulnerability Scan results
+Search Malware Scan results
 
 
 
@@ -1555,7 +1555,7 @@ Name | Type | Description  | Notes
 
 > []ModelScanInfo SearchSecretsScans(ctx).SearchSearchScanReq(searchSearchScanReq).Execute()
 
-Search Vulnerability Scan results
+Search Secrets Scan results
 
 
 

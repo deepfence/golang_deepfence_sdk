@@ -34,13 +34,14 @@ type ModelCompliance struct {
 	TestNumber string `json:"test_number"`
 	TestRationale string `json:"test_rationale"`
 	TestSeverity string `json:"test_severity"`
+	UpdatedAt int32 `json:"updated_at"`
 }
 
 // NewModelCompliance instantiates a new ModelCompliance object
 // This constructor will assign default values to properties that have it defined,
 // and makes sure properties required by API are set, but the set of arguments
 // will change when the set of required properties is changed
-func NewModelCompliance(complianceCheckType string, complianceNodeType string, description string, masked bool, remediationAnsible string, remediationPuppet string, remediationScript string, resource string, status string, testCategory string, testDesc string, testNumber string, testRationale string, testSeverity string) *ModelCompliance {
+func NewModelCompliance(complianceCheckType string, complianceNodeType string, description string, masked bool, remediationAnsible string, remediationPuppet string, remediationScript string, resource string, status string, testCategory string, testDesc string, testNumber string, testRationale string, testSeverity string, updatedAt int32) *ModelCompliance {
 	this := ModelCompliance{}
 	this.ComplianceCheckType = complianceCheckType
 	this.ComplianceNodeType = complianceNodeType
@@ -56,6 +57,7 @@ func NewModelCompliance(complianceCheckType string, complianceNodeType string, d
 	this.TestNumber = testNumber
 	this.TestRationale = testRationale
 	this.TestSeverity = testSeverity
+	this.UpdatedAt = updatedAt
 	return &this
 }
 
@@ -403,6 +405,30 @@ func (o *ModelCompliance) SetTestSeverity(v string) {
 	o.TestSeverity = v
 }
 
+// GetUpdatedAt returns the UpdatedAt field value
+func (o *ModelCompliance) GetUpdatedAt() int32 {
+	if o == nil {
+		var ret int32
+		return ret
+	}
+
+	return o.UpdatedAt
+}
+
+// GetUpdatedAtOk returns a tuple with the UpdatedAt field value
+// and a boolean to check if the value has been set.
+func (o *ModelCompliance) GetUpdatedAtOk() (*int32, bool) {
+	if o == nil {
+		return nil, false
+	}
+	return &o.UpdatedAt, true
+}
+
+// SetUpdatedAt sets field value
+func (o *ModelCompliance) SetUpdatedAt(v int32) {
+	o.UpdatedAt = v
+}
+
 func (o ModelCompliance) MarshalJSON() ([]byte, error) {
 	toSerialize,err := o.ToMap()
 	if err != nil {
@@ -427,6 +453,7 @@ func (o ModelCompliance) ToMap() (map[string]interface{}, error) {
 	toSerialize["test_number"] = o.TestNumber
 	toSerialize["test_rationale"] = o.TestRationale
 	toSerialize["test_severity"] = o.TestSeverity
+	toSerialize["updated_at"] = o.UpdatedAt
 	return toSerialize, nil
 }
 

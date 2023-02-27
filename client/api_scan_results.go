@@ -419,39 +419,39 @@ func (a *ScanResultsApiService) DownloadScanResultsExecute(r ApiDownloadScanResu
 	return localVarReturnValue, localVarHTTPResponse, nil
 }
 
-type ApiGetAllNodesOfScanResultDocumentRequest struct {
+type ApiGetAllNodesFromScanResultRequest struct {
 	ctx context.Context
 	ApiService *ScanResultsApiService
-	docId string
+	resultId string
 	scanType string
 }
 
-func (r ApiGetAllNodesOfScanResultDocumentRequest) Execute() ([]ModelBasicNode, *http.Response, error) {
-	return r.ApiService.GetAllNodesOfScanResultDocumentExecute(r)
+func (r ApiGetAllNodesFromScanResultRequest) Execute() ([]ModelBasicNode, *http.Response, error) {
+	return r.ApiService.GetAllNodesFromScanResultExecute(r)
 }
 
 /*
-GetAllNodesOfScanResultDocument Get all nodes for given result document
+GetAllNodesFromScanResult Get all nodes for given scan result
 
-Get all nodes for given result document
+Get all nodes for given scan result
 
  @param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
- @param docId
+ @param resultId
  @param scanType
- @return ApiGetAllNodesOfScanResultDocumentRequest
+ @return ApiGetAllNodesFromScanResultRequest
 */
-func (a *ScanResultsApiService) GetAllNodesOfScanResultDocument(ctx context.Context, docId string, scanType string) ApiGetAllNodesOfScanResultDocumentRequest {
-	return ApiGetAllNodesOfScanResultDocumentRequest{
+func (a *ScanResultsApiService) GetAllNodesFromScanResult(ctx context.Context, resultId string, scanType string) ApiGetAllNodesFromScanResultRequest {
+	return ApiGetAllNodesFromScanResultRequest{
 		ApiService: a,
 		ctx: ctx,
-		docId: docId,
+		resultId: resultId,
 		scanType: scanType,
 	}
 }
 
 // Execute executes the request
 //  @return []ModelBasicNode
-func (a *ScanResultsApiService) GetAllNodesOfScanResultDocumentExecute(r ApiGetAllNodesOfScanResultDocumentRequest) ([]ModelBasicNode, *http.Response, error) {
+func (a *ScanResultsApiService) GetAllNodesFromScanResultExecute(r ApiGetAllNodesFromScanResultRequest) ([]ModelBasicNode, *http.Response, error) {
 	var (
 		localVarHTTPMethod   = http.MethodGet
 		localVarPostBody     interface{}
@@ -459,13 +459,13 @@ func (a *ScanResultsApiService) GetAllNodesOfScanResultDocumentExecute(r ApiGetA
 		localVarReturnValue  []ModelBasicNode
 	)
 
-	localBasePath, err := a.client.cfg.ServerURLWithContext(r.ctx, "ScanResultsApiService.GetAllNodesOfScanResultDocument")
+	localBasePath, err := a.client.cfg.ServerURLWithContext(r.ctx, "ScanResultsApiService.GetAllNodesFromScanResult")
 	if err != nil {
 		return localVarReturnValue, nil, &GenericOpenAPIError{error: err.Error()}
 	}
 
-	localVarPath := localBasePath + "/deepfence/scan/nodes/{scan_type}/{doc_id}"
-	localVarPath = strings.Replace(localVarPath, "{"+"doc_id"+"}", url.PathEscape(parameterValueToString(r.docId, "docId")), -1)
+	localVarPath := localBasePath + "/deepfence/scan/nodes/{scan_type}/{result_id}"
+	localVarPath = strings.Replace(localVarPath, "{"+"result_id"+"}", url.PathEscape(parameterValueToString(r.resultId, "resultId")), -1)
 	localVarPath = strings.Replace(localVarPath, "{"+"scan_type"+"}", url.PathEscape(parameterValueToString(r.scanType, "scanType")), -1)
 
 	localVarHeaderParams := make(map[string]string)

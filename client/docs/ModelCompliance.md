@@ -18,12 +18,13 @@ Name | Type | Description | Notes
 **TestNumber** | **string** |  | 
 **TestRationale** | **string** |  | 
 **TestSeverity** | **string** |  | 
+**UpdatedAt** | **int32** |  | 
 
 ## Methods
 
 ### NewModelCompliance
 
-`func NewModelCompliance(complianceCheckType string, complianceNodeType string, description string, masked bool, remediationAnsible string, remediationPuppet string, remediationScript string, resource string, status string, testCategory string, testDesc string, testNumber string, testRationale string, testSeverity string, ) *ModelCompliance`
+`func NewModelCompliance(complianceCheckType string, complianceNodeType string, description string, masked bool, remediationAnsible string, remediationPuppet string, remediationScript string, resource string, status string, testCategory string, testDesc string, testNumber string, testRationale string, testSeverity string, updatedAt int32, ) *ModelCompliance`
 
 NewModelCompliance instantiates a new ModelCompliance object
 This constructor will assign default values to properties that have it defined,
@@ -316,6 +317,26 @@ and a boolean to check if the value has been set.
 `func (o *ModelCompliance) SetTestSeverity(v string)`
 
 SetTestSeverity sets TestSeverity field to given value.
+
+
+### GetUpdatedAt
+
+`func (o *ModelCompliance) GetUpdatedAt() int32`
+
+GetUpdatedAt returns the UpdatedAt field if non-nil, zero value otherwise.
+
+### GetUpdatedAtOk
+
+`func (o *ModelCompliance) GetUpdatedAtOk() (*int32, bool)`
+
+GetUpdatedAtOk returns a tuple with the UpdatedAt field if it's non-nil, zero value otherwise
+and a boolean to check if the value has been set.
+
+### SetUpdatedAt
+
+`func (o *ModelCompliance) SetUpdatedAt(v int32)`
+
+SetUpdatedAt sets UpdatedAt field to given value.
 
 
 

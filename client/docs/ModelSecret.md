@@ -10,12 +10,13 @@ Name | Type | Description | Notes
 **RelativeEndingIndex** | **int32** |  | 
 **RelativeStartingIndex** | **int32** |  | 
 **StartingIndex** | **int32** |  | 
+**UpdatedAt** | **int32** |  | 
 
 ## Methods
 
 ### NewModelSecret
 
-`func NewModelSecret(fullFilename string, masked bool, matchedContent string, relativeEndingIndex int32, relativeStartingIndex int32, startingIndex int32, ) *ModelSecret`
+`func NewModelSecret(fullFilename string, masked bool, matchedContent string, relativeEndingIndex int32, relativeStartingIndex int32, startingIndex int32, updatedAt int32, ) *ModelSecret`
 
 NewModelSecret instantiates a new ModelSecret object
 This constructor will assign default values to properties that have it defined,
@@ -148,6 +149,26 @@ and a boolean to check if the value has been set.
 `func (o *ModelSecret) SetStartingIndex(v int32)`
 
 SetStartingIndex sets StartingIndex field to given value.
+
+
+### GetUpdatedAt
+
+`func (o *ModelSecret) GetUpdatedAt() int32`
+
+GetUpdatedAt returns the UpdatedAt field if non-nil, zero value otherwise.
+
+### GetUpdatedAtOk
+
+`func (o *ModelSecret) GetUpdatedAtOk() (*int32, bool)`
+
+GetUpdatedAtOk returns a tuple with the UpdatedAt field if it's non-nil, zero value otherwise
+and a boolean to check if the value has been set.
+
+### SetUpdatedAt
+
+`func (o *ModelSecret) SetUpdatedAt(v int32)`
+
+SetUpdatedAt sets UpdatedAt field to given value.
 
 
 

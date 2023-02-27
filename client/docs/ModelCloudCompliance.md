@@ -24,12 +24,13 @@ Name | Type | Description | Notes
 **Status** | **string** |  | 
 **Title** | **string** |  | 
 **Type** | **string** |  | 
+**UpdatedAt** | **int32** |  | 
 
 ## Methods
 
 ### NewModelCloudCompliance
 
-`func NewModelCloudCompliance(timestamp string, accountId string, cloudProvider string, complianceCheckType string, controlId string, count int32, description string, group string, masked bool, nodeId string, nodeName string, reason string, region string, resource string, scanId string, service string, severity string, status string, title string, type_ string, ) *ModelCloudCompliance`
+`func NewModelCloudCompliance(timestamp string, accountId string, cloudProvider string, complianceCheckType string, controlId string, count int32, description string, group string, masked bool, nodeId string, nodeName string, reason string, region string, resource string, scanId string, service string, severity string, status string, title string, type_ string, updatedAt int32, ) *ModelCloudCompliance`
 
 NewModelCloudCompliance instantiates a new ModelCloudCompliance object
 This constructor will assign default values to properties that have it defined,
@@ -442,6 +443,26 @@ and a boolean to check if the value has been set.
 `func (o *ModelCloudCompliance) SetType(v string)`
 
 SetType sets Type field to given value.
+
+
+### GetUpdatedAt
+
+`func (o *ModelCloudCompliance) GetUpdatedAt() int32`
+
+GetUpdatedAt returns the UpdatedAt field if non-nil, zero value otherwise.
+
+### GetUpdatedAtOk
+
+`func (o *ModelCloudCompliance) GetUpdatedAtOk() (*int32, bool)`
+
+GetUpdatedAtOk returns a tuple with the UpdatedAt field if it's non-nil, zero value otherwise
+and a boolean to check if the value has been set.
+
+### SetUpdatedAt
+
+`func (o *ModelCloudCompliance) SetUpdatedAt(v int32)`
+
+SetUpdatedAt sets UpdatedAt field to given value.
 
 
 

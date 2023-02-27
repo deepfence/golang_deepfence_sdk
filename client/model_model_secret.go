@@ -26,13 +26,14 @@ type ModelSecret struct {
 	RelativeEndingIndex int32 `json:"relative_ending_index"`
 	RelativeStartingIndex int32 `json:"relative_starting_index"`
 	StartingIndex int32 `json:"starting_index"`
+	UpdatedAt int32 `json:"updated_at"`
 }
 
 // NewModelSecret instantiates a new ModelSecret object
 // This constructor will assign default values to properties that have it defined,
 // and makes sure properties required by API are set, but the set of arguments
 // will change when the set of required properties is changed
-func NewModelSecret(fullFilename string, masked bool, matchedContent string, relativeEndingIndex int32, relativeStartingIndex int32, startingIndex int32) *ModelSecret {
+func NewModelSecret(fullFilename string, masked bool, matchedContent string, relativeEndingIndex int32, relativeStartingIndex int32, startingIndex int32, updatedAt int32) *ModelSecret {
 	this := ModelSecret{}
 	this.FullFilename = fullFilename
 	this.Masked = masked
@@ -40,6 +41,7 @@ func NewModelSecret(fullFilename string, masked bool, matchedContent string, rel
 	this.RelativeEndingIndex = relativeEndingIndex
 	this.RelativeStartingIndex = relativeStartingIndex
 	this.StartingIndex = startingIndex
+	this.UpdatedAt = updatedAt
 	return &this
 }
 
@@ -195,6 +197,30 @@ func (o *ModelSecret) SetStartingIndex(v int32) {
 	o.StartingIndex = v
 }
 
+// GetUpdatedAt returns the UpdatedAt field value
+func (o *ModelSecret) GetUpdatedAt() int32 {
+	if o == nil {
+		var ret int32
+		return ret
+	}
+
+	return o.UpdatedAt
+}
+
+// GetUpdatedAtOk returns a tuple with the UpdatedAt field value
+// and a boolean to check if the value has been set.
+func (o *ModelSecret) GetUpdatedAtOk() (*int32, bool) {
+	if o == nil {
+		return nil, false
+	}
+	return &o.UpdatedAt, true
+}
+
+// SetUpdatedAt sets field value
+func (o *ModelSecret) SetUpdatedAt(v int32) {
+	o.UpdatedAt = v
+}
+
 func (o ModelSecret) MarshalJSON() ([]byte, error) {
 	toSerialize,err := o.ToMap()
 	if err != nil {
@@ -211,6 +237,7 @@ func (o ModelSecret) ToMap() (map[string]interface{}, error) {
 	toSerialize["relative_ending_index"] = o.RelativeEndingIndex
 	toSerialize["relative_starting_index"] = o.RelativeStartingIndex
 	toSerialize["starting_index"] = o.StartingIndex
+	toSerialize["updated_at"] = o.UpdatedAt
 	return toSerialize, nil
 }
 

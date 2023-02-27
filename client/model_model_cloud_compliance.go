@@ -40,13 +40,14 @@ type ModelCloudCompliance struct {
 	Status string `json:"status"`
 	Title string `json:"title"`
 	Type string `json:"type"`
+	UpdatedAt int32 `json:"updated_at"`
 }
 
 // NewModelCloudCompliance instantiates a new ModelCloudCompliance object
 // This constructor will assign default values to properties that have it defined,
 // and makes sure properties required by API are set, but the set of arguments
 // will change when the set of required properties is changed
-func NewModelCloudCompliance(timestamp string, accountId string, cloudProvider string, complianceCheckType string, controlId string, count int32, description string, group string, masked bool, nodeId string, nodeName string, reason string, region string, resource string, scanId string, service string, severity string, status string, title string, type_ string) *ModelCloudCompliance {
+func NewModelCloudCompliance(timestamp string, accountId string, cloudProvider string, complianceCheckType string, controlId string, count int32, description string, group string, masked bool, nodeId string, nodeName string, reason string, region string, resource string, scanId string, service string, severity string, status string, title string, type_ string, updatedAt int32) *ModelCloudCompliance {
 	this := ModelCloudCompliance{}
 	this.Timestamp = timestamp
 	this.AccountId = accountId
@@ -68,6 +69,7 @@ func NewModelCloudCompliance(timestamp string, accountId string, cloudProvider s
 	this.Status = status
 	this.Title = title
 	this.Type = type_
+	this.UpdatedAt = updatedAt
 	return &this
 }
 
@@ -559,6 +561,30 @@ func (o *ModelCloudCompliance) SetType(v string) {
 	o.Type = v
 }
 
+// GetUpdatedAt returns the UpdatedAt field value
+func (o *ModelCloudCompliance) GetUpdatedAt() int32 {
+	if o == nil {
+		var ret int32
+		return ret
+	}
+
+	return o.UpdatedAt
+}
+
+// GetUpdatedAtOk returns a tuple with the UpdatedAt field value
+// and a boolean to check if the value has been set.
+func (o *ModelCloudCompliance) GetUpdatedAtOk() (*int32, bool) {
+	if o == nil {
+		return nil, false
+	}
+	return &o.UpdatedAt, true
+}
+
+// SetUpdatedAt sets field value
+func (o *ModelCloudCompliance) SetUpdatedAt(v int32) {
+	o.UpdatedAt = v
+}
+
 func (o ModelCloudCompliance) MarshalJSON() ([]byte, error) {
 	toSerialize,err := o.ToMap()
 	if err != nil {
@@ -589,6 +615,7 @@ func (o ModelCloudCompliance) ToMap() (map[string]interface{}, error) {
 	toSerialize["status"] = o.Status
 	toSerialize["title"] = o.Title
 	toSerialize["type"] = o.Type
+	toSerialize["updated_at"] = o.UpdatedAt
 	return toSerialize, nil
 }
 

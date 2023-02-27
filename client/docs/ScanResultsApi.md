@@ -7,7 +7,7 @@ Method | HTTP request | Description
 [**DeleteScanResult**](ScanResultsApi.md#DeleteScanResult) | **Patch** /deepfence/scan/results/action/delete | Delete selected scan results
 [**DeleteScanResultsForScanID**](ScanResultsApi.md#DeleteScanResultsForScanID) | **Delete** /deepfence/scan/{scan_type}/{scan_id} | Delete all scan results for a scan id
 [**DownloadScanResults**](ScanResultsApi.md#DownloadScanResults) | **Get** /deepfence/scan/{scan_type}/{scan_id}/download | Download Scans Results
-[**GetAllNodesOfScanResultDocument**](ScanResultsApi.md#GetAllNodesOfScanResultDocument) | **Get** /deepfence/scan/nodes/{scan_type}/{doc_id} | Get all nodes for given result document
+[**GetAllNodesFromScanResult**](ScanResultsApi.md#GetAllNodesFromScanResult) | **Get** /deepfence/scan/nodes/{scan_type}/{result_id} | Get all nodes for given scan result
 [**MaskScanResult**](ScanResultsApi.md#MaskScanResult) | **Post** /deepfence/scan/results/action/mask | Mask Scans Results
 [**NotifyScanResult**](ScanResultsApi.md#NotifyScanResult) | **Post** /deepfence/scan/results/action/notify | Notify Scans Results
 [**UnmaskScanResult**](ScanResultsApi.md#UnmaskScanResult) | **Post** /deepfence/scan/results/action/unmask | Unmask Scans Results
@@ -35,7 +35,7 @@ import (
 )
 
 func main() {
-    modelScanResultsActionRequest := *openapiclient.NewModelScanResultsActionRequest([]string{"DocIds_example"}, "ScanId_example", "ScanType_example") // ModelScanResultsActionRequest |  (optional)
+    modelScanResultsActionRequest := *openapiclient.NewModelScanResultsActionRequest([]string{"ResultIds_example"}, "ScanId_example", "ScanType_example") // ModelScanResultsActionRequest |  (optional)
 
     configuration := openapiclient.NewConfiguration()
     apiClient := openapiclient.NewAPIClient(configuration)
@@ -222,11 +222,11 @@ Name | Type | Description  | Notes
 [[Back to README]](../README.md)
 
 
-## GetAllNodesOfScanResultDocument
+## GetAllNodesFromScanResult
 
-> []ModelBasicNode GetAllNodesOfScanResultDocument(ctx, docId, scanType).Execute()
+> []ModelBasicNode GetAllNodesFromScanResult(ctx, resultId, scanType).Execute()
 
-Get all nodes for given result document
+Get all nodes for given scan result
 
 
 
@@ -243,18 +243,18 @@ import (
 )
 
 func main() {
-    docId := "docId_example" // string | 
+    resultId := "resultId_example" // string | 
     scanType := "scanType_example" // string | 
 
     configuration := openapiclient.NewConfiguration()
     apiClient := openapiclient.NewAPIClient(configuration)
-    resp, r, err := apiClient.ScanResultsApi.GetAllNodesOfScanResultDocument(context.Background(), docId, scanType).Execute()
+    resp, r, err := apiClient.ScanResultsApi.GetAllNodesFromScanResult(context.Background(), resultId, scanType).Execute()
     if err != nil {
-        fmt.Fprintf(os.Stderr, "Error when calling `ScanResultsApi.GetAllNodesOfScanResultDocument``: %v\n", err)
+        fmt.Fprintf(os.Stderr, "Error when calling `ScanResultsApi.GetAllNodesFromScanResult``: %v\n", err)
         fmt.Fprintf(os.Stderr, "Full HTTP response: %v\n", r)
     }
-    // response from `GetAllNodesOfScanResultDocument`: []ModelBasicNode
-    fmt.Fprintf(os.Stdout, "Response from `ScanResultsApi.GetAllNodesOfScanResultDocument`: %v\n", resp)
+    // response from `GetAllNodesFromScanResult`: []ModelBasicNode
+    fmt.Fprintf(os.Stdout, "Response from `ScanResultsApi.GetAllNodesFromScanResult`: %v\n", resp)
 }
 ```
 
@@ -264,12 +264,12 @@ func main() {
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
 **ctx** | **context.Context** | context for authentication, logging, cancellation, deadlines, tracing, etc.
-**docId** | **string** |  | 
+**resultId** | **string** |  | 
 **scanType** | **string** |  | 
 
 ### Other Parameters
 
-Other parameters are passed through a pointer to a apiGetAllNodesOfScanResultDocumentRequest struct via the builder pattern
+Other parameters are passed through a pointer to a apiGetAllNodesFromScanResultRequest struct via the builder pattern
 
 
 Name | Type | Description  | Notes
@@ -316,7 +316,7 @@ import (
 )
 
 func main() {
-    modelScanResultsMaskRequest := *openapiclient.NewModelScanResultsMaskRequest([]string{"DocIds_example"}, "ScanId_example", "ScanType_example") // ModelScanResultsMaskRequest |  (optional)
+    modelScanResultsMaskRequest := *openapiclient.NewModelScanResultsMaskRequest([]string{"ResultIds_example"}, "ScanId_example", "ScanType_example") // ModelScanResultsMaskRequest |  (optional)
 
     configuration := openapiclient.NewConfiguration()
     apiClient := openapiclient.NewAPIClient(configuration)
@@ -380,7 +380,7 @@ import (
 )
 
 func main() {
-    modelScanResultsActionRequest := *openapiclient.NewModelScanResultsActionRequest([]string{"DocIds_example"}, "ScanId_example", "ScanType_example") // ModelScanResultsActionRequest |  (optional)
+    modelScanResultsActionRequest := *openapiclient.NewModelScanResultsActionRequest([]string{"ResultIds_example"}, "ScanId_example", "ScanType_example") // ModelScanResultsActionRequest |  (optional)
 
     configuration := openapiclient.NewConfiguration()
     apiClient := openapiclient.NewAPIClient(configuration)
@@ -444,7 +444,7 @@ import (
 )
 
 func main() {
-    modelScanResultsMaskRequest := *openapiclient.NewModelScanResultsMaskRequest([]string{"DocIds_example"}, "ScanId_example", "ScanType_example") // ModelScanResultsMaskRequest |  (optional)
+    modelScanResultsMaskRequest := *openapiclient.NewModelScanResultsMaskRequest([]string{"ResultIds_example"}, "ScanId_example", "ScanType_example") // ModelScanResultsMaskRequest |  (optional)
 
     configuration := openapiclient.NewConfiguration()
     apiClient := openapiclient.NewAPIClient(configuration)
