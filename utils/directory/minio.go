@@ -118,12 +118,13 @@ func (mfm *MinioFileManager) ExposeFile(ctx context.Context, filepath string, ex
 		return "", err
 	}
 
-	headers := http.Header{"Host": []string{consoleIp}}
+	headers := http.Header{}
+	headers.Add("Host", consoleIp)
 
 	urlLink, err := mfm.client.PresignHeader(context.Background(),
 		"GET",
 		mfm.namespace,
-		filepath,
+		path.Join(mfm.namespace, filepath),
 		expires,
 		reqParams,
 		headers)
