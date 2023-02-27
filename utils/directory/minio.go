@@ -1,10 +1,12 @@
 package directory
 
 import (
+	"bufio"
 	"bytes"
 	"context"
 	"errors"
 	"fmt"
+	"io"
 	"net/http"
 	"net/url"
 	"path"
@@ -93,6 +95,20 @@ func (mfm *MinioFileManager) UploadFile(ctx context.Context, filename string, da
 
 func (mfm *MinioFileManager) DownloadFile(ctx context.Context, remoteFile string, localFile string, extra interface{}) error {
 	return mfm.client.FGetObject(ctx, mfm.namespace, path.Join(mfm.namespace, remoteFile), localFile, extra.(minio.GetObjectOptions))
+}
+
+func (mfm *MinioFileManager) DownloadFileContexts(ctx context.Context, remoteFile string, extra interface{}) ([]byte, error) {
+	object, err := mfm.client.GetObject(ctx, mfm.namespace, path.Join(mfm.namespace, remoteFile), extra.(minio.GetObjectOptions))
+	if err != nil {
+		return nil, err
+	}
+
+	var buff bytes.Buffer
+	if _, err = io.Copy(bufio.NewWriter(&buff), object); err != nil {
+		return nil, err
+	}
+
+	return buff.Bytes(), nil
 }
 
 func (mfm *MinioFileManager) ExposeFile(ctx context.Context, filepath string, expires time.Duration, reqParams url.Values) (string, error) {
