@@ -36,6 +36,7 @@ func (e AlreadyPresentError) Error() string {
 type FileManager interface {
 	UploadFile(context.Context, string, []byte, interface{}) (UploadResult, error)
 	DownloadFile(context.Context, string, string, interface{}) error
+	DownloadFileContexts(context.Context, string, interface{}) ([]byte, error)
 	ExposeFile(context.Context, string, time.Duration, url.Values) (string, error)
 	Client() interface{}
 	Bucket() string
