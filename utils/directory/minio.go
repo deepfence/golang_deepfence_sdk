@@ -112,7 +112,7 @@ func (mfm *MinioFileManager) DownloadFileContexts(ctx context.Context, remoteFil
 	return buff.Bytes(), nil
 }
 
-func (mfm *MinioFileManager) ExposeFile(ctx context.Context, filepath string, expires time.Duration, reqParams url.Values) (string, error) {
+func (mfm *MinioFileManager) ExposeFile(ctx context.Context, filePath string, expires time.Duration, reqParams url.Values) (string, error) {
 	consoleIp, err := GetManagementHost(NewGlobalContext())
 	if err != nil {
 		return "", err
@@ -124,7 +124,7 @@ func (mfm *MinioFileManager) ExposeFile(ctx context.Context, filepath string, ex
 	urlLink, err := mfm.client.PresignHeader(context.Background(),
 		"GET",
 		mfm.namespace,
-		path.Join(mfm.namespace, filepath),
+		path.Join(mfm.namespace, filePath),
 		expires,
 		reqParams,
 		headers)
