@@ -2178,10 +2178,50 @@ paths:
       summary: Get Vulnerability Scans List
       tags:
       - Vulnerability
+  /deepfence/scan/nodes-in-result:
+    get:
+      description: Get all nodes in given scan result ids
+      operationId: getAllNodesInScanResults
+      responses:
+        "200":
+          content:
+            application/json:
+              schema:
+                items:
+                  $ref: '#/components/schemas/ModelScanResultBasicNode'
+                type: array
+          description: OK
+        "400":
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ApiDocsBadRequestResponse'
+          description: Bad Request
+        "401":
+          description: Unauthorized
+        "403":
+          description: Forbidden
+        "404":
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ApiDocsFailureResponse'
+          description: Not Found
+        "500":
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ApiDocsFailureResponse'
+          description: Internal Server Error
+      security:
+      - bearer_token: []
+      summary: Get all nodes in given scan result ids
+      tags:
+      - Scan Results
   /deepfence/scan/nodes/{scan_type}/{result_id}:
     get:
-      description: Get all nodes for given scan result
-      operationId: getAllNodesFromScanResult
+      description: Get all nodes in given scan result
+      operationId: getAllNodesInScanResult
       parameters:
       - explode: false
         in: path
@@ -2236,7 +2276,7 @@ paths:
           description: Internal Server Error
       security:
       - bearer_token: []
-      summary: Get all nodes for given scan result
+      summary: Get all nodes in given scan result
       tags:
       - Scan Results
   /deepfence/scan/results/action/delete:
@@ -9673,6 +9713,30 @@ components:
           type: array
       required:
       - scans_info
+      type: object
+    ModelScanResultBasicNode:
+      example:
+        basic_nodes:
+        - node_type: node_type
+          name: name
+          host_name: host_name
+          node_id: node_id
+        - node_type: node_type
+          name: name
+          host_name: host_name
+          node_id: node_id
+        result_id: result_id
+      properties:
+        basic_nodes:
+          items:
+            $ref: '#/components/schemas/ModelBasicNode'
+          nullable: true
+          type: array
+        result_id:
+          type: string
+      required:
+      - basic_nodes
+      - result_id
       type: object
     ModelScanResultsActionRequest:
       example:

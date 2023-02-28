@@ -7,7 +7,8 @@ Method | HTTP request | Description
 [**DeleteScanResult**](ScanResultsApi.md#DeleteScanResult) | **Patch** /deepfence/scan/results/action/delete | Delete selected scan results
 [**DeleteScanResultsForScanID**](ScanResultsApi.md#DeleteScanResultsForScanID) | **Delete** /deepfence/scan/{scan_type}/{scan_id} | Delete all scan results for a scan id
 [**DownloadScanResults**](ScanResultsApi.md#DownloadScanResults) | **Get** /deepfence/scan/{scan_type}/{scan_id}/download | Download Scans Results
-[**GetAllNodesFromScanResult**](ScanResultsApi.md#GetAllNodesFromScanResult) | **Get** /deepfence/scan/nodes/{scan_type}/{result_id} | Get all nodes for given scan result
+[**GetAllNodesInScanResult**](ScanResultsApi.md#GetAllNodesInScanResult) | **Get** /deepfence/scan/nodes/{scan_type}/{result_id} | Get all nodes in given scan result
+[**GetAllNodesInScanResults**](ScanResultsApi.md#GetAllNodesInScanResults) | **Get** /deepfence/scan/nodes-in-result | Get all nodes in given scan result ids
 [**MaskScanResult**](ScanResultsApi.md#MaskScanResult) | **Post** /deepfence/scan/results/action/mask | Mask Scans Results
 [**NotifyScanResult**](ScanResultsApi.md#NotifyScanResult) | **Post** /deepfence/scan/results/action/notify | Notify Scans Results
 [**UnmaskScanResult**](ScanResultsApi.md#UnmaskScanResult) | **Post** /deepfence/scan/results/action/unmask | Unmask Scans Results
@@ -222,11 +223,11 @@ Name | Type | Description  | Notes
 [[Back to README]](../README.md)
 
 
-## GetAllNodesFromScanResult
+## GetAllNodesInScanResult
 
-> []ModelBasicNode GetAllNodesFromScanResult(ctx, resultId, scanType).Execute()
+> []ModelBasicNode GetAllNodesInScanResult(ctx, resultId, scanType).Execute()
 
-Get all nodes for given scan result
+Get all nodes in given scan result
 
 
 
@@ -248,13 +249,13 @@ func main() {
 
     configuration := openapiclient.NewConfiguration()
     apiClient := openapiclient.NewAPIClient(configuration)
-    resp, r, err := apiClient.ScanResultsApi.GetAllNodesFromScanResult(context.Background(), resultId, scanType).Execute()
+    resp, r, err := apiClient.ScanResultsApi.GetAllNodesInScanResult(context.Background(), resultId, scanType).Execute()
     if err != nil {
-        fmt.Fprintf(os.Stderr, "Error when calling `ScanResultsApi.GetAllNodesFromScanResult``: %v\n", err)
+        fmt.Fprintf(os.Stderr, "Error when calling `ScanResultsApi.GetAllNodesInScanResult``: %v\n", err)
         fmt.Fprintf(os.Stderr, "Full HTTP response: %v\n", r)
     }
-    // response from `GetAllNodesFromScanResult`: []ModelBasicNode
-    fmt.Fprintf(os.Stdout, "Response from `ScanResultsApi.GetAllNodesFromScanResult`: %v\n", resp)
+    // response from `GetAllNodesInScanResult`: []ModelBasicNode
+    fmt.Fprintf(os.Stdout, "Response from `ScanResultsApi.GetAllNodesInScanResult`: %v\n", resp)
 }
 ```
 
@@ -269,7 +270,7 @@ Name | Type | Description  | Notes
 
 ### Other Parameters
 
-Other parameters are passed through a pointer to a apiGetAllNodesFromScanResultRequest struct via the builder pattern
+Other parameters are passed through a pointer to a apiGetAllNodesInScanResultRequest struct via the builder pattern
 
 
 Name | Type | Description  | Notes
@@ -280,6 +281,67 @@ Name | Type | Description  | Notes
 ### Return type
 
 [**[]ModelBasicNode**](ModelBasicNode.md)
+
+### Authorization
+
+[bearer_token](../README.md#bearer_token)
+
+### HTTP request headers
+
+- **Content-Type**: Not defined
+- **Accept**: application/json
+
+[[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints)
+[[Back to Model list]](../README.md#documentation-for-models)
+[[Back to README]](../README.md)
+
+
+## GetAllNodesInScanResults
+
+> []ModelScanResultBasicNode GetAllNodesInScanResults(ctx).Execute()
+
+Get all nodes in given scan result ids
+
+
+
+### Example
+
+```go
+package main
+
+import (
+    "context"
+    "fmt"
+    "os"
+    openapiclient "github.com/deepfence/golang_deepfence_sdk/client"
+)
+
+func main() {
+
+    configuration := openapiclient.NewConfiguration()
+    apiClient := openapiclient.NewAPIClient(configuration)
+    resp, r, err := apiClient.ScanResultsApi.GetAllNodesInScanResults(context.Background()).Execute()
+    if err != nil {
+        fmt.Fprintf(os.Stderr, "Error when calling `ScanResultsApi.GetAllNodesInScanResults``: %v\n", err)
+        fmt.Fprintf(os.Stderr, "Full HTTP response: %v\n", r)
+    }
+    // response from `GetAllNodesInScanResults`: []ModelScanResultBasicNode
+    fmt.Fprintf(os.Stdout, "Response from `ScanResultsApi.GetAllNodesInScanResults`: %v\n", resp)
+}
+```
+
+### Path Parameters
+
+This endpoint does not need any parameter.
+
+### Other Parameters
+
+Other parameters are passed through a pointer to a apiGetAllNodesInScanResultsRequest struct via the builder pattern
+
+
+### Return type
+
+[**[]ModelScanResultBasicNode**](ModelScanResultBasicNode.md)
 
 ### Authorization
 

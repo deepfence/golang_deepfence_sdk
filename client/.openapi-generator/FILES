@@ -111,6 +111,7 @@ docs/ModelScanFilter.md
 docs/ModelScanInfo.md
 docs/ModelScanListReq.md
 docs/ModelScanListResp.md
+docs/ModelScanResultBasicNode.md
 docs/ModelScanResultsActionRequest.md
 docs/ModelScanResultsMaskRequest.md
 docs/ModelScanResultsReq.md
@@ -233,6 +234,7 @@ model_model_scan_filter.go
 model_model_scan_info.go
 model_model_scan_list_req.go
 model_model_scan_list_resp.go
+model_model_scan_result_basic_node.go
 model_model_scan_results_action_request.go
 model_model_scan_results_mask_request.go
 model_model_scan_results_req.go
