@@ -80,16 +80,6 @@ SetLicenses sets Licenses field to given value.
 
 HasLicenses returns a boolean if a field has been set.
 
-### SetLicensesNil
-
-`func (o *ModelSbomResponse) SetLicensesNil(b bool)`
-
- SetLicensesNil sets the value for Licenses to be an explicit nil
-
-### UnsetLicenses
-`func (o *ModelSbomResponse) UnsetLicenses()`
-
-UnsetLicenses ensures that no value is present for Licenses, not even an explicit nil
 ### GetLocations
 
 `func (o *ModelSbomResponse) GetLocations() []string`
@@ -115,16 +105,6 @@ SetLocations sets Locations field to given value.
 
 HasLocations returns a boolean if a field has been set.
 
-### SetLocationsNil
-
-`func (o *ModelSbomResponse) SetLocationsNil(b bool)`
-
- SetLocationsNil sets the value for Locations to be an explicit nil
-
-### UnsetLocations
-`func (o *ModelSbomResponse) UnsetLocations()`
-
-UnsetLocations ensures that no value is present for Locations, not even an explicit nil
 ### GetPackageName
 
 `func (o *ModelSbomResponse) GetPackageName() string`

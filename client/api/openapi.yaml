@@ -9521,12 +9521,10 @@ components:
         licenses:
           items:
             type: string
-          nullable: true
           type: array
         locations:
           items:
             type: string
-          nullable: true
           type: array
         package_name:
           type: string
@@ -10149,6 +10147,7 @@ components:
       type: object
     ModelVulnerability:
       example:
+        parsed_attack_vector: parsed_attack_vector
         cve_container_layer: cve_container_layer
         masked: true
         cve_description: cve_description
@@ -10165,6 +10164,7 @@ components:
         cve_id: cve_id
         exploit_poc: exploit_poc
         cve_type: cve_type
+        has_live_connection: true
         cve_fixed_in: cve_fixed_in
         cve_link: cve_link
       properties:
@@ -10194,8 +10194,12 @@ components:
           type: string
         exploit_poc:
           type: string
+        has_live_connection:
+          type: boolean
         masked:
           type: boolean
+        parsed_attack_vector:
+          type: string
         updated_at:
           type: integer
         urls:
@@ -10217,7 +10221,9 @@ components:
       - cve_severity
       - cve_type
       - exploit_poc
+      - has_live_connection
       - masked
+      - parsed_attack_vector
       - updated_at
       - urls
       type: object
@@ -10251,7 +10257,8 @@ components:
         kubernetes_cluster_name: kubernetes_cluster_name
         node_name: node_name
         vulnerabilities:
-        - cve_container_layer: cve_container_layer
+        - parsed_attack_vector: parsed_attack_vector
+          cve_container_layer: cve_container_layer
           masked: true
           cve_description: cve_description
           cve_overall_score: 5.962133916683182
@@ -10267,9 +10274,11 @@ components:
           cve_id: cve_id
           exploit_poc: exploit_poc
           cve_type: cve_type
+          has_live_connection: true
           cve_fixed_in: cve_fixed_in
           cve_link: cve_link
-        - cve_container_layer: cve_container_layer
+        - parsed_attack_vector: parsed_attack_vector
+          cve_container_layer: cve_container_layer
           masked: true
           cve_description: cve_description
           cve_overall_score: 5.962133916683182
@@ -10285,6 +10294,7 @@ components:
           cve_id: cve_id
           exploit_poc: exploit_poc
           cve_type: cve_type
+          has_live_connection: true
           cve_fixed_in: cve_fixed_in
           cve_link: cve_link
         scan_id: scan_id

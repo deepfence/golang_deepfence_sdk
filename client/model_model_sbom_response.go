@@ -77,9 +77,9 @@ func (o *ModelSbomResponse) SetCveId(v string) {
 	o.CveId = &v
 }
 
-// GetLicenses returns the Licenses field value if set, zero value otherwise (both if not set or set to explicit null).
+// GetLicenses returns the Licenses field value if set, zero value otherwise.
 func (o *ModelSbomResponse) GetLicenses() []string {
-	if o == nil {
+	if o == nil || IsNil(o.Licenses) {
 		var ret []string
 		return ret
 	}
@@ -88,7 +88,6 @@ func (o *ModelSbomResponse) GetLicenses() []string {
 
 // GetLicensesOk returns a tuple with the Licenses field value if set, nil otherwise
 // and a boolean to check if the value has been set.
-// NOTE: If the value is an explicit nil, `nil, true` will be returned
 func (o *ModelSbomResponse) GetLicensesOk() ([]string, bool) {
 	if o == nil || IsNil(o.Licenses) {
 		return nil, false
@@ -98,7 +97,7 @@ func (o *ModelSbomResponse) GetLicensesOk() ([]string, bool) {
 
 // HasLicenses returns a boolean if a field has been set.
 func (o *ModelSbomResponse) HasLicenses() bool {
-	if o != nil && IsNil(o.Licenses) {
+	if o != nil && !IsNil(o.Licenses) {
 		return true
 	}
 
@@ -110,9 +109,9 @@ func (o *ModelSbomResponse) SetLicenses(v []string) {
 	o.Licenses = v
 }
 
-// GetLocations returns the Locations field value if set, zero value otherwise (both if not set or set to explicit null).
+// GetLocations returns the Locations field value if set, zero value otherwise.
 func (o *ModelSbomResponse) GetLocations() []string {
-	if o == nil {
+	if o == nil || IsNil(o.Locations) {
 		var ret []string
 		return ret
 	}
@@ -121,7 +120,6 @@ func (o *ModelSbomResponse) GetLocations() []string {
 
 // GetLocationsOk returns a tuple with the Locations field value if set, nil otherwise
 // and a boolean to check if the value has been set.
-// NOTE: If the value is an explicit nil, `nil, true` will be returned
 func (o *ModelSbomResponse) GetLocationsOk() ([]string, bool) {
 	if o == nil || IsNil(o.Locations) {
 		return nil, false
@@ -131,7 +129,7 @@ func (o *ModelSbomResponse) GetLocationsOk() ([]string, bool) {
 
 // HasLocations returns a boolean if a field has been set.
 func (o *ModelSbomResponse) HasLocations() bool {
-	if o != nil && IsNil(o.Locations) {
+	if o != nil && !IsNil(o.Locations) {
 		return true
 	}
 
@@ -252,10 +250,10 @@ func (o ModelSbomResponse) ToMap() (map[string]interface{}, error) {
 	if !IsNil(o.CveId) {
 		toSerialize["cve_id"] = o.CveId
 	}
-	if o.Licenses != nil {
+	if !IsNil(o.Licenses) {
 		toSerialize["licenses"] = o.Licenses
 	}
-	if o.Locations != nil {
+	if !IsNil(o.Locations) {
 		toSerialize["locations"] = o.Locations
 	}
 	if !IsNil(o.PackageName) {
