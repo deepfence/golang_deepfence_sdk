@@ -4,13 +4,13 @@
 
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
-**OrderField** | **string** |  | 
+**OrderFields** | **[]string** |  | 
 
 ## Methods
 
 ### NewReportersOrderFilter
 
-`func NewReportersOrderFilter(orderField string, ) *ReportersOrderFilter`
+`func NewReportersOrderFilter(orderFields []string, ) *ReportersOrderFilter`
 
 NewReportersOrderFilter instantiates a new ReportersOrderFilter object
 This constructor will assign default values to properties that have it defined,
@@ -25,26 +25,36 @@ NewReportersOrderFilterWithDefaults instantiates a new ReportersOrderFilter obje
 This constructor will only assign default values to properties that have it defined,
 but it doesn't guarantee that properties required by API are set
 
-### GetOrderField
+### GetOrderFields
 
-`func (o *ReportersOrderFilter) GetOrderField() string`
+`func (o *ReportersOrderFilter) GetOrderFields() []string`
 
-GetOrderField returns the OrderField field if non-nil, zero value otherwise.
+GetOrderFields returns the OrderFields field if non-nil, zero value otherwise.
 
-### GetOrderFieldOk
+### GetOrderFieldsOk
 
-`func (o *ReportersOrderFilter) GetOrderFieldOk() (*string, bool)`
+`func (o *ReportersOrderFilter) GetOrderFieldsOk() (*[]string, bool)`
 
-GetOrderFieldOk returns a tuple with the OrderField field if it's non-nil, zero value otherwise
+GetOrderFieldsOk returns a tuple with the OrderFields field if it's non-nil, zero value otherwise
 and a boolean to check if the value has been set.
 
-### SetOrderField
+### SetOrderFields
 
-`func (o *ReportersOrderFilter) SetOrderField(v string)`
+`func (o *ReportersOrderFilter) SetOrderFields(v []string)`
 
-SetOrderField sets OrderField field to given value.
+SetOrderFields sets OrderFields field to given value.
 
 
+### SetOrderFieldsNil
+
+`func (o *ReportersOrderFilter) SetOrderFieldsNil(b bool)`
+
+ SetOrderFieldsNil sets the value for OrderFields to be an explicit nil
+
+### UnsetOrderFields
+`func (o *ReportersOrderFilter) UnsetOrderFields()`
+
+UnsetOrderFields ensures that no value is present for OrderFields, not even an explicit nil
 
 [[Back to Model list]](../README.md#documentation-for-models) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to README]](../README.md)
 

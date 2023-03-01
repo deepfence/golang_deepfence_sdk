@@ -5669,7 +5669,9 @@ components:
         - host_filter
         field_filters:
           order_filter:
-            order_field: order_field
+            order_fields:
+            - order_fields
+            - order_fields
           contains_filter:
             filter_in:
               key:
@@ -9805,7 +9807,9 @@ components:
           size: 6
         fields_filter:
           order_filter:
-            order_field: order_field
+            order_fields:
+            - order_fields
+            - order_fields
           contains_filter:
             filter_in:
               key:
@@ -10587,7 +10591,9 @@ components:
     ReportersFieldsFilters:
       example:
         order_filter:
-          order_field: order_field
+          order_fields:
+          - order_fields
+          - order_fields
         contains_filter:
           filter_in:
             key:
@@ -10628,12 +10634,17 @@ components:
       type: object
     ReportersOrderFilter:
       example:
-        order_field: order_field
+        order_fields:
+        - order_fields
+        - order_fields
       properties:
-        order_field:
-          type: string
+        order_fields:
+          items:
+            type: string
+          nullable: true
+          type: array
       required:
-      - order_field
+      - order_fields
       type: object
     SearchSearchCountResp:
       example:
@@ -10659,7 +10670,9 @@ components:
         - in_field_filter
         filters:
           order_filter:
-            order_field: order_field
+            order_fields:
+            - order_fields
+            - order_fields
           contains_filter:
             filter_in:
               key:
@@ -10690,7 +10703,9 @@ components:
           - in_field_filter
           filters:
             order_filter:
-              order_field: order_field
+              order_fields:
+              - order_fields
+              - order_fields
             contains_filter:
               filter_in:
                 key:
@@ -10721,7 +10736,9 @@ components:
           - in_field_filter
           filters:
             order_filter:
-              order_field: order_field
+              order_fields:
+              - order_fields
+              - order_fields
             contains_filter:
               filter_in:
                 key:
@@ -10738,7 +10755,9 @@ components:
           - in_field_filter
           filters:
             order_filter:
-              order_field: order_field
+              order_fields:
+              - order_fields
+              - order_fields
             contains_filter:
               filter_in:
                 key:
