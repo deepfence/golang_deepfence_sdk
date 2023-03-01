@@ -95,6 +95,7 @@ docs/ModelMalwareScanResult.md
 docs/ModelMalwareScanTriggerReq.md
 docs/ModelMessageResponse.md
 docs/ModelNodeIdentifier.md
+docs/ModelNodesInScanResultRequest.md
 docs/ModelPasswordResetRequest.md
 docs/ModelPasswordResetVerifyRequest.md
 docs/ModelPod.md
@@ -218,6 +219,7 @@ model_model_malware_scan_result.go
 model_model_malware_scan_trigger_req.go
 model_model_message_response.go
 model_model_node_identifier.go
+model_model_nodes_in_scan_result_request.go
 model_model_password_reset_request.go
 model_model_password_reset_verify_request.go
 model_model_pod.go

@@ -129,8 +129,7 @@ Class | Method | HTTP request | Description
 *ScanResultsApi* | [**DeleteScanResult**](docs/ScanResultsApi.md#deletescanresult) | **Patch** /deepfence/scan/results/action/delete | Delete selected scan results
 *ScanResultsApi* | [**DeleteScanResultsForScanID**](docs/ScanResultsApi.md#deletescanresultsforscanid) | **Delete** /deepfence/scan/{scan_type}/{scan_id} | Delete all scan results for a scan id
 *ScanResultsApi* | [**DownloadScanResults**](docs/ScanResultsApi.md#downloadscanresults) | **Get** /deepfence/scan/{scan_type}/{scan_id}/download | Download Scans Results
-*ScanResultsApi* | [**GetAllNodesInScanResult**](docs/ScanResultsApi.md#getallnodesinscanresult) | **Get** /deepfence/scan/nodes/{scan_type}/{result_id} | Get all nodes in given scan result
-*ScanResultsApi* | [**GetAllNodesInScanResults**](docs/ScanResultsApi.md#getallnodesinscanresults) | **Get** /deepfence/scan/nodes-in-result | Get all nodes in given scan result ids
+*ScanResultsApi* | [**GetAllNodesInScanResults**](docs/ScanResultsApi.md#getallnodesinscanresults) | **Post** /deepfence/scan/nodes-in-result | Get all nodes in given scan result ids
 *ScanResultsApi* | [**MaskScanResult**](docs/ScanResultsApi.md#maskscanresult) | **Post** /deepfence/scan/results/action/mask | Mask Scans Results
 *ScanResultsApi* | [**NotifyScanResult**](docs/ScanResultsApi.md#notifyscanresult) | **Post** /deepfence/scan/results/action/notify | Notify Scans Results
 *ScanResultsApi* | [**UnmaskScanResult**](docs/ScanResultsApi.md#unmaskscanresult) | **Post** /deepfence/scan/results/action/unmask | Unmask Scans Results
@@ -269,6 +268,7 @@ Class | Method | HTTP request | Description
  - [ModelMalwareScanTriggerReq](docs/ModelMalwareScanTriggerReq.md)
  - [ModelMessageResponse](docs/ModelMessageResponse.md)
  - [ModelNodeIdentifier](docs/ModelNodeIdentifier.md)
+ - [ModelNodesInScanResultRequest](docs/ModelNodesInScanResultRequest.md)
  - [ModelPasswordResetRequest](docs/ModelPasswordResetRequest.md)
  - [ModelPasswordResetVerifyRequest](docs/ModelPasswordResetVerifyRequest.md)
  - [ModelPod](docs/ModelPod.md)

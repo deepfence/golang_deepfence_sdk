@@ -2179,9 +2179,14 @@ paths:
       tags:
       - Vulnerability
   /deepfence/scan/nodes-in-result:
-    get:
+    post:
       description: Get all nodes in given scan result ids
       operationId: getAllNodesInScanResults
+      requestBody:
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/ModelNodesInScanResultRequest'
       responses:
         "200":
           content:
@@ -2216,67 +2221,6 @@ paths:
       security:
       - bearer_token: []
       summary: Get all nodes in given scan result ids
-      tags:
-      - Scan Results
-  /deepfence/scan/nodes/{scan_type}/{result_id}:
-    get:
-      description: Get all nodes in given scan result
-      operationId: getAllNodesInScanResult
-      parameters:
-      - explode: false
-        in: path
-        name: result_id
-        required: true
-        schema:
-          type: string
-        style: simple
-      - explode: false
-        in: path
-        name: scan_type
-        required: true
-        schema:
-          enum:
-          - SecretScan
-          - VulnerabilityScan
-          - MalwareScan
-          - ComplianceScan
-          - CloudComplianceScan
-          type: string
-        style: simple
-      responses:
-        "200":
-          content:
-            application/json:
-              schema:
-                items:
-                  $ref: '#/components/schemas/ModelBasicNode'
-                type: array
-          description: OK
-        "400":
-          content:
-            application/json:
-              schema:
-                $ref: '#/components/schemas/ApiDocsBadRequestResponse'
-          description: Bad Request
-        "401":
-          description: Unauthorized
-        "403":
-          description: Forbidden
-        "404":
-          content:
-            application/json:
-              schema:
-                $ref: '#/components/schemas/ApiDocsFailureResponse'
-          description: Not Found
-        "500":
-          content:
-            application/json:
-              schema:
-                $ref: '#/components/schemas/ApiDocsFailureResponse'
-          description: Internal Server Error
-      security:
-      - bearer_token: []
-      summary: Get all nodes in given scan result
       tags:
       - Scan Results
   /deepfence/scan/results/action/delete:
@@ -9110,6 +9054,30 @@ components:
       - node_id
       - node_type
       type: object
+    ModelNodesInScanResultRequest:
+      example:
+        result_ids:
+        - result_ids
+        - result_ids
+        scan_type: SecretScan
+      properties:
+        result_ids:
+          items:
+            type: string
+          nullable: true
+          type: array
+        scan_type:
+          enum:
+          - SecretScan
+          - VulnerabilityScan
+          - MalwareScan
+          - ComplianceScan
+          - CloudComplianceScan
+          type: string
+      required:
+      - result_ids
+      - scan_type
+      type: object
     ModelPasswordResetRequest:
       example:
         email: email
@@ -9891,6 +9859,7 @@ components:
       type: object
     ModelSecret:
       example:
+        rule_id: rule_id
         full_filename: full_filename
         matched_content: matched_content
         updated_at: 7
@@ -9909,6 +9878,8 @@ components:
           type: integer
         relative_starting_index:
           type: integer
+        rule_id:
+          type: string
         starting_index:
           type: integer
         updated_at:
@@ -9919,6 +9890,7 @@ components:
       - matched_content
       - relative_ending_index
       - relative_starting_index
+      - rule_id
       - starting_index
       - updated_at
       type: object
@@ -9943,14 +9915,16 @@ components:
           signature_to_match: signature_to_match
           id: 6
         secrets:
-        - full_filename: full_filename
+        - rule_id: rule_id
+          full_filename: full_filename
           matched_content: matched_content
           updated_at: 7
           masked: true
           relative_ending_index: 5
           starting_index: 2
           relative_starting_index: 5
-        - full_filename: full_filename
+        - rule_id: rule_id
+          full_filename: full_filename
           matched_content: matched_content
           updated_at: 7
           masked: true
