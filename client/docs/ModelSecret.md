@@ -9,7 +9,6 @@ Name | Type | Description | Notes
 **MatchedContent** | **string** |  | 
 **RelativeEndingIndex** | **int32** |  | 
 **RelativeStartingIndex** | **int32** |  | 
-**RuleId** | **string** |  | 
 **StartingIndex** | **int32** |  | 
 **UpdatedAt** | **int32** |  | 
 
@@ -17,7 +16,7 @@ Name | Type | Description | Notes
 
 ### NewModelSecret
 
-`func NewModelSecret(fullFilename string, masked bool, matchedContent string, relativeEndingIndex int32, relativeStartingIndex int32, ruleId string, startingIndex int32, updatedAt int32, ) *ModelSecret`
+`func NewModelSecret(fullFilename string, masked bool, matchedContent string, relativeEndingIndex int32, relativeStartingIndex int32, startingIndex int32, updatedAt int32, ) *ModelSecret`
 
 NewModelSecret instantiates a new ModelSecret object
 This constructor will assign default values to properties that have it defined,
@@ -130,26 +129,6 @@ and a boolean to check if the value has been set.
 `func (o *ModelSecret) SetRelativeStartingIndex(v int32)`
 
 SetRelativeStartingIndex sets RelativeStartingIndex field to given value.
-
-
-### GetRuleId
-
-`func (o *ModelSecret) GetRuleId() string`
-
-GetRuleId returns the RuleId field if non-nil, zero value otherwise.
-
-### GetRuleIdOk
-
-`func (o *ModelSecret) GetRuleIdOk() (*string, bool)`
-
-GetRuleIdOk returns a tuple with the RuleId field if it's non-nil, zero value otherwise
-and a boolean to check if the value has been set.
-
-### SetRuleId
-
-`func (o *ModelSecret) SetRuleId(v string)`
-
-SetRuleId sets RuleId field to given value.
 
 
 ### GetStartingIndex

@@ -4464,7 +4464,7 @@ paths:
             application/json:
               schema:
                 items:
-                  $ref: '#/components/schemas/ModelSecret'
+                  $ref: '#/components/schemas/ModelSecretRule'
                 type: array
           description: OK
         "400":
@@ -9859,7 +9859,6 @@ components:
       type: object
     ModelSecret:
       example:
-        rule_id: rule_id
         full_filename: full_filename
         matched_content: matched_content
         updated_at: 7
@@ -9878,8 +9877,6 @@ components:
           type: integer
         relative_starting_index:
           type: integer
-        rule_id:
-          type: string
         starting_index:
           type: integer
         updated_at:
@@ -9890,7 +9887,63 @@ components:
       - matched_content
       - relative_ending_index
       - relative_starting_index
-      - rule_id
+      - starting_index
+      - updated_at
+      type: object
+    ModelSecretRule:
+      example:
+        full_filename: full_filename
+        level: level
+        masked: true
+        part: part
+        relative_ending_index: 6
+        starting_index: 5
+        signature_to_match: signature_to_match
+        score: 5.962133916683182
+        matched_content: matched_content
+        updated_at: 2
+        name: name
+        id: 0
+        relative_starting_index: 1
+      properties:
+        full_filename:
+          type: string
+        id:
+          type: integer
+        level:
+          type: string
+        masked:
+          type: boolean
+        matched_content:
+          type: string
+        name:
+          type: string
+        part:
+          type: string
+        relative_ending_index:
+          type: integer
+        relative_starting_index:
+          type: integer
+        score:
+          type: number
+        signature_to_match:
+          type: string
+        starting_index:
+          type: integer
+        updated_at:
+          type: integer
+      required:
+      - full_filename
+      - id
+      - level
+      - masked
+      - matched_content
+      - name
+      - part
+      - relative_ending_index
+      - relative_starting_index
+      - score
+      - signature_to_match
       - starting_index
       - updated_at
       type: object
@@ -9915,16 +9968,14 @@ components:
           signature_to_match: signature_to_match
           id: 6
         secrets:
-        - rule_id: rule_id
-          full_filename: full_filename
+        - full_filename: full_filename
           matched_content: matched_content
           updated_at: 7
           masked: true
           relative_ending_index: 5
           starting_index: 2
           relative_starting_index: 5
-        - rule_id: rule_id
-          full_filename: full_filename
+        - full_filename: full_filename
           matched_content: matched_content
           updated_at: 7
           masked: true

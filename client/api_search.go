@@ -3092,7 +3092,7 @@ func (r ApiSearchSecretsRequest) SearchSearchNodeReq(searchSearchNodeReq SearchS
 	return r
 }
 
-func (r ApiSearchSecretsRequest) Execute() ([]ModelSecret, *http.Response, error) {
+func (r ApiSearchSecretsRequest) Execute() ([]ModelSecretRule, *http.Response, error) {
 	return r.ApiService.SearchSecretsExecute(r)
 }
 
@@ -3112,13 +3112,13 @@ func (a *SearchApiService) SearchSecrets(ctx context.Context) ApiSearchSecretsRe
 }
 
 // Execute executes the request
-//  @return []ModelSecret
-func (a *SearchApiService) SearchSecretsExecute(r ApiSearchSecretsRequest) ([]ModelSecret, *http.Response, error) {
+//  @return []ModelSecretRule
+func (a *SearchApiService) SearchSecretsExecute(r ApiSearchSecretsRequest) ([]ModelSecretRule, *http.Response, error) {
 	var (
 		localVarHTTPMethod   = http.MethodPost
 		localVarPostBody     interface{}
 		formFiles            []formFile
-		localVarReturnValue  []ModelSecret
+		localVarReturnValue  []ModelSecretRule
 	)
 
 	localBasePath, err := a.client.cfg.ServerURLWithContext(r.ctx, "SearchApiService.SearchSecrets")

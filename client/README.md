@@ -293,6 +293,7 @@ Class | Method | HTTP request | Description
  - [ModelScanStatusResp](docs/ModelScanStatusResp.md)
  - [ModelScanTriggerResp](docs/ModelScanTriggerResp.md)
  - [ModelSecret](docs/ModelSecret.md)
+ - [ModelSecretRule](docs/ModelSecretRule.md)
  - [ModelSecretScanResult](docs/ModelSecretScanResult.md)
  - [ModelSecretScanTriggerReq](docs/ModelSecretScanTriggerReq.md)
  - [ModelUpdateUserIdRequest](docs/ModelUpdateUserIdRequest.md)

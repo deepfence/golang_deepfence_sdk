@@ -25,7 +25,6 @@ type ModelSecret struct {
 	MatchedContent string `json:"matched_content"`
 	RelativeEndingIndex int32 `json:"relative_ending_index"`
 	RelativeStartingIndex int32 `json:"relative_starting_index"`
-	RuleId string `json:"rule_id"`
 	StartingIndex int32 `json:"starting_index"`
 	UpdatedAt int32 `json:"updated_at"`
 }
@@ -34,14 +33,13 @@ type ModelSecret struct {
 // This constructor will assign default values to properties that have it defined,
 // and makes sure properties required by API are set, but the set of arguments
 // will change when the set of required properties is changed
-func NewModelSecret(fullFilename string, masked bool, matchedContent string, relativeEndingIndex int32, relativeStartingIndex int32, ruleId string, startingIndex int32, updatedAt int32) *ModelSecret {
+func NewModelSecret(fullFilename string, masked bool, matchedContent string, relativeEndingIndex int32, relativeStartingIndex int32, startingIndex int32, updatedAt int32) *ModelSecret {
 	this := ModelSecret{}
 	this.FullFilename = fullFilename
 	this.Masked = masked
 	this.MatchedContent = matchedContent
 	this.RelativeEndingIndex = relativeEndingIndex
 	this.RelativeStartingIndex = relativeStartingIndex
-	this.RuleId = ruleId
 	this.StartingIndex = startingIndex
 	this.UpdatedAt = updatedAt
 	return &this
@@ -175,30 +173,6 @@ func (o *ModelSecret) SetRelativeStartingIndex(v int32) {
 	o.RelativeStartingIndex = v
 }
 
-// GetRuleId returns the RuleId field value
-func (o *ModelSecret) GetRuleId() string {
-	if o == nil {
-		var ret string
-		return ret
-	}
-
-	return o.RuleId
-}
-
-// GetRuleIdOk returns a tuple with the RuleId field value
-// and a boolean to check if the value has been set.
-func (o *ModelSecret) GetRuleIdOk() (*string, bool) {
-	if o == nil {
-		return nil, false
-	}
-	return &o.RuleId, true
-}
-
-// SetRuleId sets field value
-func (o *ModelSecret) SetRuleId(v string) {
-	o.RuleId = v
-}
-
 // GetStartingIndex returns the StartingIndex field value
 func (o *ModelSecret) GetStartingIndex() int32 {
 	if o == nil {
@@ -262,7 +236,6 @@ func (o ModelSecret) ToMap() (map[string]interface{}, error) {
 	toSerialize["matched_content"] = o.MatchedContent
 	toSerialize["relative_ending_index"] = o.RelativeEndingIndex
 	toSerialize["relative_starting_index"] = o.RelativeStartingIndex
-	toSerialize["rule_id"] = o.RuleId
 	toSerialize["starting_index"] = o.StartingIndex
 	toSerialize["updated_at"] = o.UpdatedAt
 	return toSerialize, nil

@@ -120,6 +120,7 @@ docs/ModelScanStatusReq.md
 docs/ModelScanStatusResp.md
 docs/ModelScanTriggerResp.md
 docs/ModelSecret.md
+docs/ModelSecretRule.md
 docs/ModelSecretScanResult.md
 docs/ModelSecretScanTriggerReq.md
 docs/ModelUpdateUserIdRequest.md
@@ -244,6 +245,7 @@ model_model_scan_status_req.go
 model_model_scan_status_resp.go
 model_model_scan_trigger_resp.go
 model_model_secret.go
+model_model_secret_rule.go
 model_model_secret_scan_result.go
 model_model_secret_scan_trigger_req.go
 model_model_update_user_id_request.go
