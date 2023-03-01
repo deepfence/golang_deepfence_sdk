@@ -4,13 +4,14 @@
 
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
+**OrderBy** | **string** |  | 
 **OrderFields** | **[]string** |  | 
 
 ## Methods
 
 ### NewReportersOrderFilter
 
-`func NewReportersOrderFilter(orderFields []string, ) *ReportersOrderFilter`
+`func NewReportersOrderFilter(orderBy string, orderFields []string, ) *ReportersOrderFilter`
 
 NewReportersOrderFilter instantiates a new ReportersOrderFilter object
 This constructor will assign default values to properties that have it defined,
@@ -24,6 +25,26 @@ will change when the set of required properties is changed
 NewReportersOrderFilterWithDefaults instantiates a new ReportersOrderFilter object
 This constructor will only assign default values to properties that have it defined,
 but it doesn't guarantee that properties required by API are set
+
+### GetOrderBy
+
+`func (o *ReportersOrderFilter) GetOrderBy() string`
+
+GetOrderBy returns the OrderBy field if non-nil, zero value otherwise.
+
+### GetOrderByOk
+
+`func (o *ReportersOrderFilter) GetOrderByOk() (*string, bool)`
+
+GetOrderByOk returns a tuple with the OrderBy field if it's non-nil, zero value otherwise
+and a boolean to check if the value has been set.
+
+### SetOrderBy
+
+`func (o *ReportersOrderFilter) SetOrderBy(v string)`
+
+SetOrderBy sets OrderBy field to given value.
+
 
 ### GetOrderFields
 

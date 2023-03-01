@@ -5616,6 +5616,7 @@ components:
             order_fields:
             - order_fields
             - order_fields
+            order_by: ASC
           contains_filter:
             filter_in:
               key:
@@ -9778,6 +9779,7 @@ components:
             order_fields:
             - order_fields
             - order_fields
+            order_by: ASC
           contains_filter:
             filter_in:
               key:
@@ -10619,6 +10621,7 @@ components:
           order_fields:
           - order_fields
           - order_fields
+          order_by: ASC
         contains_filter:
           filter_in:
             key:
@@ -10662,13 +10665,20 @@ components:
         order_fields:
         - order_fields
         - order_fields
+        order_by: ASC
       properties:
+        order_by:
+          enum:
+          - ASC
+          - DESC
+          type: string
         order_fields:
           items:
             type: string
           nullable: true
           type: array
       required:
+      - order_by
       - order_fields
       type: object
     SearchSearchCountResp:
@@ -10698,6 +10708,7 @@ components:
             order_fields:
             - order_fields
             - order_fields
+            order_by: ASC
           contains_filter:
             filter_in:
               key:
@@ -10731,6 +10742,7 @@ components:
               order_fields:
               - order_fields
               - order_fields
+              order_by: ASC
             contains_filter:
               filter_in:
                 key:
@@ -10764,6 +10776,7 @@ components:
               order_fields:
               - order_fields
               - order_fields
+              order_by: ASC
             contains_filter:
               filter_in:
                 key:
@@ -10783,6 +10796,7 @@ components:
               order_fields:
               - order_fields
               - order_fields
+              order_by: ASC
             contains_filter:
               filter_in:
                 key:
