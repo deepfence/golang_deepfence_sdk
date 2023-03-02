@@ -5614,9 +5614,10 @@ components:
         field_filters:
           order_filter:
             order_fields:
-            - order_fields
-            - order_fields
-            order_by: ASC
+            - descending: true
+              field_name: field_name
+            - descending: true
+              field_name: field_name
           contains_filter:
             filter_in:
               key:
@@ -9777,9 +9778,10 @@ components:
         fields_filter:
           order_filter:
             order_fields:
-            - order_fields
-            - order_fields
-            order_by: ASC
+            - descending: true
+              field_name: field_name
+            - descending: true
+              field_name: field_name
           contains_filter:
             filter_in:
               key:
@@ -10619,9 +10621,10 @@ components:
       example:
         order_filter:
           order_fields:
-          - order_fields
-          - order_fields
-          order_by: ASC
+          - descending: true
+            field_name: field_name
+          - descending: true
+            field_name: field_name
         contains_filter:
           filter_in:
             key:
@@ -10663,23 +10666,31 @@ components:
     ReportersOrderFilter:
       example:
         order_fields:
-        - order_fields
-        - order_fields
-        order_by: ASC
+        - descending: true
+          field_name: field_name
+        - descending: true
+          field_name: field_name
       properties:
-        order_by:
-          enum:
-          - ASC
-          - DESC
-          type: string
         order_fields:
           items:
-            type: string
+            $ref: '#/components/schemas/ReportersOrderSpec'
           nullable: true
           type: array
       required:
-      - order_by
       - order_fields
+      type: object
+    ReportersOrderSpec:
+      example:
+        descending: true
+        field_name: field_name
+      properties:
+        descending:
+          type: boolean
+        field_name:
+          type: string
+      required:
+      - descending
+      - field_name
       type: object
     SearchSearchCountResp:
       example:
@@ -10706,9 +10717,10 @@ components:
         filters:
           order_filter:
             order_fields:
-            - order_fields
-            - order_fields
-            order_by: ASC
+            - descending: true
+              field_name: field_name
+            - descending: true
+              field_name: field_name
           contains_filter:
             filter_in:
               key:
@@ -10740,9 +10752,10 @@ components:
           filters:
             order_filter:
               order_fields:
-              - order_fields
-              - order_fields
-              order_by: ASC
+              - descending: true
+                field_name: field_name
+              - descending: true
+                field_name: field_name
             contains_filter:
               filter_in:
                 key:
@@ -10774,9 +10787,10 @@ components:
           filters:
             order_filter:
               order_fields:
-              - order_fields
-              - order_fields
-              order_by: ASC
+              - descending: true
+                field_name: field_name
+              - descending: true
+                field_name: field_name
             contains_filter:
               filter_in:
                 key:
@@ -10794,9 +10808,10 @@ components:
           filters:
             order_filter:
               order_fields:
-              - order_fields
-              - order_fields
-              order_by: ASC
+              - descending: true
+                field_name: field_name
+              - descending: true
+                field_name: field_name
             contains_filter:
               filter_in:
                 key:

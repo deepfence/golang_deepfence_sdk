@@ -20,17 +20,15 @@ var _ MappedNullable = &ReportersOrderFilter{}
 
 // ReportersOrderFilter struct for ReportersOrderFilter
 type ReportersOrderFilter struct {
-	OrderBy string `json:"order_by"`
-	OrderFields []string `json:"order_fields"`
+	OrderFields []ReportersOrderSpec `json:"order_fields"`
 }
 
 // NewReportersOrderFilter instantiates a new ReportersOrderFilter object
 // This constructor will assign default values to properties that have it defined,
 // and makes sure properties required by API are set, but the set of arguments
 // will change when the set of required properties is changed
-func NewReportersOrderFilter(orderBy string, orderFields []string) *ReportersOrderFilter {
+func NewReportersOrderFilter(orderFields []ReportersOrderSpec) *ReportersOrderFilter {
 	this := ReportersOrderFilter{}
-	this.OrderBy = orderBy
 	this.OrderFields = orderFields
 	return &this
 }
@@ -43,35 +41,11 @@ func NewReportersOrderFilterWithDefaults() *ReportersOrderFilter {
 	return &this
 }
 
-// GetOrderBy returns the OrderBy field value
-func (o *ReportersOrderFilter) GetOrderBy() string {
-	if o == nil {
-		var ret string
-		return ret
-	}
-
-	return o.OrderBy
-}
-
-// GetOrderByOk returns a tuple with the OrderBy field value
-// and a boolean to check if the value has been set.
-func (o *ReportersOrderFilter) GetOrderByOk() (*string, bool) {
-	if o == nil {
-		return nil, false
-	}
-	return &o.OrderBy, true
-}
-
-// SetOrderBy sets field value
-func (o *ReportersOrderFilter) SetOrderBy(v string) {
-	o.OrderBy = v
-}
-
 // GetOrderFields returns the OrderFields field value
-// If the value is explicit nil, the zero value for []string will be returned
-func (o *ReportersOrderFilter) GetOrderFields() []string {
+// If the value is explicit nil, the zero value for []ReportersOrderSpec will be returned
+func (o *ReportersOrderFilter) GetOrderFields() []ReportersOrderSpec {
 	if o == nil {
-		var ret []string
+		var ret []ReportersOrderSpec
 		return ret
 	}
 
@@ -81,7 +55,7 @@ func (o *ReportersOrderFilter) GetOrderFields() []string {
 // GetOrderFieldsOk returns a tuple with the OrderFields field value
 // and a boolean to check if the value has been set.
 // NOTE: If the value is an explicit nil, `nil, true` will be returned
-func (o *ReportersOrderFilter) GetOrderFieldsOk() ([]string, bool) {
+func (o *ReportersOrderFilter) GetOrderFieldsOk() ([]ReportersOrderSpec, bool) {
 	if o == nil || IsNil(o.OrderFields) {
 		return nil, false
 	}
@@ -89,7 +63,7 @@ func (o *ReportersOrderFilter) GetOrderFieldsOk() ([]string, bool) {
 }
 
 // SetOrderFields sets field value
-func (o *ReportersOrderFilter) SetOrderFields(v []string) {
+func (o *ReportersOrderFilter) SetOrderFields(v []ReportersOrderSpec) {
 	o.OrderFields = v
 }
 
@@ -103,7 +77,6 @@ func (o ReportersOrderFilter) MarshalJSON() ([]byte, error) {
 
 func (o ReportersOrderFilter) ToMap() (map[string]interface{}, error) {
 	toSerialize := map[string]interface{}{}
-	toSerialize["order_by"] = o.OrderBy
 	if o.OrderFields != nil {
 		toSerialize["order_fields"] = o.OrderFields
 	}

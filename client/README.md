@@ -314,6 +314,7 @@ Class | Method | HTTP request | Description
  - [ReportersFieldsFilters](docs/ReportersFieldsFilters.md)
  - [ReportersMatchFilter](docs/ReportersMatchFilter.md)
  - [ReportersOrderFilter](docs/ReportersOrderFilter.md)
+ - [ReportersOrderSpec](docs/ReportersOrderSpec.md)
  - [SearchSearchCountResp](docs/SearchSearchCountResp.md)
  - [SearchSearchFilter](docs/SearchSearchFilter.md)
  - [SearchSearchNodeReq](docs/SearchSearchNodeReq.md)
