@@ -6,6 +6,7 @@ const (
 
 // kafka topics
 const (
+	AUDIT_LOGS                   = "audit-logs"
 	VULNERABILITY_SCAN           = "vulnerability-scan"
 	VULNERABILITY_SCAN_STATUS    = "vulnerability-scan-status"
 	SECRET_SCAN                  = "secret-scan"
@@ -114,4 +115,5 @@ var Topics = []string{
 	CLOUD_COMPLIANCE_SCAN, CLOUD_COMPLIANCE_SCAN_STATUS,
 	COMPLIANCE_SCAN, COMPLIANCE_SCAN_STATUS,
 	CLOUD_TRAIL_ALERTS,
+	AUDIT_LOGS,
 }
