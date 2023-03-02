@@ -7,6 +7,7 @@ package postgresql_db
 
 import (
 	"context"
+	"database/sql"
 	"encoding/json"
 	"time"
 
@@ -99,6 +100,34 @@ func (q *Queries) CreateApiToken(ctx context.Context, arg CreateApiTokenParams) 
 		&i.UpdatedAt,
 	)
 	return i, err
+}
+
+const createAuditLog = `-- name: CreateAuditLog :exec
+INSERT INTO audit_log (event, action, resources, success, user_id, user_role_id, created_at)
+VALUES ($1, $2, $3, $4, $5, $6, $7)
+`
+
+type CreateAuditLogParams struct {
+	Event      string
+	Action     string
+	Resources  sql.NullString
+	Success    bool
+	UserID     int32
+	UserRoleID int32
+	CreatedAt  time.Time
+}
+
+func (q *Queries) CreateAuditLog(ctx context.Context, arg CreateAuditLogParams) error {
+	_, err := q.db.ExecContext(ctx, createAuditLog,
+		arg.Event,
+		arg.Action,
+		arg.Resources,
+		arg.Success,
+		arg.UserID,
+		arg.UserRoleID,
+		arg.CreatedAt,
+	)
+	return err
 }
 
 const createCompany = `-- name: CreateCompany :one
@@ -370,6 +399,23 @@ WHERE created_by_user_id = $1
 func (q *Queries) DeleteApiTokensByUserID(ctx context.Context, createdByUserID int64) error {
 	_, err := q.db.ExecContext(ctx, deleteApiTokensByUserID, createdByUserID)
 	return err
+}
+
+const deleteAuditLogsOlderThan30days = `-- name: DeleteAuditLogsOlderThan30days :one
+WITH deleted AS (
+  DELETE
+  FROM audit_log
+  WHERE created_at < (now() - interval '30 days')
+  RETURNING id, event, action, resources, success, user_id, user_role_id, created_at
+)
+SELECT count(*) FROM deleted
+`
+
+func (q *Queries) DeleteAuditLogsOlderThan30days(ctx context.Context) (int64, error) {
+	row := q.db.QueryRowContext(ctx, deleteAuditLogsOlderThan30days)
+	var count int64
+	err := row.Scan(&count)
+	return count, err
 }
 
 const deleteCompany = `-- name: DeleteCompany :exec
@@ -767,6 +813,69 @@ func (q *Queries) GetApiTokensByUser(ctx context.Context, createdByUserID int64)
 			&i.CreatedByUserID,
 			&i.CreatedAt,
 			&i.UpdatedAt,
+		); err != nil {
+			return nil, err
+		}
+		items = append(items, i)
+	}
+	if err := rows.Close(); err != nil {
+		return nil, err
+	}
+	if err := rows.Err(); err != nil {
+		return nil, err
+	}
+	return items, nil
+}
+
+const getAuditLogsLast5Minutes = `-- name: GetAuditLogsLast5Minutes :many
+SELECT
+  l.event,
+  l.action,
+  l.resources,
+  l.success,
+  l.user_id,
+  l.user_role_id,
+  l.created_at,
+  r.name as role,
+  u.email as email
+FROM audit_log l
+    INNER JOIN role r ON r.id = l.user_role_id
+    INNER JOIN users u ON u.id = l.user_id
+WHERE l.created_at < (now() - interval '5 minutes')
+ORDER BY l.created_at
+`
+
+type GetAuditLogsLast5MinutesRow struct {
+	Event      string
+	Action     string
+	Resources  sql.NullString
+	Success    bool
+	UserID     int32
+	UserRoleID int32
+	CreatedAt  time.Time
+	Role       string
+	Email      string
+}
+
+func (q *Queries) GetAuditLogsLast5Minutes(ctx context.Context) ([]GetAuditLogsLast5MinutesRow, error) {
+	rows, err := q.db.QueryContext(ctx, getAuditLogsLast5Minutes)
+	if err != nil {
+		return nil, err
+	}
+	defer rows.Close()
+	var items []GetAuditLogsLast5MinutesRow
+	for rows.Next() {
+		var i GetAuditLogsLast5MinutesRow
+		if err := rows.Scan(
+			&i.Event,
+			&i.Action,
+			&i.Resources,
+			&i.Success,
+			&i.UserID,
+			&i.UserRoleID,
+			&i.CreatedAt,
+			&i.Role,
+			&i.Email,
 		); err != nil {
 			return nil, err
 		}
