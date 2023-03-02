@@ -191,6 +191,8 @@ Class | Method | HTTP request | Description
 *UserApi* | [**UpdateUser**](docs/UserApi.md#updateuser) | **Put** /deepfence/users/{id} | Update User by User ID
 *UserApi* | [**VerifyResetPasswordRequest**](docs/UserApi.md#verifyresetpasswordrequest) | **Post** /deepfence/user/reset-password/verify | Verify and Reset Password
 *VulnerabilityApi* | [**CountResultsVulnerabilityScans**](docs/VulnerabilityApi.md#countresultsvulnerabilityscans) | **Post** /deepfence/scan/results/count/vulnerability | Get Vulnerability Scans Results
+*VulnerabilityApi* | [**DownloadSBOM**](docs/VulnerabilityApi.md#downloadsbom) | **Post** /deepfence/scan/sbom/download | Download SBOM for a node or scan id
+*VulnerabilityApi* | [**GetSBOM**](docs/VulnerabilityApi.md#getsbom) | **Post** /deepfence/scan/sbom | Get SBOM for a node or scan id
 *VulnerabilityApi* | [**IngestSbom**](docs/VulnerabilityApi.md#ingestsbom) | **Post** /deepfence/ingest/sbom | Ingest SBOM from Scan
 *VulnerabilityApi* | [**IngestVulnerabilities**](docs/VulnerabilityApi.md#ingestvulnerabilities) | **Post** /deepfence/ingest/vulnerabilities | Ingest Vulnerabilities
 *VulnerabilityApi* | [**IngestVulnerabilitiesScanStatus**](docs/VulnerabilityApi.md#ingestvulnerabilitiesscanstatus) | **Post** /deepfence/ingest/vulnerabilities-scan-logs | Ingest Vulnerabilities Scan Status
@@ -277,6 +279,7 @@ Class | Method | HTTP request | Description
  - [ModelRegistryListResp](docs/ModelRegistryListResp.md)
  - [ModelResponseAccessToken](docs/ModelResponseAccessToken.md)
  - [ModelRule](docs/ModelRule.md)
+ - [ModelSbomRequest](docs/ModelSbomRequest.md)
  - [ModelSbomResponse](docs/ModelSbomResponse.md)
  - [ModelScanFilter](docs/ModelScanFilter.md)
  - [ModelScanInfo](docs/ModelScanInfo.md)

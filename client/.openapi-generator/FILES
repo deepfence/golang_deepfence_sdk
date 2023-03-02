@@ -106,6 +106,7 @@ docs/ModelRegistryAddReq.md
 docs/ModelRegistryListResp.md
 docs/ModelResponseAccessToken.md
 docs/ModelRule.md
+docs/ModelSbomRequest.md
 docs/ModelSbomResponse.md
 docs/ModelScanFilter.md
 docs/ModelScanInfo.md
@@ -231,6 +232,7 @@ model_model_registry_add_req.go
 model_model_registry_list_resp.go
 model_model_response_access_token.go
 model_model_rule.go
+model_model_sbom_request.go
 model_model_sbom_response.go
 model_model_scan_filter.go
 model_model_scan_info.go

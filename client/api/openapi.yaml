@@ -2809,6 +2809,94 @@ paths:
       summary: Get Vulnerability Scans Results
       tags:
       - Vulnerability
+  /deepfence/scan/sbom:
+    post:
+      description: Get SBOM for a node or scan id
+      operationId: getSBOM
+      requestBody:
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/ModelSbomRequest'
+      responses:
+        "200":
+          content:
+            application/json:
+              schema:
+                items:
+                  $ref: '#/components/schemas/ModelSbomResponse'
+                type: array
+          description: OK
+        "400":
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ApiDocsBadRequestResponse'
+          description: Bad Request
+        "401":
+          description: Unauthorized
+        "403":
+          description: Forbidden
+        "404":
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ApiDocsFailureResponse'
+          description: Not Found
+        "500":
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ApiDocsFailureResponse'
+          description: Internal Server Error
+      security:
+      - bearer_token: []
+      summary: Get SBOM for a node or scan id
+      tags:
+      - Vulnerability
+  /deepfence/scan/sbom/download:
+    post:
+      description: Download SBOM for a node or scan id
+      operationId: downloadSBOM
+      requestBody:
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/ModelSbomRequest'
+      responses:
+        "200":
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ModelDownloadReportResponse'
+          description: OK
+        "400":
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ApiDocsBadRequestResponse'
+          description: Bad Request
+        "401":
+          description: Unauthorized
+        "403":
+          description: Forbidden
+        "404":
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ApiDocsFailureResponse'
+          description: Not Found
+        "500":
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ApiDocsFailureResponse'
+          description: Internal Server Error
+      security:
+      - bearer_token: []
+      summary: Download SBOM for a node or scan id
+      tags:
+      - Vulnerability
   /deepfence/scan/start/compliance:
     post:
       description: Start Compliance Scan on agent or registry
@@ -9414,7 +9502,27 @@ components:
       - score
       - signature_to_match
       type: object
+    ModelSbomRequest:
+      example:
+        scan_id: scan_id
+      properties:
+        scan_id:
+          type: string
+      required:
+      - scan_id
+      type: object
     ModelSbomResponse:
+      example:
+        severity: severity
+        licenses:
+        - licenses
+        - licenses
+        cve_id: cve_id
+        package_name: package_name
+        locations:
+        - locations
+        - locations
+        version: version
       properties:
         cve_id:
           type: string
