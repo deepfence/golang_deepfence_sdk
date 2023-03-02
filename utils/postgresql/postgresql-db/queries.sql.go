@@ -827,6 +827,68 @@ func (q *Queries) GetApiTokensByUser(ctx context.Context, createdByUserID int64)
 	return items, nil
 }
 
+const getAuditLogs = `-- name: GetAuditLogs :many
+SELECT
+  l.event,
+  l.action,
+  l.resources,
+  l.success,
+  l.user_id,
+  l.user_role_id,
+  l.created_at,
+  r.name as role,
+  u.email as email
+FROM audit_log l
+    INNER JOIN role r ON r.id = l.user_role_id
+    INNER JOIN users u ON u.id = l.user_id
+ORDER BY l.created_at
+`
+
+type GetAuditLogsRow struct {
+	Event      string
+	Action     string
+	Resources  sql.NullString
+	Success    bool
+	UserID     int32
+	UserRoleID int32
+	CreatedAt  time.Time
+	Role       string
+	Email      string
+}
+
+func (q *Queries) GetAuditLogs(ctx context.Context) ([]GetAuditLogsRow, error) {
+	rows, err := q.db.QueryContext(ctx, getAuditLogs)
+	if err != nil {
+		return nil, err
+	}
+	defer rows.Close()
+	var items []GetAuditLogsRow
+	for rows.Next() {
+		var i GetAuditLogsRow
+		if err := rows.Scan(
+			&i.Event,
+			&i.Action,
+			&i.Resources,
+			&i.Success,
+			&i.UserID,
+			&i.UserRoleID,
+			&i.CreatedAt,
+			&i.Role,
+			&i.Email,
+		); err != nil {
+			return nil, err
+		}
+		items = append(items, i)
+	}
+	if err := rows.Close(); err != nil {
+		return nil, err
+	}
+	if err := rows.Err(); err != nil {
+		return nil, err
+	}
+	return items, nil
+}
+
 const getAuditLogsLast5Minutes = `-- name: GetAuditLogsLast5Minutes :many
 SELECT
   l.event,
