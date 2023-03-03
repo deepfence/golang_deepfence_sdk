@@ -2,12 +2,12 @@ package directory
 
 import (
 	"context"
-	"database/sql"
 	"encoding/json"
 	"errors"
 	"fmt"
 	"strings"
 
+	"github.com/XSAM/otelsql"
 	postgresqlDb "github.com/deepfence/golang_deepfence_sdk/utils/postgresql/postgresql-db"
 	_ "github.com/lib/pq"
 )
@@ -32,9 +32,14 @@ func newPostgresClient(endpoints DBConfigs) (*postgresqlDb.Queries, error) {
 	if endpoints.Postgres == nil {
 		return nil, errors.New("No defined postgres config")
 	}
-	psqlInfo := fmt.Sprintf("host=%s port=%d user=%s password=%s dbname=%s sslmode=%s",
-		endpoints.Postgres.Host, endpoints.Postgres.Port, endpoints.Postgres.Username, endpoints.Postgres.Password, endpoints.Postgres.Database, endpoints.Postgres.SslMode)
-	db, err := sql.Open("postgres", psqlInfo)
+	// psqlInfo := fmt.Sprintf("host=%s port=%d user=%s password=%s dbname=%s sslmode=%s",
+	// 	endpoints.Postgres.Host, endpoints.Postgres.Port, endpoints.Postgres.Username, endpoints.Postgres.Password, endpoints.Postgres.Database, endpoints.Postgres.SslMode)
+	// db, err := sql.Open("postgres", psqlInfo)
+	psqlDSN := fmt.Sprintf("postgresql://%s:%s@%s:%d/%s?sslmode=%s",
+		endpoints.Postgres.Username, endpoints.Postgres.Password,
+		endpoints.Postgres.Host, endpoints.Postgres.Port,
+		endpoints.Postgres.Database, endpoints.Postgres.SslMode)
+	db, err := otelsql.Open("postgres", psqlDSN)
 	if err != nil {
 		return nil, err
 	}
