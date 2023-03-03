@@ -157,6 +157,12 @@ func (a *DiagnosisApiService) DiagnosticNotificationExecute(r ApiDiagnosticNotif
 type ApiGenerateAgentDiagnosticLogsRequest struct {
 	ctx context.Context
 	ApiService *DiagnosisApiService
+	diagnosisGenerateDiagnosticLogsRequest *DiagnosisGenerateDiagnosticLogsRequest
+}
+
+func (r ApiGenerateAgentDiagnosticLogsRequest) DiagnosisGenerateDiagnosticLogsRequest(diagnosisGenerateDiagnosticLogsRequest DiagnosisGenerateDiagnosticLogsRequest) ApiGenerateAgentDiagnosticLogsRequest {
+	r.diagnosisGenerateDiagnosticLogsRequest = &diagnosisGenerateDiagnosticLogsRequest
+	return r
 }
 
 func (r ApiGenerateAgentDiagnosticLogsRequest) Execute() (*http.Response, error) {
@@ -198,7 +204,7 @@ func (a *DiagnosisApiService) GenerateAgentDiagnosticLogsExecute(r ApiGenerateAg
 	localVarFormParams := url.Values{}
 
 	// to determine the Content-Type header
-	localVarHTTPContentTypes := []string{}
+	localVarHTTPContentTypes := []string{"application/json"}
 
 	// set Content-Type header
 	localVarHTTPContentType := selectHeaderContentType(localVarHTTPContentTypes)
@@ -214,6 +220,8 @@ func (a *DiagnosisApiService) GenerateAgentDiagnosticLogsExecute(r ApiGenerateAg
 	if localVarHTTPHeaderAccept != "" {
 		localVarHeaderParams["Accept"] = localVarHTTPHeaderAccept
 	}
+	// body params
+	localVarPostBody = r.diagnosisGenerateDiagnosticLogsRequest
 	req, err := a.client.prepareRequest(r.ctx, localVarPath, localVarHTTPMethod, localVarPostBody, localVarHeaderParams, localVarQueryParams, localVarFormParams, formFiles)
 	if err != nil {
 		return nil, err
@@ -277,6 +285,12 @@ func (a *DiagnosisApiService) GenerateAgentDiagnosticLogsExecute(r ApiGenerateAg
 type ApiGenerateConsoleDiagnosticLogsRequest struct {
 	ctx context.Context
 	ApiService *DiagnosisApiService
+	diagnosisGenerateDiagnosticLogsRequest *DiagnosisGenerateDiagnosticLogsRequest
+}
+
+func (r ApiGenerateConsoleDiagnosticLogsRequest) DiagnosisGenerateDiagnosticLogsRequest(diagnosisGenerateDiagnosticLogsRequest DiagnosisGenerateDiagnosticLogsRequest) ApiGenerateConsoleDiagnosticLogsRequest {
+	r.diagnosisGenerateDiagnosticLogsRequest = &diagnosisGenerateDiagnosticLogsRequest
+	return r
 }
 
 func (r ApiGenerateConsoleDiagnosticLogsRequest) Execute() (*http.Response, error) {
@@ -318,7 +332,7 @@ func (a *DiagnosisApiService) GenerateConsoleDiagnosticLogsExecute(r ApiGenerate
 	localVarFormParams := url.Values{}
 
 	// to determine the Content-Type header
-	localVarHTTPContentTypes := []string{}
+	localVarHTTPContentTypes := []string{"application/json"}
 
 	// set Content-Type header
 	localVarHTTPContentType := selectHeaderContentType(localVarHTTPContentTypes)
@@ -334,6 +348,8 @@ func (a *DiagnosisApiService) GenerateConsoleDiagnosticLogsExecute(r ApiGenerate
 	if localVarHTTPHeaderAccept != "" {
 		localVarHeaderParams["Accept"] = localVarHTTPHeaderAccept
 	}
+	// body params
+	localVarPostBody = r.diagnosisGenerateDiagnosticLogsRequest
 	req, err := a.client.prepareRequest(r.ctx, localVarPath, localVarHTTPMethod, localVarPostBody, localVarHeaderParams, localVarQueryParams, localVarFormParams, formFiles)
 	if err != nil {
 		return nil, err

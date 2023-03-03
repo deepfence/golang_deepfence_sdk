@@ -488,6 +488,11 @@ paths:
     post:
       description: Generate Agent Diagnostic Logs
       operationId: generateAgentDiagnosticLogs
+      requestBody:
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/DiagnosisGenerateDiagnosticLogsRequest'
       responses:
         "202":
           description: Accepted
@@ -522,6 +527,11 @@ paths:
     post:
       description: Generate Console Diagnostic Logs
       operationId: generateConsoleDiagnosticLogs
+      requestBody:
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/DiagnosisGenerateDiagnosticLogsRequest'
       responses:
         "202":
           description: Accepted
@@ -4697,6 +4707,46 @@ paths:
       summary: Update Current User
       tags:
       - User
+  /deepfence/user-activity-log:
+    get:
+      description: Get activity logs for all users
+      operationId: getUserActivityLogs
+      responses:
+        "200":
+          content:
+            application/json:
+              schema:
+                items:
+                  $ref: '#/components/schemas/PostgresqlDbGetAuditLogsRow'
+                type: array
+          description: OK
+        "400":
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ApiDocsBadRequestResponse'
+          description: Bad Request
+        "401":
+          description: Unauthorized
+        "403":
+          description: Forbidden
+        "404":
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ApiDocsFailureResponse'
+          description: Not Found
+        "500":
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ApiDocsFailureResponse'
+          description: Internal Server Error
+      security:
+      - bearer_token: []
+      summary: Get activity logs for all users
+      tags:
+      - User
   /deepfence/user/invite:
     post:
       description: Invite a user
@@ -5511,6 +5561,15 @@ components:
           type: string
         updated_at:
           type: string
+      type: object
+    DiagnosisGenerateDiagnosticLogsRequest:
+      example:
+        tail: 0
+      properties:
+        tail:
+          type: integer
+      required:
+      - tail
       type: object
     GraphNodeInfo:
       properties:
@@ -10492,6 +10551,8 @@ components:
       - scan_config
       type: object
     PostgresqlDbApiToken:
+      type: object
+    PostgresqlDbGetAuditLogsRow:
       type: object
     ReportColumn:
       example:

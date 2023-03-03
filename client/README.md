@@ -180,6 +180,7 @@ Class | Method | HTTP request | Description
 *UserApi* | [**GetApiTokens**](docs/UserApi.md#getapitokens) | **Get** /deepfence/api-token | Get User&#39;s API Tokens
 *UserApi* | [**GetCurrentUser**](docs/UserApi.md#getcurrentuser) | **Get** /deepfence/user | Get Current User
 *UserApi* | [**GetUser**](docs/UserApi.md#getuser) | **Get** /deepfence/users/{id} | Get User by User ID
+*UserApi* | [**GetUserActivityLogs**](docs/UserApi.md#getuseractivitylogs) | **Get** /deepfence/user-activity-log | Get activity logs for all users
 *UserApi* | [**GetUsers**](docs/UserApi.md#getusers) | **Get** /deepfence/users | Get all users
 *UserApi* | [**InviteUser**](docs/UserApi.md#inviteuser) | **Post** /deepfence/user/invite | Invite User
 *UserApi* | [**RegisterInvitedUser**](docs/UserApi.md#registerinviteduser) | **Post** /deepfence/user/invite/register | Register Invited User
@@ -214,6 +215,7 @@ Class | Method | HTTP request | Description
  - [DetailedNodeSummary](docs/DetailedNodeSummary.md)
  - [DetailedParent](docs/DetailedParent.md)
  - [DiagnosisDiagnosticNotification](docs/DiagnosisDiagnosticNotification.md)
+ - [DiagnosisGenerateDiagnosticLogsRequest](docs/DiagnosisGenerateDiagnosticLogsRequest.md)
  - [GraphNodeInfo](docs/GraphNodeInfo.md)
  - [GraphProviderThreatGraph](docs/GraphProviderThreatGraph.md)
  - [GraphThreatNodeInfo](docs/GraphThreatNodeInfo.md)

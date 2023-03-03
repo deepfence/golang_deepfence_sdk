@@ -9,6 +9,7 @@ Method | HTTP request | Description
 [**GetApiTokens**](UserApi.md#GetApiTokens) | **Get** /deepfence/api-token | Get User&#39;s API Tokens
 [**GetCurrentUser**](UserApi.md#GetCurrentUser) | **Get** /deepfence/user | Get Current User
 [**GetUser**](UserApi.md#GetUser) | **Get** /deepfence/users/{id} | Get User by User ID
+[**GetUserActivityLogs**](UserApi.md#GetUserActivityLogs) | **Get** /deepfence/user-activity-log | Get activity logs for all users
 [**GetUsers**](UserApi.md#GetUsers) | **Get** /deepfence/users | Get all users
 [**InviteUser**](UserApi.md#InviteUser) | **Post** /deepfence/user/invite | Invite User
 [**RegisterInvitedUser**](UserApi.md#RegisterInvitedUser) | **Post** /deepfence/user/invite/register | Register Invited User
@@ -326,6 +327,67 @@ Name | Type | Description  | Notes
 ### Return type
 
 [**ModelUser**](ModelUser.md)
+
+### Authorization
+
+[bearer_token](../README.md#bearer_token)
+
+### HTTP request headers
+
+- **Content-Type**: Not defined
+- **Accept**: application/json
+
+[[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints)
+[[Back to Model list]](../README.md#documentation-for-models)
+[[Back to README]](../README.md)
+
+
+## GetUserActivityLogs
+
+> []map[string]interface{} GetUserActivityLogs(ctx).Execute()
+
+Get activity logs for all users
+
+
+
+### Example
+
+```go
+package main
+
+import (
+    "context"
+    "fmt"
+    "os"
+    openapiclient "github.com/deepfence/golang_deepfence_sdk/client"
+)
+
+func main() {
+
+    configuration := openapiclient.NewConfiguration()
+    apiClient := openapiclient.NewAPIClient(configuration)
+    resp, r, err := apiClient.UserApi.GetUserActivityLogs(context.Background()).Execute()
+    if err != nil {
+        fmt.Fprintf(os.Stderr, "Error when calling `UserApi.GetUserActivityLogs``: %v\n", err)
+        fmt.Fprintf(os.Stderr, "Full HTTP response: %v\n", r)
+    }
+    // response from `GetUserActivityLogs`: []map[string]interface{}
+    fmt.Fprintf(os.Stdout, "Response from `UserApi.GetUserActivityLogs`: %v\n", resp)
+}
+```
+
+### Path Parameters
+
+This endpoint does not need any parameter.
+
+### Other Parameters
+
+Other parameters are passed through a pointer to a apiGetUserActivityLogsRequest struct via the builder pattern
+
+
+### Return type
+
+**[]map[string]interface{}**
 
 ### Authorization
 

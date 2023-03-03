@@ -74,7 +74,7 @@ Other parameters are passed through a pointer to a apiDiagnosticNotificationRequ
 
 ## GenerateAgentDiagnosticLogs
 
-> GenerateAgentDiagnosticLogs(ctx).Execute()
+> GenerateAgentDiagnosticLogs(ctx).DiagnosisGenerateDiagnosticLogsRequest(diagnosisGenerateDiagnosticLogsRequest).Execute()
 
 Generate Agent Diagnostic Logs
 
@@ -93,10 +93,11 @@ import (
 )
 
 func main() {
+    diagnosisGenerateDiagnosticLogsRequest := *openapiclient.NewDiagnosisGenerateDiagnosticLogsRequest(int32(123)) // DiagnosisGenerateDiagnosticLogsRequest |  (optional)
 
     configuration := openapiclient.NewConfiguration()
     apiClient := openapiclient.NewAPIClient(configuration)
-    r, err := apiClient.DiagnosisApi.GenerateAgentDiagnosticLogs(context.Background()).Execute()
+    r, err := apiClient.DiagnosisApi.GenerateAgentDiagnosticLogs(context.Background()).DiagnosisGenerateDiagnosticLogsRequest(diagnosisGenerateDiagnosticLogsRequest).Execute()
     if err != nil {
         fmt.Fprintf(os.Stderr, "Error when calling `DiagnosisApi.GenerateAgentDiagnosticLogs``: %v\n", err)
         fmt.Fprintf(os.Stderr, "Full HTTP response: %v\n", r)
@@ -106,12 +107,16 @@ func main() {
 
 ### Path Parameters
 
-This endpoint does not need any parameter.
+
 
 ### Other Parameters
 
 Other parameters are passed through a pointer to a apiGenerateAgentDiagnosticLogsRequest struct via the builder pattern
 
+
+Name | Type | Description  | Notes
+------------- | ------------- | ------------- | -------------
+ **diagnosisGenerateDiagnosticLogsRequest** | [**DiagnosisGenerateDiagnosticLogsRequest**](DiagnosisGenerateDiagnosticLogsRequest.md) |  | 
 
 ### Return type
 
@@ -123,7 +128,7 @@ Other parameters are passed through a pointer to a apiGenerateAgentDiagnosticLog
 
 ### HTTP request headers
 
-- **Content-Type**: Not defined
+- **Content-Type**: application/json
 - **Accept**: application/json
 
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints)
@@ -133,7 +138,7 @@ Other parameters are passed through a pointer to a apiGenerateAgentDiagnosticLog
 
 ## GenerateConsoleDiagnosticLogs
 
-> GenerateConsoleDiagnosticLogs(ctx).Execute()
+> GenerateConsoleDiagnosticLogs(ctx).DiagnosisGenerateDiagnosticLogsRequest(diagnosisGenerateDiagnosticLogsRequest).Execute()
 
 Generate Console Diagnostic Logs
 
@@ -152,10 +157,11 @@ import (
 )
 
 func main() {
+    diagnosisGenerateDiagnosticLogsRequest := *openapiclient.NewDiagnosisGenerateDiagnosticLogsRequest(int32(123)) // DiagnosisGenerateDiagnosticLogsRequest |  (optional)
 
     configuration := openapiclient.NewConfiguration()
     apiClient := openapiclient.NewAPIClient(configuration)
-    r, err := apiClient.DiagnosisApi.GenerateConsoleDiagnosticLogs(context.Background()).Execute()
+    r, err := apiClient.DiagnosisApi.GenerateConsoleDiagnosticLogs(context.Background()).DiagnosisGenerateDiagnosticLogsRequest(diagnosisGenerateDiagnosticLogsRequest).Execute()
     if err != nil {
         fmt.Fprintf(os.Stderr, "Error when calling `DiagnosisApi.GenerateConsoleDiagnosticLogs``: %v\n", err)
         fmt.Fprintf(os.Stderr, "Full HTTP response: %v\n", r)
@@ -165,12 +171,16 @@ func main() {
 
 ### Path Parameters
 
-This endpoint does not need any parameter.
+
 
 ### Other Parameters
 
 Other parameters are passed through a pointer to a apiGenerateConsoleDiagnosticLogsRequest struct via the builder pattern
 
+
+Name | Type | Description  | Notes
+------------- | ------------- | ------------- | -------------
+ **diagnosisGenerateDiagnosticLogsRequest** | [**DiagnosisGenerateDiagnosticLogsRequest**](DiagnosisGenerateDiagnosticLogsRequest.md) |  | 
 
 ### Return type
 
@@ -182,7 +192,7 @@ Other parameters are passed through a pointer to a apiGenerateConsoleDiagnosticL
 
 ### HTTP request headers
 
-- **Content-Type**: Not defined
+- **Content-Type**: application/json
 - **Accept**: application/json
 
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints)
