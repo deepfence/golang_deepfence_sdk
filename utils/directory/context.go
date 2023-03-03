@@ -42,6 +42,10 @@ func NewGlobalContext() context.Context {
 	return ctx
 }
 
+func WithGlobalContext(ctx context.Context) context.Context {
+	return context.WithValue(ctx, NamespaceKey, GlobalDirKey)
+}
+
 func NewContextWithNameSpace(ns NamespaceID) context.Context {
 	ctx := context.Background()
 	ctx = context.WithValue(ctx, NamespaceKey, ns)
