@@ -1,11 +1,14 @@
 package utils
 
 import (
+	"bytes"
 	"encoding/json"
 	"errors"
 	"fmt"
 	"net/mail"
 	"net/url"
+	"os"
+	"os/exec"
 	"reflect"
 	"regexp"
 	"strconv"
@@ -240,4 +243,21 @@ func MapKeys(input map[string]string) []int32 {
 		i++
 	}
 	return keys
+}
+
+func ExecuteCommand(commandStr string, envVars map[string]string) (string, error) {
+	cmd := exec.Command("/bin/sh", "-c", commandStr)
+	var commandOut bytes.Buffer
+	var commandErr bytes.Buffer
+	cmd.Stdout = &commandOut
+	cmd.Stderr = &commandErr
+	cmd.Env = os.Environ()
+	for key, value := range envVars {
+		cmd.Env = append(cmd.Env, fmt.Sprintf("%s=%s", key, value))
+	}
+	err := cmd.Run()
+	if err != nil {
+		return strings.TrimSpace(commandErr.String()), err
+	}
+	return strings.TrimSpace(commandOut.String()), nil
 }

@@ -34,6 +34,7 @@ func (e AlreadyPresentError) Error() string {
 }
 
 type FileManager interface {
+	UploadLocalFile(context.Context, string, string, interface{}) (UploadResult, error)
 	UploadFile(context.Context, string, []byte, interface{}) (UploadResult, error)
 	DownloadFile(context.Context, string, string, interface{}) error
 	DownloadFileContexts(context.Context, string, interface{}) ([]byte, error)
@@ -63,6 +64,33 @@ func checkIfFileExists(ctx context.Context, client *minio.Client, bucket, filena
 		return "", false
 	}
 	return info.Key, true
+}
+
+func (mfm *MinioFileManager) UploadLocalFile(ctx context.Context, filename string, localFilename string, extra interface{}) (UploadResult, error) {
+	err := mfm.createBucketIfNeeded(ctx)
+	if err != nil {
+		return UploadResult{}, err
+	}
+
+	if key, has := checkIfFileExists(ctx, mfm.client, mfm.namespace, path.Join(mfm.namespace, filename)); has {
+		return UploadResult{}, AlreadyPresentError{Path: key}
+	}
+
+	info, err := mfm.client.FPutObject(ctx, mfm.namespace, path.Join(mfm.namespace, filename),
+		localFilename, extra.(minio.PutObjectOptions))
+	if err != nil {
+		return UploadResult{}, err
+	}
+
+	return UploadResult{
+		Location:     info.Location,
+		Bucket:       info.Bucket,
+		Key:          info.Key,
+		ETag:         info.ETag,
+		Size:         info.Size,
+		LastModified: info.LastModified,
+		VersionID:    info.VersionID,
+	}, nil
 }
 
 func (mfm *MinioFileManager) UploadFile(ctx context.Context, filename string, data []byte, extra interface{}) (UploadResult, error) {
