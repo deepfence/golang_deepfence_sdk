@@ -7,6 +7,7 @@ import (
 	"net/url"
 	"path"
 	"runtime"
+	"strings"
 
 	"github.com/neo4j/neo4j-go-driver/v4/neo4j"
 	"go.opentelemetry.io/otel"
@@ -31,7 +32,8 @@ func getCallerInfo(skip int) (info string) {
 	}
 	funcName := runtime.FuncForPC(pc).Name()
 	fileName := path.Base(file) // The Base function returns the last element of the path
-	return fmt.Sprintf("Neo4j: %s:%s:%d ", funcName, fileName, lineNo)
+	splits := strings.Split(funcName, "/")
+	return fmt.Sprintf("Neo4j: %s:%s:%d ", splits[len(splits)-1], fileName, lineNo)
 }
 
 func (ct CypherTransaction) Run(cypher string, params map[string]interface{}) (neo4j.Result, error) {
