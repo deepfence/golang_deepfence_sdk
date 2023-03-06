@@ -6,7 +6,7 @@ Method | HTTP request | Description
 ------------- | ------------- | -------------
 [**AddRegistry**](RegistryApi.md#AddRegistry) | **Post** /deepfence/registryaccount/ | Add Registry
 [**DeleteRegistry**](RegistryApi.md#DeleteRegistry) | **Delete** /deepfence/registryaccount/{id}/ | Add Registry
-[**ListRegistry**](RegistryApi.md#ListRegistry) | **Get** /deepfence/registryaccount/list | List Registries
+[**ListRegistry**](RegistryApi.md#ListRegistry) | **Get** /deepfence/registryaccount/ | List Registries
 
 
 

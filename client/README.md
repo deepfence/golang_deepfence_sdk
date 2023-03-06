@@ -125,7 +125,7 @@ Class | Method | HTTP request | Description
 *MalwareScanApi* | [**StopMalwareScan**](docs/MalwareScanApi.md#stopmalwarescan) | **Post** /deepfence/scan/stop/malware | Stop Malware Scan
 *RegistryApi* | [**AddRegistry**](docs/RegistryApi.md#addregistry) | **Post** /deepfence/registryaccount/ | Add Registry
 *RegistryApi* | [**DeleteRegistry**](docs/RegistryApi.md#deleteregistry) | **Delete** /deepfence/registryaccount/{id}/ | Add Registry
-*RegistryApi* | [**ListRegistry**](docs/RegistryApi.md#listregistry) | **Get** /deepfence/registryaccount/list | List Registries
+*RegistryApi* | [**ListRegistry**](docs/RegistryApi.md#listregistry) | **Get** /deepfence/registryaccount/ | List Registries
 *ScanResultsApi* | [**DeleteScanResult**](docs/ScanResultsApi.md#deletescanresult) | **Patch** /deepfence/scan/results/action/delete | Delete selected scan results
 *ScanResultsApi* | [**DeleteScanResultsForScanID**](docs/ScanResultsApi.md#deletescanresultsforscanid) | **Delete** /deepfence/scan/{scan_type}/{scan_id} | Delete all scan results for a scan id
 *ScanResultsApi* | [**DownloadScanResults**](docs/ScanResultsApi.md#downloadscanresults) | **Get** /deepfence/scan/{scan_type}/{scan_id}/download | Download Scans Results

@@ -1782,6 +1782,45 @@ paths:
       tags:
       - Lookup
   /deepfence/registryaccount/:
+    get:
+      description: List all the added Registries
+      operationId: listRegistry
+      responses:
+        "200":
+          content:
+            application/json:
+              schema:
+                items:
+                  $ref: '#/components/schemas/ModelRegistryListResp'
+                type: array
+          description: OK
+        "400":
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ApiDocsBadRequestResponse'
+          description: Bad Request
+        "401":
+          description: Unauthorized
+        "403":
+          description: Forbidden
+        "404":
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ApiDocsFailureResponse'
+          description: Not Found
+        "500":
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ApiDocsFailureResponse'
+          description: Internal Server Error
+      security:
+      - bearer_token: []
+      summary: List Registries
+      tags:
+      - Registry
     post:
       description: Add a new supported registry
       operationId: addRegistry
@@ -1860,46 +1899,6 @@ paths:
       security:
       - bearer_token: []
       summary: Add Registry
-      tags:
-      - Registry
-  /deepfence/registryaccount/list:
-    get:
-      description: List all the added Registries
-      operationId: listRegistry
-      responses:
-        "200":
-          content:
-            application/json:
-              schema:
-                items:
-                  $ref: '#/components/schemas/ModelRegistryListResp'
-                type: array
-          description: OK
-        "400":
-          content:
-            application/json:
-              schema:
-                $ref: '#/components/schemas/ApiDocsBadRequestResponse'
-          description: Bad Request
-        "401":
-          description: Unauthorized
-        "403":
-          description: Forbidden
-        "404":
-          content:
-            application/json:
-              schema:
-                $ref: '#/components/schemas/ApiDocsFailureResponse'
-          description: Not Found
-        "500":
-          content:
-            application/json:
-              schema:
-                $ref: '#/components/schemas/ApiDocsFailureResponse'
-          description: Internal Server Error
-      security:
-      - bearer_token: []
-      summary: List Registries
       tags:
       - Registry
   /deepfence/scan/{scan_type}/{scan_id}:

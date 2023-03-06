@@ -315,7 +315,7 @@ func (a *RegistryApiService) ListRegistryExecute(r ApiListRegistryRequest) ([]Mo
 		return localVarReturnValue, nil, &GenericOpenAPIError{error: err.Error()}
 	}
 
-	localVarPath := localBasePath + "/deepfence/registryaccount/list"
+	localVarPath := localBasePath + "/deepfence/registryaccount/"
 
 	localVarHeaderParams := make(map[string]string)
 	localVarQueryParams := url.Values{}
