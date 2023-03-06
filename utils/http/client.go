@@ -53,6 +53,7 @@ func buildHttpClient() *http.Client {
 	transport := http.DefaultTransport.(*http.Transport).Clone()
 	transport.TLSClientConfig = tlsConfig
 	transport.DisableKeepAlives = true
+	transport.DisableCompression = false
 	client := &http.Client{Transport: transport}
 	return client
 }
@@ -72,6 +73,7 @@ func NewHttpsConsoleClient(url, port string) *OpenapiHttpClient {
 	transport := http.DefaultTransport.(*http.Transport).Clone()
 	transport.TLSClientConfig = tlsConfig
 	transport.DisableKeepAlives = true
+	transport.DisableCompression = false
 	rhc := rhttp.NewClient()
 	rhc.HTTPClient.Timeout = 10 * time.Second
 	rhc.RetryMax = 3
