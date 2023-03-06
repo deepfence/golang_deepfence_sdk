@@ -106,7 +106,6 @@ docs/ModelRegistryAccount.md
 docs/ModelRegistryAddReq.md
 docs/ModelRegistryListResp.md
 docs/ModelResponseAccessToken.md
-docs/ModelRule.md
 docs/ModelSbomRequest.md
 docs/ModelSbomResponse.md
 docs/ModelScanFilter.md
@@ -120,7 +119,6 @@ docs/ModelScanResultsReq.md
 docs/ModelScanStatusReq.md
 docs/ModelScanStatusResp.md
 docs/ModelScanTriggerResp.md
-docs/ModelSecret.md
 docs/ModelSecretRule.md
 docs/ModelSecretScanResult.md
 docs/ModelSecretScanTriggerReq.md
@@ -233,7 +231,6 @@ model_model_registry_account.go
 model_model_registry_add_req.go
 model_model_registry_list_resp.go
 model_model_response_access_token.go
-model_model_rule.go
 model_model_sbom_request.go
 model_model_sbom_response.go
 model_model_scan_filter.go
@@ -247,7 +244,6 @@ model_model_scan_results_req.go
 model_model_scan_status_req.go
 model_model_scan_status_resp.go
 model_model_scan_trigger_resp.go
-model_model_secret.go
 model_model_secret_rule.go
 model_model_secret_scan_result.go
 model_model_secret_scan_trigger_req.go

@@ -11,10 +11,8 @@ Name | Type | Description | Notes
 **NodeId** | **string** |  | 
 **NodeName** | **string** |  | 
 **NodeType** | **string** |  | 
-**Rule2Secrets** | **map[string][]int32** |  | 
-**Rules** | [**[]ModelRule**](ModelRule.md) |  | 
 **ScanId** | **string** |  | 
-**Secrets** | [**[]ModelSecret**](ModelSecret.md) |  | 
+**Secrets** | [**[]ModelSecretRule**](ModelSecretRule.md) |  | 
 **SeverityCounts** | **map[string]int32** |  | 
 **UpdatedAt** | **int64** |  | 
 
@@ -22,7 +20,7 @@ Name | Type | Description | Notes
 
 ### NewModelSecretScanResult
 
-`func NewModelSecretScanResult(dockerContainerName string, dockerImageName string, hostName string, kubernetesClusterName string, nodeId string, nodeName string, nodeType string, rule2Secrets map[string][]int32, rules []ModelRule, scanId string, secrets []ModelSecret, severityCounts map[string]int32, updatedAt int64, ) *ModelSecretScanResult`
+`func NewModelSecretScanResult(dockerContainerName string, dockerImageName string, hostName string, kubernetesClusterName string, nodeId string, nodeName string, nodeType string, scanId string, secrets []ModelSecretRule, severityCounts map[string]int32, updatedAt int64, ) *ModelSecretScanResult`
 
 NewModelSecretScanResult instantiates a new ModelSecretScanResult object
 This constructor will assign default values to properties that have it defined,
@@ -177,66 +175,6 @@ and a boolean to check if the value has been set.
 SetNodeType sets NodeType field to given value.
 
 
-### GetRule2Secrets
-
-`func (o *ModelSecretScanResult) GetRule2Secrets() map[string][]int32`
-
-GetRule2Secrets returns the Rule2Secrets field if non-nil, zero value otherwise.
-
-### GetRule2SecretsOk
-
-`func (o *ModelSecretScanResult) GetRule2SecretsOk() (*map[string][]int32, bool)`
-
-GetRule2SecretsOk returns a tuple with the Rule2Secrets field if it's non-nil, zero value otherwise
-and a boolean to check if the value has been set.
-
-### SetRule2Secrets
-
-`func (o *ModelSecretScanResult) SetRule2Secrets(v map[string][]int32)`
-
-SetRule2Secrets sets Rule2Secrets field to given value.
-
-
-### SetRule2SecretsNil
-
-`func (o *ModelSecretScanResult) SetRule2SecretsNil(b bool)`
-
- SetRule2SecretsNil sets the value for Rule2Secrets to be an explicit nil
-
-### UnsetRule2Secrets
-`func (o *ModelSecretScanResult) UnsetRule2Secrets()`
-
-UnsetRule2Secrets ensures that no value is present for Rule2Secrets, not even an explicit nil
-### GetRules
-
-`func (o *ModelSecretScanResult) GetRules() []ModelRule`
-
-GetRules returns the Rules field if non-nil, zero value otherwise.
-
-### GetRulesOk
-
-`func (o *ModelSecretScanResult) GetRulesOk() (*[]ModelRule, bool)`
-
-GetRulesOk returns a tuple with the Rules field if it's non-nil, zero value otherwise
-and a boolean to check if the value has been set.
-
-### SetRules
-
-`func (o *ModelSecretScanResult) SetRules(v []ModelRule)`
-
-SetRules sets Rules field to given value.
-
-
-### SetRulesNil
-
-`func (o *ModelSecretScanResult) SetRulesNil(b bool)`
-
- SetRulesNil sets the value for Rules to be an explicit nil
-
-### UnsetRules
-`func (o *ModelSecretScanResult) UnsetRules()`
-
-UnsetRules ensures that no value is present for Rules, not even an explicit nil
 ### GetScanId
 
 `func (o *ModelSecretScanResult) GetScanId() string`
@@ -259,20 +197,20 @@ SetScanId sets ScanId field to given value.
 
 ### GetSecrets
 
-`func (o *ModelSecretScanResult) GetSecrets() []ModelSecret`
+`func (o *ModelSecretScanResult) GetSecrets() []ModelSecretRule`
 
 GetSecrets returns the Secrets field if non-nil, zero value otherwise.
 
 ### GetSecretsOk
 
-`func (o *ModelSecretScanResult) GetSecretsOk() (*[]ModelSecret, bool)`
+`func (o *ModelSecretScanResult) GetSecretsOk() (*[]ModelSecretRule, bool)`
 
 GetSecretsOk returns a tuple with the Secrets field if it's non-nil, zero value otherwise
 and a boolean to check if the value has been set.
 
 ### SetSecrets
 
-`func (o *ModelSecretScanResult) SetSecrets(v []ModelSecret)`
+`func (o *ModelSecretScanResult) SetSecrets(v []ModelSecretRule)`
 
 SetSecrets sets Secrets field to given value.
 

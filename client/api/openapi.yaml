@@ -9532,35 +9532,6 @@ components:
       - access_token
       - refresh_token
       type: object
-    ModelRule:
-      example:
-        score: 1.4658129805029452
-        level: level
-        part: part
-        name: name
-        signature_to_match: signature_to_match
-        id: 6
-      properties:
-        id:
-          type: integer
-        level:
-          type: string
-        name:
-          type: string
-        part:
-          type: string
-        score:
-          type: number
-        signature_to_match:
-          type: string
-      required:
-      - id
-      - level
-      - name
-      - part
-      - score
-      - signature_to_match
-      type: object
     ModelSbomRequest:
       example:
         scan_id: scan_id
@@ -9916,39 +9887,6 @@ components:
       - bulk_scan_id
       - scan_ids
       type: object
-    ModelSecret:
-      example:
-        full_filename: full_filename
-        matched_content: matched_content
-        updated_at: 7
-        masked: true
-        relative_ending_index: 5
-        starting_index: 2
-        relative_starting_index: 5
-      properties:
-        full_filename:
-          type: string
-        masked:
-          type: boolean
-        matched_content:
-          type: string
-        relative_ending_index:
-          type: integer
-        relative_starting_index:
-          type: integer
-        starting_index:
-          type: integer
-        updated_at:
-          type: integer
-      required:
-      - full_filename
-      - masked
-      - matched_content
-      - relative_ending_index
-      - relative_starting_index
-      - starting_index
-      - updated_at
-      type: object
     ModelSecretRule:
       example:
         full_filename: full_filename
@@ -10009,45 +9947,40 @@ components:
     ModelSecretScanResult:
       example:
         severity_counts:
-          key: 9
+          key: 7
+        node_type: node_type
         docker_container_name: docker_container_name
+        updated_at: 9
         kubernetes_cluster_name: kubernetes_cluster_name
         node_name: node_name
-        rules:
-        - score: 1.4658129805029452
-          level: level
-          part: part
-          name: name
-          signature_to_match: signature_to_match
-          id: 6
-        - score: 1.4658129805029452
-          level: level
-          part: part
-          name: name
-          signature_to_match: signature_to_match
-          id: 6
+        scan_id: scan_id
         secrets:
         - full_filename: full_filename
-          matched_content: matched_content
-          updated_at: 7
+          level: level
           masked: true
-          relative_ending_index: 5
-          starting_index: 2
-          relative_starting_index: 5
+          part: part
+          relative_ending_index: 6
+          starting_index: 5
+          signature_to_match: signature_to_match
+          score: 5.962133916683182
+          matched_content: matched_content
+          updated_at: 2
+          name: name
+          id: 0
+          relative_starting_index: 1
         - full_filename: full_filename
-          matched_content: matched_content
-          updated_at: 7
+          level: level
           masked: true
-          relative_ending_index: 5
-          starting_index: 2
-          relative_starting_index: 5
-        node_type: node_type
-        updated_at: 3
-        scan_id: scan_id
-        rule_2_secrets:
-          key:
-          - 0
-          - 0
+          part: part
+          relative_ending_index: 6
+          starting_index: 5
+          signature_to_match: signature_to_match
+          score: 5.962133916683182
+          matched_content: matched_content
+          updated_at: 2
+          name: name
+          id: 0
+          relative_starting_index: 1
         docker_image_name: docker_image_name
         host_name: host_name
         node_id: node_id
@@ -10066,23 +9999,11 @@ components:
           type: string
         node_type:
           type: string
-        rule_2_secrets:
-          additionalProperties:
-            items:
-              type: integer
-            type: array
-          nullable: true
-          type: object
-        rules:
-          items:
-            $ref: '#/components/schemas/ModelRule'
-          nullable: true
-          type: array
         scan_id:
           type: string
         secrets:
           items:
-            $ref: '#/components/schemas/ModelSecret'
+            $ref: '#/components/schemas/ModelSecretRule'
           nullable: true
           type: array
         severity_counts:
@@ -10101,8 +10022,6 @@ components:
       - node_id
       - node_name
       - node_type
-      - rule_2_secrets
-      - rules
       - scan_id
       - secrets
       - severity_counts
