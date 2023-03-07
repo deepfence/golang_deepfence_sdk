@@ -34,6 +34,7 @@ func (e AlreadyPresentError) Error() string {
 }
 
 type FileManager interface {
+	ListFiles(context.Context, string, bool, int, bool) []ObjectInfo
 	UploadLocalFile(context.Context, string, string, interface{}) (UploadResult, error)
 	UploadFile(context.Context, string, []byte, interface{}) (UploadResult, error)
 	DownloadFile(context.Context, string, string, interface{}) error
