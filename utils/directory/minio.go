@@ -58,12 +58,49 @@ type UploadResult struct {
 	VersionID    string
 }
 
+type ObjectInfo struct {
+	Key          string    `json:"name"`         // Name of the object
+	LastModified time.Time `json:"lastModified"` // Date and time the object was last modified.
+	Size         int64     `json:"size"`         // Size in bytes of the object.
+	ContentType  string    `json:"contentType"`  // A standard MIME type describing the format of the object data.
+	Expires      time.Time `json:"expires"`      // The date and time at which the object is no longer able to be cached.
+	IsDir        bool      `json:"isDir"`        // Is this object a directory
+}
+
 func checkIfFileExists(ctx context.Context, client *minio.Client, bucket, filename string) (string, bool) {
 	info, err := client.StatObject(ctx, bucket, filename, minio.StatObjectOptions{})
 	if err != nil {
 		return "", false
 	}
 	return info.Key, true
+}
+
+func (mfm *MinioFileManager) ListFiles(ctx context.Context, pathPrefix string, recursive bool, maxKeys int, skipDir bool) []ObjectInfo {
+	objects := mfm.client.ListObjects(ctx, mfm.namespace, minio.ListObjectsOptions{
+		WithVersions: false,
+		WithMetadata: false,
+		Prefix:       pathPrefix,
+		Recursive:    recursive,
+		MaxKeys:      maxKeys,
+		StartAfter:   "",
+		UseV1:        false,
+	})
+	var objectsInfo []ObjectInfo
+	for obj := range objects {
+		isDir := strings.HasSuffix(obj.Key, "/")
+		if skipDir == true && isDir == true {
+			continue
+		}
+		objectsInfo = append(objectsInfo, ObjectInfo{
+			Key:          obj.Key,
+			LastModified: obj.LastModified,
+			Size:         obj.Size,
+			ContentType:  obj.ContentType,
+			Expires:      obj.Expires,
+			IsDir:        isDir,
+		})
+	}
+	return objectsInfo
 }
 
 func (mfm *MinioFileManager) UploadLocalFile(ctx context.Context, filename string, localFilename string, extra interface{}) (UploadResult, error) {
