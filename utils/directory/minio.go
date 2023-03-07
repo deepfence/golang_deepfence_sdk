@@ -34,12 +34,12 @@ func (e AlreadyPresentError) Error() string {
 }
 
 type FileManager interface {
-	ListFiles(context.Context, string, bool, int, bool) []ObjectInfo
-	UploadLocalFile(context.Context, string, string, interface{}) (UploadResult, error)
-	UploadFile(context.Context, string, []byte, interface{}) (UploadResult, error)
-	DownloadFile(context.Context, string, string, interface{}) error
-	DownloadFileContexts(context.Context, string, interface{}) ([]byte, error)
-	ExposeFile(context.Context, string, time.Duration, url.Values) (string, error)
+	ListFiles(ctx context.Context, pathPrefix string, recursive bool, maxKeys int, skipDir bool) []ObjectInfo
+	UploadLocalFile(ctx context.Context, filename string, localFilename string, extra interface{}) (UploadResult, error)
+	UploadFile(ctx context.Context, filename string, data []byte, extra interface{}) (UploadResult, error)
+	DownloadFile(ctx context.Context, remoteFile string, localFile string, extra interface{}) error
+	DownloadFileContexts(ctx context.Context, remoteFile string, extra interface{}) ([]byte, error)
+	ExposeFile(ctx context.Context, filePath string, expires time.Duration, reqParams url.Values) (string, error)
 	Client() interface{}
 	Bucket() string
 }
