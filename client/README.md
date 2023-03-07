@@ -123,9 +123,11 @@ Class | Method | HTTP request | Description
 *MalwareScanApi* | [**StartMalwareScan**](docs/MalwareScanApi.md#startmalwarescan) | **Post** /deepfence/scan/start/malware | Start Malware Scan
 *MalwareScanApi* | [**StatusMalwareScan**](docs/MalwareScanApi.md#statusmalwarescan) | **Post** /deepfence/scan/status/malware | Get Malware Scan Status
 *MalwareScanApi* | [**StopMalwareScan**](docs/MalwareScanApi.md#stopmalwarescan) | **Post** /deepfence/scan/stop/malware | Stop Malware Scan
-*RegistryApi* | [**AddRegistry**](docs/RegistryApi.md#addregistry) | **Post** /deepfence/registryaccount/ | Add Registry
-*RegistryApi* | [**DeleteRegistry**](docs/RegistryApi.md#deleteregistry) | **Delete** /deepfence/registryaccount/{id}/ | Add Registry
-*RegistryApi* | [**ListRegistry**](docs/RegistryApi.md#listregistry) | **Get** /deepfence/registryaccount/ | List Registries
+*RegistryApi* | [**AddRegistry**](docs/RegistryApi.md#addregistry) | **Post** /deepfence/registryaccount | Add Registry
+*RegistryApi* | [**DeleteRegistry**](docs/RegistryApi.md#deleteregistry) | **Delete** /deepfence/registryaccount/{registry_id} | Add Registry
+*RegistryApi* | [**ListImageTags**](docs/RegistryApi.md#listimagetags) | **Get** /deepfence/registryaccount/{registry_id}/images/{image_name}/tags | List Image Tags
+*RegistryApi* | [**ListImages**](docs/RegistryApi.md#listimages) | **Get** /deepfence/registryaccount/{registry_id}/images | List Registry Images
+*RegistryApi* | [**ListRegistry**](docs/RegistryApi.md#listregistry) | **Get** /deepfence/registryaccount | List Registries
 *ScanResultsApi* | [**DeleteScanResult**](docs/ScanResultsApi.md#deletescanresult) | **Patch** /deepfence/scan/results/action/delete | Delete selected scan results
 *ScanResultsApi* | [**DeleteScanResultsForScanID**](docs/ScanResultsApi.md#deletescanresultsforscanid) | **Delete** /deepfence/scan/{scan_type}/{scan_id} | Delete all scan results for a scan id
 *ScanResultsApi* | [**DownloadScanResults**](docs/ScanResultsApi.md#downloadscanresults) | **Get** /deepfence/scan/{scan_type}/{scan_id}/download | Download Scans Results

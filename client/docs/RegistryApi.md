@@ -4,9 +4,11 @@ All URIs are relative to *http://localhost*
 
 Method | HTTP request | Description
 ------------- | ------------- | -------------
-[**AddRegistry**](RegistryApi.md#AddRegistry) | **Post** /deepfence/registryaccount/ | Add Registry
-[**DeleteRegistry**](RegistryApi.md#DeleteRegistry) | **Delete** /deepfence/registryaccount/{id}/ | Add Registry
-[**ListRegistry**](RegistryApi.md#ListRegistry) | **Get** /deepfence/registryaccount/ | List Registries
+[**AddRegistry**](RegistryApi.md#AddRegistry) | **Post** /deepfence/registryaccount | Add Registry
+[**DeleteRegistry**](RegistryApi.md#DeleteRegistry) | **Delete** /deepfence/registryaccount/{registry_id} | Add Registry
+[**ListImageTags**](RegistryApi.md#ListImageTags) | **Get** /deepfence/registryaccount/{registry_id}/images/{image_name}/tags | List Image Tags
+[**ListImages**](RegistryApi.md#ListImages) | **Get** /deepfence/registryaccount/{registry_id}/images | List Registry Images
+[**ListRegistry**](RegistryApi.md#ListRegistry) | **Get** /deepfence/registryaccount | List Registries
 
 
 
@@ -76,7 +78,7 @@ Name | Type | Description  | Notes
 
 ## DeleteRegistry
 
-> DeleteRegistry(ctx, id).Execute()
+> DeleteRegistry(ctx, registryId).Execute()
 
 Add Registry
 
@@ -95,11 +97,11 @@ import (
 )
 
 func main() {
-    id := int32(56) // int32 | 
+    registryId := int32(56) // int32 | 
 
     configuration := openapiclient.NewConfiguration()
     apiClient := openapiclient.NewAPIClient(configuration)
-    r, err := apiClient.RegistryApi.DeleteRegistry(context.Background(), id).Execute()
+    r, err := apiClient.RegistryApi.DeleteRegistry(context.Background(), registryId).Execute()
     if err != nil {
         fmt.Fprintf(os.Stderr, "Error when calling `RegistryApi.DeleteRegistry``: %v\n", err)
         fmt.Fprintf(os.Stderr, "Full HTTP response: %v\n", r)
@@ -113,7 +115,7 @@ func main() {
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
 **ctx** | **context.Context** | context for authentication, logging, cancellation, deadlines, tracing, etc.
-**id** | **int32** |  | 
+**registryId** | **int32** |  | 
 
 ### Other Parameters
 
@@ -127,6 +129,149 @@ Name | Type | Description  | Notes
 ### Return type
 
  (empty response body)
+
+### Authorization
+
+[bearer_token](../README.md#bearer_token)
+
+### HTTP request headers
+
+- **Content-Type**: Not defined
+- **Accept**: application/json
+
+[[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints)
+[[Back to Model list]](../README.md#documentation-for-models)
+[[Back to README]](../README.md)
+
+
+## ListImageTags
+
+> []ModelContainerImage ListImageTags(ctx, registryId, imageName).Execute()
+
+List Image Tags
+
+
+
+### Example
+
+```go
+package main
+
+import (
+    "context"
+    "fmt"
+    "os"
+    openapiclient "github.com/deepfence/golang_deepfence_sdk/client"
+)
+
+func main() {
+    registryId := "registryId_example" // string | 
+    imageName := "imageName_example" // string | 
+
+    configuration := openapiclient.NewConfiguration()
+    apiClient := openapiclient.NewAPIClient(configuration)
+    resp, r, err := apiClient.RegistryApi.ListImageTags(context.Background(), registryId, imageName).Execute()
+    if err != nil {
+        fmt.Fprintf(os.Stderr, "Error when calling `RegistryApi.ListImageTags``: %v\n", err)
+        fmt.Fprintf(os.Stderr, "Full HTTP response: %v\n", r)
+    }
+    // response from `ListImageTags`: []ModelContainerImage
+    fmt.Fprintf(os.Stdout, "Response from `RegistryApi.ListImageTags`: %v\n", resp)
+}
+```
+
+### Path Parameters
+
+
+Name | Type | Description  | Notes
+------------- | ------------- | ------------- | -------------
+**ctx** | **context.Context** | context for authentication, logging, cancellation, deadlines, tracing, etc.
+**registryId** | **string** |  | 
+**imageName** | **string** |  | 
+
+### Other Parameters
+
+Other parameters are passed through a pointer to a apiListImageTagsRequest struct via the builder pattern
+
+
+Name | Type | Description  | Notes
+------------- | ------------- | ------------- | -------------
+
+
+
+### Return type
+
+[**[]ModelContainerImage**](ModelContainerImage.md)
+
+### Authorization
+
+[bearer_token](../README.md#bearer_token)
+
+### HTTP request headers
+
+- **Content-Type**: Not defined
+- **Accept**: application/json
+
+[[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints)
+[[Back to Model list]](../README.md#documentation-for-models)
+[[Back to README]](../README.md)
+
+
+## ListImages
+
+> []ModelContainerImageWithTags ListImages(ctx, registryId).Execute()
+
+List Registry Images
+
+
+
+### Example
+
+```go
+package main
+
+import (
+    "context"
+    "fmt"
+    "os"
+    openapiclient "github.com/deepfence/golang_deepfence_sdk/client"
+)
+
+func main() {
+    registryId := "registryId_example" // string | 
+
+    configuration := openapiclient.NewConfiguration()
+    apiClient := openapiclient.NewAPIClient(configuration)
+    resp, r, err := apiClient.RegistryApi.ListImages(context.Background(), registryId).Execute()
+    if err != nil {
+        fmt.Fprintf(os.Stderr, "Error when calling `RegistryApi.ListImages``: %v\n", err)
+        fmt.Fprintf(os.Stderr, "Full HTTP response: %v\n", r)
+    }
+    // response from `ListImages`: []ModelContainerImageWithTags
+    fmt.Fprintf(os.Stdout, "Response from `RegistryApi.ListImages`: %v\n", resp)
+}
+```
+
+### Path Parameters
+
+
+Name | Type | Description  | Notes
+------------- | ------------- | ------------- | -------------
+**ctx** | **context.Context** | context for authentication, logging, cancellation, deadlines, tracing, etc.
+**registryId** | **string** |  | 
+
+### Other Parameters
+
+Other parameters are passed through a pointer to a apiListImagesRequest struct via the builder pattern
+
+
+Name | Type | Description  | Notes
+------------- | ------------- | ------------- | -------------
+
+
+### Return type
+
+[**[]ModelContainerImageWithTags**](ModelContainerImageWithTags.md)
 
 ### Authorization
 

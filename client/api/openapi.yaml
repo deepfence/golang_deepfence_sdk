@@ -1781,7 +1781,7 @@ paths:
       summary: Get Images in Registry
       tags:
       - Lookup
-  /deepfence/registryaccount/:
+  /deepfence/registryaccount:
     get:
       description: List all the added Registries
       operationId: listRegistry
@@ -1859,14 +1859,14 @@ paths:
       summary: Add Registry
       tags:
       - Registry
-  /deepfence/registryaccount/{id}/:
+  /deepfence/registryaccount/{registry_id}:
     delete:
       description: Delete registry
       operationId: deleteRegistry
       parameters:
       - explode: false
         in: path
-        name: id
+        name: registry_id
         required: true
         schema:
           type: integer
@@ -1899,6 +1899,109 @@ paths:
       security:
       - bearer_token: []
       summary: Add Registry
+      tags:
+      - Registry
+  /deepfence/registryaccount/{registry_id}/images:
+    get:
+      description: list images from a given registry
+      operationId: listImages
+      parameters:
+      - explode: false
+        in: path
+        name: registry_id
+        required: true
+        schema:
+          type: string
+        style: simple
+      responses:
+        "200":
+          content:
+            application/json:
+              schema:
+                items:
+                  $ref: '#/components/schemas/ModelContainerImageWithTags'
+                type: array
+          description: OK
+        "400":
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ApiDocsBadRequestResponse'
+          description: Bad Request
+        "401":
+          description: Unauthorized
+        "403":
+          description: Forbidden
+        "404":
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ApiDocsFailureResponse'
+          description: Not Found
+        "500":
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ApiDocsFailureResponse'
+          description: Internal Server Error
+      security:
+      - bearer_token: []
+      summary: List Registry Images
+      tags:
+      - Registry
+  /deepfence/registryaccount/{registry_id}/images/{image_name}/tags:
+    get:
+      description: list image tags for a given image and registry
+      operationId: listImageTags
+      parameters:
+      - explode: false
+        in: path
+        name: registry_id
+        required: true
+        schema:
+          type: string
+        style: simple
+      - explode: false
+        in: path
+        name: image_name
+        required: true
+        schema:
+          type: string
+        style: simple
+      responses:
+        "200":
+          content:
+            application/json:
+              schema:
+                items:
+                  $ref: '#/components/schemas/ModelContainerImage'
+                type: array
+          description: OK
+        "400":
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ApiDocsBadRequestResponse'
+          description: Bad Request
+        "401":
+          description: Unauthorized
+        "403":
+          description: Forbidden
+        "404":
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ApiDocsFailureResponse'
+          description: Not Found
+        "500":
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ApiDocsFailureResponse'
+          description: Internal Server Error
+      security:
+      - bearer_token: []
+      summary: List Image Tags
       tags:
       - Registry
   /deepfence/scan/{scan_type}/{scan_id}:
