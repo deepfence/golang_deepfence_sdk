@@ -202,7 +202,7 @@ Name | Type | Description  | Notes
 
 ## GetDiagnosticLogs
 
-> GetDiagnosticLogs(ctx).Execute()
+> DiagnosisGetDiagnosticLogsResponse GetDiagnosticLogs(ctx).Execute()
 
 Get Diagnostic Logs
 
@@ -224,11 +224,13 @@ func main() {
 
     configuration := openapiclient.NewConfiguration()
     apiClient := openapiclient.NewAPIClient(configuration)
-    r, err := apiClient.DiagnosisApi.GetDiagnosticLogs(context.Background()).Execute()
+    resp, r, err := apiClient.DiagnosisApi.GetDiagnosticLogs(context.Background()).Execute()
     if err != nil {
         fmt.Fprintf(os.Stderr, "Error when calling `DiagnosisApi.GetDiagnosticLogs``: %v\n", err)
         fmt.Fprintf(os.Stderr, "Full HTTP response: %v\n", r)
     }
+    // response from `GetDiagnosticLogs`: DiagnosisGetDiagnosticLogsResponse
+    fmt.Fprintf(os.Stdout, "Response from `DiagnosisApi.GetDiagnosticLogs`: %v\n", resp)
 }
 ```
 
@@ -243,7 +245,7 @@ Other parameters are passed through a pointer to a apiGetDiagnosticLogsRequest s
 
 ### Return type
 
- (empty response body)
+[**DiagnosisGetDiagnosticLogsResponse**](DiagnosisGetDiagnosticLogsResponse.md)
 
 ### Authorization
 

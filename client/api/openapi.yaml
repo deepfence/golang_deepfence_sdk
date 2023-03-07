@@ -568,6 +568,10 @@ paths:
       operationId: getDiagnosticLogs
       responses:
         "200":
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/DiagnosisGetDiagnosticLogsResponse'
           description: OK
         "400":
           content:
@@ -5647,6 +5651,22 @@ components:
       additionalProperties:
         $ref: '#/components/schemas/DetailedConnectionSummary'
       type: object
+    DiagnosisDiagnosticLogsLink:
+      example:
+        url_link: url_link
+        created_at: created_at
+        label: label
+        message: message
+      properties:
+        created_at:
+          type: string
+        label:
+          type: string
+        message:
+          type: string
+        url_link:
+          type: string
+      type: object
     DiagnosisDiagnosticNotification:
       example:
         expiry_in_secs: ""
@@ -5672,6 +5692,38 @@ components:
           type: integer
       required:
       - tail
+      type: object
+    DiagnosisGetDiagnosticLogsResponse:
+      example:
+        console_logs:
+        - url_link: url_link
+          created_at: created_at
+          label: label
+          message: message
+        - url_link: url_link
+          created_at: created_at
+          label: label
+          message: message
+        agent_logs:
+        - url_link: url_link
+          created_at: created_at
+          label: label
+          message: message
+        - url_link: url_link
+          created_at: created_at
+          label: label
+          message: message
+      properties:
+        agent_logs:
+          items:
+            $ref: '#/components/schemas/DiagnosisDiagnosticLogsLink'
+          nullable: true
+          type: array
+        console_logs:
+          items:
+            $ref: '#/components/schemas/DiagnosisDiagnosticLogsLink'
+          nullable: true
+          type: array
       type: object
     GraphNodeInfo:
       properties:
