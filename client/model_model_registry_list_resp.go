@@ -22,8 +22,9 @@ var _ MappedNullable = &ModelRegistryListResp{}
 // ModelRegistryListResp struct for ModelRegistryListResp
 type ModelRegistryListResp struct {
 	CreatedAt *time.Time `json:"created_at,omitempty"`
-	Id *string `json:"id,omitempty"`
+	Id *int32 `json:"id,omitempty"`
 	Name *string `json:"name,omitempty"`
+	NodeId *string `json:"node_id,omitempty"`
 	NonSecret interface{} `json:"non_secret,omitempty"`
 	RegistryType *string `json:"registry_type,omitempty"`
 	UpdatedAt *time.Time `json:"updated_at,omitempty"`
@@ -79,9 +80,9 @@ func (o *ModelRegistryListResp) SetCreatedAt(v time.Time) {
 }
 
 // GetId returns the Id field value if set, zero value otherwise.
-func (o *ModelRegistryListResp) GetId() string {
+func (o *ModelRegistryListResp) GetId() int32 {
 	if o == nil || IsNil(o.Id) {
-		var ret string
+		var ret int32
 		return ret
 	}
 	return *o.Id
@@ -89,7 +90,7 @@ func (o *ModelRegistryListResp) GetId() string {
 
 // GetIdOk returns a tuple with the Id field value if set, nil otherwise
 // and a boolean to check if the value has been set.
-func (o *ModelRegistryListResp) GetIdOk() (*string, bool) {
+func (o *ModelRegistryListResp) GetIdOk() (*int32, bool) {
 	if o == nil || IsNil(o.Id) {
 		return nil, false
 	}
@@ -105,8 +106,8 @@ func (o *ModelRegistryListResp) HasId() bool {
 	return false
 }
 
-// SetId gets a reference to the given string and assigns it to the Id field.
-func (o *ModelRegistryListResp) SetId(v string) {
+// SetId gets a reference to the given int32 and assigns it to the Id field.
+func (o *ModelRegistryListResp) SetId(v int32) {
 	o.Id = &v
 }
 
@@ -140,6 +141,38 @@ func (o *ModelRegistryListResp) HasName() bool {
 // SetName gets a reference to the given string and assigns it to the Name field.
 func (o *ModelRegistryListResp) SetName(v string) {
 	o.Name = &v
+}
+
+// GetNodeId returns the NodeId field value if set, zero value otherwise.
+func (o *ModelRegistryListResp) GetNodeId() string {
+	if o == nil || IsNil(o.NodeId) {
+		var ret string
+		return ret
+	}
+	return *o.NodeId
+}
+
+// GetNodeIdOk returns a tuple with the NodeId field value if set, nil otherwise
+// and a boolean to check if the value has been set.
+func (o *ModelRegistryListResp) GetNodeIdOk() (*string, bool) {
+	if o == nil || IsNil(o.NodeId) {
+		return nil, false
+	}
+	return o.NodeId, true
+}
+
+// HasNodeId returns a boolean if a field has been set.
+func (o *ModelRegistryListResp) HasNodeId() bool {
+	if o != nil && !IsNil(o.NodeId) {
+		return true
+	}
+
+	return false
+}
+
+// SetNodeId gets a reference to the given string and assigns it to the NodeId field.
+func (o *ModelRegistryListResp) SetNodeId(v string) {
+	o.NodeId = &v
 }
 
 // GetNonSecret returns the NonSecret field value if set, zero value otherwise (both if not set or set to explicit null).
@@ -257,6 +290,9 @@ func (o ModelRegistryListResp) ToMap() (map[string]interface{}, error) {
 	}
 	if !IsNil(o.Name) {
 		toSerialize["name"] = o.Name
+	}
+	if !IsNil(o.NodeId) {
+		toSerialize["node_id"] = o.NodeId
 	}
 	if o.NonSecret != nil {
 		toSerialize["non_secret"] = o.NonSecret

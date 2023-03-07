@@ -7349,6 +7349,15 @@ components:
       - vulnerability_scan_status
       type: object
     ModelContainerImageWithTags:
+      example:
+        size: size
+        created: 2000-01-23T04:56:07.000+00:00
+        name: name
+        id: id
+        updated: 2000-01-23T04:56:07.000+00:00
+        tags:
+        - tags
+        - tags
       properties:
         created:
           format: date-time
@@ -9625,14 +9634,17 @@ components:
         registry_type: registry_type
         name: name
         created_at: 2000-01-23T04:56:07.000+00:00
-        id: id
+        id: 0
+        node_id: node_id
       properties:
         created_at:
           format: date-time
           type: string
         id:
-          type: string
+          type: integer
         name:
+          type: string
+        node_id:
           type: string
         non_secret: {}
         registry_type:

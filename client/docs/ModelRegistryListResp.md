@@ -5,8 +5,9 @@
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
 **CreatedAt** | Pointer to **time.Time** |  | [optional] 
-**Id** | Pointer to **string** |  | [optional] 
+**Id** | Pointer to **int32** |  | [optional] 
 **Name** | Pointer to **string** |  | [optional] 
+**NodeId** | Pointer to **string** |  | [optional] 
 **NonSecret** | Pointer to **interface{}** |  | [optional] 
 **RegistryType** | Pointer to **string** |  | [optional] 
 **UpdatedAt** | Pointer to **time.Time** |  | [optional] 
@@ -57,20 +58,20 @@ HasCreatedAt returns a boolean if a field has been set.
 
 ### GetId
 
-`func (o *ModelRegistryListResp) GetId() string`
+`func (o *ModelRegistryListResp) GetId() int32`
 
 GetId returns the Id field if non-nil, zero value otherwise.
 
 ### GetIdOk
 
-`func (o *ModelRegistryListResp) GetIdOk() (*string, bool)`
+`func (o *ModelRegistryListResp) GetIdOk() (*int32, bool)`
 
 GetIdOk returns a tuple with the Id field if it's non-nil, zero value otherwise
 and a boolean to check if the value has been set.
 
 ### SetId
 
-`func (o *ModelRegistryListResp) SetId(v string)`
+`func (o *ModelRegistryListResp) SetId(v int32)`
 
 SetId sets Id field to given value.
 
@@ -104,6 +105,31 @@ SetName sets Name field to given value.
 `func (o *ModelRegistryListResp) HasName() bool`
 
 HasName returns a boolean if a field has been set.
+
+### GetNodeId
+
+`func (o *ModelRegistryListResp) GetNodeId() string`
+
+GetNodeId returns the NodeId field if non-nil, zero value otherwise.
+
+### GetNodeIdOk
+
+`func (o *ModelRegistryListResp) GetNodeIdOk() (*string, bool)`
+
+GetNodeIdOk returns a tuple with the NodeId field if it's non-nil, zero value otherwise
+and a boolean to check if the value has been set.
+
+### SetNodeId
+
+`func (o *ModelRegistryListResp) SetNodeId(v string)`
+
+SetNodeId sets NodeId field to given value.
+
+### HasNodeId
+
+`func (o *ModelRegistryListResp) HasNodeId() bool`
+
+HasNodeId returns a boolean if a field has been set.
 
 ### GetNonSecret
 
