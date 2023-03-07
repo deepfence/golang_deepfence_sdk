@@ -83,6 +83,7 @@ docs/ModelComplianceScanTriggerReq.md
 docs/ModelComputeMetrics.md
 docs/ModelContainer.md
 docs/ModelContainerImage.md
+docs/ModelContainerImageWithTags.md
 docs/ModelDownloadReportResponse.md
 docs/ModelFetchWindow.md
 docs/ModelHost.md
@@ -208,6 +209,7 @@ model_model_compliance_scan_trigger_req.go
 model_model_compute_metrics.go
 model_model_container.go
 model_model_container_image.go
+model_model_container_image_with_tags.go
 model_model_download_report_response.go
 model_model_fetch_window.go
 model_model_host.go

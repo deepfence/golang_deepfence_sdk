@@ -10,6 +10,7 @@ Name | Type | Description | Notes
 **Masked** | **bool** |  | 
 **MatchedContent** | **string** |  | 
 **Name** | **string** |  | 
+**NodeId** | **string** |  | 
 **Part** | **string** |  | 
 **RelativeEndingIndex** | **int32** |  | 
 **RelativeStartingIndex** | **int32** |  | 
@@ -22,7 +23,7 @@ Name | Type | Description | Notes
 
 ### NewModelSecretRule
 
-`func NewModelSecretRule(fullFilename string, id int32, level string, masked bool, matchedContent string, name string, part string, relativeEndingIndex int32, relativeStartingIndex int32, score float32, signatureToMatch string, startingIndex int32, updatedAt int32, ) *ModelSecretRule`
+`func NewModelSecretRule(fullFilename string, id int32, level string, masked bool, matchedContent string, name string, nodeId string, part string, relativeEndingIndex int32, relativeStartingIndex int32, score float32, signatureToMatch string, startingIndex int32, updatedAt int32, ) *ModelSecretRule`
 
 NewModelSecretRule instantiates a new ModelSecretRule object
 This constructor will assign default values to properties that have it defined,
@@ -155,6 +156,26 @@ and a boolean to check if the value has been set.
 `func (o *ModelSecretRule) SetName(v string)`
 
 SetName sets Name field to given value.
+
+
+### GetNodeId
+
+`func (o *ModelSecretRule) GetNodeId() string`
+
+GetNodeId returns the NodeId field if non-nil, zero value otherwise.
+
+### GetNodeIdOk
+
+`func (o *ModelSecretRule) GetNodeIdOk() (*string, bool)`
+
+GetNodeIdOk returns a tuple with the NodeId field if it's non-nil, zero value otherwise
+and a boolean to check if the value has been set.
+
+### SetNodeId
+
+`func (o *ModelSecretRule) SetNodeId(v string)`
+
+SetNodeId sets NodeId field to given value.
 
 
 ### GetPart

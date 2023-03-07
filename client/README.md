@@ -257,6 +257,7 @@ Class | Method | HTTP request | Description
  - [ModelComputeMetrics](docs/ModelComputeMetrics.md)
  - [ModelContainer](docs/ModelContainer.md)
  - [ModelContainerImage](docs/ModelContainerImage.md)
+ - [ModelContainerImageWithTags](docs/ModelContainerImageWithTags.md)
  - [ModelDownloadReportResponse](docs/ModelDownloadReportResponse.md)
  - [ModelFetchWindow](docs/ModelFetchWindow.md)
  - [ModelHost](docs/ModelHost.md)

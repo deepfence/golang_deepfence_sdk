@@ -26,6 +26,7 @@ type ModelSecretRule struct {
 	Masked bool `json:"masked"`
 	MatchedContent string `json:"matched_content"`
 	Name string `json:"name"`
+	NodeId string `json:"node_id"`
 	Part string `json:"part"`
 	RelativeEndingIndex int32 `json:"relative_ending_index"`
 	RelativeStartingIndex int32 `json:"relative_starting_index"`
@@ -39,7 +40,7 @@ type ModelSecretRule struct {
 // This constructor will assign default values to properties that have it defined,
 // and makes sure properties required by API are set, but the set of arguments
 // will change when the set of required properties is changed
-func NewModelSecretRule(fullFilename string, id int32, level string, masked bool, matchedContent string, name string, part string, relativeEndingIndex int32, relativeStartingIndex int32, score float32, signatureToMatch string, startingIndex int32, updatedAt int32) *ModelSecretRule {
+func NewModelSecretRule(fullFilename string, id int32, level string, masked bool, matchedContent string, name string, nodeId string, part string, relativeEndingIndex int32, relativeStartingIndex int32, score float32, signatureToMatch string, startingIndex int32, updatedAt int32) *ModelSecretRule {
 	this := ModelSecretRule{}
 	this.FullFilename = fullFilename
 	this.Id = id
@@ -47,6 +48,7 @@ func NewModelSecretRule(fullFilename string, id int32, level string, masked bool
 	this.Masked = masked
 	this.MatchedContent = matchedContent
 	this.Name = name
+	this.NodeId = nodeId
 	this.Part = part
 	this.RelativeEndingIndex = relativeEndingIndex
 	this.RelativeStartingIndex = relativeStartingIndex
@@ -207,6 +209,30 @@ func (o *ModelSecretRule) GetNameOk() (*string, bool) {
 // SetName sets field value
 func (o *ModelSecretRule) SetName(v string) {
 	o.Name = v
+}
+
+// GetNodeId returns the NodeId field value
+func (o *ModelSecretRule) GetNodeId() string {
+	if o == nil {
+		var ret string
+		return ret
+	}
+
+	return o.NodeId
+}
+
+// GetNodeIdOk returns a tuple with the NodeId field value
+// and a boolean to check if the value has been set.
+func (o *ModelSecretRule) GetNodeIdOk() (*string, bool) {
+	if o == nil {
+		return nil, false
+	}
+	return &o.NodeId, true
+}
+
+// SetNodeId sets field value
+func (o *ModelSecretRule) SetNodeId(v string) {
+	o.NodeId = v
 }
 
 // GetPart returns the Part field value
@@ -393,6 +419,7 @@ func (o ModelSecretRule) ToMap() (map[string]interface{}, error) {
 	toSerialize["masked"] = o.Masked
 	toSerialize["matched_content"] = o.MatchedContent
 	toSerialize["name"] = o.Name
+	toSerialize["node_id"] = o.NodeId
 	toSerialize["part"] = o.Part
 	toSerialize["relative_ending_index"] = o.RelativeEndingIndex
 	toSerialize["relative_starting_index"] = o.RelativeStartingIndex

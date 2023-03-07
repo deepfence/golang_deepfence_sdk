@@ -7245,6 +7245,26 @@ components:
       - vulnerabilities_count
       - vulnerability_scan_status
       type: object
+    ModelContainerImageWithTags:
+      properties:
+        created:
+          format: date-time
+          type: string
+        id:
+          type: string
+        name:
+          type: string
+        size:
+          type: string
+        tags:
+          items:
+            type: string
+          nullable: true
+          type: array
+        updated:
+          format: date-time
+          type: string
+      type: object
     ModelDownloadReportResponse:
       example:
         url_link: url_link
@@ -9901,6 +9921,7 @@ components:
         name: name
         id: 0
         relative_starting_index: 1
+        node_id: node_id
       properties:
         full_filename:
           type: string
@@ -9913,6 +9934,8 @@ components:
         matched_content:
           type: string
         name:
+          type: string
+        node_id:
           type: string
         part:
           type: string
@@ -9935,6 +9958,7 @@ components:
       - masked
       - matched_content
       - name
+      - node_id
       - part
       - relative_ending_index
       - relative_starting_index
@@ -9967,6 +9991,7 @@ components:
           name: name
           id: 0
           relative_starting_index: 1
+          node_id: node_id
         - full_filename: full_filename
           level: level
           masked: true
@@ -9980,6 +10005,7 @@ components:
           name: name
           id: 0
           relative_starting_index: 1
+          node_id: node_id
         docker_image_name: docker_image_name
         host_name: host_name
         node_id: node_id
