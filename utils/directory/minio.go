@@ -39,7 +39,7 @@ type FileManager interface {
 	UploadFile(ctx context.Context, filename string, data []byte, extra interface{}) (UploadResult, error)
 	DownloadFile(ctx context.Context, remoteFile string, localFile string, extra interface{}) error
 	DownloadFileContexts(ctx context.Context, remoteFile string, extra interface{}) ([]byte, error)
-	ExposeFile(ctx context.Context, filePath string, expires time.Duration, reqParams url.Values) (string, error)
+	ExposeFile(ctx context.Context, filePath string, addFilePathPrefix bool, expires time.Duration, reqParams url.Values) (string, error)
 	Client() interface{}
 	Bucket() string
 }
@@ -178,7 +178,7 @@ func (mfm *MinioFileManager) DownloadFileContexts(ctx context.Context, remoteFil
 	return buff.Bytes(), nil
 }
 
-func (mfm *MinioFileManager) ExposeFile(ctx context.Context, filePath string, expires time.Duration, reqParams url.Values) (string, error) {
+func (mfm *MinioFileManager) ExposeFile(ctx context.Context, filePath string, addFilePathPrefix bool, expires time.Duration, reqParams url.Values) (string, error) {
 	consoleIp, err := GetManagementHost(NewGlobalContext())
 	if err != nil {
 		return "", err
@@ -186,6 +186,10 @@ func (mfm *MinioFileManager) ExposeFile(ctx context.Context, filePath string, ex
 
 	headers := http.Header{}
 	headers.Add("Host", consoleIp)
+
+	if addFilePathPrefix {
+		filePath = path.Join(mfm.namespace, filePath)
+	}
 
 	urlLink, err := mfm.client.PresignHeader(context.Background(),
 		"GET",
