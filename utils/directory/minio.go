@@ -190,7 +190,7 @@ func (mfm *MinioFileManager) ExposeFile(ctx context.Context, filePath string, ex
 	urlLink, err := mfm.client.PresignHeader(context.Background(),
 		"GET",
 		mfm.namespace,
-		path.Join(mfm.namespace, filePath),
+		filePath,
 		expires,
 		reqParams,
 		headers)
