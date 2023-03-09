@@ -30,6 +30,7 @@ type ModelContainerImage struct {
 	Metadata map[string]interface{} `json:"metadata"`
 	Metrics ModelComputeMetrics `json:"metrics"`
 	NodeId string `json:"node_id"`
+	NodeName string `json:"node_name"`
 	SecretScanStatus string `json:"secret_scan_status"`
 	SecretsCount int32 `json:"secrets_count"`
 	VulnerabilitiesCount int32 `json:"vulnerabilities_count"`
@@ -40,7 +41,7 @@ type ModelContainerImage struct {
 // This constructor will assign default values to properties that have it defined,
 // and makes sure properties required by API are set, but the set of arguments
 // will change when the set of required properties is changed
-func NewModelContainerImage(complianceScanStatus string, compliancesCount int32, dockerImageName string, dockerImageSize string, dockerImageTag string, malwareScanStatus string, malwaresCount int32, metadata map[string]interface{}, metrics ModelComputeMetrics, nodeId string, secretScanStatus string, secretsCount int32, vulnerabilitiesCount int32, vulnerabilityScanStatus string) *ModelContainerImage {
+func NewModelContainerImage(complianceScanStatus string, compliancesCount int32, dockerImageName string, dockerImageSize string, dockerImageTag string, malwareScanStatus string, malwaresCount int32, metadata map[string]interface{}, metrics ModelComputeMetrics, nodeId string, nodeName string, secretScanStatus string, secretsCount int32, vulnerabilitiesCount int32, vulnerabilityScanStatus string) *ModelContainerImage {
 	this := ModelContainerImage{}
 	this.ComplianceScanStatus = complianceScanStatus
 	this.CompliancesCount = compliancesCount
@@ -52,6 +53,7 @@ func NewModelContainerImage(complianceScanStatus string, compliancesCount int32,
 	this.Metadata = metadata
 	this.Metrics = metrics
 	this.NodeId = nodeId
+	this.NodeName = nodeName
 	this.SecretScanStatus = secretScanStatus
 	this.SecretsCount = secretsCount
 	this.VulnerabilitiesCount = vulnerabilitiesCount
@@ -307,6 +309,30 @@ func (o *ModelContainerImage) SetNodeId(v string) {
 	o.NodeId = v
 }
 
+// GetNodeName returns the NodeName field value
+func (o *ModelContainerImage) GetNodeName() string {
+	if o == nil {
+		var ret string
+		return ret
+	}
+
+	return o.NodeName
+}
+
+// GetNodeNameOk returns a tuple with the NodeName field value
+// and a boolean to check if the value has been set.
+func (o *ModelContainerImage) GetNodeNameOk() (*string, bool) {
+	if o == nil {
+		return nil, false
+	}
+	return &o.NodeName, true
+}
+
+// SetNodeName sets field value
+func (o *ModelContainerImage) SetNodeName(v string) {
+	o.NodeName = v
+}
+
 // GetSecretScanStatus returns the SecretScanStatus field value
 func (o *ModelContainerImage) GetSecretScanStatus() string {
 	if o == nil {
@@ -423,6 +449,7 @@ func (o ModelContainerImage) ToMap() (map[string]interface{}, error) {
 	toSerialize["metadata"] = o.Metadata
 	toSerialize["metrics"] = o.Metrics
 	toSerialize["node_id"] = o.NodeId
+	toSerialize["node_name"] = o.NodeName
 	toSerialize["secret_scan_status"] = o.SecretScanStatus
 	toSerialize["secrets_count"] = o.SecretsCount
 	toSerialize["vulnerabilities_count"] = o.VulnerabilitiesCount

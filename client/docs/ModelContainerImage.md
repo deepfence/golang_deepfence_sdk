@@ -14,6 +14,7 @@ Name | Type | Description | Notes
 **Metadata** | **map[string]interface{}** |  | 
 **Metrics** | [**ModelComputeMetrics**](ModelComputeMetrics.md) |  | 
 **NodeId** | **string** |  | 
+**NodeName** | **string** |  | 
 **SecretScanStatus** | **string** |  | 
 **SecretsCount** | **int32** |  | 
 **VulnerabilitiesCount** | **int32** |  | 
@@ -23,7 +24,7 @@ Name | Type | Description | Notes
 
 ### NewModelContainerImage
 
-`func NewModelContainerImage(complianceScanStatus string, compliancesCount int32, dockerImageName string, dockerImageSize string, dockerImageTag string, malwareScanStatus string, malwaresCount int32, metadata map[string]interface{}, metrics ModelComputeMetrics, nodeId string, secretScanStatus string, secretsCount int32, vulnerabilitiesCount int32, vulnerabilityScanStatus string, ) *ModelContainerImage`
+`func NewModelContainerImage(complianceScanStatus string, compliancesCount int32, dockerImageName string, dockerImageSize string, dockerImageTag string, malwareScanStatus string, malwaresCount int32, metadata map[string]interface{}, metrics ModelComputeMetrics, nodeId string, nodeName string, secretScanStatus string, secretsCount int32, vulnerabilitiesCount int32, vulnerabilityScanStatus string, ) *ModelContainerImage`
 
 NewModelContainerImage instantiates a new ModelContainerImage object
 This constructor will assign default values to properties that have it defined,
@@ -236,6 +237,26 @@ and a boolean to check if the value has been set.
 `func (o *ModelContainerImage) SetNodeId(v string)`
 
 SetNodeId sets NodeId field to given value.
+
+
+### GetNodeName
+
+`func (o *ModelContainerImage) GetNodeName() string`
+
+GetNodeName returns the NodeName field if non-nil, zero value otherwise.
+
+### GetNodeNameOk
+
+`func (o *ModelContainerImage) GetNodeNameOk() (*string, bool)`
+
+GetNodeNameOk returns a tuple with the NodeName field if it's non-nil, zero value otherwise
+and a boolean to check if the value has been set.
+
+### SetNodeName
+
+`func (o *ModelContainerImage) SetNodeName(v string)`
+
+SetNodeName sets NodeName field to given value.
 
 
 ### GetSecretScanStatus

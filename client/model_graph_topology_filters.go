@@ -26,13 +26,14 @@ type GraphTopologyFilters struct {
 	KubernetesFilter []string `json:"kubernetes_filter"`
 	PodFilter []string `json:"pod_filter"`
 	RegionFilter []string `json:"region_filter"`
+	ServiceFilter []string `json:"service_filter"`
 }
 
 // NewGraphTopologyFilters instantiates a new GraphTopologyFilters object
 // This constructor will assign default values to properties that have it defined,
 // and makes sure properties required by API are set, but the set of arguments
 // will change when the set of required properties is changed
-func NewGraphTopologyFilters(cloudFilter []string, fieldFilters ReportersFieldsFilters, hostFilter []string, kubernetesFilter []string, podFilter []string, regionFilter []string) *GraphTopologyFilters {
+func NewGraphTopologyFilters(cloudFilter []string, fieldFilters ReportersFieldsFilters, hostFilter []string, kubernetesFilter []string, podFilter []string, regionFilter []string, serviceFilter []string) *GraphTopologyFilters {
 	this := GraphTopologyFilters{}
 	this.CloudFilter = cloudFilter
 	this.FieldFilters = fieldFilters
@@ -40,6 +41,7 @@ func NewGraphTopologyFilters(cloudFilter []string, fieldFilters ReportersFieldsF
 	this.KubernetesFilter = kubernetesFilter
 	this.PodFilter = podFilter
 	this.RegionFilter = regionFilter
+	this.ServiceFilter = serviceFilter
 	return &this
 }
 
@@ -205,6 +207,32 @@ func (o *GraphTopologyFilters) SetRegionFilter(v []string) {
 	o.RegionFilter = v
 }
 
+// GetServiceFilter returns the ServiceFilter field value
+// If the value is explicit nil, the zero value for []string will be returned
+func (o *GraphTopologyFilters) GetServiceFilter() []string {
+	if o == nil {
+		var ret []string
+		return ret
+	}
+
+	return o.ServiceFilter
+}
+
+// GetServiceFilterOk returns a tuple with the ServiceFilter field value
+// and a boolean to check if the value has been set.
+// NOTE: If the value is an explicit nil, `nil, true` will be returned
+func (o *GraphTopologyFilters) GetServiceFilterOk() ([]string, bool) {
+	if o == nil || IsNil(o.ServiceFilter) {
+		return nil, false
+	}
+	return o.ServiceFilter, true
+}
+
+// SetServiceFilter sets field value
+func (o *GraphTopologyFilters) SetServiceFilter(v []string) {
+	o.ServiceFilter = v
+}
+
 func (o GraphTopologyFilters) MarshalJSON() ([]byte, error) {
 	toSerialize,err := o.ToMap()
 	if err != nil {
@@ -230,6 +258,9 @@ func (o GraphTopologyFilters) ToMap() (map[string]interface{}, error) {
 	}
 	if o.RegionFilter != nil {
 		toSerialize["region_filter"] = o.RegionFilter
+	}
+	if o.ServiceFilter != nil {
+		toSerialize["service_filter"] = o.ServiceFilter
 	}
 	return toSerialize, nil
 }

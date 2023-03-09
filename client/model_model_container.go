@@ -31,6 +31,7 @@ type ModelContainer struct {
 	Metadata map[string]interface{} `json:"metadata"`
 	Metrics ModelComputeMetrics `json:"metrics"`
 	NodeId string `json:"node_id"`
+	NodeName string `json:"node_name"`
 	Processes []ModelProcess `json:"processes"`
 	SecretScanStatus string `json:"secret_scan_status"`
 	SecretsCount int32 `json:"secrets_count"`
@@ -42,7 +43,7 @@ type ModelContainer struct {
 // This constructor will assign default values to properties that have it defined,
 // and makes sure properties required by API are set, but the set of arguments
 // will change when the set of required properties is changed
-func NewModelContainer(complianceScanStatus string, compliancesCount int32, dockerContainerName string, dockerLabels map[string]interface{}, hostName string, image ModelContainerImage, malwareScanStatus string, malwaresCount int32, metadata map[string]interface{}, metrics ModelComputeMetrics, nodeId string, processes []ModelProcess, secretScanStatus string, secretsCount int32, vulnerabilitiesCount int32, vulnerabilityScanStatus string) *ModelContainer {
+func NewModelContainer(complianceScanStatus string, compliancesCount int32, dockerContainerName string, dockerLabels map[string]interface{}, hostName string, image ModelContainerImage, malwareScanStatus string, malwaresCount int32, metadata map[string]interface{}, metrics ModelComputeMetrics, nodeId string, nodeName string, processes []ModelProcess, secretScanStatus string, secretsCount int32, vulnerabilitiesCount int32, vulnerabilityScanStatus string) *ModelContainer {
 	this := ModelContainer{}
 	this.ComplianceScanStatus = complianceScanStatus
 	this.CompliancesCount = compliancesCount
@@ -55,6 +56,7 @@ func NewModelContainer(complianceScanStatus string, compliancesCount int32, dock
 	this.Metadata = metadata
 	this.Metrics = metrics
 	this.NodeId = nodeId
+	this.NodeName = nodeName
 	this.Processes = processes
 	this.SecretScanStatus = secretScanStatus
 	this.SecretsCount = secretsCount
@@ -335,6 +337,30 @@ func (o *ModelContainer) SetNodeId(v string) {
 	o.NodeId = v
 }
 
+// GetNodeName returns the NodeName field value
+func (o *ModelContainer) GetNodeName() string {
+	if o == nil {
+		var ret string
+		return ret
+	}
+
+	return o.NodeName
+}
+
+// GetNodeNameOk returns a tuple with the NodeName field value
+// and a boolean to check if the value has been set.
+func (o *ModelContainer) GetNodeNameOk() (*string, bool) {
+	if o == nil {
+		return nil, false
+	}
+	return &o.NodeName, true
+}
+
+// SetNodeName sets field value
+func (o *ModelContainer) SetNodeName(v string) {
+	o.NodeName = v
+}
+
 // GetProcesses returns the Processes field value
 // If the value is explicit nil, the zero value for []ModelProcess will be returned
 func (o *ModelContainer) GetProcesses() []ModelProcess {
@@ -478,6 +504,7 @@ func (o ModelContainer) ToMap() (map[string]interface{}, error) {
 	toSerialize["metadata"] = o.Metadata
 	toSerialize["metrics"] = o.Metrics
 	toSerialize["node_id"] = o.NodeId
+	toSerialize["node_name"] = o.NodeName
 	if o.Processes != nil {
 		toSerialize["processes"] = o.Processes
 	}

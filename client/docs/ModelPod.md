@@ -11,13 +11,14 @@ Name | Type | Description | Notes
 **Metadata** | **map[string]interface{}** |  | 
 **Metrics** | [**ModelComputeMetrics**](ModelComputeMetrics.md) |  | 
 **NodeId** | **string** |  | 
+**NodeName** | **string** |  | 
 **Processes** | [**[]ModelProcess**](ModelProcess.md) |  | 
 
 ## Methods
 
 ### NewModelPod
 
-`func NewModelPod(containers []ModelContainer, hostNodeId string, kubernetesName string, kubernetesNamespace string, metadata map[string]interface{}, metrics ModelComputeMetrics, nodeId string, processes []ModelProcess, ) *ModelPod`
+`func NewModelPod(containers []ModelContainer, hostNodeId string, kubernetesName string, kubernetesNamespace string, metadata map[string]interface{}, metrics ModelComputeMetrics, nodeId string, nodeName string, processes []ModelProcess, ) *ModelPod`
 
 NewModelPod instantiates a new ModelPod object
 This constructor will assign default values to properties that have it defined,
@@ -180,6 +181,26 @@ and a boolean to check if the value has been set.
 `func (o *ModelPod) SetNodeId(v string)`
 
 SetNodeId sets NodeId field to given value.
+
+
+### GetNodeName
+
+`func (o *ModelPod) GetNodeName() string`
+
+GetNodeName returns the NodeName field if non-nil, zero value otherwise.
+
+### GetNodeNameOk
+
+`func (o *ModelPod) GetNodeNameOk() (*string, bool)`
+
+GetNodeNameOk returns a tuple with the NodeName field if it's non-nil, zero value otherwise
+and a boolean to check if the value has been set.
+
+### SetNodeName
+
+`func (o *ModelPod) SetNodeName(v string)`
+
+SetNodeName sets NodeName field to given value.
 
 
 ### GetProcesses

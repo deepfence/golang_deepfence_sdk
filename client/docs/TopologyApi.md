@@ -35,7 +35,7 @@ import (
 )
 
 func main() {
-    graphTopologyFilters := *openapiclient.NewGraphTopologyFilters([]string{"CloudFilter_example"}, *openapiclient.NewReportersFieldsFilters(*openapiclient.NewReportersContainsFilter(map[string][]interface{}{"key": []interface{}{nil}}), *openapiclient.NewReportersMatchFilter(map[string][]interface{}{"key": []interface{}{nil}}), *openapiclient.NewReportersOrderFilter([]openapiclient.ReportersOrderSpec{*openapiclient.NewReportersOrderSpec(false, "FieldName_example")})), []string{"HostFilter_example"}, []string{"KubernetesFilter_example"}, []string{"PodFilter_example"}, []string{"RegionFilter_example"}) // GraphTopologyFilters |  (optional)
+    graphTopologyFilters := *openapiclient.NewGraphTopologyFilters([]string{"CloudFilter_example"}, *openapiclient.NewReportersFieldsFilters(*openapiclient.NewReportersContainsFilter(map[string][]interface{}{"key": []interface{}{nil}}), *openapiclient.NewReportersMatchFilter(map[string][]interface{}{"key": []interface{}{nil}}), *openapiclient.NewReportersOrderFilter([]openapiclient.ReportersOrderSpec{*openapiclient.NewReportersOrderSpec(false, "FieldName_example")})), []string{"HostFilter_example"}, []string{"KubernetesFilter_example"}, []string{"PodFilter_example"}, []string{"RegionFilter_example"}, []string{"ServiceFilter_example"}) // GraphTopologyFilters |  (optional)
 
     configuration := openapiclient.NewConfiguration()
     apiClient := openapiclient.NewAPIClient(configuration)
@@ -101,7 +101,7 @@ import (
 )
 
 func main() {
-    graphTopologyFilters := *openapiclient.NewGraphTopologyFilters([]string{"CloudFilter_example"}, *openapiclient.NewReportersFieldsFilters(*openapiclient.NewReportersContainsFilter(map[string][]interface{}{"key": []interface{}{nil}}), *openapiclient.NewReportersMatchFilter(map[string][]interface{}{"key": []interface{}{nil}}), *openapiclient.NewReportersOrderFilter([]openapiclient.ReportersOrderSpec{*openapiclient.NewReportersOrderSpec(false, "FieldName_example")})), []string{"HostFilter_example"}, []string{"KubernetesFilter_example"}, []string{"PodFilter_example"}, []string{"RegionFilter_example"}) // GraphTopologyFilters |  (optional)
+    graphTopologyFilters := *openapiclient.NewGraphTopologyFilters([]string{"CloudFilter_example"}, *openapiclient.NewReportersFieldsFilters(*openapiclient.NewReportersContainsFilter(map[string][]interface{}{"key": []interface{}{nil}}), *openapiclient.NewReportersMatchFilter(map[string][]interface{}{"key": []interface{}{nil}}), *openapiclient.NewReportersOrderFilter([]openapiclient.ReportersOrderSpec{*openapiclient.NewReportersOrderSpec(false, "FieldName_example")})), []string{"HostFilter_example"}, []string{"KubernetesFilter_example"}, []string{"PodFilter_example"}, []string{"RegionFilter_example"}, []string{"ServiceFilter_example"}) // GraphTopologyFilters |  (optional)
 
     configuration := openapiclient.NewConfiguration()
     apiClient := openapiclient.NewAPIClient(configuration)
@@ -167,7 +167,7 @@ import (
 )
 
 func main() {
-    graphTopologyFilters := *openapiclient.NewGraphTopologyFilters([]string{"CloudFilter_example"}, *openapiclient.NewReportersFieldsFilters(*openapiclient.NewReportersContainsFilter(map[string][]interface{}{"key": []interface{}{nil}}), *openapiclient.NewReportersMatchFilter(map[string][]interface{}{"key": []interface{}{nil}}), *openapiclient.NewReportersOrderFilter([]openapiclient.ReportersOrderSpec{*openapiclient.NewReportersOrderSpec(false, "FieldName_example")})), []string{"HostFilter_example"}, []string{"KubernetesFilter_example"}, []string{"PodFilter_example"}, []string{"RegionFilter_example"}) // GraphTopologyFilters |  (optional)
+    graphTopologyFilters := *openapiclient.NewGraphTopologyFilters([]string{"CloudFilter_example"}, *openapiclient.NewReportersFieldsFilters(*openapiclient.NewReportersContainsFilter(map[string][]interface{}{"key": []interface{}{nil}}), *openapiclient.NewReportersMatchFilter(map[string][]interface{}{"key": []interface{}{nil}}), *openapiclient.NewReportersOrderFilter([]openapiclient.ReportersOrderSpec{*openapiclient.NewReportersOrderSpec(false, "FieldName_example")})), []string{"HostFilter_example"}, []string{"KubernetesFilter_example"}, []string{"PodFilter_example"}, []string{"RegionFilter_example"}, []string{"ServiceFilter_example"}) // GraphTopologyFilters |  (optional)
 
     configuration := openapiclient.NewConfiguration()
     apiClient := openapiclient.NewAPIClient(configuration)
@@ -233,7 +233,7 @@ import (
 )
 
 func main() {
-    graphTopologyFilters := *openapiclient.NewGraphTopologyFilters([]string{"CloudFilter_example"}, *openapiclient.NewReportersFieldsFilters(*openapiclient.NewReportersContainsFilter(map[string][]interface{}{"key": []interface{}{nil}}), *openapiclient.NewReportersMatchFilter(map[string][]interface{}{"key": []interface{}{nil}}), *openapiclient.NewReportersOrderFilter([]openapiclient.ReportersOrderSpec{*openapiclient.NewReportersOrderSpec(false, "FieldName_example")})), []string{"HostFilter_example"}, []string{"KubernetesFilter_example"}, []string{"PodFilter_example"}, []string{"RegionFilter_example"}) // GraphTopologyFilters |  (optional)
+    graphTopologyFilters := *openapiclient.NewGraphTopologyFilters([]string{"CloudFilter_example"}, *openapiclient.NewReportersFieldsFilters(*openapiclient.NewReportersContainsFilter(map[string][]interface{}{"key": []interface{}{nil}}), *openapiclient.NewReportersMatchFilter(map[string][]interface{}{"key": []interface{}{nil}}), *openapiclient.NewReportersOrderFilter([]openapiclient.ReportersOrderSpec{*openapiclient.NewReportersOrderSpec(false, "FieldName_example")})), []string{"HostFilter_example"}, []string{"KubernetesFilter_example"}, []string{"PodFilter_example"}, []string{"RegionFilter_example"}, []string{"ServiceFilter_example"}) // GraphTopologyFilters |  (optional)
 
     configuration := openapiclient.NewConfiguration()
     apiClient := openapiclient.NewAPIClient(configuration)
@@ -299,7 +299,7 @@ import (
 )
 
 func main() {
-    graphTopologyFilters := *openapiclient.NewGraphTopologyFilters([]string{"CloudFilter_example"}, *openapiclient.NewReportersFieldsFilters(*openapiclient.NewReportersContainsFilter(map[string][]interface{}{"key": []interface{}{nil}}), *openapiclient.NewReportersMatchFilter(map[string][]interface{}{"key": []interface{}{nil}}), *openapiclient.NewReportersOrderFilter([]openapiclient.ReportersOrderSpec{*openapiclient.NewReportersOrderSpec(false, "FieldName_example")})), []string{"HostFilter_example"}, []string{"KubernetesFilter_example"}, []string{"PodFilter_example"}, []string{"RegionFilter_example"}) // GraphTopologyFilters |  (optional)
+    graphTopologyFilters := *openapiclient.NewGraphTopologyFilters([]string{"CloudFilter_example"}, *openapiclient.NewReportersFieldsFilters(*openapiclient.NewReportersContainsFilter(map[string][]interface{}{"key": []interface{}{nil}}), *openapiclient.NewReportersMatchFilter(map[string][]interface{}{"key": []interface{}{nil}}), *openapiclient.NewReportersOrderFilter([]openapiclient.ReportersOrderSpec{*openapiclient.NewReportersOrderSpec(false, "FieldName_example")})), []string{"HostFilter_example"}, []string{"KubernetesFilter_example"}, []string{"PodFilter_example"}, []string{"RegionFilter_example"}, []string{"ServiceFilter_example"}) // GraphTopologyFilters |  (optional)
 
     configuration := openapiclient.NewConfiguration()
     apiClient := openapiclient.NewAPIClient(configuration)

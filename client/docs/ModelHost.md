@@ -14,6 +14,7 @@ Name | Type | Description | Notes
 **MalwaresCount** | **int32** |  | 
 **Metrics** | [**ModelComputeMetrics**](ModelComputeMetrics.md) |  | 
 **NodeId** | **string** |  | 
+**NodeName** | **string** |  | 
 **Pods** | [**[]ModelPod**](ModelPod.md) |  | 
 **Processes** | [**[]ModelProcess**](ModelProcess.md) |  | 
 **SecretScanStatus** | **string** |  | 
@@ -25,7 +26,7 @@ Name | Type | Description | Notes
 
 ### NewModelHost
 
-`func NewModelHost(cloudMetadata map[string]interface{}, complianceScanStatus string, compliancesCount int32, containerImages []ModelContainerImage, containers []ModelContainer, hostName string, malwareScanStatus string, malwaresCount int32, metrics ModelComputeMetrics, nodeId string, pods []ModelPod, processes []ModelProcess, secretScanStatus string, secretsCount int32, vulnerabilitiesCount int32, vulnerabilityScanStatus string, ) *ModelHost`
+`func NewModelHost(cloudMetadata map[string]interface{}, complianceScanStatus string, compliancesCount int32, containerImages []ModelContainerImage, containers []ModelContainer, hostName string, malwareScanStatus string, malwaresCount int32, metrics ModelComputeMetrics, nodeId string, nodeName string, pods []ModelPod, processes []ModelProcess, secretScanStatus string, secretsCount int32, vulnerabilitiesCount int32, vulnerabilityScanStatus string, ) *ModelHost`
 
 NewModelHost instantiates a new ModelHost object
 This constructor will assign default values to properties that have it defined,
@@ -258,6 +259,26 @@ and a boolean to check if the value has been set.
 `func (o *ModelHost) SetNodeId(v string)`
 
 SetNodeId sets NodeId field to given value.
+
+
+### GetNodeName
+
+`func (o *ModelHost) GetNodeName() string`
+
+GetNodeName returns the NodeName field if non-nil, zero value otherwise.
+
+### GetNodeNameOk
+
+`func (o *ModelHost) GetNodeNameOk() (*string, bool)`
+
+GetNodeNameOk returns a tuple with the NodeName field if it's non-nil, zero value otherwise
+and a boolean to check if the value has been set.
+
+### SetNodeName
+
+`func (o *ModelHost) SetNodeName(v string)`
+
+SetNodeName sets NodeName field to given value.
 
 
 ### GetPods

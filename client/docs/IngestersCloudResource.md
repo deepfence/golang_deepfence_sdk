@@ -4,41 +4,71 @@
 
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
+**AccessLevel** | Pointer to **string** |  | [optional] 
 **AccountId** | Pointer to **string** |  | [optional] 
+**Action** | Pointer to **string** |  | [optional] 
 **AllowBlobPublicAccess** | Pointer to **string** |  | [optional] 
 **Arn** | Pointer to **string** |  | [optional] 
+**AttachedPolicyArns** | Pointer to **interface{}** |  | [optional] 
 **BlockPublicAcls** | Pointer to **bool** |  | [optional] 
 **BlockPublicPolicy** | Pointer to **bool** |  | [optional] 
 **BucketPolicyIsPublic** | Pointer to **bool** |  | [optional] 
 **CidrIpv4** | Pointer to **string** |  | [optional] 
 **ContainerDefinitions** | Pointer to **interface{}** |  | [optional] 
+**Containers** | Pointer to **interface{}** |  | [optional] 
+**CreateDate** | Pointer to **string** |  | [optional] 
 **DbClusterIdentifier** | Pointer to **string** |  | [optional] 
+**Description** | Pointer to **string** |  | [optional] 
 **EventNotificationConfiguration** | Pointer to **interface{}** |  | [optional] 
 **GroupId** | Pointer to **string** |  | [optional] 
+**Groups** | Pointer to **interface{}** |  | [optional] 
+**HostName** | Pointer to **string** |  | [optional] 
+**IamInstanceProfileArn** | Pointer to **string** |  | [optional] 
+**IamInstanceProfileId** | Pointer to **string** |  | [optional] 
 **IamPolicy** | Pointer to **interface{}** |  | [optional] 
 **Id** | Pointer to **string** |  | [optional] 
 **IgnorePublicAcls** | Pointer to **bool** |  | [optional] 
-**IngressSettings** | Pointer to **interface{}** |  | [optional] 
+**IngressSettings** | Pointer to **string** |  | [optional] 
+**InlinePolicies** | Pointer to **interface{}** |  | [optional] 
 **InstanceId** | Pointer to **string** |  | [optional] 
+**InstanceProfileArns** | Pointer to **interface{}** |  | [optional] 
+**Instances** | Pointer to **interface{}** |  | [optional] 
 **IpConfiguration** | Pointer to **interface{}** |  | [optional] 
+**IsEgress** | Pointer to **bool** |  | [optional] 
 **Name** | Pointer to **string** |  | [optional] 
+**NetworkConfiguration** | Pointer to **interface{}** |  | [optional] 
 **NetworkInterfaces** | Pointer to **interface{}** |  | [optional] 
 **NetworkMode** | Pointer to **string** |  | [optional] 
+**OrganizationId** | Pointer to **string** |  | [optional] 
+**OrganizationMasterAccountArn** | Pointer to **string** |  | [optional] 
+**OrganizationMasterAccountEmail** | Pointer to **string** |  | [optional] 
+**Path** | Pointer to **string** |  | [optional] 
 **Policy** | Pointer to **interface{}** |  | [optional] 
-**PolicyStd** | Pointer to **string** |  | [optional] 
+**PolicyStd** | Pointer to **interface{}** |  | [optional] 
+**Privilege** | Pointer to **string** |  | [optional] 
 **PublicAccess** | Pointer to **string** |  | [optional] 
+**PublicIpAddress** | Pointer to **string** |  | [optional] 
 **PublicIps** | Pointer to **interface{}** |  | [optional] 
+**PublicNetworkAccess** | Pointer to **string** |  | [optional] 
 **Region** | Pointer to **string** |  | [optional] 
 **ResourceId** | Pointer to **string** |  | [optional] 
 **ResourceVpcConfig** | Pointer to **interface{}** |  | [optional] 
+**ResourcesVpcConfig** | Pointer to **interface{}** |  | [optional] 
 **RestrictPublicBuckets** | Pointer to **bool** |  | [optional] 
 **Scheme** | Pointer to **string** |  | [optional] 
 **SecurityGroups** | Pointer to **interface{}** |  | [optional] 
 **ServiceName** | Pointer to **string** |  | [optional] 
+**StorageAccountName** | Pointer to **string** |  | [optional] 
+**TargetGroupArn** | Pointer to **string** |  | [optional] 
+**TargetHealthDescriptions** | Pointer to **interface{}** |  | [optional] 
 **TaskDefinition** | Pointer to **interface{}** |  | [optional] 
 **TaskDefinitionArn** | Pointer to **string** |  | [optional] 
+**UserGroups** | Pointer to **interface{}** |  | [optional] 
+**UserId** | Pointer to **string** |  | [optional] 
+**Users** | Pointer to **interface{}** |  | [optional] 
 **VpcId** | Pointer to **string** |  | [optional] 
 **VpcOptions** | Pointer to **interface{}** |  | [optional] 
+**VpcSecurityGroupIds** | Pointer to **interface{}** |  | [optional] 
 **VpcSecurityGroups** | Pointer to **interface{}** |  | [optional] 
 
 ## Methods
@@ -59,6 +89,31 @@ will change when the set of required properties is changed
 NewIngestersCloudResourceWithDefaults instantiates a new IngestersCloudResource object
 This constructor will only assign default values to properties that have it defined,
 but it doesn't guarantee that properties required by API are set
+
+### GetAccessLevel
+
+`func (o *IngestersCloudResource) GetAccessLevel() string`
+
+GetAccessLevel returns the AccessLevel field if non-nil, zero value otherwise.
+
+### GetAccessLevelOk
+
+`func (o *IngestersCloudResource) GetAccessLevelOk() (*string, bool)`
+
+GetAccessLevelOk returns a tuple with the AccessLevel field if it's non-nil, zero value otherwise
+and a boolean to check if the value has been set.
+
+### SetAccessLevel
+
+`func (o *IngestersCloudResource) SetAccessLevel(v string)`
+
+SetAccessLevel sets AccessLevel field to given value.
+
+### HasAccessLevel
+
+`func (o *IngestersCloudResource) HasAccessLevel() bool`
+
+HasAccessLevel returns a boolean if a field has been set.
 
 ### GetAccountId
 
@@ -84,6 +139,31 @@ SetAccountId sets AccountId field to given value.
 `func (o *IngestersCloudResource) HasAccountId() bool`
 
 HasAccountId returns a boolean if a field has been set.
+
+### GetAction
+
+`func (o *IngestersCloudResource) GetAction() string`
+
+GetAction returns the Action field if non-nil, zero value otherwise.
+
+### GetActionOk
+
+`func (o *IngestersCloudResource) GetActionOk() (*string, bool)`
+
+GetActionOk returns a tuple with the Action field if it's non-nil, zero value otherwise
+and a boolean to check if the value has been set.
+
+### SetAction
+
+`func (o *IngestersCloudResource) SetAction(v string)`
+
+SetAction sets Action field to given value.
+
+### HasAction
+
+`func (o *IngestersCloudResource) HasAction() bool`
+
+HasAction returns a boolean if a field has been set.
 
 ### GetAllowBlobPublicAccess
 
@@ -135,6 +215,41 @@ SetArn sets Arn field to given value.
 
 HasArn returns a boolean if a field has been set.
 
+### GetAttachedPolicyArns
+
+`func (o *IngestersCloudResource) GetAttachedPolicyArns() interface{}`
+
+GetAttachedPolicyArns returns the AttachedPolicyArns field if non-nil, zero value otherwise.
+
+### GetAttachedPolicyArnsOk
+
+`func (o *IngestersCloudResource) GetAttachedPolicyArnsOk() (*interface{}, bool)`
+
+GetAttachedPolicyArnsOk returns a tuple with the AttachedPolicyArns field if it's non-nil, zero value otherwise
+and a boolean to check if the value has been set.
+
+### SetAttachedPolicyArns
+
+`func (o *IngestersCloudResource) SetAttachedPolicyArns(v interface{})`
+
+SetAttachedPolicyArns sets AttachedPolicyArns field to given value.
+
+### HasAttachedPolicyArns
+
+`func (o *IngestersCloudResource) HasAttachedPolicyArns() bool`
+
+HasAttachedPolicyArns returns a boolean if a field has been set.
+
+### SetAttachedPolicyArnsNil
+
+`func (o *IngestersCloudResource) SetAttachedPolicyArnsNil(b bool)`
+
+ SetAttachedPolicyArnsNil sets the value for AttachedPolicyArns to be an explicit nil
+
+### UnsetAttachedPolicyArns
+`func (o *IngestersCloudResource) UnsetAttachedPolicyArns()`
+
+UnsetAttachedPolicyArns ensures that no value is present for AttachedPolicyArns, not even an explicit nil
 ### GetBlockPublicAcls
 
 `func (o *IngestersCloudResource) GetBlockPublicAcls() bool`
@@ -270,6 +385,66 @@ HasContainerDefinitions returns a boolean if a field has been set.
 `func (o *IngestersCloudResource) UnsetContainerDefinitions()`
 
 UnsetContainerDefinitions ensures that no value is present for ContainerDefinitions, not even an explicit nil
+### GetContainers
+
+`func (o *IngestersCloudResource) GetContainers() interface{}`
+
+GetContainers returns the Containers field if non-nil, zero value otherwise.
+
+### GetContainersOk
+
+`func (o *IngestersCloudResource) GetContainersOk() (*interface{}, bool)`
+
+GetContainersOk returns a tuple with the Containers field if it's non-nil, zero value otherwise
+and a boolean to check if the value has been set.
+
+### SetContainers
+
+`func (o *IngestersCloudResource) SetContainers(v interface{})`
+
+SetContainers sets Containers field to given value.
+
+### HasContainers
+
+`func (o *IngestersCloudResource) HasContainers() bool`
+
+HasContainers returns a boolean if a field has been set.
+
+### SetContainersNil
+
+`func (o *IngestersCloudResource) SetContainersNil(b bool)`
+
+ SetContainersNil sets the value for Containers to be an explicit nil
+
+### UnsetContainers
+`func (o *IngestersCloudResource) UnsetContainers()`
+
+UnsetContainers ensures that no value is present for Containers, not even an explicit nil
+### GetCreateDate
+
+`func (o *IngestersCloudResource) GetCreateDate() string`
+
+GetCreateDate returns the CreateDate field if non-nil, zero value otherwise.
+
+### GetCreateDateOk
+
+`func (o *IngestersCloudResource) GetCreateDateOk() (*string, bool)`
+
+GetCreateDateOk returns a tuple with the CreateDate field if it's non-nil, zero value otherwise
+and a boolean to check if the value has been set.
+
+### SetCreateDate
+
+`func (o *IngestersCloudResource) SetCreateDate(v string)`
+
+SetCreateDate sets CreateDate field to given value.
+
+### HasCreateDate
+
+`func (o *IngestersCloudResource) HasCreateDate() bool`
+
+HasCreateDate returns a boolean if a field has been set.
+
 ### GetDbClusterIdentifier
 
 `func (o *IngestersCloudResource) GetDbClusterIdentifier() string`
@@ -294,6 +469,31 @@ SetDbClusterIdentifier sets DbClusterIdentifier field to given value.
 `func (o *IngestersCloudResource) HasDbClusterIdentifier() bool`
 
 HasDbClusterIdentifier returns a boolean if a field has been set.
+
+### GetDescription
+
+`func (o *IngestersCloudResource) GetDescription() string`
+
+GetDescription returns the Description field if non-nil, zero value otherwise.
+
+### GetDescriptionOk
+
+`func (o *IngestersCloudResource) GetDescriptionOk() (*string, bool)`
+
+GetDescriptionOk returns a tuple with the Description field if it's non-nil, zero value otherwise
+and a boolean to check if the value has been set.
+
+### SetDescription
+
+`func (o *IngestersCloudResource) SetDescription(v string)`
+
+SetDescription sets Description field to given value.
+
+### HasDescription
+
+`func (o *IngestersCloudResource) HasDescription() bool`
+
+HasDescription returns a boolean if a field has been set.
 
 ### GetEventNotificationConfiguration
 
@@ -354,6 +554,116 @@ SetGroupId sets GroupId field to given value.
 `func (o *IngestersCloudResource) HasGroupId() bool`
 
 HasGroupId returns a boolean if a field has been set.
+
+### GetGroups
+
+`func (o *IngestersCloudResource) GetGroups() interface{}`
+
+GetGroups returns the Groups field if non-nil, zero value otherwise.
+
+### GetGroupsOk
+
+`func (o *IngestersCloudResource) GetGroupsOk() (*interface{}, bool)`
+
+GetGroupsOk returns a tuple with the Groups field if it's non-nil, zero value otherwise
+and a boolean to check if the value has been set.
+
+### SetGroups
+
+`func (o *IngestersCloudResource) SetGroups(v interface{})`
+
+SetGroups sets Groups field to given value.
+
+### HasGroups
+
+`func (o *IngestersCloudResource) HasGroups() bool`
+
+HasGroups returns a boolean if a field has been set.
+
+### SetGroupsNil
+
+`func (o *IngestersCloudResource) SetGroupsNil(b bool)`
+
+ SetGroupsNil sets the value for Groups to be an explicit nil
+
+### UnsetGroups
+`func (o *IngestersCloudResource) UnsetGroups()`
+
+UnsetGroups ensures that no value is present for Groups, not even an explicit nil
+### GetHostName
+
+`func (o *IngestersCloudResource) GetHostName() string`
+
+GetHostName returns the HostName field if non-nil, zero value otherwise.
+
+### GetHostNameOk
+
+`func (o *IngestersCloudResource) GetHostNameOk() (*string, bool)`
+
+GetHostNameOk returns a tuple with the HostName field if it's non-nil, zero value otherwise
+and a boolean to check if the value has been set.
+
+### SetHostName
+
+`func (o *IngestersCloudResource) SetHostName(v string)`
+
+SetHostName sets HostName field to given value.
+
+### HasHostName
+
+`func (o *IngestersCloudResource) HasHostName() bool`
+
+HasHostName returns a boolean if a field has been set.
+
+### GetIamInstanceProfileArn
+
+`func (o *IngestersCloudResource) GetIamInstanceProfileArn() string`
+
+GetIamInstanceProfileArn returns the IamInstanceProfileArn field if non-nil, zero value otherwise.
+
+### GetIamInstanceProfileArnOk
+
+`func (o *IngestersCloudResource) GetIamInstanceProfileArnOk() (*string, bool)`
+
+GetIamInstanceProfileArnOk returns a tuple with the IamInstanceProfileArn field if it's non-nil, zero value otherwise
+and a boolean to check if the value has been set.
+
+### SetIamInstanceProfileArn
+
+`func (o *IngestersCloudResource) SetIamInstanceProfileArn(v string)`
+
+SetIamInstanceProfileArn sets IamInstanceProfileArn field to given value.
+
+### HasIamInstanceProfileArn
+
+`func (o *IngestersCloudResource) HasIamInstanceProfileArn() bool`
+
+HasIamInstanceProfileArn returns a boolean if a field has been set.
+
+### GetIamInstanceProfileId
+
+`func (o *IngestersCloudResource) GetIamInstanceProfileId() string`
+
+GetIamInstanceProfileId returns the IamInstanceProfileId field if non-nil, zero value otherwise.
+
+### GetIamInstanceProfileIdOk
+
+`func (o *IngestersCloudResource) GetIamInstanceProfileIdOk() (*string, bool)`
+
+GetIamInstanceProfileIdOk returns a tuple with the IamInstanceProfileId field if it's non-nil, zero value otherwise
+and a boolean to check if the value has been set.
+
+### SetIamInstanceProfileId
+
+`func (o *IngestersCloudResource) SetIamInstanceProfileId(v string)`
+
+SetIamInstanceProfileId sets IamInstanceProfileId field to given value.
+
+### HasIamInstanceProfileId
+
+`func (o *IngestersCloudResource) HasIamInstanceProfileId() bool`
+
+HasIamInstanceProfileId returns a boolean if a field has been set.
 
 ### GetIamPolicy
 
@@ -442,20 +752,20 @@ HasIgnorePublicAcls returns a boolean if a field has been set.
 
 ### GetIngressSettings
 
-`func (o *IngestersCloudResource) GetIngressSettings() interface{}`
+`func (o *IngestersCloudResource) GetIngressSettings() string`
 
 GetIngressSettings returns the IngressSettings field if non-nil, zero value otherwise.
 
 ### GetIngressSettingsOk
 
-`func (o *IngestersCloudResource) GetIngressSettingsOk() (*interface{}, bool)`
+`func (o *IngestersCloudResource) GetIngressSettingsOk() (*string, bool)`
 
 GetIngressSettingsOk returns a tuple with the IngressSettings field if it's non-nil, zero value otherwise
 and a boolean to check if the value has been set.
 
 ### SetIngressSettings
 
-`func (o *IngestersCloudResource) SetIngressSettings(v interface{})`
+`func (o *IngestersCloudResource) SetIngressSettings(v string)`
 
 SetIngressSettings sets IngressSettings field to given value.
 
@@ -465,16 +775,41 @@ SetIngressSettings sets IngressSettings field to given value.
 
 HasIngressSettings returns a boolean if a field has been set.
 
-### SetIngressSettingsNil
+### GetInlinePolicies
 
-`func (o *IngestersCloudResource) SetIngressSettingsNil(b bool)`
+`func (o *IngestersCloudResource) GetInlinePolicies() interface{}`
 
- SetIngressSettingsNil sets the value for IngressSettings to be an explicit nil
+GetInlinePolicies returns the InlinePolicies field if non-nil, zero value otherwise.
 
-### UnsetIngressSettings
-`func (o *IngestersCloudResource) UnsetIngressSettings()`
+### GetInlinePoliciesOk
 
-UnsetIngressSettings ensures that no value is present for IngressSettings, not even an explicit nil
+`func (o *IngestersCloudResource) GetInlinePoliciesOk() (*interface{}, bool)`
+
+GetInlinePoliciesOk returns a tuple with the InlinePolicies field if it's non-nil, zero value otherwise
+and a boolean to check if the value has been set.
+
+### SetInlinePolicies
+
+`func (o *IngestersCloudResource) SetInlinePolicies(v interface{})`
+
+SetInlinePolicies sets InlinePolicies field to given value.
+
+### HasInlinePolicies
+
+`func (o *IngestersCloudResource) HasInlinePolicies() bool`
+
+HasInlinePolicies returns a boolean if a field has been set.
+
+### SetInlinePoliciesNil
+
+`func (o *IngestersCloudResource) SetInlinePoliciesNil(b bool)`
+
+ SetInlinePoliciesNil sets the value for InlinePolicies to be an explicit nil
+
+### UnsetInlinePolicies
+`func (o *IngestersCloudResource) UnsetInlinePolicies()`
+
+UnsetInlinePolicies ensures that no value is present for InlinePolicies, not even an explicit nil
 ### GetInstanceId
 
 `func (o *IngestersCloudResource) GetInstanceId() string`
@@ -500,6 +835,76 @@ SetInstanceId sets InstanceId field to given value.
 
 HasInstanceId returns a boolean if a field has been set.
 
+### GetInstanceProfileArns
+
+`func (o *IngestersCloudResource) GetInstanceProfileArns() interface{}`
+
+GetInstanceProfileArns returns the InstanceProfileArns field if non-nil, zero value otherwise.
+
+### GetInstanceProfileArnsOk
+
+`func (o *IngestersCloudResource) GetInstanceProfileArnsOk() (*interface{}, bool)`
+
+GetInstanceProfileArnsOk returns a tuple with the InstanceProfileArns field if it's non-nil, zero value otherwise
+and a boolean to check if the value has been set.
+
+### SetInstanceProfileArns
+
+`func (o *IngestersCloudResource) SetInstanceProfileArns(v interface{})`
+
+SetInstanceProfileArns sets InstanceProfileArns field to given value.
+
+### HasInstanceProfileArns
+
+`func (o *IngestersCloudResource) HasInstanceProfileArns() bool`
+
+HasInstanceProfileArns returns a boolean if a field has been set.
+
+### SetInstanceProfileArnsNil
+
+`func (o *IngestersCloudResource) SetInstanceProfileArnsNil(b bool)`
+
+ SetInstanceProfileArnsNil sets the value for InstanceProfileArns to be an explicit nil
+
+### UnsetInstanceProfileArns
+`func (o *IngestersCloudResource) UnsetInstanceProfileArns()`
+
+UnsetInstanceProfileArns ensures that no value is present for InstanceProfileArns, not even an explicit nil
+### GetInstances
+
+`func (o *IngestersCloudResource) GetInstances() interface{}`
+
+GetInstances returns the Instances field if non-nil, zero value otherwise.
+
+### GetInstancesOk
+
+`func (o *IngestersCloudResource) GetInstancesOk() (*interface{}, bool)`
+
+GetInstancesOk returns a tuple with the Instances field if it's non-nil, zero value otherwise
+and a boolean to check if the value has been set.
+
+### SetInstances
+
+`func (o *IngestersCloudResource) SetInstances(v interface{})`
+
+SetInstances sets Instances field to given value.
+
+### HasInstances
+
+`func (o *IngestersCloudResource) HasInstances() bool`
+
+HasInstances returns a boolean if a field has been set.
+
+### SetInstancesNil
+
+`func (o *IngestersCloudResource) SetInstancesNil(b bool)`
+
+ SetInstancesNil sets the value for Instances to be an explicit nil
+
+### UnsetInstances
+`func (o *IngestersCloudResource) UnsetInstances()`
+
+UnsetInstances ensures that no value is present for Instances, not even an explicit nil
 ### GetIpConfiguration
 
 `func (o *IngestersCloudResource) GetIpConfiguration() interface{}`
@@ -535,6 +940,31 @@ HasIpConfiguration returns a boolean if a field has been set.
 `func (o *IngestersCloudResource) UnsetIpConfiguration()`
 
 UnsetIpConfiguration ensures that no value is present for IpConfiguration, not even an explicit nil
+### GetIsEgress
+
+`func (o *IngestersCloudResource) GetIsEgress() bool`
+
+GetIsEgress returns the IsEgress field if non-nil, zero value otherwise.
+
+### GetIsEgressOk
+
+`func (o *IngestersCloudResource) GetIsEgressOk() (*bool, bool)`
+
+GetIsEgressOk returns a tuple with the IsEgress field if it's non-nil, zero value otherwise
+and a boolean to check if the value has been set.
+
+### SetIsEgress
+
+`func (o *IngestersCloudResource) SetIsEgress(v bool)`
+
+SetIsEgress sets IsEgress field to given value.
+
+### HasIsEgress
+
+`func (o *IngestersCloudResource) HasIsEgress() bool`
+
+HasIsEgress returns a boolean if a field has been set.
+
 ### GetName
 
 `func (o *IngestersCloudResource) GetName() string`
@@ -560,6 +990,41 @@ SetName sets Name field to given value.
 
 HasName returns a boolean if a field has been set.
 
+### GetNetworkConfiguration
+
+`func (o *IngestersCloudResource) GetNetworkConfiguration() interface{}`
+
+GetNetworkConfiguration returns the NetworkConfiguration field if non-nil, zero value otherwise.
+
+### GetNetworkConfigurationOk
+
+`func (o *IngestersCloudResource) GetNetworkConfigurationOk() (*interface{}, bool)`
+
+GetNetworkConfigurationOk returns a tuple with the NetworkConfiguration field if it's non-nil, zero value otherwise
+and a boolean to check if the value has been set.
+
+### SetNetworkConfiguration
+
+`func (o *IngestersCloudResource) SetNetworkConfiguration(v interface{})`
+
+SetNetworkConfiguration sets NetworkConfiguration field to given value.
+
+### HasNetworkConfiguration
+
+`func (o *IngestersCloudResource) HasNetworkConfiguration() bool`
+
+HasNetworkConfiguration returns a boolean if a field has been set.
+
+### SetNetworkConfigurationNil
+
+`func (o *IngestersCloudResource) SetNetworkConfigurationNil(b bool)`
+
+ SetNetworkConfigurationNil sets the value for NetworkConfiguration to be an explicit nil
+
+### UnsetNetworkConfiguration
+`func (o *IngestersCloudResource) UnsetNetworkConfiguration()`
+
+UnsetNetworkConfiguration ensures that no value is present for NetworkConfiguration, not even an explicit nil
 ### GetNetworkInterfaces
 
 `func (o *IngestersCloudResource) GetNetworkInterfaces() interface{}`
@@ -620,6 +1085,106 @@ SetNetworkMode sets NetworkMode field to given value.
 
 HasNetworkMode returns a boolean if a field has been set.
 
+### GetOrganizationId
+
+`func (o *IngestersCloudResource) GetOrganizationId() string`
+
+GetOrganizationId returns the OrganizationId field if non-nil, zero value otherwise.
+
+### GetOrganizationIdOk
+
+`func (o *IngestersCloudResource) GetOrganizationIdOk() (*string, bool)`
+
+GetOrganizationIdOk returns a tuple with the OrganizationId field if it's non-nil, zero value otherwise
+and a boolean to check if the value has been set.
+
+### SetOrganizationId
+
+`func (o *IngestersCloudResource) SetOrganizationId(v string)`
+
+SetOrganizationId sets OrganizationId field to given value.
+
+### HasOrganizationId
+
+`func (o *IngestersCloudResource) HasOrganizationId() bool`
+
+HasOrganizationId returns a boolean if a field has been set.
+
+### GetOrganizationMasterAccountArn
+
+`func (o *IngestersCloudResource) GetOrganizationMasterAccountArn() string`
+
+GetOrganizationMasterAccountArn returns the OrganizationMasterAccountArn field if non-nil, zero value otherwise.
+
+### GetOrganizationMasterAccountArnOk
+
+`func (o *IngestersCloudResource) GetOrganizationMasterAccountArnOk() (*string, bool)`
+
+GetOrganizationMasterAccountArnOk returns a tuple with the OrganizationMasterAccountArn field if it's non-nil, zero value otherwise
+and a boolean to check if the value has been set.
+
+### SetOrganizationMasterAccountArn
+
+`func (o *IngestersCloudResource) SetOrganizationMasterAccountArn(v string)`
+
+SetOrganizationMasterAccountArn sets OrganizationMasterAccountArn field to given value.
+
+### HasOrganizationMasterAccountArn
+
+`func (o *IngestersCloudResource) HasOrganizationMasterAccountArn() bool`
+
+HasOrganizationMasterAccountArn returns a boolean if a field has been set.
+
+### GetOrganizationMasterAccountEmail
+
+`func (o *IngestersCloudResource) GetOrganizationMasterAccountEmail() string`
+
+GetOrganizationMasterAccountEmail returns the OrganizationMasterAccountEmail field if non-nil, zero value otherwise.
+
+### GetOrganizationMasterAccountEmailOk
+
+`func (o *IngestersCloudResource) GetOrganizationMasterAccountEmailOk() (*string, bool)`
+
+GetOrganizationMasterAccountEmailOk returns a tuple with the OrganizationMasterAccountEmail field if it's non-nil, zero value otherwise
+and a boolean to check if the value has been set.
+
+### SetOrganizationMasterAccountEmail
+
+`func (o *IngestersCloudResource) SetOrganizationMasterAccountEmail(v string)`
+
+SetOrganizationMasterAccountEmail sets OrganizationMasterAccountEmail field to given value.
+
+### HasOrganizationMasterAccountEmail
+
+`func (o *IngestersCloudResource) HasOrganizationMasterAccountEmail() bool`
+
+HasOrganizationMasterAccountEmail returns a boolean if a field has been set.
+
+### GetPath
+
+`func (o *IngestersCloudResource) GetPath() string`
+
+GetPath returns the Path field if non-nil, zero value otherwise.
+
+### GetPathOk
+
+`func (o *IngestersCloudResource) GetPathOk() (*string, bool)`
+
+GetPathOk returns a tuple with the Path field if it's non-nil, zero value otherwise
+and a boolean to check if the value has been set.
+
+### SetPath
+
+`func (o *IngestersCloudResource) SetPath(v string)`
+
+SetPath sets Path field to given value.
+
+### HasPath
+
+`func (o *IngestersCloudResource) HasPath() bool`
+
+HasPath returns a boolean if a field has been set.
+
 ### GetPolicy
 
 `func (o *IngestersCloudResource) GetPolicy() interface{}`
@@ -657,20 +1222,20 @@ HasPolicy returns a boolean if a field has been set.
 UnsetPolicy ensures that no value is present for Policy, not even an explicit nil
 ### GetPolicyStd
 
-`func (o *IngestersCloudResource) GetPolicyStd() string`
+`func (o *IngestersCloudResource) GetPolicyStd() interface{}`
 
 GetPolicyStd returns the PolicyStd field if non-nil, zero value otherwise.
 
 ### GetPolicyStdOk
 
-`func (o *IngestersCloudResource) GetPolicyStdOk() (*string, bool)`
+`func (o *IngestersCloudResource) GetPolicyStdOk() (*interface{}, bool)`
 
 GetPolicyStdOk returns a tuple with the PolicyStd field if it's non-nil, zero value otherwise
 and a boolean to check if the value has been set.
 
 ### SetPolicyStd
 
-`func (o *IngestersCloudResource) SetPolicyStd(v string)`
+`func (o *IngestersCloudResource) SetPolicyStd(v interface{})`
 
 SetPolicyStd sets PolicyStd field to given value.
 
@@ -679,6 +1244,41 @@ SetPolicyStd sets PolicyStd field to given value.
 `func (o *IngestersCloudResource) HasPolicyStd() bool`
 
 HasPolicyStd returns a boolean if a field has been set.
+
+### SetPolicyStdNil
+
+`func (o *IngestersCloudResource) SetPolicyStdNil(b bool)`
+
+ SetPolicyStdNil sets the value for PolicyStd to be an explicit nil
+
+### UnsetPolicyStd
+`func (o *IngestersCloudResource) UnsetPolicyStd()`
+
+UnsetPolicyStd ensures that no value is present for PolicyStd, not even an explicit nil
+### GetPrivilege
+
+`func (o *IngestersCloudResource) GetPrivilege() string`
+
+GetPrivilege returns the Privilege field if non-nil, zero value otherwise.
+
+### GetPrivilegeOk
+
+`func (o *IngestersCloudResource) GetPrivilegeOk() (*string, bool)`
+
+GetPrivilegeOk returns a tuple with the Privilege field if it's non-nil, zero value otherwise
+and a boolean to check if the value has been set.
+
+### SetPrivilege
+
+`func (o *IngestersCloudResource) SetPrivilege(v string)`
+
+SetPrivilege sets Privilege field to given value.
+
+### HasPrivilege
+
+`func (o *IngestersCloudResource) HasPrivilege() bool`
+
+HasPrivilege returns a boolean if a field has been set.
 
 ### GetPublicAccess
 
@@ -704,6 +1304,31 @@ SetPublicAccess sets PublicAccess field to given value.
 `func (o *IngestersCloudResource) HasPublicAccess() bool`
 
 HasPublicAccess returns a boolean if a field has been set.
+
+### GetPublicIpAddress
+
+`func (o *IngestersCloudResource) GetPublicIpAddress() string`
+
+GetPublicIpAddress returns the PublicIpAddress field if non-nil, zero value otherwise.
+
+### GetPublicIpAddressOk
+
+`func (o *IngestersCloudResource) GetPublicIpAddressOk() (*string, bool)`
+
+GetPublicIpAddressOk returns a tuple with the PublicIpAddress field if it's non-nil, zero value otherwise
+and a boolean to check if the value has been set.
+
+### SetPublicIpAddress
+
+`func (o *IngestersCloudResource) SetPublicIpAddress(v string)`
+
+SetPublicIpAddress sets PublicIpAddress field to given value.
+
+### HasPublicIpAddress
+
+`func (o *IngestersCloudResource) HasPublicIpAddress() bool`
+
+HasPublicIpAddress returns a boolean if a field has been set.
 
 ### GetPublicIps
 
@@ -740,6 +1365,31 @@ HasPublicIps returns a boolean if a field has been set.
 `func (o *IngestersCloudResource) UnsetPublicIps()`
 
 UnsetPublicIps ensures that no value is present for PublicIps, not even an explicit nil
+### GetPublicNetworkAccess
+
+`func (o *IngestersCloudResource) GetPublicNetworkAccess() string`
+
+GetPublicNetworkAccess returns the PublicNetworkAccess field if non-nil, zero value otherwise.
+
+### GetPublicNetworkAccessOk
+
+`func (o *IngestersCloudResource) GetPublicNetworkAccessOk() (*string, bool)`
+
+GetPublicNetworkAccessOk returns a tuple with the PublicNetworkAccess field if it's non-nil, zero value otherwise
+and a boolean to check if the value has been set.
+
+### SetPublicNetworkAccess
+
+`func (o *IngestersCloudResource) SetPublicNetworkAccess(v string)`
+
+SetPublicNetworkAccess sets PublicNetworkAccess field to given value.
+
+### HasPublicNetworkAccess
+
+`func (o *IngestersCloudResource) HasPublicNetworkAccess() bool`
+
+HasPublicNetworkAccess returns a boolean if a field has been set.
+
 ### GetRegion
 
 `func (o *IngestersCloudResource) GetRegion() string`
@@ -825,6 +1475,41 @@ HasResourceVpcConfig returns a boolean if a field has been set.
 `func (o *IngestersCloudResource) UnsetResourceVpcConfig()`
 
 UnsetResourceVpcConfig ensures that no value is present for ResourceVpcConfig, not even an explicit nil
+### GetResourcesVpcConfig
+
+`func (o *IngestersCloudResource) GetResourcesVpcConfig() interface{}`
+
+GetResourcesVpcConfig returns the ResourcesVpcConfig field if non-nil, zero value otherwise.
+
+### GetResourcesVpcConfigOk
+
+`func (o *IngestersCloudResource) GetResourcesVpcConfigOk() (*interface{}, bool)`
+
+GetResourcesVpcConfigOk returns a tuple with the ResourcesVpcConfig field if it's non-nil, zero value otherwise
+and a boolean to check if the value has been set.
+
+### SetResourcesVpcConfig
+
+`func (o *IngestersCloudResource) SetResourcesVpcConfig(v interface{})`
+
+SetResourcesVpcConfig sets ResourcesVpcConfig field to given value.
+
+### HasResourcesVpcConfig
+
+`func (o *IngestersCloudResource) HasResourcesVpcConfig() bool`
+
+HasResourcesVpcConfig returns a boolean if a field has been set.
+
+### SetResourcesVpcConfigNil
+
+`func (o *IngestersCloudResource) SetResourcesVpcConfigNil(b bool)`
+
+ SetResourcesVpcConfigNil sets the value for ResourcesVpcConfig to be an explicit nil
+
+### UnsetResourcesVpcConfig
+`func (o *IngestersCloudResource) UnsetResourcesVpcConfig()`
+
+UnsetResourcesVpcConfig ensures that no value is present for ResourcesVpcConfig, not even an explicit nil
 ### GetRestrictPublicBuckets
 
 `func (o *IngestersCloudResource) GetRestrictPublicBuckets() bool`
@@ -935,6 +1620,91 @@ SetServiceName sets ServiceName field to given value.
 
 HasServiceName returns a boolean if a field has been set.
 
+### GetStorageAccountName
+
+`func (o *IngestersCloudResource) GetStorageAccountName() string`
+
+GetStorageAccountName returns the StorageAccountName field if non-nil, zero value otherwise.
+
+### GetStorageAccountNameOk
+
+`func (o *IngestersCloudResource) GetStorageAccountNameOk() (*string, bool)`
+
+GetStorageAccountNameOk returns a tuple with the StorageAccountName field if it's non-nil, zero value otherwise
+and a boolean to check if the value has been set.
+
+### SetStorageAccountName
+
+`func (o *IngestersCloudResource) SetStorageAccountName(v string)`
+
+SetStorageAccountName sets StorageAccountName field to given value.
+
+### HasStorageAccountName
+
+`func (o *IngestersCloudResource) HasStorageAccountName() bool`
+
+HasStorageAccountName returns a boolean if a field has been set.
+
+### GetTargetGroupArn
+
+`func (o *IngestersCloudResource) GetTargetGroupArn() string`
+
+GetTargetGroupArn returns the TargetGroupArn field if non-nil, zero value otherwise.
+
+### GetTargetGroupArnOk
+
+`func (o *IngestersCloudResource) GetTargetGroupArnOk() (*string, bool)`
+
+GetTargetGroupArnOk returns a tuple with the TargetGroupArn field if it's non-nil, zero value otherwise
+and a boolean to check if the value has been set.
+
+### SetTargetGroupArn
+
+`func (o *IngestersCloudResource) SetTargetGroupArn(v string)`
+
+SetTargetGroupArn sets TargetGroupArn field to given value.
+
+### HasTargetGroupArn
+
+`func (o *IngestersCloudResource) HasTargetGroupArn() bool`
+
+HasTargetGroupArn returns a boolean if a field has been set.
+
+### GetTargetHealthDescriptions
+
+`func (o *IngestersCloudResource) GetTargetHealthDescriptions() interface{}`
+
+GetTargetHealthDescriptions returns the TargetHealthDescriptions field if non-nil, zero value otherwise.
+
+### GetTargetHealthDescriptionsOk
+
+`func (o *IngestersCloudResource) GetTargetHealthDescriptionsOk() (*interface{}, bool)`
+
+GetTargetHealthDescriptionsOk returns a tuple with the TargetHealthDescriptions field if it's non-nil, zero value otherwise
+and a boolean to check if the value has been set.
+
+### SetTargetHealthDescriptions
+
+`func (o *IngestersCloudResource) SetTargetHealthDescriptions(v interface{})`
+
+SetTargetHealthDescriptions sets TargetHealthDescriptions field to given value.
+
+### HasTargetHealthDescriptions
+
+`func (o *IngestersCloudResource) HasTargetHealthDescriptions() bool`
+
+HasTargetHealthDescriptions returns a boolean if a field has been set.
+
+### SetTargetHealthDescriptionsNil
+
+`func (o *IngestersCloudResource) SetTargetHealthDescriptionsNil(b bool)`
+
+ SetTargetHealthDescriptionsNil sets the value for TargetHealthDescriptions to be an explicit nil
+
+### UnsetTargetHealthDescriptions
+`func (o *IngestersCloudResource) UnsetTargetHealthDescriptions()`
+
+UnsetTargetHealthDescriptions ensures that no value is present for TargetHealthDescriptions, not even an explicit nil
 ### GetTaskDefinition
 
 `func (o *IngestersCloudResource) GetTaskDefinition() interface{}`
@@ -995,6 +1765,101 @@ SetTaskDefinitionArn sets TaskDefinitionArn field to given value.
 
 HasTaskDefinitionArn returns a boolean if a field has been set.
 
+### GetUserGroups
+
+`func (o *IngestersCloudResource) GetUserGroups() interface{}`
+
+GetUserGroups returns the UserGroups field if non-nil, zero value otherwise.
+
+### GetUserGroupsOk
+
+`func (o *IngestersCloudResource) GetUserGroupsOk() (*interface{}, bool)`
+
+GetUserGroupsOk returns a tuple with the UserGroups field if it's non-nil, zero value otherwise
+and a boolean to check if the value has been set.
+
+### SetUserGroups
+
+`func (o *IngestersCloudResource) SetUserGroups(v interface{})`
+
+SetUserGroups sets UserGroups field to given value.
+
+### HasUserGroups
+
+`func (o *IngestersCloudResource) HasUserGroups() bool`
+
+HasUserGroups returns a boolean if a field has been set.
+
+### SetUserGroupsNil
+
+`func (o *IngestersCloudResource) SetUserGroupsNil(b bool)`
+
+ SetUserGroupsNil sets the value for UserGroups to be an explicit nil
+
+### UnsetUserGroups
+`func (o *IngestersCloudResource) UnsetUserGroups()`
+
+UnsetUserGroups ensures that no value is present for UserGroups, not even an explicit nil
+### GetUserId
+
+`func (o *IngestersCloudResource) GetUserId() string`
+
+GetUserId returns the UserId field if non-nil, zero value otherwise.
+
+### GetUserIdOk
+
+`func (o *IngestersCloudResource) GetUserIdOk() (*string, bool)`
+
+GetUserIdOk returns a tuple with the UserId field if it's non-nil, zero value otherwise
+and a boolean to check if the value has been set.
+
+### SetUserId
+
+`func (o *IngestersCloudResource) SetUserId(v string)`
+
+SetUserId sets UserId field to given value.
+
+### HasUserId
+
+`func (o *IngestersCloudResource) HasUserId() bool`
+
+HasUserId returns a boolean if a field has been set.
+
+### GetUsers
+
+`func (o *IngestersCloudResource) GetUsers() interface{}`
+
+GetUsers returns the Users field if non-nil, zero value otherwise.
+
+### GetUsersOk
+
+`func (o *IngestersCloudResource) GetUsersOk() (*interface{}, bool)`
+
+GetUsersOk returns a tuple with the Users field if it's non-nil, zero value otherwise
+and a boolean to check if the value has been set.
+
+### SetUsers
+
+`func (o *IngestersCloudResource) SetUsers(v interface{})`
+
+SetUsers sets Users field to given value.
+
+### HasUsers
+
+`func (o *IngestersCloudResource) HasUsers() bool`
+
+HasUsers returns a boolean if a field has been set.
+
+### SetUsersNil
+
+`func (o *IngestersCloudResource) SetUsersNil(b bool)`
+
+ SetUsersNil sets the value for Users to be an explicit nil
+
+### UnsetUsers
+`func (o *IngestersCloudResource) UnsetUsers()`
+
+UnsetUsers ensures that no value is present for Users, not even an explicit nil
 ### GetVpcId
 
 `func (o *IngestersCloudResource) GetVpcId() string`
@@ -1055,6 +1920,41 @@ HasVpcOptions returns a boolean if a field has been set.
 `func (o *IngestersCloudResource) UnsetVpcOptions()`
 
 UnsetVpcOptions ensures that no value is present for VpcOptions, not even an explicit nil
+### GetVpcSecurityGroupIds
+
+`func (o *IngestersCloudResource) GetVpcSecurityGroupIds() interface{}`
+
+GetVpcSecurityGroupIds returns the VpcSecurityGroupIds field if non-nil, zero value otherwise.
+
+### GetVpcSecurityGroupIdsOk
+
+`func (o *IngestersCloudResource) GetVpcSecurityGroupIdsOk() (*interface{}, bool)`
+
+GetVpcSecurityGroupIdsOk returns a tuple with the VpcSecurityGroupIds field if it's non-nil, zero value otherwise
+and a boolean to check if the value has been set.
+
+### SetVpcSecurityGroupIds
+
+`func (o *IngestersCloudResource) SetVpcSecurityGroupIds(v interface{})`
+
+SetVpcSecurityGroupIds sets VpcSecurityGroupIds field to given value.
+
+### HasVpcSecurityGroupIds
+
+`func (o *IngestersCloudResource) HasVpcSecurityGroupIds() bool`
+
+HasVpcSecurityGroupIds returns a boolean if a field has been set.
+
+### SetVpcSecurityGroupIdsNil
+
+`func (o *IngestersCloudResource) SetVpcSecurityGroupIdsNil(b bool)`
+
+ SetVpcSecurityGroupIdsNil sets the value for VpcSecurityGroupIds to be an explicit nil
+
+### UnsetVpcSecurityGroupIds
+`func (o *IngestersCloudResource) UnsetVpcSecurityGroupIds()`
+
+UnsetVpcSecurityGroupIds ensures that no value is present for VpcSecurityGroupIds, not even an explicit nil
 ### GetVpcSecurityGroups
 
 `func (o *IngestersCloudResource) GetVpcSecurityGroups() interface{}`

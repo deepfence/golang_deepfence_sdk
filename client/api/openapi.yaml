@@ -5941,6 +5941,9 @@ components:
         region_filter:
         - region_filter
         - region_filter
+        service_filter:
+        - service_filter
+        - service_filter
       properties:
         cloud_filter:
           items:
@@ -5969,6 +5972,11 @@ components:
             type: string
           nullable: true
           type: array
+        service_filter:
+          items:
+            type: string
+          nullable: true
+          type: array
       required:
       - cloud_filter
       - field_filters
@@ -5976,6 +5984,7 @@ components:
       - kubernetes_filter
       - pod_filter
       - region_filter
+      - service_filter
       type: object
     IngestersCloudCompliance:
       example:
@@ -6040,49 +6049,84 @@ components:
       type: object
     IngestersCloudResource:
       example:
+        iam_instance_profile_arn: iam_instance_profile_arn
         allow_blob_public_access: allow_blob_public_access
-        scheme: scheme
-        ingress_settings: ""
+        ingress_settings: ingress_settings
         vpc_id: vpc_id
-        network_mode: network_mode
         event_notification_configuration: ""
         ip_configuration: ""
-        vpc_options: ""
-        policy_std: policy_std
+        access_level: access_level
+        path: path
+        policy_std: ""
+        target_health_descriptions: ""
         iam_policy: ""
+        action: action
         id: id
-        arn: arn
+        create_date: create_date
         resource_vpc_config: ""
+        inline_policies: ""
         restrict_public_buckets: true
         db_cluster_identifier: db_cluster_identifier
-        policy: ""
-        public_ips: ""
+        target_group_arn: target_group_arn
         ignore_public_acls: true
-        cidr_ipv4: cidr_ipv4
+        storage_account_name: storage_account_name
         service_name: service_name
-        vpc_security_groups: ""
+        instance_profile_arns: ""
+        users: ""
         network_interfaces: ""
-        block_public_policy: true
         security_groups: ""
         block_public_acls: true
-        account_id: account_id
+        organization_master_account_email: organization_master_account_email
         instance_id: instance_id
         public_access: public_access
         task_definition: ""
-        group_id: group_id
+        user_id: user_id
+        organization_id: organization_id
         name: name
-        resource_id: resource_id
+        resources_vpc_config: ""
+        attached_policy_arns: ""
         task_definition_arn: task_definition_arn
+        containers: ""
         region: region
         container_definitions: ""
+        scheme: scheme
+        instances: ""
+        network_mode: network_mode
+        is_egress: true
+        description: description
+        privilege: privilege
+        network_configuration: ""
+        public_network_access: public_network_access
+        vpc_options: ""
+        vpc_security_group_ids: ""
+        arn: arn
+        policy: ""
+        public_ips: ""
+        public_ip_address: public_ip_address
+        cidr_ipv4: cidr_ipv4
+        groups: ""
+        user-groups: ""
+        vpc_security_groups: ""
+        block_public_policy: true
+        account_id: account_id
+        iam_instance_profile_id: iam_instance_profile_id
+        group_id: group_id
+        organization_master_account_arn: organization_master_account_arn
+        resource_id: resource_id
         bucket_policy_is_public: true
+        host_name: host_name
       properties:
+        access_level:
+          type: string
         account_id:
+          type: string
+        action:
           type: string
         allow_blob_public_access:
           type: string
         arn:
           type: string
+        attached_policy_arns: {}
         block_public_acls:
           type: boolean
         block_public_policy:
@@ -6092,36 +6136,69 @@ components:
         cidr_ipv4:
           type: string
         container_definitions: {}
+        containers: {}
+        create_date:
+          type: string
         db_cluster_identifier:
+          type: string
+        description:
           type: string
         event_notification_configuration: {}
         group_id:
+          type: string
+        groups: {}
+        host_name:
+          type: string
+        iam_instance_profile_arn:
+          type: string
+        iam_instance_profile_id:
           type: string
         iam_policy: {}
         id:
           type: string
         ignore_public_acls:
           type: boolean
-        ingress_settings: {}
+        ingress_settings:
+          type: string
+        inline_policies: {}
         instance_id:
           type: string
+        instance_profile_arns: {}
+        instances: {}
         ip_configuration: {}
+        is_egress:
+          type: boolean
         name:
           type: string
+        network_configuration: {}
         network_interfaces: {}
         network_mode:
           type: string
+        organization_id:
+          type: string
+        organization_master_account_arn:
+          type: string
+        organization_master_account_email:
+          type: string
+        path:
+          type: string
         policy: {}
-        policy_std:
+        policy_std: {}
+        privilege:
           type: string
         public_access:
           type: string
+        public_ip_address:
+          type: string
         public_ips: {}
+        public_network_access:
+          type: string
         region:
           type: string
         resource_id:
           type: string
         resource_vpc_config: {}
+        resources_vpc_config: {}
         restrict_public_buckets:
           type: boolean
         scheme:
@@ -6129,12 +6206,22 @@ components:
         security_groups: {}
         service_name:
           type: string
+        storage_account_name:
+          type: string
+        target_group_arn:
+          type: string
+        target_health_descriptions: {}
         task_definition: {}
         task_definition_arn:
           type: string
+        user-groups: {}
+        user_id:
+          type: string
+        users: {}
         vpc_id:
           type: string
         vpc_options: {}
+        vpc_security_group_ids: {}
         vpc_security_groups: {}
       type: object
     IngestersCompliance:
@@ -7338,6 +7425,7 @@ components:
           compliance_scan_status: compliance_scan_status
           secrets_count: 5
           malwares_count: 6
+          node_name: node_name
           compliances_count: 0
           docker_image_tag: docker_image_tag
           malware_scan_status: malware_scan_status
@@ -7379,6 +7467,7 @@ components:
         secrets_count: 5
         docker_container_name: docker_container_name
         malwares_count: 6
+        node_name: node_name
         compliances_count: 0
         malware_scan_status: malware_scan_status
         metrics:
@@ -7412,6 +7501,8 @@ components:
           $ref: '#/components/schemas/ModelComputeMetrics'
         node_id:
           type: string
+        node_name:
+          type: string
         processes:
           items:
             $ref: '#/components/schemas/ModelProcess'
@@ -7437,6 +7528,7 @@ components:
       - metadata
       - metrics
       - node_id
+      - node_name
       - processes
       - secret_scan_status
       - secrets_count
@@ -7452,6 +7544,7 @@ components:
         compliance_scan_status: compliance_scan_status
         secrets_count: 5
         malwares_count: 6
+        node_name: node_name
         compliances_count: 0
         docker_image_tag: docker_image_tag
         malware_scan_status: malware_scan_status
@@ -7484,6 +7577,8 @@ components:
           $ref: '#/components/schemas/ModelComputeMetrics'
         node_id:
           type: string
+        node_name:
+          type: string
         secret_scan_status:
           type: string
         secrets_count:
@@ -7503,6 +7598,7 @@ components:
       - metadata
       - metrics
       - node_id
+      - node_name
       - secret_scan_status
       - secrets_count
       - vulnerabilities_count
@@ -7596,6 +7692,7 @@ components:
           compliance_scan_status: compliance_scan_status
           secrets_count: 5
           malwares_count: 6
+          node_name: node_name
           compliances_count: 0
           docker_image_tag: docker_image_tag
           malware_scan_status: malware_scan_status
@@ -7613,6 +7710,7 @@ components:
           compliance_scan_status: compliance_scan_status
           secrets_count: 5
           malwares_count: 6
+          node_name: node_name
           compliances_count: 0
           docker_image_tag: docker_image_tag
           malware_scan_status: malware_scan_status
@@ -7624,6 +7722,7 @@ components:
           docker_image_name: docker_image_name
           node_id: node_id
         malwares_count: 6
+        node_name: node_name
         compliances_count: 0
         malware_scan_status: malware_scan_status
         containers:
@@ -7637,6 +7736,7 @@ components:
             compliance_scan_status: compliance_scan_status
             secrets_count: 5
             malwares_count: 6
+            node_name: node_name
             compliances_count: 0
             docker_image_tag: docker_image_tag
             malware_scan_status: malware_scan_status
@@ -7678,6 +7778,7 @@ components:
           secrets_count: 5
           docker_container_name: docker_container_name
           malwares_count: 6
+          node_name: node_name
           compliances_count: 0
           malware_scan_status: malware_scan_status
           metrics:
@@ -7696,6 +7797,7 @@ components:
             compliance_scan_status: compliance_scan_status
             secrets_count: 5
             malwares_count: 6
+            node_name: node_name
             compliances_count: 0
             docker_image_tag: docker_image_tag
             malware_scan_status: malware_scan_status
@@ -7737,6 +7839,7 @@ components:
           secrets_count: 5
           docker_container_name: docker_container_name
           malwares_count: 6
+          node_name: node_name
           compliances_count: 0
           malware_scan_status: malware_scan_status
           metrics:
@@ -7773,6 +7876,7 @@ components:
             node_id: node_id
             ppid: ppid
           kubernetes_name: kubernetes_name
+          node_name: node_name
           containers:
           - docker_labels:
               key: ""
@@ -7784,6 +7888,7 @@ components:
               compliance_scan_status: compliance_scan_status
               secrets_count: 5
               malwares_count: 6
+              node_name: node_name
               compliances_count: 0
               docker_image_tag: docker_image_tag
               malware_scan_status: malware_scan_status
@@ -7825,6 +7930,7 @@ components:
             secrets_count: 5
             docker_container_name: docker_container_name
             malwares_count: 6
+            node_name: node_name
             compliances_count: 0
             malware_scan_status: malware_scan_status
             metrics:
@@ -7843,6 +7949,7 @@ components:
               compliance_scan_status: compliance_scan_status
               secrets_count: 5
               malwares_count: 6
+              node_name: node_name
               compliances_count: 0
               docker_image_tag: docker_image_tag
               malware_scan_status: malware_scan_status
@@ -7884,6 +7991,7 @@ components:
             secrets_count: 5
             docker_container_name: docker_container_name
             malwares_count: 6
+            node_name: node_name
             compliances_count: 0
             malware_scan_status: malware_scan_status
             metrics:
@@ -7924,6 +8032,7 @@ components:
             node_id: node_id
             ppid: ppid
           kubernetes_name: kubernetes_name
+          node_name: node_name
           containers:
           - docker_labels:
               key: ""
@@ -7935,6 +8044,7 @@ components:
               compliance_scan_status: compliance_scan_status
               secrets_count: 5
               malwares_count: 6
+              node_name: node_name
               compliances_count: 0
               docker_image_tag: docker_image_tag
               malware_scan_status: malware_scan_status
@@ -7976,6 +8086,7 @@ components:
             secrets_count: 5
             docker_container_name: docker_container_name
             malwares_count: 6
+            node_name: node_name
             compliances_count: 0
             malware_scan_status: malware_scan_status
             metrics:
@@ -7994,6 +8105,7 @@ components:
               compliance_scan_status: compliance_scan_status
               secrets_count: 5
               malwares_count: 6
+              node_name: node_name
               compliances_count: 0
               docker_image_tag: docker_image_tag
               malware_scan_status: malware_scan_status
@@ -8035,6 +8147,7 @@ components:
             secrets_count: 5
             docker_container_name: docker_container_name
             malwares_count: 6
+            node_name: node_name
             compliances_count: 0
             malware_scan_status: malware_scan_status
             metrics:
@@ -8082,6 +8195,8 @@ components:
           $ref: '#/components/schemas/ModelComputeMetrics'
         node_id:
           type: string
+        node_name:
+          type: string
         pods:
           items:
             $ref: '#/components/schemas/ModelPod'
@@ -8111,6 +8226,7 @@ components:
       - malwares_count
       - metrics
       - node_id
+      - node_name
       - pods
       - processes
       - secret_scan_status
@@ -8215,6 +8331,7 @@ components:
             compliance_scan_status: compliance_scan_status
             secrets_count: 5
             malwares_count: 6
+            node_name: node_name
             compliances_count: 0
             docker_image_tag: docker_image_tag
             malware_scan_status: malware_scan_status
@@ -8232,6 +8349,7 @@ components:
             compliance_scan_status: compliance_scan_status
             secrets_count: 5
             malwares_count: 6
+            node_name: node_name
             compliances_count: 0
             docker_image_tag: docker_image_tag
             malware_scan_status: malware_scan_status
@@ -8243,6 +8361,7 @@ components:
             docker_image_name: docker_image_name
             node_id: node_id
           malwares_count: 6
+          node_name: node_name
           compliances_count: 0
           malware_scan_status: malware_scan_status
           containers:
@@ -8256,6 +8375,7 @@ components:
               compliance_scan_status: compliance_scan_status
               secrets_count: 5
               malwares_count: 6
+              node_name: node_name
               compliances_count: 0
               docker_image_tag: docker_image_tag
               malware_scan_status: malware_scan_status
@@ -8297,6 +8417,7 @@ components:
             secrets_count: 5
             docker_container_name: docker_container_name
             malwares_count: 6
+            node_name: node_name
             compliances_count: 0
             malware_scan_status: malware_scan_status
             metrics:
@@ -8315,6 +8436,7 @@ components:
               compliance_scan_status: compliance_scan_status
               secrets_count: 5
               malwares_count: 6
+              node_name: node_name
               compliances_count: 0
               docker_image_tag: docker_image_tag
               malware_scan_status: malware_scan_status
@@ -8356,6 +8478,7 @@ components:
             secrets_count: 5
             docker_container_name: docker_container_name
             malwares_count: 6
+            node_name: node_name
             compliances_count: 0
             malware_scan_status: malware_scan_status
             metrics:
@@ -8392,6 +8515,7 @@ components:
               node_id: node_id
               ppid: ppid
             kubernetes_name: kubernetes_name
+            node_name: node_name
             containers:
             - docker_labels:
                 key: ""
@@ -8403,6 +8527,7 @@ components:
                 compliance_scan_status: compliance_scan_status
                 secrets_count: 5
                 malwares_count: 6
+                node_name: node_name
                 compliances_count: 0
                 docker_image_tag: docker_image_tag
                 malware_scan_status: malware_scan_status
@@ -8444,6 +8569,7 @@ components:
               secrets_count: 5
               docker_container_name: docker_container_name
               malwares_count: 6
+              node_name: node_name
               compliances_count: 0
               malware_scan_status: malware_scan_status
               metrics:
@@ -8462,6 +8588,7 @@ components:
                 compliance_scan_status: compliance_scan_status
                 secrets_count: 5
                 malwares_count: 6
+                node_name: node_name
                 compliances_count: 0
                 docker_image_tag: docker_image_tag
                 malware_scan_status: malware_scan_status
@@ -8503,6 +8630,7 @@ components:
               secrets_count: 5
               docker_container_name: docker_container_name
               malwares_count: 6
+              node_name: node_name
               compliances_count: 0
               malware_scan_status: malware_scan_status
               metrics:
@@ -8543,6 +8671,7 @@ components:
               node_id: node_id
               ppid: ppid
             kubernetes_name: kubernetes_name
+            node_name: node_name
             containers:
             - docker_labels:
                 key: ""
@@ -8554,6 +8683,7 @@ components:
                 compliance_scan_status: compliance_scan_status
                 secrets_count: 5
                 malwares_count: 6
+                node_name: node_name
                 compliances_count: 0
                 docker_image_tag: docker_image_tag
                 malware_scan_status: malware_scan_status
@@ -8595,6 +8725,7 @@ components:
               secrets_count: 5
               docker_container_name: docker_container_name
               malwares_count: 6
+              node_name: node_name
               compliances_count: 0
               malware_scan_status: malware_scan_status
               metrics:
@@ -8613,6 +8744,7 @@ components:
                 compliance_scan_status: compliance_scan_status
                 secrets_count: 5
                 malwares_count: 6
+                node_name: node_name
                 compliances_count: 0
                 docker_image_tag: docker_image_tag
                 malware_scan_status: malware_scan_status
@@ -8654,6 +8786,7 @@ components:
               secrets_count: 5
               docker_container_name: docker_container_name
               malwares_count: 6
+              node_name: node_name
               compliances_count: 0
               malware_scan_status: malware_scan_status
               metrics:
@@ -8710,6 +8843,7 @@ components:
             compliance_scan_status: compliance_scan_status
             secrets_count: 5
             malwares_count: 6
+            node_name: node_name
             compliances_count: 0
             docker_image_tag: docker_image_tag
             malware_scan_status: malware_scan_status
@@ -8727,6 +8861,7 @@ components:
             compliance_scan_status: compliance_scan_status
             secrets_count: 5
             malwares_count: 6
+            node_name: node_name
             compliances_count: 0
             docker_image_tag: docker_image_tag
             malware_scan_status: malware_scan_status
@@ -8738,6 +8873,7 @@ components:
             docker_image_name: docker_image_name
             node_id: node_id
           malwares_count: 6
+          node_name: node_name
           compliances_count: 0
           malware_scan_status: malware_scan_status
           containers:
@@ -8751,6 +8887,7 @@ components:
               compliance_scan_status: compliance_scan_status
               secrets_count: 5
               malwares_count: 6
+              node_name: node_name
               compliances_count: 0
               docker_image_tag: docker_image_tag
               malware_scan_status: malware_scan_status
@@ -8792,6 +8929,7 @@ components:
             secrets_count: 5
             docker_container_name: docker_container_name
             malwares_count: 6
+            node_name: node_name
             compliances_count: 0
             malware_scan_status: malware_scan_status
             metrics:
@@ -8810,6 +8948,7 @@ components:
               compliance_scan_status: compliance_scan_status
               secrets_count: 5
               malwares_count: 6
+              node_name: node_name
               compliances_count: 0
               docker_image_tag: docker_image_tag
               malware_scan_status: malware_scan_status
@@ -8851,6 +8990,7 @@ components:
             secrets_count: 5
             docker_container_name: docker_container_name
             malwares_count: 6
+            node_name: node_name
             compliances_count: 0
             malware_scan_status: malware_scan_status
             metrics:
@@ -8887,6 +9027,7 @@ components:
               node_id: node_id
               ppid: ppid
             kubernetes_name: kubernetes_name
+            node_name: node_name
             containers:
             - docker_labels:
                 key: ""
@@ -8898,6 +9039,7 @@ components:
                 compliance_scan_status: compliance_scan_status
                 secrets_count: 5
                 malwares_count: 6
+                node_name: node_name
                 compliances_count: 0
                 docker_image_tag: docker_image_tag
                 malware_scan_status: malware_scan_status
@@ -8939,6 +9081,7 @@ components:
               secrets_count: 5
               docker_container_name: docker_container_name
               malwares_count: 6
+              node_name: node_name
               compliances_count: 0
               malware_scan_status: malware_scan_status
               metrics:
@@ -8957,6 +9100,7 @@ components:
                 compliance_scan_status: compliance_scan_status
                 secrets_count: 5
                 malwares_count: 6
+                node_name: node_name
                 compliances_count: 0
                 docker_image_tag: docker_image_tag
                 malware_scan_status: malware_scan_status
@@ -8998,6 +9142,7 @@ components:
               secrets_count: 5
               docker_container_name: docker_container_name
               malwares_count: 6
+              node_name: node_name
               compliances_count: 0
               malware_scan_status: malware_scan_status
               metrics:
@@ -9038,6 +9183,7 @@ components:
               node_id: node_id
               ppid: ppid
             kubernetes_name: kubernetes_name
+            node_name: node_name
             containers:
             - docker_labels:
                 key: ""
@@ -9049,6 +9195,7 @@ components:
                 compliance_scan_status: compliance_scan_status
                 secrets_count: 5
                 malwares_count: 6
+                node_name: node_name
                 compliances_count: 0
                 docker_image_tag: docker_image_tag
                 malware_scan_status: malware_scan_status
@@ -9090,6 +9237,7 @@ components:
               secrets_count: 5
               docker_container_name: docker_container_name
               malwares_count: 6
+              node_name: node_name
               compliances_count: 0
               malware_scan_status: malware_scan_status
               metrics:
@@ -9108,6 +9256,7 @@ components:
                 compliance_scan_status: compliance_scan_status
                 secrets_count: 5
                 malwares_count: 6
+                node_name: node_name
                 compliances_count: 0
                 docker_image_tag: docker_image_tag
                 malware_scan_status: malware_scan_status
@@ -9149,6 +9298,7 @@ components:
               secrets_count: 5
               docker_container_name: docker_container_name
               malwares_count: 6
+              node_name: node_name
               compliances_count: 0
               malware_scan_status: malware_scan_status
               metrics:
@@ -9210,9 +9360,6 @@ components:
     ModelMalware:
       example:
         date: date
-        Meta:
-        - Meta
-        - Meta
         filetype: filetype
         ImageLayerId: ImageLayerId
         SeverityScore: 6
@@ -9243,11 +9390,6 @@ components:
           type: string
         ImageLayerId:
           type: string
-        Meta:
-          items:
-            type: string
-          nullable: true
-          type: array
         SeverityScore:
           type: integer
         StringsToMatch:
@@ -9300,9 +9442,6 @@ components:
         scan_id: scan_id
         malwares:
         - date: date
-          Meta:
-          - Meta
-          - Meta
           filetype: filetype
           ImageLayerId: ImageLayerId
           SeverityScore: 6
@@ -9323,9 +9462,6 @@ components:
           info: info
           node_id: node_id
         - date: date
-          Meta:
-          - Meta
-          - Meta
           filetype: filetype
           ImageLayerId: ImageLayerId
           SeverityScore: 6
@@ -9543,6 +9679,7 @@ components:
           node_id: node_id
           ppid: ppid
         kubernetes_name: kubernetes_name
+        node_name: node_name
         containers:
         - docker_labels:
             key: ""
@@ -9554,6 +9691,7 @@ components:
             compliance_scan_status: compliance_scan_status
             secrets_count: 5
             malwares_count: 6
+            node_name: node_name
             compliances_count: 0
             docker_image_tag: docker_image_tag
             malware_scan_status: malware_scan_status
@@ -9595,6 +9733,7 @@ components:
           secrets_count: 5
           docker_container_name: docker_container_name
           malwares_count: 6
+          node_name: node_name
           compliances_count: 0
           malware_scan_status: malware_scan_status
           metrics:
@@ -9613,6 +9752,7 @@ components:
             compliance_scan_status: compliance_scan_status
             secrets_count: 5
             malwares_count: 6
+            node_name: node_name
             compliances_count: 0
             docker_image_tag: docker_image_tag
             malware_scan_status: malware_scan_status
@@ -9654,6 +9794,7 @@ components:
           secrets_count: 5
           docker_container_name: docker_container_name
           malwares_count: 6
+          node_name: node_name
           compliances_count: 0
           malware_scan_status: malware_scan_status
           metrics:
@@ -9686,6 +9827,8 @@ components:
           $ref: '#/components/schemas/ModelComputeMetrics'
         node_id:
           type: string
+        node_name:
+          type: string
         processes:
           items:
             $ref: '#/components/schemas/ModelProcess'
@@ -9699,6 +9842,7 @@ components:
       - metadata
       - metrics
       - node_id
+      - node_name
       - processes
       type: object
     ModelProcess:
@@ -9777,6 +9921,7 @@ components:
           compliance_scan_status: compliance_scan_status
           secrets_count: 5
           malwares_count: 6
+          node_name: node_name
           compliances_count: 0
           docker_image_tag: docker_image_tag
           malware_scan_status: malware_scan_status
@@ -9794,6 +9939,7 @@ components:
           compliance_scan_status: compliance_scan_status
           secrets_count: 5
           malwares_count: 6
+          node_name: node_name
           compliances_count: 0
           docker_image_tag: docker_image_tag
           malware_scan_status: malware_scan_status

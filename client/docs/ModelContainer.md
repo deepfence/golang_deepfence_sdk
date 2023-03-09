@@ -15,6 +15,7 @@ Name | Type | Description | Notes
 **Metadata** | **map[string]interface{}** |  | 
 **Metrics** | [**ModelComputeMetrics**](ModelComputeMetrics.md) |  | 
 **NodeId** | **string** |  | 
+**NodeName** | **string** |  | 
 **Processes** | [**[]ModelProcess**](ModelProcess.md) |  | 
 **SecretScanStatus** | **string** |  | 
 **SecretsCount** | **int32** |  | 
@@ -25,7 +26,7 @@ Name | Type | Description | Notes
 
 ### NewModelContainer
 
-`func NewModelContainer(complianceScanStatus string, compliancesCount int32, dockerContainerName string, dockerLabels map[string]interface{}, hostName string, image ModelContainerImage, malwareScanStatus string, malwaresCount int32, metadata map[string]interface{}, metrics ModelComputeMetrics, nodeId string, processes []ModelProcess, secretScanStatus string, secretsCount int32, vulnerabilitiesCount int32, vulnerabilityScanStatus string, ) *ModelContainer`
+`func NewModelContainer(complianceScanStatus string, compliancesCount int32, dockerContainerName string, dockerLabels map[string]interface{}, hostName string, image ModelContainerImage, malwareScanStatus string, malwaresCount int32, metadata map[string]interface{}, metrics ModelComputeMetrics, nodeId string, nodeName string, processes []ModelProcess, secretScanStatus string, secretsCount int32, vulnerabilitiesCount int32, vulnerabilityScanStatus string, ) *ModelContainer`
 
 NewModelContainer instantiates a new ModelContainer object
 This constructor will assign default values to properties that have it defined,
@@ -258,6 +259,26 @@ and a boolean to check if the value has been set.
 `func (o *ModelContainer) SetNodeId(v string)`
 
 SetNodeId sets NodeId field to given value.
+
+
+### GetNodeName
+
+`func (o *ModelContainer) GetNodeName() string`
+
+GetNodeName returns the NodeName field if non-nil, zero value otherwise.
+
+### GetNodeNameOk
+
+`func (o *ModelContainer) GetNodeNameOk() (*string, bool)`
+
+GetNodeNameOk returns a tuple with the NodeName field if it's non-nil, zero value otherwise
+and a boolean to check if the value has been set.
+
+### SetNodeName
+
+`func (o *ModelContainer) SetNodeName(v string)`
+
+SetNodeName sets NodeName field to given value.
 
 
 ### GetProcesses

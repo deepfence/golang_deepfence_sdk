@@ -27,6 +27,7 @@ type ModelPod struct {
 	Metadata map[string]interface{} `json:"metadata"`
 	Metrics ModelComputeMetrics `json:"metrics"`
 	NodeId string `json:"node_id"`
+	NodeName string `json:"node_name"`
 	Processes []ModelProcess `json:"processes"`
 }
 
@@ -34,7 +35,7 @@ type ModelPod struct {
 // This constructor will assign default values to properties that have it defined,
 // and makes sure properties required by API are set, but the set of arguments
 // will change when the set of required properties is changed
-func NewModelPod(containers []ModelContainer, hostNodeId string, kubernetesName string, kubernetesNamespace string, metadata map[string]interface{}, metrics ModelComputeMetrics, nodeId string, processes []ModelProcess) *ModelPod {
+func NewModelPod(containers []ModelContainer, hostNodeId string, kubernetesName string, kubernetesNamespace string, metadata map[string]interface{}, metrics ModelComputeMetrics, nodeId string, nodeName string, processes []ModelProcess) *ModelPod {
 	this := ModelPod{}
 	this.Containers = containers
 	this.HostNodeId = hostNodeId
@@ -43,6 +44,7 @@ func NewModelPod(containers []ModelContainer, hostNodeId string, kubernetesName 
 	this.Metadata = metadata
 	this.Metrics = metrics
 	this.NodeId = nodeId
+	this.NodeName = nodeName
 	this.Processes = processes
 	return &this
 }
@@ -225,6 +227,30 @@ func (o *ModelPod) SetNodeId(v string) {
 	o.NodeId = v
 }
 
+// GetNodeName returns the NodeName field value
+func (o *ModelPod) GetNodeName() string {
+	if o == nil {
+		var ret string
+		return ret
+	}
+
+	return o.NodeName
+}
+
+// GetNodeNameOk returns a tuple with the NodeName field value
+// and a boolean to check if the value has been set.
+func (o *ModelPod) GetNodeNameOk() (*string, bool) {
+	if o == nil {
+		return nil, false
+	}
+	return &o.NodeName, true
+}
+
+// SetNodeName sets field value
+func (o *ModelPod) SetNodeName(v string) {
+	o.NodeName = v
+}
+
 // GetProcesses returns the Processes field value
 // If the value is explicit nil, the zero value for []ModelProcess will be returned
 func (o *ModelPod) GetProcesses() []ModelProcess {
@@ -270,6 +296,7 @@ func (o ModelPod) ToMap() (map[string]interface{}, error) {
 	toSerialize["metadata"] = o.Metadata
 	toSerialize["metrics"] = o.Metrics
 	toSerialize["node_id"] = o.NodeId
+	toSerialize["node_name"] = o.NodeName
 	if o.Processes != nil {
 		toSerialize["processes"] = o.Processes
 	}

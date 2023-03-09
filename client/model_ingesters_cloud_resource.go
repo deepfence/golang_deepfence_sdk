@@ -20,41 +20,71 @@ var _ MappedNullable = &IngestersCloudResource{}
 
 // IngestersCloudResource struct for IngestersCloudResource
 type IngestersCloudResource struct {
+	AccessLevel *string `json:"access_level,omitempty"`
 	AccountId *string `json:"account_id,omitempty"`
+	Action *string `json:"action,omitempty"`
 	AllowBlobPublicAccess *string `json:"allow_blob_public_access,omitempty"`
 	Arn *string `json:"arn,omitempty"`
+	AttachedPolicyArns interface{} `json:"attached_policy_arns,omitempty"`
 	BlockPublicAcls *bool `json:"block_public_acls,omitempty"`
 	BlockPublicPolicy *bool `json:"block_public_policy,omitempty"`
 	BucketPolicyIsPublic *bool `json:"bucket_policy_is_public,omitempty"`
 	CidrIpv4 *string `json:"cidr_ipv4,omitempty"`
 	ContainerDefinitions interface{} `json:"container_definitions,omitempty"`
+	Containers interface{} `json:"containers,omitempty"`
+	CreateDate *string `json:"create_date,omitempty"`
 	DbClusterIdentifier *string `json:"db_cluster_identifier,omitempty"`
+	Description *string `json:"description,omitempty"`
 	EventNotificationConfiguration interface{} `json:"event_notification_configuration,omitempty"`
 	GroupId *string `json:"group_id,omitempty"`
+	Groups interface{} `json:"groups,omitempty"`
+	HostName *string `json:"host_name,omitempty"`
+	IamInstanceProfileArn *string `json:"iam_instance_profile_arn,omitempty"`
+	IamInstanceProfileId *string `json:"iam_instance_profile_id,omitempty"`
 	IamPolicy interface{} `json:"iam_policy,omitempty"`
 	Id *string `json:"id,omitempty"`
 	IgnorePublicAcls *bool `json:"ignore_public_acls,omitempty"`
-	IngressSettings interface{} `json:"ingress_settings,omitempty"`
+	IngressSettings *string `json:"ingress_settings,omitempty"`
+	InlinePolicies interface{} `json:"inline_policies,omitempty"`
 	InstanceId *string `json:"instance_id,omitempty"`
+	InstanceProfileArns interface{} `json:"instance_profile_arns,omitempty"`
+	Instances interface{} `json:"instances,omitempty"`
 	IpConfiguration interface{} `json:"ip_configuration,omitempty"`
+	IsEgress *bool `json:"is_egress,omitempty"`
 	Name *string `json:"name,omitempty"`
+	NetworkConfiguration interface{} `json:"network_configuration,omitempty"`
 	NetworkInterfaces interface{} `json:"network_interfaces,omitempty"`
 	NetworkMode *string `json:"network_mode,omitempty"`
+	OrganizationId *string `json:"organization_id,omitempty"`
+	OrganizationMasterAccountArn *string `json:"organization_master_account_arn,omitempty"`
+	OrganizationMasterAccountEmail *string `json:"organization_master_account_email,omitempty"`
+	Path *string `json:"path,omitempty"`
 	Policy interface{} `json:"policy,omitempty"`
-	PolicyStd *string `json:"policy_std,omitempty"`
+	PolicyStd interface{} `json:"policy_std,omitempty"`
+	Privilege *string `json:"privilege,omitempty"`
 	PublicAccess *string `json:"public_access,omitempty"`
+	PublicIpAddress *string `json:"public_ip_address,omitempty"`
 	PublicIps interface{} `json:"public_ips,omitempty"`
+	PublicNetworkAccess *string `json:"public_network_access,omitempty"`
 	Region *string `json:"region,omitempty"`
 	ResourceId *string `json:"resource_id,omitempty"`
 	ResourceVpcConfig interface{} `json:"resource_vpc_config,omitempty"`
+	ResourcesVpcConfig interface{} `json:"resources_vpc_config,omitempty"`
 	RestrictPublicBuckets *bool `json:"restrict_public_buckets,omitempty"`
 	Scheme *string `json:"scheme,omitempty"`
 	SecurityGroups interface{} `json:"security_groups,omitempty"`
 	ServiceName *string `json:"service_name,omitempty"`
+	StorageAccountName *string `json:"storage_account_name,omitempty"`
+	TargetGroupArn *string `json:"target_group_arn,omitempty"`
+	TargetHealthDescriptions interface{} `json:"target_health_descriptions,omitempty"`
 	TaskDefinition interface{} `json:"task_definition,omitempty"`
 	TaskDefinitionArn *string `json:"task_definition_arn,omitempty"`
+	UserGroups interface{} `json:"user-groups,omitempty"`
+	UserId *string `json:"user_id,omitempty"`
+	Users interface{} `json:"users,omitempty"`
 	VpcId *string `json:"vpc_id,omitempty"`
 	VpcOptions interface{} `json:"vpc_options,omitempty"`
+	VpcSecurityGroupIds interface{} `json:"vpc_security_group_ids,omitempty"`
 	VpcSecurityGroups interface{} `json:"vpc_security_groups,omitempty"`
 }
 
@@ -73,6 +103,38 @@ func NewIngestersCloudResource() *IngestersCloudResource {
 func NewIngestersCloudResourceWithDefaults() *IngestersCloudResource {
 	this := IngestersCloudResource{}
 	return &this
+}
+
+// GetAccessLevel returns the AccessLevel field value if set, zero value otherwise.
+func (o *IngestersCloudResource) GetAccessLevel() string {
+	if o == nil || IsNil(o.AccessLevel) {
+		var ret string
+		return ret
+	}
+	return *o.AccessLevel
+}
+
+// GetAccessLevelOk returns a tuple with the AccessLevel field value if set, nil otherwise
+// and a boolean to check if the value has been set.
+func (o *IngestersCloudResource) GetAccessLevelOk() (*string, bool) {
+	if o == nil || IsNil(o.AccessLevel) {
+		return nil, false
+	}
+	return o.AccessLevel, true
+}
+
+// HasAccessLevel returns a boolean if a field has been set.
+func (o *IngestersCloudResource) HasAccessLevel() bool {
+	if o != nil && !IsNil(o.AccessLevel) {
+		return true
+	}
+
+	return false
+}
+
+// SetAccessLevel gets a reference to the given string and assigns it to the AccessLevel field.
+func (o *IngestersCloudResource) SetAccessLevel(v string) {
+	o.AccessLevel = &v
 }
 
 // GetAccountId returns the AccountId field value if set, zero value otherwise.
@@ -105,6 +167,38 @@ func (o *IngestersCloudResource) HasAccountId() bool {
 // SetAccountId gets a reference to the given string and assigns it to the AccountId field.
 func (o *IngestersCloudResource) SetAccountId(v string) {
 	o.AccountId = &v
+}
+
+// GetAction returns the Action field value if set, zero value otherwise.
+func (o *IngestersCloudResource) GetAction() string {
+	if o == nil || IsNil(o.Action) {
+		var ret string
+		return ret
+	}
+	return *o.Action
+}
+
+// GetActionOk returns a tuple with the Action field value if set, nil otherwise
+// and a boolean to check if the value has been set.
+func (o *IngestersCloudResource) GetActionOk() (*string, bool) {
+	if o == nil || IsNil(o.Action) {
+		return nil, false
+	}
+	return o.Action, true
+}
+
+// HasAction returns a boolean if a field has been set.
+func (o *IngestersCloudResource) HasAction() bool {
+	if o != nil && !IsNil(o.Action) {
+		return true
+	}
+
+	return false
+}
+
+// SetAction gets a reference to the given string and assigns it to the Action field.
+func (o *IngestersCloudResource) SetAction(v string) {
+	o.Action = &v
 }
 
 // GetAllowBlobPublicAccess returns the AllowBlobPublicAccess field value if set, zero value otherwise.
@@ -169,6 +263,39 @@ func (o *IngestersCloudResource) HasArn() bool {
 // SetArn gets a reference to the given string and assigns it to the Arn field.
 func (o *IngestersCloudResource) SetArn(v string) {
 	o.Arn = &v
+}
+
+// GetAttachedPolicyArns returns the AttachedPolicyArns field value if set, zero value otherwise (both if not set or set to explicit null).
+func (o *IngestersCloudResource) GetAttachedPolicyArns() interface{} {
+	if o == nil {
+		var ret interface{}
+		return ret
+	}
+	return o.AttachedPolicyArns
+}
+
+// GetAttachedPolicyArnsOk returns a tuple with the AttachedPolicyArns field value if set, nil otherwise
+// and a boolean to check if the value has been set.
+// NOTE: If the value is an explicit nil, `nil, true` will be returned
+func (o *IngestersCloudResource) GetAttachedPolicyArnsOk() (*interface{}, bool) {
+	if o == nil || IsNil(o.AttachedPolicyArns) {
+		return nil, false
+	}
+	return &o.AttachedPolicyArns, true
+}
+
+// HasAttachedPolicyArns returns a boolean if a field has been set.
+func (o *IngestersCloudResource) HasAttachedPolicyArns() bool {
+	if o != nil && IsNil(o.AttachedPolicyArns) {
+		return true
+	}
+
+	return false
+}
+
+// SetAttachedPolicyArns gets a reference to the given interface{} and assigns it to the AttachedPolicyArns field.
+func (o *IngestersCloudResource) SetAttachedPolicyArns(v interface{}) {
+	o.AttachedPolicyArns = v
 }
 
 // GetBlockPublicAcls returns the BlockPublicAcls field value if set, zero value otherwise.
@@ -332,6 +459,71 @@ func (o *IngestersCloudResource) SetContainerDefinitions(v interface{}) {
 	o.ContainerDefinitions = v
 }
 
+// GetContainers returns the Containers field value if set, zero value otherwise (both if not set or set to explicit null).
+func (o *IngestersCloudResource) GetContainers() interface{} {
+	if o == nil {
+		var ret interface{}
+		return ret
+	}
+	return o.Containers
+}
+
+// GetContainersOk returns a tuple with the Containers field value if set, nil otherwise
+// and a boolean to check if the value has been set.
+// NOTE: If the value is an explicit nil, `nil, true` will be returned
+func (o *IngestersCloudResource) GetContainersOk() (*interface{}, bool) {
+	if o == nil || IsNil(o.Containers) {
+		return nil, false
+	}
+	return &o.Containers, true
+}
+
+// HasContainers returns a boolean if a field has been set.
+func (o *IngestersCloudResource) HasContainers() bool {
+	if o != nil && IsNil(o.Containers) {
+		return true
+	}
+
+	return false
+}
+
+// SetContainers gets a reference to the given interface{} and assigns it to the Containers field.
+func (o *IngestersCloudResource) SetContainers(v interface{}) {
+	o.Containers = v
+}
+
+// GetCreateDate returns the CreateDate field value if set, zero value otherwise.
+func (o *IngestersCloudResource) GetCreateDate() string {
+	if o == nil || IsNil(o.CreateDate) {
+		var ret string
+		return ret
+	}
+	return *o.CreateDate
+}
+
+// GetCreateDateOk returns a tuple with the CreateDate field value if set, nil otherwise
+// and a boolean to check if the value has been set.
+func (o *IngestersCloudResource) GetCreateDateOk() (*string, bool) {
+	if o == nil || IsNil(o.CreateDate) {
+		return nil, false
+	}
+	return o.CreateDate, true
+}
+
+// HasCreateDate returns a boolean if a field has been set.
+func (o *IngestersCloudResource) HasCreateDate() bool {
+	if o != nil && !IsNil(o.CreateDate) {
+		return true
+	}
+
+	return false
+}
+
+// SetCreateDate gets a reference to the given string and assigns it to the CreateDate field.
+func (o *IngestersCloudResource) SetCreateDate(v string) {
+	o.CreateDate = &v
+}
+
 // GetDbClusterIdentifier returns the DbClusterIdentifier field value if set, zero value otherwise.
 func (o *IngestersCloudResource) GetDbClusterIdentifier() string {
 	if o == nil || IsNil(o.DbClusterIdentifier) {
@@ -362,6 +554,38 @@ func (o *IngestersCloudResource) HasDbClusterIdentifier() bool {
 // SetDbClusterIdentifier gets a reference to the given string and assigns it to the DbClusterIdentifier field.
 func (o *IngestersCloudResource) SetDbClusterIdentifier(v string) {
 	o.DbClusterIdentifier = &v
+}
+
+// GetDescription returns the Description field value if set, zero value otherwise.
+func (o *IngestersCloudResource) GetDescription() string {
+	if o == nil || IsNil(o.Description) {
+		var ret string
+		return ret
+	}
+	return *o.Description
+}
+
+// GetDescriptionOk returns a tuple with the Description field value if set, nil otherwise
+// and a boolean to check if the value has been set.
+func (o *IngestersCloudResource) GetDescriptionOk() (*string, bool) {
+	if o == nil || IsNil(o.Description) {
+		return nil, false
+	}
+	return o.Description, true
+}
+
+// HasDescription returns a boolean if a field has been set.
+func (o *IngestersCloudResource) HasDescription() bool {
+	if o != nil && !IsNil(o.Description) {
+		return true
+	}
+
+	return false
+}
+
+// SetDescription gets a reference to the given string and assigns it to the Description field.
+func (o *IngestersCloudResource) SetDescription(v string) {
+	o.Description = &v
 }
 
 // GetEventNotificationConfiguration returns the EventNotificationConfiguration field value if set, zero value otherwise (both if not set or set to explicit null).
@@ -427,6 +651,135 @@ func (o *IngestersCloudResource) HasGroupId() bool {
 // SetGroupId gets a reference to the given string and assigns it to the GroupId field.
 func (o *IngestersCloudResource) SetGroupId(v string) {
 	o.GroupId = &v
+}
+
+// GetGroups returns the Groups field value if set, zero value otherwise (both if not set or set to explicit null).
+func (o *IngestersCloudResource) GetGroups() interface{} {
+	if o == nil {
+		var ret interface{}
+		return ret
+	}
+	return o.Groups
+}
+
+// GetGroupsOk returns a tuple with the Groups field value if set, nil otherwise
+// and a boolean to check if the value has been set.
+// NOTE: If the value is an explicit nil, `nil, true` will be returned
+func (o *IngestersCloudResource) GetGroupsOk() (*interface{}, bool) {
+	if o == nil || IsNil(o.Groups) {
+		return nil, false
+	}
+	return &o.Groups, true
+}
+
+// HasGroups returns a boolean if a field has been set.
+func (o *IngestersCloudResource) HasGroups() bool {
+	if o != nil && IsNil(o.Groups) {
+		return true
+	}
+
+	return false
+}
+
+// SetGroups gets a reference to the given interface{} and assigns it to the Groups field.
+func (o *IngestersCloudResource) SetGroups(v interface{}) {
+	o.Groups = v
+}
+
+// GetHostName returns the HostName field value if set, zero value otherwise.
+func (o *IngestersCloudResource) GetHostName() string {
+	if o == nil || IsNil(o.HostName) {
+		var ret string
+		return ret
+	}
+	return *o.HostName
+}
+
+// GetHostNameOk returns a tuple with the HostName field value if set, nil otherwise
+// and a boolean to check if the value has been set.
+func (o *IngestersCloudResource) GetHostNameOk() (*string, bool) {
+	if o == nil || IsNil(o.HostName) {
+		return nil, false
+	}
+	return o.HostName, true
+}
+
+// HasHostName returns a boolean if a field has been set.
+func (o *IngestersCloudResource) HasHostName() bool {
+	if o != nil && !IsNil(o.HostName) {
+		return true
+	}
+
+	return false
+}
+
+// SetHostName gets a reference to the given string and assigns it to the HostName field.
+func (o *IngestersCloudResource) SetHostName(v string) {
+	o.HostName = &v
+}
+
+// GetIamInstanceProfileArn returns the IamInstanceProfileArn field value if set, zero value otherwise.
+func (o *IngestersCloudResource) GetIamInstanceProfileArn() string {
+	if o == nil || IsNil(o.IamInstanceProfileArn) {
+		var ret string
+		return ret
+	}
+	return *o.IamInstanceProfileArn
+}
+
+// GetIamInstanceProfileArnOk returns a tuple with the IamInstanceProfileArn field value if set, nil otherwise
+// and a boolean to check if the value has been set.
+func (o *IngestersCloudResource) GetIamInstanceProfileArnOk() (*string, bool) {
+	if o == nil || IsNil(o.IamInstanceProfileArn) {
+		return nil, false
+	}
+	return o.IamInstanceProfileArn, true
+}
+
+// HasIamInstanceProfileArn returns a boolean if a field has been set.
+func (o *IngestersCloudResource) HasIamInstanceProfileArn() bool {
+	if o != nil && !IsNil(o.IamInstanceProfileArn) {
+		return true
+	}
+
+	return false
+}
+
+// SetIamInstanceProfileArn gets a reference to the given string and assigns it to the IamInstanceProfileArn field.
+func (o *IngestersCloudResource) SetIamInstanceProfileArn(v string) {
+	o.IamInstanceProfileArn = &v
+}
+
+// GetIamInstanceProfileId returns the IamInstanceProfileId field value if set, zero value otherwise.
+func (o *IngestersCloudResource) GetIamInstanceProfileId() string {
+	if o == nil || IsNil(o.IamInstanceProfileId) {
+		var ret string
+		return ret
+	}
+	return *o.IamInstanceProfileId
+}
+
+// GetIamInstanceProfileIdOk returns a tuple with the IamInstanceProfileId field value if set, nil otherwise
+// and a boolean to check if the value has been set.
+func (o *IngestersCloudResource) GetIamInstanceProfileIdOk() (*string, bool) {
+	if o == nil || IsNil(o.IamInstanceProfileId) {
+		return nil, false
+	}
+	return o.IamInstanceProfileId, true
+}
+
+// HasIamInstanceProfileId returns a boolean if a field has been set.
+func (o *IngestersCloudResource) HasIamInstanceProfileId() bool {
+	if o != nil && !IsNil(o.IamInstanceProfileId) {
+		return true
+	}
+
+	return false
+}
+
+// SetIamInstanceProfileId gets a reference to the given string and assigns it to the IamInstanceProfileId field.
+func (o *IngestersCloudResource) SetIamInstanceProfileId(v string) {
+	o.IamInstanceProfileId = &v
 }
 
 // GetIamPolicy returns the IamPolicy field value if set, zero value otherwise (both if not set or set to explicit null).
@@ -526,37 +879,69 @@ func (o *IngestersCloudResource) SetIgnorePublicAcls(v bool) {
 	o.IgnorePublicAcls = &v
 }
 
-// GetIngressSettings returns the IngressSettings field value if set, zero value otherwise (both if not set or set to explicit null).
-func (o *IngestersCloudResource) GetIngressSettings() interface{} {
-	if o == nil {
-		var ret interface{}
+// GetIngressSettings returns the IngressSettings field value if set, zero value otherwise.
+func (o *IngestersCloudResource) GetIngressSettings() string {
+	if o == nil || IsNil(o.IngressSettings) {
+		var ret string
 		return ret
 	}
-	return o.IngressSettings
+	return *o.IngressSettings
 }
 
 // GetIngressSettingsOk returns a tuple with the IngressSettings field value if set, nil otherwise
 // and a boolean to check if the value has been set.
-// NOTE: If the value is an explicit nil, `nil, true` will be returned
-func (o *IngestersCloudResource) GetIngressSettingsOk() (*interface{}, bool) {
+func (o *IngestersCloudResource) GetIngressSettingsOk() (*string, bool) {
 	if o == nil || IsNil(o.IngressSettings) {
 		return nil, false
 	}
-	return &o.IngressSettings, true
+	return o.IngressSettings, true
 }
 
 // HasIngressSettings returns a boolean if a field has been set.
 func (o *IngestersCloudResource) HasIngressSettings() bool {
-	if o != nil && IsNil(o.IngressSettings) {
+	if o != nil && !IsNil(o.IngressSettings) {
 		return true
 	}
 
 	return false
 }
 
-// SetIngressSettings gets a reference to the given interface{} and assigns it to the IngressSettings field.
-func (o *IngestersCloudResource) SetIngressSettings(v interface{}) {
-	o.IngressSettings = v
+// SetIngressSettings gets a reference to the given string and assigns it to the IngressSettings field.
+func (o *IngestersCloudResource) SetIngressSettings(v string) {
+	o.IngressSettings = &v
+}
+
+// GetInlinePolicies returns the InlinePolicies field value if set, zero value otherwise (both if not set or set to explicit null).
+func (o *IngestersCloudResource) GetInlinePolicies() interface{} {
+	if o == nil {
+		var ret interface{}
+		return ret
+	}
+	return o.InlinePolicies
+}
+
+// GetInlinePoliciesOk returns a tuple with the InlinePolicies field value if set, nil otherwise
+// and a boolean to check if the value has been set.
+// NOTE: If the value is an explicit nil, `nil, true` will be returned
+func (o *IngestersCloudResource) GetInlinePoliciesOk() (*interface{}, bool) {
+	if o == nil || IsNil(o.InlinePolicies) {
+		return nil, false
+	}
+	return &o.InlinePolicies, true
+}
+
+// HasInlinePolicies returns a boolean if a field has been set.
+func (o *IngestersCloudResource) HasInlinePolicies() bool {
+	if o != nil && IsNil(o.InlinePolicies) {
+		return true
+	}
+
+	return false
+}
+
+// SetInlinePolicies gets a reference to the given interface{} and assigns it to the InlinePolicies field.
+func (o *IngestersCloudResource) SetInlinePolicies(v interface{}) {
+	o.InlinePolicies = v
 }
 
 // GetInstanceId returns the InstanceId field value if set, zero value otherwise.
@@ -589,6 +974,72 @@ func (o *IngestersCloudResource) HasInstanceId() bool {
 // SetInstanceId gets a reference to the given string and assigns it to the InstanceId field.
 func (o *IngestersCloudResource) SetInstanceId(v string) {
 	o.InstanceId = &v
+}
+
+// GetInstanceProfileArns returns the InstanceProfileArns field value if set, zero value otherwise (both if not set or set to explicit null).
+func (o *IngestersCloudResource) GetInstanceProfileArns() interface{} {
+	if o == nil {
+		var ret interface{}
+		return ret
+	}
+	return o.InstanceProfileArns
+}
+
+// GetInstanceProfileArnsOk returns a tuple with the InstanceProfileArns field value if set, nil otherwise
+// and a boolean to check if the value has been set.
+// NOTE: If the value is an explicit nil, `nil, true` will be returned
+func (o *IngestersCloudResource) GetInstanceProfileArnsOk() (*interface{}, bool) {
+	if o == nil || IsNil(o.InstanceProfileArns) {
+		return nil, false
+	}
+	return &o.InstanceProfileArns, true
+}
+
+// HasInstanceProfileArns returns a boolean if a field has been set.
+func (o *IngestersCloudResource) HasInstanceProfileArns() bool {
+	if o != nil && IsNil(o.InstanceProfileArns) {
+		return true
+	}
+
+	return false
+}
+
+// SetInstanceProfileArns gets a reference to the given interface{} and assigns it to the InstanceProfileArns field.
+func (o *IngestersCloudResource) SetInstanceProfileArns(v interface{}) {
+	o.InstanceProfileArns = v
+}
+
+// GetInstances returns the Instances field value if set, zero value otherwise (both if not set or set to explicit null).
+func (o *IngestersCloudResource) GetInstances() interface{} {
+	if o == nil {
+		var ret interface{}
+		return ret
+	}
+	return o.Instances
+}
+
+// GetInstancesOk returns a tuple with the Instances field value if set, nil otherwise
+// and a boolean to check if the value has been set.
+// NOTE: If the value is an explicit nil, `nil, true` will be returned
+func (o *IngestersCloudResource) GetInstancesOk() (*interface{}, bool) {
+	if o == nil || IsNil(o.Instances) {
+		return nil, false
+	}
+	return &o.Instances, true
+}
+
+// HasInstances returns a boolean if a field has been set.
+func (o *IngestersCloudResource) HasInstances() bool {
+	if o != nil && IsNil(o.Instances) {
+		return true
+	}
+
+	return false
+}
+
+// SetInstances gets a reference to the given interface{} and assigns it to the Instances field.
+func (o *IngestersCloudResource) SetInstances(v interface{}) {
+	o.Instances = v
 }
 
 // GetIpConfiguration returns the IpConfiguration field value if set, zero value otherwise (both if not set or set to explicit null).
@@ -624,6 +1075,38 @@ func (o *IngestersCloudResource) SetIpConfiguration(v interface{}) {
 	o.IpConfiguration = v
 }
 
+// GetIsEgress returns the IsEgress field value if set, zero value otherwise.
+func (o *IngestersCloudResource) GetIsEgress() bool {
+	if o == nil || IsNil(o.IsEgress) {
+		var ret bool
+		return ret
+	}
+	return *o.IsEgress
+}
+
+// GetIsEgressOk returns a tuple with the IsEgress field value if set, nil otherwise
+// and a boolean to check if the value has been set.
+func (o *IngestersCloudResource) GetIsEgressOk() (*bool, bool) {
+	if o == nil || IsNil(o.IsEgress) {
+		return nil, false
+	}
+	return o.IsEgress, true
+}
+
+// HasIsEgress returns a boolean if a field has been set.
+func (o *IngestersCloudResource) HasIsEgress() bool {
+	if o != nil && !IsNil(o.IsEgress) {
+		return true
+	}
+
+	return false
+}
+
+// SetIsEgress gets a reference to the given bool and assigns it to the IsEgress field.
+func (o *IngestersCloudResource) SetIsEgress(v bool) {
+	o.IsEgress = &v
+}
+
 // GetName returns the Name field value if set, zero value otherwise.
 func (o *IngestersCloudResource) GetName() string {
 	if o == nil || IsNil(o.Name) {
@@ -654,6 +1137,39 @@ func (o *IngestersCloudResource) HasName() bool {
 // SetName gets a reference to the given string and assigns it to the Name field.
 func (o *IngestersCloudResource) SetName(v string) {
 	o.Name = &v
+}
+
+// GetNetworkConfiguration returns the NetworkConfiguration field value if set, zero value otherwise (both if not set or set to explicit null).
+func (o *IngestersCloudResource) GetNetworkConfiguration() interface{} {
+	if o == nil {
+		var ret interface{}
+		return ret
+	}
+	return o.NetworkConfiguration
+}
+
+// GetNetworkConfigurationOk returns a tuple with the NetworkConfiguration field value if set, nil otherwise
+// and a boolean to check if the value has been set.
+// NOTE: If the value is an explicit nil, `nil, true` will be returned
+func (o *IngestersCloudResource) GetNetworkConfigurationOk() (*interface{}, bool) {
+	if o == nil || IsNil(o.NetworkConfiguration) {
+		return nil, false
+	}
+	return &o.NetworkConfiguration, true
+}
+
+// HasNetworkConfiguration returns a boolean if a field has been set.
+func (o *IngestersCloudResource) HasNetworkConfiguration() bool {
+	if o != nil && IsNil(o.NetworkConfiguration) {
+		return true
+	}
+
+	return false
+}
+
+// SetNetworkConfiguration gets a reference to the given interface{} and assigns it to the NetworkConfiguration field.
+func (o *IngestersCloudResource) SetNetworkConfiguration(v interface{}) {
+	o.NetworkConfiguration = v
 }
 
 // GetNetworkInterfaces returns the NetworkInterfaces field value if set, zero value otherwise (both if not set or set to explicit null).
@@ -721,6 +1237,134 @@ func (o *IngestersCloudResource) SetNetworkMode(v string) {
 	o.NetworkMode = &v
 }
 
+// GetOrganizationId returns the OrganizationId field value if set, zero value otherwise.
+func (o *IngestersCloudResource) GetOrganizationId() string {
+	if o == nil || IsNil(o.OrganizationId) {
+		var ret string
+		return ret
+	}
+	return *o.OrganizationId
+}
+
+// GetOrganizationIdOk returns a tuple with the OrganizationId field value if set, nil otherwise
+// and a boolean to check if the value has been set.
+func (o *IngestersCloudResource) GetOrganizationIdOk() (*string, bool) {
+	if o == nil || IsNil(o.OrganizationId) {
+		return nil, false
+	}
+	return o.OrganizationId, true
+}
+
+// HasOrganizationId returns a boolean if a field has been set.
+func (o *IngestersCloudResource) HasOrganizationId() bool {
+	if o != nil && !IsNil(o.OrganizationId) {
+		return true
+	}
+
+	return false
+}
+
+// SetOrganizationId gets a reference to the given string and assigns it to the OrganizationId field.
+func (o *IngestersCloudResource) SetOrganizationId(v string) {
+	o.OrganizationId = &v
+}
+
+// GetOrganizationMasterAccountArn returns the OrganizationMasterAccountArn field value if set, zero value otherwise.
+func (o *IngestersCloudResource) GetOrganizationMasterAccountArn() string {
+	if o == nil || IsNil(o.OrganizationMasterAccountArn) {
+		var ret string
+		return ret
+	}
+	return *o.OrganizationMasterAccountArn
+}
+
+// GetOrganizationMasterAccountArnOk returns a tuple with the OrganizationMasterAccountArn field value if set, nil otherwise
+// and a boolean to check if the value has been set.
+func (o *IngestersCloudResource) GetOrganizationMasterAccountArnOk() (*string, bool) {
+	if o == nil || IsNil(o.OrganizationMasterAccountArn) {
+		return nil, false
+	}
+	return o.OrganizationMasterAccountArn, true
+}
+
+// HasOrganizationMasterAccountArn returns a boolean if a field has been set.
+func (o *IngestersCloudResource) HasOrganizationMasterAccountArn() bool {
+	if o != nil && !IsNil(o.OrganizationMasterAccountArn) {
+		return true
+	}
+
+	return false
+}
+
+// SetOrganizationMasterAccountArn gets a reference to the given string and assigns it to the OrganizationMasterAccountArn field.
+func (o *IngestersCloudResource) SetOrganizationMasterAccountArn(v string) {
+	o.OrganizationMasterAccountArn = &v
+}
+
+// GetOrganizationMasterAccountEmail returns the OrganizationMasterAccountEmail field value if set, zero value otherwise.
+func (o *IngestersCloudResource) GetOrganizationMasterAccountEmail() string {
+	if o == nil || IsNil(o.OrganizationMasterAccountEmail) {
+		var ret string
+		return ret
+	}
+	return *o.OrganizationMasterAccountEmail
+}
+
+// GetOrganizationMasterAccountEmailOk returns a tuple with the OrganizationMasterAccountEmail field value if set, nil otherwise
+// and a boolean to check if the value has been set.
+func (o *IngestersCloudResource) GetOrganizationMasterAccountEmailOk() (*string, bool) {
+	if o == nil || IsNil(o.OrganizationMasterAccountEmail) {
+		return nil, false
+	}
+	return o.OrganizationMasterAccountEmail, true
+}
+
+// HasOrganizationMasterAccountEmail returns a boolean if a field has been set.
+func (o *IngestersCloudResource) HasOrganizationMasterAccountEmail() bool {
+	if o != nil && !IsNil(o.OrganizationMasterAccountEmail) {
+		return true
+	}
+
+	return false
+}
+
+// SetOrganizationMasterAccountEmail gets a reference to the given string and assigns it to the OrganizationMasterAccountEmail field.
+func (o *IngestersCloudResource) SetOrganizationMasterAccountEmail(v string) {
+	o.OrganizationMasterAccountEmail = &v
+}
+
+// GetPath returns the Path field value if set, zero value otherwise.
+func (o *IngestersCloudResource) GetPath() string {
+	if o == nil || IsNil(o.Path) {
+		var ret string
+		return ret
+	}
+	return *o.Path
+}
+
+// GetPathOk returns a tuple with the Path field value if set, nil otherwise
+// and a boolean to check if the value has been set.
+func (o *IngestersCloudResource) GetPathOk() (*string, bool) {
+	if o == nil || IsNil(o.Path) {
+		return nil, false
+	}
+	return o.Path, true
+}
+
+// HasPath returns a boolean if a field has been set.
+func (o *IngestersCloudResource) HasPath() bool {
+	if o != nil && !IsNil(o.Path) {
+		return true
+	}
+
+	return false
+}
+
+// SetPath gets a reference to the given string and assigns it to the Path field.
+func (o *IngestersCloudResource) SetPath(v string) {
+	o.Path = &v
+}
+
 // GetPolicy returns the Policy field value if set, zero value otherwise (both if not set or set to explicit null).
 func (o *IngestersCloudResource) GetPolicy() interface{} {
 	if o == nil {
@@ -754,36 +1398,69 @@ func (o *IngestersCloudResource) SetPolicy(v interface{}) {
 	o.Policy = v
 }
 
-// GetPolicyStd returns the PolicyStd field value if set, zero value otherwise.
-func (o *IngestersCloudResource) GetPolicyStd() string {
-	if o == nil || IsNil(o.PolicyStd) {
-		var ret string
+// GetPolicyStd returns the PolicyStd field value if set, zero value otherwise (both if not set or set to explicit null).
+func (o *IngestersCloudResource) GetPolicyStd() interface{} {
+	if o == nil {
+		var ret interface{}
 		return ret
 	}
-	return *o.PolicyStd
+	return o.PolicyStd
 }
 
 // GetPolicyStdOk returns a tuple with the PolicyStd field value if set, nil otherwise
 // and a boolean to check if the value has been set.
-func (o *IngestersCloudResource) GetPolicyStdOk() (*string, bool) {
+// NOTE: If the value is an explicit nil, `nil, true` will be returned
+func (o *IngestersCloudResource) GetPolicyStdOk() (*interface{}, bool) {
 	if o == nil || IsNil(o.PolicyStd) {
 		return nil, false
 	}
-	return o.PolicyStd, true
+	return &o.PolicyStd, true
 }
 
 // HasPolicyStd returns a boolean if a field has been set.
 func (o *IngestersCloudResource) HasPolicyStd() bool {
-	if o != nil && !IsNil(o.PolicyStd) {
+	if o != nil && IsNil(o.PolicyStd) {
 		return true
 	}
 
 	return false
 }
 
-// SetPolicyStd gets a reference to the given string and assigns it to the PolicyStd field.
-func (o *IngestersCloudResource) SetPolicyStd(v string) {
-	o.PolicyStd = &v
+// SetPolicyStd gets a reference to the given interface{} and assigns it to the PolicyStd field.
+func (o *IngestersCloudResource) SetPolicyStd(v interface{}) {
+	o.PolicyStd = v
+}
+
+// GetPrivilege returns the Privilege field value if set, zero value otherwise.
+func (o *IngestersCloudResource) GetPrivilege() string {
+	if o == nil || IsNil(o.Privilege) {
+		var ret string
+		return ret
+	}
+	return *o.Privilege
+}
+
+// GetPrivilegeOk returns a tuple with the Privilege field value if set, nil otherwise
+// and a boolean to check if the value has been set.
+func (o *IngestersCloudResource) GetPrivilegeOk() (*string, bool) {
+	if o == nil || IsNil(o.Privilege) {
+		return nil, false
+	}
+	return o.Privilege, true
+}
+
+// HasPrivilege returns a boolean if a field has been set.
+func (o *IngestersCloudResource) HasPrivilege() bool {
+	if o != nil && !IsNil(o.Privilege) {
+		return true
+	}
+
+	return false
+}
+
+// SetPrivilege gets a reference to the given string and assigns it to the Privilege field.
+func (o *IngestersCloudResource) SetPrivilege(v string) {
+	o.Privilege = &v
 }
 
 // GetPublicAccess returns the PublicAccess field value if set, zero value otherwise.
@@ -818,6 +1495,38 @@ func (o *IngestersCloudResource) SetPublicAccess(v string) {
 	o.PublicAccess = &v
 }
 
+// GetPublicIpAddress returns the PublicIpAddress field value if set, zero value otherwise.
+func (o *IngestersCloudResource) GetPublicIpAddress() string {
+	if o == nil || IsNil(o.PublicIpAddress) {
+		var ret string
+		return ret
+	}
+	return *o.PublicIpAddress
+}
+
+// GetPublicIpAddressOk returns a tuple with the PublicIpAddress field value if set, nil otherwise
+// and a boolean to check if the value has been set.
+func (o *IngestersCloudResource) GetPublicIpAddressOk() (*string, bool) {
+	if o == nil || IsNil(o.PublicIpAddress) {
+		return nil, false
+	}
+	return o.PublicIpAddress, true
+}
+
+// HasPublicIpAddress returns a boolean if a field has been set.
+func (o *IngestersCloudResource) HasPublicIpAddress() bool {
+	if o != nil && !IsNil(o.PublicIpAddress) {
+		return true
+	}
+
+	return false
+}
+
+// SetPublicIpAddress gets a reference to the given string and assigns it to the PublicIpAddress field.
+func (o *IngestersCloudResource) SetPublicIpAddress(v string) {
+	o.PublicIpAddress = &v
+}
+
 // GetPublicIps returns the PublicIps field value if set, zero value otherwise (both if not set or set to explicit null).
 func (o *IngestersCloudResource) GetPublicIps() interface{} {
 	if o == nil {
@@ -849,6 +1558,38 @@ func (o *IngestersCloudResource) HasPublicIps() bool {
 // SetPublicIps gets a reference to the given interface{} and assigns it to the PublicIps field.
 func (o *IngestersCloudResource) SetPublicIps(v interface{}) {
 	o.PublicIps = v
+}
+
+// GetPublicNetworkAccess returns the PublicNetworkAccess field value if set, zero value otherwise.
+func (o *IngestersCloudResource) GetPublicNetworkAccess() string {
+	if o == nil || IsNil(o.PublicNetworkAccess) {
+		var ret string
+		return ret
+	}
+	return *o.PublicNetworkAccess
+}
+
+// GetPublicNetworkAccessOk returns a tuple with the PublicNetworkAccess field value if set, nil otherwise
+// and a boolean to check if the value has been set.
+func (o *IngestersCloudResource) GetPublicNetworkAccessOk() (*string, bool) {
+	if o == nil || IsNil(o.PublicNetworkAccess) {
+		return nil, false
+	}
+	return o.PublicNetworkAccess, true
+}
+
+// HasPublicNetworkAccess returns a boolean if a field has been set.
+func (o *IngestersCloudResource) HasPublicNetworkAccess() bool {
+	if o != nil && !IsNil(o.PublicNetworkAccess) {
+		return true
+	}
+
+	return false
+}
+
+// SetPublicNetworkAccess gets a reference to the given string and assigns it to the PublicNetworkAccess field.
+func (o *IngestersCloudResource) SetPublicNetworkAccess(v string) {
+	o.PublicNetworkAccess = &v
 }
 
 // GetRegion returns the Region field value if set, zero value otherwise.
@@ -946,6 +1687,39 @@ func (o *IngestersCloudResource) HasResourceVpcConfig() bool {
 // SetResourceVpcConfig gets a reference to the given interface{} and assigns it to the ResourceVpcConfig field.
 func (o *IngestersCloudResource) SetResourceVpcConfig(v interface{}) {
 	o.ResourceVpcConfig = v
+}
+
+// GetResourcesVpcConfig returns the ResourcesVpcConfig field value if set, zero value otherwise (both if not set or set to explicit null).
+func (o *IngestersCloudResource) GetResourcesVpcConfig() interface{} {
+	if o == nil {
+		var ret interface{}
+		return ret
+	}
+	return o.ResourcesVpcConfig
+}
+
+// GetResourcesVpcConfigOk returns a tuple with the ResourcesVpcConfig field value if set, nil otherwise
+// and a boolean to check if the value has been set.
+// NOTE: If the value is an explicit nil, `nil, true` will be returned
+func (o *IngestersCloudResource) GetResourcesVpcConfigOk() (*interface{}, bool) {
+	if o == nil || IsNil(o.ResourcesVpcConfig) {
+		return nil, false
+	}
+	return &o.ResourcesVpcConfig, true
+}
+
+// HasResourcesVpcConfig returns a boolean if a field has been set.
+func (o *IngestersCloudResource) HasResourcesVpcConfig() bool {
+	if o != nil && IsNil(o.ResourcesVpcConfig) {
+		return true
+	}
+
+	return false
+}
+
+// SetResourcesVpcConfig gets a reference to the given interface{} and assigns it to the ResourcesVpcConfig field.
+func (o *IngestersCloudResource) SetResourcesVpcConfig(v interface{}) {
+	o.ResourcesVpcConfig = v
 }
 
 // GetRestrictPublicBuckets returns the RestrictPublicBuckets field value if set, zero value otherwise.
@@ -1077,6 +1851,103 @@ func (o *IngestersCloudResource) SetServiceName(v string) {
 	o.ServiceName = &v
 }
 
+// GetStorageAccountName returns the StorageAccountName field value if set, zero value otherwise.
+func (o *IngestersCloudResource) GetStorageAccountName() string {
+	if o == nil || IsNil(o.StorageAccountName) {
+		var ret string
+		return ret
+	}
+	return *o.StorageAccountName
+}
+
+// GetStorageAccountNameOk returns a tuple with the StorageAccountName field value if set, nil otherwise
+// and a boolean to check if the value has been set.
+func (o *IngestersCloudResource) GetStorageAccountNameOk() (*string, bool) {
+	if o == nil || IsNil(o.StorageAccountName) {
+		return nil, false
+	}
+	return o.StorageAccountName, true
+}
+
+// HasStorageAccountName returns a boolean if a field has been set.
+func (o *IngestersCloudResource) HasStorageAccountName() bool {
+	if o != nil && !IsNil(o.StorageAccountName) {
+		return true
+	}
+
+	return false
+}
+
+// SetStorageAccountName gets a reference to the given string and assigns it to the StorageAccountName field.
+func (o *IngestersCloudResource) SetStorageAccountName(v string) {
+	o.StorageAccountName = &v
+}
+
+// GetTargetGroupArn returns the TargetGroupArn field value if set, zero value otherwise.
+func (o *IngestersCloudResource) GetTargetGroupArn() string {
+	if o == nil || IsNil(o.TargetGroupArn) {
+		var ret string
+		return ret
+	}
+	return *o.TargetGroupArn
+}
+
+// GetTargetGroupArnOk returns a tuple with the TargetGroupArn field value if set, nil otherwise
+// and a boolean to check if the value has been set.
+func (o *IngestersCloudResource) GetTargetGroupArnOk() (*string, bool) {
+	if o == nil || IsNil(o.TargetGroupArn) {
+		return nil, false
+	}
+	return o.TargetGroupArn, true
+}
+
+// HasTargetGroupArn returns a boolean if a field has been set.
+func (o *IngestersCloudResource) HasTargetGroupArn() bool {
+	if o != nil && !IsNil(o.TargetGroupArn) {
+		return true
+	}
+
+	return false
+}
+
+// SetTargetGroupArn gets a reference to the given string and assigns it to the TargetGroupArn field.
+func (o *IngestersCloudResource) SetTargetGroupArn(v string) {
+	o.TargetGroupArn = &v
+}
+
+// GetTargetHealthDescriptions returns the TargetHealthDescriptions field value if set, zero value otherwise (both if not set or set to explicit null).
+func (o *IngestersCloudResource) GetTargetHealthDescriptions() interface{} {
+	if o == nil {
+		var ret interface{}
+		return ret
+	}
+	return o.TargetHealthDescriptions
+}
+
+// GetTargetHealthDescriptionsOk returns a tuple with the TargetHealthDescriptions field value if set, nil otherwise
+// and a boolean to check if the value has been set.
+// NOTE: If the value is an explicit nil, `nil, true` will be returned
+func (o *IngestersCloudResource) GetTargetHealthDescriptionsOk() (*interface{}, bool) {
+	if o == nil || IsNil(o.TargetHealthDescriptions) {
+		return nil, false
+	}
+	return &o.TargetHealthDescriptions, true
+}
+
+// HasTargetHealthDescriptions returns a boolean if a field has been set.
+func (o *IngestersCloudResource) HasTargetHealthDescriptions() bool {
+	if o != nil && IsNil(o.TargetHealthDescriptions) {
+		return true
+	}
+
+	return false
+}
+
+// SetTargetHealthDescriptions gets a reference to the given interface{} and assigns it to the TargetHealthDescriptions field.
+func (o *IngestersCloudResource) SetTargetHealthDescriptions(v interface{}) {
+	o.TargetHealthDescriptions = v
+}
+
 // GetTaskDefinition returns the TaskDefinition field value if set, zero value otherwise (both if not set or set to explicit null).
 func (o *IngestersCloudResource) GetTaskDefinition() interface{} {
 	if o == nil {
@@ -1140,6 +2011,104 @@ func (o *IngestersCloudResource) HasTaskDefinitionArn() bool {
 // SetTaskDefinitionArn gets a reference to the given string and assigns it to the TaskDefinitionArn field.
 func (o *IngestersCloudResource) SetTaskDefinitionArn(v string) {
 	o.TaskDefinitionArn = &v
+}
+
+// GetUserGroups returns the UserGroups field value if set, zero value otherwise (both if not set or set to explicit null).
+func (o *IngestersCloudResource) GetUserGroups() interface{} {
+	if o == nil {
+		var ret interface{}
+		return ret
+	}
+	return o.UserGroups
+}
+
+// GetUserGroupsOk returns a tuple with the UserGroups field value if set, nil otherwise
+// and a boolean to check if the value has been set.
+// NOTE: If the value is an explicit nil, `nil, true` will be returned
+func (o *IngestersCloudResource) GetUserGroupsOk() (*interface{}, bool) {
+	if o == nil || IsNil(o.UserGroups) {
+		return nil, false
+	}
+	return &o.UserGroups, true
+}
+
+// HasUserGroups returns a boolean if a field has been set.
+func (o *IngestersCloudResource) HasUserGroups() bool {
+	if o != nil && IsNil(o.UserGroups) {
+		return true
+	}
+
+	return false
+}
+
+// SetUserGroups gets a reference to the given interface{} and assigns it to the UserGroups field.
+func (o *IngestersCloudResource) SetUserGroups(v interface{}) {
+	o.UserGroups = v
+}
+
+// GetUserId returns the UserId field value if set, zero value otherwise.
+func (o *IngestersCloudResource) GetUserId() string {
+	if o == nil || IsNil(o.UserId) {
+		var ret string
+		return ret
+	}
+	return *o.UserId
+}
+
+// GetUserIdOk returns a tuple with the UserId field value if set, nil otherwise
+// and a boolean to check if the value has been set.
+func (o *IngestersCloudResource) GetUserIdOk() (*string, bool) {
+	if o == nil || IsNil(o.UserId) {
+		return nil, false
+	}
+	return o.UserId, true
+}
+
+// HasUserId returns a boolean if a field has been set.
+func (o *IngestersCloudResource) HasUserId() bool {
+	if o != nil && !IsNil(o.UserId) {
+		return true
+	}
+
+	return false
+}
+
+// SetUserId gets a reference to the given string and assigns it to the UserId field.
+func (o *IngestersCloudResource) SetUserId(v string) {
+	o.UserId = &v
+}
+
+// GetUsers returns the Users field value if set, zero value otherwise (both if not set or set to explicit null).
+func (o *IngestersCloudResource) GetUsers() interface{} {
+	if o == nil {
+		var ret interface{}
+		return ret
+	}
+	return o.Users
+}
+
+// GetUsersOk returns a tuple with the Users field value if set, nil otherwise
+// and a boolean to check if the value has been set.
+// NOTE: If the value is an explicit nil, `nil, true` will be returned
+func (o *IngestersCloudResource) GetUsersOk() (*interface{}, bool) {
+	if o == nil || IsNil(o.Users) {
+		return nil, false
+	}
+	return &o.Users, true
+}
+
+// HasUsers returns a boolean if a field has been set.
+func (o *IngestersCloudResource) HasUsers() bool {
+	if o != nil && IsNil(o.Users) {
+		return true
+	}
+
+	return false
+}
+
+// SetUsers gets a reference to the given interface{} and assigns it to the Users field.
+func (o *IngestersCloudResource) SetUsers(v interface{}) {
+	o.Users = v
 }
 
 // GetVpcId returns the VpcId field value if set, zero value otherwise.
@@ -1207,6 +2176,39 @@ func (o *IngestersCloudResource) SetVpcOptions(v interface{}) {
 	o.VpcOptions = v
 }
 
+// GetVpcSecurityGroupIds returns the VpcSecurityGroupIds field value if set, zero value otherwise (both if not set or set to explicit null).
+func (o *IngestersCloudResource) GetVpcSecurityGroupIds() interface{} {
+	if o == nil {
+		var ret interface{}
+		return ret
+	}
+	return o.VpcSecurityGroupIds
+}
+
+// GetVpcSecurityGroupIdsOk returns a tuple with the VpcSecurityGroupIds field value if set, nil otherwise
+// and a boolean to check if the value has been set.
+// NOTE: If the value is an explicit nil, `nil, true` will be returned
+func (o *IngestersCloudResource) GetVpcSecurityGroupIdsOk() (*interface{}, bool) {
+	if o == nil || IsNil(o.VpcSecurityGroupIds) {
+		return nil, false
+	}
+	return &o.VpcSecurityGroupIds, true
+}
+
+// HasVpcSecurityGroupIds returns a boolean if a field has been set.
+func (o *IngestersCloudResource) HasVpcSecurityGroupIds() bool {
+	if o != nil && IsNil(o.VpcSecurityGroupIds) {
+		return true
+	}
+
+	return false
+}
+
+// SetVpcSecurityGroupIds gets a reference to the given interface{} and assigns it to the VpcSecurityGroupIds field.
+func (o *IngestersCloudResource) SetVpcSecurityGroupIds(v interface{}) {
+	o.VpcSecurityGroupIds = v
+}
+
 // GetVpcSecurityGroups returns the VpcSecurityGroups field value if set, zero value otherwise (both if not set or set to explicit null).
 func (o *IngestersCloudResource) GetVpcSecurityGroups() interface{} {
 	if o == nil {
@@ -1250,14 +2252,23 @@ func (o IngestersCloudResource) MarshalJSON() ([]byte, error) {
 
 func (o IngestersCloudResource) ToMap() (map[string]interface{}, error) {
 	toSerialize := map[string]interface{}{}
+	if !IsNil(o.AccessLevel) {
+		toSerialize["access_level"] = o.AccessLevel
+	}
 	if !IsNil(o.AccountId) {
 		toSerialize["account_id"] = o.AccountId
+	}
+	if !IsNil(o.Action) {
+		toSerialize["action"] = o.Action
 	}
 	if !IsNil(o.AllowBlobPublicAccess) {
 		toSerialize["allow_blob_public_access"] = o.AllowBlobPublicAccess
 	}
 	if !IsNil(o.Arn) {
 		toSerialize["arn"] = o.Arn
+	}
+	if o.AttachedPolicyArns != nil {
+		toSerialize["attached_policy_arns"] = o.AttachedPolicyArns
 	}
 	if !IsNil(o.BlockPublicAcls) {
 		toSerialize["block_public_acls"] = o.BlockPublicAcls
@@ -1274,14 +2285,35 @@ func (o IngestersCloudResource) ToMap() (map[string]interface{}, error) {
 	if o.ContainerDefinitions != nil {
 		toSerialize["container_definitions"] = o.ContainerDefinitions
 	}
+	if o.Containers != nil {
+		toSerialize["containers"] = o.Containers
+	}
+	if !IsNil(o.CreateDate) {
+		toSerialize["create_date"] = o.CreateDate
+	}
 	if !IsNil(o.DbClusterIdentifier) {
 		toSerialize["db_cluster_identifier"] = o.DbClusterIdentifier
+	}
+	if !IsNil(o.Description) {
+		toSerialize["description"] = o.Description
 	}
 	if o.EventNotificationConfiguration != nil {
 		toSerialize["event_notification_configuration"] = o.EventNotificationConfiguration
 	}
 	if !IsNil(o.GroupId) {
 		toSerialize["group_id"] = o.GroupId
+	}
+	if o.Groups != nil {
+		toSerialize["groups"] = o.Groups
+	}
+	if !IsNil(o.HostName) {
+		toSerialize["host_name"] = o.HostName
+	}
+	if !IsNil(o.IamInstanceProfileArn) {
+		toSerialize["iam_instance_profile_arn"] = o.IamInstanceProfileArn
+	}
+	if !IsNil(o.IamInstanceProfileId) {
+		toSerialize["iam_instance_profile_id"] = o.IamInstanceProfileId
 	}
 	if o.IamPolicy != nil {
 		toSerialize["iam_policy"] = o.IamPolicy
@@ -1292,17 +2324,32 @@ func (o IngestersCloudResource) ToMap() (map[string]interface{}, error) {
 	if !IsNil(o.IgnorePublicAcls) {
 		toSerialize["ignore_public_acls"] = o.IgnorePublicAcls
 	}
-	if o.IngressSettings != nil {
+	if !IsNil(o.IngressSettings) {
 		toSerialize["ingress_settings"] = o.IngressSettings
+	}
+	if o.InlinePolicies != nil {
+		toSerialize["inline_policies"] = o.InlinePolicies
 	}
 	if !IsNil(o.InstanceId) {
 		toSerialize["instance_id"] = o.InstanceId
 	}
+	if o.InstanceProfileArns != nil {
+		toSerialize["instance_profile_arns"] = o.InstanceProfileArns
+	}
+	if o.Instances != nil {
+		toSerialize["instances"] = o.Instances
+	}
 	if o.IpConfiguration != nil {
 		toSerialize["ip_configuration"] = o.IpConfiguration
 	}
+	if !IsNil(o.IsEgress) {
+		toSerialize["is_egress"] = o.IsEgress
+	}
 	if !IsNil(o.Name) {
 		toSerialize["name"] = o.Name
+	}
+	if o.NetworkConfiguration != nil {
+		toSerialize["network_configuration"] = o.NetworkConfiguration
 	}
 	if o.NetworkInterfaces != nil {
 		toSerialize["network_interfaces"] = o.NetworkInterfaces
@@ -1310,17 +2357,38 @@ func (o IngestersCloudResource) ToMap() (map[string]interface{}, error) {
 	if !IsNil(o.NetworkMode) {
 		toSerialize["network_mode"] = o.NetworkMode
 	}
+	if !IsNil(o.OrganizationId) {
+		toSerialize["organization_id"] = o.OrganizationId
+	}
+	if !IsNil(o.OrganizationMasterAccountArn) {
+		toSerialize["organization_master_account_arn"] = o.OrganizationMasterAccountArn
+	}
+	if !IsNil(o.OrganizationMasterAccountEmail) {
+		toSerialize["organization_master_account_email"] = o.OrganizationMasterAccountEmail
+	}
+	if !IsNil(o.Path) {
+		toSerialize["path"] = o.Path
+	}
 	if o.Policy != nil {
 		toSerialize["policy"] = o.Policy
 	}
-	if !IsNil(o.PolicyStd) {
+	if o.PolicyStd != nil {
 		toSerialize["policy_std"] = o.PolicyStd
+	}
+	if !IsNil(o.Privilege) {
+		toSerialize["privilege"] = o.Privilege
 	}
 	if !IsNil(o.PublicAccess) {
 		toSerialize["public_access"] = o.PublicAccess
 	}
+	if !IsNil(o.PublicIpAddress) {
+		toSerialize["public_ip_address"] = o.PublicIpAddress
+	}
 	if o.PublicIps != nil {
 		toSerialize["public_ips"] = o.PublicIps
+	}
+	if !IsNil(o.PublicNetworkAccess) {
+		toSerialize["public_network_access"] = o.PublicNetworkAccess
 	}
 	if !IsNil(o.Region) {
 		toSerialize["region"] = o.Region
@@ -1330,6 +2398,9 @@ func (o IngestersCloudResource) ToMap() (map[string]interface{}, error) {
 	}
 	if o.ResourceVpcConfig != nil {
 		toSerialize["resource_vpc_config"] = o.ResourceVpcConfig
+	}
+	if o.ResourcesVpcConfig != nil {
+		toSerialize["resources_vpc_config"] = o.ResourcesVpcConfig
 	}
 	if !IsNil(o.RestrictPublicBuckets) {
 		toSerialize["restrict_public_buckets"] = o.RestrictPublicBuckets
@@ -1343,17 +2414,38 @@ func (o IngestersCloudResource) ToMap() (map[string]interface{}, error) {
 	if !IsNil(o.ServiceName) {
 		toSerialize["service_name"] = o.ServiceName
 	}
+	if !IsNil(o.StorageAccountName) {
+		toSerialize["storage_account_name"] = o.StorageAccountName
+	}
+	if !IsNil(o.TargetGroupArn) {
+		toSerialize["target_group_arn"] = o.TargetGroupArn
+	}
+	if o.TargetHealthDescriptions != nil {
+		toSerialize["target_health_descriptions"] = o.TargetHealthDescriptions
+	}
 	if o.TaskDefinition != nil {
 		toSerialize["task_definition"] = o.TaskDefinition
 	}
 	if !IsNil(o.TaskDefinitionArn) {
 		toSerialize["task_definition_arn"] = o.TaskDefinitionArn
 	}
+	if o.UserGroups != nil {
+		toSerialize["user-groups"] = o.UserGroups
+	}
+	if !IsNil(o.UserId) {
+		toSerialize["user_id"] = o.UserId
+	}
+	if o.Users != nil {
+		toSerialize["users"] = o.Users
+	}
 	if !IsNil(o.VpcId) {
 		toSerialize["vpc_id"] = o.VpcId
 	}
 	if o.VpcOptions != nil {
 		toSerialize["vpc_options"] = o.VpcOptions
+	}
+	if o.VpcSecurityGroupIds != nil {
+		toSerialize["vpc_security_group_ids"] = o.VpcSecurityGroupIds
 	}
 	if o.VpcSecurityGroups != nil {
 		toSerialize["vpc_security_groups"] = o.VpcSecurityGroups

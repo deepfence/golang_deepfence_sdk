@@ -30,6 +30,7 @@ type ModelHost struct {
 	MalwaresCount int32 `json:"malwares_count"`
 	Metrics ModelComputeMetrics `json:"metrics"`
 	NodeId string `json:"node_id"`
+	NodeName string `json:"node_name"`
 	Pods []ModelPod `json:"pods"`
 	Processes []ModelProcess `json:"processes"`
 	SecretScanStatus string `json:"secret_scan_status"`
@@ -42,7 +43,7 @@ type ModelHost struct {
 // This constructor will assign default values to properties that have it defined,
 // and makes sure properties required by API are set, but the set of arguments
 // will change when the set of required properties is changed
-func NewModelHost(cloudMetadata map[string]interface{}, complianceScanStatus string, compliancesCount int32, containerImages []ModelContainerImage, containers []ModelContainer, hostName string, malwareScanStatus string, malwaresCount int32, metrics ModelComputeMetrics, nodeId string, pods []ModelPod, processes []ModelProcess, secretScanStatus string, secretsCount int32, vulnerabilitiesCount int32, vulnerabilityScanStatus string) *ModelHost {
+func NewModelHost(cloudMetadata map[string]interface{}, complianceScanStatus string, compliancesCount int32, containerImages []ModelContainerImage, containers []ModelContainer, hostName string, malwareScanStatus string, malwaresCount int32, metrics ModelComputeMetrics, nodeId string, nodeName string, pods []ModelPod, processes []ModelProcess, secretScanStatus string, secretsCount int32, vulnerabilitiesCount int32, vulnerabilityScanStatus string) *ModelHost {
 	this := ModelHost{}
 	this.CloudMetadata = cloudMetadata
 	this.ComplianceScanStatus = complianceScanStatus
@@ -54,6 +55,7 @@ func NewModelHost(cloudMetadata map[string]interface{}, complianceScanStatus str
 	this.MalwaresCount = malwaresCount
 	this.Metrics = metrics
 	this.NodeId = nodeId
+	this.NodeName = nodeName
 	this.Pods = pods
 	this.Processes = processes
 	this.SecretScanStatus = secretScanStatus
@@ -315,6 +317,30 @@ func (o *ModelHost) SetNodeId(v string) {
 	o.NodeId = v
 }
 
+// GetNodeName returns the NodeName field value
+func (o *ModelHost) GetNodeName() string {
+	if o == nil {
+		var ret string
+		return ret
+	}
+
+	return o.NodeName
+}
+
+// GetNodeNameOk returns a tuple with the NodeName field value
+// and a boolean to check if the value has been set.
+func (o *ModelHost) GetNodeNameOk() (*string, bool) {
+	if o == nil {
+		return nil, false
+	}
+	return &o.NodeName, true
+}
+
+// SetNodeName sets field value
+func (o *ModelHost) SetNodeName(v string) {
+	o.NodeName = v
+}
+
 // GetPods returns the Pods field value
 // If the value is explicit nil, the zero value for []ModelPod will be returned
 func (o *ModelHost) GetPods() []ModelPod {
@@ -487,6 +513,7 @@ func (o ModelHost) ToMap() (map[string]interface{}, error) {
 	toSerialize["malwares_count"] = o.MalwaresCount
 	toSerialize["metrics"] = o.Metrics
 	toSerialize["node_id"] = o.NodeId
+	toSerialize["node_name"] = o.NodeName
 	if o.Pods != nil {
 		toSerialize["pods"] = o.Pods
 	}
