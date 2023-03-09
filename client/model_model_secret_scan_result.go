@@ -28,7 +28,7 @@ type ModelSecretScanResult struct {
 	NodeName string `json:"node_name"`
 	NodeType string `json:"node_type"`
 	ScanId string `json:"scan_id"`
-	Secrets []ModelSecretRule `json:"secrets"`
+	Secrets []ModelSecret `json:"secrets"`
 	SeverityCounts map[string]int32 `json:"severity_counts"`
 	UpdatedAt int64 `json:"updated_at"`
 }
@@ -37,7 +37,7 @@ type ModelSecretScanResult struct {
 // This constructor will assign default values to properties that have it defined,
 // and makes sure properties required by API are set, but the set of arguments
 // will change when the set of required properties is changed
-func NewModelSecretScanResult(dockerContainerName string, dockerImageName string, hostName string, kubernetesClusterName string, nodeId string, nodeName string, nodeType string, scanId string, secrets []ModelSecretRule, severityCounts map[string]int32, updatedAt int64) *ModelSecretScanResult {
+func NewModelSecretScanResult(dockerContainerName string, dockerImageName string, hostName string, kubernetesClusterName string, nodeId string, nodeName string, nodeType string, scanId string, secrets []ModelSecret, severityCounts map[string]int32, updatedAt int64) *ModelSecretScanResult {
 	this := ModelSecretScanResult{}
 	this.DockerContainerName = dockerContainerName
 	this.DockerImageName = dockerImageName
@@ -254,10 +254,10 @@ func (o *ModelSecretScanResult) SetScanId(v string) {
 }
 
 // GetSecrets returns the Secrets field value
-// If the value is explicit nil, the zero value for []ModelSecretRule will be returned
-func (o *ModelSecretScanResult) GetSecrets() []ModelSecretRule {
+// If the value is explicit nil, the zero value for []ModelSecret will be returned
+func (o *ModelSecretScanResult) GetSecrets() []ModelSecret {
 	if o == nil {
-		var ret []ModelSecretRule
+		var ret []ModelSecret
 		return ret
 	}
 
@@ -267,7 +267,7 @@ func (o *ModelSecretScanResult) GetSecrets() []ModelSecretRule {
 // GetSecretsOk returns a tuple with the Secrets field value
 // and a boolean to check if the value has been set.
 // NOTE: If the value is an explicit nil, `nil, true` will be returned
-func (o *ModelSecretScanResult) GetSecretsOk() ([]ModelSecretRule, bool) {
+func (o *ModelSecretScanResult) GetSecretsOk() ([]ModelSecret, bool) {
 	if o == nil || IsNil(o.Secrets) {
 		return nil, false
 	}
@@ -275,7 +275,7 @@ func (o *ModelSecretScanResult) GetSecretsOk() ([]ModelSecretRule, bool) {
 }
 
 // SetSecrets sets field value
-func (o *ModelSecretScanResult) SetSecrets(v []ModelSecretRule) {
+func (o *ModelSecretScanResult) SetSecrets(v []ModelSecret) {
 	o.Secrets = v
 }
 

@@ -15,13 +15,12 @@ import (
 	"encoding/json"
 )
 
-// checks if the ModelSecretRule type satisfies the MappedNullable interface at compile time
-var _ MappedNullable = &ModelSecretRule{}
+// checks if the ModelSecret type satisfies the MappedNullable interface at compile time
+var _ MappedNullable = &ModelSecret{}
 
-// ModelSecretRule struct for ModelSecretRule
-type ModelSecretRule struct {
+// ModelSecret struct for ModelSecret
+type ModelSecret struct {
 	FullFilename string `json:"full_filename"`
-	Id int32 `json:"id"`
 	Level string `json:"level"`
 	Masked bool `json:"masked"`
 	MatchedContent string `json:"matched_content"`
@@ -30,20 +29,20 @@ type ModelSecretRule struct {
 	Part string `json:"part"`
 	RelativeEndingIndex int32 `json:"relative_ending_index"`
 	RelativeStartingIndex int32 `json:"relative_starting_index"`
+	RuleId int32 `json:"rule_id"`
 	Score float32 `json:"score"`
 	SignatureToMatch string `json:"signature_to_match"`
 	StartingIndex int32 `json:"starting_index"`
 	UpdatedAt int32 `json:"updated_at"`
 }
 
-// NewModelSecretRule instantiates a new ModelSecretRule object
+// NewModelSecret instantiates a new ModelSecret object
 // This constructor will assign default values to properties that have it defined,
 // and makes sure properties required by API are set, but the set of arguments
 // will change when the set of required properties is changed
-func NewModelSecretRule(fullFilename string, id int32, level string, masked bool, matchedContent string, name string, nodeId string, part string, relativeEndingIndex int32, relativeStartingIndex int32, score float32, signatureToMatch string, startingIndex int32, updatedAt int32) *ModelSecretRule {
-	this := ModelSecretRule{}
+func NewModelSecret(fullFilename string, level string, masked bool, matchedContent string, name string, nodeId string, part string, relativeEndingIndex int32, relativeStartingIndex int32, ruleId int32, score float32, signatureToMatch string, startingIndex int32, updatedAt int32) *ModelSecret {
+	this := ModelSecret{}
 	this.FullFilename = fullFilename
-	this.Id = id
 	this.Level = level
 	this.Masked = masked
 	this.MatchedContent = matchedContent
@@ -52,6 +51,7 @@ func NewModelSecretRule(fullFilename string, id int32, level string, masked bool
 	this.Part = part
 	this.RelativeEndingIndex = relativeEndingIndex
 	this.RelativeStartingIndex = relativeStartingIndex
+	this.RuleId = ruleId
 	this.Score = score
 	this.SignatureToMatch = signatureToMatch
 	this.StartingIndex = startingIndex
@@ -59,16 +59,16 @@ func NewModelSecretRule(fullFilename string, id int32, level string, masked bool
 	return &this
 }
 
-// NewModelSecretRuleWithDefaults instantiates a new ModelSecretRule object
+// NewModelSecretWithDefaults instantiates a new ModelSecret object
 // This constructor will only assign default values to properties that have it defined,
 // but it doesn't guarantee that properties required by API are set
-func NewModelSecretRuleWithDefaults() *ModelSecretRule {
-	this := ModelSecretRule{}
+func NewModelSecretWithDefaults() *ModelSecret {
+	this := ModelSecret{}
 	return &this
 }
 
 // GetFullFilename returns the FullFilename field value
-func (o *ModelSecretRule) GetFullFilename() string {
+func (o *ModelSecret) GetFullFilename() string {
 	if o == nil {
 		var ret string
 		return ret
@@ -79,7 +79,7 @@ func (o *ModelSecretRule) GetFullFilename() string {
 
 // GetFullFilenameOk returns a tuple with the FullFilename field value
 // and a boolean to check if the value has been set.
-func (o *ModelSecretRule) GetFullFilenameOk() (*string, bool) {
+func (o *ModelSecret) GetFullFilenameOk() (*string, bool) {
 	if o == nil {
 		return nil, false
 	}
@@ -87,36 +87,12 @@ func (o *ModelSecretRule) GetFullFilenameOk() (*string, bool) {
 }
 
 // SetFullFilename sets field value
-func (o *ModelSecretRule) SetFullFilename(v string) {
+func (o *ModelSecret) SetFullFilename(v string) {
 	o.FullFilename = v
 }
 
-// GetId returns the Id field value
-func (o *ModelSecretRule) GetId() int32 {
-	if o == nil {
-		var ret int32
-		return ret
-	}
-
-	return o.Id
-}
-
-// GetIdOk returns a tuple with the Id field value
-// and a boolean to check if the value has been set.
-func (o *ModelSecretRule) GetIdOk() (*int32, bool) {
-	if o == nil {
-		return nil, false
-	}
-	return &o.Id, true
-}
-
-// SetId sets field value
-func (o *ModelSecretRule) SetId(v int32) {
-	o.Id = v
-}
-
 // GetLevel returns the Level field value
-func (o *ModelSecretRule) GetLevel() string {
+func (o *ModelSecret) GetLevel() string {
 	if o == nil {
 		var ret string
 		return ret
@@ -127,7 +103,7 @@ func (o *ModelSecretRule) GetLevel() string {
 
 // GetLevelOk returns a tuple with the Level field value
 // and a boolean to check if the value has been set.
-func (o *ModelSecretRule) GetLevelOk() (*string, bool) {
+func (o *ModelSecret) GetLevelOk() (*string, bool) {
 	if o == nil {
 		return nil, false
 	}
@@ -135,12 +111,12 @@ func (o *ModelSecretRule) GetLevelOk() (*string, bool) {
 }
 
 // SetLevel sets field value
-func (o *ModelSecretRule) SetLevel(v string) {
+func (o *ModelSecret) SetLevel(v string) {
 	o.Level = v
 }
 
 // GetMasked returns the Masked field value
-func (o *ModelSecretRule) GetMasked() bool {
+func (o *ModelSecret) GetMasked() bool {
 	if o == nil {
 		var ret bool
 		return ret
@@ -151,7 +127,7 @@ func (o *ModelSecretRule) GetMasked() bool {
 
 // GetMaskedOk returns a tuple with the Masked field value
 // and a boolean to check if the value has been set.
-func (o *ModelSecretRule) GetMaskedOk() (*bool, bool) {
+func (o *ModelSecret) GetMaskedOk() (*bool, bool) {
 	if o == nil {
 		return nil, false
 	}
@@ -159,12 +135,12 @@ func (o *ModelSecretRule) GetMaskedOk() (*bool, bool) {
 }
 
 // SetMasked sets field value
-func (o *ModelSecretRule) SetMasked(v bool) {
+func (o *ModelSecret) SetMasked(v bool) {
 	o.Masked = v
 }
 
 // GetMatchedContent returns the MatchedContent field value
-func (o *ModelSecretRule) GetMatchedContent() string {
+func (o *ModelSecret) GetMatchedContent() string {
 	if o == nil {
 		var ret string
 		return ret
@@ -175,7 +151,7 @@ func (o *ModelSecretRule) GetMatchedContent() string {
 
 // GetMatchedContentOk returns a tuple with the MatchedContent field value
 // and a boolean to check if the value has been set.
-func (o *ModelSecretRule) GetMatchedContentOk() (*string, bool) {
+func (o *ModelSecret) GetMatchedContentOk() (*string, bool) {
 	if o == nil {
 		return nil, false
 	}
@@ -183,12 +159,12 @@ func (o *ModelSecretRule) GetMatchedContentOk() (*string, bool) {
 }
 
 // SetMatchedContent sets field value
-func (o *ModelSecretRule) SetMatchedContent(v string) {
+func (o *ModelSecret) SetMatchedContent(v string) {
 	o.MatchedContent = v
 }
 
 // GetName returns the Name field value
-func (o *ModelSecretRule) GetName() string {
+func (o *ModelSecret) GetName() string {
 	if o == nil {
 		var ret string
 		return ret
@@ -199,7 +175,7 @@ func (o *ModelSecretRule) GetName() string {
 
 // GetNameOk returns a tuple with the Name field value
 // and a boolean to check if the value has been set.
-func (o *ModelSecretRule) GetNameOk() (*string, bool) {
+func (o *ModelSecret) GetNameOk() (*string, bool) {
 	if o == nil {
 		return nil, false
 	}
@@ -207,12 +183,12 @@ func (o *ModelSecretRule) GetNameOk() (*string, bool) {
 }
 
 // SetName sets field value
-func (o *ModelSecretRule) SetName(v string) {
+func (o *ModelSecret) SetName(v string) {
 	o.Name = v
 }
 
 // GetNodeId returns the NodeId field value
-func (o *ModelSecretRule) GetNodeId() string {
+func (o *ModelSecret) GetNodeId() string {
 	if o == nil {
 		var ret string
 		return ret
@@ -223,7 +199,7 @@ func (o *ModelSecretRule) GetNodeId() string {
 
 // GetNodeIdOk returns a tuple with the NodeId field value
 // and a boolean to check if the value has been set.
-func (o *ModelSecretRule) GetNodeIdOk() (*string, bool) {
+func (o *ModelSecret) GetNodeIdOk() (*string, bool) {
 	if o == nil {
 		return nil, false
 	}
@@ -231,12 +207,12 @@ func (o *ModelSecretRule) GetNodeIdOk() (*string, bool) {
 }
 
 // SetNodeId sets field value
-func (o *ModelSecretRule) SetNodeId(v string) {
+func (o *ModelSecret) SetNodeId(v string) {
 	o.NodeId = v
 }
 
 // GetPart returns the Part field value
-func (o *ModelSecretRule) GetPart() string {
+func (o *ModelSecret) GetPart() string {
 	if o == nil {
 		var ret string
 		return ret
@@ -247,7 +223,7 @@ func (o *ModelSecretRule) GetPart() string {
 
 // GetPartOk returns a tuple with the Part field value
 // and a boolean to check if the value has been set.
-func (o *ModelSecretRule) GetPartOk() (*string, bool) {
+func (o *ModelSecret) GetPartOk() (*string, bool) {
 	if o == nil {
 		return nil, false
 	}
@@ -255,12 +231,12 @@ func (o *ModelSecretRule) GetPartOk() (*string, bool) {
 }
 
 // SetPart sets field value
-func (o *ModelSecretRule) SetPart(v string) {
+func (o *ModelSecret) SetPart(v string) {
 	o.Part = v
 }
 
 // GetRelativeEndingIndex returns the RelativeEndingIndex field value
-func (o *ModelSecretRule) GetRelativeEndingIndex() int32 {
+func (o *ModelSecret) GetRelativeEndingIndex() int32 {
 	if o == nil {
 		var ret int32
 		return ret
@@ -271,7 +247,7 @@ func (o *ModelSecretRule) GetRelativeEndingIndex() int32 {
 
 // GetRelativeEndingIndexOk returns a tuple with the RelativeEndingIndex field value
 // and a boolean to check if the value has been set.
-func (o *ModelSecretRule) GetRelativeEndingIndexOk() (*int32, bool) {
+func (o *ModelSecret) GetRelativeEndingIndexOk() (*int32, bool) {
 	if o == nil {
 		return nil, false
 	}
@@ -279,12 +255,12 @@ func (o *ModelSecretRule) GetRelativeEndingIndexOk() (*int32, bool) {
 }
 
 // SetRelativeEndingIndex sets field value
-func (o *ModelSecretRule) SetRelativeEndingIndex(v int32) {
+func (o *ModelSecret) SetRelativeEndingIndex(v int32) {
 	o.RelativeEndingIndex = v
 }
 
 // GetRelativeStartingIndex returns the RelativeStartingIndex field value
-func (o *ModelSecretRule) GetRelativeStartingIndex() int32 {
+func (o *ModelSecret) GetRelativeStartingIndex() int32 {
 	if o == nil {
 		var ret int32
 		return ret
@@ -295,7 +271,7 @@ func (o *ModelSecretRule) GetRelativeStartingIndex() int32 {
 
 // GetRelativeStartingIndexOk returns a tuple with the RelativeStartingIndex field value
 // and a boolean to check if the value has been set.
-func (o *ModelSecretRule) GetRelativeStartingIndexOk() (*int32, bool) {
+func (o *ModelSecret) GetRelativeStartingIndexOk() (*int32, bool) {
 	if o == nil {
 		return nil, false
 	}
@@ -303,12 +279,36 @@ func (o *ModelSecretRule) GetRelativeStartingIndexOk() (*int32, bool) {
 }
 
 // SetRelativeStartingIndex sets field value
-func (o *ModelSecretRule) SetRelativeStartingIndex(v int32) {
+func (o *ModelSecret) SetRelativeStartingIndex(v int32) {
 	o.RelativeStartingIndex = v
 }
 
+// GetRuleId returns the RuleId field value
+func (o *ModelSecret) GetRuleId() int32 {
+	if o == nil {
+		var ret int32
+		return ret
+	}
+
+	return o.RuleId
+}
+
+// GetRuleIdOk returns a tuple with the RuleId field value
+// and a boolean to check if the value has been set.
+func (o *ModelSecret) GetRuleIdOk() (*int32, bool) {
+	if o == nil {
+		return nil, false
+	}
+	return &o.RuleId, true
+}
+
+// SetRuleId sets field value
+func (o *ModelSecret) SetRuleId(v int32) {
+	o.RuleId = v
+}
+
 // GetScore returns the Score field value
-func (o *ModelSecretRule) GetScore() float32 {
+func (o *ModelSecret) GetScore() float32 {
 	if o == nil {
 		var ret float32
 		return ret
@@ -319,7 +319,7 @@ func (o *ModelSecretRule) GetScore() float32 {
 
 // GetScoreOk returns a tuple with the Score field value
 // and a boolean to check if the value has been set.
-func (o *ModelSecretRule) GetScoreOk() (*float32, bool) {
+func (o *ModelSecret) GetScoreOk() (*float32, bool) {
 	if o == nil {
 		return nil, false
 	}
@@ -327,12 +327,12 @@ func (o *ModelSecretRule) GetScoreOk() (*float32, bool) {
 }
 
 // SetScore sets field value
-func (o *ModelSecretRule) SetScore(v float32) {
+func (o *ModelSecret) SetScore(v float32) {
 	o.Score = v
 }
 
 // GetSignatureToMatch returns the SignatureToMatch field value
-func (o *ModelSecretRule) GetSignatureToMatch() string {
+func (o *ModelSecret) GetSignatureToMatch() string {
 	if o == nil {
 		var ret string
 		return ret
@@ -343,7 +343,7 @@ func (o *ModelSecretRule) GetSignatureToMatch() string {
 
 // GetSignatureToMatchOk returns a tuple with the SignatureToMatch field value
 // and a boolean to check if the value has been set.
-func (o *ModelSecretRule) GetSignatureToMatchOk() (*string, bool) {
+func (o *ModelSecret) GetSignatureToMatchOk() (*string, bool) {
 	if o == nil {
 		return nil, false
 	}
@@ -351,12 +351,12 @@ func (o *ModelSecretRule) GetSignatureToMatchOk() (*string, bool) {
 }
 
 // SetSignatureToMatch sets field value
-func (o *ModelSecretRule) SetSignatureToMatch(v string) {
+func (o *ModelSecret) SetSignatureToMatch(v string) {
 	o.SignatureToMatch = v
 }
 
 // GetStartingIndex returns the StartingIndex field value
-func (o *ModelSecretRule) GetStartingIndex() int32 {
+func (o *ModelSecret) GetStartingIndex() int32 {
 	if o == nil {
 		var ret int32
 		return ret
@@ -367,7 +367,7 @@ func (o *ModelSecretRule) GetStartingIndex() int32 {
 
 // GetStartingIndexOk returns a tuple with the StartingIndex field value
 // and a boolean to check if the value has been set.
-func (o *ModelSecretRule) GetStartingIndexOk() (*int32, bool) {
+func (o *ModelSecret) GetStartingIndexOk() (*int32, bool) {
 	if o == nil {
 		return nil, false
 	}
@@ -375,12 +375,12 @@ func (o *ModelSecretRule) GetStartingIndexOk() (*int32, bool) {
 }
 
 // SetStartingIndex sets field value
-func (o *ModelSecretRule) SetStartingIndex(v int32) {
+func (o *ModelSecret) SetStartingIndex(v int32) {
 	o.StartingIndex = v
 }
 
 // GetUpdatedAt returns the UpdatedAt field value
-func (o *ModelSecretRule) GetUpdatedAt() int32 {
+func (o *ModelSecret) GetUpdatedAt() int32 {
 	if o == nil {
 		var ret int32
 		return ret
@@ -391,7 +391,7 @@ func (o *ModelSecretRule) GetUpdatedAt() int32 {
 
 // GetUpdatedAtOk returns a tuple with the UpdatedAt field value
 // and a boolean to check if the value has been set.
-func (o *ModelSecretRule) GetUpdatedAtOk() (*int32, bool) {
+func (o *ModelSecret) GetUpdatedAtOk() (*int32, bool) {
 	if o == nil {
 		return nil, false
 	}
@@ -399,11 +399,11 @@ func (o *ModelSecretRule) GetUpdatedAtOk() (*int32, bool) {
 }
 
 // SetUpdatedAt sets field value
-func (o *ModelSecretRule) SetUpdatedAt(v int32) {
+func (o *ModelSecret) SetUpdatedAt(v int32) {
 	o.UpdatedAt = v
 }
 
-func (o ModelSecretRule) MarshalJSON() ([]byte, error) {
+func (o ModelSecret) MarshalJSON() ([]byte, error) {
 	toSerialize,err := o.ToMap()
 	if err != nil {
 		return []byte{}, err
@@ -411,10 +411,9 @@ func (o ModelSecretRule) MarshalJSON() ([]byte, error) {
 	return json.Marshal(toSerialize)
 }
 
-func (o ModelSecretRule) ToMap() (map[string]interface{}, error) {
+func (o ModelSecret) ToMap() (map[string]interface{}, error) {
 	toSerialize := map[string]interface{}{}
 	toSerialize["full_filename"] = o.FullFilename
-	toSerialize["id"] = o.Id
 	toSerialize["level"] = o.Level
 	toSerialize["masked"] = o.Masked
 	toSerialize["matched_content"] = o.MatchedContent
@@ -423,6 +422,7 @@ func (o ModelSecretRule) ToMap() (map[string]interface{}, error) {
 	toSerialize["part"] = o.Part
 	toSerialize["relative_ending_index"] = o.RelativeEndingIndex
 	toSerialize["relative_starting_index"] = o.RelativeStartingIndex
+	toSerialize["rule_id"] = o.RuleId
 	toSerialize["score"] = o.Score
 	toSerialize["signature_to_match"] = o.SignatureToMatch
 	toSerialize["starting_index"] = o.StartingIndex
@@ -430,38 +430,38 @@ func (o ModelSecretRule) ToMap() (map[string]interface{}, error) {
 	return toSerialize, nil
 }
 
-type NullableModelSecretRule struct {
-	value *ModelSecretRule
+type NullableModelSecret struct {
+	value *ModelSecret
 	isSet bool
 }
 
-func (v NullableModelSecretRule) Get() *ModelSecretRule {
+func (v NullableModelSecret) Get() *ModelSecret {
 	return v.value
 }
 
-func (v *NullableModelSecretRule) Set(val *ModelSecretRule) {
+func (v *NullableModelSecret) Set(val *ModelSecret) {
 	v.value = val
 	v.isSet = true
 }
 
-func (v NullableModelSecretRule) IsSet() bool {
+func (v NullableModelSecret) IsSet() bool {
 	return v.isSet
 }
 
-func (v *NullableModelSecretRule) Unset() {
+func (v *NullableModelSecret) Unset() {
 	v.value = nil
 	v.isSet = false
 }
 
-func NewNullableModelSecretRule(val *ModelSecretRule) *NullableModelSecretRule {
-	return &NullableModelSecretRule{value: val, isSet: true}
+func NewNullableModelSecret(val *ModelSecret) *NullableModelSecret {
+	return &NullableModelSecret{value: val, isSet: true}
 }
 
-func (v NullableModelSecretRule) MarshalJSON() ([]byte, error) {
+func (v NullableModelSecret) MarshalJSON() ([]byte, error) {
 	return json.Marshal(v.value)
 }
 
-func (v *NullableModelSecretRule) UnmarshalJSON(src []byte) error {
+func (v *NullableModelSecret) UnmarshalJSON(src []byte) error {
 	v.isSet = true
 	return json.Unmarshal(src, &v.value)
 }

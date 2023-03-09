@@ -20,7 +20,6 @@ var _ MappedNullable = &ModelCloudCompliance{}
 
 // ModelCloudCompliance struct for ModelCloudCompliance
 type ModelCloudCompliance struct {
-	Timestamp string `json:"@timestamp"`
 	AccountId string `json:"account_id"`
 	CloudProvider string `json:"cloud_provider"`
 	ComplianceCheckType string `json:"compliance_check_type"`
@@ -34,7 +33,6 @@ type ModelCloudCompliance struct {
 	Reason string `json:"reason"`
 	Region string `json:"region"`
 	Resource string `json:"resource"`
-	ScanId string `json:"scan_id"`
 	Service string `json:"service"`
 	Severity string `json:"severity"`
 	Status string `json:"status"`
@@ -47,9 +45,8 @@ type ModelCloudCompliance struct {
 // This constructor will assign default values to properties that have it defined,
 // and makes sure properties required by API are set, but the set of arguments
 // will change when the set of required properties is changed
-func NewModelCloudCompliance(timestamp string, accountId string, cloudProvider string, complianceCheckType string, controlId string, count int32, description string, group string, masked bool, nodeId string, nodeName string, reason string, region string, resource string, scanId string, service string, severity string, status string, title string, type_ string, updatedAt int32) *ModelCloudCompliance {
+func NewModelCloudCompliance(accountId string, cloudProvider string, complianceCheckType string, controlId string, count int32, description string, group string, masked bool, nodeId string, nodeName string, reason string, region string, resource string, service string, severity string, status string, title string, type_ string, updatedAt int32) *ModelCloudCompliance {
 	this := ModelCloudCompliance{}
-	this.Timestamp = timestamp
 	this.AccountId = accountId
 	this.CloudProvider = cloudProvider
 	this.ComplianceCheckType = complianceCheckType
@@ -63,7 +60,6 @@ func NewModelCloudCompliance(timestamp string, accountId string, cloudProvider s
 	this.Reason = reason
 	this.Region = region
 	this.Resource = resource
-	this.ScanId = scanId
 	this.Service = service
 	this.Severity = severity
 	this.Status = status
@@ -79,30 +75,6 @@ func NewModelCloudCompliance(timestamp string, accountId string, cloudProvider s
 func NewModelCloudComplianceWithDefaults() *ModelCloudCompliance {
 	this := ModelCloudCompliance{}
 	return &this
-}
-
-// GetTimestamp returns the Timestamp field value
-func (o *ModelCloudCompliance) GetTimestamp() string {
-	if o == nil {
-		var ret string
-		return ret
-	}
-
-	return o.Timestamp
-}
-
-// GetTimestampOk returns a tuple with the Timestamp field value
-// and a boolean to check if the value has been set.
-func (o *ModelCloudCompliance) GetTimestampOk() (*string, bool) {
-	if o == nil {
-		return nil, false
-	}
-	return &o.Timestamp, true
-}
-
-// SetTimestamp sets field value
-func (o *ModelCloudCompliance) SetTimestamp(v string) {
-	o.Timestamp = v
 }
 
 // GetAccountId returns the AccountId field value
@@ -417,30 +389,6 @@ func (o *ModelCloudCompliance) SetResource(v string) {
 	o.Resource = v
 }
 
-// GetScanId returns the ScanId field value
-func (o *ModelCloudCompliance) GetScanId() string {
-	if o == nil {
-		var ret string
-		return ret
-	}
-
-	return o.ScanId
-}
-
-// GetScanIdOk returns a tuple with the ScanId field value
-// and a boolean to check if the value has been set.
-func (o *ModelCloudCompliance) GetScanIdOk() (*string, bool) {
-	if o == nil {
-		return nil, false
-	}
-	return &o.ScanId, true
-}
-
-// SetScanId sets field value
-func (o *ModelCloudCompliance) SetScanId(v string) {
-	o.ScanId = v
-}
-
 // GetService returns the Service field value
 func (o *ModelCloudCompliance) GetService() string {
 	if o == nil {
@@ -595,7 +543,6 @@ func (o ModelCloudCompliance) MarshalJSON() ([]byte, error) {
 
 func (o ModelCloudCompliance) ToMap() (map[string]interface{}, error) {
 	toSerialize := map[string]interface{}{}
-	toSerialize["@timestamp"] = o.Timestamp
 	toSerialize["account_id"] = o.AccountId
 	toSerialize["cloud_provider"] = o.CloudProvider
 	toSerialize["compliance_check_type"] = o.ComplianceCheckType
@@ -609,7 +556,6 @@ func (o ModelCloudCompliance) ToMap() (map[string]interface{}, error) {
 	toSerialize["reason"] = o.Reason
 	toSerialize["region"] = o.Region
 	toSerialize["resource"] = o.Resource
-	toSerialize["scan_id"] = o.ScanId
 	toSerialize["service"] = o.Service
 	toSerialize["severity"] = o.Severity
 	toSerialize["status"] = o.Status

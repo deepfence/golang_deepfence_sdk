@@ -1487,7 +1487,7 @@ Name | Type | Description  | Notes
 
 ## SearchSecrets
 
-> []ModelSecretRule SearchSecrets(ctx).SearchSearchNodeReq(searchSearchNodeReq).Execute()
+> []ModelSecret SearchSecrets(ctx).SearchSearchNodeReq(searchSearchNodeReq).Execute()
 
 Search Secrets
 
@@ -1515,7 +1515,7 @@ func main() {
         fmt.Fprintf(os.Stderr, "Error when calling `SearchApi.SearchSecrets``: %v\n", err)
         fmt.Fprintf(os.Stderr, "Full HTTP response: %v\n", r)
     }
-    // response from `SearchSecrets`: []ModelSecretRule
+    // response from `SearchSecrets`: []ModelSecret
     fmt.Fprintf(os.Stdout, "Response from `SearchApi.SearchSecrets`: %v\n", resp)
 }
 ```
@@ -1535,7 +1535,7 @@ Name | Type | Description  | Notes
 
 ### Return type
 
-[**[]ModelSecretRule**](ModelSecretRule.md)
+[**[]ModelSecret**](ModelSecret.md)
 
 ### Authorization
 

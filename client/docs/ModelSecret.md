@@ -1,11 +1,10 @@
-# ModelSecretRule
+# ModelSecret
 
 ## Properties
 
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
 **FullFilename** | **string** |  | 
-**Id** | **int32** |  | 
 **Level** | **string** |  | 
 **Masked** | **bool** |  | 
 **MatchedContent** | **string** |  | 
@@ -14,6 +13,7 @@ Name | Type | Description | Notes
 **Part** | **string** |  | 
 **RelativeEndingIndex** | **int32** |  | 
 **RelativeStartingIndex** | **int32** |  | 
+**RuleId** | **int32** |  | 
 **Score** | **float32** |  | 
 **SignatureToMatch** | **string** |  | 
 **StartingIndex** | **int32** |  | 
@@ -21,299 +21,299 @@ Name | Type | Description | Notes
 
 ## Methods
 
-### NewModelSecretRule
+### NewModelSecret
 
-`func NewModelSecretRule(fullFilename string, id int32, level string, masked bool, matchedContent string, name string, nodeId string, part string, relativeEndingIndex int32, relativeStartingIndex int32, score float32, signatureToMatch string, startingIndex int32, updatedAt int32, ) *ModelSecretRule`
+`func NewModelSecret(fullFilename string, level string, masked bool, matchedContent string, name string, nodeId string, part string, relativeEndingIndex int32, relativeStartingIndex int32, ruleId int32, score float32, signatureToMatch string, startingIndex int32, updatedAt int32, ) *ModelSecret`
 
-NewModelSecretRule instantiates a new ModelSecretRule object
+NewModelSecret instantiates a new ModelSecret object
 This constructor will assign default values to properties that have it defined,
 and makes sure properties required by API are set, but the set of arguments
 will change when the set of required properties is changed
 
-### NewModelSecretRuleWithDefaults
+### NewModelSecretWithDefaults
 
-`func NewModelSecretRuleWithDefaults() *ModelSecretRule`
+`func NewModelSecretWithDefaults() *ModelSecret`
 
-NewModelSecretRuleWithDefaults instantiates a new ModelSecretRule object
+NewModelSecretWithDefaults instantiates a new ModelSecret object
 This constructor will only assign default values to properties that have it defined,
 but it doesn't guarantee that properties required by API are set
 
 ### GetFullFilename
 
-`func (o *ModelSecretRule) GetFullFilename() string`
+`func (o *ModelSecret) GetFullFilename() string`
 
 GetFullFilename returns the FullFilename field if non-nil, zero value otherwise.
 
 ### GetFullFilenameOk
 
-`func (o *ModelSecretRule) GetFullFilenameOk() (*string, bool)`
+`func (o *ModelSecret) GetFullFilenameOk() (*string, bool)`
 
 GetFullFilenameOk returns a tuple with the FullFilename field if it's non-nil, zero value otherwise
 and a boolean to check if the value has been set.
 
 ### SetFullFilename
 
-`func (o *ModelSecretRule) SetFullFilename(v string)`
+`func (o *ModelSecret) SetFullFilename(v string)`
 
 SetFullFilename sets FullFilename field to given value.
 
 
-### GetId
-
-`func (o *ModelSecretRule) GetId() int32`
-
-GetId returns the Id field if non-nil, zero value otherwise.
-
-### GetIdOk
-
-`func (o *ModelSecretRule) GetIdOk() (*int32, bool)`
-
-GetIdOk returns a tuple with the Id field if it's non-nil, zero value otherwise
-and a boolean to check if the value has been set.
-
-### SetId
-
-`func (o *ModelSecretRule) SetId(v int32)`
-
-SetId sets Id field to given value.
-
-
 ### GetLevel
 
-`func (o *ModelSecretRule) GetLevel() string`
+`func (o *ModelSecret) GetLevel() string`
 
 GetLevel returns the Level field if non-nil, zero value otherwise.
 
 ### GetLevelOk
 
-`func (o *ModelSecretRule) GetLevelOk() (*string, bool)`
+`func (o *ModelSecret) GetLevelOk() (*string, bool)`
 
 GetLevelOk returns a tuple with the Level field if it's non-nil, zero value otherwise
 and a boolean to check if the value has been set.
 
 ### SetLevel
 
-`func (o *ModelSecretRule) SetLevel(v string)`
+`func (o *ModelSecret) SetLevel(v string)`
 
 SetLevel sets Level field to given value.
 
 
 ### GetMasked
 
-`func (o *ModelSecretRule) GetMasked() bool`
+`func (o *ModelSecret) GetMasked() bool`
 
 GetMasked returns the Masked field if non-nil, zero value otherwise.
 
 ### GetMaskedOk
 
-`func (o *ModelSecretRule) GetMaskedOk() (*bool, bool)`
+`func (o *ModelSecret) GetMaskedOk() (*bool, bool)`
 
 GetMaskedOk returns a tuple with the Masked field if it's non-nil, zero value otherwise
 and a boolean to check if the value has been set.
 
 ### SetMasked
 
-`func (o *ModelSecretRule) SetMasked(v bool)`
+`func (o *ModelSecret) SetMasked(v bool)`
 
 SetMasked sets Masked field to given value.
 
 
 ### GetMatchedContent
 
-`func (o *ModelSecretRule) GetMatchedContent() string`
+`func (o *ModelSecret) GetMatchedContent() string`
 
 GetMatchedContent returns the MatchedContent field if non-nil, zero value otherwise.
 
 ### GetMatchedContentOk
 
-`func (o *ModelSecretRule) GetMatchedContentOk() (*string, bool)`
+`func (o *ModelSecret) GetMatchedContentOk() (*string, bool)`
 
 GetMatchedContentOk returns a tuple with the MatchedContent field if it's non-nil, zero value otherwise
 and a boolean to check if the value has been set.
 
 ### SetMatchedContent
 
-`func (o *ModelSecretRule) SetMatchedContent(v string)`
+`func (o *ModelSecret) SetMatchedContent(v string)`
 
 SetMatchedContent sets MatchedContent field to given value.
 
 
 ### GetName
 
-`func (o *ModelSecretRule) GetName() string`
+`func (o *ModelSecret) GetName() string`
 
 GetName returns the Name field if non-nil, zero value otherwise.
 
 ### GetNameOk
 
-`func (o *ModelSecretRule) GetNameOk() (*string, bool)`
+`func (o *ModelSecret) GetNameOk() (*string, bool)`
 
 GetNameOk returns a tuple with the Name field if it's non-nil, zero value otherwise
 and a boolean to check if the value has been set.
 
 ### SetName
 
-`func (o *ModelSecretRule) SetName(v string)`
+`func (o *ModelSecret) SetName(v string)`
 
 SetName sets Name field to given value.
 
 
 ### GetNodeId
 
-`func (o *ModelSecretRule) GetNodeId() string`
+`func (o *ModelSecret) GetNodeId() string`
 
 GetNodeId returns the NodeId field if non-nil, zero value otherwise.
 
 ### GetNodeIdOk
 
-`func (o *ModelSecretRule) GetNodeIdOk() (*string, bool)`
+`func (o *ModelSecret) GetNodeIdOk() (*string, bool)`
 
 GetNodeIdOk returns a tuple with the NodeId field if it's non-nil, zero value otherwise
 and a boolean to check if the value has been set.
 
 ### SetNodeId
 
-`func (o *ModelSecretRule) SetNodeId(v string)`
+`func (o *ModelSecret) SetNodeId(v string)`
 
 SetNodeId sets NodeId field to given value.
 
 
 ### GetPart
 
-`func (o *ModelSecretRule) GetPart() string`
+`func (o *ModelSecret) GetPart() string`
 
 GetPart returns the Part field if non-nil, zero value otherwise.
 
 ### GetPartOk
 
-`func (o *ModelSecretRule) GetPartOk() (*string, bool)`
+`func (o *ModelSecret) GetPartOk() (*string, bool)`
 
 GetPartOk returns a tuple with the Part field if it's non-nil, zero value otherwise
 and a boolean to check if the value has been set.
 
 ### SetPart
 
-`func (o *ModelSecretRule) SetPart(v string)`
+`func (o *ModelSecret) SetPart(v string)`
 
 SetPart sets Part field to given value.
 
 
 ### GetRelativeEndingIndex
 
-`func (o *ModelSecretRule) GetRelativeEndingIndex() int32`
+`func (o *ModelSecret) GetRelativeEndingIndex() int32`
 
 GetRelativeEndingIndex returns the RelativeEndingIndex field if non-nil, zero value otherwise.
 
 ### GetRelativeEndingIndexOk
 
-`func (o *ModelSecretRule) GetRelativeEndingIndexOk() (*int32, bool)`
+`func (o *ModelSecret) GetRelativeEndingIndexOk() (*int32, bool)`
 
 GetRelativeEndingIndexOk returns a tuple with the RelativeEndingIndex field if it's non-nil, zero value otherwise
 and a boolean to check if the value has been set.
 
 ### SetRelativeEndingIndex
 
-`func (o *ModelSecretRule) SetRelativeEndingIndex(v int32)`
+`func (o *ModelSecret) SetRelativeEndingIndex(v int32)`
 
 SetRelativeEndingIndex sets RelativeEndingIndex field to given value.
 
 
 ### GetRelativeStartingIndex
 
-`func (o *ModelSecretRule) GetRelativeStartingIndex() int32`
+`func (o *ModelSecret) GetRelativeStartingIndex() int32`
 
 GetRelativeStartingIndex returns the RelativeStartingIndex field if non-nil, zero value otherwise.
 
 ### GetRelativeStartingIndexOk
 
-`func (o *ModelSecretRule) GetRelativeStartingIndexOk() (*int32, bool)`
+`func (o *ModelSecret) GetRelativeStartingIndexOk() (*int32, bool)`
 
 GetRelativeStartingIndexOk returns a tuple with the RelativeStartingIndex field if it's non-nil, zero value otherwise
 and a boolean to check if the value has been set.
 
 ### SetRelativeStartingIndex
 
-`func (o *ModelSecretRule) SetRelativeStartingIndex(v int32)`
+`func (o *ModelSecret) SetRelativeStartingIndex(v int32)`
 
 SetRelativeStartingIndex sets RelativeStartingIndex field to given value.
 
 
+### GetRuleId
+
+`func (o *ModelSecret) GetRuleId() int32`
+
+GetRuleId returns the RuleId field if non-nil, zero value otherwise.
+
+### GetRuleIdOk
+
+`func (o *ModelSecret) GetRuleIdOk() (*int32, bool)`
+
+GetRuleIdOk returns a tuple with the RuleId field if it's non-nil, zero value otherwise
+and a boolean to check if the value has been set.
+
+### SetRuleId
+
+`func (o *ModelSecret) SetRuleId(v int32)`
+
+SetRuleId sets RuleId field to given value.
+
+
 ### GetScore
 
-`func (o *ModelSecretRule) GetScore() float32`
+`func (o *ModelSecret) GetScore() float32`
 
 GetScore returns the Score field if non-nil, zero value otherwise.
 
 ### GetScoreOk
 
-`func (o *ModelSecretRule) GetScoreOk() (*float32, bool)`
+`func (o *ModelSecret) GetScoreOk() (*float32, bool)`
 
 GetScoreOk returns a tuple with the Score field if it's non-nil, zero value otherwise
 and a boolean to check if the value has been set.
 
 ### SetScore
 
-`func (o *ModelSecretRule) SetScore(v float32)`
+`func (o *ModelSecret) SetScore(v float32)`
 
 SetScore sets Score field to given value.
 
 
 ### GetSignatureToMatch
 
-`func (o *ModelSecretRule) GetSignatureToMatch() string`
+`func (o *ModelSecret) GetSignatureToMatch() string`
 
 GetSignatureToMatch returns the SignatureToMatch field if non-nil, zero value otherwise.
 
 ### GetSignatureToMatchOk
 
-`func (o *ModelSecretRule) GetSignatureToMatchOk() (*string, bool)`
+`func (o *ModelSecret) GetSignatureToMatchOk() (*string, bool)`
 
 GetSignatureToMatchOk returns a tuple with the SignatureToMatch field if it's non-nil, zero value otherwise
 and a boolean to check if the value has been set.
 
 ### SetSignatureToMatch
 
-`func (o *ModelSecretRule) SetSignatureToMatch(v string)`
+`func (o *ModelSecret) SetSignatureToMatch(v string)`
 
 SetSignatureToMatch sets SignatureToMatch field to given value.
 
 
 ### GetStartingIndex
 
-`func (o *ModelSecretRule) GetStartingIndex() int32`
+`func (o *ModelSecret) GetStartingIndex() int32`
 
 GetStartingIndex returns the StartingIndex field if non-nil, zero value otherwise.
 
 ### GetStartingIndexOk
 
-`func (o *ModelSecretRule) GetStartingIndexOk() (*int32, bool)`
+`func (o *ModelSecret) GetStartingIndexOk() (*int32, bool)`
 
 GetStartingIndexOk returns a tuple with the StartingIndex field if it's non-nil, zero value otherwise
 and a boolean to check if the value has been set.
 
 ### SetStartingIndex
 
-`func (o *ModelSecretRule) SetStartingIndex(v int32)`
+`func (o *ModelSecret) SetStartingIndex(v int32)`
 
 SetStartingIndex sets StartingIndex field to given value.
 
 
 ### GetUpdatedAt
 
-`func (o *ModelSecretRule) GetUpdatedAt() int32`
+`func (o *ModelSecret) GetUpdatedAt() int32`
 
 GetUpdatedAt returns the UpdatedAt field if non-nil, zero value otherwise.
 
 ### GetUpdatedAtOk
 
-`func (o *ModelSecretRule) GetUpdatedAtOk() (*int32, bool)`
+`func (o *ModelSecret) GetUpdatedAtOk() (*int32, bool)`
 
 GetUpdatedAtOk returns a tuple with the UpdatedAt field if it's non-nil, zero value otherwise
 and a boolean to check if the value has been set.
 
 ### SetUpdatedAt
 
-`func (o *ModelSecretRule) SetUpdatedAt(v int32)`
+`func (o *ModelSecret) SetUpdatedAt(v int32)`
 
 SetUpdatedAt sets UpdatedAt field to given value.
 

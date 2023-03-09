@@ -4,7 +4,6 @@
 
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
-**Timestamp** | **string** |  | 
 **AccountId** | **string** |  | 
 **CloudProvider** | **string** |  | 
 **ComplianceCheckType** | **string** |  | 
@@ -18,7 +17,6 @@ Name | Type | Description | Notes
 **Reason** | **string** |  | 
 **Region** | **string** |  | 
 **Resource** | **string** |  | 
-**ScanId** | **string** |  | 
 **Service** | **string** |  | 
 **Severity** | **string** |  | 
 **Status** | **string** |  | 
@@ -30,7 +28,7 @@ Name | Type | Description | Notes
 
 ### NewModelCloudCompliance
 
-`func NewModelCloudCompliance(timestamp string, accountId string, cloudProvider string, complianceCheckType string, controlId string, count int32, description string, group string, masked bool, nodeId string, nodeName string, reason string, region string, resource string, scanId string, service string, severity string, status string, title string, type_ string, updatedAt int32, ) *ModelCloudCompliance`
+`func NewModelCloudCompliance(accountId string, cloudProvider string, complianceCheckType string, controlId string, count int32, description string, group string, masked bool, nodeId string, nodeName string, reason string, region string, resource string, service string, severity string, status string, title string, type_ string, updatedAt int32, ) *ModelCloudCompliance`
 
 NewModelCloudCompliance instantiates a new ModelCloudCompliance object
 This constructor will assign default values to properties that have it defined,
@@ -44,26 +42,6 @@ will change when the set of required properties is changed
 NewModelCloudComplianceWithDefaults instantiates a new ModelCloudCompliance object
 This constructor will only assign default values to properties that have it defined,
 but it doesn't guarantee that properties required by API are set
-
-### GetTimestamp
-
-`func (o *ModelCloudCompliance) GetTimestamp() string`
-
-GetTimestamp returns the Timestamp field if non-nil, zero value otherwise.
-
-### GetTimestampOk
-
-`func (o *ModelCloudCompliance) GetTimestampOk() (*string, bool)`
-
-GetTimestampOk returns a tuple with the Timestamp field if it's non-nil, zero value otherwise
-and a boolean to check if the value has been set.
-
-### SetTimestamp
-
-`func (o *ModelCloudCompliance) SetTimestamp(v string)`
-
-SetTimestamp sets Timestamp field to given value.
-
 
 ### GetAccountId
 
@@ -323,26 +301,6 @@ and a boolean to check if the value has been set.
 `func (o *ModelCloudCompliance) SetResource(v string)`
 
 SetResource sets Resource field to given value.
-
-
-### GetScanId
-
-`func (o *ModelCloudCompliance) GetScanId() string`
-
-GetScanId returns the ScanId field if non-nil, zero value otherwise.
-
-### GetScanIdOk
-
-`func (o *ModelCloudCompliance) GetScanIdOk() (*string, bool)`
-
-GetScanIdOk returns a tuple with the ScanId field if it's non-nil, zero value otherwise
-and a boolean to check if the value has been set.
-
-### SetScanId
-
-`func (o *ModelCloudCompliance) SetScanId(v string)`
-
-SetScanId sets ScanId field to given value.
 
 
 ### GetService

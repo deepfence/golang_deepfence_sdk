@@ -12,7 +12,7 @@ Name | Type | Description | Notes
 **NodeName** | **string** |  | 
 **NodeType** | **string** |  | 
 **ScanId** | **string** |  | 
-**Secrets** | [**[]ModelSecretRule**](ModelSecretRule.md) |  | 
+**Secrets** | [**[]ModelSecret**](ModelSecret.md) |  | 
 **SeverityCounts** | **map[string]int32** |  | 
 **UpdatedAt** | **int64** |  | 
 
@@ -20,7 +20,7 @@ Name | Type | Description | Notes
 
 ### NewModelSecretScanResult
 
-`func NewModelSecretScanResult(dockerContainerName string, dockerImageName string, hostName string, kubernetesClusterName string, nodeId string, nodeName string, nodeType string, scanId string, secrets []ModelSecretRule, severityCounts map[string]int32, updatedAt int64, ) *ModelSecretScanResult`
+`func NewModelSecretScanResult(dockerContainerName string, dockerImageName string, hostName string, kubernetesClusterName string, nodeId string, nodeName string, nodeType string, scanId string, secrets []ModelSecret, severityCounts map[string]int32, updatedAt int64, ) *ModelSecretScanResult`
 
 NewModelSecretScanResult instantiates a new ModelSecretScanResult object
 This constructor will assign default values to properties that have it defined,
@@ -197,20 +197,20 @@ SetScanId sets ScanId field to given value.
 
 ### GetSecrets
 
-`func (o *ModelSecretScanResult) GetSecrets() []ModelSecretRule`
+`func (o *ModelSecretScanResult) GetSecrets() []ModelSecret`
 
 GetSecrets returns the Secrets field if non-nil, zero value otherwise.
 
 ### GetSecretsOk
 
-`func (o *ModelSecretScanResult) GetSecretsOk() (*[]ModelSecretRule, bool)`
+`func (o *ModelSecretScanResult) GetSecretsOk() (*[]ModelSecret, bool)`
 
 GetSecretsOk returns a tuple with the Secrets field if it's non-nil, zero value otherwise
 and a boolean to check if the value has been set.
 
 ### SetSecrets
 
-`func (o *ModelSecretScanResult) SetSecrets(v []ModelSecretRule)`
+`func (o *ModelSecretScanResult) SetSecrets(v []ModelSecret)`
 
 SetSecrets sets Secrets field to given value.
 

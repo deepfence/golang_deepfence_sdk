@@ -125,6 +125,8 @@ Class | Method | HTTP request | Description
 *MalwareScanApi* | [**StopMalwareScan**](docs/MalwareScanApi.md#stopmalwarescan) | **Post** /deepfence/scan/stop/malware | Stop Malware Scan
 *RegistryApi* | [**AddRegistry**](docs/RegistryApi.md#addregistry) | **Post** /deepfence/registryaccount | Add Registry
 *RegistryApi* | [**DeleteRegistry**](docs/RegistryApi.md#deleteregistry) | **Delete** /deepfence/registryaccount/{registry_id} | Add Registry
+*RegistryApi* | [**GetRegistrySummary**](docs/RegistryApi.md#getregistrysummary) | **Get** /deepfence/registryaccount/{registry_id}/summary | Get Registry Summary
+*RegistryApi* | [**GetSummary**](docs/RegistryApi.md#getsummary) | **Get** /deepfence/registryaccount/summary | Get All Registries Summary
 *RegistryApi* | [**ListImageTags**](docs/RegistryApi.md#listimagetags) | **Get** /deepfence/registryaccount/{registry_id}/images/{image_name}/tags | List Image Tags
 *RegistryApi* | [**ListImages**](docs/RegistryApi.md#listimages) | **Get** /deepfence/registryaccount/{registry_id}/images | List Registry Images
 *RegistryApi* | [**ListRegistry**](docs/RegistryApi.md#listregistry) | **Get** /deepfence/registryaccount | List Registries
@@ -228,6 +230,7 @@ Class | Method | HTTP request | Description
  - [IngestersCloudResource](docs/IngestersCloudResource.md)
  - [IngestersCompliance](docs/IngestersCompliance.md)
  - [IngestersMalware](docs/IngestersMalware.md)
+ - [IngestersMalwareRule](docs/IngestersMalwareRule.md)
  - [IngestersMalwareScanStatus](docs/IngestersMalwareScanStatus.md)
  - [IngestersReportIngestionData](docs/IngestersReportIngestionData.md)
  - [IngestersSecret](docs/IngestersSecret.md)
@@ -298,7 +301,7 @@ Class | Method | HTTP request | Description
  - [ModelScanStatusReq](docs/ModelScanStatusReq.md)
  - [ModelScanStatusResp](docs/ModelScanStatusResp.md)
  - [ModelScanTriggerResp](docs/ModelScanTriggerResp.md)
- - [ModelSecretRule](docs/ModelSecretRule.md)
+ - [ModelSecret](docs/ModelSecret.md)
  - [ModelSecretScanResult](docs/ModelSecretScanResult.md)
  - [ModelSecretScanTriggerReq](docs/ModelSecretScanTriggerReq.md)
  - [ModelUpdateUserIdRequest](docs/ModelUpdateUserIdRequest.md)

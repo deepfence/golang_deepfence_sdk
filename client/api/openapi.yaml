@@ -2008,6 +2008,94 @@ paths:
       summary: List Image Tags
       tags:
       - Registry
+  /deepfence/registryaccount/{registry_id}/summary:
+    get:
+      description: "get summary of registry scans, images and tags"
+      operationId: getRegistrySummary
+      parameters:
+      - explode: false
+        in: path
+        name: registry_id
+        required: true
+        schema:
+          type: string
+        style: simple
+      responses:
+        "200":
+          content:
+            application/json:
+              schema:
+                additionalProperties:
+                  type: integer
+                type: object
+          description: OK
+        "400":
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ApiDocsBadRequestResponse'
+          description: Bad Request
+        "401":
+          description: Unauthorized
+        "403":
+          description: Forbidden
+        "404":
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ApiDocsFailureResponse'
+          description: Not Found
+        "500":
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ApiDocsFailureResponse'
+          description: Internal Server Error
+      security:
+      - bearer_token: []
+      summary: Get Registry Summary
+      tags:
+      - Registry
+  /deepfence/registryaccount/summary:
+    get:
+      description: "get summary of registry scans, images and tags"
+      operationId: getSummary
+      responses:
+        "200":
+          content:
+            application/json:
+              schema:
+                additionalProperties:
+                  type: integer
+                type: object
+          description: OK
+        "400":
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ApiDocsBadRequestResponse'
+          description: Bad Request
+        "401":
+          description: Unauthorized
+        "403":
+          description: Forbidden
+        "404":
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ApiDocsFailureResponse'
+          description: Not Found
+        "500":
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ApiDocsFailureResponse'
+          description: Internal Server Error
+      security:
+      - bearer_token: []
+      summary: Get All Registries Summary
+      tags:
+      - Registry
   /deepfence/scan/{scan_type}/{scan_id}:
     delete:
       description: Delete all scan results for a scan id
@@ -4580,7 +4668,7 @@ paths:
             application/json:
               schema:
                 items:
-                  $ref: '#/components/schemas/ModelSecretRule'
+                  $ref: '#/components/schemas/ModelSecret'
                 type: array
           description: OK
         "400":
@@ -6106,63 +6194,95 @@ components:
       type: object
     IngestersMalware:
       example:
-        summary: summary
-        image_layer_id: image_layer_id
-        rule_name: rule_name
+        Meta:
+        - Meta
+        - Meta
+        ImageLayerId: ImageLayerId
+        SeverityScore: 6
+        FileSevScore: 0
+        StringsToMatch:
+        - StringsToMatch
+        - StringsToMatch
         masked: true
-        file_severity: file_severity
-        strings_to_match:
-        - strings_to_match
-        - strings_to_match
-        scan_type: scan_type
-        registry_id: registry_id
+        FileSeverity: FileSeverity
+        MetaRules:
+          date: date
+          rule_id: rule_id
+          filetype: filetype
+          rule_name: rule_name
+          author: author
+          description: description
+          version: version
+          info: info
         '@timestamp': 2000-01-23T04:56:07.000+00:00
-        meta:
-        - meta
-        - meta
-        complete_filename: complete_filename
+        CompleteFilename: CompleteFilename
+        Summary: Summary
+        Class: Class
         scan_id: scan_id
-        class: class
-        meta_rules:
-          key: meta_rules
+        RuleName: RuleName
       properties:
         '@timestamp':
           format: date-time
           type: string
-        class:
+        Class:
           type: string
-        complete_filename:
+        CompleteFilename:
           type: string
-        file_severity:
+        FileSevScore:
+          type: integer
+        FileSeverity:
           type: string
-        image_layer_id:
+        ImageLayerId:
+          type: string
+        Meta:
+          items:
+            type: string
+          nullable: true
+          type: array
+        MetaRules:
+          $ref: '#/components/schemas/IngestersMalwareRule'
+        RuleName:
+          type: string
+        SeverityScore:
+          type: integer
+        StringsToMatch:
+          items:
+            type: string
+          nullable: true
+          type: array
+        Summary:
           type: string
         masked:
           type: boolean
-        meta:
-          items:
-            type: string
-          nullable: true
-          type: array
-        meta_rules:
-          additionalProperties:
-            type: string
-          nullable: true
-          type: object
-        registry_id:
+        scan_id:
+          type: string
+      type: object
+    IngestersMalwareRule:
+      example:
+        date: date
+        rule_id: rule_id
+        filetype: filetype
+        rule_name: rule_name
+        author: author
+        description: description
+        version: version
+        info: info
+      properties:
+        author:
+          type: string
+        date:
+          type: string
+        description:
+          type: string
+        filetype:
+          type: string
+        info:
+          type: string
+        rule_id:
           type: string
         rule_name:
           type: string
-        scan_id:
-          type: string
-        scan_type:
-          type: string
-        strings_to_match:
-          items:
-            type: string
-          nullable: true
-          type: array
-        summary:
+        version:
           type: string
       type: object
     IngestersMalwareScanStatus:
@@ -6557,18 +6677,14 @@ components:
         title: title
         type: type
         compliance_check_type: compliance_check_type
-        '@timestamp': '@timestamp'
         account_id: account_id
         updated_at: 1
         service: service
-        scan_id: scan_id
         region: region
         group: group
         node_id: node_id
         status: status
       properties:
-        '@timestamp':
-          type: string
         account_id:
           type: string
         cloud_provider:
@@ -6595,8 +6711,6 @@ components:
           type: string
         resource:
           type: string
-        scan_id:
-          type: string
         service:
           type: string
         severity:
@@ -6610,7 +6724,6 @@ components:
         updated_at:
           type: integer
       required:
-      - '@timestamp'
       - account_id
       - cloud_provider
       - compliance_check_type
@@ -6624,7 +6737,6 @@ components:
       - reason
       - region
       - resource
-      - scan_id
       - service
       - severity
       - status
@@ -6672,11 +6784,9 @@ components:
           title: title
           type: type
           compliance_check_type: compliance_check_type
-          '@timestamp': '@timestamp'
           account_id: account_id
           updated_at: 1
           service: service
-          scan_id: scan_id
           region: region
           group: group
           node_id: node_id
@@ -6693,11 +6803,9 @@ components:
           title: title
           type: type
           compliance_check_type: compliance_check_type
-          '@timestamp': '@timestamp'
           account_id: account_id
           updated_at: 1
           service: service
-          scan_id: scan_id
           region: region
           group: group
           node_id: node_id
@@ -9101,53 +9209,89 @@ components:
       type: object
     ModelMalware:
       example:
-        summary: summary
-        image_layer_id: image_layer_id
-        updated_at: 1
-        file_sevScore: 0.8008281904610115
+        date: date
+        Meta:
+        - Meta
+        - Meta
+        filetype: filetype
+        ImageLayerId: ImageLayerId
+        SeverityScore: 6
+        FileSevScore: 0
         rule_name: rule_name
+        StringsToMatch:
+        - StringsToMatch
+        - StringsToMatch
+        author: author
         masked: true
-        complete_filename: complete_filename
-        file_severity: file_severity
-        class: class
-        severity_score: 6.027456183070403
+        description: description
+        FileSeverity: FileSeverity
+        version: version
+        rule_id: rule_id
+        CompleteFilename: CompleteFilename
+        Summary: Summary
+        Class: Class
+        info: info
+        node_id: node_id
       properties:
-        class:
+        Class:
           type: string
-        complete_filename:
+        CompleteFilename:
           type: string
-        file_sevScore:
-          type: number
-        file_severity:
+        FileSevScore:
+          type: integer
+        FileSeverity:
           type: string
-        image_layer_id:
+        ImageLayerId:
+          type: string
+        Meta:
+          items:
+            type: string
+          nullable: true
+          type: array
+        SeverityScore:
+          type: integer
+        StringsToMatch:
+          items:
+            type: string
+          nullable: true
+          type: array
+        Summary:
+          type: string
+        author:
+          type: string
+        date:
+          type: string
+        description:
+          type: string
+        filetype:
+          type: string
+        info:
           type: string
         masked:
           type: boolean
+        node_id:
+          type: string
+        rule_id:
+          type: string
         rule_name:
           type: string
-        severity_score:
-          type: number
-        summary:
+        version:
           type: string
-        updated_at:
-          type: integer
       required:
-      - class
-      - complete_filename
-      - file_sevScore
-      - file_severity
-      - image_layer_id
+      - Class
+      - CompleteFilename
+      - FileSevScore
+      - FileSeverity
+      - ImageLayerId
       - masked
+      - node_id
+      - rule_id
       - rule_name
-      - severity_score
-      - summary
-      - updated_at
       type: object
     ModelMalwareScanResult:
       example:
         severity_counts:
-          key: 5
+          key: 1
         node_type: node_type
         docker_container_name: docker_container_name
         updated_at: 5
@@ -9155,26 +9299,52 @@ components:
         node_name: node_name
         scan_id: scan_id
         malwares:
-        - summary: summary
-          image_layer_id: image_layer_id
-          updated_at: 1
-          file_sevScore: 0.8008281904610115
+        - date: date
+          Meta:
+          - Meta
+          - Meta
+          filetype: filetype
+          ImageLayerId: ImageLayerId
+          SeverityScore: 6
+          FileSevScore: 0
           rule_name: rule_name
+          StringsToMatch:
+          - StringsToMatch
+          - StringsToMatch
+          author: author
           masked: true
-          complete_filename: complete_filename
-          file_severity: file_severity
-          class: class
-          severity_score: 6.027456183070403
-        - summary: summary
-          image_layer_id: image_layer_id
-          updated_at: 1
-          file_sevScore: 0.8008281904610115
+          description: description
+          FileSeverity: FileSeverity
+          version: version
+          rule_id: rule_id
+          CompleteFilename: CompleteFilename
+          Summary: Summary
+          Class: Class
+          info: info
+          node_id: node_id
+        - date: date
+          Meta:
+          - Meta
+          - Meta
+          filetype: filetype
+          ImageLayerId: ImageLayerId
+          SeverityScore: 6
+          FileSevScore: 0
           rule_name: rule_name
+          StringsToMatch:
+          - StringsToMatch
+          - StringsToMatch
+          author: author
           masked: true
-          complete_filename: complete_filename
-          file_severity: file_severity
-          class: class
-          severity_score: 6.027456183070403
+          description: description
+          FileSeverity: FileSeverity
+          version: version
+          rule_id: rule_id
+          CompleteFilename: CompleteFilename
+          Summary: Summary
+          Class: Class
+          info: info
+          node_id: node_id
         docker_image_name: docker_image_name
         host_name: host_name
         node_id: node_id
@@ -10073,27 +10243,25 @@ components:
       - bulk_scan_id
       - scan_ids
       type: object
-    ModelSecretRule:
+    ModelSecret:
       example:
         full_filename: full_filename
         level: level
         masked: true
         part: part
-        relative_ending_index: 6
+        relative_ending_index: 0
         starting_index: 5
         signature_to_match: signature_to_match
+        rule_id: 1
         score: 5.962133916683182
         matched_content: matched_content
         updated_at: 2
         name: name
-        id: 0
-        relative_starting_index: 1
+        relative_starting_index: 6
         node_id: node_id
       properties:
         full_filename:
           type: string
-        id:
-          type: integer
         level:
           type: string
         masked:
@@ -10110,6 +10278,8 @@ components:
           type: integer
         relative_starting_index:
           type: integer
+        rule_id:
+          type: integer
         score:
           type: number
         signature_to_match:
@@ -10120,7 +10290,6 @@ components:
           type: integer
       required:
       - full_filename
-      - id
       - level
       - masked
       - matched_content
@@ -10129,6 +10298,7 @@ components:
       - part
       - relative_ending_index
       - relative_starting_index
+      - rule_id
       - score
       - signature_to_match
       - starting_index
@@ -10149,29 +10319,29 @@ components:
           level: level
           masked: true
           part: part
-          relative_ending_index: 6
+          relative_ending_index: 0
           starting_index: 5
           signature_to_match: signature_to_match
+          rule_id: 1
           score: 5.962133916683182
           matched_content: matched_content
           updated_at: 2
           name: name
-          id: 0
-          relative_starting_index: 1
+          relative_starting_index: 6
           node_id: node_id
         - full_filename: full_filename
           level: level
           masked: true
           part: part
-          relative_ending_index: 6
+          relative_ending_index: 0
           starting_index: 5
           signature_to_match: signature_to_match
+          rule_id: 1
           score: 5.962133916683182
           matched_content: matched_content
           updated_at: 2
           name: name
-          id: 0
-          relative_starting_index: 1
+          relative_starting_index: 6
           node_id: node_id
         docker_image_name: docker_image_name
         host_name: host_name
@@ -10195,7 +10365,7 @@ components:
           type: string
         secrets:
           items:
-            $ref: '#/components/schemas/ModelSecretRule'
+            $ref: '#/components/schemas/ModelSecret'
           nullable: true
           type: array
         severity_counts:
