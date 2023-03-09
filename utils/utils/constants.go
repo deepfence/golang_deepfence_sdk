@@ -41,6 +41,7 @@ const (
 	ReportGeneratorTaskPDF    = "tasks_generate_pdf_report"
 	ComputeThreatTask         = "compute_threat"
 	SendNotificationTask      = "tasks_send_notification"
+	CloudComplianceTask       = "cloud_compliance"
 )
 
 const (
