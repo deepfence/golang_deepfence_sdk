@@ -80,7 +80,7 @@ func (mfm *MinioFileManager) ListFiles(ctx context.Context, pathPrefix string, r
 	objects := mfm.client.ListObjects(ctx, mfm.namespace, minio.ListObjectsOptions{
 		WithVersions: false,
 		WithMetadata: false,
-		Prefix:       pathPrefix,
+		Prefix:       path.Join(mfm.namespace, pathPrefix),
 		Recursive:    recursive,
 		MaxKeys:      maxKeys,
 		StartAfter:   "",
