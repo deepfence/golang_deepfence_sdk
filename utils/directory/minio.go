@@ -9,7 +9,6 @@ import (
 	"io"
 	"net/http"
 	"net/url"
-	"path"
 	"strings"
 	"time"
 
@@ -76,11 +75,18 @@ func checkIfFileExists(ctx context.Context, client *minio.Client, bucket, filena
 	return info.Key, true
 }
 
+func (mfm *MinioFileManager) addNamespacePrefix(filePath string) string {
+	if !strings.HasPrefix(filePath, "/") {
+		filePath = "/" + filePath
+	}
+	return mfm.namespace + filePath
+}
+
 func (mfm *MinioFileManager) ListFiles(ctx context.Context, pathPrefix string, recursive bool, maxKeys int, skipDir bool) []ObjectInfo {
 	objects := mfm.client.ListObjects(ctx, mfm.namespace, minio.ListObjectsOptions{
 		WithVersions: false,
 		WithMetadata: false,
-		Prefix:       path.Join(mfm.namespace, pathPrefix),
+		Prefix:       mfm.addNamespacePrefix(pathPrefix),
 		Recursive:    recursive,
 		MaxKeys:      maxKeys,
 		StartAfter:   "",
@@ -110,12 +116,13 @@ func (mfm *MinioFileManager) UploadLocalFile(ctx context.Context, filename strin
 		return UploadResult{}, err
 	}
 
-	if key, has := checkIfFileExists(ctx, mfm.client, mfm.namespace, path.Join(mfm.namespace, filename)); has {
+	objectName := mfm.addNamespacePrefix(filename)
+
+	if key, has := checkIfFileExists(ctx, mfm.client, mfm.namespace, objectName); has {
 		return UploadResult{}, AlreadyPresentError{Path: key}
 	}
 
-	info, err := mfm.client.FPutObject(ctx, mfm.namespace, path.Join(mfm.namespace, filename),
-		localFilename, extra.(minio.PutObjectOptions))
+	info, err := mfm.client.FPutObject(ctx, mfm.namespace, objectName, localFilename, extra.(minio.PutObjectOptions))
 	if err != nil {
 		return UploadResult{}, err
 	}
@@ -137,13 +144,13 @@ func (mfm *MinioFileManager) UploadFile(ctx context.Context, filename string, da
 		return UploadResult{}, err
 	}
 
-	if key, has := checkIfFileExists(ctx, mfm.client, mfm.namespace, path.Join(mfm.namespace, filename)); has {
+	objectName := mfm.addNamespacePrefix(filename)
+
+	if key, has := checkIfFileExists(ctx, mfm.client, mfm.namespace, objectName); has {
 		return UploadResult{}, AlreadyPresentError{Path: key}
 	}
 
-	info, err := mfm.client.PutObject(ctx, mfm.namespace, path.Join(mfm.namespace, filename),
-		bytes.NewReader(data), int64(len(data)),
-		extra.(minio.PutObjectOptions))
+	info, err := mfm.client.PutObject(ctx, mfm.namespace, objectName, bytes.NewReader(data), int64(len(data)), extra.(minio.PutObjectOptions))
 
 	if err != nil {
 		return UploadResult{}, err
@@ -161,11 +168,11 @@ func (mfm *MinioFileManager) UploadFile(ctx context.Context, filename string, da
 }
 
 func (mfm *MinioFileManager) DownloadFile(ctx context.Context, remoteFile string, localFile string, extra interface{}) error {
-	return mfm.client.FGetObject(ctx, mfm.namespace, path.Join(mfm.namespace, remoteFile), localFile, extra.(minio.GetObjectOptions))
+	return mfm.client.FGetObject(ctx, mfm.namespace, mfm.addNamespacePrefix(remoteFile), localFile, extra.(minio.GetObjectOptions))
 }
 
 func (mfm *MinioFileManager) DownloadFileContexts(ctx context.Context, remoteFile string, extra interface{}) ([]byte, error) {
-	object, err := mfm.client.GetObject(ctx, mfm.namespace, path.Join(mfm.namespace, remoteFile), extra.(minio.GetObjectOptions))
+	object, err := mfm.client.GetObject(ctx, mfm.namespace, mfm.addNamespacePrefix(remoteFile), extra.(minio.GetObjectOptions))
 	if err != nil {
 		return nil, err
 	}
@@ -187,14 +194,21 @@ func (mfm *MinioFileManager) ExposeFile(ctx context.Context, filePath string, ad
 	headers := http.Header{}
 	headers.Add("Host", consoleIp)
 
+	var objectName string
 	if addFilePathPrefix {
-		filePath = path.Join(mfm.namespace, filePath)
+		objectName = mfm.addNamespacePrefix(filePath)
+	} else {
+		if strings.HasPrefix(filePath, "/") {
+			objectName = filePath
+		} else {
+			objectName = "/" + filePath
+		}
 	}
 
 	urlLink, err := mfm.client.PresignHeader(context.Background(),
 		"GET",
 		mfm.namespace,
-		filePath,
+		objectName,
 		expires,
 		reqParams,
 		headers)
