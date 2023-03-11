@@ -10,13 +10,12 @@ Name | Type | Description | Notes
 **KubernetesFilter** | **[]string** |  | 
 **PodFilter** | **[]string** |  | 
 **RegionFilter** | **[]string** |  | 
-**ServiceFilter** | **[]string** |  | 
 
 ## Methods
 
 ### NewGraphTopologyFilters
 
-`func NewGraphTopologyFilters(cloudFilter []string, fieldFilters ReportersFieldsFilters, hostFilter []string, kubernetesFilter []string, podFilter []string, regionFilter []string, serviceFilter []string, ) *GraphTopologyFilters`
+`func NewGraphTopologyFilters(cloudFilter []string, fieldFilters ReportersFieldsFilters, hostFilter []string, kubernetesFilter []string, podFilter []string, regionFilter []string, ) *GraphTopologyFilters`
 
 NewGraphTopologyFilters instantiates a new GraphTopologyFilters object
 This constructor will assign default values to properties that have it defined,
@@ -201,36 +200,6 @@ SetRegionFilter sets RegionFilter field to given value.
 `func (o *GraphTopologyFilters) UnsetRegionFilter()`
 
 UnsetRegionFilter ensures that no value is present for RegionFilter, not even an explicit nil
-### GetServiceFilter
-
-`func (o *GraphTopologyFilters) GetServiceFilter() []string`
-
-GetServiceFilter returns the ServiceFilter field if non-nil, zero value otherwise.
-
-### GetServiceFilterOk
-
-`func (o *GraphTopologyFilters) GetServiceFilterOk() (*[]string, bool)`
-
-GetServiceFilterOk returns a tuple with the ServiceFilter field if it's non-nil, zero value otherwise
-and a boolean to check if the value has been set.
-
-### SetServiceFilter
-
-`func (o *GraphTopologyFilters) SetServiceFilter(v []string)`
-
-SetServiceFilter sets ServiceFilter field to given value.
-
-
-### SetServiceFilterNil
-
-`func (o *GraphTopologyFilters) SetServiceFilterNil(b bool)`
-
- SetServiceFilterNil sets the value for ServiceFilter to be an explicit nil
-
-### UnsetServiceFilter
-`func (o *GraphTopologyFilters) UnsetServiceFilter()`
-
-UnsetServiceFilter ensures that no value is present for ServiceFilter, not even an explicit nil
 
 [[Back to Model list]](../README.md#documentation-for-models) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to README]](../README.md)
 

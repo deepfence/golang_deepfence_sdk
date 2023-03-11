@@ -99,8 +99,11 @@ Class | Method | HTTP request | Description
 *ComplianceApi* | [**StartComplianceScan**](docs/ComplianceApi.md#startcompliancescan) | **Post** /deepfence/scan/start/compliance | Start Compliance Scan
 *ComplianceApi* | [**StatusComplianceScan**](docs/ComplianceApi.md#statuscompliancescan) | **Post** /deepfence/scan/status/compliance | Get Compliance Scan Status
 *ComplianceApi* | [**StopComplianceScan**](docs/ComplianceApi.md#stopcompliancescan) | **Post** /deepfence/scan/stop/compliance | Stop Compliance Scan
+*ControlsApi* | [**DisableCloudNodeControls**](docs/ControlsApi.md#disablecloudnodecontrols) | **Post** /deepfence/controls/cloud-node/disable | Disable Cloud Node Controls
+*ControlsApi* | [**EnableCloudNodeControls**](docs/ControlsApi.md#enablecloudnodecontrols) | **Post** /deepfence/controls/cloud-node/enable | Enable Cloud Node Controls
 *ControlsApi* | [**GetAgentControls**](docs/ControlsApi.md#getagentcontrols) | **Post** /deepfence/controls/agent | Fetch Agent Actions
 *ControlsApi* | [**GetAgentInitControls**](docs/ControlsApi.md#getagentinitcontrols) | **Post** /deepfence/controls/agent-init | Fetch Agent Init Actions
+*ControlsApi* | [**GetCloudNodeControls**](docs/ControlsApi.md#getcloudnodecontrols) | **Post** /deepfence/controls/cloud-node | Fetch Cloud Node Controls
 *ControlsApi* | [**GetKubernetesClusterControls**](docs/ControlsApi.md#getkubernetesclustercontrols) | **Post** /deepfence/controls/kubernetes-cluster | Fetch Kubernetes Cluster Actions
 *ControlsApi* | [**UpgradeAgentVersion**](docs/ControlsApi.md#upgradeagentversion) | **Post** /deepfence/controls/agent-upgrade | Schedule new agent version upgrade
 *DiagnosisApi* | [**DiagnosticNotification**](docs/DiagnosisApi.md#diagnosticnotification) | **Get** /deepfence/diagnosis/notification | Get Diagnostic Notification
@@ -108,6 +111,7 @@ Class | Method | HTTP request | Description
 *DiagnosisApi* | [**GenerateConsoleDiagnosticLogs**](docs/DiagnosisApi.md#generateconsolediagnosticlogs) | **Post** /deepfence/diagnosis/console-logs | Generate Console Diagnostic Logs
 *DiagnosisApi* | [**GetDiagnosticLogs**](docs/DiagnosisApi.md#getdiagnosticlogs) | **Get** /deepfence/diagnosis/diagnostic-logs | Get Diagnostic Logs
 *InternalApi* | [**GetConsoleApiToken**](docs/InternalApi.md#getconsoleapitoken) | **Get** /deepfence/internal/console-api-token | Get api-token for console agent
+*LookupApi* | [**GetCloudResources**](docs/LookupApi.md#getcloudresources) | **Post** /deepfence/lookup/cloud-resources | Get Cloud Resources
 *LookupApi* | [**GetContainerImages**](docs/LookupApi.md#getcontainerimages) | **Post** /deepfence/lookup/containerimages | Retrieve Container Images data
 *LookupApi* | [**GetContainers**](docs/LookupApi.md#getcontainers) | **Post** /deepfence/lookup/containers | Retrieve Containers data
 *LookupApi* | [**GetHosts**](docs/LookupApi.md#gethosts) | **Post** /deepfence/lookup/hosts | Retrieve Hosts data
@@ -124,9 +128,10 @@ Class | Method | HTTP request | Description
 *MalwareScanApi* | [**StatusMalwareScan**](docs/MalwareScanApi.md#statusmalwarescan) | **Post** /deepfence/scan/status/malware | Get Malware Scan Status
 *MalwareScanApi* | [**StopMalwareScan**](docs/MalwareScanApi.md#stopmalwarescan) | **Post** /deepfence/scan/stop/malware | Stop Malware Scan
 *RegistryApi* | [**AddRegistry**](docs/RegistryApi.md#addregistry) | **Post** /deepfence/registryaccount | Add Registry
-*RegistryApi* | [**DeleteRegistry**](docs/RegistryApi.md#deleteregistry) | **Delete** /deepfence/registryaccount/{registry_id} | Add Registry
+*RegistryApi* | [**DeleteRegistry**](docs/RegistryApi.md#deleteregistry) | **Delete** /deepfence/registryaccount/{registry_id} | Delete Registry
 *RegistryApi* | [**GetRegistrySummary**](docs/RegistryApi.md#getregistrysummary) | **Get** /deepfence/registryaccount/{registry_id}/summary | Get Registry Summary
-*RegistryApi* | [**GetSummary**](docs/RegistryApi.md#getsummary) | **Get** /deepfence/registryaccount/summary | Get All Registries Summary
+*RegistryApi* | [**GetSummary**](docs/RegistryApi.md#getsummary) | **Get** /deepfence/registryaccount/{registry_type}/summary | Get Registry Summary By Type
+*RegistryApi* | [**GetSummaryAll**](docs/RegistryApi.md#getsummaryall) | **Get** /deepfence/registryaccount/summary | Get All Registries Summary By Type
 *RegistryApi* | [**ListImageTags**](docs/RegistryApi.md#listimagetags) | **Get** /deepfence/registryaccount/{registry_id}/images/{image_name}/tags | List Image Tags
 *RegistryApi* | [**ListImages**](docs/RegistryApi.md#listimages) | **Get** /deepfence/registryaccount/{registry_id}/images | List Registry Images
 *RegistryApi* | [**ListRegistry**](docs/RegistryApi.md#listregistry) | **Get** /deepfence/registryaccount | List Registries
@@ -255,7 +260,12 @@ Class | Method | HTTP request | Description
  - [ModelCloudNodeAccountsListReq](docs/ModelCloudNodeAccountsListReq.md)
  - [ModelCloudNodeAccountsListResp](docs/ModelCloudNodeAccountsListResp.md)
  - [ModelCloudNodeCloudtrailTrail](docs/ModelCloudNodeCloudtrailTrail.md)
+ - [ModelCloudNodeComplianceControl](docs/ModelCloudNodeComplianceControl.md)
+ - [ModelCloudNodeControlReq](docs/ModelCloudNodeControlReq.md)
+ - [ModelCloudNodeControlResp](docs/ModelCloudNodeControlResp.md)
+ - [ModelCloudNodeEnableDisableReq](docs/ModelCloudNodeEnableDisableReq.md)
  - [ModelCloudNodeProvidersListResp](docs/ModelCloudNodeProvidersListResp.md)
+ - [ModelCloudResource](docs/ModelCloudResource.md)
  - [ModelCompliance](docs/ModelCompliance.md)
  - [ModelComplianceScanInfo](docs/ModelComplianceScanInfo.md)
  - [ModelComplianceScanResult](docs/ModelComplianceScanResult.md)
@@ -282,6 +292,7 @@ Class | Method | HTTP request | Description
  - [ModelPasswordResetRequest](docs/ModelPasswordResetRequest.md)
  - [ModelPasswordResetVerifyRequest](docs/ModelPasswordResetVerifyRequest.md)
  - [ModelPod](docs/ModelPod.md)
+ - [ModelPostureProvider](docs/ModelPostureProvider.md)
  - [ModelProcess](docs/ModelProcess.md)
  - [ModelRegisterInvitedUserRequest](docs/ModelRegisterInvitedUserRequest.md)
  - [ModelRegistryAccount](docs/ModelRegistryAccount.md)

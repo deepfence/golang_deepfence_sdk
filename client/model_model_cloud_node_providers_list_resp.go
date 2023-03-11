@@ -20,14 +20,14 @@ var _ MappedNullable = &ModelCloudNodeProvidersListResp{}
 
 // ModelCloudNodeProvidersListResp struct for ModelCloudNodeProvidersListResp
 type ModelCloudNodeProvidersListResp struct {
-	Providers []string `json:"providers"`
+	Providers []ModelPostureProvider `json:"providers"`
 }
 
 // NewModelCloudNodeProvidersListResp instantiates a new ModelCloudNodeProvidersListResp object
 // This constructor will assign default values to properties that have it defined,
 // and makes sure properties required by API are set, but the set of arguments
 // will change when the set of required properties is changed
-func NewModelCloudNodeProvidersListResp(providers []string) *ModelCloudNodeProvidersListResp {
+func NewModelCloudNodeProvidersListResp(providers []ModelPostureProvider) *ModelCloudNodeProvidersListResp {
 	this := ModelCloudNodeProvidersListResp{}
 	this.Providers = providers
 	return &this
@@ -42,10 +42,10 @@ func NewModelCloudNodeProvidersListRespWithDefaults() *ModelCloudNodeProvidersLi
 }
 
 // GetProviders returns the Providers field value
-// If the value is explicit nil, the zero value for []string will be returned
-func (o *ModelCloudNodeProvidersListResp) GetProviders() []string {
+// If the value is explicit nil, the zero value for []ModelPostureProvider will be returned
+func (o *ModelCloudNodeProvidersListResp) GetProviders() []ModelPostureProvider {
 	if o == nil {
-		var ret []string
+		var ret []ModelPostureProvider
 		return ret
 	}
 
@@ -55,7 +55,7 @@ func (o *ModelCloudNodeProvidersListResp) GetProviders() []string {
 // GetProvidersOk returns a tuple with the Providers field value
 // and a boolean to check if the value has been set.
 // NOTE: If the value is an explicit nil, `nil, true` will be returned
-func (o *ModelCloudNodeProvidersListResp) GetProvidersOk() ([]string, bool) {
+func (o *ModelCloudNodeProvidersListResp) GetProvidersOk() ([]ModelPostureProvider, bool) {
 	if o == nil || IsNil(o.Providers) {
 		return nil, false
 	}
@@ -63,7 +63,7 @@ func (o *ModelCloudNodeProvidersListResp) GetProvidersOk() ([]string, bool) {
 }
 
 // SetProviders sets field value
-func (o *ModelCloudNodeProvidersListResp) SetProviders(v []string) {
+func (o *ModelCloudNodeProvidersListResp) SetProviders(v []ModelPostureProvider) {
 	o.Providers = v
 }
 

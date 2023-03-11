@@ -5,9 +5,10 @@ All URIs are relative to *http://localhost*
 Method | HTTP request | Description
 ------------- | ------------- | -------------
 [**AddRegistry**](RegistryApi.md#AddRegistry) | **Post** /deepfence/registryaccount | Add Registry
-[**DeleteRegistry**](RegistryApi.md#DeleteRegistry) | **Delete** /deepfence/registryaccount/{registry_id} | Add Registry
+[**DeleteRegistry**](RegistryApi.md#DeleteRegistry) | **Delete** /deepfence/registryaccount/{registry_id} | Delete Registry
 [**GetRegistrySummary**](RegistryApi.md#GetRegistrySummary) | **Get** /deepfence/registryaccount/{registry_id}/summary | Get Registry Summary
-[**GetSummary**](RegistryApi.md#GetSummary) | **Get** /deepfence/registryaccount/summary | Get All Registries Summary
+[**GetSummary**](RegistryApi.md#GetSummary) | **Get** /deepfence/registryaccount/{registry_type}/summary | Get Registry Summary By Type
+[**GetSummaryAll**](RegistryApi.md#GetSummaryAll) | **Get** /deepfence/registryaccount/summary | Get All Registries Summary By Type
 [**ListImageTags**](RegistryApi.md#ListImageTags) | **Get** /deepfence/registryaccount/{registry_id}/images/{image_name}/tags | List Image Tags
 [**ListImages**](RegistryApi.md#ListImages) | **Get** /deepfence/registryaccount/{registry_id}/images | List Registry Images
 [**ListRegistry**](RegistryApi.md#ListRegistry) | **Get** /deepfence/registryaccount | List Registries
@@ -82,7 +83,7 @@ Name | Type | Description  | Notes
 
 > DeleteRegistry(ctx, registryId).Execute()
 
-Add Registry
+Delete Registry
 
 
 
@@ -218,9 +219,79 @@ Name | Type | Description  | Notes
 
 ## GetSummary
 
-> map[string]int32 GetSummary(ctx).Execute()
+> map[string]int32 GetSummary(ctx, registryType).Execute()
 
-Get All Registries Summary
+Get Registry Summary By Type
+
+
+
+### Example
+
+```go
+package main
+
+import (
+    "context"
+    "fmt"
+    "os"
+    openapiclient "github.com/deepfence/golang_deepfence_sdk/client"
+)
+
+func main() {
+    registryType := "registryType_example" // string | 
+
+    configuration := openapiclient.NewConfiguration()
+    apiClient := openapiclient.NewAPIClient(configuration)
+    resp, r, err := apiClient.RegistryApi.GetSummary(context.Background(), registryType).Execute()
+    if err != nil {
+        fmt.Fprintf(os.Stderr, "Error when calling `RegistryApi.GetSummary``: %v\n", err)
+        fmt.Fprintf(os.Stderr, "Full HTTP response: %v\n", r)
+    }
+    // response from `GetSummary`: map[string]int32
+    fmt.Fprintf(os.Stdout, "Response from `RegistryApi.GetSummary`: %v\n", resp)
+}
+```
+
+### Path Parameters
+
+
+Name | Type | Description  | Notes
+------------- | ------------- | ------------- | -------------
+**ctx** | **context.Context** | context for authentication, logging, cancellation, deadlines, tracing, etc.
+**registryType** | **string** |  | 
+
+### Other Parameters
+
+Other parameters are passed through a pointer to a apiGetSummaryRequest struct via the builder pattern
+
+
+Name | Type | Description  | Notes
+------------- | ------------- | ------------- | -------------
+
+
+### Return type
+
+**map[string]int32**
+
+### Authorization
+
+[bearer_token](../README.md#bearer_token)
+
+### HTTP request headers
+
+- **Content-Type**: Not defined
+- **Accept**: application/json
+
+[[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints)
+[[Back to Model list]](../README.md#documentation-for-models)
+[[Back to README]](../README.md)
+
+
+## GetSummaryAll
+
+> map[string]map[string]int32 GetSummaryAll(ctx).Execute()
+
+Get All Registries Summary By Type
 
 
 
@@ -240,13 +311,13 @@ func main() {
 
     configuration := openapiclient.NewConfiguration()
     apiClient := openapiclient.NewAPIClient(configuration)
-    resp, r, err := apiClient.RegistryApi.GetSummary(context.Background()).Execute()
+    resp, r, err := apiClient.RegistryApi.GetSummaryAll(context.Background()).Execute()
     if err != nil {
-        fmt.Fprintf(os.Stderr, "Error when calling `RegistryApi.GetSummary``: %v\n", err)
+        fmt.Fprintf(os.Stderr, "Error when calling `RegistryApi.GetSummaryAll``: %v\n", err)
         fmt.Fprintf(os.Stderr, "Full HTTP response: %v\n", r)
     }
-    // response from `GetSummary`: map[string]int32
-    fmt.Fprintf(os.Stdout, "Response from `RegistryApi.GetSummary`: %v\n", resp)
+    // response from `GetSummaryAll`: map[string]map[string]int32
+    fmt.Fprintf(os.Stdout, "Response from `RegistryApi.GetSummaryAll`: %v\n", resp)
 }
 ```
 
@@ -256,12 +327,12 @@ This endpoint does not need any parameter.
 
 ### Other Parameters
 
-Other parameters are passed through a pointer to a apiGetSummaryRequest struct via the builder pattern
+Other parameters are passed through a pointer to a apiGetSummaryAllRequest struct via the builder pattern
 
 
 ### Return type
 
-**map[string]int32**
+[**map[string]map[string]int32**](map.md)
 
 ### Authorization
 

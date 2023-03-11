@@ -77,7 +77,12 @@ docs/ModelCloudNodeAccountRegisterRespData.md
 docs/ModelCloudNodeAccountsListReq.md
 docs/ModelCloudNodeAccountsListResp.md
 docs/ModelCloudNodeCloudtrailTrail.md
+docs/ModelCloudNodeComplianceControl.md
+docs/ModelCloudNodeControlReq.md
+docs/ModelCloudNodeControlResp.md
+docs/ModelCloudNodeEnableDisableReq.md
 docs/ModelCloudNodeProvidersListResp.md
+docs/ModelCloudResource.md
 docs/ModelCompliance.md
 docs/ModelComplianceScanInfo.md
 docs/ModelComplianceScanResult.md
@@ -104,6 +109,7 @@ docs/ModelNodesInScanResultRequest.md
 docs/ModelPasswordResetRequest.md
 docs/ModelPasswordResetVerifyRequest.md
 docs/ModelPod.md
+docs/ModelPostureProvider.md
 docs/ModelProcess.md
 docs/ModelRegisterInvitedUserRequest.md
 docs/ModelRegistryAccount.md
@@ -206,7 +212,12 @@ model_model_cloud_node_account_register_resp_data.go
 model_model_cloud_node_accounts_list_req.go
 model_model_cloud_node_accounts_list_resp.go
 model_model_cloud_node_cloudtrail_trail.go
+model_model_cloud_node_compliance_control.go
+model_model_cloud_node_control_req.go
+model_model_cloud_node_control_resp.go
+model_model_cloud_node_enable_disable_req.go
 model_model_cloud_node_providers_list_resp.go
+model_model_cloud_resource.go
 model_model_compliance.go
 model_model_compliance_scan_info.go
 model_model_compliance_scan_result.go
@@ -233,6 +244,7 @@ model_model_nodes_in_scan_result_request.go
 model_model_password_reset_request.go
 model_model_password_reset_verify_request.go
 model_model_pod.go
+model_model_posture_provider.go
 model_model_process.go
 model_model_register_invited_user_request.go
 model_model_registry_account.go

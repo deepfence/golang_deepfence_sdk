@@ -441,6 +441,127 @@ paths:
       summary: Schedule new agent version upgrade
       tags:
       - Controls
+  /deepfence/controls/cloud-node:
+    post:
+      description: Fetch controls for a cloud node
+      operationId: getCloudNodeControls
+      requestBody:
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/ModelCloudNodeControlReq'
+      responses:
+        "200":
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ModelCloudNodeControlResp'
+          description: OK
+        "400":
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ApiDocsBadRequestResponse'
+          description: Bad Request
+        "401":
+          description: Unauthorized
+        "403":
+          description: Forbidden
+        "404":
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ApiDocsFailureResponse'
+          description: Not Found
+        "500":
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ApiDocsFailureResponse'
+          description: Internal Server Error
+      security:
+      - bearer_token: []
+      summary: Fetch Cloud Node Controls
+      tags:
+      - Controls
+  /deepfence/controls/cloud-node/disable:
+    post:
+      description: Disable controls for a cloud node
+      operationId: disableCloudNodeControls
+      requestBody:
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/ModelCloudNodeEnableDisableReq'
+      responses:
+        "200":
+          description: OK
+        "400":
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ApiDocsBadRequestResponse'
+          description: Bad Request
+        "401":
+          description: Unauthorized
+        "403":
+          description: Forbidden
+        "404":
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ApiDocsFailureResponse'
+          description: Not Found
+        "500":
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ApiDocsFailureResponse'
+          description: Internal Server Error
+      security:
+      - bearer_token: []
+      summary: Disable Cloud Node Controls
+      tags:
+      - Controls
+  /deepfence/controls/cloud-node/enable:
+    post:
+      description: Enable controls for a cloud node
+      operationId: enableCloudNodeControls
+      requestBody:
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/ModelCloudNodeEnableDisableReq'
+      responses:
+        "200":
+          description: OK
+        "400":
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ApiDocsBadRequestResponse'
+          description: Bad Request
+        "401":
+          description: Unauthorized
+        "403":
+          description: Forbidden
+        "404":
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ApiDocsFailureResponse'
+          description: Not Found
+        "500":
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ApiDocsFailureResponse'
+          description: Internal Server Error
+      security:
+      - bearer_token: []
+      summary: Enable Cloud Node Controls
+      tags:
+      - Controls
   /deepfence/controls/kubernetes-cluster:
     post:
       description: Fetch actions for a given Kubernetes Cluster
@@ -1470,6 +1591,51 @@ paths:
       summary: Get api-token for console agent
       tags:
       - Internal
+  /deepfence/lookup/cloud-resources:
+    post:
+      description: Retrieve the cloud resources
+      operationId: getCloudResources
+      requestBody:
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/LookupLookupFilter'
+      responses:
+        "200":
+          content:
+            application/json:
+              schema:
+                items:
+                  $ref: '#/components/schemas/ModelCloudResource'
+                type: array
+          description: OK
+        "400":
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ApiDocsBadRequestResponse'
+          description: Bad Request
+        "401":
+          description: Unauthorized
+        "403":
+          description: Forbidden
+        "404":
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ApiDocsFailureResponse'
+          description: Not Found
+        "500":
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ApiDocsFailureResponse'
+          description: Internal Server Error
+      security:
+      - bearer_token: []
+      summary: Get Cloud Resources
+      tags:
+      - Lookup
   /deepfence/lookup/containerimages:
     post:
       description: Retrieve all the data associated with images
@@ -1902,7 +2068,7 @@ paths:
           description: Internal Server Error
       security:
       - bearer_token: []
-      summary: Add Registry
+      summary: Delete Registry
       tags:
       - Registry
   /deepfence/registryaccount/{registry_id}/images:
@@ -2056,10 +2222,18 @@ paths:
       summary: Get Registry Summary
       tags:
       - Registry
-  /deepfence/registryaccount/summary:
+  /deepfence/registryaccount/{registry_type}/summary:
     get:
-      description: "get summary of registry scans, images and tags"
+      description: "get summary of registries scans, images and tags by registry type"
       operationId: getSummary
+      parameters:
+      - explode: false
+        in: path
+        name: registry_type
+        required: true
+        schema:
+          type: string
+        style: simple
       responses:
         "200":
           content:
@@ -2093,7 +2267,50 @@ paths:
           description: Internal Server Error
       security:
       - bearer_token: []
-      summary: Get All Registries Summary
+      summary: Get Registry Summary By Type
+      tags:
+      - Registry
+  /deepfence/registryaccount/summary:
+    get:
+      description: "get summary of all registries scans, images and tags by registry\
+        \ type"
+      operationId: getSummaryAll
+      responses:
+        "200":
+          content:
+            application/json:
+              schema:
+                additionalProperties:
+                  additionalProperties:
+                    type: integer
+                  type: object
+                type: object
+          description: OK
+        "400":
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ApiDocsBadRequestResponse'
+          description: Bad Request
+        "401":
+          description: Unauthorized
+        "403":
+          description: Forbidden
+        "404":
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ApiDocsFailureResponse'
+          description: Not Found
+        "500":
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ApiDocsFailureResponse'
+          description: Internal Server Error
+      security:
+      - bearer_token: []
+      summary: Get All Registries Summary By Type
       tags:
       - Registry
   /deepfence/scan/{scan_type}/{scan_id}:
@@ -5941,9 +6158,6 @@ components:
         region_filter:
         - region_filter
         - region_filter
-        service_filter:
-        - service_filter
-        - service_filter
       properties:
         cloud_filter:
           items:
@@ -5972,11 +6186,6 @@ components:
             type: string
           nullable: true
           type: array
-        service_filter:
-          items:
-            type: string
-          nullable: true
-          type: array
       required:
       - cloud_filter
       - field_filters
@@ -5984,7 +6193,6 @@ components:
       - kubernetes_filter
       - pod_filter
       - region_filter
-      - service_filter
       type: object
     IngestersCloudCompliance:
       example:
@@ -7106,19 +7314,134 @@ components:
         trail_name:
           type: string
       type: object
-    ModelCloudNodeProvidersListResp:
+    ModelCloudNodeComplianceControl:
       example:
-        providers:
-        - providers
-        - providers
+        category_hierarchy:
+        - category_hierarchy
+        - category_hierarchy
+        control_id: control_id
+        service: service
+        description: description
+        title: title
+        enabled: true
       properties:
-        providers:
+        category_hierarchy:
           items:
             type: string
           nullable: true
           type: array
+        control_id:
+          type: string
+        description:
+          type: string
+        enabled:
+          type: boolean
+        service:
+          type: string
+        title:
+          type: string
+      type: object
+    ModelCloudNodeControlReq:
+      example:
+        cloud_provider: aws
+        compliance_type: compliance_type
+        node_id: node_id
+      properties:
+        cloud_provider:
+          enum:
+          - aws
+          - gcp
+          - azure
+          type: string
+        compliance_type:
+          type: string
+        node_id:
+          type: string
+      required:
+      - cloud_provider
+      - compliance_type
+      type: object
+    ModelCloudNodeControlResp:
+      example:
+        controls:
+        - category_hierarchy:
+          - category_hierarchy
+          - category_hierarchy
+          control_id: control_id
+          service: service
+          description: description
+          title: title
+          enabled: true
+        - category_hierarchy:
+          - category_hierarchy
+          - category_hierarchy
+          control_id: control_id
+          service: service
+          description: description
+          title: title
+          enabled: true
+      properties:
+        controls:
+          items:
+            $ref: '#/components/schemas/ModelCloudNodeComplianceControl'
+          nullable: true
+          type: array
+      type: object
+    ModelCloudNodeEnableDisableReq:
+      example:
+        control_ids:
+        - control_ids
+        - control_ids
+        node_id: node_id
+      properties:
+        control_ids:
+          items:
+            type: string
+          nullable: true
+          type: array
+        node_id:
+          type: string
+      type: object
+    ModelCloudNodeProvidersListResp:
+      example:
+        providers:
+        - compliance_percentage: 0.8008281904610115
+          node_label: node_label
+          name: name
+          scan_count: 5
+          node_count: 6
+          resource_count: 1
+        - compliance_percentage: 0.8008281904610115
+          node_label: node_label
+          name: name
+          scan_count: 5
+          node_count: 6
+          resource_count: 1
+      properties:
+        providers:
+          items:
+            $ref: '#/components/schemas/ModelPostureProvider'
+          nullable: true
+          type: array
       required:
       - providers
+      type: object
+    ModelCloudResource:
+      example:
+        node_type: node_type
+        node_name: node_name
+        node_id: node_id
+      properties:
+        node_id:
+          type: string
+        node_name:
+          type: string
+        node_type:
+          type: string
+      required:
+      - node_id
+      - node_name
+      - node_type
       type: object
     ModelCompliance:
       example:
@@ -9844,6 +10167,28 @@ components:
       - node_id
       - node_name
       - processes
+      type: object
+    ModelPostureProvider:
+      example:
+        compliance_percentage: 0.8008281904610115
+        node_label: node_label
+        name: name
+        scan_count: 5
+        node_count: 6
+        resource_count: 1
+      properties:
+        compliance_percentage:
+          type: number
+        name:
+          type: string
+        node_count:
+          type: integer
+        node_label:
+          type: string
+        resource_count:
+          type: integer
+        scan_count:
+          type: integer
       type: object
     ModelProcess:
       example:

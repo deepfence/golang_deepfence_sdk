@@ -4,13 +4,13 @@
 
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
-**Providers** | **[]string** |  | 
+**Providers** | [**[]ModelPostureProvider**](ModelPostureProvider.md) |  | 
 
 ## Methods
 
 ### NewModelCloudNodeProvidersListResp
 
-`func NewModelCloudNodeProvidersListResp(providers []string, ) *ModelCloudNodeProvidersListResp`
+`func NewModelCloudNodeProvidersListResp(providers []ModelPostureProvider, ) *ModelCloudNodeProvidersListResp`
 
 NewModelCloudNodeProvidersListResp instantiates a new ModelCloudNodeProvidersListResp object
 This constructor will assign default values to properties that have it defined,
@@ -27,20 +27,20 @@ but it doesn't guarantee that properties required by API are set
 
 ### GetProviders
 
-`func (o *ModelCloudNodeProvidersListResp) GetProviders() []string`
+`func (o *ModelCloudNodeProvidersListResp) GetProviders() []ModelPostureProvider`
 
 GetProviders returns the Providers field if non-nil, zero value otherwise.
 
 ### GetProvidersOk
 
-`func (o *ModelCloudNodeProvidersListResp) GetProvidersOk() (*[]string, bool)`
+`func (o *ModelCloudNodeProvidersListResp) GetProvidersOk() (*[]ModelPostureProvider, bool)`
 
 GetProvidersOk returns a tuple with the Providers field if it's non-nil, zero value otherwise
 and a boolean to check if the value has been set.
 
 ### SetProviders
 
-`func (o *ModelCloudNodeProvidersListResp) SetProviders(v []string)`
+`func (o *ModelCloudNodeProvidersListResp) SetProviders(v []ModelPostureProvider)`
 
 SetProviders sets Providers field to given value.
 
