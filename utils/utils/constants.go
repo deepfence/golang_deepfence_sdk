@@ -27,6 +27,7 @@ const (
 	SetUpGraphDBTask          = "set_up_graph_db"
 	CleanUpGraphDBTask        = "clean_up_graph_db"
 	CleanUpPostgresqlTask     = "clean_up_postgresql"
+	CleanupDiagnosisLogs      = "clean_up_diagnosis_logs"
 	RetryFailedScansTask      = "retry_failed_scans"
 	RetryFailedUpgradesTask   = "retry_failed_upgrades"
 	ScanSBOMTask              = "tasks_scan_sbom"
