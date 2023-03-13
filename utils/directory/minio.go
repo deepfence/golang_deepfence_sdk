@@ -36,6 +36,7 @@ type FileManager interface {
 	ListFiles(ctx context.Context, pathPrefix string, recursive bool, maxKeys int, skipDir bool) []ObjectInfo
 	UploadLocalFile(ctx context.Context, filename string, localFilename string, extra interface{}) (UploadResult, error)
 	UploadFile(ctx context.Context, filename string, data []byte, extra interface{}) (UploadResult, error)
+	DeleteFile(ctx context.Context, filename string, addFilePathPrefix bool, extra interface{}) error
 	DownloadFile(ctx context.Context, remoteFile string, localFile string, extra interface{}) error
 	DownloadFileContexts(ctx context.Context, remoteFile string, extra interface{}) ([]byte, error)
 	ExposeFile(ctx context.Context, filePath string, addFilePathPrefix bool, expires time.Duration, reqParams url.Values) (string, error)
@@ -73,6 +74,18 @@ func checkIfFileExists(ctx context.Context, client *minio.Client, bucket, filena
 		return "", false
 	}
 	return info.Key, true
+}
+
+func (mfm *MinioFileManager) optionallyAddNamespacePrefix(filePath string, addFilePathPrefix bool) string {
+	if addFilePathPrefix {
+		return mfm.addNamespacePrefix(filePath)
+	} else {
+		if strings.HasPrefix(filePath, "/") {
+			return filePath
+		} else {
+			return "/" + filePath
+		}
+	}
 }
 
 func (mfm *MinioFileManager) addNamespacePrefix(filePath string) string {
@@ -167,6 +180,10 @@ func (mfm *MinioFileManager) UploadFile(ctx context.Context, filename string, da
 	}, nil
 }
 
+func (mfm *MinioFileManager) DeleteFile(ctx context.Context, filePath string, addFilePathPrefix bool, extra interface{}) error {
+	return mfm.client.RemoveObject(ctx, mfm.namespace, mfm.optionallyAddNamespacePrefix(filePath, addFilePathPrefix), extra.(minio.RemoveObjectOptions))
+}
+
 func (mfm *MinioFileManager) DownloadFile(ctx context.Context, remoteFile string, localFile string, extra interface{}) error {
 	return mfm.client.FGetObject(ctx, mfm.namespace, mfm.addNamespacePrefix(remoteFile), localFile, extra.(minio.GetObjectOptions))
 }
@@ -194,21 +211,10 @@ func (mfm *MinioFileManager) ExposeFile(ctx context.Context, filePath string, ad
 	headers := http.Header{}
 	headers.Add("Host", consoleIp)
 
-	var objectName string
-	if addFilePathPrefix {
-		objectName = mfm.addNamespacePrefix(filePath)
-	} else {
-		if strings.HasPrefix(filePath, "/") {
-			objectName = filePath
-		} else {
-			objectName = "/" + filePath
-		}
-	}
-
 	urlLink, err := mfm.client.PresignHeader(context.Background(),
 		"GET",
 		mfm.namespace,
-		objectName,
+		mfm.optionallyAddNamespacePrefix(filePath, addFilePathPrefix),
 		expires,
 		reqParams,
 		headers)
