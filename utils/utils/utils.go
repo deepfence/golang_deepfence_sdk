@@ -26,6 +26,25 @@ var (
 	matchAllCap   = regexp.MustCompile("([a-z0-9])([A-Z])")
 )
 
+const (
+	ansi = "[\u001B\u009B][[\\]()#;?]*(?:(?:(?:[a-zA-Z\\d]*(?:;[a-zA-Z\\d]*)*)?\u0007)|(?:(?:\\d{1,4}(?:;\\d{0,4})*)?[\\dA-PRZcf-ntqry=><~]))"
+)
+
+var (
+	removeAnsiColorRegex = regexp.MustCompile(ansi)
+	emptyStrByte         = []byte("")
+)
+
+// StripAnsi remove ansi color from log lines
+func StripAnsi(str []byte) []byte {
+	return removeAnsiColorRegex.ReplaceAll(str, emptyStrByte)
+}
+
+// StripAnsiStr remove ansi color from log lines
+func StripAnsiStr(str string) string {
+	return removeAnsiColorRegex.ReplaceAllString(str, "")
+}
+
 type AgentID struct {
 	Name string `json:"name"`
 	Type string `json:"type"`
