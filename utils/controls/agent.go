@@ -12,6 +12,7 @@ const (
 	StartComplianceScan
 	StartMalwareScan
 	StartAgentUpgrade
+	SendAgentDiagnosticLogs
 )
 
 type ScanResource int
