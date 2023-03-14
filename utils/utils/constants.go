@@ -79,12 +79,15 @@ const (
 	GCP
 	Azure
 	DO
+	AWSOrg
 )
 
 func StringToCloudProvider(s string) CloudProvider {
 	switch s {
 	case "aws":
 		return AWS
+	case "aws_org":
+		return AWSOrg
 	case "gcp":
 		return GCP
 	case "azure":
