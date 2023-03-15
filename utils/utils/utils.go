@@ -1,14 +1,17 @@
 package utils
 
 import (
+	"archive/zip"
 	"bytes"
 	"encoding/json"
 	"errors"
 	"fmt"
+	"io"
 	"net/mail"
 	"net/url"
 	"os"
 	"os/exec"
+	"path/filepath"
 	"reflect"
 	"regexp"
 	"strconv"
@@ -279,4 +282,61 @@ func ExecuteCommand(commandStr string, envVars map[string]string) (string, error
 		return strings.TrimSpace(commandErr.String()), err
 	}
 	return strings.TrimSpace(commandOut.String()), nil
+}
+
+func InSlice[T comparable](e T, s []T) bool {
+	for _, v := range s {
+		if v == e {
+			return true
+		}
+	}
+	return false
+}
+
+func RecursiveZip(pathsToZip []string, excludePathPrefixes []string, destinationPath string) error {
+	destinationFile, err := os.Create(destinationPath)
+	if err != nil {
+		return err
+	}
+	excludePathsSet := len(excludePathPrefixes) > 0
+	myZip := zip.NewWriter(destinationFile)
+	for _, pathToZip := range pathsToZip {
+		err = filepath.Walk(pathToZip, func(filePath string, info os.FileInfo, err error) error {
+			if info.IsDir() {
+				return nil
+			}
+			if err != nil {
+				return err
+			}
+			if excludePathsSet {
+				for _, v := range excludePathPrefixes {
+					if strings.HasPrefix(filePath, v) {
+						return nil
+					}
+				}
+			}
+			relPath := strings.TrimPrefix(filePath, filepath.Dir(pathToZip))
+			zipFile, err := myZip.Create(relPath)
+			if err != nil {
+				return err
+			}
+			fsFile, err := os.Open(filePath)
+			if err != nil {
+				return err
+			}
+			_, err = io.Copy(zipFile, fsFile)
+			if err != nil {
+				return err
+			}
+			return nil
+		})
+		if err != nil {
+			return err
+		}
+	}
+	err = myZip.Close()
+	if err != nil {
+		return err
+	}
+	return nil
 }
