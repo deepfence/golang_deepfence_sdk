@@ -84,7 +84,7 @@ Class | Method | HTTP request | Description
 *AuthenticationApi* | [**Login**](docs/AuthenticationApi.md#login) | **Post** /deepfence/user/login | Login API
 *AuthenticationApi* | [**Logout**](docs/AuthenticationApi.md#logout) | **Post** /deepfence/user/logout | Logout API
 *CloudNodesApi* | [**ListCloudNodeAccount**](docs/CloudNodesApi.md#listcloudnodeaccount) | **Post** /deepfence/cloud-node/list/accounts | List Cloud Node Accounts
-*CloudNodesApi* | [**ListCloudProviders**](docs/CloudNodesApi.md#listcloudproviders) | **Post** /deepfence/cloud-node/list/providers | List Cloud Node Providers
+*CloudNodesApi* | [**ListCloudProviders**](docs/CloudNodesApi.md#listcloudproviders) | **Get** /deepfence/cloud-node/list/providers | List Cloud Node Providers
 *CloudNodesApi* | [**RegisterCloudNodeAccount**](docs/CloudNodesApi.md#registercloudnodeaccount) | **Post** /deepfence/cloud-node/account | Register Cloud Node Account
 *CloudResourcesApi* | [**IngestCloudResources**](docs/CloudResourcesApi.md#ingestcloudresources) | **Post** /deepfence/ingest/cloud-resources | Ingest Cloud resources
 *CloudScannerApi* | [**CountResultsCloudComplianceScan**](docs/CloudScannerApi.md#countresultscloudcompliancescan) | **Post** /deepfence/scan/results/count/cloud-compliance | Get Cloud Compliance Scan Results
@@ -128,12 +128,14 @@ Class | Method | HTTP request | Description
 *MalwareScanApi* | [**StatusMalwareScan**](docs/MalwareScanApi.md#statusmalwarescan) | **Post** /deepfence/scan/status/malware | Get Malware Scan Status
 *MalwareScanApi* | [**StopMalwareScan**](docs/MalwareScanApi.md#stopmalwarescan) | **Post** /deepfence/scan/stop/malware | Stop Malware Scan
 *RegistryApi* | [**AddRegistry**](docs/RegistryApi.md#addregistry) | **Post** /deepfence/registryaccount | Add Registry
+*RegistryApi* | [**CountImageStubs**](docs/RegistryApi.md#countimagestubs) | **Post** /deepfence/registryaccount/count/stubs | Count Image Stubs
+*RegistryApi* | [**CountImages**](docs/RegistryApi.md#countimages) | **Post** /deepfence/registryaccount/count/images | Count Registry Images
 *RegistryApi* | [**DeleteRegistry**](docs/RegistryApi.md#deleteregistry) | **Delete** /deepfence/registryaccount/{registry_id} | Delete Registry
 *RegistryApi* | [**GetRegistrySummary**](docs/RegistryApi.md#getregistrysummary) | **Get** /deepfence/registryaccount/{registry_id}/summary | Get Registry Summary
-*RegistryApi* | [**GetSummary**](docs/RegistryApi.md#getsummary) | **Get** /deepfence/registryaccount/{registry_type}/summary | Get Registry Summary By Type
 *RegistryApi* | [**GetSummaryAll**](docs/RegistryApi.md#getsummaryall) | **Get** /deepfence/registryaccount/summary | Get All Registries Summary By Type
-*RegistryApi* | [**ListImageTags**](docs/RegistryApi.md#listimagetags) | **Get** /deepfence/registryaccount/{registry_id}/images/{image_name}/tags | List Image Tags
-*RegistryApi* | [**ListImages**](docs/RegistryApi.md#listimages) | **Get** /deepfence/registryaccount/{registry_id}/images | List Registry Images
+*RegistryApi* | [**GetSummaryByType**](docs/RegistryApi.md#getsummarybytype) | **Get** /deepfence/registryaccount/{registry_type}/summary-by-type | Get Registry Summary By Type
+*RegistryApi* | [**ListImageStubs**](docs/RegistryApi.md#listimagestubs) | **Post** /deepfence/registryaccount/stubs | List Image Stubs
+*RegistryApi* | [**ListImages**](docs/RegistryApi.md#listimages) | **Post** /deepfence/registryaccount/images | List Registry Images
 *RegistryApi* | [**ListRegistry**](docs/RegistryApi.md#listregistry) | **Get** /deepfence/registryaccount | List Registries
 *ScanResultsApi* | [**DeleteScanResult**](docs/ScanResultsApi.md#deletescanresult) | **Patch** /deepfence/scan/results/action/delete | Delete selected scan results
 *ScanResultsApi* | [**DeleteScanResultsForScanID**](docs/ScanResultsApi.md#deletescanresultsforscanid) | **Delete** /deepfence/scan/{scan_type}/{scan_id} | Delete all scan results for a scan id
@@ -274,10 +276,10 @@ Class | Method | HTTP request | Description
  - [ModelComputeMetrics](docs/ModelComputeMetrics.md)
  - [ModelContainer](docs/ModelContainer.md)
  - [ModelContainerImage](docs/ModelContainerImage.md)
- - [ModelContainerImageWithTags](docs/ModelContainerImageWithTags.md)
  - [ModelDownloadReportResponse](docs/ModelDownloadReportResponse.md)
  - [ModelFetchWindow](docs/ModelFetchWindow.md)
  - [ModelHost](docs/ModelHost.md)
+ - [ModelImageStub](docs/ModelImageStub.md)
  - [ModelInitAgentReq](docs/ModelInitAgentReq.md)
  - [ModelInviteUserRequest](docs/ModelInviteUserRequest.md)
  - [ModelInviteUserResponse](docs/ModelInviteUserResponse.md)
@@ -297,6 +299,9 @@ Class | Method | HTTP request | Description
  - [ModelRegisterInvitedUserRequest](docs/ModelRegisterInvitedUserRequest.md)
  - [ModelRegistryAccount](docs/ModelRegistryAccount.md)
  - [ModelRegistryAddReq](docs/ModelRegistryAddReq.md)
+ - [ModelRegistryCountResp](docs/ModelRegistryCountResp.md)
+ - [ModelRegistryImageStubsReq](docs/ModelRegistryImageStubsReq.md)
+ - [ModelRegistryImagesReq](docs/ModelRegistryImagesReq.md)
  - [ModelRegistryListResp](docs/ModelRegistryListResp.md)
  - [ModelResponseAccessToken](docs/ModelResponseAccessToken.md)
  - [ModelSbomRequest](docs/ModelSbomRequest.md)
@@ -315,6 +320,7 @@ Class | Method | HTTP request | Description
  - [ModelSecret](docs/ModelSecret.md)
  - [ModelSecretScanResult](docs/ModelSecretScanResult.md)
  - [ModelSecretScanTriggerReq](docs/ModelSecretScanTriggerReq.md)
+ - [ModelSummary](docs/ModelSummary.md)
  - [ModelUpdateUserIdRequest](docs/ModelUpdateUserIdRequest.md)
  - [ModelUpdateUserPasswordRequest](docs/ModelUpdateUserPasswordRequest.md)
  - [ModelUpdateUserRequest](docs/ModelUpdateUserRequest.md)

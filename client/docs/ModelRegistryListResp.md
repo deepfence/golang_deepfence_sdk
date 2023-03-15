@@ -4,13 +4,13 @@
 
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
-**CreatedAt** | Pointer to **time.Time** |  | [optional] 
+**CreatedAt** | Pointer to **int32** |  | [optional] 
 **Id** | Pointer to **int32** |  | [optional] 
 **Name** | Pointer to **string** |  | [optional] 
 **NodeId** | Pointer to **string** |  | [optional] 
 **NonSecret** | Pointer to **interface{}** |  | [optional] 
 **RegistryType** | Pointer to **string** |  | [optional] 
-**UpdatedAt** | Pointer to **time.Time** |  | [optional] 
+**UpdatedAt** | Pointer to **int32** |  | [optional] 
 
 ## Methods
 
@@ -33,20 +33,20 @@ but it doesn't guarantee that properties required by API are set
 
 ### GetCreatedAt
 
-`func (o *ModelRegistryListResp) GetCreatedAt() time.Time`
+`func (o *ModelRegistryListResp) GetCreatedAt() int32`
 
 GetCreatedAt returns the CreatedAt field if non-nil, zero value otherwise.
 
 ### GetCreatedAtOk
 
-`func (o *ModelRegistryListResp) GetCreatedAtOk() (*time.Time, bool)`
+`func (o *ModelRegistryListResp) GetCreatedAtOk() (*int32, bool)`
 
 GetCreatedAtOk returns a tuple with the CreatedAt field if it's non-nil, zero value otherwise
 and a boolean to check if the value has been set.
 
 ### SetCreatedAt
 
-`func (o *ModelRegistryListResp) SetCreatedAt(v time.Time)`
+`func (o *ModelRegistryListResp) SetCreatedAt(v int32)`
 
 SetCreatedAt sets CreatedAt field to given value.
 
@@ -193,20 +193,20 @@ HasRegistryType returns a boolean if a field has been set.
 
 ### GetUpdatedAt
 
-`func (o *ModelRegistryListResp) GetUpdatedAt() time.Time`
+`func (o *ModelRegistryListResp) GetUpdatedAt() int32`
 
 GetUpdatedAt returns the UpdatedAt field if non-nil, zero value otherwise.
 
 ### GetUpdatedAtOk
 
-`func (o *ModelRegistryListResp) GetUpdatedAtOk() (*time.Time, bool)`
+`func (o *ModelRegistryListResp) GetUpdatedAtOk() (*int32, bool)`
 
 GetUpdatedAtOk returns a tuple with the UpdatedAt field if it's non-nil, zero value otherwise
 and a boolean to check if the value has been set.
 
 ### SetUpdatedAt
 
-`func (o *ModelRegistryListResp) SetUpdatedAt(v time.Time)`
+`func (o *ModelRegistryListResp) SetUpdatedAt(v int32)`
 
 SetUpdatedAt sets UpdatedAt field to given value.
 

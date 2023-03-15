@@ -13,7 +13,6 @@ package client
 
 import (
 	"encoding/json"
-	"time"
 )
 
 // checks if the ModelRegistryListResp type satisfies the MappedNullable interface at compile time
@@ -21,13 +20,13 @@ var _ MappedNullable = &ModelRegistryListResp{}
 
 // ModelRegistryListResp struct for ModelRegistryListResp
 type ModelRegistryListResp struct {
-	CreatedAt *time.Time `json:"created_at,omitempty"`
+	CreatedAt *int32 `json:"created_at,omitempty"`
 	Id *int32 `json:"id,omitempty"`
 	Name *string `json:"name,omitempty"`
 	NodeId *string `json:"node_id,omitempty"`
 	NonSecret interface{} `json:"non_secret,omitempty"`
 	RegistryType *string `json:"registry_type,omitempty"`
-	UpdatedAt *time.Time `json:"updated_at,omitempty"`
+	UpdatedAt *int32 `json:"updated_at,omitempty"`
 }
 
 // NewModelRegistryListResp instantiates a new ModelRegistryListResp object
@@ -48,9 +47,9 @@ func NewModelRegistryListRespWithDefaults() *ModelRegistryListResp {
 }
 
 // GetCreatedAt returns the CreatedAt field value if set, zero value otherwise.
-func (o *ModelRegistryListResp) GetCreatedAt() time.Time {
+func (o *ModelRegistryListResp) GetCreatedAt() int32 {
 	if o == nil || IsNil(o.CreatedAt) {
-		var ret time.Time
+		var ret int32
 		return ret
 	}
 	return *o.CreatedAt
@@ -58,7 +57,7 @@ func (o *ModelRegistryListResp) GetCreatedAt() time.Time {
 
 // GetCreatedAtOk returns a tuple with the CreatedAt field value if set, nil otherwise
 // and a boolean to check if the value has been set.
-func (o *ModelRegistryListResp) GetCreatedAtOk() (*time.Time, bool) {
+func (o *ModelRegistryListResp) GetCreatedAtOk() (*int32, bool) {
 	if o == nil || IsNil(o.CreatedAt) {
 		return nil, false
 	}
@@ -74,8 +73,8 @@ func (o *ModelRegistryListResp) HasCreatedAt() bool {
 	return false
 }
 
-// SetCreatedAt gets a reference to the given time.Time and assigns it to the CreatedAt field.
-func (o *ModelRegistryListResp) SetCreatedAt(v time.Time) {
+// SetCreatedAt gets a reference to the given int32 and assigns it to the CreatedAt field.
+func (o *ModelRegistryListResp) SetCreatedAt(v int32) {
 	o.CreatedAt = &v
 }
 
@@ -241,9 +240,9 @@ func (o *ModelRegistryListResp) SetRegistryType(v string) {
 }
 
 // GetUpdatedAt returns the UpdatedAt field value if set, zero value otherwise.
-func (o *ModelRegistryListResp) GetUpdatedAt() time.Time {
+func (o *ModelRegistryListResp) GetUpdatedAt() int32 {
 	if o == nil || IsNil(o.UpdatedAt) {
-		var ret time.Time
+		var ret int32
 		return ret
 	}
 	return *o.UpdatedAt
@@ -251,7 +250,7 @@ func (o *ModelRegistryListResp) GetUpdatedAt() time.Time {
 
 // GetUpdatedAtOk returns a tuple with the UpdatedAt field value if set, nil otherwise
 // and a boolean to check if the value has been set.
-func (o *ModelRegistryListResp) GetUpdatedAtOk() (*time.Time, bool) {
+func (o *ModelRegistryListResp) GetUpdatedAtOk() (*int32, bool) {
 	if o == nil || IsNil(o.UpdatedAt) {
 		return nil, false
 	}
@@ -267,8 +266,8 @@ func (o *ModelRegistryListResp) HasUpdatedAt() bool {
 	return false
 }
 
-// SetUpdatedAt gets a reference to the given time.Time and assigns it to the UpdatedAt field.
-func (o *ModelRegistryListResp) SetUpdatedAt(v time.Time) {
+// SetUpdatedAt gets a reference to the given int32 and assigns it to the UpdatedAt field.
+func (o *ModelRegistryListResp) SetUpdatedAt(v int32) {
 	o.UpdatedAt = &v
 }
 

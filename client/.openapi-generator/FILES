@@ -91,10 +91,10 @@ docs/ModelComplianceScanTriggerReq.md
 docs/ModelComputeMetrics.md
 docs/ModelContainer.md
 docs/ModelContainerImage.md
-docs/ModelContainerImageWithTags.md
 docs/ModelDownloadReportResponse.md
 docs/ModelFetchWindow.md
 docs/ModelHost.md
+docs/ModelImageStub.md
 docs/ModelInitAgentReq.md
 docs/ModelInviteUserRequest.md
 docs/ModelInviteUserResponse.md
@@ -114,6 +114,9 @@ docs/ModelProcess.md
 docs/ModelRegisterInvitedUserRequest.md
 docs/ModelRegistryAccount.md
 docs/ModelRegistryAddReq.md
+docs/ModelRegistryCountResp.md
+docs/ModelRegistryImageStubsReq.md
+docs/ModelRegistryImagesReq.md
 docs/ModelRegistryListResp.md
 docs/ModelResponseAccessToken.md
 docs/ModelSbomRequest.md
@@ -132,6 +135,7 @@ docs/ModelScanTriggerResp.md
 docs/ModelSecret.md
 docs/ModelSecretScanResult.md
 docs/ModelSecretScanTriggerReq.md
+docs/ModelSummary.md
 docs/ModelUpdateUserIdRequest.md
 docs/ModelUpdateUserPasswordRequest.md
 docs/ModelUpdateUserRequest.md
@@ -226,10 +230,10 @@ model_model_compliance_scan_trigger_req.go
 model_model_compute_metrics.go
 model_model_container.go
 model_model_container_image.go
-model_model_container_image_with_tags.go
 model_model_download_report_response.go
 model_model_fetch_window.go
 model_model_host.go
+model_model_image_stub.go
 model_model_init_agent_req.go
 model_model_invite_user_request.go
 model_model_invite_user_response.go
@@ -249,6 +253,9 @@ model_model_process.go
 model_model_register_invited_user_request.go
 model_model_registry_account.go
 model_model_registry_add_req.go
+model_model_registry_count_resp.go
+model_model_registry_image_stubs_req.go
+model_model_registry_images_req.go
 model_model_registry_list_resp.go
 model_model_response_access_token.go
 model_model_sbom_request.go
@@ -267,6 +274,7 @@ model_model_scan_trigger_resp.go
 model_model_secret.go
 model_model_secret_scan_result.go
 model_model_secret_scan_trigger_req.go
+model_model_summary.go
 model_model_update_user_id_request.go
 model_model_update_user_password_request.go
 model_model_update_user_request.go

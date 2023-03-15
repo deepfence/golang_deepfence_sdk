@@ -152,10 +152,288 @@ func (a *RegistryApiService) AddRegistryExecute(r ApiAddRegistryRequest) (*http.
 	return localVarHTTPResponse, nil
 }
 
+type ApiCountImageStubsRequest struct {
+	ctx context.Context
+	ApiService *RegistryApiService
+	modelRegistryImageStubsReq *ModelRegistryImageStubsReq
+}
+
+func (r ApiCountImageStubsRequest) ModelRegistryImageStubsReq(modelRegistryImageStubsReq ModelRegistryImageStubsReq) ApiCountImageStubsRequest {
+	r.modelRegistryImageStubsReq = &modelRegistryImageStubsReq
+	return r
+}
+
+func (r ApiCountImageStubsRequest) Execute() (*ModelRegistryCountResp, *http.Response, error) {
+	return r.ApiService.CountImageStubsExecute(r)
+}
+
+/*
+CountImageStubs Count Image Stubs
+
+count of image tags for a given image and registry
+
+ @param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
+ @return ApiCountImageStubsRequest
+*/
+func (a *RegistryApiService) CountImageStubs(ctx context.Context) ApiCountImageStubsRequest {
+	return ApiCountImageStubsRequest{
+		ApiService: a,
+		ctx: ctx,
+	}
+}
+
+// Execute executes the request
+//  @return ModelRegistryCountResp
+func (a *RegistryApiService) CountImageStubsExecute(r ApiCountImageStubsRequest) (*ModelRegistryCountResp, *http.Response, error) {
+	var (
+		localVarHTTPMethod   = http.MethodPost
+		localVarPostBody     interface{}
+		formFiles            []formFile
+		localVarReturnValue  *ModelRegistryCountResp
+	)
+
+	localBasePath, err := a.client.cfg.ServerURLWithContext(r.ctx, "RegistryApiService.CountImageStubs")
+	if err != nil {
+		return localVarReturnValue, nil, &GenericOpenAPIError{error: err.Error()}
+	}
+
+	localVarPath := localBasePath + "/deepfence/registryaccount/count/stubs"
+
+	localVarHeaderParams := make(map[string]string)
+	localVarQueryParams := url.Values{}
+	localVarFormParams := url.Values{}
+
+	// to determine the Content-Type header
+	localVarHTTPContentTypes := []string{"application/json"}
+
+	// set Content-Type header
+	localVarHTTPContentType := selectHeaderContentType(localVarHTTPContentTypes)
+	if localVarHTTPContentType != "" {
+		localVarHeaderParams["Content-Type"] = localVarHTTPContentType
+	}
+
+	// to determine the Accept header
+	localVarHTTPHeaderAccepts := []string{"application/json"}
+
+	// set Accept header
+	localVarHTTPHeaderAccept := selectHeaderAccept(localVarHTTPHeaderAccepts)
+	if localVarHTTPHeaderAccept != "" {
+		localVarHeaderParams["Accept"] = localVarHTTPHeaderAccept
+	}
+	// body params
+	localVarPostBody = r.modelRegistryImageStubsReq
+	req, err := a.client.prepareRequest(r.ctx, localVarPath, localVarHTTPMethod, localVarPostBody, localVarHeaderParams, localVarQueryParams, localVarFormParams, formFiles)
+	if err != nil {
+		return localVarReturnValue, nil, err
+	}
+
+	localVarHTTPResponse, err := a.client.callAPI(req)
+	if err != nil || localVarHTTPResponse == nil {
+		return localVarReturnValue, localVarHTTPResponse, err
+	}
+
+	localVarBody, err := io.ReadAll(localVarHTTPResponse.Body)
+	localVarHTTPResponse.Body.Close()
+	localVarHTTPResponse.Body = io.NopCloser(bytes.NewBuffer(localVarBody))
+	if err != nil {
+		return localVarReturnValue, localVarHTTPResponse, err
+	}
+
+	if localVarHTTPResponse.StatusCode >= 300 {
+		newErr := &GenericOpenAPIError{
+			body:  localVarBody,
+			error: localVarHTTPResponse.Status,
+		}
+		if localVarHTTPResponse.StatusCode == 400 {
+			var v ApiDocsBadRequestResponse
+			err = a.client.decode(&v, localVarBody, localVarHTTPResponse.Header.Get("Content-Type"))
+			if err != nil {
+				newErr.error = err.Error()
+				return localVarReturnValue, localVarHTTPResponse, newErr
+			}
+					newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
+					newErr.model = v
+			return localVarReturnValue, localVarHTTPResponse, newErr
+		}
+		if localVarHTTPResponse.StatusCode == 404 {
+			var v ApiDocsFailureResponse
+			err = a.client.decode(&v, localVarBody, localVarHTTPResponse.Header.Get("Content-Type"))
+			if err != nil {
+				newErr.error = err.Error()
+				return localVarReturnValue, localVarHTTPResponse, newErr
+			}
+					newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
+					newErr.model = v
+			return localVarReturnValue, localVarHTTPResponse, newErr
+		}
+		if localVarHTTPResponse.StatusCode == 500 {
+			var v ApiDocsFailureResponse
+			err = a.client.decode(&v, localVarBody, localVarHTTPResponse.Header.Get("Content-Type"))
+			if err != nil {
+				newErr.error = err.Error()
+				return localVarReturnValue, localVarHTTPResponse, newErr
+			}
+					newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
+					newErr.model = v
+		}
+		return localVarReturnValue, localVarHTTPResponse, newErr
+	}
+
+	err = a.client.decode(&localVarReturnValue, localVarBody, localVarHTTPResponse.Header.Get("Content-Type"))
+	if err != nil {
+		newErr := &GenericOpenAPIError{
+			body:  localVarBody,
+			error: err.Error(),
+		}
+		return localVarReturnValue, localVarHTTPResponse, newErr
+	}
+
+	return localVarReturnValue, localVarHTTPResponse, nil
+}
+
+type ApiCountImagesRequest struct {
+	ctx context.Context
+	ApiService *RegistryApiService
+	modelRegistryImagesReq *ModelRegistryImagesReq
+}
+
+func (r ApiCountImagesRequest) ModelRegistryImagesReq(modelRegistryImagesReq ModelRegistryImagesReq) ApiCountImagesRequest {
+	r.modelRegistryImagesReq = &modelRegistryImagesReq
+	return r
+}
+
+func (r ApiCountImagesRequest) Execute() (*ModelRegistryCountResp, *http.Response, error) {
+	return r.ApiService.CountImagesExecute(r)
+}
+
+/*
+CountImages Count Registry Images
+
+count of images from a given registry
+
+ @param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
+ @return ApiCountImagesRequest
+*/
+func (a *RegistryApiService) CountImages(ctx context.Context) ApiCountImagesRequest {
+	return ApiCountImagesRequest{
+		ApiService: a,
+		ctx: ctx,
+	}
+}
+
+// Execute executes the request
+//  @return ModelRegistryCountResp
+func (a *RegistryApiService) CountImagesExecute(r ApiCountImagesRequest) (*ModelRegistryCountResp, *http.Response, error) {
+	var (
+		localVarHTTPMethod   = http.MethodPost
+		localVarPostBody     interface{}
+		formFiles            []formFile
+		localVarReturnValue  *ModelRegistryCountResp
+	)
+
+	localBasePath, err := a.client.cfg.ServerURLWithContext(r.ctx, "RegistryApiService.CountImages")
+	if err != nil {
+		return localVarReturnValue, nil, &GenericOpenAPIError{error: err.Error()}
+	}
+
+	localVarPath := localBasePath + "/deepfence/registryaccount/count/images"
+
+	localVarHeaderParams := make(map[string]string)
+	localVarQueryParams := url.Values{}
+	localVarFormParams := url.Values{}
+
+	// to determine the Content-Type header
+	localVarHTTPContentTypes := []string{"application/json"}
+
+	// set Content-Type header
+	localVarHTTPContentType := selectHeaderContentType(localVarHTTPContentTypes)
+	if localVarHTTPContentType != "" {
+		localVarHeaderParams["Content-Type"] = localVarHTTPContentType
+	}
+
+	// to determine the Accept header
+	localVarHTTPHeaderAccepts := []string{"application/json"}
+
+	// set Accept header
+	localVarHTTPHeaderAccept := selectHeaderAccept(localVarHTTPHeaderAccepts)
+	if localVarHTTPHeaderAccept != "" {
+		localVarHeaderParams["Accept"] = localVarHTTPHeaderAccept
+	}
+	// body params
+	localVarPostBody = r.modelRegistryImagesReq
+	req, err := a.client.prepareRequest(r.ctx, localVarPath, localVarHTTPMethod, localVarPostBody, localVarHeaderParams, localVarQueryParams, localVarFormParams, formFiles)
+	if err != nil {
+		return localVarReturnValue, nil, err
+	}
+
+	localVarHTTPResponse, err := a.client.callAPI(req)
+	if err != nil || localVarHTTPResponse == nil {
+		return localVarReturnValue, localVarHTTPResponse, err
+	}
+
+	localVarBody, err := io.ReadAll(localVarHTTPResponse.Body)
+	localVarHTTPResponse.Body.Close()
+	localVarHTTPResponse.Body = io.NopCloser(bytes.NewBuffer(localVarBody))
+	if err != nil {
+		return localVarReturnValue, localVarHTTPResponse, err
+	}
+
+	if localVarHTTPResponse.StatusCode >= 300 {
+		newErr := &GenericOpenAPIError{
+			body:  localVarBody,
+			error: localVarHTTPResponse.Status,
+		}
+		if localVarHTTPResponse.StatusCode == 400 {
+			var v ApiDocsBadRequestResponse
+			err = a.client.decode(&v, localVarBody, localVarHTTPResponse.Header.Get("Content-Type"))
+			if err != nil {
+				newErr.error = err.Error()
+				return localVarReturnValue, localVarHTTPResponse, newErr
+			}
+					newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
+					newErr.model = v
+			return localVarReturnValue, localVarHTTPResponse, newErr
+		}
+		if localVarHTTPResponse.StatusCode == 404 {
+			var v ApiDocsFailureResponse
+			err = a.client.decode(&v, localVarBody, localVarHTTPResponse.Header.Get("Content-Type"))
+			if err != nil {
+				newErr.error = err.Error()
+				return localVarReturnValue, localVarHTTPResponse, newErr
+			}
+					newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
+					newErr.model = v
+			return localVarReturnValue, localVarHTTPResponse, newErr
+		}
+		if localVarHTTPResponse.StatusCode == 500 {
+			var v ApiDocsFailureResponse
+			err = a.client.decode(&v, localVarBody, localVarHTTPResponse.Header.Get("Content-Type"))
+			if err != nil {
+				newErr.error = err.Error()
+				return localVarReturnValue, localVarHTTPResponse, newErr
+			}
+					newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
+					newErr.model = v
+		}
+		return localVarReturnValue, localVarHTTPResponse, newErr
+	}
+
+	err = a.client.decode(&localVarReturnValue, localVarBody, localVarHTTPResponse.Header.Get("Content-Type"))
+	if err != nil {
+		newErr := &GenericOpenAPIError{
+			body:  localVarBody,
+			error: err.Error(),
+		}
+		return localVarReturnValue, localVarHTTPResponse, newErr
+	}
+
+	return localVarReturnValue, localVarHTTPResponse, nil
+}
+
 type ApiDeleteRegistryRequest struct {
 	ctx context.Context
 	ApiService *RegistryApiService
-	registryId int32
+	registryId string
 }
 
 func (r ApiDeleteRegistryRequest) Execute() (*http.Response, error) {
@@ -171,7 +449,7 @@ Delete registry
  @param registryId
  @return ApiDeleteRegistryRequest
 */
-func (a *RegistryApiService) DeleteRegistry(ctx context.Context, registryId int32) ApiDeleteRegistryRequest {
+func (a *RegistryApiService) DeleteRegistry(ctx context.Context, registryId string) ApiDeleteRegistryRequest {
 	return ApiDeleteRegistryRequest{
 		ApiService: a,
 		ctx: ctx,
@@ -282,7 +560,7 @@ type ApiGetRegistrySummaryRequest struct {
 	registryId string
 }
 
-func (r ApiGetRegistrySummaryRequest) Execute() (map[string]int32, *http.Response, error) {
+func (r ApiGetRegistrySummaryRequest) Execute() (*ModelSummary, *http.Response, error) {
 	return r.ApiService.GetRegistrySummaryExecute(r)
 }
 
@@ -304,13 +582,13 @@ func (a *RegistryApiService) GetRegistrySummary(ctx context.Context, registryId 
 }
 
 // Execute executes the request
-//  @return map[string]int32
-func (a *RegistryApiService) GetRegistrySummaryExecute(r ApiGetRegistrySummaryRequest) (map[string]int32, *http.Response, error) {
+//  @return ModelSummary
+func (a *RegistryApiService) GetRegistrySummaryExecute(r ApiGetRegistrySummaryRequest) (*ModelSummary, *http.Response, error) {
 	var (
 		localVarHTTPMethod   = http.MethodGet
 		localVarPostBody     interface{}
 		formFiles            []formFile
-		localVarReturnValue  map[string]int32
+		localVarReturnValue  *ModelSummary
 	)
 
 	localBasePath, err := a.client.cfg.ServerURLWithContext(r.ctx, "RegistryApiService.GetRegistrySummary")
@@ -411,147 +689,12 @@ func (a *RegistryApiService) GetRegistrySummaryExecute(r ApiGetRegistrySummaryRe
 	return localVarReturnValue, localVarHTTPResponse, nil
 }
 
-type ApiGetSummaryRequest struct {
-	ctx context.Context
-	ApiService *RegistryApiService
-	registryType string
-}
-
-func (r ApiGetSummaryRequest) Execute() (map[string]int32, *http.Response, error) {
-	return r.ApiService.GetSummaryExecute(r)
-}
-
-/*
-GetSummary Get Registry Summary By Type
-
-get summary of registries scans, images and tags by registry type
-
- @param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
- @param registryType
- @return ApiGetSummaryRequest
-*/
-func (a *RegistryApiService) GetSummary(ctx context.Context, registryType string) ApiGetSummaryRequest {
-	return ApiGetSummaryRequest{
-		ApiService: a,
-		ctx: ctx,
-		registryType: registryType,
-	}
-}
-
-// Execute executes the request
-//  @return map[string]int32
-func (a *RegistryApiService) GetSummaryExecute(r ApiGetSummaryRequest) (map[string]int32, *http.Response, error) {
-	var (
-		localVarHTTPMethod   = http.MethodGet
-		localVarPostBody     interface{}
-		formFiles            []formFile
-		localVarReturnValue  map[string]int32
-	)
-
-	localBasePath, err := a.client.cfg.ServerURLWithContext(r.ctx, "RegistryApiService.GetSummary")
-	if err != nil {
-		return localVarReturnValue, nil, &GenericOpenAPIError{error: err.Error()}
-	}
-
-	localVarPath := localBasePath + "/deepfence/registryaccount/{registry_type}/summary"
-	localVarPath = strings.Replace(localVarPath, "{"+"registry_type"+"}", url.PathEscape(parameterValueToString(r.registryType, "registryType")), -1)
-
-	localVarHeaderParams := make(map[string]string)
-	localVarQueryParams := url.Values{}
-	localVarFormParams := url.Values{}
-
-	// to determine the Content-Type header
-	localVarHTTPContentTypes := []string{}
-
-	// set Content-Type header
-	localVarHTTPContentType := selectHeaderContentType(localVarHTTPContentTypes)
-	if localVarHTTPContentType != "" {
-		localVarHeaderParams["Content-Type"] = localVarHTTPContentType
-	}
-
-	// to determine the Accept header
-	localVarHTTPHeaderAccepts := []string{"application/json"}
-
-	// set Accept header
-	localVarHTTPHeaderAccept := selectHeaderAccept(localVarHTTPHeaderAccepts)
-	if localVarHTTPHeaderAccept != "" {
-		localVarHeaderParams["Accept"] = localVarHTTPHeaderAccept
-	}
-	req, err := a.client.prepareRequest(r.ctx, localVarPath, localVarHTTPMethod, localVarPostBody, localVarHeaderParams, localVarQueryParams, localVarFormParams, formFiles)
-	if err != nil {
-		return localVarReturnValue, nil, err
-	}
-
-	localVarHTTPResponse, err := a.client.callAPI(req)
-	if err != nil || localVarHTTPResponse == nil {
-		return localVarReturnValue, localVarHTTPResponse, err
-	}
-
-	localVarBody, err := io.ReadAll(localVarHTTPResponse.Body)
-	localVarHTTPResponse.Body.Close()
-	localVarHTTPResponse.Body = io.NopCloser(bytes.NewBuffer(localVarBody))
-	if err != nil {
-		return localVarReturnValue, localVarHTTPResponse, err
-	}
-
-	if localVarHTTPResponse.StatusCode >= 300 {
-		newErr := &GenericOpenAPIError{
-			body:  localVarBody,
-			error: localVarHTTPResponse.Status,
-		}
-		if localVarHTTPResponse.StatusCode == 400 {
-			var v ApiDocsBadRequestResponse
-			err = a.client.decode(&v, localVarBody, localVarHTTPResponse.Header.Get("Content-Type"))
-			if err != nil {
-				newErr.error = err.Error()
-				return localVarReturnValue, localVarHTTPResponse, newErr
-			}
-					newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
-					newErr.model = v
-			return localVarReturnValue, localVarHTTPResponse, newErr
-		}
-		if localVarHTTPResponse.StatusCode == 404 {
-			var v ApiDocsFailureResponse
-			err = a.client.decode(&v, localVarBody, localVarHTTPResponse.Header.Get("Content-Type"))
-			if err != nil {
-				newErr.error = err.Error()
-				return localVarReturnValue, localVarHTTPResponse, newErr
-			}
-					newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
-					newErr.model = v
-			return localVarReturnValue, localVarHTTPResponse, newErr
-		}
-		if localVarHTTPResponse.StatusCode == 500 {
-			var v ApiDocsFailureResponse
-			err = a.client.decode(&v, localVarBody, localVarHTTPResponse.Header.Get("Content-Type"))
-			if err != nil {
-				newErr.error = err.Error()
-				return localVarReturnValue, localVarHTTPResponse, newErr
-			}
-					newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
-					newErr.model = v
-		}
-		return localVarReturnValue, localVarHTTPResponse, newErr
-	}
-
-	err = a.client.decode(&localVarReturnValue, localVarBody, localVarHTTPResponse.Header.Get("Content-Type"))
-	if err != nil {
-		newErr := &GenericOpenAPIError{
-			body:  localVarBody,
-			error: err.Error(),
-		}
-		return localVarReturnValue, localVarHTTPResponse, newErr
-	}
-
-	return localVarReturnValue, localVarHTTPResponse, nil
-}
-
 type ApiGetSummaryAllRequest struct {
 	ctx context.Context
 	ApiService *RegistryApiService
 }
 
-func (r ApiGetSummaryAllRequest) Execute() (*map[string]map[string]int32, *http.Response, error) {
+func (r ApiGetSummaryAllRequest) Execute() (*map[string]ModelSummary, *http.Response, error) {
 	return r.ApiService.GetSummaryAllExecute(r)
 }
 
@@ -571,13 +714,13 @@ func (a *RegistryApiService) GetSummaryAll(ctx context.Context) ApiGetSummaryAll
 }
 
 // Execute executes the request
-//  @return map[string]map[string]int32
-func (a *RegistryApiService) GetSummaryAllExecute(r ApiGetSummaryAllRequest) (*map[string]map[string]int32, *http.Response, error) {
+//  @return map[string]ModelSummary
+func (a *RegistryApiService) GetSummaryAllExecute(r ApiGetSummaryAllRequest) (*map[string]ModelSummary, *http.Response, error) {
 	var (
 		localVarHTTPMethod   = http.MethodGet
 		localVarPostBody     interface{}
 		formFiles            []formFile
-		localVarReturnValue  *map[string]map[string]int32
+		localVarReturnValue  *map[string]ModelSummary
 	)
 
 	localBasePath, err := a.client.cfg.ServerURLWithContext(r.ctx, "RegistryApiService.GetSummaryAll")
@@ -677,54 +820,50 @@ func (a *RegistryApiService) GetSummaryAllExecute(r ApiGetSummaryAllRequest) (*m
 	return localVarReturnValue, localVarHTTPResponse, nil
 }
 
-type ApiListImageTagsRequest struct {
+type ApiGetSummaryByTypeRequest struct {
 	ctx context.Context
 	ApiService *RegistryApiService
-	registryId string
-	imageName string
+	registryType string
 }
 
-func (r ApiListImageTagsRequest) Execute() ([]ModelContainerImage, *http.Response, error) {
-	return r.ApiService.ListImageTagsExecute(r)
+func (r ApiGetSummaryByTypeRequest) Execute() (*ModelSummary, *http.Response, error) {
+	return r.ApiService.GetSummaryByTypeExecute(r)
 }
 
 /*
-ListImageTags List Image Tags
+GetSummaryByType Get Registry Summary By Type
 
-list image tags for a given image and registry
+get summary of registries scans, images and tags by registry type
 
  @param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
- @param registryId
- @param imageName
- @return ApiListImageTagsRequest
+ @param registryType
+ @return ApiGetSummaryByTypeRequest
 */
-func (a *RegistryApiService) ListImageTags(ctx context.Context, registryId string, imageName string) ApiListImageTagsRequest {
-	return ApiListImageTagsRequest{
+func (a *RegistryApiService) GetSummaryByType(ctx context.Context, registryType string) ApiGetSummaryByTypeRequest {
+	return ApiGetSummaryByTypeRequest{
 		ApiService: a,
 		ctx: ctx,
-		registryId: registryId,
-		imageName: imageName,
+		registryType: registryType,
 	}
 }
 
 // Execute executes the request
-//  @return []ModelContainerImage
-func (a *RegistryApiService) ListImageTagsExecute(r ApiListImageTagsRequest) ([]ModelContainerImage, *http.Response, error) {
+//  @return ModelSummary
+func (a *RegistryApiService) GetSummaryByTypeExecute(r ApiGetSummaryByTypeRequest) (*ModelSummary, *http.Response, error) {
 	var (
 		localVarHTTPMethod   = http.MethodGet
 		localVarPostBody     interface{}
 		formFiles            []formFile
-		localVarReturnValue  []ModelContainerImage
+		localVarReturnValue  *ModelSummary
 	)
 
-	localBasePath, err := a.client.cfg.ServerURLWithContext(r.ctx, "RegistryApiService.ListImageTags")
+	localBasePath, err := a.client.cfg.ServerURLWithContext(r.ctx, "RegistryApiService.GetSummaryByType")
 	if err != nil {
 		return localVarReturnValue, nil, &GenericOpenAPIError{error: err.Error()}
 	}
 
-	localVarPath := localBasePath + "/deepfence/registryaccount/{registry_id}/images/{image_name}/tags"
-	localVarPath = strings.Replace(localVarPath, "{"+"registry_id"+"}", url.PathEscape(parameterValueToString(r.registryId, "registryId")), -1)
-	localVarPath = strings.Replace(localVarPath, "{"+"image_name"+"}", url.PathEscape(parameterValueToString(r.imageName, "imageName")), -1)
+	localVarPath := localBasePath + "/deepfence/registryaccount/{registry_type}/summary-by-type"
+	localVarPath = strings.Replace(localVarPath, "{"+"registry_type"+"}", url.PathEscape(parameterValueToString(r.registryType, "registryType")), -1)
 
 	localVarHeaderParams := make(map[string]string)
 	localVarQueryParams := url.Values{}
@@ -816,57 +955,59 @@ func (a *RegistryApiService) ListImageTagsExecute(r ApiListImageTagsRequest) ([]
 	return localVarReturnValue, localVarHTTPResponse, nil
 }
 
-type ApiListImagesRequest struct {
+type ApiListImageStubsRequest struct {
 	ctx context.Context
 	ApiService *RegistryApiService
-	registryId string
+	modelRegistryImageStubsReq *ModelRegistryImageStubsReq
 }
 
-func (r ApiListImagesRequest) Execute() ([]ModelContainerImageWithTags, *http.Response, error) {
-	return r.ApiService.ListImagesExecute(r)
+func (r ApiListImageStubsRequest) ModelRegistryImageStubsReq(modelRegistryImageStubsReq ModelRegistryImageStubsReq) ApiListImageStubsRequest {
+	r.modelRegistryImageStubsReq = &modelRegistryImageStubsReq
+	return r
+}
+
+func (r ApiListImageStubsRequest) Execute() ([]ModelImageStub, *http.Response, error) {
+	return r.ApiService.ListImageStubsExecute(r)
 }
 
 /*
-ListImages List Registry Images
+ListImageStubs List Image Stubs
 
-list images from a given registry
+list image tags for a given image and registry
 
  @param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
- @param registryId
- @return ApiListImagesRequest
+ @return ApiListImageStubsRequest
 */
-func (a *RegistryApiService) ListImages(ctx context.Context, registryId string) ApiListImagesRequest {
-	return ApiListImagesRequest{
+func (a *RegistryApiService) ListImageStubs(ctx context.Context) ApiListImageStubsRequest {
+	return ApiListImageStubsRequest{
 		ApiService: a,
 		ctx: ctx,
-		registryId: registryId,
 	}
 }
 
 // Execute executes the request
-//  @return []ModelContainerImageWithTags
-func (a *RegistryApiService) ListImagesExecute(r ApiListImagesRequest) ([]ModelContainerImageWithTags, *http.Response, error) {
+//  @return []ModelImageStub
+func (a *RegistryApiService) ListImageStubsExecute(r ApiListImageStubsRequest) ([]ModelImageStub, *http.Response, error) {
 	var (
-		localVarHTTPMethod   = http.MethodGet
+		localVarHTTPMethod   = http.MethodPost
 		localVarPostBody     interface{}
 		formFiles            []formFile
-		localVarReturnValue  []ModelContainerImageWithTags
+		localVarReturnValue  []ModelImageStub
 	)
 
-	localBasePath, err := a.client.cfg.ServerURLWithContext(r.ctx, "RegistryApiService.ListImages")
+	localBasePath, err := a.client.cfg.ServerURLWithContext(r.ctx, "RegistryApiService.ListImageStubs")
 	if err != nil {
 		return localVarReturnValue, nil, &GenericOpenAPIError{error: err.Error()}
 	}
 
-	localVarPath := localBasePath + "/deepfence/registryaccount/{registry_id}/images"
-	localVarPath = strings.Replace(localVarPath, "{"+"registry_id"+"}", url.PathEscape(parameterValueToString(r.registryId, "registryId")), -1)
+	localVarPath := localBasePath + "/deepfence/registryaccount/stubs"
 
 	localVarHeaderParams := make(map[string]string)
 	localVarQueryParams := url.Values{}
 	localVarFormParams := url.Values{}
 
 	// to determine the Content-Type header
-	localVarHTTPContentTypes := []string{}
+	localVarHTTPContentTypes := []string{"application/json"}
 
 	// set Content-Type header
 	localVarHTTPContentType := selectHeaderContentType(localVarHTTPContentTypes)
@@ -882,6 +1023,147 @@ func (a *RegistryApiService) ListImagesExecute(r ApiListImagesRequest) ([]ModelC
 	if localVarHTTPHeaderAccept != "" {
 		localVarHeaderParams["Accept"] = localVarHTTPHeaderAccept
 	}
+	// body params
+	localVarPostBody = r.modelRegistryImageStubsReq
+	req, err := a.client.prepareRequest(r.ctx, localVarPath, localVarHTTPMethod, localVarPostBody, localVarHeaderParams, localVarQueryParams, localVarFormParams, formFiles)
+	if err != nil {
+		return localVarReturnValue, nil, err
+	}
+
+	localVarHTTPResponse, err := a.client.callAPI(req)
+	if err != nil || localVarHTTPResponse == nil {
+		return localVarReturnValue, localVarHTTPResponse, err
+	}
+
+	localVarBody, err := io.ReadAll(localVarHTTPResponse.Body)
+	localVarHTTPResponse.Body.Close()
+	localVarHTTPResponse.Body = io.NopCloser(bytes.NewBuffer(localVarBody))
+	if err != nil {
+		return localVarReturnValue, localVarHTTPResponse, err
+	}
+
+	if localVarHTTPResponse.StatusCode >= 300 {
+		newErr := &GenericOpenAPIError{
+			body:  localVarBody,
+			error: localVarHTTPResponse.Status,
+		}
+		if localVarHTTPResponse.StatusCode == 400 {
+			var v ApiDocsBadRequestResponse
+			err = a.client.decode(&v, localVarBody, localVarHTTPResponse.Header.Get("Content-Type"))
+			if err != nil {
+				newErr.error = err.Error()
+				return localVarReturnValue, localVarHTTPResponse, newErr
+			}
+					newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
+					newErr.model = v
+			return localVarReturnValue, localVarHTTPResponse, newErr
+		}
+		if localVarHTTPResponse.StatusCode == 404 {
+			var v ApiDocsFailureResponse
+			err = a.client.decode(&v, localVarBody, localVarHTTPResponse.Header.Get("Content-Type"))
+			if err != nil {
+				newErr.error = err.Error()
+				return localVarReturnValue, localVarHTTPResponse, newErr
+			}
+					newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
+					newErr.model = v
+			return localVarReturnValue, localVarHTTPResponse, newErr
+		}
+		if localVarHTTPResponse.StatusCode == 500 {
+			var v ApiDocsFailureResponse
+			err = a.client.decode(&v, localVarBody, localVarHTTPResponse.Header.Get("Content-Type"))
+			if err != nil {
+				newErr.error = err.Error()
+				return localVarReturnValue, localVarHTTPResponse, newErr
+			}
+					newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
+					newErr.model = v
+		}
+		return localVarReturnValue, localVarHTTPResponse, newErr
+	}
+
+	err = a.client.decode(&localVarReturnValue, localVarBody, localVarHTTPResponse.Header.Get("Content-Type"))
+	if err != nil {
+		newErr := &GenericOpenAPIError{
+			body:  localVarBody,
+			error: err.Error(),
+		}
+		return localVarReturnValue, localVarHTTPResponse, newErr
+	}
+
+	return localVarReturnValue, localVarHTTPResponse, nil
+}
+
+type ApiListImagesRequest struct {
+	ctx context.Context
+	ApiService *RegistryApiService
+	modelRegistryImagesReq *ModelRegistryImagesReq
+}
+
+func (r ApiListImagesRequest) ModelRegistryImagesReq(modelRegistryImagesReq ModelRegistryImagesReq) ApiListImagesRequest {
+	r.modelRegistryImagesReq = &modelRegistryImagesReq
+	return r
+}
+
+func (r ApiListImagesRequest) Execute() ([]ModelContainerImage, *http.Response, error) {
+	return r.ApiService.ListImagesExecute(r)
+}
+
+/*
+ListImages List Registry Images
+
+list images from a given registry
+
+ @param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
+ @return ApiListImagesRequest
+*/
+func (a *RegistryApiService) ListImages(ctx context.Context) ApiListImagesRequest {
+	return ApiListImagesRequest{
+		ApiService: a,
+		ctx: ctx,
+	}
+}
+
+// Execute executes the request
+//  @return []ModelContainerImage
+func (a *RegistryApiService) ListImagesExecute(r ApiListImagesRequest) ([]ModelContainerImage, *http.Response, error) {
+	var (
+		localVarHTTPMethod   = http.MethodPost
+		localVarPostBody     interface{}
+		formFiles            []formFile
+		localVarReturnValue  []ModelContainerImage
+	)
+
+	localBasePath, err := a.client.cfg.ServerURLWithContext(r.ctx, "RegistryApiService.ListImages")
+	if err != nil {
+		return localVarReturnValue, nil, &GenericOpenAPIError{error: err.Error()}
+	}
+
+	localVarPath := localBasePath + "/deepfence/registryaccount/images"
+
+	localVarHeaderParams := make(map[string]string)
+	localVarQueryParams := url.Values{}
+	localVarFormParams := url.Values{}
+
+	// to determine the Content-Type header
+	localVarHTTPContentTypes := []string{"application/json"}
+
+	// set Content-Type header
+	localVarHTTPContentType := selectHeaderContentType(localVarHTTPContentTypes)
+	if localVarHTTPContentType != "" {
+		localVarHeaderParams["Content-Type"] = localVarHTTPContentType
+	}
+
+	// to determine the Accept header
+	localVarHTTPHeaderAccepts := []string{"application/json"}
+
+	// set Accept header
+	localVarHTTPHeaderAccept := selectHeaderAccept(localVarHTTPHeaderAccepts)
+	if localVarHTTPHeaderAccept != "" {
+		localVarHeaderParams["Accept"] = localVarHTTPHeaderAccept
+	}
+	// body params
+	localVarPostBody = r.modelRegistryImagesReq
 	req, err := a.client.prepareRequest(r.ctx, localVarPath, localVarHTTPMethod, localVarPostBody, localVarHeaderParams, localVarQueryParams, localVarFormParams, formFiles)
 	if err != nil {
 		return localVarReturnValue, nil, err

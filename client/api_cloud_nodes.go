@@ -190,7 +190,7 @@ func (a *CloudNodesApiService) ListCloudProviders(ctx context.Context) ApiListCl
 //  @return ModelCloudNodeProvidersListResp
 func (a *CloudNodesApiService) ListCloudProvidersExecute(r ApiListCloudProvidersRequest) (*ModelCloudNodeProvidersListResp, *http.Response, error) {
 	var (
-		localVarHTTPMethod   = http.MethodPost
+		localVarHTTPMethod   = http.MethodGet
 		localVarPostBody     interface{}
 		formFiles            []formFile
 		localVarReturnValue  *ModelCloudNodeProvidersListResp

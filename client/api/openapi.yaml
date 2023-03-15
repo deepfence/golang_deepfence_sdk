@@ -279,7 +279,7 @@ paths:
       tags:
       - Cloud Nodes
   /deepfence/cloud-node/list/providers:
-    post:
+    get:
       description: List Cloud Node Providers registered with the console
       operationId: listCloudProviders
       responses:
@@ -2039,7 +2039,7 @@ paths:
         name: registry_id
         required: true
         schema:
-          type: integer
+          type: string
         style: simple
       responses:
         "200":
@@ -2071,10 +2071,10 @@ paths:
       summary: Delete Registry
       tags:
       - Registry
-  /deepfence/registryaccount/{registry_id}/images:
+  /deepfence/registryaccount/{registry_id}/summary:
     get:
-      description: list images from a given registry
-      operationId: listImages
+      description: "get summary of registry scans, images and tags"
+      operationId: getRegistrySummary
       parameters:
       - explode: false
         in: path
@@ -2088,9 +2088,7 @@ paths:
           content:
             application/json:
               schema:
-                items:
-                  $ref: '#/components/schemas/ModelContainerImageWithTags'
-                type: array
+                $ref: '#/components/schemas/ModelSummary'
           description: OK
         "400":
           content:
@@ -2116,28 +2114,150 @@ paths:
           description: Internal Server Error
       security:
       - bearer_token: []
-      summary: List Registry Images
+      summary: Get Registry Summary
       tags:
       - Registry
-  /deepfence/registryaccount/{registry_id}/images/{image_name}/tags:
+  /deepfence/registryaccount/{registry_type}/summary-by-type:
     get:
-      description: list image tags for a given image and registry
-      operationId: listImageTags
+      description: "get summary of registries scans, images and tags by registry type"
+      operationId: getSummaryByType
       parameters:
       - explode: false
         in: path
-        name: registry_id
+        name: registry_type
         required: true
         schema:
           type: string
         style: simple
-      - explode: false
-        in: path
-        name: image_name
-        required: true
-        schema:
-          type: string
-        style: simple
+      responses:
+        "200":
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ModelSummary'
+          description: OK
+        "400":
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ApiDocsBadRequestResponse'
+          description: Bad Request
+        "401":
+          description: Unauthorized
+        "403":
+          description: Forbidden
+        "404":
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ApiDocsFailureResponse'
+          description: Not Found
+        "500":
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ApiDocsFailureResponse'
+          description: Internal Server Error
+      security:
+      - bearer_token: []
+      summary: Get Registry Summary By Type
+      tags:
+      - Registry
+  /deepfence/registryaccount/count/images:
+    post:
+      description: count of images from a given registry
+      operationId: CountImages
+      requestBody:
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/ModelRegistryImagesReq'
+      responses:
+        "200":
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ModelRegistryCountResp'
+          description: OK
+        "400":
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ApiDocsBadRequestResponse'
+          description: Bad Request
+        "401":
+          description: Unauthorized
+        "403":
+          description: Forbidden
+        "404":
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ApiDocsFailureResponse'
+          description: Not Found
+        "500":
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ApiDocsFailureResponse'
+          description: Internal Server Error
+      security:
+      - bearer_token: []
+      summary: Count Registry Images
+      tags:
+      - Registry
+  /deepfence/registryaccount/count/stubs:
+    post:
+      description: count of image tags for a given image and registry
+      operationId: CountImageStubs
+      requestBody:
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/ModelRegistryImageStubsReq'
+      responses:
+        "200":
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ModelRegistryCountResp'
+          description: OK
+        "400":
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ApiDocsBadRequestResponse'
+          description: Bad Request
+        "401":
+          description: Unauthorized
+        "403":
+          description: Forbidden
+        "404":
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ApiDocsFailureResponse'
+          description: Not Found
+        "500":
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ApiDocsFailureResponse'
+          description: Internal Server Error
+      security:
+      - bearer_token: []
+      summary: Count Image Stubs
+      tags:
+      - Registry
+  /deepfence/registryaccount/images:
+    post:
+      description: list images from a given registry
+      operationId: listImages
+      requestBody:
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/ModelRegistryImagesReq'
       responses:
         "200":
           content:
@@ -2171,29 +2291,26 @@ paths:
           description: Internal Server Error
       security:
       - bearer_token: []
-      summary: List Image Tags
+      summary: List Registry Images
       tags:
       - Registry
-  /deepfence/registryaccount/{registry_id}/summary:
-    get:
-      description: "get summary of registry scans, images and tags"
-      operationId: getRegistrySummary
-      parameters:
-      - explode: false
-        in: path
-        name: registry_id
-        required: true
-        schema:
-          type: string
-        style: simple
+  /deepfence/registryaccount/stubs:
+    post:
+      description: list image tags for a given image and registry
+      operationId: listImageStubs
+      requestBody:
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/ModelRegistryImageStubsReq'
       responses:
         "200":
           content:
             application/json:
               schema:
-                additionalProperties:
-                  type: integer
-                type: object
+                items:
+                  $ref: '#/components/schemas/ModelImageStub'
+                type: array
           description: OK
         "400":
           content:
@@ -2219,55 +2336,7 @@ paths:
           description: Internal Server Error
       security:
       - bearer_token: []
-      summary: Get Registry Summary
-      tags:
-      - Registry
-  /deepfence/registryaccount/{registry_type}/summary:
-    get:
-      description: "get summary of registries scans, images and tags by registry type"
-      operationId: getSummary
-      parameters:
-      - explode: false
-        in: path
-        name: registry_type
-        required: true
-        schema:
-          type: string
-        style: simple
-      responses:
-        "200":
-          content:
-            application/json:
-              schema:
-                additionalProperties:
-                  type: integer
-                type: object
-          description: OK
-        "400":
-          content:
-            application/json:
-              schema:
-                $ref: '#/components/schemas/ApiDocsBadRequestResponse'
-          description: Bad Request
-        "401":
-          description: Unauthorized
-        "403":
-          description: Forbidden
-        "404":
-          content:
-            application/json:
-              schema:
-                $ref: '#/components/schemas/ApiDocsFailureResponse'
-          description: Not Found
-        "500":
-          content:
-            application/json:
-              schema:
-                $ref: '#/components/schemas/ApiDocsFailureResponse'
-          description: Internal Server Error
-      security:
-      - bearer_token: []
-      summary: Get Registry Summary By Type
+      summary: List Image Stubs
       tags:
       - Registry
   /deepfence/registryaccount/summary:
@@ -2280,11 +2349,7 @@ paths:
           content:
             application/json:
               schema:
-                additionalProperties:
-                  additionalProperties:
-                    type: integer
-                  type: object
-                type: object
+                $ref: '#/components/schemas/ModelRegistrySummaryAllResp'
           description: OK
         "400":
           content:
@@ -7927,35 +7992,6 @@ components:
       - vulnerabilities_count
       - vulnerability_scan_status
       type: object
-    ModelContainerImageWithTags:
-      example:
-        size: size
-        created: 2000-01-23T04:56:07.000+00:00
-        name: name
-        id: id
-        updated: 2000-01-23T04:56:07.000+00:00
-        tags:
-        - tags
-        - tags
-      properties:
-        created:
-          format: date-time
-          type: string
-        id:
-          type: string
-        name:
-          type: string
-        size:
-          type: string
-        tags:
-          items:
-            type: string
-          nullable: true
-          type: array
-        updated:
-          format: date-time
-          type: string
-      type: object
     ModelDownloadReportResponse:
       example:
         url_link: url_link
@@ -8556,6 +8592,24 @@ components:
       - secrets_count
       - vulnerabilities_count
       - vulnerability_scan_status
+      type: object
+    ModelImageStub:
+      example:
+        name: name
+        id: id
+        tags:
+        - tags
+        - tags
+      properties:
+        id:
+          type: string
+        name:
+          type: string
+        tags:
+          items:
+            type: string
+          nullable: true
+          type: array
       type: object
     ModelInitAgentReq:
       example:
@@ -10340,19 +10394,71 @@ components:
           nullable: true
           type: object
       type: object
+    ModelRegistryCountResp:
+      example:
+        count: 0
+      properties:
+        count:
+          type: integer
+      type: object
+    ModelRegistryImageStubsReq:
+      example:
+        image_filter:
+          filter_in:
+            key:
+            - ""
+            - ""
+        window:
+          offset: 0
+          size: 6
+        registry_id: registry_id
+      properties:
+        image_filter:
+          $ref: '#/components/schemas/ReportersContainsFilter'
+        registry_id:
+          type: string
+        window:
+          $ref: '#/components/schemas/ModelFetchWindow'
+      required:
+      - image_filter
+      - registry_id
+      - window
+      type: object
+    ModelRegistryImagesReq:
+      example:
+        image_filter:
+          filter_in:
+            key:
+            - ""
+            - ""
+        window:
+          offset: 0
+          size: 6
+        registry_id: registry_id
+      properties:
+        image_filter:
+          $ref: '#/components/schemas/ReportersContainsFilter'
+        registry_id:
+          type: string
+        window:
+          $ref: '#/components/schemas/ModelFetchWindow'
+      required:
+      - image_filter
+      - registry_id
+      - window
+      type: object
     ModelRegistryListResp:
       example:
-        updated_at: 2000-01-23T04:56:07.000+00:00
+        updated_at: 1
         non_secret: ""
         registry_type: registry_type
         name: name
-        created_at: 2000-01-23T04:56:07.000+00:00
-        id: 0
+        created_at: 0
+        id: 6
         node_id: node_id
       properties:
         created_at:
-          format: date-time
-          type: string
+          type: integer
         id:
           type: integer
         name:
@@ -10363,8 +10469,12 @@ components:
         registry_type:
           type: string
         updated_at:
-          format: date-time
-          type: string
+          type: integer
+      type: object
+    ModelRegistrySummaryAllResp:
+      additionalProperties:
+        $ref: '#/components/schemas/ModelSummary'
+      nullable: true
       type: object
     ModelResponseAccessToken:
       example:
@@ -10924,6 +11034,28 @@ components:
       required:
       - filters
       - node_ids
+      type: object
+    ModelSummary:
+      example:
+        images: 0
+        scans_total: 5
+        registries: 6
+        scans_complete: 1
+        scans_in_progress: 5
+        tags: 2
+      properties:
+        images:
+          type: integer
+        registries:
+          type: integer
+        scans_complete:
+          type: integer
+        scans_in_progress:
+          type: integer
+        scans_total:
+          type: integer
+        tags:
+          type: integer
       type: object
     ModelUpdateUserIdRequest:
       example:
