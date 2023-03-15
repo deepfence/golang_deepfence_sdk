@@ -104,6 +104,10 @@ type StartMalwareScanRequest struct {
 	BinArgs  map[string]string `json:"bin_args" required:"true"`
 }
 
+type SendAgentDiagnosticLogsRequest struct {
+	Tail string `json:"tail" required:"true"`
+}
+
 type StartAgentUpgradeRequest struct {
 	HomeDirectoryUrl string `json:"home_directory_url" required:"true"`
 	Version          string `json:"version" required:"true"`
