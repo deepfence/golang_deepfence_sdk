@@ -1954,6 +1954,49 @@ func (q *Queries) GetVisibleSettings(ctx context.Context) ([]Setting, error) {
 	return items, nil
 }
 
+const updateContainerRegistry = `-- name: UpdateContainerRegistry :one
+UPDATE container_registry
+SET name=$1,
+    registry_type=$2,
+    encrypted_secret=$3,
+    non_secret=$4,
+    extras=$5
+WHERE id = $6
+RETURNING id, name, registry_type, encrypted_secret, non_secret, extras, created_at, updated_at
+`
+
+type UpdateContainerRegistryParams struct {
+	Name            string
+	RegistryType    string
+	EncryptedSecret json.RawMessage
+	NonSecret       json.RawMessage
+	Extras          json.RawMessage
+	ID              int32
+}
+
+func (q *Queries) UpdateContainerRegistry(ctx context.Context, arg UpdateContainerRegistryParams) (ContainerRegistry, error) {
+	row := q.db.QueryRowContext(ctx, updateContainerRegistry,
+		arg.Name,
+		arg.RegistryType,
+		arg.EncryptedSecret,
+		arg.NonSecret,
+		arg.Extras,
+		arg.ID,
+	)
+	var i ContainerRegistry
+	err := row.Scan(
+		&i.ID,
+		&i.Name,
+		&i.RegistryType,
+		&i.EncryptedSecret,
+		&i.NonSecret,
+		&i.Extras,
+		&i.CreatedAt,
+		&i.UpdatedAt,
+	)
+	return i, err
+}
+
 const updatePassword = `-- name: UpdatePassword :exec
 UPDATE users
 SET password_hash = $1

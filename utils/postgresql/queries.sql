@@ -481,6 +481,16 @@ WHERE container_registry.registry_type = $1
   AND container_registry.name = $2
 LIMIT 1;
 
+-- name: UpdateContainerRegistry :one
+UPDATE container_registry
+SET name=$1,
+    registry_type=$2,
+    encrypted_secret=$3,
+    non_secret=$4,
+    extras=$5
+WHERE id = $6
+RETURNING *;
+
 -- name: DeleteContainerRegistry :exec
 DELETE
 FROM container_registry
