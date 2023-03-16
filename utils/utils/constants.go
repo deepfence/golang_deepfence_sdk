@@ -122,3 +122,26 @@ var Topics = []string{
 	CLOUD_TRAIL_ALERTS,
 	AUDIT_LOGS,
 }
+
+// list of task names to create topics
+var Tasks = []string{
+	SetUpGraphDBTask,
+	CleanUpGraphDBTask,
+	CleanUpPostgresqlTask,
+	CleanupDiagnosisLogs,
+	RetryFailedScansTask,
+	RetryFailedUpgradesTask,
+	ScanSBOMTask,
+	GenerateSBOMTask,
+	CheckAgentUpgradeTask,
+	SyncRegistryTask,
+	TriggerConsoleActionsTask,
+	ReportGeneratorTask,
+	SecretScanTask,
+	MalwareScanTask,
+	ReportGeneratorTaskXLSX,
+	ReportGeneratorTaskPDF,
+	ComputeThreatTask,
+	SendNotificationTask,
+	CloudComplianceTask,
+}
