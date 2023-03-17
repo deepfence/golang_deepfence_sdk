@@ -40,6 +40,7 @@ type FileManager interface {
 	DownloadFile(ctx context.Context, remoteFile string, localFile string, extra interface{}) error
 	DownloadFileContexts(ctx context.Context, remoteFile string, extra interface{}) ([]byte, error)
 	ExposeFile(ctx context.Context, filePath string, addFilePathPrefix bool, expires time.Duration, reqParams url.Values) (string, error)
+	CreatePublicUploadURL(ctx context.Context, filePath string, addFilePathPrefix bool, expires time.Duration, reqParams url.Values) (string, error)
 	Client() interface{}
 	Bucket() string
 }
@@ -203,6 +204,7 @@ func (mfm *MinioFileManager) DownloadFileContexts(ctx context.Context, remoteFil
 }
 
 func (mfm *MinioFileManager) ExposeFile(ctx context.Context, filePath string, addFilePathPrefix bool, expires time.Duration, reqParams url.Values) (string, error) {
+	// Force browser to download file - url.Values{"response-content-disposition": []string{"attachment; filename=\"b.txt\""}},
 	consoleIp, err := GetManagementHost(NewGlobalContext())
 	if err != nil {
 		return "", err
@@ -211,8 +213,35 @@ func (mfm *MinioFileManager) ExposeFile(ctx context.Context, filePath string, ad
 	headers := http.Header{}
 	headers.Add("Host", consoleIp)
 
-	urlLink, err := mfm.client.PresignHeader(context.Background(),
+	urlLink, err := mfm.client.PresignHeader(
+		ctx,
 		"GET",
+		mfm.namespace,
+		mfm.optionallyAddNamespacePrefix(filePath, addFilePathPrefix),
+		expires,
+		reqParams,
+		headers)
+	if err != nil {
+		return "", err
+	}
+
+	exposedUrl := strings.ReplaceAll(urlLink.String(), "deepfence-file-server:9000", fmt.Sprintf("%s/file-server", consoleIp))
+	exposedUrl = strings.ReplaceAll(exposedUrl, "http://", "https://")
+	return exposedUrl, nil
+}
+
+func (mfm *MinioFileManager) CreatePublicUploadURL(ctx context.Context, filePath string, addFilePathPrefix bool, expires time.Duration, reqParams url.Values) (string, error) {
+	consoleIp, err := GetManagementHost(NewGlobalContext())
+	if err != nil {
+		return "", err
+	}
+
+	headers := http.Header{}
+	headers.Add("Host", consoleIp)
+
+	urlLink, err := mfm.client.PresignHeader(
+		ctx,
+		"PUT",
 		mfm.namespace,
 		mfm.optionallyAddNamespacePrefix(filePath, addFilePathPrefix),
 		expires,
