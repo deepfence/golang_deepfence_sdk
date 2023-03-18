@@ -3,10 +3,14 @@ package utils
 import (
 	"archive/zip"
 	"bytes"
+	"crypto/tls"
+	"crypto/x509"
 	"encoding/json"
 	"errors"
 	"fmt"
 	"io"
+	"net"
+	"net/http"
 	"net/mail"
 	"net/url"
 	"os"
@@ -339,4 +343,59 @@ func RecursiveZip(pathsToZip []string, excludePathPrefixes []string, destination
 		return err
 	}
 	return nil
+}
+
+func UploadFile(url string, fileName string) ([]byte, int, error) {
+	r, err := os.Open(fileName)
+	if err != nil {
+		return nil, 0, err
+	}
+	buf := make([]byte, 512)
+	_, err = r.Read(buf)
+	if err != nil {
+		return nil, 0, err
+	}
+	r.Close()
+
+	client, err := NewHTTPClient()
+	if err != nil {
+		return nil, 0, err
+	}
+	r, err = os.Open(fileName)
+	req, err := http.NewRequest("PUT", url, r)
+	if err != nil {
+		return nil, 0, err
+	}
+	req.Header.Add("Content-Type", http.DetectContentType(buf))
+	res, err := client.Do(req)
+	if err != nil {
+		return nil, 0, err
+	}
+	defer res.Body.Close()
+
+	body, err := io.ReadAll(res.Body)
+	if err != nil {
+		return nil, 0, err
+	}
+	return body, res.StatusCode, nil
+}
+
+func NewHTTPClient() (*http.Client, error) {
+	// Set up our own certificate pool
+	tlsConfig := &tls.Config{RootCAs: x509.NewCertPool(), InsecureSkipVerify: true}
+	client := &http.Client{
+		Transport: &http.Transport{
+			TLSClientConfig:     tlsConfig,
+			DisableKeepAlives:   false,
+			MaxIdleConnsPerHost: 1024,
+			DialContext: (&net.Dialer{
+				Timeout:   15 * time.Minute,
+				KeepAlive: 15 * time.Minute,
+			}).DialContext,
+			TLSHandshakeTimeout:   10 * time.Second,
+			ResponseHeaderTimeout: 5 * time.Minute,
+		},
+		Timeout: 15 * time.Minute,
+	}
+	return client, nil
 }
