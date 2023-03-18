@@ -105,7 +105,11 @@ type StartMalwareScanRequest struct {
 }
 
 type SendAgentDiagnosticLogsRequest struct {
-	Tail string `json:"tail" required:"true"`
+	NodeId    string       `json:"node_id" required:"true"`
+	NodeType  ScanResource `json:"node_type" required:"true"`
+	UploadURL string       `json:"upload_url" required:"true"`
+	FileName  string       `json:"file_name" required:"true"`
+	Tail      string       `json:"tail" required:"true"`
 }
 
 type StartAgentUpgradeRequest struct {
