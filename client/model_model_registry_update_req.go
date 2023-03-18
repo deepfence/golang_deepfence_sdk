@@ -15,39 +15,37 @@ import (
 	"encoding/json"
 )
 
-// checks if the ModelRegistryAddReq type satisfies the MappedNullable interface at compile time
-var _ MappedNullable = &ModelRegistryAddReq{}
+// checks if the ModelRegistryUpdateReq type satisfies the MappedNullable interface at compile time
+var _ MappedNullable = &ModelRegistryUpdateReq{}
 
-// ModelRegistryAddReq struct for ModelRegistryAddReq
-type ModelRegistryAddReq struct {
+// ModelRegistryUpdateReq struct for ModelRegistryUpdateReq
+type ModelRegistryUpdateReq struct {
 	Extras map[string]interface{} `json:"extras,omitempty"`
-	Name string `json:"name"`
+	Name *string `json:"name,omitempty"`
 	NonSecret map[string]interface{} `json:"non_secret,omitempty"`
-	RegistryType string `json:"registry_type"`
+	RegistryType *string `json:"registry_type,omitempty"`
 	Secret map[string]interface{} `json:"secret,omitempty"`
 }
 
-// NewModelRegistryAddReq instantiates a new ModelRegistryAddReq object
+// NewModelRegistryUpdateReq instantiates a new ModelRegistryUpdateReq object
 // This constructor will assign default values to properties that have it defined,
 // and makes sure properties required by API are set, but the set of arguments
 // will change when the set of required properties is changed
-func NewModelRegistryAddReq(name string, registryType string) *ModelRegistryAddReq {
-	this := ModelRegistryAddReq{}
-	this.Name = name
-	this.RegistryType = registryType
+func NewModelRegistryUpdateReq() *ModelRegistryUpdateReq {
+	this := ModelRegistryUpdateReq{}
 	return &this
 }
 
-// NewModelRegistryAddReqWithDefaults instantiates a new ModelRegistryAddReq object
+// NewModelRegistryUpdateReqWithDefaults instantiates a new ModelRegistryUpdateReq object
 // This constructor will only assign default values to properties that have it defined,
 // but it doesn't guarantee that properties required by API are set
-func NewModelRegistryAddReqWithDefaults() *ModelRegistryAddReq {
-	this := ModelRegistryAddReq{}
+func NewModelRegistryUpdateReqWithDefaults() *ModelRegistryUpdateReq {
+	this := ModelRegistryUpdateReq{}
 	return &this
 }
 
 // GetExtras returns the Extras field value if set, zero value otherwise (both if not set or set to explicit null).
-func (o *ModelRegistryAddReq) GetExtras() map[string]interface{} {
+func (o *ModelRegistryUpdateReq) GetExtras() map[string]interface{} {
 	if o == nil {
 		var ret map[string]interface{}
 		return ret
@@ -58,7 +56,7 @@ func (o *ModelRegistryAddReq) GetExtras() map[string]interface{} {
 // GetExtrasOk returns a tuple with the Extras field value if set, nil otherwise
 // and a boolean to check if the value has been set.
 // NOTE: If the value is an explicit nil, `nil, true` will be returned
-func (o *ModelRegistryAddReq) GetExtrasOk() (map[string]interface{}, bool) {
+func (o *ModelRegistryUpdateReq) GetExtrasOk() (map[string]interface{}, bool) {
 	if o == nil || IsNil(o.Extras) {
 		return map[string]interface{}{}, false
 	}
@@ -66,7 +64,7 @@ func (o *ModelRegistryAddReq) GetExtrasOk() (map[string]interface{}, bool) {
 }
 
 // HasExtras returns a boolean if a field has been set.
-func (o *ModelRegistryAddReq) HasExtras() bool {
+func (o *ModelRegistryUpdateReq) HasExtras() bool {
 	if o != nil && IsNil(o.Extras) {
 		return true
 	}
@@ -75,36 +73,44 @@ func (o *ModelRegistryAddReq) HasExtras() bool {
 }
 
 // SetExtras gets a reference to the given map[string]interface{} and assigns it to the Extras field.
-func (o *ModelRegistryAddReq) SetExtras(v map[string]interface{}) {
+func (o *ModelRegistryUpdateReq) SetExtras(v map[string]interface{}) {
 	o.Extras = v
 }
 
-// GetName returns the Name field value
-func (o *ModelRegistryAddReq) GetName() string {
-	if o == nil {
+// GetName returns the Name field value if set, zero value otherwise.
+func (o *ModelRegistryUpdateReq) GetName() string {
+	if o == nil || IsNil(o.Name) {
 		var ret string
 		return ret
 	}
-
-	return o.Name
+	return *o.Name
 }
 
-// GetNameOk returns a tuple with the Name field value
+// GetNameOk returns a tuple with the Name field value if set, nil otherwise
 // and a boolean to check if the value has been set.
-func (o *ModelRegistryAddReq) GetNameOk() (*string, bool) {
-	if o == nil {
+func (o *ModelRegistryUpdateReq) GetNameOk() (*string, bool) {
+	if o == nil || IsNil(o.Name) {
 		return nil, false
 	}
-	return &o.Name, true
+	return o.Name, true
 }
 
-// SetName sets field value
-func (o *ModelRegistryAddReq) SetName(v string) {
-	o.Name = v
+// HasName returns a boolean if a field has been set.
+func (o *ModelRegistryUpdateReq) HasName() bool {
+	if o != nil && !IsNil(o.Name) {
+		return true
+	}
+
+	return false
+}
+
+// SetName gets a reference to the given string and assigns it to the Name field.
+func (o *ModelRegistryUpdateReq) SetName(v string) {
+	o.Name = &v
 }
 
 // GetNonSecret returns the NonSecret field value if set, zero value otherwise (both if not set or set to explicit null).
-func (o *ModelRegistryAddReq) GetNonSecret() map[string]interface{} {
+func (o *ModelRegistryUpdateReq) GetNonSecret() map[string]interface{} {
 	if o == nil {
 		var ret map[string]interface{}
 		return ret
@@ -115,7 +121,7 @@ func (o *ModelRegistryAddReq) GetNonSecret() map[string]interface{} {
 // GetNonSecretOk returns a tuple with the NonSecret field value if set, nil otherwise
 // and a boolean to check if the value has been set.
 // NOTE: If the value is an explicit nil, `nil, true` will be returned
-func (o *ModelRegistryAddReq) GetNonSecretOk() (map[string]interface{}, bool) {
+func (o *ModelRegistryUpdateReq) GetNonSecretOk() (map[string]interface{}, bool) {
 	if o == nil || IsNil(o.NonSecret) {
 		return map[string]interface{}{}, false
 	}
@@ -123,7 +129,7 @@ func (o *ModelRegistryAddReq) GetNonSecretOk() (map[string]interface{}, bool) {
 }
 
 // HasNonSecret returns a boolean if a field has been set.
-func (o *ModelRegistryAddReq) HasNonSecret() bool {
+func (o *ModelRegistryUpdateReq) HasNonSecret() bool {
 	if o != nil && IsNil(o.NonSecret) {
 		return true
 	}
@@ -132,36 +138,44 @@ func (o *ModelRegistryAddReq) HasNonSecret() bool {
 }
 
 // SetNonSecret gets a reference to the given map[string]interface{} and assigns it to the NonSecret field.
-func (o *ModelRegistryAddReq) SetNonSecret(v map[string]interface{}) {
+func (o *ModelRegistryUpdateReq) SetNonSecret(v map[string]interface{}) {
 	o.NonSecret = v
 }
 
-// GetRegistryType returns the RegistryType field value
-func (o *ModelRegistryAddReq) GetRegistryType() string {
-	if o == nil {
+// GetRegistryType returns the RegistryType field value if set, zero value otherwise.
+func (o *ModelRegistryUpdateReq) GetRegistryType() string {
+	if o == nil || IsNil(o.RegistryType) {
 		var ret string
 		return ret
 	}
-
-	return o.RegistryType
+	return *o.RegistryType
 }
 
-// GetRegistryTypeOk returns a tuple with the RegistryType field value
+// GetRegistryTypeOk returns a tuple with the RegistryType field value if set, nil otherwise
 // and a boolean to check if the value has been set.
-func (o *ModelRegistryAddReq) GetRegistryTypeOk() (*string, bool) {
-	if o == nil {
+func (o *ModelRegistryUpdateReq) GetRegistryTypeOk() (*string, bool) {
+	if o == nil || IsNil(o.RegistryType) {
 		return nil, false
 	}
-	return &o.RegistryType, true
+	return o.RegistryType, true
 }
 
-// SetRegistryType sets field value
-func (o *ModelRegistryAddReq) SetRegistryType(v string) {
-	o.RegistryType = v
+// HasRegistryType returns a boolean if a field has been set.
+func (o *ModelRegistryUpdateReq) HasRegistryType() bool {
+	if o != nil && !IsNil(o.RegistryType) {
+		return true
+	}
+
+	return false
+}
+
+// SetRegistryType gets a reference to the given string and assigns it to the RegistryType field.
+func (o *ModelRegistryUpdateReq) SetRegistryType(v string) {
+	o.RegistryType = &v
 }
 
 // GetSecret returns the Secret field value if set, zero value otherwise (both if not set or set to explicit null).
-func (o *ModelRegistryAddReq) GetSecret() map[string]interface{} {
+func (o *ModelRegistryUpdateReq) GetSecret() map[string]interface{} {
 	if o == nil {
 		var ret map[string]interface{}
 		return ret
@@ -172,7 +186,7 @@ func (o *ModelRegistryAddReq) GetSecret() map[string]interface{} {
 // GetSecretOk returns a tuple with the Secret field value if set, nil otherwise
 // and a boolean to check if the value has been set.
 // NOTE: If the value is an explicit nil, `nil, true` will be returned
-func (o *ModelRegistryAddReq) GetSecretOk() (map[string]interface{}, bool) {
+func (o *ModelRegistryUpdateReq) GetSecretOk() (map[string]interface{}, bool) {
 	if o == nil || IsNil(o.Secret) {
 		return map[string]interface{}{}, false
 	}
@@ -180,7 +194,7 @@ func (o *ModelRegistryAddReq) GetSecretOk() (map[string]interface{}, bool) {
 }
 
 // HasSecret returns a boolean if a field has been set.
-func (o *ModelRegistryAddReq) HasSecret() bool {
+func (o *ModelRegistryUpdateReq) HasSecret() bool {
 	if o != nil && IsNil(o.Secret) {
 		return true
 	}
@@ -189,11 +203,11 @@ func (o *ModelRegistryAddReq) HasSecret() bool {
 }
 
 // SetSecret gets a reference to the given map[string]interface{} and assigns it to the Secret field.
-func (o *ModelRegistryAddReq) SetSecret(v map[string]interface{}) {
+func (o *ModelRegistryUpdateReq) SetSecret(v map[string]interface{}) {
 	o.Secret = v
 }
 
-func (o ModelRegistryAddReq) MarshalJSON() ([]byte, error) {
+func (o ModelRegistryUpdateReq) MarshalJSON() ([]byte, error) {
 	toSerialize,err := o.ToMap()
 	if err != nil {
 		return []byte{}, err
@@ -201,54 +215,58 @@ func (o ModelRegistryAddReq) MarshalJSON() ([]byte, error) {
 	return json.Marshal(toSerialize)
 }
 
-func (o ModelRegistryAddReq) ToMap() (map[string]interface{}, error) {
+func (o ModelRegistryUpdateReq) ToMap() (map[string]interface{}, error) {
 	toSerialize := map[string]interface{}{}
 	if o.Extras != nil {
 		toSerialize["extras"] = o.Extras
 	}
-	toSerialize["name"] = o.Name
+	if !IsNil(o.Name) {
+		toSerialize["name"] = o.Name
+	}
 	if o.NonSecret != nil {
 		toSerialize["non_secret"] = o.NonSecret
 	}
-	toSerialize["registry_type"] = o.RegistryType
+	if !IsNil(o.RegistryType) {
+		toSerialize["registry_type"] = o.RegistryType
+	}
 	if o.Secret != nil {
 		toSerialize["secret"] = o.Secret
 	}
 	return toSerialize, nil
 }
 
-type NullableModelRegistryAddReq struct {
-	value *ModelRegistryAddReq
+type NullableModelRegistryUpdateReq struct {
+	value *ModelRegistryUpdateReq
 	isSet bool
 }
 
-func (v NullableModelRegistryAddReq) Get() *ModelRegistryAddReq {
+func (v NullableModelRegistryUpdateReq) Get() *ModelRegistryUpdateReq {
 	return v.value
 }
 
-func (v *NullableModelRegistryAddReq) Set(val *ModelRegistryAddReq) {
+func (v *NullableModelRegistryUpdateReq) Set(val *ModelRegistryUpdateReq) {
 	v.value = val
 	v.isSet = true
 }
 
-func (v NullableModelRegistryAddReq) IsSet() bool {
+func (v NullableModelRegistryUpdateReq) IsSet() bool {
 	return v.isSet
 }
 
-func (v *NullableModelRegistryAddReq) Unset() {
+func (v *NullableModelRegistryUpdateReq) Unset() {
 	v.value = nil
 	v.isSet = false
 }
 
-func NewNullableModelRegistryAddReq(val *ModelRegistryAddReq) *NullableModelRegistryAddReq {
-	return &NullableModelRegistryAddReq{value: val, isSet: true}
+func NewNullableModelRegistryUpdateReq(val *ModelRegistryUpdateReq) *NullableModelRegistryUpdateReq {
+	return &NullableModelRegistryUpdateReq{value: val, isSet: true}
 }
 
-func (v NullableModelRegistryAddReq) MarshalJSON() ([]byte, error) {
+func (v NullableModelRegistryUpdateReq) MarshalJSON() ([]byte, error) {
 	return json.Marshal(v.value)
 }
 
-func (v *NullableModelRegistryAddReq) UnmarshalJSON(src []byte) error {
+func (v *NullableModelRegistryUpdateReq) UnmarshalJSON(src []byte) error {
 	v.isSet = true
 	return json.Unmarshal(src, &v.value)
 }

@@ -20,9 +20,11 @@ var _ MappedNullable = &ModelCloudNodeAccountInfo{}
 
 // ModelCloudNodeAccountInfo struct for ModelCloudNodeAccountInfo
 type ModelCloudNodeAccountInfo struct {
-	Active *string `json:"active,omitempty"`
+	Active *bool `json:"active,omitempty"`
 	CloudProvider *string `json:"cloud_provider,omitempty"`
-	CompliancePercentage *string `json:"compliance_percentage,omitempty"`
+	CompliancePercentage *float32 `json:"compliance_percentage,omitempty"`
+	LastScanId *string `json:"last_scan_id,omitempty"`
+	LastScanStatus *string `json:"last_scan_status,omitempty"`
 	NodeId *string `json:"node_id,omitempty"`
 	NodeName *string `json:"node_name,omitempty"`
 }
@@ -45,9 +47,9 @@ func NewModelCloudNodeAccountInfoWithDefaults() *ModelCloudNodeAccountInfo {
 }
 
 // GetActive returns the Active field value if set, zero value otherwise.
-func (o *ModelCloudNodeAccountInfo) GetActive() string {
+func (o *ModelCloudNodeAccountInfo) GetActive() bool {
 	if o == nil || IsNil(o.Active) {
-		var ret string
+		var ret bool
 		return ret
 	}
 	return *o.Active
@@ -55,7 +57,7 @@ func (o *ModelCloudNodeAccountInfo) GetActive() string {
 
 // GetActiveOk returns a tuple with the Active field value if set, nil otherwise
 // and a boolean to check if the value has been set.
-func (o *ModelCloudNodeAccountInfo) GetActiveOk() (*string, bool) {
+func (o *ModelCloudNodeAccountInfo) GetActiveOk() (*bool, bool) {
 	if o == nil || IsNil(o.Active) {
 		return nil, false
 	}
@@ -71,8 +73,8 @@ func (o *ModelCloudNodeAccountInfo) HasActive() bool {
 	return false
 }
 
-// SetActive gets a reference to the given string and assigns it to the Active field.
-func (o *ModelCloudNodeAccountInfo) SetActive(v string) {
+// SetActive gets a reference to the given bool and assigns it to the Active field.
+func (o *ModelCloudNodeAccountInfo) SetActive(v bool) {
 	o.Active = &v
 }
 
@@ -109,9 +111,9 @@ func (o *ModelCloudNodeAccountInfo) SetCloudProvider(v string) {
 }
 
 // GetCompliancePercentage returns the CompliancePercentage field value if set, zero value otherwise.
-func (o *ModelCloudNodeAccountInfo) GetCompliancePercentage() string {
+func (o *ModelCloudNodeAccountInfo) GetCompliancePercentage() float32 {
 	if o == nil || IsNil(o.CompliancePercentage) {
-		var ret string
+		var ret float32
 		return ret
 	}
 	return *o.CompliancePercentage
@@ -119,7 +121,7 @@ func (o *ModelCloudNodeAccountInfo) GetCompliancePercentage() string {
 
 // GetCompliancePercentageOk returns a tuple with the CompliancePercentage field value if set, nil otherwise
 // and a boolean to check if the value has been set.
-func (o *ModelCloudNodeAccountInfo) GetCompliancePercentageOk() (*string, bool) {
+func (o *ModelCloudNodeAccountInfo) GetCompliancePercentageOk() (*float32, bool) {
 	if o == nil || IsNil(o.CompliancePercentage) {
 		return nil, false
 	}
@@ -135,9 +137,73 @@ func (o *ModelCloudNodeAccountInfo) HasCompliancePercentage() bool {
 	return false
 }
 
-// SetCompliancePercentage gets a reference to the given string and assigns it to the CompliancePercentage field.
-func (o *ModelCloudNodeAccountInfo) SetCompliancePercentage(v string) {
+// SetCompliancePercentage gets a reference to the given float32 and assigns it to the CompliancePercentage field.
+func (o *ModelCloudNodeAccountInfo) SetCompliancePercentage(v float32) {
 	o.CompliancePercentage = &v
+}
+
+// GetLastScanId returns the LastScanId field value if set, zero value otherwise.
+func (o *ModelCloudNodeAccountInfo) GetLastScanId() string {
+	if o == nil || IsNil(o.LastScanId) {
+		var ret string
+		return ret
+	}
+	return *o.LastScanId
+}
+
+// GetLastScanIdOk returns a tuple with the LastScanId field value if set, nil otherwise
+// and a boolean to check if the value has been set.
+func (o *ModelCloudNodeAccountInfo) GetLastScanIdOk() (*string, bool) {
+	if o == nil || IsNil(o.LastScanId) {
+		return nil, false
+	}
+	return o.LastScanId, true
+}
+
+// HasLastScanId returns a boolean if a field has been set.
+func (o *ModelCloudNodeAccountInfo) HasLastScanId() bool {
+	if o != nil && !IsNil(o.LastScanId) {
+		return true
+	}
+
+	return false
+}
+
+// SetLastScanId gets a reference to the given string and assigns it to the LastScanId field.
+func (o *ModelCloudNodeAccountInfo) SetLastScanId(v string) {
+	o.LastScanId = &v
+}
+
+// GetLastScanStatus returns the LastScanStatus field value if set, zero value otherwise.
+func (o *ModelCloudNodeAccountInfo) GetLastScanStatus() string {
+	if o == nil || IsNil(o.LastScanStatus) {
+		var ret string
+		return ret
+	}
+	return *o.LastScanStatus
+}
+
+// GetLastScanStatusOk returns a tuple with the LastScanStatus field value if set, nil otherwise
+// and a boolean to check if the value has been set.
+func (o *ModelCloudNodeAccountInfo) GetLastScanStatusOk() (*string, bool) {
+	if o == nil || IsNil(o.LastScanStatus) {
+		return nil, false
+	}
+	return o.LastScanStatus, true
+}
+
+// HasLastScanStatus returns a boolean if a field has been set.
+func (o *ModelCloudNodeAccountInfo) HasLastScanStatus() bool {
+	if o != nil && !IsNil(o.LastScanStatus) {
+		return true
+	}
+
+	return false
+}
+
+// SetLastScanStatus gets a reference to the given string and assigns it to the LastScanStatus field.
+func (o *ModelCloudNodeAccountInfo) SetLastScanStatus(v string) {
+	o.LastScanStatus = &v
 }
 
 // GetNodeId returns the NodeId field value if set, zero value otherwise.
@@ -222,6 +288,12 @@ func (o ModelCloudNodeAccountInfo) ToMap() (map[string]interface{}, error) {
 	}
 	if !IsNil(o.CompliancePercentage) {
 		toSerialize["compliance_percentage"] = o.CompliancePercentage
+	}
+	if !IsNil(o.LastScanId) {
+		toSerialize["last_scan_id"] = o.LastScanId
+	}
+	if !IsNil(o.LastScanStatus) {
+		toSerialize["last_scan_status"] = o.LastScanStatus
 	}
 	if !IsNil(o.NodeId) {
 		toSerialize["node_id"] = o.NodeId

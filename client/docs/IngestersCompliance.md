@@ -6,9 +6,10 @@ Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
 **Timestamp** | Pointer to **string** |  | [optional] 
 **ComplianceCheckType** | Pointer to **string** |  | [optional] 
-**ComplianceNodeType** | Pointer to **string** |  | [optional] 
 **Description** | Pointer to **string** |  | [optional] 
 **Masked** | Pointer to **bool** |  | [optional] 
+**NodeId** | Pointer to **string** |  | [optional] 
+**NodeType** | Pointer to **string** |  | [optional] 
 **RemediationAnsible** | Pointer to **string** |  | [optional] 
 **RemediationPuppet** | Pointer to **string** |  | [optional] 
 **RemediationScript** | Pointer to **string** |  | [optional] 
@@ -91,31 +92,6 @@ SetComplianceCheckType sets ComplianceCheckType field to given value.
 
 HasComplianceCheckType returns a boolean if a field has been set.
 
-### GetComplianceNodeType
-
-`func (o *IngestersCompliance) GetComplianceNodeType() string`
-
-GetComplianceNodeType returns the ComplianceNodeType field if non-nil, zero value otherwise.
-
-### GetComplianceNodeTypeOk
-
-`func (o *IngestersCompliance) GetComplianceNodeTypeOk() (*string, bool)`
-
-GetComplianceNodeTypeOk returns a tuple with the ComplianceNodeType field if it's non-nil, zero value otherwise
-and a boolean to check if the value has been set.
-
-### SetComplianceNodeType
-
-`func (o *IngestersCompliance) SetComplianceNodeType(v string)`
-
-SetComplianceNodeType sets ComplianceNodeType field to given value.
-
-### HasComplianceNodeType
-
-`func (o *IngestersCompliance) HasComplianceNodeType() bool`
-
-HasComplianceNodeType returns a boolean if a field has been set.
-
 ### GetDescription
 
 `func (o *IngestersCompliance) GetDescription() string`
@@ -165,6 +141,56 @@ SetMasked sets Masked field to given value.
 `func (o *IngestersCompliance) HasMasked() bool`
 
 HasMasked returns a boolean if a field has been set.
+
+### GetNodeId
+
+`func (o *IngestersCompliance) GetNodeId() string`
+
+GetNodeId returns the NodeId field if non-nil, zero value otherwise.
+
+### GetNodeIdOk
+
+`func (o *IngestersCompliance) GetNodeIdOk() (*string, bool)`
+
+GetNodeIdOk returns a tuple with the NodeId field if it's non-nil, zero value otherwise
+and a boolean to check if the value has been set.
+
+### SetNodeId
+
+`func (o *IngestersCompliance) SetNodeId(v string)`
+
+SetNodeId sets NodeId field to given value.
+
+### HasNodeId
+
+`func (o *IngestersCompliance) HasNodeId() bool`
+
+HasNodeId returns a boolean if a field has been set.
+
+### GetNodeType
+
+`func (o *IngestersCompliance) GetNodeType() string`
+
+GetNodeType returns the NodeType field if non-nil, zero value otherwise.
+
+### GetNodeTypeOk
+
+`func (o *IngestersCompliance) GetNodeTypeOk() (*string, bool)`
+
+GetNodeTypeOk returns a tuple with the NodeType field if it's non-nil, zero value otherwise
+and a boolean to check if the value has been set.
+
+### SetNodeType
+
+`func (o *IngestersCompliance) SetNodeType(v string)`
+
+SetNodeType sets NodeType field to given value.
+
+### HasNodeType
+
+`func (o *IngestersCompliance) HasNodeType() bool`
+
+HasNodeType returns a boolean if a field has been set.
 
 ### GetRemediationAnsible
 

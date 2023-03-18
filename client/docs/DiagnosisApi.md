@@ -74,7 +74,7 @@ Other parameters are passed through a pointer to a apiDiagnosticNotificationRequ
 
 ## GenerateAgentDiagnosticLogs
 
-> GenerateAgentDiagnosticLogs(ctx).DiagnosisGenerateDiagnosticLogsRequest(diagnosisGenerateDiagnosticLogsRequest).Execute()
+> GenerateAgentDiagnosticLogs(ctx).DiagnosisGenerateAgentDiagnosticLogsRequest(diagnosisGenerateAgentDiagnosticLogsRequest).Execute()
 
 Generate Agent Diagnostic Logs
 
@@ -93,11 +93,11 @@ import (
 )
 
 func main() {
-    diagnosisGenerateDiagnosticLogsRequest := *openapiclient.NewDiagnosisGenerateDiagnosticLogsRequest(int32(123)) // DiagnosisGenerateDiagnosticLogsRequest |  (optional)
+    diagnosisGenerateAgentDiagnosticLogsRequest := *openapiclient.NewDiagnosisGenerateAgentDiagnosticLogsRequest([]openapiclient.DiagnosisNodeIdentifier{*openapiclient.NewDiagnosisNodeIdentifier("NodeId_example", "NodeType_example")}, int32(123)) // DiagnosisGenerateAgentDiagnosticLogsRequest |  (optional)
 
     configuration := openapiclient.NewConfiguration()
     apiClient := openapiclient.NewAPIClient(configuration)
-    r, err := apiClient.DiagnosisApi.GenerateAgentDiagnosticLogs(context.Background()).DiagnosisGenerateDiagnosticLogsRequest(diagnosisGenerateDiagnosticLogsRequest).Execute()
+    r, err := apiClient.DiagnosisApi.GenerateAgentDiagnosticLogs(context.Background()).DiagnosisGenerateAgentDiagnosticLogsRequest(diagnosisGenerateAgentDiagnosticLogsRequest).Execute()
     if err != nil {
         fmt.Fprintf(os.Stderr, "Error when calling `DiagnosisApi.GenerateAgentDiagnosticLogs``: %v\n", err)
         fmt.Fprintf(os.Stderr, "Full HTTP response: %v\n", r)
@@ -116,7 +116,7 @@ Other parameters are passed through a pointer to a apiGenerateAgentDiagnosticLog
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **diagnosisGenerateDiagnosticLogsRequest** | [**DiagnosisGenerateDiagnosticLogsRequest**](DiagnosisGenerateDiagnosticLogsRequest.md) |  | 
+ **diagnosisGenerateAgentDiagnosticLogsRequest** | [**DiagnosisGenerateAgentDiagnosticLogsRequest**](DiagnosisGenerateAgentDiagnosticLogsRequest.md) |  | 
 
 ### Return type
 
@@ -138,7 +138,7 @@ Name | Type | Description  | Notes
 
 ## GenerateConsoleDiagnosticLogs
 
-> GenerateConsoleDiagnosticLogs(ctx).DiagnosisGenerateDiagnosticLogsRequest(diagnosisGenerateDiagnosticLogsRequest).Execute()
+> GenerateConsoleDiagnosticLogs(ctx).DiagnosisGenerateConsoleDiagnosticLogsRequest(diagnosisGenerateConsoleDiagnosticLogsRequest).Execute()
 
 Generate Console Diagnostic Logs
 
@@ -157,11 +157,11 @@ import (
 )
 
 func main() {
-    diagnosisGenerateDiagnosticLogsRequest := *openapiclient.NewDiagnosisGenerateDiagnosticLogsRequest(int32(123)) // DiagnosisGenerateDiagnosticLogsRequest |  (optional)
+    diagnosisGenerateConsoleDiagnosticLogsRequest := *openapiclient.NewDiagnosisGenerateConsoleDiagnosticLogsRequest(int32(123)) // DiagnosisGenerateConsoleDiagnosticLogsRequest |  (optional)
 
     configuration := openapiclient.NewConfiguration()
     apiClient := openapiclient.NewAPIClient(configuration)
-    r, err := apiClient.DiagnosisApi.GenerateConsoleDiagnosticLogs(context.Background()).DiagnosisGenerateDiagnosticLogsRequest(diagnosisGenerateDiagnosticLogsRequest).Execute()
+    r, err := apiClient.DiagnosisApi.GenerateConsoleDiagnosticLogs(context.Background()).DiagnosisGenerateConsoleDiagnosticLogsRequest(diagnosisGenerateConsoleDiagnosticLogsRequest).Execute()
     if err != nil {
         fmt.Fprintf(os.Stderr, "Error when calling `DiagnosisApi.GenerateConsoleDiagnosticLogs``: %v\n", err)
         fmt.Fprintf(os.Stderr, "Full HTTP response: %v\n", r)
@@ -180,7 +180,7 @@ Other parameters are passed through a pointer to a apiGenerateConsoleDiagnosticL
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **diagnosisGenerateDiagnosticLogsRequest** | [**DiagnosisGenerateDiagnosticLogsRequest**](DiagnosisGenerateDiagnosticLogsRequest.md) |  | 
+ **diagnosisGenerateConsoleDiagnosticLogsRequest** | [**DiagnosisGenerateConsoleDiagnosticLogsRequest**](DiagnosisGenerateConsoleDiagnosticLogsRequest.md) |  | 
 
 ### Return type
 

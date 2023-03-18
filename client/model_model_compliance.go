@@ -21,9 +21,10 @@ var _ MappedNullable = &ModelCompliance{}
 // ModelCompliance struct for ModelCompliance
 type ModelCompliance struct {
 	ComplianceCheckType string `json:"compliance_check_type"`
-	ComplianceNodeType string `json:"compliance_node_type"`
 	Description string `json:"description"`
 	Masked bool `json:"masked"`
+	NodeId string `json:"node_id"`
+	NodeType string `json:"node_type"`
 	RemediationAnsible string `json:"remediation_ansible"`
 	RemediationPuppet string `json:"remediation_puppet"`
 	RemediationScript string `json:"remediation_script"`
@@ -41,12 +42,13 @@ type ModelCompliance struct {
 // This constructor will assign default values to properties that have it defined,
 // and makes sure properties required by API are set, but the set of arguments
 // will change when the set of required properties is changed
-func NewModelCompliance(complianceCheckType string, complianceNodeType string, description string, masked bool, remediationAnsible string, remediationPuppet string, remediationScript string, resource string, status string, testCategory string, testDesc string, testNumber string, testRationale string, testSeverity string, updatedAt int32) *ModelCompliance {
+func NewModelCompliance(complianceCheckType string, description string, masked bool, nodeId string, nodeType string, remediationAnsible string, remediationPuppet string, remediationScript string, resource string, status string, testCategory string, testDesc string, testNumber string, testRationale string, testSeverity string, updatedAt int32) *ModelCompliance {
 	this := ModelCompliance{}
 	this.ComplianceCheckType = complianceCheckType
-	this.ComplianceNodeType = complianceNodeType
 	this.Description = description
 	this.Masked = masked
+	this.NodeId = nodeId
+	this.NodeType = nodeType
 	this.RemediationAnsible = remediationAnsible
 	this.RemediationPuppet = remediationPuppet
 	this.RemediationScript = remediationScript
@@ -91,30 +93,6 @@ func (o *ModelCompliance) GetComplianceCheckTypeOk() (*string, bool) {
 // SetComplianceCheckType sets field value
 func (o *ModelCompliance) SetComplianceCheckType(v string) {
 	o.ComplianceCheckType = v
-}
-
-// GetComplianceNodeType returns the ComplianceNodeType field value
-func (o *ModelCompliance) GetComplianceNodeType() string {
-	if o == nil {
-		var ret string
-		return ret
-	}
-
-	return o.ComplianceNodeType
-}
-
-// GetComplianceNodeTypeOk returns a tuple with the ComplianceNodeType field value
-// and a boolean to check if the value has been set.
-func (o *ModelCompliance) GetComplianceNodeTypeOk() (*string, bool) {
-	if o == nil {
-		return nil, false
-	}
-	return &o.ComplianceNodeType, true
-}
-
-// SetComplianceNodeType sets field value
-func (o *ModelCompliance) SetComplianceNodeType(v string) {
-	o.ComplianceNodeType = v
 }
 
 // GetDescription returns the Description field value
@@ -163,6 +141,54 @@ func (o *ModelCompliance) GetMaskedOk() (*bool, bool) {
 // SetMasked sets field value
 func (o *ModelCompliance) SetMasked(v bool) {
 	o.Masked = v
+}
+
+// GetNodeId returns the NodeId field value
+func (o *ModelCompliance) GetNodeId() string {
+	if o == nil {
+		var ret string
+		return ret
+	}
+
+	return o.NodeId
+}
+
+// GetNodeIdOk returns a tuple with the NodeId field value
+// and a boolean to check if the value has been set.
+func (o *ModelCompliance) GetNodeIdOk() (*string, bool) {
+	if o == nil {
+		return nil, false
+	}
+	return &o.NodeId, true
+}
+
+// SetNodeId sets field value
+func (o *ModelCompliance) SetNodeId(v string) {
+	o.NodeId = v
+}
+
+// GetNodeType returns the NodeType field value
+func (o *ModelCompliance) GetNodeType() string {
+	if o == nil {
+		var ret string
+		return ret
+	}
+
+	return o.NodeType
+}
+
+// GetNodeTypeOk returns a tuple with the NodeType field value
+// and a boolean to check if the value has been set.
+func (o *ModelCompliance) GetNodeTypeOk() (*string, bool) {
+	if o == nil {
+		return nil, false
+	}
+	return &o.NodeType, true
+}
+
+// SetNodeType sets field value
+func (o *ModelCompliance) SetNodeType(v string) {
+	o.NodeType = v
 }
 
 // GetRemediationAnsible returns the RemediationAnsible field value
@@ -440,9 +466,10 @@ func (o ModelCompliance) MarshalJSON() ([]byte, error) {
 func (o ModelCompliance) ToMap() (map[string]interface{}, error) {
 	toSerialize := map[string]interface{}{}
 	toSerialize["compliance_check_type"] = o.ComplianceCheckType
-	toSerialize["compliance_node_type"] = o.ComplianceNodeType
 	toSerialize["description"] = o.Description
 	toSerialize["masked"] = o.Masked
+	toSerialize["node_id"] = o.NodeId
+	toSerialize["node_type"] = o.NodeType
 	toSerialize["remediation_ansible"] = o.RemediationAnsible
 	toSerialize["remediation_puppet"] = o.RemediationPuppet
 	toSerialize["remediation_script"] = o.RemediationScript

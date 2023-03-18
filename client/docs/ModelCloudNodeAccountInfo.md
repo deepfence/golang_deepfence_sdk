@@ -4,9 +4,11 @@
 
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
-**Active** | Pointer to **string** |  | [optional] 
+**Active** | Pointer to **bool** |  | [optional] 
 **CloudProvider** | Pointer to **string** |  | [optional] 
-**CompliancePercentage** | Pointer to **string** |  | [optional] 
+**CompliancePercentage** | Pointer to **float32** |  | [optional] 
+**LastScanId** | Pointer to **string** |  | [optional] 
+**LastScanStatus** | Pointer to **string** |  | [optional] 
 **NodeId** | Pointer to **string** |  | [optional] 
 **NodeName** | Pointer to **string** |  | [optional] 
 
@@ -31,20 +33,20 @@ but it doesn't guarantee that properties required by API are set
 
 ### GetActive
 
-`func (o *ModelCloudNodeAccountInfo) GetActive() string`
+`func (o *ModelCloudNodeAccountInfo) GetActive() bool`
 
 GetActive returns the Active field if non-nil, zero value otherwise.
 
 ### GetActiveOk
 
-`func (o *ModelCloudNodeAccountInfo) GetActiveOk() (*string, bool)`
+`func (o *ModelCloudNodeAccountInfo) GetActiveOk() (*bool, bool)`
 
 GetActiveOk returns a tuple with the Active field if it's non-nil, zero value otherwise
 and a boolean to check if the value has been set.
 
 ### SetActive
 
-`func (o *ModelCloudNodeAccountInfo) SetActive(v string)`
+`func (o *ModelCloudNodeAccountInfo) SetActive(v bool)`
 
 SetActive sets Active field to given value.
 
@@ -81,20 +83,20 @@ HasCloudProvider returns a boolean if a field has been set.
 
 ### GetCompliancePercentage
 
-`func (o *ModelCloudNodeAccountInfo) GetCompliancePercentage() string`
+`func (o *ModelCloudNodeAccountInfo) GetCompliancePercentage() float32`
 
 GetCompliancePercentage returns the CompliancePercentage field if non-nil, zero value otherwise.
 
 ### GetCompliancePercentageOk
 
-`func (o *ModelCloudNodeAccountInfo) GetCompliancePercentageOk() (*string, bool)`
+`func (o *ModelCloudNodeAccountInfo) GetCompliancePercentageOk() (*float32, bool)`
 
 GetCompliancePercentageOk returns a tuple with the CompliancePercentage field if it's non-nil, zero value otherwise
 and a boolean to check if the value has been set.
 
 ### SetCompliancePercentage
 
-`func (o *ModelCloudNodeAccountInfo) SetCompliancePercentage(v string)`
+`func (o *ModelCloudNodeAccountInfo) SetCompliancePercentage(v float32)`
 
 SetCompliancePercentage sets CompliancePercentage field to given value.
 
@@ -103,6 +105,56 @@ SetCompliancePercentage sets CompliancePercentage field to given value.
 `func (o *ModelCloudNodeAccountInfo) HasCompliancePercentage() bool`
 
 HasCompliancePercentage returns a boolean if a field has been set.
+
+### GetLastScanId
+
+`func (o *ModelCloudNodeAccountInfo) GetLastScanId() string`
+
+GetLastScanId returns the LastScanId field if non-nil, zero value otherwise.
+
+### GetLastScanIdOk
+
+`func (o *ModelCloudNodeAccountInfo) GetLastScanIdOk() (*string, bool)`
+
+GetLastScanIdOk returns a tuple with the LastScanId field if it's non-nil, zero value otherwise
+and a boolean to check if the value has been set.
+
+### SetLastScanId
+
+`func (o *ModelCloudNodeAccountInfo) SetLastScanId(v string)`
+
+SetLastScanId sets LastScanId field to given value.
+
+### HasLastScanId
+
+`func (o *ModelCloudNodeAccountInfo) HasLastScanId() bool`
+
+HasLastScanId returns a boolean if a field has been set.
+
+### GetLastScanStatus
+
+`func (o *ModelCloudNodeAccountInfo) GetLastScanStatus() string`
+
+GetLastScanStatus returns the LastScanStatus field if non-nil, zero value otherwise.
+
+### GetLastScanStatusOk
+
+`func (o *ModelCloudNodeAccountInfo) GetLastScanStatusOk() (*string, bool)`
+
+GetLastScanStatusOk returns a tuple with the LastScanStatus field if it's non-nil, zero value otherwise
+and a boolean to check if the value has been set.
+
+### SetLastScanStatus
+
+`func (o *ModelCloudNodeAccountInfo) SetLastScanStatus(v string)`
+
+SetLastScanStatus sets LastScanStatus field to given value.
+
+### HasLastScanStatus
+
+`func (o *ModelCloudNodeAccountInfo) HasLastScanStatus() bool`
+
+HasLastScanStatus returns a boolean if a field has been set.
 
 ### GetNodeId
 

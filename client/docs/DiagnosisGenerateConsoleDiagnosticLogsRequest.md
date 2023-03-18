@@ -1,4 +1,4 @@
-# DiagnosisGenerateDiagnosticLogsRequest
+# DiagnosisGenerateConsoleDiagnosticLogsRequest
 
 ## Properties
 
@@ -8,39 +8,39 @@ Name | Type | Description | Notes
 
 ## Methods
 
-### NewDiagnosisGenerateDiagnosticLogsRequest
+### NewDiagnosisGenerateConsoleDiagnosticLogsRequest
 
-`func NewDiagnosisGenerateDiagnosticLogsRequest(tail int32, ) *DiagnosisGenerateDiagnosticLogsRequest`
+`func NewDiagnosisGenerateConsoleDiagnosticLogsRequest(tail int32, ) *DiagnosisGenerateConsoleDiagnosticLogsRequest`
 
-NewDiagnosisGenerateDiagnosticLogsRequest instantiates a new DiagnosisGenerateDiagnosticLogsRequest object
+NewDiagnosisGenerateConsoleDiagnosticLogsRequest instantiates a new DiagnosisGenerateConsoleDiagnosticLogsRequest object
 This constructor will assign default values to properties that have it defined,
 and makes sure properties required by API are set, but the set of arguments
 will change when the set of required properties is changed
 
-### NewDiagnosisGenerateDiagnosticLogsRequestWithDefaults
+### NewDiagnosisGenerateConsoleDiagnosticLogsRequestWithDefaults
 
-`func NewDiagnosisGenerateDiagnosticLogsRequestWithDefaults() *DiagnosisGenerateDiagnosticLogsRequest`
+`func NewDiagnosisGenerateConsoleDiagnosticLogsRequestWithDefaults() *DiagnosisGenerateConsoleDiagnosticLogsRequest`
 
-NewDiagnosisGenerateDiagnosticLogsRequestWithDefaults instantiates a new DiagnosisGenerateDiagnosticLogsRequest object
+NewDiagnosisGenerateConsoleDiagnosticLogsRequestWithDefaults instantiates a new DiagnosisGenerateConsoleDiagnosticLogsRequest object
 This constructor will only assign default values to properties that have it defined,
 but it doesn't guarantee that properties required by API are set
 
 ### GetTail
 
-`func (o *DiagnosisGenerateDiagnosticLogsRequest) GetTail() int32`
+`func (o *DiagnosisGenerateConsoleDiagnosticLogsRequest) GetTail() int32`
 
 GetTail returns the Tail field if non-nil, zero value otherwise.
 
 ### GetTailOk
 
-`func (o *DiagnosisGenerateDiagnosticLogsRequest) GetTailOk() (*int32, bool)`
+`func (o *DiagnosisGenerateConsoleDiagnosticLogsRequest) GetTailOk() (*int32, bool)`
 
 GetTailOk returns a tuple with the Tail field if it's non-nil, zero value otherwise
 and a boolean to check if the value has been set.
 
 ### SetTail
 
-`func (o *DiagnosisGenerateDiagnosticLogsRequest) SetTail(v int32)`
+`func (o *DiagnosisGenerateConsoleDiagnosticLogsRequest) SetTail(v int32)`
 
 SetTail sets Tail field to given value.
 

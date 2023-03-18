@@ -137,6 +137,7 @@ Class | Method | HTTP request | Description
 *RegistryApi* | [**ListImageStubs**](docs/RegistryApi.md#listimagestubs) | **Post** /deepfence/registryaccount/stubs | List Image Stubs
 *RegistryApi* | [**ListImages**](docs/RegistryApi.md#listimages) | **Post** /deepfence/registryaccount/images | List Registry Images
 *RegistryApi* | [**ListRegistry**](docs/RegistryApi.md#listregistry) | **Get** /deepfence/registryaccount | List Registries
+*RegistryApi* | [**UpdateRegistry**](docs/RegistryApi.md#updateregistry) | **Put** /deepfence/registryaccount/{registry_id} | Update Registry
 *ScanResultsApi* | [**DeleteScanResult**](docs/ScanResultsApi.md#deletescanresult) | **Patch** /deepfence/scan/results/action/delete | Delete selected scan results
 *ScanResultsApi* | [**DeleteScanResultsForScanID**](docs/ScanResultsApi.md#deletescanresultsforscanid) | **Delete** /deepfence/scan/{scan_type}/{scan_id} | Delete all scan results for a scan id
 *ScanResultsApi* | [**DownloadScanResults**](docs/ScanResultsApi.md#downloadscanresults) | **Get** /deepfence/scan/{scan_type}/{scan_id}/download | Download Scans Results
@@ -227,8 +228,10 @@ Class | Method | HTTP request | Description
  - [DetailedParent](docs/DetailedParent.md)
  - [DiagnosisDiagnosticLogsLink](docs/DiagnosisDiagnosticLogsLink.md)
  - [DiagnosisDiagnosticNotification](docs/DiagnosisDiagnosticNotification.md)
- - [DiagnosisGenerateDiagnosticLogsRequest](docs/DiagnosisGenerateDiagnosticLogsRequest.md)
+ - [DiagnosisGenerateAgentDiagnosticLogsRequest](docs/DiagnosisGenerateAgentDiagnosticLogsRequest.md)
+ - [DiagnosisGenerateConsoleDiagnosticLogsRequest](docs/DiagnosisGenerateConsoleDiagnosticLogsRequest.md)
  - [DiagnosisGetDiagnosticLogsResponse](docs/DiagnosisGetDiagnosticLogsResponse.md)
+ - [DiagnosisNodeIdentifier](docs/DiagnosisNodeIdentifier.md)
  - [GraphNodeInfo](docs/GraphNodeInfo.md)
  - [GraphProviderThreatGraph](docs/GraphProviderThreatGraph.md)
  - [GraphThreatNodeInfo](docs/GraphThreatNodeInfo.md)
@@ -303,6 +306,7 @@ Class | Method | HTTP request | Description
  - [ModelRegistryImageStubsReq](docs/ModelRegistryImageStubsReq.md)
  - [ModelRegistryImagesReq](docs/ModelRegistryImagesReq.md)
  - [ModelRegistryListResp](docs/ModelRegistryListResp.md)
+ - [ModelRegistryUpdateReq](docs/ModelRegistryUpdateReq.md)
  - [ModelResponseAccessToken](docs/ModelResponseAccessToken.md)
  - [ModelSbomRequest](docs/ModelSbomRequest.md)
  - [ModelSbomResponse](docs/ModelSbomResponse.md)

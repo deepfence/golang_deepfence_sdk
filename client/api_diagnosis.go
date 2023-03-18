@@ -157,11 +157,11 @@ func (a *DiagnosisApiService) DiagnosticNotificationExecute(r ApiDiagnosticNotif
 type ApiGenerateAgentDiagnosticLogsRequest struct {
 	ctx context.Context
 	ApiService *DiagnosisApiService
-	diagnosisGenerateDiagnosticLogsRequest *DiagnosisGenerateDiagnosticLogsRequest
+	diagnosisGenerateAgentDiagnosticLogsRequest *DiagnosisGenerateAgentDiagnosticLogsRequest
 }
 
-func (r ApiGenerateAgentDiagnosticLogsRequest) DiagnosisGenerateDiagnosticLogsRequest(diagnosisGenerateDiagnosticLogsRequest DiagnosisGenerateDiagnosticLogsRequest) ApiGenerateAgentDiagnosticLogsRequest {
-	r.diagnosisGenerateDiagnosticLogsRequest = &diagnosisGenerateDiagnosticLogsRequest
+func (r ApiGenerateAgentDiagnosticLogsRequest) DiagnosisGenerateAgentDiagnosticLogsRequest(diagnosisGenerateAgentDiagnosticLogsRequest DiagnosisGenerateAgentDiagnosticLogsRequest) ApiGenerateAgentDiagnosticLogsRequest {
+	r.diagnosisGenerateAgentDiagnosticLogsRequest = &diagnosisGenerateAgentDiagnosticLogsRequest
 	return r
 }
 
@@ -221,7 +221,7 @@ func (a *DiagnosisApiService) GenerateAgentDiagnosticLogsExecute(r ApiGenerateAg
 		localVarHeaderParams["Accept"] = localVarHTTPHeaderAccept
 	}
 	// body params
-	localVarPostBody = r.diagnosisGenerateDiagnosticLogsRequest
+	localVarPostBody = r.diagnosisGenerateAgentDiagnosticLogsRequest
 	req, err := a.client.prepareRequest(r.ctx, localVarPath, localVarHTTPMethod, localVarPostBody, localVarHeaderParams, localVarQueryParams, localVarFormParams, formFiles)
 	if err != nil {
 		return nil, err
@@ -285,11 +285,11 @@ func (a *DiagnosisApiService) GenerateAgentDiagnosticLogsExecute(r ApiGenerateAg
 type ApiGenerateConsoleDiagnosticLogsRequest struct {
 	ctx context.Context
 	ApiService *DiagnosisApiService
-	diagnosisGenerateDiagnosticLogsRequest *DiagnosisGenerateDiagnosticLogsRequest
+	diagnosisGenerateConsoleDiagnosticLogsRequest *DiagnosisGenerateConsoleDiagnosticLogsRequest
 }
 
-func (r ApiGenerateConsoleDiagnosticLogsRequest) DiagnosisGenerateDiagnosticLogsRequest(diagnosisGenerateDiagnosticLogsRequest DiagnosisGenerateDiagnosticLogsRequest) ApiGenerateConsoleDiagnosticLogsRequest {
-	r.diagnosisGenerateDiagnosticLogsRequest = &diagnosisGenerateDiagnosticLogsRequest
+func (r ApiGenerateConsoleDiagnosticLogsRequest) DiagnosisGenerateConsoleDiagnosticLogsRequest(diagnosisGenerateConsoleDiagnosticLogsRequest DiagnosisGenerateConsoleDiagnosticLogsRequest) ApiGenerateConsoleDiagnosticLogsRequest {
+	r.diagnosisGenerateConsoleDiagnosticLogsRequest = &diagnosisGenerateConsoleDiagnosticLogsRequest
 	return r
 }
 
@@ -349,7 +349,7 @@ func (a *DiagnosisApiService) GenerateConsoleDiagnosticLogsExecute(r ApiGenerate
 		localVarHeaderParams["Accept"] = localVarHTTPHeaderAccept
 	}
 	// body params
-	localVarPostBody = r.diagnosisGenerateDiagnosticLogsRequest
+	localVarPostBody = r.diagnosisGenerateConsoleDiagnosticLogsRequest
 	req, err := a.client.prepareRequest(r.ctx, localVarPath, localVarHTTPMethod, localVarPostBody, localVarHeaderParams, localVarQueryParams, localVarFormParams, formFiles)
 	if err != nil {
 		return nil, err

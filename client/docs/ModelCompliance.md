@@ -5,9 +5,10 @@
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
 **ComplianceCheckType** | **string** |  | 
-**ComplianceNodeType** | **string** |  | 
 **Description** | **string** |  | 
 **Masked** | **bool** |  | 
+**NodeId** | **string** |  | 
+**NodeType** | **string** |  | 
 **RemediationAnsible** | **string** |  | 
 **RemediationPuppet** | **string** |  | 
 **RemediationScript** | **string** |  | 
@@ -24,7 +25,7 @@ Name | Type | Description | Notes
 
 ### NewModelCompliance
 
-`func NewModelCompliance(complianceCheckType string, complianceNodeType string, description string, masked bool, remediationAnsible string, remediationPuppet string, remediationScript string, resource string, status string, testCategory string, testDesc string, testNumber string, testRationale string, testSeverity string, updatedAt int32, ) *ModelCompliance`
+`func NewModelCompliance(complianceCheckType string, description string, masked bool, nodeId string, nodeType string, remediationAnsible string, remediationPuppet string, remediationScript string, resource string, status string, testCategory string, testDesc string, testNumber string, testRationale string, testSeverity string, updatedAt int32, ) *ModelCompliance`
 
 NewModelCompliance instantiates a new ModelCompliance object
 This constructor will assign default values to properties that have it defined,
@@ -57,26 +58,6 @@ and a boolean to check if the value has been set.
 `func (o *ModelCompliance) SetComplianceCheckType(v string)`
 
 SetComplianceCheckType sets ComplianceCheckType field to given value.
-
-
-### GetComplianceNodeType
-
-`func (o *ModelCompliance) GetComplianceNodeType() string`
-
-GetComplianceNodeType returns the ComplianceNodeType field if non-nil, zero value otherwise.
-
-### GetComplianceNodeTypeOk
-
-`func (o *ModelCompliance) GetComplianceNodeTypeOk() (*string, bool)`
-
-GetComplianceNodeTypeOk returns a tuple with the ComplianceNodeType field if it's non-nil, zero value otherwise
-and a boolean to check if the value has been set.
-
-### SetComplianceNodeType
-
-`func (o *ModelCompliance) SetComplianceNodeType(v string)`
-
-SetComplianceNodeType sets ComplianceNodeType field to given value.
 
 
 ### GetDescription
@@ -117,6 +98,46 @@ and a boolean to check if the value has been set.
 `func (o *ModelCompliance) SetMasked(v bool)`
 
 SetMasked sets Masked field to given value.
+
+
+### GetNodeId
+
+`func (o *ModelCompliance) GetNodeId() string`
+
+GetNodeId returns the NodeId field if non-nil, zero value otherwise.
+
+### GetNodeIdOk
+
+`func (o *ModelCompliance) GetNodeIdOk() (*string, bool)`
+
+GetNodeIdOk returns a tuple with the NodeId field if it's non-nil, zero value otherwise
+and a boolean to check if the value has been set.
+
+### SetNodeId
+
+`func (o *ModelCompliance) SetNodeId(v string)`
+
+SetNodeId sets NodeId field to given value.
+
+
+### GetNodeType
+
+`func (o *ModelCompliance) GetNodeType() string`
+
+GetNodeType returns the NodeType field if non-nil, zero value otherwise.
+
+### GetNodeTypeOk
+
+`func (o *ModelCompliance) GetNodeTypeOk() (*string, bool)`
+
+GetNodeTypeOk returns a tuple with the NodeType field if it's non-nil, zero value otherwise
+and a boolean to check if the value has been set.
+
+### SetNodeType
+
+`func (o *ModelCompliance) SetNodeType(v string)`
+
+SetNodeType sets NodeType field to given value.
 
 
 ### GetRemediationAnsible

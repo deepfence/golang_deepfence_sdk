@@ -14,6 +14,7 @@ Method | HTTP request | Description
 [**ListImageStubs**](RegistryApi.md#ListImageStubs) | **Post** /deepfence/registryaccount/stubs | List Image Stubs
 [**ListImages**](RegistryApi.md#ListImages) | **Post** /deepfence/registryaccount/images | List Registry Images
 [**ListRegistry**](RegistryApi.md#ListRegistry) | **Get** /deepfence/registryaccount | List Registries
+[**UpdateRegistry**](RegistryApi.md#UpdateRegistry) | **Put** /deepfence/registryaccount/{registry_id} | Update Registry
 
 
 
@@ -38,7 +39,7 @@ import (
 )
 
 func main() {
-    modelRegistryAddReq := *openapiclient.NewModelRegistryAddReq() // ModelRegistryAddReq |  (optional)
+    modelRegistryAddReq := *openapiclient.NewModelRegistryAddReq("Name_example", "RegistryType_example") // ModelRegistryAddReq |  (optional)
 
     configuration := openapiclient.NewConfiguration()
     apiClient := openapiclient.NewAPIClient(configuration)
@@ -668,6 +669,76 @@ Other parameters are passed through a pointer to a apiListRegistryRequest struct
 ### HTTP request headers
 
 - **Content-Type**: Not defined
+- **Accept**: application/json
+
+[[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints)
+[[Back to Model list]](../README.md#documentation-for-models)
+[[Back to README]](../README.md)
+
+
+## UpdateRegistry
+
+> UpdateRegistry(ctx, registryId).ModelRegistryUpdateReq(modelRegistryUpdateReq).Execute()
+
+Update Registry
+
+
+
+### Example
+
+```go
+package main
+
+import (
+    "context"
+    "fmt"
+    "os"
+    openapiclient "github.com/deepfence/golang_deepfence_sdk/client"
+)
+
+func main() {
+    registryId := "registryId_example" // string | 
+    modelRegistryUpdateReq := *openapiclient.NewModelRegistryUpdateReq() // ModelRegistryUpdateReq |  (optional)
+
+    configuration := openapiclient.NewConfiguration()
+    apiClient := openapiclient.NewAPIClient(configuration)
+    r, err := apiClient.RegistryApi.UpdateRegistry(context.Background(), registryId).ModelRegistryUpdateReq(modelRegistryUpdateReq).Execute()
+    if err != nil {
+        fmt.Fprintf(os.Stderr, "Error when calling `RegistryApi.UpdateRegistry``: %v\n", err)
+        fmt.Fprintf(os.Stderr, "Full HTTP response: %v\n", r)
+    }
+}
+```
+
+### Path Parameters
+
+
+Name | Type | Description  | Notes
+------------- | ------------- | ------------- | -------------
+**ctx** | **context.Context** | context for authentication, logging, cancellation, deadlines, tracing, etc.
+**registryId** | **string** |  | 
+
+### Other Parameters
+
+Other parameters are passed through a pointer to a apiUpdateRegistryRequest struct via the builder pattern
+
+
+Name | Type | Description  | Notes
+------------- | ------------- | ------------- | -------------
+
+ **modelRegistryUpdateReq** | [**ModelRegistryUpdateReq**](ModelRegistryUpdateReq.md) |  | 
+
+### Return type
+
+ (empty response body)
+
+### Authorization
+
+[bearer_token](../README.md#bearer_token)
+
+### HTTP request headers
+
+- **Content-Type**: application/json
 - **Accept**: application/json
 
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints)

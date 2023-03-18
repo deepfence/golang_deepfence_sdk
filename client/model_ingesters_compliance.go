@@ -22,9 +22,10 @@ var _ MappedNullable = &IngestersCompliance{}
 type IngestersCompliance struct {
 	Timestamp *string `json:"@timestamp,omitempty"`
 	ComplianceCheckType *string `json:"compliance_check_type,omitempty"`
-	ComplianceNodeType *string `json:"compliance_node_type,omitempty"`
 	Description *string `json:"description,omitempty"`
 	Masked *bool `json:"masked,omitempty"`
+	NodeId *string `json:"node_id,omitempty"`
+	NodeType *string `json:"node_type,omitempty"`
 	RemediationAnsible *string `json:"remediation_ansible,omitempty"`
 	RemediationPuppet *string `json:"remediation_puppet,omitempty"`
 	RemediationScript *string `json:"remediation_script,omitempty"`
@@ -120,38 +121,6 @@ func (o *IngestersCompliance) SetComplianceCheckType(v string) {
 	o.ComplianceCheckType = &v
 }
 
-// GetComplianceNodeType returns the ComplianceNodeType field value if set, zero value otherwise.
-func (o *IngestersCompliance) GetComplianceNodeType() string {
-	if o == nil || IsNil(o.ComplianceNodeType) {
-		var ret string
-		return ret
-	}
-	return *o.ComplianceNodeType
-}
-
-// GetComplianceNodeTypeOk returns a tuple with the ComplianceNodeType field value if set, nil otherwise
-// and a boolean to check if the value has been set.
-func (o *IngestersCompliance) GetComplianceNodeTypeOk() (*string, bool) {
-	if o == nil || IsNil(o.ComplianceNodeType) {
-		return nil, false
-	}
-	return o.ComplianceNodeType, true
-}
-
-// HasComplianceNodeType returns a boolean if a field has been set.
-func (o *IngestersCompliance) HasComplianceNodeType() bool {
-	if o != nil && !IsNil(o.ComplianceNodeType) {
-		return true
-	}
-
-	return false
-}
-
-// SetComplianceNodeType gets a reference to the given string and assigns it to the ComplianceNodeType field.
-func (o *IngestersCompliance) SetComplianceNodeType(v string) {
-	o.ComplianceNodeType = &v
-}
-
 // GetDescription returns the Description field value if set, zero value otherwise.
 func (o *IngestersCompliance) GetDescription() string {
 	if o == nil || IsNil(o.Description) {
@@ -214,6 +183,70 @@ func (o *IngestersCompliance) HasMasked() bool {
 // SetMasked gets a reference to the given bool and assigns it to the Masked field.
 func (o *IngestersCompliance) SetMasked(v bool) {
 	o.Masked = &v
+}
+
+// GetNodeId returns the NodeId field value if set, zero value otherwise.
+func (o *IngestersCompliance) GetNodeId() string {
+	if o == nil || IsNil(o.NodeId) {
+		var ret string
+		return ret
+	}
+	return *o.NodeId
+}
+
+// GetNodeIdOk returns a tuple with the NodeId field value if set, nil otherwise
+// and a boolean to check if the value has been set.
+func (o *IngestersCompliance) GetNodeIdOk() (*string, bool) {
+	if o == nil || IsNil(o.NodeId) {
+		return nil, false
+	}
+	return o.NodeId, true
+}
+
+// HasNodeId returns a boolean if a field has been set.
+func (o *IngestersCompliance) HasNodeId() bool {
+	if o != nil && !IsNil(o.NodeId) {
+		return true
+	}
+
+	return false
+}
+
+// SetNodeId gets a reference to the given string and assigns it to the NodeId field.
+func (o *IngestersCompliance) SetNodeId(v string) {
+	o.NodeId = &v
+}
+
+// GetNodeType returns the NodeType field value if set, zero value otherwise.
+func (o *IngestersCompliance) GetNodeType() string {
+	if o == nil || IsNil(o.NodeType) {
+		var ret string
+		return ret
+	}
+	return *o.NodeType
+}
+
+// GetNodeTypeOk returns a tuple with the NodeType field value if set, nil otherwise
+// and a boolean to check if the value has been set.
+func (o *IngestersCompliance) GetNodeTypeOk() (*string, bool) {
+	if o == nil || IsNil(o.NodeType) {
+		return nil, false
+	}
+	return o.NodeType, true
+}
+
+// HasNodeType returns a boolean if a field has been set.
+func (o *IngestersCompliance) HasNodeType() bool {
+	if o != nil && !IsNil(o.NodeType) {
+		return true
+	}
+
+	return false
+}
+
+// SetNodeType gets a reference to the given string and assigns it to the NodeType field.
+func (o *IngestersCompliance) SetNodeType(v string) {
+	o.NodeType = &v
 }
 
 // GetRemediationAnsible returns the RemediationAnsible field value if set, zero value otherwise.
@@ -616,14 +649,17 @@ func (o IngestersCompliance) ToMap() (map[string]interface{}, error) {
 	if !IsNil(o.ComplianceCheckType) {
 		toSerialize["compliance_check_type"] = o.ComplianceCheckType
 	}
-	if !IsNil(o.ComplianceNodeType) {
-		toSerialize["compliance_node_type"] = o.ComplianceNodeType
-	}
 	if !IsNil(o.Description) {
 		toSerialize["description"] = o.Description
 	}
 	if !IsNil(o.Masked) {
 		toSerialize["masked"] = o.Masked
+	}
+	if !IsNil(o.NodeId) {
+		toSerialize["node_id"] = o.NodeId
+	}
+	if !IsNil(o.NodeType) {
+		toSerialize["node_type"] = o.NodeType
 	}
 	if !IsNil(o.RemediationAnsible) {
 		toSerialize["remediation_ansible"] = o.RemediationAnsible
