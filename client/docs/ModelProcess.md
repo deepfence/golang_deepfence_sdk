@@ -11,13 +11,13 @@ Name | Type | Description | Notes
 **NodeId** | **string** |  | 
 **Pid** | **string** |  | 
 **Ppid** | **string** |  | 
-**Threads** | **int32** |  | 
+**Threads** | **string** |  | 
 
 ## Methods
 
 ### NewModelProcess
 
-`func NewModelProcess(cmdline string, metadata map[string]interface{}, metrics ModelComputeMetrics, name string, nodeId string, pid string, ppid string, threads int32, ) *ModelProcess`
+`func NewModelProcess(cmdline string, metadata map[string]interface{}, metrics ModelComputeMetrics, name string, nodeId string, pid string, ppid string, threads string, ) *ModelProcess`
 
 NewModelProcess instantiates a new ModelProcess object
 This constructor will assign default values to properties that have it defined,
@@ -174,20 +174,20 @@ SetPpid sets Ppid field to given value.
 
 ### GetThreads
 
-`func (o *ModelProcess) GetThreads() int32`
+`func (o *ModelProcess) GetThreads() string`
 
 GetThreads returns the Threads field if non-nil, zero value otherwise.
 
 ### GetThreadsOk
 
-`func (o *ModelProcess) GetThreadsOk() (*int32, bool)`
+`func (o *ModelProcess) GetThreadsOk() (*string, bool)`
 
 GetThreadsOk returns a tuple with the Threads field if it's non-nil, zero value otherwise
 and a boolean to check if the value has been set.
 
 ### SetThreads
 
-`func (o *ModelProcess) SetThreads(v int32)`
+`func (o *ModelProcess) SetThreads(v string)`
 
 SetThreads sets Threads field to given value.
 

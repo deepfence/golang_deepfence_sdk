@@ -10,6 +10,9 @@ Name | Type | Description | Notes
 **ContainerImages** | [**[]ModelContainerImage**](ModelContainerImage.md) |  | 
 **Containers** | [**[]ModelContainer**](ModelContainer.md) |  | 
 **HostName** | **string** |  | 
+**InterfaceIps** | **string** |  | 
+**InterfaceNames** | **string** |  | 
+**KernelVersion** | **string** |  | 
 **MalwareScanStatus** | **string** |  | 
 **MalwaresCount** | **int32** |  | 
 **Metrics** | [**ModelComputeMetrics**](ModelComputeMetrics.md) |  | 
@@ -19,6 +22,7 @@ Name | Type | Description | Notes
 **Processes** | [**[]ModelProcess**](ModelProcess.md) |  | 
 **SecretScanStatus** | **string** |  | 
 **SecretsCount** | **int32** |  | 
+**Uptime** | **string** |  | 
 **VulnerabilitiesCount** | **int32** |  | 
 **VulnerabilityScanStatus** | **string** |  | 
 
@@ -26,7 +30,7 @@ Name | Type | Description | Notes
 
 ### NewModelHost
 
-`func NewModelHost(cloudMetadata map[string]interface{}, complianceScanStatus string, compliancesCount int32, containerImages []ModelContainerImage, containers []ModelContainer, hostName string, malwareScanStatus string, malwaresCount int32, metrics ModelComputeMetrics, nodeId string, nodeName string, pods []ModelPod, processes []ModelProcess, secretScanStatus string, secretsCount int32, vulnerabilitiesCount int32, vulnerabilityScanStatus string, ) *ModelHost`
+`func NewModelHost(cloudMetadata map[string]interface{}, complianceScanStatus string, compliancesCount int32, containerImages []ModelContainerImage, containers []ModelContainer, hostName string, interfaceIps string, interfaceNames string, kernelVersion string, malwareScanStatus string, malwaresCount int32, metrics ModelComputeMetrics, nodeId string, nodeName string, pods []ModelPod, processes []ModelProcess, secretScanStatus string, secretsCount int32, uptime string, vulnerabilitiesCount int32, vulnerabilityScanStatus string, ) *ModelHost`
 
 NewModelHost instantiates a new ModelHost object
 This constructor will assign default values to properties that have it defined,
@@ -179,6 +183,66 @@ and a boolean to check if the value has been set.
 `func (o *ModelHost) SetHostName(v string)`
 
 SetHostName sets HostName field to given value.
+
+
+### GetInterfaceIps
+
+`func (o *ModelHost) GetInterfaceIps() string`
+
+GetInterfaceIps returns the InterfaceIps field if non-nil, zero value otherwise.
+
+### GetInterfaceIpsOk
+
+`func (o *ModelHost) GetInterfaceIpsOk() (*string, bool)`
+
+GetInterfaceIpsOk returns a tuple with the InterfaceIps field if it's non-nil, zero value otherwise
+and a boolean to check if the value has been set.
+
+### SetInterfaceIps
+
+`func (o *ModelHost) SetInterfaceIps(v string)`
+
+SetInterfaceIps sets InterfaceIps field to given value.
+
+
+### GetInterfaceNames
+
+`func (o *ModelHost) GetInterfaceNames() string`
+
+GetInterfaceNames returns the InterfaceNames field if non-nil, zero value otherwise.
+
+### GetInterfaceNamesOk
+
+`func (o *ModelHost) GetInterfaceNamesOk() (*string, bool)`
+
+GetInterfaceNamesOk returns a tuple with the InterfaceNames field if it's non-nil, zero value otherwise
+and a boolean to check if the value has been set.
+
+### SetInterfaceNames
+
+`func (o *ModelHost) SetInterfaceNames(v string)`
+
+SetInterfaceNames sets InterfaceNames field to given value.
+
+
+### GetKernelVersion
+
+`func (o *ModelHost) GetKernelVersion() string`
+
+GetKernelVersion returns the KernelVersion field if non-nil, zero value otherwise.
+
+### GetKernelVersionOk
+
+`func (o *ModelHost) GetKernelVersionOk() (*string, bool)`
+
+GetKernelVersionOk returns a tuple with the KernelVersion field if it's non-nil, zero value otherwise
+and a boolean to check if the value has been set.
+
+### SetKernelVersion
+
+`func (o *ModelHost) SetKernelVersion(v string)`
+
+SetKernelVersion sets KernelVersion field to given value.
 
 
 ### GetMalwareScanStatus
@@ -379,6 +443,26 @@ and a boolean to check if the value has been set.
 `func (o *ModelHost) SetSecretsCount(v int32)`
 
 SetSecretsCount sets SecretsCount field to given value.
+
+
+### GetUptime
+
+`func (o *ModelHost) GetUptime() string`
+
+GetUptime returns the Uptime field if non-nil, zero value otherwise.
+
+### GetUptimeOk
+
+`func (o *ModelHost) GetUptimeOk() (*string, bool)`
+
+GetUptimeOk returns a tuple with the Uptime field if it's non-nil, zero value otherwise
+and a boolean to check if the value has been set.
+
+### SetUptime
+
+`func (o *ModelHost) SetUptime(v string)`
+
+SetUptime sets Uptime field to given value.
 
 
 ### GetVulnerabilitiesCount

@@ -26,6 +26,9 @@ type ModelHost struct {
 	ContainerImages []ModelContainerImage `json:"container_images"`
 	Containers []ModelContainer `json:"containers"`
 	HostName string `json:"host_name"`
+	InterfaceIps string `json:"interface_ips"`
+	InterfaceNames string `json:"interfaceNames"`
+	KernelVersion string `json:"kernel_version"`
 	MalwareScanStatus string `json:"malware_scan_status"`
 	MalwaresCount int32 `json:"malwares_count"`
 	Metrics ModelComputeMetrics `json:"metrics"`
@@ -35,6 +38,7 @@ type ModelHost struct {
 	Processes []ModelProcess `json:"processes"`
 	SecretScanStatus string `json:"secret_scan_status"`
 	SecretsCount int32 `json:"secrets_count"`
+	Uptime string `json:"uptime"`
 	VulnerabilitiesCount int32 `json:"vulnerabilities_count"`
 	VulnerabilityScanStatus string `json:"vulnerability_scan_status"`
 }
@@ -43,7 +47,7 @@ type ModelHost struct {
 // This constructor will assign default values to properties that have it defined,
 // and makes sure properties required by API are set, but the set of arguments
 // will change when the set of required properties is changed
-func NewModelHost(cloudMetadata map[string]interface{}, complianceScanStatus string, compliancesCount int32, containerImages []ModelContainerImage, containers []ModelContainer, hostName string, malwareScanStatus string, malwaresCount int32, metrics ModelComputeMetrics, nodeId string, nodeName string, pods []ModelPod, processes []ModelProcess, secretScanStatus string, secretsCount int32, vulnerabilitiesCount int32, vulnerabilityScanStatus string) *ModelHost {
+func NewModelHost(cloudMetadata map[string]interface{}, complianceScanStatus string, compliancesCount int32, containerImages []ModelContainerImage, containers []ModelContainer, hostName string, interfaceIps string, interfaceNames string, kernelVersion string, malwareScanStatus string, malwaresCount int32, metrics ModelComputeMetrics, nodeId string, nodeName string, pods []ModelPod, processes []ModelProcess, secretScanStatus string, secretsCount int32, uptime string, vulnerabilitiesCount int32, vulnerabilityScanStatus string) *ModelHost {
 	this := ModelHost{}
 	this.CloudMetadata = cloudMetadata
 	this.ComplianceScanStatus = complianceScanStatus
@@ -51,6 +55,9 @@ func NewModelHost(cloudMetadata map[string]interface{}, complianceScanStatus str
 	this.ContainerImages = containerImages
 	this.Containers = containers
 	this.HostName = hostName
+	this.InterfaceIps = interfaceIps
+	this.InterfaceNames = interfaceNames
+	this.KernelVersion = kernelVersion
 	this.MalwareScanStatus = malwareScanStatus
 	this.MalwaresCount = malwaresCount
 	this.Metrics = metrics
@@ -60,6 +67,7 @@ func NewModelHost(cloudMetadata map[string]interface{}, complianceScanStatus str
 	this.Processes = processes
 	this.SecretScanStatus = secretScanStatus
 	this.SecretsCount = secretsCount
+	this.Uptime = uptime
 	this.VulnerabilitiesCount = vulnerabilitiesCount
 	this.VulnerabilityScanStatus = vulnerabilityScanStatus
 	return &this
@@ -219,6 +227,78 @@ func (o *ModelHost) GetHostNameOk() (*string, bool) {
 // SetHostName sets field value
 func (o *ModelHost) SetHostName(v string) {
 	o.HostName = v
+}
+
+// GetInterfaceIps returns the InterfaceIps field value
+func (o *ModelHost) GetInterfaceIps() string {
+	if o == nil {
+		var ret string
+		return ret
+	}
+
+	return o.InterfaceIps
+}
+
+// GetInterfaceIpsOk returns a tuple with the InterfaceIps field value
+// and a boolean to check if the value has been set.
+func (o *ModelHost) GetInterfaceIpsOk() (*string, bool) {
+	if o == nil {
+		return nil, false
+	}
+	return &o.InterfaceIps, true
+}
+
+// SetInterfaceIps sets field value
+func (o *ModelHost) SetInterfaceIps(v string) {
+	o.InterfaceIps = v
+}
+
+// GetInterfaceNames returns the InterfaceNames field value
+func (o *ModelHost) GetInterfaceNames() string {
+	if o == nil {
+		var ret string
+		return ret
+	}
+
+	return o.InterfaceNames
+}
+
+// GetInterfaceNamesOk returns a tuple with the InterfaceNames field value
+// and a boolean to check if the value has been set.
+func (o *ModelHost) GetInterfaceNamesOk() (*string, bool) {
+	if o == nil {
+		return nil, false
+	}
+	return &o.InterfaceNames, true
+}
+
+// SetInterfaceNames sets field value
+func (o *ModelHost) SetInterfaceNames(v string) {
+	o.InterfaceNames = v
+}
+
+// GetKernelVersion returns the KernelVersion field value
+func (o *ModelHost) GetKernelVersion() string {
+	if o == nil {
+		var ret string
+		return ret
+	}
+
+	return o.KernelVersion
+}
+
+// GetKernelVersionOk returns a tuple with the KernelVersion field value
+// and a boolean to check if the value has been set.
+func (o *ModelHost) GetKernelVersionOk() (*string, bool) {
+	if o == nil {
+		return nil, false
+	}
+	return &o.KernelVersion, true
+}
+
+// SetKernelVersion sets field value
+func (o *ModelHost) SetKernelVersion(v string) {
+	o.KernelVersion = v
 }
 
 // GetMalwareScanStatus returns the MalwareScanStatus field value
@@ -441,6 +521,30 @@ func (o *ModelHost) SetSecretsCount(v int32) {
 	o.SecretsCount = v
 }
 
+// GetUptime returns the Uptime field value
+func (o *ModelHost) GetUptime() string {
+	if o == nil {
+		var ret string
+		return ret
+	}
+
+	return o.Uptime
+}
+
+// GetUptimeOk returns a tuple with the Uptime field value
+// and a boolean to check if the value has been set.
+func (o *ModelHost) GetUptimeOk() (*string, bool) {
+	if o == nil {
+		return nil, false
+	}
+	return &o.Uptime, true
+}
+
+// SetUptime sets field value
+func (o *ModelHost) SetUptime(v string) {
+	o.Uptime = v
+}
+
 // GetVulnerabilitiesCount returns the VulnerabilitiesCount field value
 func (o *ModelHost) GetVulnerabilitiesCount() int32 {
 	if o == nil {
@@ -509,6 +613,9 @@ func (o ModelHost) ToMap() (map[string]interface{}, error) {
 		toSerialize["containers"] = o.Containers
 	}
 	toSerialize["host_name"] = o.HostName
+	toSerialize["interface_ips"] = o.InterfaceIps
+	toSerialize["interfaceNames"] = o.InterfaceNames
+	toSerialize["kernel_version"] = o.KernelVersion
 	toSerialize["malware_scan_status"] = o.MalwareScanStatus
 	toSerialize["malwares_count"] = o.MalwaresCount
 	toSerialize["metrics"] = o.Metrics
@@ -522,6 +629,7 @@ func (o ModelHost) ToMap() (map[string]interface{}, error) {
 	}
 	toSerialize["secret_scan_status"] = o.SecretScanStatus
 	toSerialize["secrets_count"] = o.SecretsCount
+	toSerialize["uptime"] = o.Uptime
 	toSerialize["vulnerabilities_count"] = o.VulnerabilitiesCount
 	toSerialize["vulnerability_scan_status"] = o.VulnerabilityScanStatus
 	return toSerialize, nil

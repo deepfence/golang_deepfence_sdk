@@ -7944,7 +7944,7 @@ components:
             key: ""
           cmdline: cmdline
           name: name
-          threads: 1
+          threads: threads
           pid: pid
           metrics:
             memory_mb: 5.962133916683182
@@ -7955,7 +7955,7 @@ components:
             key: ""
           cmdline: cmdline
           name: name
-          threads: 1
+          threads: threads
           pid: pid
           metrics:
             memory_mb: 5.962133916683182
@@ -7965,7 +7965,7 @@ components:
         secret_scan_status: secret_scan_status
         vulnerabilities_count: 5
         compliance_scan_status: compliance_scan_status
-        secrets_count: 5
+        secrets_count: 1
         docker_container_name: docker_container_name
         malwares_count: 6
         node_name: node_name
@@ -8127,12 +8127,13 @@ components:
       type: object
     ModelHost:
       example:
+        interface_ips: interface_ips
         processes:
         - metadata:
             key: ""
           cmdline: cmdline
           name: name
-          threads: 1
+          threads: threads
           pid: pid
           metrics:
             memory_mb: 5.962133916683182
@@ -8143,7 +8144,7 @@ components:
             key: ""
           cmdline: cmdline
           name: name
-          threads: 1
+          threads: threads
           pid: pid
           metrics:
             memory_mb: 5.962133916683182
@@ -8195,7 +8196,10 @@ components:
           node_id: node_id
         malwares_count: 6
         node_name: node_name
+        interfaceNames: interfaceNames
+        uptime: uptime
         compliances_count: 0
+        kernel_version: kernel_version
         malware_scan_status: malware_scan_status
         containers:
         - docker_labels:
@@ -8226,7 +8230,7 @@ components:
               key: ""
             cmdline: cmdline
             name: name
-            threads: 1
+            threads: threads
             pid: pid
             metrics:
               memory_mb: 5.962133916683182
@@ -8237,7 +8241,7 @@ components:
               key: ""
             cmdline: cmdline
             name: name
-            threads: 1
+            threads: threads
             pid: pid
             metrics:
               memory_mb: 5.962133916683182
@@ -8247,7 +8251,7 @@ components:
           secret_scan_status: secret_scan_status
           vulnerabilities_count: 5
           compliance_scan_status: compliance_scan_status
-          secrets_count: 5
+          secrets_count: 1
           docker_container_name: docker_container_name
           malwares_count: 6
           node_name: node_name
@@ -8287,7 +8291,7 @@ components:
               key: ""
             cmdline: cmdline
             name: name
-            threads: 1
+            threads: threads
             pid: pid
             metrics:
               memory_mb: 5.962133916683182
@@ -8298,7 +8302,7 @@ components:
               key: ""
             cmdline: cmdline
             name: name
-            threads: 1
+            threads: threads
             pid: pid
             metrics:
               memory_mb: 5.962133916683182
@@ -8308,7 +8312,7 @@ components:
           secret_scan_status: secret_scan_status
           vulnerabilities_count: 5
           compliance_scan_status: compliance_scan_status
-          secrets_count: 5
+          secrets_count: 1
           docker_container_name: docker_container_name
           malwares_count: 6
           node_name: node_name
@@ -8329,7 +8333,7 @@ components:
               key: ""
             cmdline: cmdline
             name: name
-            threads: 1
+            threads: threads
             pid: pid
             metrics:
               memory_mb: 5.962133916683182
@@ -8340,7 +8344,7 @@ components:
               key: ""
             cmdline: cmdline
             name: name
-            threads: 1
+            threads: threads
             pid: pid
             metrics:
               memory_mb: 5.962133916683182
@@ -8378,7 +8382,7 @@ components:
                 key: ""
               cmdline: cmdline
               name: name
-              threads: 1
+              threads: threads
               pid: pid
               metrics:
                 memory_mb: 5.962133916683182
@@ -8389,7 +8393,7 @@ components:
                 key: ""
               cmdline: cmdline
               name: name
-              threads: 1
+              threads: threads
               pid: pid
               metrics:
                 memory_mb: 5.962133916683182
@@ -8399,7 +8403,7 @@ components:
             secret_scan_status: secret_scan_status
             vulnerabilities_count: 5
             compliance_scan_status: compliance_scan_status
-            secrets_count: 5
+            secrets_count: 1
             docker_container_name: docker_container_name
             malwares_count: 6
             node_name: node_name
@@ -8439,7 +8443,7 @@ components:
                 key: ""
               cmdline: cmdline
               name: name
-              threads: 1
+              threads: threads
               pid: pid
               metrics:
                 memory_mb: 5.962133916683182
@@ -8450,7 +8454,7 @@ components:
                 key: ""
               cmdline: cmdline
               name: name
-              threads: 1
+              threads: threads
               pid: pid
               metrics:
                 memory_mb: 5.962133916683182
@@ -8460,7 +8464,7 @@ components:
             secret_scan_status: secret_scan_status
             vulnerabilities_count: 5
             compliance_scan_status: compliance_scan_status
-            secrets_count: 5
+            secrets_count: 1
             docker_container_name: docker_container_name
             malwares_count: 6
             node_name: node_name
@@ -8485,7 +8489,7 @@ components:
               key: ""
             cmdline: cmdline
             name: name
-            threads: 1
+            threads: threads
             pid: pid
             metrics:
               memory_mb: 5.962133916683182
@@ -8496,7 +8500,7 @@ components:
               key: ""
             cmdline: cmdline
             name: name
-            threads: 1
+            threads: threads
             pid: pid
             metrics:
               memory_mb: 5.962133916683182
@@ -8534,7 +8538,7 @@ components:
                 key: ""
               cmdline: cmdline
               name: name
-              threads: 1
+              threads: threads
               pid: pid
               metrics:
                 memory_mb: 5.962133916683182
@@ -8545,7 +8549,7 @@ components:
                 key: ""
               cmdline: cmdline
               name: name
-              threads: 1
+              threads: threads
               pid: pid
               metrics:
                 memory_mb: 5.962133916683182
@@ -8555,7 +8559,7 @@ components:
             secret_scan_status: secret_scan_status
             vulnerabilities_count: 5
             compliance_scan_status: compliance_scan_status
-            secrets_count: 5
+            secrets_count: 1
             docker_container_name: docker_container_name
             malwares_count: 6
             node_name: node_name
@@ -8595,7 +8599,7 @@ components:
                 key: ""
               cmdline: cmdline
               name: name
-              threads: 1
+              threads: threads
               pid: pid
               metrics:
                 memory_mb: 5.962133916683182
@@ -8606,7 +8610,7 @@ components:
                 key: ""
               cmdline: cmdline
               name: name
-              threads: 1
+              threads: threads
               pid: pid
               metrics:
                 memory_mb: 5.962133916683182
@@ -8616,7 +8620,7 @@ components:
             secret_scan_status: secret_scan_status
             vulnerabilities_count: 5
             compliance_scan_status: compliance_scan_status
-            secrets_count: 5
+            secrets_count: 1
             docker_container_name: docker_container_name
             malwares_count: 6
             node_name: node_name
@@ -8659,6 +8663,12 @@ components:
           type: array
         host_name:
           type: string
+        interface_ips:
+          type: string
+        interfaceNames:
+          type: string
+        kernel_version:
+          type: string
         malware_scan_status:
           type: string
         malwares_count:
@@ -8683,6 +8693,8 @@ components:
           type: string
         secrets_count:
           type: integer
+        uptime:
+          type: string
         vulnerabilities_count:
           type: integer
         vulnerability_scan_status:
@@ -8694,6 +8706,9 @@ components:
       - container_images
       - containers
       - host_name
+      - interfaceNames
+      - interface_ips
+      - kernel_version
       - malware_scan_status
       - malwares_count
       - metrics
@@ -8703,6 +8718,7 @@ components:
       - processes
       - secret_scan_status
       - secrets_count
+      - uptime
       - vulnerabilities_count
       - vulnerability_scan_status
       type: object
@@ -8784,12 +8800,13 @@ components:
           key: ""
         node_name: node_name
         containers:
-        - processes:
+        - interface_ips: interface_ips
+          processes:
           - metadata:
               key: ""
             cmdline: cmdline
             name: name
-            threads: 1
+            threads: threads
             pid: pid
             metrics:
               memory_mb: 5.962133916683182
@@ -8800,7 +8817,7 @@ components:
               key: ""
             cmdline: cmdline
             name: name
-            threads: 1
+            threads: threads
             pid: pid
             metrics:
               memory_mb: 5.962133916683182
@@ -8852,7 +8869,10 @@ components:
             node_id: node_id
           malwares_count: 6
           node_name: node_name
+          interfaceNames: interfaceNames
+          uptime: uptime
           compliances_count: 0
+          kernel_version: kernel_version
           malware_scan_status: malware_scan_status
           containers:
           - docker_labels:
@@ -8883,7 +8903,7 @@ components:
                 key: ""
               cmdline: cmdline
               name: name
-              threads: 1
+              threads: threads
               pid: pid
               metrics:
                 memory_mb: 5.962133916683182
@@ -8894,7 +8914,7 @@ components:
                 key: ""
               cmdline: cmdline
               name: name
-              threads: 1
+              threads: threads
               pid: pid
               metrics:
                 memory_mb: 5.962133916683182
@@ -8904,7 +8924,7 @@ components:
             secret_scan_status: secret_scan_status
             vulnerabilities_count: 5
             compliance_scan_status: compliance_scan_status
-            secrets_count: 5
+            secrets_count: 1
             docker_container_name: docker_container_name
             malwares_count: 6
             node_name: node_name
@@ -8944,7 +8964,7 @@ components:
                 key: ""
               cmdline: cmdline
               name: name
-              threads: 1
+              threads: threads
               pid: pid
               metrics:
                 memory_mb: 5.962133916683182
@@ -8955,7 +8975,7 @@ components:
                 key: ""
               cmdline: cmdline
               name: name
-              threads: 1
+              threads: threads
               pid: pid
               metrics:
                 memory_mb: 5.962133916683182
@@ -8965,7 +8985,7 @@ components:
             secret_scan_status: secret_scan_status
             vulnerabilities_count: 5
             compliance_scan_status: compliance_scan_status
-            secrets_count: 5
+            secrets_count: 1
             docker_container_name: docker_container_name
             malwares_count: 6
             node_name: node_name
@@ -8986,7 +9006,7 @@ components:
                 key: ""
               cmdline: cmdline
               name: name
-              threads: 1
+              threads: threads
               pid: pid
               metrics:
                 memory_mb: 5.962133916683182
@@ -8997,7 +9017,7 @@ components:
                 key: ""
               cmdline: cmdline
               name: name
-              threads: 1
+              threads: threads
               pid: pid
               metrics:
                 memory_mb: 5.962133916683182
@@ -9035,7 +9055,7 @@ components:
                   key: ""
                 cmdline: cmdline
                 name: name
-                threads: 1
+                threads: threads
                 pid: pid
                 metrics:
                   memory_mb: 5.962133916683182
@@ -9046,7 +9066,7 @@ components:
                   key: ""
                 cmdline: cmdline
                 name: name
-                threads: 1
+                threads: threads
                 pid: pid
                 metrics:
                   memory_mb: 5.962133916683182
@@ -9056,7 +9076,7 @@ components:
               secret_scan_status: secret_scan_status
               vulnerabilities_count: 5
               compliance_scan_status: compliance_scan_status
-              secrets_count: 5
+              secrets_count: 1
               docker_container_name: docker_container_name
               malwares_count: 6
               node_name: node_name
@@ -9096,7 +9116,7 @@ components:
                   key: ""
                 cmdline: cmdline
                 name: name
-                threads: 1
+                threads: threads
                 pid: pid
                 metrics:
                   memory_mb: 5.962133916683182
@@ -9107,7 +9127,7 @@ components:
                   key: ""
                 cmdline: cmdline
                 name: name
-                threads: 1
+                threads: threads
                 pid: pid
                 metrics:
                   memory_mb: 5.962133916683182
@@ -9117,7 +9137,7 @@ components:
               secret_scan_status: secret_scan_status
               vulnerabilities_count: 5
               compliance_scan_status: compliance_scan_status
-              secrets_count: 5
+              secrets_count: 1
               docker_container_name: docker_container_name
               malwares_count: 6
               node_name: node_name
@@ -9142,7 +9162,7 @@ components:
                 key: ""
               cmdline: cmdline
               name: name
-              threads: 1
+              threads: threads
               pid: pid
               metrics:
                 memory_mb: 5.962133916683182
@@ -9153,7 +9173,7 @@ components:
                 key: ""
               cmdline: cmdline
               name: name
-              threads: 1
+              threads: threads
               pid: pid
               metrics:
                 memory_mb: 5.962133916683182
@@ -9191,7 +9211,7 @@ components:
                   key: ""
                 cmdline: cmdline
                 name: name
-                threads: 1
+                threads: threads
                 pid: pid
                 metrics:
                   memory_mb: 5.962133916683182
@@ -9202,7 +9222,7 @@ components:
                   key: ""
                 cmdline: cmdline
                 name: name
-                threads: 1
+                threads: threads
                 pid: pid
                 metrics:
                   memory_mb: 5.962133916683182
@@ -9212,7 +9232,7 @@ components:
               secret_scan_status: secret_scan_status
               vulnerabilities_count: 5
               compliance_scan_status: compliance_scan_status
-              secrets_count: 5
+              secrets_count: 1
               docker_container_name: docker_container_name
               malwares_count: 6
               node_name: node_name
@@ -9252,7 +9272,7 @@ components:
                   key: ""
                 cmdline: cmdline
                 name: name
-                threads: 1
+                threads: threads
                 pid: pid
                 metrics:
                   memory_mb: 5.962133916683182
@@ -9263,7 +9283,7 @@ components:
                   key: ""
                 cmdline: cmdline
                 name: name
-                threads: 1
+                threads: threads
                 pid: pid
                 metrics:
                   memory_mb: 5.962133916683182
@@ -9273,7 +9293,7 @@ components:
               secret_scan_status: secret_scan_status
               vulnerabilities_count: 5
               compliance_scan_status: compliance_scan_status
-              secrets_count: 5
+              secrets_count: 1
               docker_container_name: docker_container_name
               malwares_count: 6
               node_name: node_name
@@ -9296,12 +9316,13 @@ components:
           vulnerability_scan_status: vulnerability_scan_status
           host_name: host_name
           node_id: node_id
-        - processes:
+        - interface_ips: interface_ips
+          processes:
           - metadata:
               key: ""
             cmdline: cmdline
             name: name
-            threads: 1
+            threads: threads
             pid: pid
             metrics:
               memory_mb: 5.962133916683182
@@ -9312,7 +9333,7 @@ components:
               key: ""
             cmdline: cmdline
             name: name
-            threads: 1
+            threads: threads
             pid: pid
             metrics:
               memory_mb: 5.962133916683182
@@ -9364,7 +9385,10 @@ components:
             node_id: node_id
           malwares_count: 6
           node_name: node_name
+          interfaceNames: interfaceNames
+          uptime: uptime
           compliances_count: 0
+          kernel_version: kernel_version
           malware_scan_status: malware_scan_status
           containers:
           - docker_labels:
@@ -9395,7 +9419,7 @@ components:
                 key: ""
               cmdline: cmdline
               name: name
-              threads: 1
+              threads: threads
               pid: pid
               metrics:
                 memory_mb: 5.962133916683182
@@ -9406,7 +9430,7 @@ components:
                 key: ""
               cmdline: cmdline
               name: name
-              threads: 1
+              threads: threads
               pid: pid
               metrics:
                 memory_mb: 5.962133916683182
@@ -9416,7 +9440,7 @@ components:
             secret_scan_status: secret_scan_status
             vulnerabilities_count: 5
             compliance_scan_status: compliance_scan_status
-            secrets_count: 5
+            secrets_count: 1
             docker_container_name: docker_container_name
             malwares_count: 6
             node_name: node_name
@@ -9456,7 +9480,7 @@ components:
                 key: ""
               cmdline: cmdline
               name: name
-              threads: 1
+              threads: threads
               pid: pid
               metrics:
                 memory_mb: 5.962133916683182
@@ -9467,7 +9491,7 @@ components:
                 key: ""
               cmdline: cmdline
               name: name
-              threads: 1
+              threads: threads
               pid: pid
               metrics:
                 memory_mb: 5.962133916683182
@@ -9477,7 +9501,7 @@ components:
             secret_scan_status: secret_scan_status
             vulnerabilities_count: 5
             compliance_scan_status: compliance_scan_status
-            secrets_count: 5
+            secrets_count: 1
             docker_container_name: docker_container_name
             malwares_count: 6
             node_name: node_name
@@ -9498,7 +9522,7 @@ components:
                 key: ""
               cmdline: cmdline
               name: name
-              threads: 1
+              threads: threads
               pid: pid
               metrics:
                 memory_mb: 5.962133916683182
@@ -9509,7 +9533,7 @@ components:
                 key: ""
               cmdline: cmdline
               name: name
-              threads: 1
+              threads: threads
               pid: pid
               metrics:
                 memory_mb: 5.962133916683182
@@ -9547,7 +9571,7 @@ components:
                   key: ""
                 cmdline: cmdline
                 name: name
-                threads: 1
+                threads: threads
                 pid: pid
                 metrics:
                   memory_mb: 5.962133916683182
@@ -9558,7 +9582,7 @@ components:
                   key: ""
                 cmdline: cmdline
                 name: name
-                threads: 1
+                threads: threads
                 pid: pid
                 metrics:
                   memory_mb: 5.962133916683182
@@ -9568,7 +9592,7 @@ components:
               secret_scan_status: secret_scan_status
               vulnerabilities_count: 5
               compliance_scan_status: compliance_scan_status
-              secrets_count: 5
+              secrets_count: 1
               docker_container_name: docker_container_name
               malwares_count: 6
               node_name: node_name
@@ -9608,7 +9632,7 @@ components:
                   key: ""
                 cmdline: cmdline
                 name: name
-                threads: 1
+                threads: threads
                 pid: pid
                 metrics:
                   memory_mb: 5.962133916683182
@@ -9619,7 +9643,7 @@ components:
                   key: ""
                 cmdline: cmdline
                 name: name
-                threads: 1
+                threads: threads
                 pid: pid
                 metrics:
                   memory_mb: 5.962133916683182
@@ -9629,7 +9653,7 @@ components:
               secret_scan_status: secret_scan_status
               vulnerabilities_count: 5
               compliance_scan_status: compliance_scan_status
-              secrets_count: 5
+              secrets_count: 1
               docker_container_name: docker_container_name
               malwares_count: 6
               node_name: node_name
@@ -9654,7 +9678,7 @@ components:
                 key: ""
               cmdline: cmdline
               name: name
-              threads: 1
+              threads: threads
               pid: pid
               metrics:
                 memory_mb: 5.962133916683182
@@ -9665,7 +9689,7 @@ components:
                 key: ""
               cmdline: cmdline
               name: name
-              threads: 1
+              threads: threads
               pid: pid
               metrics:
                 memory_mb: 5.962133916683182
@@ -9703,7 +9727,7 @@ components:
                   key: ""
                 cmdline: cmdline
                 name: name
-                threads: 1
+                threads: threads
                 pid: pid
                 metrics:
                   memory_mb: 5.962133916683182
@@ -9714,7 +9738,7 @@ components:
                   key: ""
                 cmdline: cmdline
                 name: name
-                threads: 1
+                threads: threads
                 pid: pid
                 metrics:
                   memory_mb: 5.962133916683182
@@ -9724,7 +9748,7 @@ components:
               secret_scan_status: secret_scan_status
               vulnerabilities_count: 5
               compliance_scan_status: compliance_scan_status
-              secrets_count: 5
+              secrets_count: 1
               docker_container_name: docker_container_name
               malwares_count: 6
               node_name: node_name
@@ -9764,7 +9788,7 @@ components:
                   key: ""
                 cmdline: cmdline
                 name: name
-                threads: 1
+                threads: threads
                 pid: pid
                 metrics:
                   memory_mb: 5.962133916683182
@@ -9775,7 +9799,7 @@ components:
                   key: ""
                 cmdline: cmdline
                 name: name
-                threads: 1
+                threads: threads
                 pid: pid
                 metrics:
                   memory_mb: 5.962133916683182
@@ -9785,7 +9809,7 @@ components:
               secret_scan_status: secret_scan_status
               vulnerabilities_count: 5
               compliance_scan_status: compliance_scan_status
-              secrets_count: 5
+              secrets_count: 1
               docker_container_name: docker_container_name
               malwares_count: 6
               node_name: node_name
@@ -10150,7 +10174,7 @@ components:
             key: ""
           cmdline: cmdline
           name: name
-          threads: 1
+          threads: threads
           pid: pid
           metrics:
             memory_mb: 5.962133916683182
@@ -10161,7 +10185,7 @@ components:
             key: ""
           cmdline: cmdline
           name: name
-          threads: 1
+          threads: threads
           pid: pid
           metrics:
             memory_mb: 5.962133916683182
@@ -10199,7 +10223,7 @@ components:
               key: ""
             cmdline: cmdline
             name: name
-            threads: 1
+            threads: threads
             pid: pid
             metrics:
               memory_mb: 5.962133916683182
@@ -10210,7 +10234,7 @@ components:
               key: ""
             cmdline: cmdline
             name: name
-            threads: 1
+            threads: threads
             pid: pid
             metrics:
               memory_mb: 5.962133916683182
@@ -10220,7 +10244,7 @@ components:
           secret_scan_status: secret_scan_status
           vulnerabilities_count: 5
           compliance_scan_status: compliance_scan_status
-          secrets_count: 5
+          secrets_count: 1
           docker_container_name: docker_container_name
           malwares_count: 6
           node_name: node_name
@@ -10260,7 +10284,7 @@ components:
               key: ""
             cmdline: cmdline
             name: name
-            threads: 1
+            threads: threads
             pid: pid
             metrics:
               memory_mb: 5.962133916683182
@@ -10271,7 +10295,7 @@ components:
               key: ""
             cmdline: cmdline
             name: name
-            threads: 1
+            threads: threads
             pid: pid
             metrics:
               memory_mb: 5.962133916683182
@@ -10281,7 +10305,7 @@ components:
           secret_scan_status: secret_scan_status
           vulnerabilities_count: 5
           compliance_scan_status: compliance_scan_status
-          secrets_count: 5
+          secrets_count: 1
           docker_container_name: docker_container_name
           malwares_count: 6
           node_name: node_name
@@ -10363,7 +10387,7 @@ components:
           key: ""
         cmdline: cmdline
         name: name
-        threads: 1
+        threads: threads
         pid: pid
         metrics:
           memory_mb: 5.962133916683182
@@ -10387,7 +10411,7 @@ components:
         ppid:
           type: string
         threads:
-          type: integer
+          type: string
       required:
       - cmdline
       - metadata

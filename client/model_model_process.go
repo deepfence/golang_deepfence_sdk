@@ -27,14 +27,14 @@ type ModelProcess struct {
 	NodeId string `json:"node_id"`
 	Pid string `json:"pid"`
 	Ppid string `json:"ppid"`
-	Threads int32 `json:"threads"`
+	Threads string `json:"threads"`
 }
 
 // NewModelProcess instantiates a new ModelProcess object
 // This constructor will assign default values to properties that have it defined,
 // and makes sure properties required by API are set, but the set of arguments
 // will change when the set of required properties is changed
-func NewModelProcess(cmdline string, metadata map[string]interface{}, metrics ModelComputeMetrics, name string, nodeId string, pid string, ppid string, threads int32) *ModelProcess {
+func NewModelProcess(cmdline string, metadata map[string]interface{}, metrics ModelComputeMetrics, name string, nodeId string, pid string, ppid string, threads string) *ModelProcess {
 	this := ModelProcess{}
 	this.Cmdline = cmdline
 	this.Metadata = metadata
@@ -224,9 +224,9 @@ func (o *ModelProcess) SetPpid(v string) {
 }
 
 // GetThreads returns the Threads field value
-func (o *ModelProcess) GetThreads() int32 {
+func (o *ModelProcess) GetThreads() string {
 	if o == nil {
-		var ret int32
+		var ret string
 		return ret
 	}
 
@@ -235,7 +235,7 @@ func (o *ModelProcess) GetThreads() int32 {
 
 // GetThreadsOk returns a tuple with the Threads field value
 // and a boolean to check if the value has been set.
-func (o *ModelProcess) GetThreadsOk() (*int32, bool) {
+func (o *ModelProcess) GetThreadsOk() (*string, bool) {
 	if o == nil {
 		return nil, false
 	}
@@ -243,7 +243,7 @@ func (o *ModelProcess) GetThreadsOk() (*int32, bool) {
 }
 
 // SetThreads sets field value
-func (o *ModelProcess) SetThreads(v int32) {
+func (o *ModelProcess) SetThreads(v string) {
 	o.Threads = v
 }
 
