@@ -20,6 +20,8 @@ var _ MappedNullable = &GraphNodeInfo{}
 
 // GraphNodeInfo struct for GraphNodeInfo
 type GraphNodeInfo struct {
+	CloudComplianceCount int32 `json:"cloud_compliance_count"`
+	CloudComplianceScanId string `json:"cloud_compliance_scan_id"`
 	ComplianceCount int32 `json:"compliance_count"`
 	ComplianceScanId string `json:"compliance_scan_id"`
 	ImageName string `json:"image_name"`
@@ -35,8 +37,10 @@ type GraphNodeInfo struct {
 // This constructor will assign default values to properties that have it defined,
 // and makes sure properties required by API are set, but the set of arguments
 // will change when the set of required properties is changed
-func NewGraphNodeInfo(complianceCount int32, complianceScanId string, imageName string, name string, nodeId string, secretsCount int32, secretsScanId string, vulnerabilityCount int32, vulnerabilityScanId string) *GraphNodeInfo {
+func NewGraphNodeInfo(cloudComplianceCount int32, cloudComplianceScanId string, complianceCount int32, complianceScanId string, imageName string, name string, nodeId string, secretsCount int32, secretsScanId string, vulnerabilityCount int32, vulnerabilityScanId string) *GraphNodeInfo {
 	this := GraphNodeInfo{}
+	this.CloudComplianceCount = cloudComplianceCount
+	this.CloudComplianceScanId = cloudComplianceScanId
 	this.ComplianceCount = complianceCount
 	this.ComplianceScanId = complianceScanId
 	this.ImageName = imageName
@@ -55,6 +59,54 @@ func NewGraphNodeInfo(complianceCount int32, complianceScanId string, imageName 
 func NewGraphNodeInfoWithDefaults() *GraphNodeInfo {
 	this := GraphNodeInfo{}
 	return &this
+}
+
+// GetCloudComplianceCount returns the CloudComplianceCount field value
+func (o *GraphNodeInfo) GetCloudComplianceCount() int32 {
+	if o == nil {
+		var ret int32
+		return ret
+	}
+
+	return o.CloudComplianceCount
+}
+
+// GetCloudComplianceCountOk returns a tuple with the CloudComplianceCount field value
+// and a boolean to check if the value has been set.
+func (o *GraphNodeInfo) GetCloudComplianceCountOk() (*int32, bool) {
+	if o == nil {
+		return nil, false
+	}
+	return &o.CloudComplianceCount, true
+}
+
+// SetCloudComplianceCount sets field value
+func (o *GraphNodeInfo) SetCloudComplianceCount(v int32) {
+	o.CloudComplianceCount = v
+}
+
+// GetCloudComplianceScanId returns the CloudComplianceScanId field value
+func (o *GraphNodeInfo) GetCloudComplianceScanId() string {
+	if o == nil {
+		var ret string
+		return ret
+	}
+
+	return o.CloudComplianceScanId
+}
+
+// GetCloudComplianceScanIdOk returns a tuple with the CloudComplianceScanId field value
+// and a boolean to check if the value has been set.
+func (o *GraphNodeInfo) GetCloudComplianceScanIdOk() (*string, bool) {
+	if o == nil {
+		return nil, false
+	}
+	return &o.CloudComplianceScanId, true
+}
+
+// SetCloudComplianceScanId sets field value
+func (o *GraphNodeInfo) SetCloudComplianceScanId(v string) {
+	o.CloudComplianceScanId = v
 }
 
 // GetComplianceCount returns the ComplianceCount field value
@@ -283,6 +335,8 @@ func (o GraphNodeInfo) MarshalJSON() ([]byte, error) {
 
 func (o GraphNodeInfo) ToMap() (map[string]interface{}, error) {
 	toSerialize := map[string]interface{}{}
+	toSerialize["cloud_compliance_count"] = o.CloudComplianceCount
+	toSerialize["cloud_compliance_scan_id"] = o.CloudComplianceScanId
 	toSerialize["compliance_count"] = o.ComplianceCount
 	toSerialize["compliance_scan_id"] = o.ComplianceScanId
 	toSerialize["image_name"] = o.ImageName

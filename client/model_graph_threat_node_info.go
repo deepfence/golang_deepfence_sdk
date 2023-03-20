@@ -21,6 +21,7 @@ var _ MappedNullable = &GraphThreatNodeInfo{}
 // GraphThreatNodeInfo struct for GraphThreatNodeInfo
 type GraphThreatNodeInfo struct {
 	AttackPath [][]string `json:"attack_path"`
+	CloudComplianceCount int32 `json:"cloud_compliance_count"`
 	ComplianceCount int32 `json:"compliance_count"`
 	Count int32 `json:"count"`
 	Id string `json:"id"`
@@ -35,9 +36,10 @@ type GraphThreatNodeInfo struct {
 // This constructor will assign default values to properties that have it defined,
 // and makes sure properties required by API are set, but the set of arguments
 // will change when the set of required properties is changed
-func NewGraphThreatNodeInfo(attackPath [][]string, complianceCount int32, count int32, id string, label string, nodeType string, nodes map[string]GraphNodeInfo, secretsCount int32, vulnerabilityCount int32) *GraphThreatNodeInfo {
+func NewGraphThreatNodeInfo(attackPath [][]string, cloudComplianceCount int32, complianceCount int32, count int32, id string, label string, nodeType string, nodes map[string]GraphNodeInfo, secretsCount int32, vulnerabilityCount int32) *GraphThreatNodeInfo {
 	this := GraphThreatNodeInfo{}
 	this.AttackPath = attackPath
+	this.CloudComplianceCount = cloudComplianceCount
 	this.ComplianceCount = complianceCount
 	this.Count = count
 	this.Id = id
@@ -81,6 +83,30 @@ func (o *GraphThreatNodeInfo) GetAttackPathOk() ([][]string, bool) {
 // SetAttackPath sets field value
 func (o *GraphThreatNodeInfo) SetAttackPath(v [][]string) {
 	o.AttackPath = v
+}
+
+// GetCloudComplianceCount returns the CloudComplianceCount field value
+func (o *GraphThreatNodeInfo) GetCloudComplianceCount() int32 {
+	if o == nil {
+		var ret int32
+		return ret
+	}
+
+	return o.CloudComplianceCount
+}
+
+// GetCloudComplianceCountOk returns a tuple with the CloudComplianceCount field value
+// and a boolean to check if the value has been set.
+func (o *GraphThreatNodeInfo) GetCloudComplianceCountOk() (*int32, bool) {
+	if o == nil {
+		return nil, false
+	}
+	return &o.CloudComplianceCount, true
+}
+
+// SetCloudComplianceCount sets field value
+func (o *GraphThreatNodeInfo) SetCloudComplianceCount(v int32) {
+	o.CloudComplianceCount = v
 }
 
 // GetComplianceCount returns the ComplianceCount field value
@@ -290,6 +316,7 @@ func (o GraphThreatNodeInfo) ToMap() (map[string]interface{}, error) {
 	if o.AttackPath != nil {
 		toSerialize["attack_path"] = o.AttackPath
 	}
+	toSerialize["cloud_compliance_count"] = o.CloudComplianceCount
 	toSerialize["compliance_count"] = o.ComplianceCount
 	toSerialize["count"] = o.Count
 	toSerialize["id"] = o.Id

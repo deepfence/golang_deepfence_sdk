@@ -4,6 +4,8 @@
 
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
+**CloudComplianceCount** | **int32** |  | 
+**CloudComplianceScanId** | **string** |  | 
 **ComplianceCount** | **int32** |  | 
 **ComplianceScanId** | **string** |  | 
 **ImageName** | **string** |  | 
@@ -18,7 +20,7 @@ Name | Type | Description | Notes
 
 ### NewGraphNodeInfo
 
-`func NewGraphNodeInfo(complianceCount int32, complianceScanId string, imageName string, name string, nodeId string, secretsCount int32, secretsScanId string, vulnerabilityCount int32, vulnerabilityScanId string, ) *GraphNodeInfo`
+`func NewGraphNodeInfo(cloudComplianceCount int32, cloudComplianceScanId string, complianceCount int32, complianceScanId string, imageName string, name string, nodeId string, secretsCount int32, secretsScanId string, vulnerabilityCount int32, vulnerabilityScanId string, ) *GraphNodeInfo`
 
 NewGraphNodeInfo instantiates a new GraphNodeInfo object
 This constructor will assign default values to properties that have it defined,
@@ -32,6 +34,46 @@ will change when the set of required properties is changed
 NewGraphNodeInfoWithDefaults instantiates a new GraphNodeInfo object
 This constructor will only assign default values to properties that have it defined,
 but it doesn't guarantee that properties required by API are set
+
+### GetCloudComplianceCount
+
+`func (o *GraphNodeInfo) GetCloudComplianceCount() int32`
+
+GetCloudComplianceCount returns the CloudComplianceCount field if non-nil, zero value otherwise.
+
+### GetCloudComplianceCountOk
+
+`func (o *GraphNodeInfo) GetCloudComplianceCountOk() (*int32, bool)`
+
+GetCloudComplianceCountOk returns a tuple with the CloudComplianceCount field if it's non-nil, zero value otherwise
+and a boolean to check if the value has been set.
+
+### SetCloudComplianceCount
+
+`func (o *GraphNodeInfo) SetCloudComplianceCount(v int32)`
+
+SetCloudComplianceCount sets CloudComplianceCount field to given value.
+
+
+### GetCloudComplianceScanId
+
+`func (o *GraphNodeInfo) GetCloudComplianceScanId() string`
+
+GetCloudComplianceScanId returns the CloudComplianceScanId field if non-nil, zero value otherwise.
+
+### GetCloudComplianceScanIdOk
+
+`func (o *GraphNodeInfo) GetCloudComplianceScanIdOk() (*string, bool)`
+
+GetCloudComplianceScanIdOk returns a tuple with the CloudComplianceScanId field if it's non-nil, zero value otherwise
+and a boolean to check if the value has been set.
+
+### SetCloudComplianceScanId
+
+`func (o *GraphNodeInfo) SetCloudComplianceScanId(v string)`
+
+SetCloudComplianceScanId sets CloudComplianceScanId field to given value.
+
 
 ### GetComplianceCount
 

@@ -6179,6 +6179,10 @@ components:
       type: object
     GraphNodeInfo:
       properties:
+        cloud_compliance_count:
+          type: integer
+        cloud_compliance_scan_id:
+          type: string
         compliance_count:
           type: integer
         compliance_scan_id:
@@ -6198,6 +6202,8 @@ components:
         vulnerability_scan_id:
           type: string
       required:
+      - cloud_compliance_count
+      - cloud_compliance_scan_id
       - compliance_count
       - compliance_scan_id
       - image_name
@@ -6210,6 +6216,8 @@ components:
       type: object
     GraphProviderThreatGraph:
       properties:
+        cloud_compliance_count:
+          type: integer
         compliance_count:
           type: integer
         resources:
@@ -6222,6 +6230,7 @@ components:
         vulnerability_count:
           type: integer
       required:
+      - cloud_compliance_count
       - compliance_count
       - resources
       - secrets_count
@@ -6241,6 +6250,8 @@ components:
             type: array
           nullable: true
           type: array
+        cloud_compliance_count:
+          type: integer
         compliance_count:
           type: integer
         count:
@@ -6262,6 +6273,7 @@ components:
           type: integer
       required:
       - attack_path
+      - cloud_compliance_count
       - compliance_count
       - count
       - id

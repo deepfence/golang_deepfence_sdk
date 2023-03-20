@@ -5,6 +5,7 @@
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
 **AttackPath** | **[][]string** |  | 
+**CloudComplianceCount** | **int32** |  | 
 **ComplianceCount** | **int32** |  | 
 **Count** | **int32** |  | 
 **Id** | **string** |  | 
@@ -18,7 +19,7 @@ Name | Type | Description | Notes
 
 ### NewGraphThreatNodeInfo
 
-`func NewGraphThreatNodeInfo(attackPath [][]string, complianceCount int32, count int32, id string, label string, nodeType string, nodes map[string]GraphNodeInfo, secretsCount int32, vulnerabilityCount int32, ) *GraphThreatNodeInfo`
+`func NewGraphThreatNodeInfo(attackPath [][]string, cloudComplianceCount int32, complianceCount int32, count int32, id string, label string, nodeType string, nodes map[string]GraphNodeInfo, secretsCount int32, vulnerabilityCount int32, ) *GraphThreatNodeInfo`
 
 NewGraphThreatNodeInfo instantiates a new GraphThreatNodeInfo object
 This constructor will assign default values to properties that have it defined,
@@ -63,6 +64,26 @@ SetAttackPath sets AttackPath field to given value.
 `func (o *GraphThreatNodeInfo) UnsetAttackPath()`
 
 UnsetAttackPath ensures that no value is present for AttackPath, not even an explicit nil
+### GetCloudComplianceCount
+
+`func (o *GraphThreatNodeInfo) GetCloudComplianceCount() int32`
+
+GetCloudComplianceCount returns the CloudComplianceCount field if non-nil, zero value otherwise.
+
+### GetCloudComplianceCountOk
+
+`func (o *GraphThreatNodeInfo) GetCloudComplianceCountOk() (*int32, bool)`
+
+GetCloudComplianceCountOk returns a tuple with the CloudComplianceCount field if it's non-nil, zero value otherwise
+and a boolean to check if the value has been set.
+
+### SetCloudComplianceCount
+
+`func (o *GraphThreatNodeInfo) SetCloudComplianceCount(v int32)`
+
+SetCloudComplianceCount sets CloudComplianceCount field to given value.
+
+
 ### GetComplianceCount
 
 `func (o *GraphThreatNodeInfo) GetComplianceCount() int32`

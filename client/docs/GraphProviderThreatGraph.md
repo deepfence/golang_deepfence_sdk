@@ -4,6 +4,7 @@
 
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
+**CloudComplianceCount** | **int32** |  | 
 **ComplianceCount** | **int32** |  | 
 **Resources** | [**[]GraphThreatNodeInfo**](GraphThreatNodeInfo.md) |  | 
 **SecretsCount** | **int32** |  | 
@@ -13,7 +14,7 @@ Name | Type | Description | Notes
 
 ### NewGraphProviderThreatGraph
 
-`func NewGraphProviderThreatGraph(complianceCount int32, resources []GraphThreatNodeInfo, secretsCount int32, vulnerabilityCount int32, ) *GraphProviderThreatGraph`
+`func NewGraphProviderThreatGraph(cloudComplianceCount int32, complianceCount int32, resources []GraphThreatNodeInfo, secretsCount int32, vulnerabilityCount int32, ) *GraphProviderThreatGraph`
 
 NewGraphProviderThreatGraph instantiates a new GraphProviderThreatGraph object
 This constructor will assign default values to properties that have it defined,
@@ -27,6 +28,26 @@ will change when the set of required properties is changed
 NewGraphProviderThreatGraphWithDefaults instantiates a new GraphProviderThreatGraph object
 This constructor will only assign default values to properties that have it defined,
 but it doesn't guarantee that properties required by API are set
+
+### GetCloudComplianceCount
+
+`func (o *GraphProviderThreatGraph) GetCloudComplianceCount() int32`
+
+GetCloudComplianceCount returns the CloudComplianceCount field if non-nil, zero value otherwise.
+
+### GetCloudComplianceCountOk
+
+`func (o *GraphProviderThreatGraph) GetCloudComplianceCountOk() (*int32, bool)`
+
+GetCloudComplianceCountOk returns a tuple with the CloudComplianceCount field if it's non-nil, zero value otherwise
+and a boolean to check if the value has been set.
+
+### SetCloudComplianceCount
+
+`func (o *GraphProviderThreatGraph) SetCloudComplianceCount(v int32)`
+
+SetCloudComplianceCount sets CloudComplianceCount field to given value.
+
 
 ### GetComplianceCount
 
