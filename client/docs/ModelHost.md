@@ -4,6 +4,8 @@
 
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
+**CloudComplianceScanStatus** | **string** |  | 
+**CloudCompliancesCount** | **int32** |  | 
 **CloudMetadata** | **map[string]interface{}** |  | 
 **ComplianceScanStatus** | **string** |  | 
 **CompliancesCount** | **int32** |  | 
@@ -30,7 +32,7 @@ Name | Type | Description | Notes
 
 ### NewModelHost
 
-`func NewModelHost(cloudMetadata map[string]interface{}, complianceScanStatus string, compliancesCount int32, containerImages []ModelContainerImage, containers []ModelContainer, hostName string, interfaceIps string, interfaceNames string, kernelVersion string, malwareScanStatus string, malwaresCount int32, metrics ModelComputeMetrics, nodeId string, nodeName string, pods []ModelPod, processes []ModelProcess, secretScanStatus string, secretsCount int32, uptime string, vulnerabilitiesCount int32, vulnerabilityScanStatus string, ) *ModelHost`
+`func NewModelHost(cloudComplianceScanStatus string, cloudCompliancesCount int32, cloudMetadata map[string]interface{}, complianceScanStatus string, compliancesCount int32, containerImages []ModelContainerImage, containers []ModelContainer, hostName string, interfaceIps string, interfaceNames string, kernelVersion string, malwareScanStatus string, malwaresCount int32, metrics ModelComputeMetrics, nodeId string, nodeName string, pods []ModelPod, processes []ModelProcess, secretScanStatus string, secretsCount int32, uptime string, vulnerabilitiesCount int32, vulnerabilityScanStatus string, ) *ModelHost`
 
 NewModelHost instantiates a new ModelHost object
 This constructor will assign default values to properties that have it defined,
@@ -44,6 +46,46 @@ will change when the set of required properties is changed
 NewModelHostWithDefaults instantiates a new ModelHost object
 This constructor will only assign default values to properties that have it defined,
 but it doesn't guarantee that properties required by API are set
+
+### GetCloudComplianceScanStatus
+
+`func (o *ModelHost) GetCloudComplianceScanStatus() string`
+
+GetCloudComplianceScanStatus returns the CloudComplianceScanStatus field if non-nil, zero value otherwise.
+
+### GetCloudComplianceScanStatusOk
+
+`func (o *ModelHost) GetCloudComplianceScanStatusOk() (*string, bool)`
+
+GetCloudComplianceScanStatusOk returns a tuple with the CloudComplianceScanStatus field if it's non-nil, zero value otherwise
+and a boolean to check if the value has been set.
+
+### SetCloudComplianceScanStatus
+
+`func (o *ModelHost) SetCloudComplianceScanStatus(v string)`
+
+SetCloudComplianceScanStatus sets CloudComplianceScanStatus field to given value.
+
+
+### GetCloudCompliancesCount
+
+`func (o *ModelHost) GetCloudCompliancesCount() int32`
+
+GetCloudCompliancesCount returns the CloudCompliancesCount field if non-nil, zero value otherwise.
+
+### GetCloudCompliancesCountOk
+
+`func (o *ModelHost) GetCloudCompliancesCountOk() (*int32, bool)`
+
+GetCloudCompliancesCountOk returns a tuple with the CloudCompliancesCount field if it's non-nil, zero value otherwise
+and a boolean to check if the value has been set.
+
+### SetCloudCompliancesCount
+
+`func (o *ModelHost) SetCloudCompliancesCount(v int32)`
+
+SetCloudCompliancesCount sets CloudCompliancesCount field to given value.
+
 
 ### GetCloudMetadata
 

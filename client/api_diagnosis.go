@@ -17,6 +17,7 @@ import (
 	"io"
 	"net/http"
 	"net/url"
+	"strings"
 )
 
 
@@ -539,4 +540,136 @@ func (a *DiagnosisApiService) GetDiagnosticLogsExecute(r ApiGetDiagnosticLogsReq
 	}
 
 	return localVarReturnValue, localVarHTTPResponse, nil
+}
+
+type ApiUpdateAgentDiagnosticLogsStatusRequest struct {
+	ctx context.Context
+	ApiService *DiagnosisApiService
+	nodeId string
+	diagnosisDiagnosticLogsStatus *DiagnosisDiagnosticLogsStatus
+}
+
+func (r ApiUpdateAgentDiagnosticLogsStatusRequest) DiagnosisDiagnosticLogsStatus(diagnosisDiagnosticLogsStatus DiagnosisDiagnosticLogsStatus) ApiUpdateAgentDiagnosticLogsStatusRequest {
+	r.diagnosisDiagnosticLogsStatus = &diagnosisDiagnosticLogsStatus
+	return r
+}
+
+func (r ApiUpdateAgentDiagnosticLogsStatusRequest) Execute() (*http.Response, error) {
+	return r.ApiService.UpdateAgentDiagnosticLogsStatusExecute(r)
+}
+
+/*
+UpdateAgentDiagnosticLogsStatus Update Agent Diagnostic Logs Status
+
+Update agent diagnostic logs status
+
+ @param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
+ @param nodeId
+ @return ApiUpdateAgentDiagnosticLogsStatusRequest
+*/
+func (a *DiagnosisApiService) UpdateAgentDiagnosticLogsStatus(ctx context.Context, nodeId string) ApiUpdateAgentDiagnosticLogsStatusRequest {
+	return ApiUpdateAgentDiagnosticLogsStatusRequest{
+		ApiService: a,
+		ctx: ctx,
+		nodeId: nodeId,
+	}
+}
+
+// Execute executes the request
+func (a *DiagnosisApiService) UpdateAgentDiagnosticLogsStatusExecute(r ApiUpdateAgentDiagnosticLogsStatusRequest) (*http.Response, error) {
+	var (
+		localVarHTTPMethod   = http.MethodPost
+		localVarPostBody     interface{}
+		formFiles            []formFile
+	)
+
+	localBasePath, err := a.client.cfg.ServerURLWithContext(r.ctx, "DiagnosisApiService.UpdateAgentDiagnosticLogsStatus")
+	if err != nil {
+		return nil, &GenericOpenAPIError{error: err.Error()}
+	}
+
+	localVarPath := localBasePath + "/deepfence/diagnosis/agent-logs/status/{node_id}"
+	localVarPath = strings.Replace(localVarPath, "{"+"node_id"+"}", url.PathEscape(parameterValueToString(r.nodeId, "nodeId")), -1)
+
+	localVarHeaderParams := make(map[string]string)
+	localVarQueryParams := url.Values{}
+	localVarFormParams := url.Values{}
+
+	// to determine the Content-Type header
+	localVarHTTPContentTypes := []string{"application/json"}
+
+	// set Content-Type header
+	localVarHTTPContentType := selectHeaderContentType(localVarHTTPContentTypes)
+	if localVarHTTPContentType != "" {
+		localVarHeaderParams["Content-Type"] = localVarHTTPContentType
+	}
+
+	// to determine the Accept header
+	localVarHTTPHeaderAccepts := []string{"application/json"}
+
+	// set Accept header
+	localVarHTTPHeaderAccept := selectHeaderAccept(localVarHTTPHeaderAccepts)
+	if localVarHTTPHeaderAccept != "" {
+		localVarHeaderParams["Accept"] = localVarHTTPHeaderAccept
+	}
+	// body params
+	localVarPostBody = r.diagnosisDiagnosticLogsStatus
+	req, err := a.client.prepareRequest(r.ctx, localVarPath, localVarHTTPMethod, localVarPostBody, localVarHeaderParams, localVarQueryParams, localVarFormParams, formFiles)
+	if err != nil {
+		return nil, err
+	}
+
+	localVarHTTPResponse, err := a.client.callAPI(req)
+	if err != nil || localVarHTTPResponse == nil {
+		return localVarHTTPResponse, err
+	}
+
+	localVarBody, err := io.ReadAll(localVarHTTPResponse.Body)
+	localVarHTTPResponse.Body.Close()
+	localVarHTTPResponse.Body = io.NopCloser(bytes.NewBuffer(localVarBody))
+	if err != nil {
+		return localVarHTTPResponse, err
+	}
+
+	if localVarHTTPResponse.StatusCode >= 300 {
+		newErr := &GenericOpenAPIError{
+			body:  localVarBody,
+			error: localVarHTTPResponse.Status,
+		}
+		if localVarHTTPResponse.StatusCode == 400 {
+			var v ApiDocsBadRequestResponse
+			err = a.client.decode(&v, localVarBody, localVarHTTPResponse.Header.Get("Content-Type"))
+			if err != nil {
+				newErr.error = err.Error()
+				return localVarHTTPResponse, newErr
+			}
+					newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
+					newErr.model = v
+			return localVarHTTPResponse, newErr
+		}
+		if localVarHTTPResponse.StatusCode == 404 {
+			var v ApiDocsFailureResponse
+			err = a.client.decode(&v, localVarBody, localVarHTTPResponse.Header.Get("Content-Type"))
+			if err != nil {
+				newErr.error = err.Error()
+				return localVarHTTPResponse, newErr
+			}
+					newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
+					newErr.model = v
+			return localVarHTTPResponse, newErr
+		}
+		if localVarHTTPResponse.StatusCode == 500 {
+			var v ApiDocsFailureResponse
+			err = a.client.decode(&v, localVarBody, localVarHTTPResponse.Header.Get("Content-Type"))
+			if err != nil {
+				newErr.error = err.Error()
+				return localVarHTTPResponse, newErr
+			}
+					newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
+					newErr.model = v
+		}
+		return localVarHTTPResponse, newErr
+	}
+
+	return localVarHTTPResponse, nil
 }

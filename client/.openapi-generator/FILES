@@ -38,6 +38,7 @@ docs/DetailedNodeSummary.md
 docs/DetailedParent.md
 docs/DiagnosisApi.md
 docs/DiagnosisDiagnosticLogsLink.md
+docs/DiagnosisDiagnosticLogsStatus.md
 docs/DiagnosisDiagnosticNotification.md
 docs/DiagnosisGenerateAgentDiagnosticLogsRequest.md
 docs/DiagnosisGenerateConsoleDiagnosticLogsRequest.md
@@ -183,6 +184,7 @@ model_detailed_connection_summary.go
 model_detailed_node_summary.go
 model_detailed_parent.go
 model_diagnosis_diagnostic_logs_link.go
+model_diagnosis_diagnostic_logs_status.go
 model_diagnosis_diagnostic_notification.go
 model_diagnosis_generate_agent_diagnostic_logs_request.go
 model_diagnosis_generate_console_diagnostic_logs_request.go

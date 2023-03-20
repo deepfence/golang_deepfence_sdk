@@ -4,6 +4,8 @@
 
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
+**CloudComplianceScanStatus** | **string** |  | 
+**CloudCompliancesCount** | **int32** |  | 
 **ComplianceScanStatus** | **string** |  | 
 **CompliancesCount** | **int32** |  | 
 **DockerImageName** | **string** |  | 
@@ -24,7 +26,7 @@ Name | Type | Description | Notes
 
 ### NewModelContainerImage
 
-`func NewModelContainerImage(complianceScanStatus string, compliancesCount int32, dockerImageName string, dockerImageSize string, dockerImageTag string, malwareScanStatus string, malwaresCount int32, metadata map[string]interface{}, metrics ModelComputeMetrics, nodeId string, nodeName string, secretScanStatus string, secretsCount int32, vulnerabilitiesCount int32, vulnerabilityScanStatus string, ) *ModelContainerImage`
+`func NewModelContainerImage(cloudComplianceScanStatus string, cloudCompliancesCount int32, complianceScanStatus string, compliancesCount int32, dockerImageName string, dockerImageSize string, dockerImageTag string, malwareScanStatus string, malwaresCount int32, metadata map[string]interface{}, metrics ModelComputeMetrics, nodeId string, nodeName string, secretScanStatus string, secretsCount int32, vulnerabilitiesCount int32, vulnerabilityScanStatus string, ) *ModelContainerImage`
 
 NewModelContainerImage instantiates a new ModelContainerImage object
 This constructor will assign default values to properties that have it defined,
@@ -38,6 +40,46 @@ will change when the set of required properties is changed
 NewModelContainerImageWithDefaults instantiates a new ModelContainerImage object
 This constructor will only assign default values to properties that have it defined,
 but it doesn't guarantee that properties required by API are set
+
+### GetCloudComplianceScanStatus
+
+`func (o *ModelContainerImage) GetCloudComplianceScanStatus() string`
+
+GetCloudComplianceScanStatus returns the CloudComplianceScanStatus field if non-nil, zero value otherwise.
+
+### GetCloudComplianceScanStatusOk
+
+`func (o *ModelContainerImage) GetCloudComplianceScanStatusOk() (*string, bool)`
+
+GetCloudComplianceScanStatusOk returns a tuple with the CloudComplianceScanStatus field if it's non-nil, zero value otherwise
+and a boolean to check if the value has been set.
+
+### SetCloudComplianceScanStatus
+
+`func (o *ModelContainerImage) SetCloudComplianceScanStatus(v string)`
+
+SetCloudComplianceScanStatus sets CloudComplianceScanStatus field to given value.
+
+
+### GetCloudCompliancesCount
+
+`func (o *ModelContainerImage) GetCloudCompliancesCount() int32`
+
+GetCloudCompliancesCount returns the CloudCompliancesCount field if non-nil, zero value otherwise.
+
+### GetCloudCompliancesCountOk
+
+`func (o *ModelContainerImage) GetCloudCompliancesCountOk() (*int32, bool)`
+
+GetCloudCompliancesCountOk returns a tuple with the CloudCompliancesCount field if it's non-nil, zero value otherwise
+and a boolean to check if the value has been set.
+
+### SetCloudCompliancesCount
+
+`func (o *ModelContainerImage) SetCloudCompliancesCount(v int32)`
+
+SetCloudCompliancesCount sets CloudCompliancesCount field to given value.
+
 
 ### GetComplianceScanStatus
 

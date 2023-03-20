@@ -4,6 +4,8 @@
 
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
+**CloudComplianceScanStatus** | **string** |  | 
+**CloudCompliancesCount** | **int32** |  | 
 **ComplianceScanStatus** | **string** |  | 
 **CompliancesCount** | **int32** |  | 
 **DockerContainerName** | **string** |  | 
@@ -26,7 +28,7 @@ Name | Type | Description | Notes
 
 ### NewModelContainer
 
-`func NewModelContainer(complianceScanStatus string, compliancesCount int32, dockerContainerName string, dockerLabels map[string]interface{}, hostName string, image ModelContainerImage, malwareScanStatus string, malwaresCount int32, metadata map[string]interface{}, metrics ModelComputeMetrics, nodeId string, nodeName string, processes []ModelProcess, secretScanStatus string, secretsCount int32, vulnerabilitiesCount int32, vulnerabilityScanStatus string, ) *ModelContainer`
+`func NewModelContainer(cloudComplianceScanStatus string, cloudCompliancesCount int32, complianceScanStatus string, compliancesCount int32, dockerContainerName string, dockerLabels map[string]interface{}, hostName string, image ModelContainerImage, malwareScanStatus string, malwaresCount int32, metadata map[string]interface{}, metrics ModelComputeMetrics, nodeId string, nodeName string, processes []ModelProcess, secretScanStatus string, secretsCount int32, vulnerabilitiesCount int32, vulnerabilityScanStatus string, ) *ModelContainer`
 
 NewModelContainer instantiates a new ModelContainer object
 This constructor will assign default values to properties that have it defined,
@@ -40,6 +42,46 @@ will change when the set of required properties is changed
 NewModelContainerWithDefaults instantiates a new ModelContainer object
 This constructor will only assign default values to properties that have it defined,
 but it doesn't guarantee that properties required by API are set
+
+### GetCloudComplianceScanStatus
+
+`func (o *ModelContainer) GetCloudComplianceScanStatus() string`
+
+GetCloudComplianceScanStatus returns the CloudComplianceScanStatus field if non-nil, zero value otherwise.
+
+### GetCloudComplianceScanStatusOk
+
+`func (o *ModelContainer) GetCloudComplianceScanStatusOk() (*string, bool)`
+
+GetCloudComplianceScanStatusOk returns a tuple with the CloudComplianceScanStatus field if it's non-nil, zero value otherwise
+and a boolean to check if the value has been set.
+
+### SetCloudComplianceScanStatus
+
+`func (o *ModelContainer) SetCloudComplianceScanStatus(v string)`
+
+SetCloudComplianceScanStatus sets CloudComplianceScanStatus field to given value.
+
+
+### GetCloudCompliancesCount
+
+`func (o *ModelContainer) GetCloudCompliancesCount() int32`
+
+GetCloudCompliancesCount returns the CloudCompliancesCount field if non-nil, zero value otherwise.
+
+### GetCloudCompliancesCountOk
+
+`func (o *ModelContainer) GetCloudCompliancesCountOk() (*int32, bool)`
+
+GetCloudCompliancesCountOk returns a tuple with the CloudCompliancesCount field if it's non-nil, zero value otherwise
+and a boolean to check if the value has been set.
+
+### SetCloudCompliancesCount
+
+`func (o *ModelContainer) SetCloudCompliancesCount(v int32)`
+
+SetCloudCompliancesCount sets CloudCompliancesCount field to given value.
+
 
 ### GetComplianceScanStatus
 

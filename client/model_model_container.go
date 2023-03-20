@@ -20,6 +20,8 @@ var _ MappedNullable = &ModelContainer{}
 
 // ModelContainer struct for ModelContainer
 type ModelContainer struct {
+	CloudComplianceScanStatus string `json:"cloud_compliance_scan_status"`
+	CloudCompliancesCount int32 `json:"cloud_compliances_count"`
 	ComplianceScanStatus string `json:"compliance_scan_status"`
 	CompliancesCount int32 `json:"compliances_count"`
 	DockerContainerName string `json:"docker_container_name"`
@@ -43,8 +45,10 @@ type ModelContainer struct {
 // This constructor will assign default values to properties that have it defined,
 // and makes sure properties required by API are set, but the set of arguments
 // will change when the set of required properties is changed
-func NewModelContainer(complianceScanStatus string, compliancesCount int32, dockerContainerName string, dockerLabels map[string]interface{}, hostName string, image ModelContainerImage, malwareScanStatus string, malwaresCount int32, metadata map[string]interface{}, metrics ModelComputeMetrics, nodeId string, nodeName string, processes []ModelProcess, secretScanStatus string, secretsCount int32, vulnerabilitiesCount int32, vulnerabilityScanStatus string) *ModelContainer {
+func NewModelContainer(cloudComplianceScanStatus string, cloudCompliancesCount int32, complianceScanStatus string, compliancesCount int32, dockerContainerName string, dockerLabels map[string]interface{}, hostName string, image ModelContainerImage, malwareScanStatus string, malwaresCount int32, metadata map[string]interface{}, metrics ModelComputeMetrics, nodeId string, nodeName string, processes []ModelProcess, secretScanStatus string, secretsCount int32, vulnerabilitiesCount int32, vulnerabilityScanStatus string) *ModelContainer {
 	this := ModelContainer{}
+	this.CloudComplianceScanStatus = cloudComplianceScanStatus
+	this.CloudCompliancesCount = cloudCompliancesCount
 	this.ComplianceScanStatus = complianceScanStatus
 	this.CompliancesCount = compliancesCount
 	this.DockerContainerName = dockerContainerName
@@ -71,6 +75,54 @@ func NewModelContainer(complianceScanStatus string, compliancesCount int32, dock
 func NewModelContainerWithDefaults() *ModelContainer {
 	this := ModelContainer{}
 	return &this
+}
+
+// GetCloudComplianceScanStatus returns the CloudComplianceScanStatus field value
+func (o *ModelContainer) GetCloudComplianceScanStatus() string {
+	if o == nil {
+		var ret string
+		return ret
+	}
+
+	return o.CloudComplianceScanStatus
+}
+
+// GetCloudComplianceScanStatusOk returns a tuple with the CloudComplianceScanStatus field value
+// and a boolean to check if the value has been set.
+func (o *ModelContainer) GetCloudComplianceScanStatusOk() (*string, bool) {
+	if o == nil {
+		return nil, false
+	}
+	return &o.CloudComplianceScanStatus, true
+}
+
+// SetCloudComplianceScanStatus sets field value
+func (o *ModelContainer) SetCloudComplianceScanStatus(v string) {
+	o.CloudComplianceScanStatus = v
+}
+
+// GetCloudCompliancesCount returns the CloudCompliancesCount field value
+func (o *ModelContainer) GetCloudCompliancesCount() int32 {
+	if o == nil {
+		var ret int32
+		return ret
+	}
+
+	return o.CloudCompliancesCount
+}
+
+// GetCloudCompliancesCountOk returns a tuple with the CloudCompliancesCount field value
+// and a boolean to check if the value has been set.
+func (o *ModelContainer) GetCloudCompliancesCountOk() (*int32, bool) {
+	if o == nil {
+		return nil, false
+	}
+	return &o.CloudCompliancesCount, true
+}
+
+// SetCloudCompliancesCount sets field value
+func (o *ModelContainer) SetCloudCompliancesCount(v int32) {
+	o.CloudCompliancesCount = v
 }
 
 // GetComplianceScanStatus returns the ComplianceScanStatus field value
@@ -493,6 +545,8 @@ func (o ModelContainer) MarshalJSON() ([]byte, error) {
 
 func (o ModelContainer) ToMap() (map[string]interface{}, error) {
 	toSerialize := map[string]interface{}{}
+	toSerialize["cloud_compliance_scan_status"] = o.CloudComplianceScanStatus
+	toSerialize["cloud_compliances_count"] = o.CloudCompliancesCount
 	toSerialize["compliance_scan_status"] = o.ComplianceScanStatus
 	toSerialize["compliances_count"] = o.CompliancesCount
 	toSerialize["docker_container_name"] = o.DockerContainerName

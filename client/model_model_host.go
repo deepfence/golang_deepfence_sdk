@@ -20,6 +20,8 @@ var _ MappedNullable = &ModelHost{}
 
 // ModelHost struct for ModelHost
 type ModelHost struct {
+	CloudComplianceScanStatus string `json:"cloud_compliance_scan_status"`
+	CloudCompliancesCount int32 `json:"cloud_compliances_count"`
 	CloudMetadata map[string]interface{} `json:"cloud_metadata"`
 	ComplianceScanStatus string `json:"compliance_scan_status"`
 	CompliancesCount int32 `json:"compliances_count"`
@@ -47,8 +49,10 @@ type ModelHost struct {
 // This constructor will assign default values to properties that have it defined,
 // and makes sure properties required by API are set, but the set of arguments
 // will change when the set of required properties is changed
-func NewModelHost(cloudMetadata map[string]interface{}, complianceScanStatus string, compliancesCount int32, containerImages []ModelContainerImage, containers []ModelContainer, hostName string, interfaceIps string, interfaceNames string, kernelVersion string, malwareScanStatus string, malwaresCount int32, metrics ModelComputeMetrics, nodeId string, nodeName string, pods []ModelPod, processes []ModelProcess, secretScanStatus string, secretsCount int32, uptime string, vulnerabilitiesCount int32, vulnerabilityScanStatus string) *ModelHost {
+func NewModelHost(cloudComplianceScanStatus string, cloudCompliancesCount int32, cloudMetadata map[string]interface{}, complianceScanStatus string, compliancesCount int32, containerImages []ModelContainerImage, containers []ModelContainer, hostName string, interfaceIps string, interfaceNames string, kernelVersion string, malwareScanStatus string, malwaresCount int32, metrics ModelComputeMetrics, nodeId string, nodeName string, pods []ModelPod, processes []ModelProcess, secretScanStatus string, secretsCount int32, uptime string, vulnerabilitiesCount int32, vulnerabilityScanStatus string) *ModelHost {
 	this := ModelHost{}
+	this.CloudComplianceScanStatus = cloudComplianceScanStatus
+	this.CloudCompliancesCount = cloudCompliancesCount
 	this.CloudMetadata = cloudMetadata
 	this.ComplianceScanStatus = complianceScanStatus
 	this.CompliancesCount = compliancesCount
@@ -79,6 +83,54 @@ func NewModelHost(cloudMetadata map[string]interface{}, complianceScanStatus str
 func NewModelHostWithDefaults() *ModelHost {
 	this := ModelHost{}
 	return &this
+}
+
+// GetCloudComplianceScanStatus returns the CloudComplianceScanStatus field value
+func (o *ModelHost) GetCloudComplianceScanStatus() string {
+	if o == nil {
+		var ret string
+		return ret
+	}
+
+	return o.CloudComplianceScanStatus
+}
+
+// GetCloudComplianceScanStatusOk returns a tuple with the CloudComplianceScanStatus field value
+// and a boolean to check if the value has been set.
+func (o *ModelHost) GetCloudComplianceScanStatusOk() (*string, bool) {
+	if o == nil {
+		return nil, false
+	}
+	return &o.CloudComplianceScanStatus, true
+}
+
+// SetCloudComplianceScanStatus sets field value
+func (o *ModelHost) SetCloudComplianceScanStatus(v string) {
+	o.CloudComplianceScanStatus = v
+}
+
+// GetCloudCompliancesCount returns the CloudCompliancesCount field value
+func (o *ModelHost) GetCloudCompliancesCount() int32 {
+	if o == nil {
+		var ret int32
+		return ret
+	}
+
+	return o.CloudCompliancesCount
+}
+
+// GetCloudCompliancesCountOk returns a tuple with the CloudCompliancesCount field value
+// and a boolean to check if the value has been set.
+func (o *ModelHost) GetCloudCompliancesCountOk() (*int32, bool) {
+	if o == nil {
+		return nil, false
+	}
+	return &o.CloudCompliancesCount, true
+}
+
+// SetCloudCompliancesCount sets field value
+func (o *ModelHost) SetCloudCompliancesCount(v int32) {
+	o.CloudCompliancesCount = v
 }
 
 // GetCloudMetadata returns the CloudMetadata field value
@@ -603,6 +655,8 @@ func (o ModelHost) MarshalJSON() ([]byte, error) {
 
 func (o ModelHost) ToMap() (map[string]interface{}, error) {
 	toSerialize := map[string]interface{}{}
+	toSerialize["cloud_compliance_scan_status"] = o.CloudComplianceScanStatus
+	toSerialize["cloud_compliances_count"] = o.CloudCompliancesCount
 	toSerialize["cloud_metadata"] = o.CloudMetadata
 	toSerialize["compliance_scan_status"] = o.ComplianceScanStatus
 	toSerialize["compliances_count"] = o.CompliancesCount
