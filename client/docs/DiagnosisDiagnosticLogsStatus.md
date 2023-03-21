@@ -4,14 +4,14 @@
 
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
-**Message** | **string** |  | 
+**Message** | Pointer to **string** |  | [optional] 
 **Status** | **string** |  | 
 
 ## Methods
 
 ### NewDiagnosisDiagnosticLogsStatus
 
-`func NewDiagnosisDiagnosticLogsStatus(message string, status string, ) *DiagnosisDiagnosticLogsStatus`
+`func NewDiagnosisDiagnosticLogsStatus(status string, ) *DiagnosisDiagnosticLogsStatus`
 
 NewDiagnosisDiagnosticLogsStatus instantiates a new DiagnosisDiagnosticLogsStatus object
 This constructor will assign default values to properties that have it defined,
@@ -45,6 +45,11 @@ and a boolean to check if the value has been set.
 
 SetMessage sets Message field to given value.
 
+### HasMessage
+
+`func (o *DiagnosisDiagnosticLogsStatus) HasMessage() bool`
+
+HasMessage returns a boolean if a field has been set.
 
 ### GetStatus
 

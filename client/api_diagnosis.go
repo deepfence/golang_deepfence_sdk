@@ -578,7 +578,7 @@ func (a *DiagnosisApiService) UpdateAgentDiagnosticLogsStatus(ctx context.Contex
 // Execute executes the request
 func (a *DiagnosisApiService) UpdateAgentDiagnosticLogsStatusExecute(r ApiUpdateAgentDiagnosticLogsStatusRequest) (*http.Response, error) {
 	var (
-		localVarHTTPMethod   = http.MethodPost
+		localVarHTTPMethod   = http.MethodPut
 		localVarPostBody     interface{}
 		formFiles            []formFile
 	)

@@ -110,7 +110,7 @@ Class | Method | HTTP request | Description
 *DiagnosisApi* | [**GenerateAgentDiagnosticLogs**](docs/DiagnosisApi.md#generateagentdiagnosticlogs) | **Post** /deepfence/diagnosis/agent-logs | Generate Agent Diagnostic Logs
 *DiagnosisApi* | [**GenerateConsoleDiagnosticLogs**](docs/DiagnosisApi.md#generateconsolediagnosticlogs) | **Post** /deepfence/diagnosis/console-logs | Generate Console Diagnostic Logs
 *DiagnosisApi* | [**GetDiagnosticLogs**](docs/DiagnosisApi.md#getdiagnosticlogs) | **Get** /deepfence/diagnosis/diagnostic-logs | Get Diagnostic Logs
-*DiagnosisApi* | [**UpdateAgentDiagnosticLogsStatus**](docs/DiagnosisApi.md#updateagentdiagnosticlogsstatus) | **Post** /deepfence/diagnosis/agent-logs/status/{node_id} | Update Agent Diagnostic Logs Status
+*DiagnosisApi* | [**UpdateAgentDiagnosticLogsStatus**](docs/DiagnosisApi.md#updateagentdiagnosticlogsstatus) | **Put** /deepfence/diagnosis/agent-logs/status/{node_id} | Update Agent Diagnostic Logs Status
 *InternalApi* | [**GetConsoleApiToken**](docs/InternalApi.md#getconsoleapitoken) | **Get** /deepfence/internal/console-api-token | Get api-token for console agent
 *LookupApi* | [**GetCloudResources**](docs/LookupApi.md#getcloudresources) | **Post** /deepfence/lookup/cloud-resources | Get Cloud Resources
 *LookupApi* | [**GetContainerImages**](docs/LookupApi.md#getcontainerimages) | **Post** /deepfence/lookup/containerimages | Retrieve Container Images data

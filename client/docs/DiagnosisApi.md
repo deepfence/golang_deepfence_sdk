@@ -8,7 +8,7 @@ Method | HTTP request | Description
 [**GenerateAgentDiagnosticLogs**](DiagnosisApi.md#GenerateAgentDiagnosticLogs) | **Post** /deepfence/diagnosis/agent-logs | Generate Agent Diagnostic Logs
 [**GenerateConsoleDiagnosticLogs**](DiagnosisApi.md#GenerateConsoleDiagnosticLogs) | **Post** /deepfence/diagnosis/console-logs | Generate Console Diagnostic Logs
 [**GetDiagnosticLogs**](DiagnosisApi.md#GetDiagnosticLogs) | **Get** /deepfence/diagnosis/diagnostic-logs | Get Diagnostic Logs
-[**UpdateAgentDiagnosticLogsStatus**](DiagnosisApi.md#UpdateAgentDiagnosticLogsStatus) | **Post** /deepfence/diagnosis/agent-logs/status/{node_id} | Update Agent Diagnostic Logs Status
+[**UpdateAgentDiagnosticLogsStatus**](DiagnosisApi.md#UpdateAgentDiagnosticLogsStatus) | **Put** /deepfence/diagnosis/agent-logs/status/{node_id} | Update Agent Diagnostic Logs Status
 
 
 
@@ -284,7 +284,7 @@ import (
 
 func main() {
     nodeId := "nodeId_example" // string | 
-    diagnosisDiagnosticLogsStatus := *openapiclient.NewDiagnosisDiagnosticLogsStatus("Message_example", "Status_example") // DiagnosisDiagnosticLogsStatus |  (optional)
+    diagnosisDiagnosticLogsStatus := *openapiclient.NewDiagnosisDiagnosticLogsStatus("Status_example") // DiagnosisDiagnosticLogsStatus |  (optional)
 
     configuration := openapiclient.NewConfiguration()
     apiClient := openapiclient.NewAPIClient(configuration)

@@ -645,7 +645,7 @@ paths:
       tags:
       - Diagnosis
   /deepfence/diagnosis/agent-logs/status/{node_id}:
-    post:
+    put:
       description: Update agent diagnostic logs status
       operationId: updateAgentDiagnosticLogsStatus
       parameters:
@@ -6140,7 +6140,6 @@ components:
         status:
           type: string
       required:
-      - message
       - status
       type: object
     DiagnosisDiagnosticNotification:
