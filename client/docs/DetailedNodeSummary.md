@@ -12,12 +12,10 @@ Name | Type | Description | Notes
 **LabelMinor** | Pointer to **string** |  | [optional] 
 **Metadata** | Pointer to [**[]ReportMetadataRow**](ReportMetadataRow.md) |  | [optional] 
 **Metrics** | Pointer to **[]map[string]interface{}** |  | [optional] 
-**Parents** | Pointer to [**[]DetailedParent**](DetailedParent.md) |  | [optional] 
 **Pseudo** | Pointer to **bool** |  | [optional] 
 **Rank** | Pointer to **string** |  | [optional] 
 **Shape** | Pointer to **string** |  | [optional] 
 **Stack** | Pointer to **bool** |  | [optional] 
-**Tables** | Pointer to [**[]ReportTable**](ReportTable.md) |  | [optional] 
 **Tag** | Pointer to **string** |  | [optional] 
 **Type** | Pointer to **string** |  | [optional] 
 
@@ -240,31 +238,6 @@ SetMetrics sets Metrics field to given value.
 
 HasMetrics returns a boolean if a field has been set.
 
-### GetParents
-
-`func (o *DetailedNodeSummary) GetParents() []DetailedParent`
-
-GetParents returns the Parents field if non-nil, zero value otherwise.
-
-### GetParentsOk
-
-`func (o *DetailedNodeSummary) GetParentsOk() (*[]DetailedParent, bool)`
-
-GetParentsOk returns a tuple with the Parents field if it's non-nil, zero value otherwise
-and a boolean to check if the value has been set.
-
-### SetParents
-
-`func (o *DetailedNodeSummary) SetParents(v []DetailedParent)`
-
-SetParents sets Parents field to given value.
-
-### HasParents
-
-`func (o *DetailedNodeSummary) HasParents() bool`
-
-HasParents returns a boolean if a field has been set.
-
 ### GetPseudo
 
 `func (o *DetailedNodeSummary) GetPseudo() bool`
@@ -364,31 +337,6 @@ SetStack sets Stack field to given value.
 `func (o *DetailedNodeSummary) HasStack() bool`
 
 HasStack returns a boolean if a field has been set.
-
-### GetTables
-
-`func (o *DetailedNodeSummary) GetTables() []ReportTable`
-
-GetTables returns the Tables field if non-nil, zero value otherwise.
-
-### GetTablesOk
-
-`func (o *DetailedNodeSummary) GetTablesOk() (*[]ReportTable, bool)`
-
-GetTablesOk returns a tuple with the Tables field if it's non-nil, zero value otherwise
-and a boolean to check if the value has been set.
-
-### SetTables
-
-`func (o *DetailedNodeSummary) SetTables(v []ReportTable)`
-
-SetTables sets Tables field to given value.
-
-### HasTables
-
-`func (o *DetailedNodeSummary) HasTables() bool`
-
-HasTables returns a boolean if a field has been set.
 
 ### GetTag
 

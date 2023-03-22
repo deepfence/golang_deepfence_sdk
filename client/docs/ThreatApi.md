@@ -10,7 +10,7 @@ Method | HTTP request | Description
 
 ## GetThreatGraph
 
-> map[string]GraphProviderThreatGraph GetThreatGraph(ctx).Execute()
+> map[string]GraphProviderThreatGraph GetThreatGraph(ctx).GraphThreatFilters(graphThreatFilters).Execute()
 
 Get Threat Graph
 
@@ -29,10 +29,11 @@ import (
 )
 
 func main() {
+    graphThreatFilters := *openapiclient.NewGraphThreatFilters(map[string]interface{}(123), map[string]interface{}(123), false, map[string]interface{}(123), "Type_example") // GraphThreatFilters |  (optional)
 
     configuration := openapiclient.NewConfiguration()
     apiClient := openapiclient.NewAPIClient(configuration)
-    resp, r, err := apiClient.ThreatApi.GetThreatGraph(context.Background()).Execute()
+    resp, r, err := apiClient.ThreatApi.GetThreatGraph(context.Background()).GraphThreatFilters(graphThreatFilters).Execute()
     if err != nil {
         fmt.Fprintf(os.Stderr, "Error when calling `ThreatApi.GetThreatGraph``: %v\n", err)
         fmt.Fprintf(os.Stderr, "Full HTTP response: %v\n", r)
@@ -44,12 +45,16 @@ func main() {
 
 ### Path Parameters
 
-This endpoint does not need any parameter.
+
 
 ### Other Parameters
 
 Other parameters are passed through a pointer to a apiGetThreatGraphRequest struct via the builder pattern
 
+
+Name | Type | Description  | Notes
+------------- | ------------- | ------------- | -------------
+ **graphThreatFilters** | [**GraphThreatFilters**](GraphThreatFilters.md) |  | 
 
 ### Return type
 
@@ -61,7 +66,7 @@ Other parameters are passed through a pointer to a apiGetThreatGraphRequest stru
 
 ### HTTP request headers
 
-- **Content-Type**: Not defined
+- **Content-Type**: application/json
 - **Accept**: application/json
 
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints)

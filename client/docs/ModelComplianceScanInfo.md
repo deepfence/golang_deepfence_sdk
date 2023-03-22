@@ -4,7 +4,7 @@
 
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
-**BenchmarkType** | **string** |  | 
+**BenchmarkTypes** | **[]string** |  | 
 **NodeId** | **string** |  | 
 **NodeType** | **string** |  | 
 **ScanId** | **string** |  | 
@@ -16,7 +16,7 @@ Name | Type | Description | Notes
 
 ### NewModelComplianceScanInfo
 
-`func NewModelComplianceScanInfo(benchmarkType string, nodeId string, nodeType string, scanId string, severityCounts map[string]int32, status string, updatedAt int64, ) *ModelComplianceScanInfo`
+`func NewModelComplianceScanInfo(benchmarkTypes []string, nodeId string, nodeType string, scanId string, severityCounts map[string]int32, status string, updatedAt int64, ) *ModelComplianceScanInfo`
 
 NewModelComplianceScanInfo instantiates a new ModelComplianceScanInfo object
 This constructor will assign default values to properties that have it defined,
@@ -31,26 +31,36 @@ NewModelComplianceScanInfoWithDefaults instantiates a new ModelComplianceScanInf
 This constructor will only assign default values to properties that have it defined,
 but it doesn't guarantee that properties required by API are set
 
-### GetBenchmarkType
+### GetBenchmarkTypes
 
-`func (o *ModelComplianceScanInfo) GetBenchmarkType() string`
+`func (o *ModelComplianceScanInfo) GetBenchmarkTypes() []string`
 
-GetBenchmarkType returns the BenchmarkType field if non-nil, zero value otherwise.
+GetBenchmarkTypes returns the BenchmarkTypes field if non-nil, zero value otherwise.
 
-### GetBenchmarkTypeOk
+### GetBenchmarkTypesOk
 
-`func (o *ModelComplianceScanInfo) GetBenchmarkTypeOk() (*string, bool)`
+`func (o *ModelComplianceScanInfo) GetBenchmarkTypesOk() (*[]string, bool)`
 
-GetBenchmarkTypeOk returns a tuple with the BenchmarkType field if it's non-nil, zero value otherwise
+GetBenchmarkTypesOk returns a tuple with the BenchmarkTypes field if it's non-nil, zero value otherwise
 and a boolean to check if the value has been set.
 
-### SetBenchmarkType
+### SetBenchmarkTypes
 
-`func (o *ModelComplianceScanInfo) SetBenchmarkType(v string)`
+`func (o *ModelComplianceScanInfo) SetBenchmarkTypes(v []string)`
 
-SetBenchmarkType sets BenchmarkType field to given value.
+SetBenchmarkTypes sets BenchmarkTypes field to given value.
 
 
+### SetBenchmarkTypesNil
+
+`func (o *ModelComplianceScanInfo) SetBenchmarkTypesNil(b bool)`
+
+ SetBenchmarkTypesNil sets the value for BenchmarkTypes to be an explicit nil
+
+### UnsetBenchmarkTypes
+`func (o *ModelComplianceScanInfo) UnsetBenchmarkTypes()`
+
+UnsetBenchmarkTypes ensures that no value is present for BenchmarkTypes, not even an explicit nil
 ### GetNodeId
 
 `func (o *ModelComplianceScanInfo) GetNodeId() string`

@@ -28,12 +28,10 @@ type DetailedNodeSummary struct {
 	LabelMinor *string `json:"labelMinor,omitempty"`
 	Metadata []ReportMetadataRow `json:"metadata,omitempty"`
 	Metrics []map[string]interface{} `json:"metrics,omitempty"`
-	Parents []DetailedParent `json:"parents,omitempty"`
 	Pseudo *bool `json:"pseudo,omitempty"`
 	Rank *string `json:"rank,omitempty"`
 	Shape *string `json:"shape,omitempty"`
 	Stack *bool `json:"stack,omitempty"`
-	Tables []ReportTable `json:"tables,omitempty"`
 	Tag *string `json:"tag,omitempty"`
 	Type *string `json:"type,omitempty"`
 }
@@ -311,38 +309,6 @@ func (o *DetailedNodeSummary) SetMetrics(v []map[string]interface{}) {
 	o.Metrics = v
 }
 
-// GetParents returns the Parents field value if set, zero value otherwise.
-func (o *DetailedNodeSummary) GetParents() []DetailedParent {
-	if o == nil || IsNil(o.Parents) {
-		var ret []DetailedParent
-		return ret
-	}
-	return o.Parents
-}
-
-// GetParentsOk returns a tuple with the Parents field value if set, nil otherwise
-// and a boolean to check if the value has been set.
-func (o *DetailedNodeSummary) GetParentsOk() ([]DetailedParent, bool) {
-	if o == nil || IsNil(o.Parents) {
-		return nil, false
-	}
-	return o.Parents, true
-}
-
-// HasParents returns a boolean if a field has been set.
-func (o *DetailedNodeSummary) HasParents() bool {
-	if o != nil && !IsNil(o.Parents) {
-		return true
-	}
-
-	return false
-}
-
-// SetParents gets a reference to the given []DetailedParent and assigns it to the Parents field.
-func (o *DetailedNodeSummary) SetParents(v []DetailedParent) {
-	o.Parents = v
-}
-
 // GetPseudo returns the Pseudo field value if set, zero value otherwise.
 func (o *DetailedNodeSummary) GetPseudo() bool {
 	if o == nil || IsNil(o.Pseudo) {
@@ -471,38 +437,6 @@ func (o *DetailedNodeSummary) SetStack(v bool) {
 	o.Stack = &v
 }
 
-// GetTables returns the Tables field value if set, zero value otherwise.
-func (o *DetailedNodeSummary) GetTables() []ReportTable {
-	if o == nil || IsNil(o.Tables) {
-		var ret []ReportTable
-		return ret
-	}
-	return o.Tables
-}
-
-// GetTablesOk returns a tuple with the Tables field value if set, nil otherwise
-// and a boolean to check if the value has been set.
-func (o *DetailedNodeSummary) GetTablesOk() ([]ReportTable, bool) {
-	if o == nil || IsNil(o.Tables) {
-		return nil, false
-	}
-	return o.Tables, true
-}
-
-// HasTables returns a boolean if a field has been set.
-func (o *DetailedNodeSummary) HasTables() bool {
-	if o != nil && !IsNil(o.Tables) {
-		return true
-	}
-
-	return false
-}
-
-// SetTables gets a reference to the given []ReportTable and assigns it to the Tables field.
-func (o *DetailedNodeSummary) SetTables(v []ReportTable) {
-	o.Tables = v
-}
-
 // GetTag returns the Tag field value if set, zero value otherwise.
 func (o *DetailedNodeSummary) GetTag() string {
 	if o == nil || IsNil(o.Tag) {
@@ -601,9 +535,6 @@ func (o DetailedNodeSummary) ToMap() (map[string]interface{}, error) {
 	if !IsNil(o.Metrics) {
 		toSerialize["metrics"] = o.Metrics
 	}
-	if !IsNil(o.Parents) {
-		toSerialize["parents"] = o.Parents
-	}
 	if !IsNil(o.Pseudo) {
 		toSerialize["pseudo"] = o.Pseudo
 	}
@@ -615,9 +546,6 @@ func (o DetailedNodeSummary) ToMap() (map[string]interface{}, error) {
 	}
 	if !IsNil(o.Stack) {
 		toSerialize["stack"] = o.Stack
-	}
-	if !IsNil(o.Tables) {
-		toSerialize["tables"] = o.Tables
 	}
 	if !IsNil(o.Tag) {
 		toSerialize["tag"] = o.Tag

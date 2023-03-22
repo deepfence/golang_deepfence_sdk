@@ -21,9 +21,9 @@ var _ MappedNullable = &ModelCloudComplianceScanDetails{}
 // ModelCloudComplianceScanDetails struct for ModelCloudComplianceScanDetails
 type ModelCloudComplianceScanDetails struct {
 	AccountId *string `json:"account_id,omitempty"`
-	Controls []string `json:"controls,omitempty"`
+	Benchmarks []ModelCloudComplianceBenchmark `json:"benchmarks,omitempty"`
 	ScanId *string `json:"scan_id,omitempty"`
-	ScanType *string `json:"scan_type,omitempty"`
+	ScanTypes []string `json:"scan_types,omitempty"`
 }
 
 // NewModelCloudComplianceScanDetails instantiates a new ModelCloudComplianceScanDetails object
@@ -75,37 +75,37 @@ func (o *ModelCloudComplianceScanDetails) SetAccountId(v string) {
 	o.AccountId = &v
 }
 
-// GetControls returns the Controls field value if set, zero value otherwise (both if not set or set to explicit null).
-func (o *ModelCloudComplianceScanDetails) GetControls() []string {
+// GetBenchmarks returns the Benchmarks field value if set, zero value otherwise (both if not set or set to explicit null).
+func (o *ModelCloudComplianceScanDetails) GetBenchmarks() []ModelCloudComplianceBenchmark {
 	if o == nil {
-		var ret []string
+		var ret []ModelCloudComplianceBenchmark
 		return ret
 	}
-	return o.Controls
+	return o.Benchmarks
 }
 
-// GetControlsOk returns a tuple with the Controls field value if set, nil otherwise
+// GetBenchmarksOk returns a tuple with the Benchmarks field value if set, nil otherwise
 // and a boolean to check if the value has been set.
 // NOTE: If the value is an explicit nil, `nil, true` will be returned
-func (o *ModelCloudComplianceScanDetails) GetControlsOk() ([]string, bool) {
-	if o == nil || IsNil(o.Controls) {
+func (o *ModelCloudComplianceScanDetails) GetBenchmarksOk() ([]ModelCloudComplianceBenchmark, bool) {
+	if o == nil || IsNil(o.Benchmarks) {
 		return nil, false
 	}
-	return o.Controls, true
+	return o.Benchmarks, true
 }
 
-// HasControls returns a boolean if a field has been set.
-func (o *ModelCloudComplianceScanDetails) HasControls() bool {
-	if o != nil && IsNil(o.Controls) {
+// HasBenchmarks returns a boolean if a field has been set.
+func (o *ModelCloudComplianceScanDetails) HasBenchmarks() bool {
+	if o != nil && IsNil(o.Benchmarks) {
 		return true
 	}
 
 	return false
 }
 
-// SetControls gets a reference to the given []string and assigns it to the Controls field.
-func (o *ModelCloudComplianceScanDetails) SetControls(v []string) {
-	o.Controls = v
+// SetBenchmarks gets a reference to the given []ModelCloudComplianceBenchmark and assigns it to the Benchmarks field.
+func (o *ModelCloudComplianceScanDetails) SetBenchmarks(v []ModelCloudComplianceBenchmark) {
+	o.Benchmarks = v
 }
 
 // GetScanId returns the ScanId field value if set, zero value otherwise.
@@ -140,36 +140,37 @@ func (o *ModelCloudComplianceScanDetails) SetScanId(v string) {
 	o.ScanId = &v
 }
 
-// GetScanType returns the ScanType field value if set, zero value otherwise.
-func (o *ModelCloudComplianceScanDetails) GetScanType() string {
-	if o == nil || IsNil(o.ScanType) {
-		var ret string
+// GetScanTypes returns the ScanTypes field value if set, zero value otherwise (both if not set or set to explicit null).
+func (o *ModelCloudComplianceScanDetails) GetScanTypes() []string {
+	if o == nil {
+		var ret []string
 		return ret
 	}
-	return *o.ScanType
+	return o.ScanTypes
 }
 
-// GetScanTypeOk returns a tuple with the ScanType field value if set, nil otherwise
+// GetScanTypesOk returns a tuple with the ScanTypes field value if set, nil otherwise
 // and a boolean to check if the value has been set.
-func (o *ModelCloudComplianceScanDetails) GetScanTypeOk() (*string, bool) {
-	if o == nil || IsNil(o.ScanType) {
+// NOTE: If the value is an explicit nil, `nil, true` will be returned
+func (o *ModelCloudComplianceScanDetails) GetScanTypesOk() ([]string, bool) {
+	if o == nil || IsNil(o.ScanTypes) {
 		return nil, false
 	}
-	return o.ScanType, true
+	return o.ScanTypes, true
 }
 
-// HasScanType returns a boolean if a field has been set.
-func (o *ModelCloudComplianceScanDetails) HasScanType() bool {
-	if o != nil && !IsNil(o.ScanType) {
+// HasScanTypes returns a boolean if a field has been set.
+func (o *ModelCloudComplianceScanDetails) HasScanTypes() bool {
+	if o != nil && IsNil(o.ScanTypes) {
 		return true
 	}
 
 	return false
 }
 
-// SetScanType gets a reference to the given string and assigns it to the ScanType field.
-func (o *ModelCloudComplianceScanDetails) SetScanType(v string) {
-	o.ScanType = &v
+// SetScanTypes gets a reference to the given []string and assigns it to the ScanTypes field.
+func (o *ModelCloudComplianceScanDetails) SetScanTypes(v []string) {
+	o.ScanTypes = v
 }
 
 func (o ModelCloudComplianceScanDetails) MarshalJSON() ([]byte, error) {
@@ -185,14 +186,14 @@ func (o ModelCloudComplianceScanDetails) ToMap() (map[string]interface{}, error)
 	if !IsNil(o.AccountId) {
 		toSerialize["account_id"] = o.AccountId
 	}
-	if o.Controls != nil {
-		toSerialize["controls"] = o.Controls
+	if o.Benchmarks != nil {
+		toSerialize["benchmarks"] = o.Benchmarks
 	}
 	if !IsNil(o.ScanId) {
 		toSerialize["scan_id"] = o.ScanId
 	}
-	if !IsNil(o.ScanType) {
-		toSerialize["scan_type"] = o.ScanType
+	if o.ScanTypes != nil {
+		toSerialize["scan_types"] = o.ScanTypes
 	}
 	return toSerialize, nil
 }

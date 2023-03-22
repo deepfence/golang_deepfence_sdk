@@ -5,6 +5,7 @@ All URIs are relative to *http://localhost*
 Method | HTTP request | Description
 ------------- | ------------- | -------------
 [**AddRegistry**](RegistryApi.md#AddRegistry) | **Post** /deepfence/registryaccount | Add Registry
+[**AddRegistryGCR**](RegistryApi.md#AddRegistryGCR) | **Post** /deepfence/registryaccount/gcr | Add Google Container Registry
 [**CountImageStubs**](RegistryApi.md#CountImageStubs) | **Post** /deepfence/registryaccount/count/stubs | Count Image Stubs
 [**CountImages**](RegistryApi.md#CountImages) | **Post** /deepfence/registryaccount/count/images | Count Registry Images
 [**DeleteRegistry**](RegistryApi.md#DeleteRegistry) | **Delete** /deepfence/registryaccount/{registry_id} | Delete Registry
@@ -75,6 +76,74 @@ Name | Type | Description  | Notes
 ### HTTP request headers
 
 - **Content-Type**: application/json
+- **Accept**: application/json
+
+[[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints)
+[[Back to Model list]](../README.md#documentation-for-models)
+[[Back to README]](../README.md)
+
+
+## AddRegistryGCR
+
+> AddRegistryGCR(ctx).Name(name).RegistryUrl(registryUrl).ServiceAccountJson(serviceAccountJson).Execute()
+
+Add Google Container Registry
+
+
+
+### Example
+
+```go
+package main
+
+import (
+    "context"
+    "fmt"
+    "os"
+    openapiclient "github.com/deepfence/golang_deepfence_sdk/client"
+)
+
+func main() {
+    name := "name_example" // string | 
+    registryUrl := "registryUrl_example" // string | 
+    serviceAccountJson := os.NewFile(1234, "some_file") // *os.File | 
+
+    configuration := openapiclient.NewConfiguration()
+    apiClient := openapiclient.NewAPIClient(configuration)
+    r, err := apiClient.RegistryApi.AddRegistryGCR(context.Background()).Name(name).RegistryUrl(registryUrl).ServiceAccountJson(serviceAccountJson).Execute()
+    if err != nil {
+        fmt.Fprintf(os.Stderr, "Error when calling `RegistryApi.AddRegistryGCR``: %v\n", err)
+        fmt.Fprintf(os.Stderr, "Full HTTP response: %v\n", r)
+    }
+}
+```
+
+### Path Parameters
+
+
+
+### Other Parameters
+
+Other parameters are passed through a pointer to a apiAddRegistryGCRRequest struct via the builder pattern
+
+
+Name | Type | Description  | Notes
+------------- | ------------- | ------------- | -------------
+ **name** | **string** |  | 
+ **registryUrl** | **string** |  | 
+ **serviceAccountJson** | ***os.File** |  | 
+
+### Return type
+
+ (empty response body)
+
+### Authorization
+
+[bearer_token](../README.md#bearer_token)
+
+### HTTP request headers
+
+- **Content-Type**: multipart/form-data
 - **Accept**: application/json
 
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints)

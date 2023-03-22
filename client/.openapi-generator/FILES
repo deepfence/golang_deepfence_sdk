@@ -35,7 +35,6 @@ docs/ControlsAgentControls.md
 docs/ControlsApi.md
 docs/DetailedConnectionSummary.md
 docs/DetailedNodeSummary.md
-docs/DetailedParent.md
 docs/DiagnosisApi.md
 docs/DiagnosisDiagnosticLogsLink.md
 docs/DiagnosisDiagnosticLogsStatus.md
@@ -46,6 +45,7 @@ docs/DiagnosisGetDiagnosticLogsResponse.md
 docs/DiagnosisNodeIdentifier.md
 docs/GraphNodeInfo.md
 docs/GraphProviderThreatGraph.md
+docs/GraphThreatFilters.md
 docs/GraphThreatNodeInfo.md
 docs/GraphTopologyFilters.md
 docs/IngestersCloudCompliance.md
@@ -71,6 +71,7 @@ docs/ModelAgentUpgrade.md
 docs/ModelApiAuthRequest.md
 docs/ModelBasicNode.md
 docs/ModelCloudCompliance.md
+docs/ModelCloudComplianceBenchmark.md
 docs/ModelCloudComplianceScanDetails.md
 docs/ModelCloudComplianceScanResult.md
 docs/ModelCloudNodeAccountInfo.md
@@ -150,11 +151,8 @@ docs/ModelVulnerabilityScanConfigLanguage.md
 docs/ModelVulnerabilityScanResult.md
 docs/ModelVulnerabilityScanTriggerReq.md
 docs/RegistryApi.md
-docs/ReportColumn.md
 docs/ReportMetadataRow.md
 docs/ReportRawReport.md
-docs/ReportRow.md
-docs/ReportTable.md
 docs/ReportersContainsFilter.md
 docs/ReportersFieldsFilters.md
 docs/ReportersMatchFilter.md
@@ -182,7 +180,6 @@ model_controls_action.go
 model_controls_agent_controls.go
 model_detailed_connection_summary.go
 model_detailed_node_summary.go
-model_detailed_parent.go
 model_diagnosis_diagnostic_logs_link.go
 model_diagnosis_diagnostic_logs_status.go
 model_diagnosis_diagnostic_notification.go
@@ -192,6 +189,7 @@ model_diagnosis_get_diagnostic_logs_response.go
 model_diagnosis_node_identifier.go
 model_graph_node_info.go
 model_graph_provider_threat_graph.go
+model_graph_threat_filters.go
 model_graph_threat_node_info.go
 model_graph_topology_filters.go
 model_ingesters_cloud_compliance.go
@@ -214,6 +212,7 @@ model_model_agent_upgrade.go
 model_model_api_auth_request.go
 model_model_basic_node.go
 model_model_cloud_compliance.go
+model_model_cloud_compliance_benchmark.go
 model_model_cloud_compliance_scan_details.go
 model_model_cloud_compliance_scan_result.go
 model_model_cloud_node_account_info.go
@@ -292,11 +291,8 @@ model_model_vulnerability.go
 model_model_vulnerability_scan_config_language.go
 model_model_vulnerability_scan_result.go
 model_model_vulnerability_scan_trigger_req.go
-model_report_column.go
 model_report_metadata_row.go
 model_report_raw_report.go
-model_report_row.go
-model_report_table.go
 model_reporters_contains_filter.go
 model_reporters_fields_filters.go
 model_reporters_match_filter.go

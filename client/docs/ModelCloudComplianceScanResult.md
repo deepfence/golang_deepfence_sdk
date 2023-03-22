@@ -4,7 +4,7 @@
 
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
-**BenchmarkType** | **string** |  | 
+**BenchmarkType** | **[]string** |  | 
 **CompliancePercentage** | **float32** |  | 
 **Compliances** | [**[]ModelCloudCompliance**](ModelCloudCompliance.md) |  | 
 **DockerContainerName** | **string** |  | 
@@ -22,7 +22,7 @@ Name | Type | Description | Notes
 
 ### NewModelCloudComplianceScanResult
 
-`func NewModelCloudComplianceScanResult(benchmarkType string, compliancePercentage float32, compliances []ModelCloudCompliance, dockerContainerName string, dockerImageName string, hostName string, kubernetesClusterName string, nodeId string, nodeName string, nodeType string, scanId string, statusCounts map[string]int32, updatedAt int64, ) *ModelCloudComplianceScanResult`
+`func NewModelCloudComplianceScanResult(benchmarkType []string, compliancePercentage float32, compliances []ModelCloudCompliance, dockerContainerName string, dockerImageName string, hostName string, kubernetesClusterName string, nodeId string, nodeName string, nodeType string, scanId string, statusCounts map[string]int32, updatedAt int64, ) *ModelCloudComplianceScanResult`
 
 NewModelCloudComplianceScanResult instantiates a new ModelCloudComplianceScanResult object
 This constructor will assign default values to properties that have it defined,
@@ -39,24 +39,34 @@ but it doesn't guarantee that properties required by API are set
 
 ### GetBenchmarkType
 
-`func (o *ModelCloudComplianceScanResult) GetBenchmarkType() string`
+`func (o *ModelCloudComplianceScanResult) GetBenchmarkType() []string`
 
 GetBenchmarkType returns the BenchmarkType field if non-nil, zero value otherwise.
 
 ### GetBenchmarkTypeOk
 
-`func (o *ModelCloudComplianceScanResult) GetBenchmarkTypeOk() (*string, bool)`
+`func (o *ModelCloudComplianceScanResult) GetBenchmarkTypeOk() (*[]string, bool)`
 
 GetBenchmarkTypeOk returns a tuple with the BenchmarkType field if it's non-nil, zero value otherwise
 and a boolean to check if the value has been set.
 
 ### SetBenchmarkType
 
-`func (o *ModelCloudComplianceScanResult) SetBenchmarkType(v string)`
+`func (o *ModelCloudComplianceScanResult) SetBenchmarkType(v []string)`
 
 SetBenchmarkType sets BenchmarkType field to given value.
 
 
+### SetBenchmarkTypeNil
+
+`func (o *ModelCloudComplianceScanResult) SetBenchmarkTypeNil(b bool)`
+
+ SetBenchmarkTypeNil sets the value for BenchmarkType to be an explicit nil
+
+### UnsetBenchmarkType
+`func (o *ModelCloudComplianceScanResult) UnsetBenchmarkType()`
+
+UnsetBenchmarkType ensures that no value is present for BenchmarkType, not even an explicit nil
 ### GetCompliancePercentage
 
 `func (o *ModelCloudComplianceScanResult) GetCompliancePercentage() float32`

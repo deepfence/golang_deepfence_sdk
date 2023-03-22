@@ -812,6 +812,11 @@ paths:
     post:
       description: Retrieve the full threat graph associated with the account
       operationId: getThreatGraph
+      requestBody:
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/GraphThreatFilters'
       responses:
         "200":
           content:
@@ -2342,6 +2347,45 @@ paths:
       summary: Count Image Stubs
       tags:
       - Registry
+  /deepfence/registryaccount/gcr:
+    post:
+      description: Add a Google Container registry
+      operationId: addRegistryGCR
+      requestBody:
+        content:
+          multipart/form-data:
+            schema:
+              $ref: '#/components/schemas/FormDataModelRegistryGCRAddReq'
+      responses:
+        "200":
+          description: OK
+        "400":
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ApiDocsBadRequestResponse'
+          description: Bad Request
+        "401":
+          description: Unauthorized
+        "403":
+          description: Forbidden
+        "404":
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ApiDocsFailureResponse'
+          description: Not Found
+        "500":
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ApiDocsFailureResponse'
+          description: Internal Server Error
+      security:
+      - bearer_token: []
+      summary: Add Google Container Registry
+      tags:
+      - Registry
   /deepfence/registryaccount/images:
     post:
       description: list images from a given registry
@@ -2585,6 +2629,49 @@ paths:
       summary: Download Scans Results
       tags:
       - Scan Results
+  /deepfence/scan/list/cloud-compliance:
+    post:
+      description: Get Cloud Compliance Scans list for cloud node
+      operationId: listCloudComplianceScan
+      requestBody:
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/ModelScanListReq'
+      responses:
+        "200":
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ModelScanListResp'
+          description: OK
+        "400":
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ApiDocsBadRequestResponse'
+          description: Bad Request
+        "401":
+          description: Unauthorized
+        "403":
+          description: Forbidden
+        "404":
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ApiDocsFailureResponse'
+          description: Not Found
+        "500":
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ApiDocsFailureResponse'
+          description: Internal Server Error
+      security:
+      - bearer_token: []
+      summary: Get Cloud Compliance Scans List
+      tags:
+      - Cloud Scanner
   /deepfence/scan/list/compliance:
     post:
       description: Get Compliance Scans list on agent or registry
@@ -5860,43 +5947,6 @@ components:
             type: type
             labelMinor: labelMinor
             immediate_parent_id: immediate_parent_id
-            tables:
-            - truncationCount: 1
-              columns:
-              - dataType: dataType
-                id: id
-                label: label
-              - dataType: dataType
-                id: id
-                label: label
-              id: id
-              label: label
-              rows:
-              - entries:
-                  key: entries
-                id: id
-              - entries:
-                  key: entries
-                id: id
-              type: type
-            - truncationCount: 1
-              columns:
-              - dataType: dataType
-                id: id
-                label: label
-              - dataType: dataType
-                id: id
-                label: label
-              id: id
-              label: label
-              rows:
-              - entries:
-                  key: entries
-                id: id
-              - entries:
-                  key: entries
-                id: id
-              type: type
             rank: rank
             id: id
             metrics:
@@ -5904,13 +5954,6 @@ components:
             - null
             tag: tag
             pseudo: true
-            parents:
-            - topologyId: topologyId
-              id: id
-              label: label
-            - topologyId: topologyId
-              id: id
-              label: label
         edges:
           key:
             source: source
@@ -6002,43 +6045,6 @@ components:
         type: type
         labelMinor: labelMinor
         immediate_parent_id: immediate_parent_id
-        tables:
-        - truncationCount: 1
-          columns:
-          - dataType: dataType
-            id: id
-            label: label
-          - dataType: dataType
-            id: id
-            label: label
-          id: id
-          label: label
-          rows:
-          - entries:
-              key: entries
-            id: id
-          - entries:
-              key: entries
-            id: id
-          type: type
-        - truncationCount: 1
-          columns:
-          - dataType: dataType
-            id: id
-            label: label
-          - dataType: dataType
-            id: id
-            label: label
-          id: id
-          label: label
-          rows:
-          - entries:
-              key: entries
-            id: id
-          - entries:
-              key: entries
-            id: id
-          type: type
         rank: rank
         id: id
         metrics:
@@ -6046,13 +6052,6 @@ components:
         - null
         tag: tag
         pseudo: true
-        parents:
-        - topologyId: topologyId
-          id: id
-          label: label
-        - topologyId: topologyId
-          id: id
-          label: label
       properties:
         adjacency:
           items:
@@ -6076,10 +6075,6 @@ components:
           items:
             $ref: '#/components/schemas/ReportMetricRow'
           type: array
-        parents:
-          items:
-            $ref: '#/components/schemas/DetailedParent'
-          type: array
         pseudo:
           type: boolean
         rank:
@@ -6088,26 +6083,9 @@ components:
           type: string
         stack:
           type: boolean
-        tables:
-          items:
-            $ref: '#/components/schemas/ReportTable'
-          type: array
         tag:
           type: string
         type:
-          type: string
-      type: object
-    DetailedParent:
-      example:
-        topologyId: topologyId
-        id: id
-        label: label
-      properties:
-        id:
-          type: string
-        label:
-          type: string
-        topologyId:
           type: string
       type: object
     DetailedTopologyConnectionSummaries:
@@ -6236,6 +6214,25 @@ components:
       - node_id
       - node_type
       type: object
+    FormDataModelRegistryGCRAddReq:
+      properties:
+        name:
+          type: string
+        registry_url:
+          type: string
+        service_account_json:
+          $ref: '#/components/schemas/FormDataMultipartFile'
+      required:
+      - name
+      - registry_url
+      - service_account_json
+      type: object
+    FormDataMultipartFile:
+      format: binary
+      nullable: true
+      type: string
+    GraphCloudProviderFilter:
+      type: object
     GraphNodeInfo:
       properties:
         cloud_compliance_count:
@@ -6294,6 +6291,37 @@ components:
       - resources
       - secrets_count
       - vulnerability_count
+      type: object
+    GraphThreatFilters:
+      example:
+        cloud_resource_only: true
+        aws_filter: "{}"
+        gcp_filter: "{}"
+        type: vulnerability
+        azure_filter: "{}"
+      properties:
+        aws_filter:
+          type: object
+        azure_filter:
+          type: object
+        cloud_resource_only:
+          type: boolean
+        gcp_filter:
+          type: object
+        type:
+          enum:
+          - vulnerability
+          - secret
+          - malware
+          - compliance
+          - cloud_compliance
+          type: string
+      required:
+      - aws_filter
+      - azure_filter
+      - cloud_resource_only
+      - gcp_filter
+      - type
       type: object
     GraphThreatGraph:
       additionalProperties:
@@ -7260,30 +7288,63 @@ components:
       - type
       - updated_at
       type: object
-    ModelCloudComplianceScanDetails:
+    ModelCloudComplianceBenchmark:
       example:
-        account_id: account_id
         controls:
         - controls
         - controls
-        scan_type: scan_type
-        scan_id: scan_id
+        compliance_type: compliance_type
+        id: id
       properties:
-        account_id:
+        compliance_type:
           type: string
         controls:
           items:
             type: string
           nullable: true
           type: array
+        id:
+          type: string
+      type: object
+    ModelCloudComplianceScanDetails:
+      example:
+        account_id: account_id
+        benchmarks:
+        - controls:
+          - controls
+          - controls
+          compliance_type: compliance_type
+          id: id
+        - controls:
+          - controls
+          - controls
+          compliance_type: compliance_type
+          id: id
+        scan_id: scan_id
+        scan_types:
+        - scan_types
+        - scan_types
+      properties:
+        account_id:
+          type: string
+        benchmarks:
+          items:
+            $ref: '#/components/schemas/ModelCloudComplianceBenchmark'
+          nullable: true
+          type: array
         scan_id:
           type: string
-        scan_type:
-          type: string
+        scan_types:
+          items:
+            type: string
+          nullable: true
+          type: array
       type: object
     ModelCloudComplianceScanResult:
       example:
-        benchmark_type: benchmark_type
+        benchmark_type:
+        - benchmark_type
+        - benchmark_type
         docker_container_name: docker_container_name
         kubernetes_cluster_name: kubernetes_cluster_name
         node_name: node_name
@@ -7337,7 +7398,10 @@ components:
         node_id: node_id
       properties:
         benchmark_type:
-          type: string
+          items:
+            type: string
+          nullable: true
+          type: array
         compliance_percentage:
           type: number
         compliances:
@@ -7451,11 +7515,21 @@ components:
           scans:
             key:
               account_id: account_id
-              controls:
-              - controls
-              - controls
-              scan_type: scan_type
+              benchmarks:
+              - controls:
+                - controls
+                - controls
+                compliance_type: compliance_type
+                id: id
+              - controls:
+                - controls
+                - controls
+                compliance_type: compliance_type
+                id: id
               scan_id: scan_id
+              scan_types:
+              - scan_types
+              - scan_types
           refresh: refresh
       properties:
         data:
@@ -7471,11 +7545,21 @@ components:
         scans:
           key:
             account_id: account_id
-            controls:
-            - controls
-            - controls
-            scan_type: scan_type
+            benchmarks:
+            - controls:
+              - controls
+              - controls
+              compliance_type: compliance_type
+              id: id
+            - controls:
+              - controls
+              - controls
+              compliance_type: compliance_type
+              id: id
             scan_id: scan_id
+            scan_types:
+            - scan_types
+            - scan_types
         refresh: refresh
       properties:
         cloudtrail_trails:
@@ -7748,14 +7832,19 @@ components:
         severity_counts:
           key: 0
         node_type: node_type
-        benchmark_type: benchmark_type
+        benchmark_types:
+        - benchmark_types
+        - benchmark_types
         updated_at: 6
         scan_id: scan_id
         node_id: node_id
         status: status
       properties:
-        benchmark_type:
-          type: string
+        benchmark_types:
+          items:
+            type: string
+          nullable: true
+          type: array
         node_id:
           type: string
         node_type:
@@ -7773,7 +7862,7 @@ components:
           format: int64
           type: integer
       required:
-      - benchmark_type
+      - benchmark_types
       - node_id
       - node_type
       - scan_id
@@ -7783,7 +7872,9 @@ components:
       type: object
     ModelComplianceScanResult:
       example:
-        benchmark_type: benchmark_type
+        benchmark_type:
+        - benchmark_type
+        - benchmark_type
         docker_container_name: docker_container_name
         kubernetes_cluster_name: kubernetes_cluster_name
         node_name: node_name
@@ -7831,7 +7922,10 @@ components:
         node_id: node_id
       properties:
         benchmark_type:
-          type: string
+          items:
+            type: string
+          nullable: true
+          type: array
         compliance_percentage:
           type: number
         compliances:
@@ -7884,7 +7978,9 @@ components:
         - severity_counts:
             key: 0
           node_type: node_type
-          benchmark_type: benchmark_type
+          benchmark_types:
+          - benchmark_types
+          - benchmark_types
           updated_at: 6
           scan_id: scan_id
           node_id: node_id
@@ -7892,7 +7988,9 @@ components:
         - severity_counts:
             key: 0
           node_type: node_type
-          benchmark_type: benchmark_type
+          benchmark_types:
+          - benchmark_types
+          - benchmark_types
           updated_at: 6
           scan_id: scan_id
           node_id: node_id
@@ -11817,19 +11915,6 @@ components:
       type: object
     PostgresqlDbGetAuditLogsRow:
       type: object
-    ReportColumn:
-      example:
-        dataType: dataType
-        id: id
-        label: label
-      properties:
-        dataType:
-          type: string
-        id:
-          type: string
-        label:
-          type: string
-      type: object
     ReportIDList:
       items:
         type: string
@@ -11866,60 +11951,6 @@ components:
           type: string
       required:
       - payload
-      type: object
-    ReportRow:
-      example:
-        entries:
-          key: entries
-        id: id
-      properties:
-        entries:
-          additionalProperties:
-            type: string
-          nullable: true
-          type: object
-        id:
-          type: string
-      type: object
-    ReportTable:
-      example:
-        truncationCount: 1
-        columns:
-        - dataType: dataType
-          id: id
-          label: label
-        - dataType: dataType
-          id: id
-          label: label
-        id: id
-        label: label
-        rows:
-        - entries:
-            key: entries
-          id: id
-        - entries:
-            key: entries
-          id: id
-        type: type
-      properties:
-        columns:
-          items:
-            $ref: '#/components/schemas/ReportColumn'
-          nullable: true
-          type: array
-        id:
-          type: string
-        label:
-          type: string
-        rows:
-          items:
-            $ref: '#/components/schemas/ReportRow'
-          nullable: true
-          type: array
-        truncationCount:
-          type: integer
-        type:
-          type: string
       type: object
     ReportersContainsFilter:
       example:

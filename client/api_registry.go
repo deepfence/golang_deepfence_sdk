@@ -18,6 +18,7 @@ import (
 	"net/http"
 	"net/url"
 	"strings"
+	"os"
 )
 
 
@@ -92,6 +93,172 @@ func (a *RegistryApiService) AddRegistryExecute(r ApiAddRegistryRequest) (*http.
 	}
 	// body params
 	localVarPostBody = r.modelRegistryAddReq
+	req, err := a.client.prepareRequest(r.ctx, localVarPath, localVarHTTPMethod, localVarPostBody, localVarHeaderParams, localVarQueryParams, localVarFormParams, formFiles)
+	if err != nil {
+		return nil, err
+	}
+
+	localVarHTTPResponse, err := a.client.callAPI(req)
+	if err != nil || localVarHTTPResponse == nil {
+		return localVarHTTPResponse, err
+	}
+
+	localVarBody, err := io.ReadAll(localVarHTTPResponse.Body)
+	localVarHTTPResponse.Body.Close()
+	localVarHTTPResponse.Body = io.NopCloser(bytes.NewBuffer(localVarBody))
+	if err != nil {
+		return localVarHTTPResponse, err
+	}
+
+	if localVarHTTPResponse.StatusCode >= 300 {
+		newErr := &GenericOpenAPIError{
+			body:  localVarBody,
+			error: localVarHTTPResponse.Status,
+		}
+		if localVarHTTPResponse.StatusCode == 400 {
+			var v ApiDocsBadRequestResponse
+			err = a.client.decode(&v, localVarBody, localVarHTTPResponse.Header.Get("Content-Type"))
+			if err != nil {
+				newErr.error = err.Error()
+				return localVarHTTPResponse, newErr
+			}
+					newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
+					newErr.model = v
+			return localVarHTTPResponse, newErr
+		}
+		if localVarHTTPResponse.StatusCode == 404 {
+			var v ApiDocsFailureResponse
+			err = a.client.decode(&v, localVarBody, localVarHTTPResponse.Header.Get("Content-Type"))
+			if err != nil {
+				newErr.error = err.Error()
+				return localVarHTTPResponse, newErr
+			}
+					newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
+					newErr.model = v
+			return localVarHTTPResponse, newErr
+		}
+		if localVarHTTPResponse.StatusCode == 500 {
+			var v ApiDocsFailureResponse
+			err = a.client.decode(&v, localVarBody, localVarHTTPResponse.Header.Get("Content-Type"))
+			if err != nil {
+				newErr.error = err.Error()
+				return localVarHTTPResponse, newErr
+			}
+					newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
+					newErr.model = v
+		}
+		return localVarHTTPResponse, newErr
+	}
+
+	return localVarHTTPResponse, nil
+}
+
+type ApiAddRegistryGCRRequest struct {
+	ctx context.Context
+	ApiService *RegistryApiService
+	name *string
+	registryUrl *string
+	serviceAccountJson *os.File
+}
+
+func (r ApiAddRegistryGCRRequest) Name(name string) ApiAddRegistryGCRRequest {
+	r.name = &name
+	return r
+}
+
+func (r ApiAddRegistryGCRRequest) RegistryUrl(registryUrl string) ApiAddRegistryGCRRequest {
+	r.registryUrl = &registryUrl
+	return r
+}
+
+func (r ApiAddRegistryGCRRequest) ServiceAccountJson(serviceAccountJson *os.File) ApiAddRegistryGCRRequest {
+	r.serviceAccountJson = serviceAccountJson
+	return r
+}
+
+func (r ApiAddRegistryGCRRequest) Execute() (*http.Response, error) {
+	return r.ApiService.AddRegistryGCRExecute(r)
+}
+
+/*
+AddRegistryGCR Add Google Container Registry
+
+Add a Google Container registry
+
+ @param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
+ @return ApiAddRegistryGCRRequest
+*/
+func (a *RegistryApiService) AddRegistryGCR(ctx context.Context) ApiAddRegistryGCRRequest {
+	return ApiAddRegistryGCRRequest{
+		ApiService: a,
+		ctx: ctx,
+	}
+}
+
+// Execute executes the request
+func (a *RegistryApiService) AddRegistryGCRExecute(r ApiAddRegistryGCRRequest) (*http.Response, error) {
+	var (
+		localVarHTTPMethod   = http.MethodPost
+		localVarPostBody     interface{}
+		formFiles            []formFile
+	)
+
+	localBasePath, err := a.client.cfg.ServerURLWithContext(r.ctx, "RegistryApiService.AddRegistryGCR")
+	if err != nil {
+		return nil, &GenericOpenAPIError{error: err.Error()}
+	}
+
+	localVarPath := localBasePath + "/deepfence/registryaccount/gcr"
+
+	localVarHeaderParams := make(map[string]string)
+	localVarQueryParams := url.Values{}
+	localVarFormParams := url.Values{}
+	if r.name == nil {
+		return nil, reportError("name is required and must be specified")
+	}
+	if r.registryUrl == nil {
+		return nil, reportError("registryUrl is required and must be specified")
+	}
+	if r.serviceAccountJson == nil {
+		return nil, reportError("serviceAccountJson is required and must be specified")
+	}
+
+	// to determine the Content-Type header
+	localVarHTTPContentTypes := []string{"multipart/form-data"}
+
+	// set Content-Type header
+	localVarHTTPContentType := selectHeaderContentType(localVarHTTPContentTypes)
+	if localVarHTTPContentType != "" {
+		localVarHeaderParams["Content-Type"] = localVarHTTPContentType
+	}
+
+	// to determine the Accept header
+	localVarHTTPHeaderAccepts := []string{"application/json"}
+
+	// set Accept header
+	localVarHTTPHeaderAccept := selectHeaderAccept(localVarHTTPHeaderAccepts)
+	if localVarHTTPHeaderAccept != "" {
+		localVarHeaderParams["Accept"] = localVarHTTPHeaderAccept
+	}
+	parameterAddToHeaderOrQuery(localVarFormParams, "name", r.name, "")
+	parameterAddToHeaderOrQuery(localVarFormParams, "registry_url", r.registryUrl, "")
+	var serviceAccountJsonLocalVarFormFileName string
+	var serviceAccountJsonLocalVarFileName     string
+	var serviceAccountJsonLocalVarFileBytes    []byte
+
+	serviceAccountJsonLocalVarFormFileName = "service_account_json"
+
+
+	serviceAccountJsonLocalVarFile := r.serviceAccountJson
+
+	if serviceAccountJsonLocalVarFile != nil {
+		fbs, _ := io.ReadAll(serviceAccountJsonLocalVarFile)
+
+		serviceAccountJsonLocalVarFileBytes = fbs
+		serviceAccountJsonLocalVarFileName = serviceAccountJsonLocalVarFile.Name()
+		serviceAccountJsonLocalVarFile.Close()
+		formFiles = append(formFiles, formFile{fileBytes: serviceAccountJsonLocalVarFileBytes, fileName: serviceAccountJsonLocalVarFileName, formFileName: serviceAccountJsonLocalVarFormFileName})
+	}
 	req, err := a.client.prepareRequest(r.ctx, localVarPath, localVarHTTPMethod, localVarPostBody, localVarHeaderParams, localVarQueryParams, localVarFormParams, formFiles)
 	if err != nil {
 		return nil, err

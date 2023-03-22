@@ -26,6 +26,12 @@ type ThreatApiService service
 type ApiGetThreatGraphRequest struct {
 	ctx context.Context
 	ApiService *ThreatApiService
+	graphThreatFilters *GraphThreatFilters
+}
+
+func (r ApiGetThreatGraphRequest) GraphThreatFilters(graphThreatFilters GraphThreatFilters) ApiGetThreatGraphRequest {
+	r.graphThreatFilters = &graphThreatFilters
+	return r
 }
 
 func (r ApiGetThreatGraphRequest) Execute() (*map[string]GraphProviderThreatGraph, *http.Response, error) {
@@ -69,7 +75,7 @@ func (a *ThreatApiService) GetThreatGraphExecute(r ApiGetThreatGraphRequest) (*m
 	localVarFormParams := url.Values{}
 
 	// to determine the Content-Type header
-	localVarHTTPContentTypes := []string{}
+	localVarHTTPContentTypes := []string{"application/json"}
 
 	// set Content-Type header
 	localVarHTTPContentType := selectHeaderContentType(localVarHTTPContentTypes)
@@ -85,6 +91,8 @@ func (a *ThreatApiService) GetThreatGraphExecute(r ApiGetThreatGraphRequest) (*m
 	if localVarHTTPHeaderAccept != "" {
 		localVarHeaderParams["Accept"] = localVarHTTPHeaderAccept
 	}
+	// body params
+	localVarPostBody = r.graphThreatFilters
 	req, err := a.client.prepareRequest(r.ctx, localVarPath, localVarHTTPMethod, localVarPostBody, localVarHeaderParams, localVarQueryParams, localVarFormParams, formFiles)
 	if err != nil {
 		return localVarReturnValue, nil, err

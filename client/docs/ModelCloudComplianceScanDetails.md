@@ -5,9 +5,9 @@
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
 **AccountId** | Pointer to **string** |  | [optional] 
-**Controls** | Pointer to **[]string** |  | [optional] 
+**Benchmarks** | Pointer to [**[]ModelCloudComplianceBenchmark**](ModelCloudComplianceBenchmark.md) |  | [optional] 
 **ScanId** | Pointer to **string** |  | [optional] 
-**ScanType** | Pointer to **string** |  | [optional] 
+**ScanTypes** | Pointer to **[]string** |  | [optional] 
 
 ## Methods
 
@@ -53,41 +53,41 @@ SetAccountId sets AccountId field to given value.
 
 HasAccountId returns a boolean if a field has been set.
 
-### GetControls
+### GetBenchmarks
 
-`func (o *ModelCloudComplianceScanDetails) GetControls() []string`
+`func (o *ModelCloudComplianceScanDetails) GetBenchmarks() []ModelCloudComplianceBenchmark`
 
-GetControls returns the Controls field if non-nil, zero value otherwise.
+GetBenchmarks returns the Benchmarks field if non-nil, zero value otherwise.
 
-### GetControlsOk
+### GetBenchmarksOk
 
-`func (o *ModelCloudComplianceScanDetails) GetControlsOk() (*[]string, bool)`
+`func (o *ModelCloudComplianceScanDetails) GetBenchmarksOk() (*[]ModelCloudComplianceBenchmark, bool)`
 
-GetControlsOk returns a tuple with the Controls field if it's non-nil, zero value otherwise
+GetBenchmarksOk returns a tuple with the Benchmarks field if it's non-nil, zero value otherwise
 and a boolean to check if the value has been set.
 
-### SetControls
+### SetBenchmarks
 
-`func (o *ModelCloudComplianceScanDetails) SetControls(v []string)`
+`func (o *ModelCloudComplianceScanDetails) SetBenchmarks(v []ModelCloudComplianceBenchmark)`
 
-SetControls sets Controls field to given value.
+SetBenchmarks sets Benchmarks field to given value.
 
-### HasControls
+### HasBenchmarks
 
-`func (o *ModelCloudComplianceScanDetails) HasControls() bool`
+`func (o *ModelCloudComplianceScanDetails) HasBenchmarks() bool`
 
-HasControls returns a boolean if a field has been set.
+HasBenchmarks returns a boolean if a field has been set.
 
-### SetControlsNil
+### SetBenchmarksNil
 
-`func (o *ModelCloudComplianceScanDetails) SetControlsNil(b bool)`
+`func (o *ModelCloudComplianceScanDetails) SetBenchmarksNil(b bool)`
 
- SetControlsNil sets the value for Controls to be an explicit nil
+ SetBenchmarksNil sets the value for Benchmarks to be an explicit nil
 
-### UnsetControls
-`func (o *ModelCloudComplianceScanDetails) UnsetControls()`
+### UnsetBenchmarks
+`func (o *ModelCloudComplianceScanDetails) UnsetBenchmarks()`
 
-UnsetControls ensures that no value is present for Controls, not even an explicit nil
+UnsetBenchmarks ensures that no value is present for Benchmarks, not even an explicit nil
 ### GetScanId
 
 `func (o *ModelCloudComplianceScanDetails) GetScanId() string`
@@ -113,31 +113,41 @@ SetScanId sets ScanId field to given value.
 
 HasScanId returns a boolean if a field has been set.
 
-### GetScanType
+### GetScanTypes
 
-`func (o *ModelCloudComplianceScanDetails) GetScanType() string`
+`func (o *ModelCloudComplianceScanDetails) GetScanTypes() []string`
 
-GetScanType returns the ScanType field if non-nil, zero value otherwise.
+GetScanTypes returns the ScanTypes field if non-nil, zero value otherwise.
 
-### GetScanTypeOk
+### GetScanTypesOk
 
-`func (o *ModelCloudComplianceScanDetails) GetScanTypeOk() (*string, bool)`
+`func (o *ModelCloudComplianceScanDetails) GetScanTypesOk() (*[]string, bool)`
 
-GetScanTypeOk returns a tuple with the ScanType field if it's non-nil, zero value otherwise
+GetScanTypesOk returns a tuple with the ScanTypes field if it's non-nil, zero value otherwise
 and a boolean to check if the value has been set.
 
-### SetScanType
+### SetScanTypes
 
-`func (o *ModelCloudComplianceScanDetails) SetScanType(v string)`
+`func (o *ModelCloudComplianceScanDetails) SetScanTypes(v []string)`
 
-SetScanType sets ScanType field to given value.
+SetScanTypes sets ScanTypes field to given value.
 
-### HasScanType
+### HasScanTypes
 
-`func (o *ModelCloudComplianceScanDetails) HasScanType() bool`
+`func (o *ModelCloudComplianceScanDetails) HasScanTypes() bool`
 
-HasScanType returns a boolean if a field has been set.
+HasScanTypes returns a boolean if a field has been set.
 
+### SetScanTypesNil
+
+`func (o *ModelCloudComplianceScanDetails) SetScanTypesNil(b bool)`
+
+ SetScanTypesNil sets the value for ScanTypes to be an explicit nil
+
+### UnsetScanTypes
+`func (o *ModelCloudComplianceScanDetails) UnsetScanTypes()`
+
+UnsetScanTypes ensures that no value is present for ScanTypes, not even an explicit nil
 
 [[Back to Model list]](../README.md#documentation-for-models) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to README]](../README.md)
 

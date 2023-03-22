@@ -20,7 +20,7 @@ var _ MappedNullable = &ModelComplianceScanInfo{}
 
 // ModelComplianceScanInfo struct for ModelComplianceScanInfo
 type ModelComplianceScanInfo struct {
-	BenchmarkType string `json:"benchmark_type"`
+	BenchmarkTypes []string `json:"benchmark_types"`
 	NodeId string `json:"node_id"`
 	NodeType string `json:"node_type"`
 	ScanId string `json:"scan_id"`
@@ -33,9 +33,9 @@ type ModelComplianceScanInfo struct {
 // This constructor will assign default values to properties that have it defined,
 // and makes sure properties required by API are set, but the set of arguments
 // will change when the set of required properties is changed
-func NewModelComplianceScanInfo(benchmarkType string, nodeId string, nodeType string, scanId string, severityCounts map[string]int32, status string, updatedAt int64) *ModelComplianceScanInfo {
+func NewModelComplianceScanInfo(benchmarkTypes []string, nodeId string, nodeType string, scanId string, severityCounts map[string]int32, status string, updatedAt int64) *ModelComplianceScanInfo {
 	this := ModelComplianceScanInfo{}
-	this.BenchmarkType = benchmarkType
+	this.BenchmarkTypes = benchmarkTypes
 	this.NodeId = nodeId
 	this.NodeType = nodeType
 	this.ScanId = scanId
@@ -53,28 +53,30 @@ func NewModelComplianceScanInfoWithDefaults() *ModelComplianceScanInfo {
 	return &this
 }
 
-// GetBenchmarkType returns the BenchmarkType field value
-func (o *ModelComplianceScanInfo) GetBenchmarkType() string {
+// GetBenchmarkTypes returns the BenchmarkTypes field value
+// If the value is explicit nil, the zero value for []string will be returned
+func (o *ModelComplianceScanInfo) GetBenchmarkTypes() []string {
 	if o == nil {
-		var ret string
+		var ret []string
 		return ret
 	}
 
-	return o.BenchmarkType
+	return o.BenchmarkTypes
 }
 
-// GetBenchmarkTypeOk returns a tuple with the BenchmarkType field value
+// GetBenchmarkTypesOk returns a tuple with the BenchmarkTypes field value
 // and a boolean to check if the value has been set.
-func (o *ModelComplianceScanInfo) GetBenchmarkTypeOk() (*string, bool) {
-	if o == nil {
+// NOTE: If the value is an explicit nil, `nil, true` will be returned
+func (o *ModelComplianceScanInfo) GetBenchmarkTypesOk() ([]string, bool) {
+	if o == nil || IsNil(o.BenchmarkTypes) {
 		return nil, false
 	}
-	return &o.BenchmarkType, true
+	return o.BenchmarkTypes, true
 }
 
-// SetBenchmarkType sets field value
-func (o *ModelComplianceScanInfo) SetBenchmarkType(v string) {
-	o.BenchmarkType = v
+// SetBenchmarkTypes sets field value
+func (o *ModelComplianceScanInfo) SetBenchmarkTypes(v []string) {
+	o.BenchmarkTypes = v
 }
 
 // GetNodeId returns the NodeId field value
@@ -233,7 +235,9 @@ func (o ModelComplianceScanInfo) MarshalJSON() ([]byte, error) {
 
 func (o ModelComplianceScanInfo) ToMap() (map[string]interface{}, error) {
 	toSerialize := map[string]interface{}{}
-	toSerialize["benchmark_type"] = o.BenchmarkType
+	if o.BenchmarkTypes != nil {
+		toSerialize["benchmark_types"] = o.BenchmarkTypes
+	}
 	toSerialize["node_id"] = o.NodeId
 	toSerialize["node_type"] = o.NodeType
 	toSerialize["scan_id"] = o.ScanId

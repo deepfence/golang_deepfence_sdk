@@ -20,7 +20,7 @@ var _ MappedNullable = &ModelComplianceScanResult{}
 
 // ModelComplianceScanResult struct for ModelComplianceScanResult
 type ModelComplianceScanResult struct {
-	BenchmarkType string `json:"benchmark_type"`
+	BenchmarkType []string `json:"benchmark_type"`
 	CompliancePercentage float32 `json:"compliance_percentage"`
 	Compliances []ModelCompliance `json:"compliances"`
 	DockerContainerName string `json:"docker_container_name"`
@@ -39,7 +39,7 @@ type ModelComplianceScanResult struct {
 // This constructor will assign default values to properties that have it defined,
 // and makes sure properties required by API are set, but the set of arguments
 // will change when the set of required properties is changed
-func NewModelComplianceScanResult(benchmarkType string, compliancePercentage float32, compliances []ModelCompliance, dockerContainerName string, dockerImageName string, hostName string, kubernetesClusterName string, nodeId string, nodeName string, nodeType string, scanId string, statusCounts map[string]int32, updatedAt int64) *ModelComplianceScanResult {
+func NewModelComplianceScanResult(benchmarkType []string, compliancePercentage float32, compliances []ModelCompliance, dockerContainerName string, dockerImageName string, hostName string, kubernetesClusterName string, nodeId string, nodeName string, nodeType string, scanId string, statusCounts map[string]int32, updatedAt int64) *ModelComplianceScanResult {
 	this := ModelComplianceScanResult{}
 	this.BenchmarkType = benchmarkType
 	this.CompliancePercentage = compliancePercentage
@@ -66,9 +66,10 @@ func NewModelComplianceScanResultWithDefaults() *ModelComplianceScanResult {
 }
 
 // GetBenchmarkType returns the BenchmarkType field value
-func (o *ModelComplianceScanResult) GetBenchmarkType() string {
+// If the value is explicit nil, the zero value for []string will be returned
+func (o *ModelComplianceScanResult) GetBenchmarkType() []string {
 	if o == nil {
-		var ret string
+		var ret []string
 		return ret
 	}
 
@@ -77,15 +78,16 @@ func (o *ModelComplianceScanResult) GetBenchmarkType() string {
 
 // GetBenchmarkTypeOk returns a tuple with the BenchmarkType field value
 // and a boolean to check if the value has been set.
-func (o *ModelComplianceScanResult) GetBenchmarkTypeOk() (*string, bool) {
-	if o == nil {
+// NOTE: If the value is an explicit nil, `nil, true` will be returned
+func (o *ModelComplianceScanResult) GetBenchmarkTypeOk() ([]string, bool) {
+	if o == nil || IsNil(o.BenchmarkType) {
 		return nil, false
 	}
-	return &o.BenchmarkType, true
+	return o.BenchmarkType, true
 }
 
 // SetBenchmarkType sets field value
-func (o *ModelComplianceScanResult) SetBenchmarkType(v string) {
+func (o *ModelComplianceScanResult) SetBenchmarkType(v []string) {
 	o.BenchmarkType = v
 }
 
@@ -391,7 +393,9 @@ func (o ModelComplianceScanResult) MarshalJSON() ([]byte, error) {
 
 func (o ModelComplianceScanResult) ToMap() (map[string]interface{}, error) {
 	toSerialize := map[string]interface{}{}
-	toSerialize["benchmark_type"] = o.BenchmarkType
+	if o.BenchmarkType != nil {
+		toSerialize["benchmark_type"] = o.BenchmarkType
+	}
 	toSerialize["compliance_percentage"] = o.CompliancePercentage
 	if o.Compliances != nil {
 		toSerialize["compliances"] = o.Compliances

@@ -7,6 +7,7 @@ Method | HTTP request | Description
 [**CountResultsCloudComplianceScan**](CloudScannerApi.md#CountResultsCloudComplianceScan) | **Post** /deepfence/scan/results/count/cloud-compliance | Get Cloud Compliance Scan Results
 [**IngestCloudComplianceScanStatus**](CloudScannerApi.md#IngestCloudComplianceScanStatus) | **Post** /deepfence/ingest/cloud-compliance-scan-status | Ingest Cloud Compliances
 [**IngestCloudCompliances**](CloudScannerApi.md#IngestCloudCompliances) | **Post** /deepfence/ingest/cloud-compliance | Ingest Cloud Compliances
+[**ListCloudComplianceScan**](CloudScannerApi.md#ListCloudComplianceScan) | **Post** /deepfence/scan/list/cloud-compliance | Get Cloud Compliance Scans List
 [**ResultsCloudComplianceScan**](CloudScannerApi.md#ResultsCloudComplianceScan) | **Post** /deepfence/scan/results/cloud-compliance | Get Cloud Compliance Scan Results
 [**StatusCloudComplianceScan**](CloudScannerApi.md#StatusCloudComplianceScan) | **Post** /deepfence/scan/status/cloud-compliance | Get Cloud Compliance Scan Status
 
@@ -191,6 +192,72 @@ Name | Type | Description  | Notes
 ### Return type
 
  (empty response body)
+
+### Authorization
+
+[bearer_token](../README.md#bearer_token)
+
+### HTTP request headers
+
+- **Content-Type**: application/json
+- **Accept**: application/json
+
+[[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints)
+[[Back to Model list]](../README.md#documentation-for-models)
+[[Back to README]](../README.md)
+
+
+## ListCloudComplianceScan
+
+> ModelScanListResp ListCloudComplianceScan(ctx).ModelScanListReq(modelScanListReq).Execute()
+
+Get Cloud Compliance Scans List
+
+
+
+### Example
+
+```go
+package main
+
+import (
+    "context"
+    "fmt"
+    "os"
+    openapiclient "github.com/deepfence/golang_deepfence_sdk/client"
+)
+
+func main() {
+    modelScanListReq := *openapiclient.NewModelScanListReq([]openapiclient.ModelNodeIdentifier{*openapiclient.NewModelNodeIdentifier("NodeId_example", "NodeType_example")}, *openapiclient.NewModelFetchWindow(int32(123), int32(123))) // ModelScanListReq |  (optional)
+
+    configuration := openapiclient.NewConfiguration()
+    apiClient := openapiclient.NewAPIClient(configuration)
+    resp, r, err := apiClient.CloudScannerApi.ListCloudComplianceScan(context.Background()).ModelScanListReq(modelScanListReq).Execute()
+    if err != nil {
+        fmt.Fprintf(os.Stderr, "Error when calling `CloudScannerApi.ListCloudComplianceScan``: %v\n", err)
+        fmt.Fprintf(os.Stderr, "Full HTTP response: %v\n", r)
+    }
+    // response from `ListCloudComplianceScan`: ModelScanListResp
+    fmt.Fprintf(os.Stdout, "Response from `CloudScannerApi.ListCloudComplianceScan`: %v\n", resp)
+}
+```
+
+### Path Parameters
+
+
+
+### Other Parameters
+
+Other parameters are passed through a pointer to a apiListCloudComplianceScanRequest struct via the builder pattern
+
+
+Name | Type | Description  | Notes
+------------- | ------------- | ------------- | -------------
+ **modelScanListReq** | [**ModelScanListReq**](ModelScanListReq.md) |  | 
+
+### Return type
+
+[**ModelScanListResp**](ModelScanListResp.md)
 
 ### Authorization
 

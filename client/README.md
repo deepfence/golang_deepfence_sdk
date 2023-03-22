@@ -90,6 +90,7 @@ Class | Method | HTTP request | Description
 *CloudScannerApi* | [**CountResultsCloudComplianceScan**](docs/CloudScannerApi.md#countresultscloudcompliancescan) | **Post** /deepfence/scan/results/count/cloud-compliance | Get Cloud Compliance Scan Results
 *CloudScannerApi* | [**IngestCloudComplianceScanStatus**](docs/CloudScannerApi.md#ingestcloudcompliancescanstatus) | **Post** /deepfence/ingest/cloud-compliance-scan-status | Ingest Cloud Compliances
 *CloudScannerApi* | [**IngestCloudCompliances**](docs/CloudScannerApi.md#ingestcloudcompliances) | **Post** /deepfence/ingest/cloud-compliance | Ingest Cloud Compliances
+*CloudScannerApi* | [**ListCloudComplianceScan**](docs/CloudScannerApi.md#listcloudcompliancescan) | **Post** /deepfence/scan/list/cloud-compliance | Get Cloud Compliance Scans List
 *CloudScannerApi* | [**ResultsCloudComplianceScan**](docs/CloudScannerApi.md#resultscloudcompliancescan) | **Post** /deepfence/scan/results/cloud-compliance | Get Cloud Compliance Scan Results
 *CloudScannerApi* | [**StatusCloudComplianceScan**](docs/CloudScannerApi.md#statuscloudcompliancescan) | **Post** /deepfence/scan/status/cloud-compliance | Get Cloud Compliance Scan Status
 *ComplianceApi* | [**CountResultsComplianceScan**](docs/ComplianceApi.md#countresultscompliancescan) | **Post** /deepfence/scan/results/count/compliance | Get Compliance Scans Results
@@ -129,6 +130,7 @@ Class | Method | HTTP request | Description
 *MalwareScanApi* | [**StatusMalwareScan**](docs/MalwareScanApi.md#statusmalwarescan) | **Post** /deepfence/scan/status/malware | Get Malware Scan Status
 *MalwareScanApi* | [**StopMalwareScan**](docs/MalwareScanApi.md#stopmalwarescan) | **Post** /deepfence/scan/stop/malware | Stop Malware Scan
 *RegistryApi* | [**AddRegistry**](docs/RegistryApi.md#addregistry) | **Post** /deepfence/registryaccount | Add Registry
+*RegistryApi* | [**AddRegistryGCR**](docs/RegistryApi.md#addregistrygcr) | **Post** /deepfence/registryaccount/gcr | Add Google Container Registry
 *RegistryApi* | [**CountImageStubs**](docs/RegistryApi.md#countimagestubs) | **Post** /deepfence/registryaccount/count/stubs | Count Image Stubs
 *RegistryApi* | [**CountImages**](docs/RegistryApi.md#countimages) | **Post** /deepfence/registryaccount/count/images | Count Registry Images
 *RegistryApi* | [**DeleteRegistry**](docs/RegistryApi.md#deleteregistry) | **Delete** /deepfence/registryaccount/{registry_id} | Delete Registry
@@ -226,7 +228,6 @@ Class | Method | HTTP request | Description
  - [ControlsAgentControls](docs/ControlsAgentControls.md)
  - [DetailedConnectionSummary](docs/DetailedConnectionSummary.md)
  - [DetailedNodeSummary](docs/DetailedNodeSummary.md)
- - [DetailedParent](docs/DetailedParent.md)
  - [DiagnosisDiagnosticLogsLink](docs/DiagnosisDiagnosticLogsLink.md)
  - [DiagnosisDiagnosticLogsStatus](docs/DiagnosisDiagnosticLogsStatus.md)
  - [DiagnosisDiagnosticNotification](docs/DiagnosisDiagnosticNotification.md)
@@ -236,6 +237,7 @@ Class | Method | HTTP request | Description
  - [DiagnosisNodeIdentifier](docs/DiagnosisNodeIdentifier.md)
  - [GraphNodeInfo](docs/GraphNodeInfo.md)
  - [GraphProviderThreatGraph](docs/GraphProviderThreatGraph.md)
+ - [GraphThreatFilters](docs/GraphThreatFilters.md)
  - [GraphThreatNodeInfo](docs/GraphThreatNodeInfo.md)
  - [GraphTopologyFilters](docs/GraphTopologyFilters.md)
  - [IngestersCloudCompliance](docs/IngestersCloudCompliance.md)
@@ -258,6 +260,7 @@ Class | Method | HTTP request | Description
  - [ModelApiAuthRequest](docs/ModelApiAuthRequest.md)
  - [ModelBasicNode](docs/ModelBasicNode.md)
  - [ModelCloudCompliance](docs/ModelCloudCompliance.md)
+ - [ModelCloudComplianceBenchmark](docs/ModelCloudComplianceBenchmark.md)
  - [ModelCloudComplianceScanDetails](docs/ModelCloudComplianceScanDetails.md)
  - [ModelCloudComplianceScanResult](docs/ModelCloudComplianceScanResult.md)
  - [ModelCloudNodeAccountInfo](docs/ModelCloudNodeAccountInfo.md)
@@ -336,11 +339,8 @@ Class | Method | HTTP request | Description
  - [ModelVulnerabilityScanConfigLanguage](docs/ModelVulnerabilityScanConfigLanguage.md)
  - [ModelVulnerabilityScanResult](docs/ModelVulnerabilityScanResult.md)
  - [ModelVulnerabilityScanTriggerReq](docs/ModelVulnerabilityScanTriggerReq.md)
- - [ReportColumn](docs/ReportColumn.md)
  - [ReportMetadataRow](docs/ReportMetadataRow.md)
  - [ReportRawReport](docs/ReportRawReport.md)
- - [ReportRow](docs/ReportRow.md)
- - [ReportTable](docs/ReportTable.md)
  - [ReportersContainsFilter](docs/ReportersContainsFilter.md)
  - [ReportersFieldsFilters](docs/ReportersFieldsFilters.md)
  - [ReportersMatchFilter](docs/ReportersMatchFilter.md)
