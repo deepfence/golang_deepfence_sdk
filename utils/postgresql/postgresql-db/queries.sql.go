@@ -192,6 +192,45 @@ func (q *Queries) CreateContainerRegistry(ctx context.Context, arg CreateContain
 	return i, err
 }
 
+const createIntegration = `-- name: CreateIntegration :one
+INSERT INTO integration (resource, filters, integration_type, interval_minutes, config)
+VALUES ($1, $2, $3, $4, $5)
+RETURNING id, resource, filters, integration_type, interval_minutes, last_sent_time, config, error_msg, created_by_user_id, created_at, updated_at
+`
+
+type CreateIntegrationParams struct {
+	Resource        string
+	Filters         json.RawMessage
+	IntegrationType string
+	IntervalMinutes int32
+	Config          json.RawMessage
+}
+
+func (q *Queries) CreateIntegration(ctx context.Context, arg CreateIntegrationParams) (Integration, error) {
+	row := q.db.QueryRowContext(ctx, createIntegration,
+		arg.Resource,
+		arg.Filters,
+		arg.IntegrationType,
+		arg.IntervalMinutes,
+		arg.Config,
+	)
+	var i Integration
+	err := row.Scan(
+		&i.ID,
+		&i.Resource,
+		&i.Filters,
+		&i.IntegrationType,
+		&i.IntervalMinutes,
+		&i.LastSentTime,
+		&i.Config,
+		&i.ErrorMsg,
+		&i.CreatedByUserID,
+		&i.CreatedAt,
+		&i.UpdatedAt,
+	)
+	return i, err
+}
+
 const createPasswordReset = `-- name: CreatePasswordReset :one
 INSERT INTO password_reset (code, expiry, user_id)
 VALUES ($1, $2, $3)
@@ -1311,6 +1350,73 @@ func (q *Queries) GetContainerRegistrySafe(ctx context.Context, id int32) (GetCo
 		&i.UpdatedAt,
 	)
 	return i, err
+}
+
+const getIntegrationFromID = `-- name: GetIntegrationFromID :one
+SELECT id, resource, filters, integration_type, interval_minutes, last_sent_time, config, error_msg, created_by_user_id, created_at, updated_at
+FROM integration
+WHERE id = $1
+LIMIT 1
+`
+
+func (q *Queries) GetIntegrationFromID(ctx context.Context, id int32) (Integration, error) {
+	row := q.db.QueryRowContext(ctx, getIntegrationFromID, id)
+	var i Integration
+	err := row.Scan(
+		&i.ID,
+		&i.Resource,
+		&i.Filters,
+		&i.IntegrationType,
+		&i.IntervalMinutes,
+		&i.LastSentTime,
+		&i.Config,
+		&i.ErrorMsg,
+		&i.CreatedByUserID,
+		&i.CreatedAt,
+		&i.UpdatedAt,
+	)
+	return i, err
+}
+
+const getIntegrationFromType = `-- name: GetIntegrationFromType :many
+SELECT id, resource, filters, integration_type, interval_minutes, last_sent_time, config, error_msg, created_by_user_id, created_at, updated_at
+FROM integration
+WHERE integration_type = $1
+`
+
+func (q *Queries) GetIntegrationFromType(ctx context.Context, integrationType string) ([]Integration, error) {
+	rows, err := q.db.QueryContext(ctx, getIntegrationFromType, integrationType)
+	if err != nil {
+		return nil, err
+	}
+	defer rows.Close()
+	var items []Integration
+	for rows.Next() {
+		var i Integration
+		if err := rows.Scan(
+			&i.ID,
+			&i.Resource,
+			&i.Filters,
+			&i.IntegrationType,
+			&i.IntervalMinutes,
+			&i.LastSentTime,
+			&i.Config,
+			&i.ErrorMsg,
+			&i.CreatedByUserID,
+			&i.CreatedAt,
+			&i.UpdatedAt,
+		); err != nil {
+			return nil, err
+		}
+		items = append(items, i)
+	}
+	if err := rows.Close(); err != nil {
+		return nil, err
+	}
+	if err := rows.Err(); err != nil {
+		return nil, err
+	}
+	return items, nil
 }
 
 const getPasswordHash = `-- name: GetPasswordHash :one

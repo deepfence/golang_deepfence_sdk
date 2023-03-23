@@ -541,3 +541,19 @@ WITH deleted AS (
   RETURNING *
 )
 SELECT count(*) FROM deleted;
+
+-- name: CreateIntegration :one
+INSERT INTO integration (resource, filters, integration_type, interval_minutes, config)
+VALUES ($1, $2, $3, $4, $5)
+RETURNING *;
+
+-- name: GetIntegrationFromID :one
+SELECT *
+FROM integration
+WHERE id = $1
+LIMIT 1;
+
+-- name: GetIntegrationFromType :many
+SELECT *
+FROM integration
+WHERE integration_type = $1;
