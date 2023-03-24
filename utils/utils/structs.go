@@ -1,5 +1,7 @@
 package utils
 
+import "encoding/json"
+
 type ScanSbomRequest struct {
 	SbomParameters
 	SbomBody
@@ -63,4 +65,12 @@ type ReportFilters struct {
 	ScanType            string   `json:"scan_type"`
 	NodeType            string   `json:"node_type"`
 	SeverityOrCheckType []string `json:"severity_or_check_type"`
+}
+
+func (r ReportFilters) String() string {
+	if b, err := json.Marshal(r); err != nil {
+		return ""
+	} else {
+		return string(b)
+	}
 }
