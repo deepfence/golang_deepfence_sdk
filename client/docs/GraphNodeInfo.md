@@ -5,22 +5,17 @@
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
 **CloudComplianceCount** | **int32** |  | 
-**CloudComplianceScanId** | **string** |  | 
 **ComplianceCount** | **int32** |  | 
-**ComplianceScanId** | **string** |  | 
-**ImageName** | **string** |  | 
 **Name** | **string** |  | 
 **NodeId** | **string** |  | 
 **SecretsCount** | **int32** |  | 
-**SecretsScanId** | **string** |  | 
 **VulnerabilityCount** | **int32** |  | 
-**VulnerabilityScanId** | **string** |  | 
 
 ## Methods
 
 ### NewGraphNodeInfo
 
-`func NewGraphNodeInfo(cloudComplianceCount int32, cloudComplianceScanId string, complianceCount int32, complianceScanId string, imageName string, name string, nodeId string, secretsCount int32, secretsScanId string, vulnerabilityCount int32, vulnerabilityScanId string, ) *GraphNodeInfo`
+`func NewGraphNodeInfo(cloudComplianceCount int32, complianceCount int32, name string, nodeId string, secretsCount int32, vulnerabilityCount int32, ) *GraphNodeInfo`
 
 NewGraphNodeInfo instantiates a new GraphNodeInfo object
 This constructor will assign default values to properties that have it defined,
@@ -55,26 +50,6 @@ and a boolean to check if the value has been set.
 SetCloudComplianceCount sets CloudComplianceCount field to given value.
 
 
-### GetCloudComplianceScanId
-
-`func (o *GraphNodeInfo) GetCloudComplianceScanId() string`
-
-GetCloudComplianceScanId returns the CloudComplianceScanId field if non-nil, zero value otherwise.
-
-### GetCloudComplianceScanIdOk
-
-`func (o *GraphNodeInfo) GetCloudComplianceScanIdOk() (*string, bool)`
-
-GetCloudComplianceScanIdOk returns a tuple with the CloudComplianceScanId field if it's non-nil, zero value otherwise
-and a boolean to check if the value has been set.
-
-### SetCloudComplianceScanId
-
-`func (o *GraphNodeInfo) SetCloudComplianceScanId(v string)`
-
-SetCloudComplianceScanId sets CloudComplianceScanId field to given value.
-
-
 ### GetComplianceCount
 
 `func (o *GraphNodeInfo) GetComplianceCount() int32`
@@ -93,46 +68,6 @@ and a boolean to check if the value has been set.
 `func (o *GraphNodeInfo) SetComplianceCount(v int32)`
 
 SetComplianceCount sets ComplianceCount field to given value.
-
-
-### GetComplianceScanId
-
-`func (o *GraphNodeInfo) GetComplianceScanId() string`
-
-GetComplianceScanId returns the ComplianceScanId field if non-nil, zero value otherwise.
-
-### GetComplianceScanIdOk
-
-`func (o *GraphNodeInfo) GetComplianceScanIdOk() (*string, bool)`
-
-GetComplianceScanIdOk returns a tuple with the ComplianceScanId field if it's non-nil, zero value otherwise
-and a boolean to check if the value has been set.
-
-### SetComplianceScanId
-
-`func (o *GraphNodeInfo) SetComplianceScanId(v string)`
-
-SetComplianceScanId sets ComplianceScanId field to given value.
-
-
-### GetImageName
-
-`func (o *GraphNodeInfo) GetImageName() string`
-
-GetImageName returns the ImageName field if non-nil, zero value otherwise.
-
-### GetImageNameOk
-
-`func (o *GraphNodeInfo) GetImageNameOk() (*string, bool)`
-
-GetImageNameOk returns a tuple with the ImageName field if it's non-nil, zero value otherwise
-and a boolean to check if the value has been set.
-
-### SetImageName
-
-`func (o *GraphNodeInfo) SetImageName(v string)`
-
-SetImageName sets ImageName field to given value.
 
 
 ### GetName
@@ -195,26 +130,6 @@ and a boolean to check if the value has been set.
 SetSecretsCount sets SecretsCount field to given value.
 
 
-### GetSecretsScanId
-
-`func (o *GraphNodeInfo) GetSecretsScanId() string`
-
-GetSecretsScanId returns the SecretsScanId field if non-nil, zero value otherwise.
-
-### GetSecretsScanIdOk
-
-`func (o *GraphNodeInfo) GetSecretsScanIdOk() (*string, bool)`
-
-GetSecretsScanIdOk returns a tuple with the SecretsScanId field if it's non-nil, zero value otherwise
-and a boolean to check if the value has been set.
-
-### SetSecretsScanId
-
-`func (o *GraphNodeInfo) SetSecretsScanId(v string)`
-
-SetSecretsScanId sets SecretsScanId field to given value.
-
-
 ### GetVulnerabilityCount
 
 `func (o *GraphNodeInfo) GetVulnerabilityCount() int32`
@@ -233,26 +148,6 @@ and a boolean to check if the value has been set.
 `func (o *GraphNodeInfo) SetVulnerabilityCount(v int32)`
 
 SetVulnerabilityCount sets VulnerabilityCount field to given value.
-
-
-### GetVulnerabilityScanId
-
-`func (o *GraphNodeInfo) GetVulnerabilityScanId() string`
-
-GetVulnerabilityScanId returns the VulnerabilityScanId field if non-nil, zero value otherwise.
-
-### GetVulnerabilityScanIdOk
-
-`func (o *GraphNodeInfo) GetVulnerabilityScanIdOk() (*string, bool)`
-
-GetVulnerabilityScanIdOk returns a tuple with the VulnerabilityScanId field if it's non-nil, zero value otherwise
-and a boolean to check if the value has been set.
-
-### SetVulnerabilityScanId
-
-`func (o *GraphNodeInfo) SetVulnerabilityScanId(v string)`
-
-SetVulnerabilityScanId sets VulnerabilityScanId field to given value.
 
 
 

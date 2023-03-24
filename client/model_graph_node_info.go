@@ -21,35 +21,25 @@ var _ MappedNullable = &GraphNodeInfo{}
 // GraphNodeInfo struct for GraphNodeInfo
 type GraphNodeInfo struct {
 	CloudComplianceCount int32 `json:"cloud_compliance_count"`
-	CloudComplianceScanId string `json:"cloud_compliance_scan_id"`
 	ComplianceCount int32 `json:"compliance_count"`
-	ComplianceScanId string `json:"compliance_scan_id"`
-	ImageName string `json:"image_name"`
 	Name string `json:"name"`
 	NodeId string `json:"node_id"`
 	SecretsCount int32 `json:"secrets_count"`
-	SecretsScanId string `json:"secrets_scan_id"`
 	VulnerabilityCount int32 `json:"vulnerability_count"`
-	VulnerabilityScanId string `json:"vulnerability_scan_id"`
 }
 
 // NewGraphNodeInfo instantiates a new GraphNodeInfo object
 // This constructor will assign default values to properties that have it defined,
 // and makes sure properties required by API are set, but the set of arguments
 // will change when the set of required properties is changed
-func NewGraphNodeInfo(cloudComplianceCount int32, cloudComplianceScanId string, complianceCount int32, complianceScanId string, imageName string, name string, nodeId string, secretsCount int32, secretsScanId string, vulnerabilityCount int32, vulnerabilityScanId string) *GraphNodeInfo {
+func NewGraphNodeInfo(cloudComplianceCount int32, complianceCount int32, name string, nodeId string, secretsCount int32, vulnerabilityCount int32) *GraphNodeInfo {
 	this := GraphNodeInfo{}
 	this.CloudComplianceCount = cloudComplianceCount
-	this.CloudComplianceScanId = cloudComplianceScanId
 	this.ComplianceCount = complianceCount
-	this.ComplianceScanId = complianceScanId
-	this.ImageName = imageName
 	this.Name = name
 	this.NodeId = nodeId
 	this.SecretsCount = secretsCount
-	this.SecretsScanId = secretsScanId
 	this.VulnerabilityCount = vulnerabilityCount
-	this.VulnerabilityScanId = vulnerabilityScanId
 	return &this
 }
 
@@ -85,30 +75,6 @@ func (o *GraphNodeInfo) SetCloudComplianceCount(v int32) {
 	o.CloudComplianceCount = v
 }
 
-// GetCloudComplianceScanId returns the CloudComplianceScanId field value
-func (o *GraphNodeInfo) GetCloudComplianceScanId() string {
-	if o == nil {
-		var ret string
-		return ret
-	}
-
-	return o.CloudComplianceScanId
-}
-
-// GetCloudComplianceScanIdOk returns a tuple with the CloudComplianceScanId field value
-// and a boolean to check if the value has been set.
-func (o *GraphNodeInfo) GetCloudComplianceScanIdOk() (*string, bool) {
-	if o == nil {
-		return nil, false
-	}
-	return &o.CloudComplianceScanId, true
-}
-
-// SetCloudComplianceScanId sets field value
-func (o *GraphNodeInfo) SetCloudComplianceScanId(v string) {
-	o.CloudComplianceScanId = v
-}
-
 // GetComplianceCount returns the ComplianceCount field value
 func (o *GraphNodeInfo) GetComplianceCount() int32 {
 	if o == nil {
@@ -131,54 +97,6 @@ func (o *GraphNodeInfo) GetComplianceCountOk() (*int32, bool) {
 // SetComplianceCount sets field value
 func (o *GraphNodeInfo) SetComplianceCount(v int32) {
 	o.ComplianceCount = v
-}
-
-// GetComplianceScanId returns the ComplianceScanId field value
-func (o *GraphNodeInfo) GetComplianceScanId() string {
-	if o == nil {
-		var ret string
-		return ret
-	}
-
-	return o.ComplianceScanId
-}
-
-// GetComplianceScanIdOk returns a tuple with the ComplianceScanId field value
-// and a boolean to check if the value has been set.
-func (o *GraphNodeInfo) GetComplianceScanIdOk() (*string, bool) {
-	if o == nil {
-		return nil, false
-	}
-	return &o.ComplianceScanId, true
-}
-
-// SetComplianceScanId sets field value
-func (o *GraphNodeInfo) SetComplianceScanId(v string) {
-	o.ComplianceScanId = v
-}
-
-// GetImageName returns the ImageName field value
-func (o *GraphNodeInfo) GetImageName() string {
-	if o == nil {
-		var ret string
-		return ret
-	}
-
-	return o.ImageName
-}
-
-// GetImageNameOk returns a tuple with the ImageName field value
-// and a boolean to check if the value has been set.
-func (o *GraphNodeInfo) GetImageNameOk() (*string, bool) {
-	if o == nil {
-		return nil, false
-	}
-	return &o.ImageName, true
-}
-
-// SetImageName sets field value
-func (o *GraphNodeInfo) SetImageName(v string) {
-	o.ImageName = v
 }
 
 // GetName returns the Name field value
@@ -253,30 +171,6 @@ func (o *GraphNodeInfo) SetSecretsCount(v int32) {
 	o.SecretsCount = v
 }
 
-// GetSecretsScanId returns the SecretsScanId field value
-func (o *GraphNodeInfo) GetSecretsScanId() string {
-	if o == nil {
-		var ret string
-		return ret
-	}
-
-	return o.SecretsScanId
-}
-
-// GetSecretsScanIdOk returns a tuple with the SecretsScanId field value
-// and a boolean to check if the value has been set.
-func (o *GraphNodeInfo) GetSecretsScanIdOk() (*string, bool) {
-	if o == nil {
-		return nil, false
-	}
-	return &o.SecretsScanId, true
-}
-
-// SetSecretsScanId sets field value
-func (o *GraphNodeInfo) SetSecretsScanId(v string) {
-	o.SecretsScanId = v
-}
-
 // GetVulnerabilityCount returns the VulnerabilityCount field value
 func (o *GraphNodeInfo) GetVulnerabilityCount() int32 {
 	if o == nil {
@@ -301,30 +195,6 @@ func (o *GraphNodeInfo) SetVulnerabilityCount(v int32) {
 	o.VulnerabilityCount = v
 }
 
-// GetVulnerabilityScanId returns the VulnerabilityScanId field value
-func (o *GraphNodeInfo) GetVulnerabilityScanId() string {
-	if o == nil {
-		var ret string
-		return ret
-	}
-
-	return o.VulnerabilityScanId
-}
-
-// GetVulnerabilityScanIdOk returns a tuple with the VulnerabilityScanId field value
-// and a boolean to check if the value has been set.
-func (o *GraphNodeInfo) GetVulnerabilityScanIdOk() (*string, bool) {
-	if o == nil {
-		return nil, false
-	}
-	return &o.VulnerabilityScanId, true
-}
-
-// SetVulnerabilityScanId sets field value
-func (o *GraphNodeInfo) SetVulnerabilityScanId(v string) {
-	o.VulnerabilityScanId = v
-}
-
 func (o GraphNodeInfo) MarshalJSON() ([]byte, error) {
 	toSerialize,err := o.ToMap()
 	if err != nil {
@@ -336,16 +206,11 @@ func (o GraphNodeInfo) MarshalJSON() ([]byte, error) {
 func (o GraphNodeInfo) ToMap() (map[string]interface{}, error) {
 	toSerialize := map[string]interface{}{}
 	toSerialize["cloud_compliance_count"] = o.CloudComplianceCount
-	toSerialize["cloud_compliance_scan_id"] = o.CloudComplianceScanId
 	toSerialize["compliance_count"] = o.ComplianceCount
-	toSerialize["compliance_scan_id"] = o.ComplianceScanId
-	toSerialize["image_name"] = o.ImageName
 	toSerialize["name"] = o.Name
 	toSerialize["node_id"] = o.NodeId
 	toSerialize["secrets_count"] = o.SecretsCount
-	toSerialize["secrets_scan_id"] = o.SecretsScanId
 	toSerialize["vulnerability_count"] = o.VulnerabilityCount
-	toSerialize["vulnerability_scan_id"] = o.VulnerabilityScanId
 	return toSerialize, nil
 }
 

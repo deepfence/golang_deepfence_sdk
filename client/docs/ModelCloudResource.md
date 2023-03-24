@@ -4,15 +4,25 @@
 
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
+**CloudComplianceScanStatus** | **string** |  | 
+**CloudCompliancesCount** | **int32** |  | 
+**ComplianceScanStatus** | **string** |  | 
+**CompliancesCount** | **int32** |  | 
+**MalwareScanStatus** | **string** |  | 
+**MalwaresCount** | **int32** |  | 
 **NodeId** | **string** |  | 
 **NodeName** | **string** |  | 
 **NodeType** | **string** |  | 
+**SecretScanStatus** | **string** |  | 
+**SecretsCount** | **int32** |  | 
+**VulnerabilitiesCount** | **int32** |  | 
+**VulnerabilityScanStatus** | **string** |  | 
 
 ## Methods
 
 ### NewModelCloudResource
 
-`func NewModelCloudResource(nodeId string, nodeName string, nodeType string, ) *ModelCloudResource`
+`func NewModelCloudResource(cloudComplianceScanStatus string, cloudCompliancesCount int32, complianceScanStatus string, compliancesCount int32, malwareScanStatus string, malwaresCount int32, nodeId string, nodeName string, nodeType string, secretScanStatus string, secretsCount int32, vulnerabilitiesCount int32, vulnerabilityScanStatus string, ) *ModelCloudResource`
 
 NewModelCloudResource instantiates a new ModelCloudResource object
 This constructor will assign default values to properties that have it defined,
@@ -26,6 +36,126 @@ will change when the set of required properties is changed
 NewModelCloudResourceWithDefaults instantiates a new ModelCloudResource object
 This constructor will only assign default values to properties that have it defined,
 but it doesn't guarantee that properties required by API are set
+
+### GetCloudComplianceScanStatus
+
+`func (o *ModelCloudResource) GetCloudComplianceScanStatus() string`
+
+GetCloudComplianceScanStatus returns the CloudComplianceScanStatus field if non-nil, zero value otherwise.
+
+### GetCloudComplianceScanStatusOk
+
+`func (o *ModelCloudResource) GetCloudComplianceScanStatusOk() (*string, bool)`
+
+GetCloudComplianceScanStatusOk returns a tuple with the CloudComplianceScanStatus field if it's non-nil, zero value otherwise
+and a boolean to check if the value has been set.
+
+### SetCloudComplianceScanStatus
+
+`func (o *ModelCloudResource) SetCloudComplianceScanStatus(v string)`
+
+SetCloudComplianceScanStatus sets CloudComplianceScanStatus field to given value.
+
+
+### GetCloudCompliancesCount
+
+`func (o *ModelCloudResource) GetCloudCompliancesCount() int32`
+
+GetCloudCompliancesCount returns the CloudCompliancesCount field if non-nil, zero value otherwise.
+
+### GetCloudCompliancesCountOk
+
+`func (o *ModelCloudResource) GetCloudCompliancesCountOk() (*int32, bool)`
+
+GetCloudCompliancesCountOk returns a tuple with the CloudCompliancesCount field if it's non-nil, zero value otherwise
+and a boolean to check if the value has been set.
+
+### SetCloudCompliancesCount
+
+`func (o *ModelCloudResource) SetCloudCompliancesCount(v int32)`
+
+SetCloudCompliancesCount sets CloudCompliancesCount field to given value.
+
+
+### GetComplianceScanStatus
+
+`func (o *ModelCloudResource) GetComplianceScanStatus() string`
+
+GetComplianceScanStatus returns the ComplianceScanStatus field if non-nil, zero value otherwise.
+
+### GetComplianceScanStatusOk
+
+`func (o *ModelCloudResource) GetComplianceScanStatusOk() (*string, bool)`
+
+GetComplianceScanStatusOk returns a tuple with the ComplianceScanStatus field if it's non-nil, zero value otherwise
+and a boolean to check if the value has been set.
+
+### SetComplianceScanStatus
+
+`func (o *ModelCloudResource) SetComplianceScanStatus(v string)`
+
+SetComplianceScanStatus sets ComplianceScanStatus field to given value.
+
+
+### GetCompliancesCount
+
+`func (o *ModelCloudResource) GetCompliancesCount() int32`
+
+GetCompliancesCount returns the CompliancesCount field if non-nil, zero value otherwise.
+
+### GetCompliancesCountOk
+
+`func (o *ModelCloudResource) GetCompliancesCountOk() (*int32, bool)`
+
+GetCompliancesCountOk returns a tuple with the CompliancesCount field if it's non-nil, zero value otherwise
+and a boolean to check if the value has been set.
+
+### SetCompliancesCount
+
+`func (o *ModelCloudResource) SetCompliancesCount(v int32)`
+
+SetCompliancesCount sets CompliancesCount field to given value.
+
+
+### GetMalwareScanStatus
+
+`func (o *ModelCloudResource) GetMalwareScanStatus() string`
+
+GetMalwareScanStatus returns the MalwareScanStatus field if non-nil, zero value otherwise.
+
+### GetMalwareScanStatusOk
+
+`func (o *ModelCloudResource) GetMalwareScanStatusOk() (*string, bool)`
+
+GetMalwareScanStatusOk returns a tuple with the MalwareScanStatus field if it's non-nil, zero value otherwise
+and a boolean to check if the value has been set.
+
+### SetMalwareScanStatus
+
+`func (o *ModelCloudResource) SetMalwareScanStatus(v string)`
+
+SetMalwareScanStatus sets MalwareScanStatus field to given value.
+
+
+### GetMalwaresCount
+
+`func (o *ModelCloudResource) GetMalwaresCount() int32`
+
+GetMalwaresCount returns the MalwaresCount field if non-nil, zero value otherwise.
+
+### GetMalwaresCountOk
+
+`func (o *ModelCloudResource) GetMalwaresCountOk() (*int32, bool)`
+
+GetMalwaresCountOk returns a tuple with the MalwaresCount field if it's non-nil, zero value otherwise
+and a boolean to check if the value has been set.
+
+### SetMalwaresCount
+
+`func (o *ModelCloudResource) SetMalwaresCount(v int32)`
+
+SetMalwaresCount sets MalwaresCount field to given value.
+
 
 ### GetNodeId
 
@@ -85,6 +215,86 @@ and a boolean to check if the value has been set.
 `func (o *ModelCloudResource) SetNodeType(v string)`
 
 SetNodeType sets NodeType field to given value.
+
+
+### GetSecretScanStatus
+
+`func (o *ModelCloudResource) GetSecretScanStatus() string`
+
+GetSecretScanStatus returns the SecretScanStatus field if non-nil, zero value otherwise.
+
+### GetSecretScanStatusOk
+
+`func (o *ModelCloudResource) GetSecretScanStatusOk() (*string, bool)`
+
+GetSecretScanStatusOk returns a tuple with the SecretScanStatus field if it's non-nil, zero value otherwise
+and a boolean to check if the value has been set.
+
+### SetSecretScanStatus
+
+`func (o *ModelCloudResource) SetSecretScanStatus(v string)`
+
+SetSecretScanStatus sets SecretScanStatus field to given value.
+
+
+### GetSecretsCount
+
+`func (o *ModelCloudResource) GetSecretsCount() int32`
+
+GetSecretsCount returns the SecretsCount field if non-nil, zero value otherwise.
+
+### GetSecretsCountOk
+
+`func (o *ModelCloudResource) GetSecretsCountOk() (*int32, bool)`
+
+GetSecretsCountOk returns a tuple with the SecretsCount field if it's non-nil, zero value otherwise
+and a boolean to check if the value has been set.
+
+### SetSecretsCount
+
+`func (o *ModelCloudResource) SetSecretsCount(v int32)`
+
+SetSecretsCount sets SecretsCount field to given value.
+
+
+### GetVulnerabilitiesCount
+
+`func (o *ModelCloudResource) GetVulnerabilitiesCount() int32`
+
+GetVulnerabilitiesCount returns the VulnerabilitiesCount field if non-nil, zero value otherwise.
+
+### GetVulnerabilitiesCountOk
+
+`func (o *ModelCloudResource) GetVulnerabilitiesCountOk() (*int32, bool)`
+
+GetVulnerabilitiesCountOk returns a tuple with the VulnerabilitiesCount field if it's non-nil, zero value otherwise
+and a boolean to check if the value has been set.
+
+### SetVulnerabilitiesCount
+
+`func (o *ModelCloudResource) SetVulnerabilitiesCount(v int32)`
+
+SetVulnerabilitiesCount sets VulnerabilitiesCount field to given value.
+
+
+### GetVulnerabilityScanStatus
+
+`func (o *ModelCloudResource) GetVulnerabilityScanStatus() string`
+
+GetVulnerabilityScanStatus returns the VulnerabilityScanStatus field if non-nil, zero value otherwise.
+
+### GetVulnerabilityScanStatusOk
+
+`func (o *ModelCloudResource) GetVulnerabilityScanStatusOk() (*string, bool)`
+
+GetVulnerabilityScanStatusOk returns a tuple with the VulnerabilityScanStatus field if it's non-nil, zero value otherwise
+and a boolean to check if the value has been set.
+
+### SetVulnerabilityScanStatus
+
+`func (o *ModelCloudResource) SetVulnerabilityScanStatus(v string)`
+
+SetVulnerabilityScanStatus sets VulnerabilityScanStatus field to given value.
 
 
 

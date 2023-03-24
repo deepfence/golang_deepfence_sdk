@@ -6259,38 +6259,23 @@ components:
       properties:
         cloud_compliance_count:
           type: integer
-        cloud_compliance_scan_id:
-          type: string
         compliance_count:
           type: integer
-        compliance_scan_id:
-          type: string
-        image_name:
-          type: string
         name:
           type: string
         node_id:
           type: string
         secrets_count:
           type: integer
-        secrets_scan_id:
-          type: string
         vulnerability_count:
           type: integer
-        vulnerability_scan_id:
-          type: string
       required:
       - cloud_compliance_count
-      - cloud_compliance_scan_id
       - compliance_count
-      - compliance_scan_id
-      - image_name
       - name
       - node_id
       - secrets_count
-      - secrets_scan_id
       - vulnerability_count
-      - vulnerability_scan_id
       type: object
     GraphProviderThreatGraph:
       properties:
@@ -7779,20 +7764,60 @@ components:
       type: object
     ModelCloudResource:
       example:
-        node_type: node_type
+        secret_scan_status: secret_scan_status
+        vulnerabilities_count: 5
+        compliance_scan_status: compliance_scan_status
+        secrets_count: 5
+        malwares_count: 1
         node_name: node_name
+        cloud_compliances_count: 0
+        node_type: node_type
+        cloud_compliance_scan_status: cloud_compliance_scan_status
+        compliances_count: 6
+        malware_scan_status: malware_scan_status
+        vulnerability_scan_status: vulnerability_scan_status
         node_id: node_id
       properties:
+        cloud_compliance_scan_status:
+          type: string
+        cloud_compliances_count:
+          type: integer
+        compliance_scan_status:
+          type: string
+        compliances_count:
+          type: integer
+        malware_scan_status:
+          type: string
+        malwares_count:
+          type: integer
         node_id:
           type: string
         node_name:
           type: string
         node_type:
           type: string
+        secret_scan_status:
+          type: string
+        secrets_count:
+          type: integer
+        vulnerabilities_count:
+          type: integer
+        vulnerability_scan_status:
+          type: string
       required:
+      - cloud_compliance_scan_status
+      - cloud_compliances_count
+      - compliance_scan_status
+      - compliances_count
+      - malware_scan_status
+      - malwares_count
       - node_id
       - node_name
       - node_type
+      - secret_scan_status
+      - secrets_count
+      - vulnerabilities_count
+      - vulnerability_scan_status
       type: object
     ModelCompliance:
       example:
