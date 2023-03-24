@@ -35,11 +35,9 @@ const (
 	CheckAgentUpgradeTask     = "tasks_check_agent_upgrade"
 	SyncRegistryTask          = "task_sync_registry"
 	TriggerConsoleActionsTask = "trigger_console_actions"
-	ReportGeneratorTask       = "tasks_report_generator"
 	SecretScanTask            = "task_secret_scan"
 	MalwareScanTask           = "task_malware_scan"
-	ReportGeneratorTaskXLSX   = "tasks_generate_xlsx_report"
-	ReportGeneratorTaskPDF    = "tasks_generate_pdf_report"
+	ReportGeneratorTask       = "tasks_generate_report"
 	ComputeThreatTask         = "compute_threat"
 	SendNotificationTask      = "tasks_send_notification"
 	CloudComplianceTask       = "cloud_compliance"
@@ -139,9 +137,15 @@ var Tasks = []string{
 	ReportGeneratorTask,
 	SecretScanTask,
 	MalwareScanTask,
-	ReportGeneratorTaskXLSX,
-	ReportGeneratorTaskPDF,
+	ReportGeneratorTask,
 	ComputeThreatTask,
 	SendNotificationTask,
 	CloudComplianceTask,
 }
+
+type ReportType string
+
+const (
+	ReportXLSX ReportType = "xlsx"
+	ReportPDF  ReportType = "pdf"
+)

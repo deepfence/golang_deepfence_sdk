@@ -51,3 +51,16 @@ type MalwareScanParameters struct {
 	Mode                  string `json:"mode,omitempty"`
 	RegistryId            string `json:"registry_id,omitempty"`
 }
+
+type ReportParams struct {
+	ReportID   string        `json:"report_id"`
+	ReportType string        `json:"report_type"`
+	Duration   int           `json:"duration"`
+	Filters    ReportFilters `json:"filters"`
+}
+
+type ReportFilters struct {
+	ScanType            string   `json:"scan_type"`
+	NodeType            string   `json:"node_type"`
+	SeverityOrCheckType []string `json:"severity_or_check_type"`
+}
