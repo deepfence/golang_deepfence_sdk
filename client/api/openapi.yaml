@@ -5947,6 +5947,9 @@ components:
             type: type
             labelMinor: labelMinor
             immediate_parent_id: immediate_parent_id
+            ids:
+            - ids
+            - ids
             rank: rank
             id: id
             metrics:
@@ -6045,6 +6048,9 @@ components:
         type: type
         labelMinor: labelMinor
         immediate_parent_id: immediate_parent_id
+        ids:
+        - ids
+        - ids
         rank: rank
         id: id
         metrics:
@@ -6059,6 +6065,10 @@ components:
           type: array
         id:
           type: string
+        ids:
+          items:
+            type: string
+          type: array
         image:
           type: string
         immediate_parent_id:
@@ -6232,6 +6242,18 @@ components:
       nullable: true
       type: string
     GraphCloudProviderFilter:
+      example:
+        account_ids:
+        - account_ids
+        - account_ids
+      properties:
+        account_ids:
+          items:
+            type: string
+          nullable: true
+          type: array
+      required:
+      - account_ids
       type: object
     GraphNodeInfo:
       properties:
@@ -6295,21 +6317,31 @@ components:
     GraphThreatFilters:
       example:
         cloud_resource_only: true
-        aws_filter: "{}"
-        gcp_filter: "{}"
-        type: vulnerability
-        azure_filter: "{}"
+        aws_filter:
+          account_ids:
+          - account_ids
+          - account_ids
+        gcp_filter:
+          account_ids:
+          - account_ids
+          - account_ids
+        type: all
+        azure_filter:
+          account_ids:
+          - account_ids
+          - account_ids
       properties:
         aws_filter:
-          type: object
+          $ref: '#/components/schemas/GraphCloudProviderFilter'
         azure_filter:
-          type: object
+          $ref: '#/components/schemas/GraphCloudProviderFilter'
         cloud_resource_only:
           type: boolean
         gcp_filter:
-          type: object
+          $ref: '#/components/schemas/GraphCloudProviderFilter'
         type:
           enum:
+          - all
           - vulnerability
           - secret
           - malware
@@ -6738,19 +6770,24 @@ components:
       type: object
     IngestersMalware:
       example:
-        Meta:
-        - Meta
-        - Meta
-        ImageLayerId: ImageLayerId
-        SeverityScore: 6
-        FileSevScore: 0
-        StringsToMatch:
-        - StringsToMatch
-        - StringsToMatch
+        summary: summary
+        image_layer_id: image_layer_id
+        rule_name: rule_name
         masked: true
-        FileSeverity: FileSeverity
-        MetaRules:
+        file_sev_score: 0.8008281904610115
+        file_severity: file_severity
+        strings_to_match:
+        - strings_to_match
+        - strings_to_match
+        meta:
+        - meta
+        - meta
+        complete_filename: complete_filename
+        scan_id: scan_id
+        class: class
+        meta_rules:
           date: date
+          reference: reference
           rule_id: rule_id
           filetype: filetype
           rule_name: rule_name
@@ -6758,52 +6795,63 @@ components:
           description: description
           version: version
           info: info
+        severity_score: 6
+        timestamp: 2000-01-23T04:56:07.000+00:00
+      properties:
+        class:
+          type: string
+        complete_filename:
+          type: string
+        file_sev_score:
+          type: number
+        file_severity:
+          type: string
+        image_layer_id:
+          type: string
+        masked:
+          type: boolean
+        meta:
+          items:
+            type: string
+          nullable: true
+          type: array
+        meta_rules:
+          $ref: '#/components/schemas/IngestersMetaRules'
+        rule_name:
+          type: string
+        scan_id:
+          type: string
+        severity_score:
+          type: integer
+        strings_to_match:
+          items:
+            type: string
+          nullable: true
+          type: array
+        summary:
+          type: string
+        timestamp:
+          format: date-time
+          type: string
+      type: object
+    IngestersMalwareScanStatus:
+      example:
         '@timestamp': 2000-01-23T04:56:07.000+00:00
-        CompleteFilename: CompleteFilename
-        Summary: Summary
-        Class: Class
+        scan_status: scan_status
         scan_id: scan_id
-        RuleName: RuleName
       properties:
         '@timestamp':
           format: date-time
           type: string
-        Class:
-          type: string
-        CompleteFilename:
-          type: string
-        FileSevScore:
-          type: integer
-        FileSeverity:
-          type: string
-        ImageLayerId:
-          type: string
-        Meta:
-          items:
-            type: string
-          nullable: true
-          type: array
-        MetaRules:
-          $ref: '#/components/schemas/IngestersMalwareRule'
-        RuleName:
-          type: string
-        SeverityScore:
-          type: integer
-        StringsToMatch:
-          items:
-            type: string
-          nullable: true
-          type: array
-        Summary:
-          type: string
-        masked:
-          type: boolean
         scan_id:
           type: string
+        scan_status:
+          type: string
       type: object
-    IngestersMalwareRule:
+    IngestersMetaRules:
       example:
         date: date
+        reference: reference
         rule_id: rule_id
         filetype: filetype
         rule_name: rule_name
@@ -6822,25 +6870,13 @@ components:
           type: string
         info:
           type: string
+        reference:
+          type: string
         rule_id:
           type: string
         rule_name:
           type: string
         version:
-          type: string
-      type: object
-    IngestersMalwareScanStatus:
-      example:
-        '@timestamp': 2000-01-23T04:56:07.000+00:00
-        scan_status: scan_status
-        scan_id: scan_id
-      properties:
-        '@timestamp':
-          format: date-time
-          type: string
-        scan_id:
-          type: string
-        scan_status:
           type: string
       type: object
     IngestersReportIngestionData:
@@ -10145,52 +10181,43 @@ components:
     ModelMalware:
       example:
         date: date
+        summary: summary
         filetype: filetype
-        ImageLayerId: ImageLayerId
-        SeverityScore: 6
-        FileSevScore: 0
+        image_layer_id: image_layer_id
         rule_name: rule_name
-        StringsToMatch:
-        - StringsToMatch
-        - StringsToMatch
         author: author
         masked: true
+        file_sev_score: 0
+        file_severity: file_severity
+        strings_to_match:
+        - strings_to_match
+        - strings_to_match
         description: description
-        FileSeverity: FileSeverity
         version: version
         rule_id: rule_id
-        CompleteFilename: CompleteFilename
-        Summary: Summary
-        Class: Class
+        complete_filename: complete_filename
+        class: class
         info: info
         node_id: node_id
+        severity_score: 6
       properties:
-        Class:
-          type: string
-        CompleteFilename:
-          type: string
-        FileSevScore:
-          type: integer
-        FileSeverity:
-          type: string
-        ImageLayerId:
-          type: string
-        SeverityScore:
-          type: integer
-        StringsToMatch:
-          items:
-            type: string
-          nullable: true
-          type: array
-        Summary:
-          type: string
         author:
+          type: string
+        class:
+          type: string
+        complete_filename:
           type: string
         date:
           type: string
         description:
           type: string
+        file_sev_score:
+          type: integer
+        file_severity:
+          type: string
         filetype:
+          type: string
+        image_layer_id:
           type: string
         info:
           type: string
@@ -10202,14 +10229,23 @@ components:
           type: string
         rule_name:
           type: string
+        severity_score:
+          type: integer
+        strings_to_match:
+          items:
+            type: string
+          nullable: true
+          type: array
+        summary:
+          type: string
         version:
           type: string
       required:
-      - Class
-      - CompleteFilename
-      - FileSevScore
-      - FileSeverity
-      - ImageLayerId
+      - class
+      - complete_filename
+      - file_sev_score
+      - file_severity
+      - image_layer_id
       - masked
       - node_id
       - rule_id
@@ -10227,45 +10263,45 @@ components:
         scan_id: scan_id
         malwares:
         - date: date
+          summary: summary
           filetype: filetype
-          ImageLayerId: ImageLayerId
-          SeverityScore: 6
-          FileSevScore: 0
+          image_layer_id: image_layer_id
           rule_name: rule_name
-          StringsToMatch:
-          - StringsToMatch
-          - StringsToMatch
           author: author
           masked: true
+          file_sev_score: 0
+          file_severity: file_severity
+          strings_to_match:
+          - strings_to_match
+          - strings_to_match
           description: description
-          FileSeverity: FileSeverity
           version: version
           rule_id: rule_id
-          CompleteFilename: CompleteFilename
-          Summary: Summary
-          Class: Class
+          complete_filename: complete_filename
+          class: class
           info: info
           node_id: node_id
+          severity_score: 6
         - date: date
+          summary: summary
           filetype: filetype
-          ImageLayerId: ImageLayerId
-          SeverityScore: 6
-          FileSevScore: 0
+          image_layer_id: image_layer_id
           rule_name: rule_name
-          StringsToMatch:
-          - StringsToMatch
-          - StringsToMatch
           author: author
           masked: true
+          file_sev_score: 0
+          file_severity: file_severity
+          strings_to_match:
+          - strings_to_match
+          - strings_to_match
           description: description
-          FileSeverity: FileSeverity
           version: version
           rule_id: rule_id
-          CompleteFilename: CompleteFilename
-          Summary: Summary
-          Class: Class
+          complete_filename: complete_filename
+          class: class
           info: info
           node_id: node_id
+          severity_score: 6
         docker_image_name: docker_image_name
         host_name: host_name
         node_id: node_id

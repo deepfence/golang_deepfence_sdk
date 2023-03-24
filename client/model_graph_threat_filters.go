@@ -20,10 +20,10 @@ var _ MappedNullable = &GraphThreatFilters{}
 
 // GraphThreatFilters struct for GraphThreatFilters
 type GraphThreatFilters struct {
-	AwsFilter map[string]interface{} `json:"aws_filter"`
-	AzureFilter map[string]interface{} `json:"azure_filter"`
+	AwsFilter GraphCloudProviderFilter `json:"aws_filter"`
+	AzureFilter GraphCloudProviderFilter `json:"azure_filter"`
 	CloudResourceOnly bool `json:"cloud_resource_only"`
-	GcpFilter map[string]interface{} `json:"gcp_filter"`
+	GcpFilter GraphCloudProviderFilter `json:"gcp_filter"`
 	Type string `json:"type"`
 }
 
@@ -31,7 +31,7 @@ type GraphThreatFilters struct {
 // This constructor will assign default values to properties that have it defined,
 // and makes sure properties required by API are set, but the set of arguments
 // will change when the set of required properties is changed
-func NewGraphThreatFilters(awsFilter map[string]interface{}, azureFilter map[string]interface{}, cloudResourceOnly bool, gcpFilter map[string]interface{}, type_ string) *GraphThreatFilters {
+func NewGraphThreatFilters(awsFilter GraphCloudProviderFilter, azureFilter GraphCloudProviderFilter, cloudResourceOnly bool, gcpFilter GraphCloudProviderFilter, type_ string) *GraphThreatFilters {
 	this := GraphThreatFilters{}
 	this.AwsFilter = awsFilter
 	this.AzureFilter = azureFilter
@@ -50,9 +50,9 @@ func NewGraphThreatFiltersWithDefaults() *GraphThreatFilters {
 }
 
 // GetAwsFilter returns the AwsFilter field value
-func (o *GraphThreatFilters) GetAwsFilter() map[string]interface{} {
+func (o *GraphThreatFilters) GetAwsFilter() GraphCloudProviderFilter {
 	if o == nil {
-		var ret map[string]interface{}
+		var ret GraphCloudProviderFilter
 		return ret
 	}
 
@@ -61,22 +61,22 @@ func (o *GraphThreatFilters) GetAwsFilter() map[string]interface{} {
 
 // GetAwsFilterOk returns a tuple with the AwsFilter field value
 // and a boolean to check if the value has been set.
-func (o *GraphThreatFilters) GetAwsFilterOk() (map[string]interface{}, bool) {
+func (o *GraphThreatFilters) GetAwsFilterOk() (*GraphCloudProviderFilter, bool) {
 	if o == nil {
-		return map[string]interface{}{}, false
+		return nil, false
 	}
-	return o.AwsFilter, true
+	return &o.AwsFilter, true
 }
 
 // SetAwsFilter sets field value
-func (o *GraphThreatFilters) SetAwsFilter(v map[string]interface{}) {
+func (o *GraphThreatFilters) SetAwsFilter(v GraphCloudProviderFilter) {
 	o.AwsFilter = v
 }
 
 // GetAzureFilter returns the AzureFilter field value
-func (o *GraphThreatFilters) GetAzureFilter() map[string]interface{} {
+func (o *GraphThreatFilters) GetAzureFilter() GraphCloudProviderFilter {
 	if o == nil {
-		var ret map[string]interface{}
+		var ret GraphCloudProviderFilter
 		return ret
 	}
 
@@ -85,15 +85,15 @@ func (o *GraphThreatFilters) GetAzureFilter() map[string]interface{} {
 
 // GetAzureFilterOk returns a tuple with the AzureFilter field value
 // and a boolean to check if the value has been set.
-func (o *GraphThreatFilters) GetAzureFilterOk() (map[string]interface{}, bool) {
+func (o *GraphThreatFilters) GetAzureFilterOk() (*GraphCloudProviderFilter, bool) {
 	if o == nil {
-		return map[string]interface{}{}, false
+		return nil, false
 	}
-	return o.AzureFilter, true
+	return &o.AzureFilter, true
 }
 
 // SetAzureFilter sets field value
-func (o *GraphThreatFilters) SetAzureFilter(v map[string]interface{}) {
+func (o *GraphThreatFilters) SetAzureFilter(v GraphCloudProviderFilter) {
 	o.AzureFilter = v
 }
 
@@ -122,9 +122,9 @@ func (o *GraphThreatFilters) SetCloudResourceOnly(v bool) {
 }
 
 // GetGcpFilter returns the GcpFilter field value
-func (o *GraphThreatFilters) GetGcpFilter() map[string]interface{} {
+func (o *GraphThreatFilters) GetGcpFilter() GraphCloudProviderFilter {
 	if o == nil {
-		var ret map[string]interface{}
+		var ret GraphCloudProviderFilter
 		return ret
 	}
 
@@ -133,15 +133,15 @@ func (o *GraphThreatFilters) GetGcpFilter() map[string]interface{} {
 
 // GetGcpFilterOk returns a tuple with the GcpFilter field value
 // and a boolean to check if the value has been set.
-func (o *GraphThreatFilters) GetGcpFilterOk() (map[string]interface{}, bool) {
+func (o *GraphThreatFilters) GetGcpFilterOk() (*GraphCloudProviderFilter, bool) {
 	if o == nil {
-		return map[string]interface{}{}, false
+		return nil, false
 	}
-	return o.GcpFilter, true
+	return &o.GcpFilter, true
 }
 
 // SetGcpFilter sets field value
-func (o *GraphThreatFilters) SetGcpFilter(v map[string]interface{}) {
+func (o *GraphThreatFilters) SetGcpFilter(v GraphCloudProviderFilter) {
 	o.GcpFilter = v
 }
 

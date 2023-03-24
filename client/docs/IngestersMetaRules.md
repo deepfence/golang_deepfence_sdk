@@ -1,4 +1,4 @@
-# IngestersMalwareRule
+# IngestersMetaRules
 
 ## Properties
 
@@ -9,226 +9,252 @@ Name | Type | Description | Notes
 **Description** | Pointer to **string** |  | [optional] 
 **Filetype** | Pointer to **string** |  | [optional] 
 **Info** | Pointer to **string** |  | [optional] 
+**Reference** | Pointer to **string** |  | [optional] 
 **RuleId** | Pointer to **string** |  | [optional] 
 **RuleName** | Pointer to **string** |  | [optional] 
 **Version** | Pointer to **string** |  | [optional] 
 
 ## Methods
 
-### NewIngestersMalwareRule
+### NewIngestersMetaRules
 
-`func NewIngestersMalwareRule() *IngestersMalwareRule`
+`func NewIngestersMetaRules() *IngestersMetaRules`
 
-NewIngestersMalwareRule instantiates a new IngestersMalwareRule object
+NewIngestersMetaRules instantiates a new IngestersMetaRules object
 This constructor will assign default values to properties that have it defined,
 and makes sure properties required by API are set, but the set of arguments
 will change when the set of required properties is changed
 
-### NewIngestersMalwareRuleWithDefaults
+### NewIngestersMetaRulesWithDefaults
 
-`func NewIngestersMalwareRuleWithDefaults() *IngestersMalwareRule`
+`func NewIngestersMetaRulesWithDefaults() *IngestersMetaRules`
 
-NewIngestersMalwareRuleWithDefaults instantiates a new IngestersMalwareRule object
+NewIngestersMetaRulesWithDefaults instantiates a new IngestersMetaRules object
 This constructor will only assign default values to properties that have it defined,
 but it doesn't guarantee that properties required by API are set
 
 ### GetAuthor
 
-`func (o *IngestersMalwareRule) GetAuthor() string`
+`func (o *IngestersMetaRules) GetAuthor() string`
 
 GetAuthor returns the Author field if non-nil, zero value otherwise.
 
 ### GetAuthorOk
 
-`func (o *IngestersMalwareRule) GetAuthorOk() (*string, bool)`
+`func (o *IngestersMetaRules) GetAuthorOk() (*string, bool)`
 
 GetAuthorOk returns a tuple with the Author field if it's non-nil, zero value otherwise
 and a boolean to check if the value has been set.
 
 ### SetAuthor
 
-`func (o *IngestersMalwareRule) SetAuthor(v string)`
+`func (o *IngestersMetaRules) SetAuthor(v string)`
 
 SetAuthor sets Author field to given value.
 
 ### HasAuthor
 
-`func (o *IngestersMalwareRule) HasAuthor() bool`
+`func (o *IngestersMetaRules) HasAuthor() bool`
 
 HasAuthor returns a boolean if a field has been set.
 
 ### GetDate
 
-`func (o *IngestersMalwareRule) GetDate() string`
+`func (o *IngestersMetaRules) GetDate() string`
 
 GetDate returns the Date field if non-nil, zero value otherwise.
 
 ### GetDateOk
 
-`func (o *IngestersMalwareRule) GetDateOk() (*string, bool)`
+`func (o *IngestersMetaRules) GetDateOk() (*string, bool)`
 
 GetDateOk returns a tuple with the Date field if it's non-nil, zero value otherwise
 and a boolean to check if the value has been set.
 
 ### SetDate
 
-`func (o *IngestersMalwareRule) SetDate(v string)`
+`func (o *IngestersMetaRules) SetDate(v string)`
 
 SetDate sets Date field to given value.
 
 ### HasDate
 
-`func (o *IngestersMalwareRule) HasDate() bool`
+`func (o *IngestersMetaRules) HasDate() bool`
 
 HasDate returns a boolean if a field has been set.
 
 ### GetDescription
 
-`func (o *IngestersMalwareRule) GetDescription() string`
+`func (o *IngestersMetaRules) GetDescription() string`
 
 GetDescription returns the Description field if non-nil, zero value otherwise.
 
 ### GetDescriptionOk
 
-`func (o *IngestersMalwareRule) GetDescriptionOk() (*string, bool)`
+`func (o *IngestersMetaRules) GetDescriptionOk() (*string, bool)`
 
 GetDescriptionOk returns a tuple with the Description field if it's non-nil, zero value otherwise
 and a boolean to check if the value has been set.
 
 ### SetDescription
 
-`func (o *IngestersMalwareRule) SetDescription(v string)`
+`func (o *IngestersMetaRules) SetDescription(v string)`
 
 SetDescription sets Description field to given value.
 
 ### HasDescription
 
-`func (o *IngestersMalwareRule) HasDescription() bool`
+`func (o *IngestersMetaRules) HasDescription() bool`
 
 HasDescription returns a boolean if a field has been set.
 
 ### GetFiletype
 
-`func (o *IngestersMalwareRule) GetFiletype() string`
+`func (o *IngestersMetaRules) GetFiletype() string`
 
 GetFiletype returns the Filetype field if non-nil, zero value otherwise.
 
 ### GetFiletypeOk
 
-`func (o *IngestersMalwareRule) GetFiletypeOk() (*string, bool)`
+`func (o *IngestersMetaRules) GetFiletypeOk() (*string, bool)`
 
 GetFiletypeOk returns a tuple with the Filetype field if it's non-nil, zero value otherwise
 and a boolean to check if the value has been set.
 
 ### SetFiletype
 
-`func (o *IngestersMalwareRule) SetFiletype(v string)`
+`func (o *IngestersMetaRules) SetFiletype(v string)`
 
 SetFiletype sets Filetype field to given value.
 
 ### HasFiletype
 
-`func (o *IngestersMalwareRule) HasFiletype() bool`
+`func (o *IngestersMetaRules) HasFiletype() bool`
 
 HasFiletype returns a boolean if a field has been set.
 
 ### GetInfo
 
-`func (o *IngestersMalwareRule) GetInfo() string`
+`func (o *IngestersMetaRules) GetInfo() string`
 
 GetInfo returns the Info field if non-nil, zero value otherwise.
 
 ### GetInfoOk
 
-`func (o *IngestersMalwareRule) GetInfoOk() (*string, bool)`
+`func (o *IngestersMetaRules) GetInfoOk() (*string, bool)`
 
 GetInfoOk returns a tuple with the Info field if it's non-nil, zero value otherwise
 and a boolean to check if the value has been set.
 
 ### SetInfo
 
-`func (o *IngestersMalwareRule) SetInfo(v string)`
+`func (o *IngestersMetaRules) SetInfo(v string)`
 
 SetInfo sets Info field to given value.
 
 ### HasInfo
 
-`func (o *IngestersMalwareRule) HasInfo() bool`
+`func (o *IngestersMetaRules) HasInfo() bool`
 
 HasInfo returns a boolean if a field has been set.
 
+### GetReference
+
+`func (o *IngestersMetaRules) GetReference() string`
+
+GetReference returns the Reference field if non-nil, zero value otherwise.
+
+### GetReferenceOk
+
+`func (o *IngestersMetaRules) GetReferenceOk() (*string, bool)`
+
+GetReferenceOk returns a tuple with the Reference field if it's non-nil, zero value otherwise
+and a boolean to check if the value has been set.
+
+### SetReference
+
+`func (o *IngestersMetaRules) SetReference(v string)`
+
+SetReference sets Reference field to given value.
+
+### HasReference
+
+`func (o *IngestersMetaRules) HasReference() bool`
+
+HasReference returns a boolean if a field has been set.
+
 ### GetRuleId
 
-`func (o *IngestersMalwareRule) GetRuleId() string`
+`func (o *IngestersMetaRules) GetRuleId() string`
 
 GetRuleId returns the RuleId field if non-nil, zero value otherwise.
 
 ### GetRuleIdOk
 
-`func (o *IngestersMalwareRule) GetRuleIdOk() (*string, bool)`
+`func (o *IngestersMetaRules) GetRuleIdOk() (*string, bool)`
 
 GetRuleIdOk returns a tuple with the RuleId field if it's non-nil, zero value otherwise
 and a boolean to check if the value has been set.
 
 ### SetRuleId
 
-`func (o *IngestersMalwareRule) SetRuleId(v string)`
+`func (o *IngestersMetaRules) SetRuleId(v string)`
 
 SetRuleId sets RuleId field to given value.
 
 ### HasRuleId
 
-`func (o *IngestersMalwareRule) HasRuleId() bool`
+`func (o *IngestersMetaRules) HasRuleId() bool`
 
 HasRuleId returns a boolean if a field has been set.
 
 ### GetRuleName
 
-`func (o *IngestersMalwareRule) GetRuleName() string`
+`func (o *IngestersMetaRules) GetRuleName() string`
 
 GetRuleName returns the RuleName field if non-nil, zero value otherwise.
 
 ### GetRuleNameOk
 
-`func (o *IngestersMalwareRule) GetRuleNameOk() (*string, bool)`
+`func (o *IngestersMetaRules) GetRuleNameOk() (*string, bool)`
 
 GetRuleNameOk returns a tuple with the RuleName field if it's non-nil, zero value otherwise
 and a boolean to check if the value has been set.
 
 ### SetRuleName
 
-`func (o *IngestersMalwareRule) SetRuleName(v string)`
+`func (o *IngestersMetaRules) SetRuleName(v string)`
 
 SetRuleName sets RuleName field to given value.
 
 ### HasRuleName
 
-`func (o *IngestersMalwareRule) HasRuleName() bool`
+`func (o *IngestersMetaRules) HasRuleName() bool`
 
 HasRuleName returns a boolean if a field has been set.
 
 ### GetVersion
 
-`func (o *IngestersMalwareRule) GetVersion() string`
+`func (o *IngestersMetaRules) GetVersion() string`
 
 GetVersion returns the Version field if non-nil, zero value otherwise.
 
 ### GetVersionOk
 
-`func (o *IngestersMalwareRule) GetVersionOk() (*string, bool)`
+`func (o *IngestersMetaRules) GetVersionOk() (*string, bool)`
 
 GetVersionOk returns a tuple with the Version field if it's non-nil, zero value otherwise
 and a boolean to check if the value has been set.
 
 ### SetVersion
 
-`func (o *IngestersMalwareRule) SetVersion(v string)`
+`func (o *IngestersMetaRules) SetVersion(v string)`
 
 SetVersion sets Version field to given value.
 
 ### HasVersion
 
-`func (o *IngestersMalwareRule) HasVersion() bool`
+`func (o *IngestersMetaRules) HasVersion() bool`
 
 HasVersion returns a boolean if a field has been set.
 

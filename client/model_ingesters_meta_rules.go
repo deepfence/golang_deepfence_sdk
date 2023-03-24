@@ -15,40 +15,41 @@ import (
 	"encoding/json"
 )
 
-// checks if the IngestersMalwareRule type satisfies the MappedNullable interface at compile time
-var _ MappedNullable = &IngestersMalwareRule{}
+// checks if the IngestersMetaRules type satisfies the MappedNullable interface at compile time
+var _ MappedNullable = &IngestersMetaRules{}
 
-// IngestersMalwareRule struct for IngestersMalwareRule
-type IngestersMalwareRule struct {
+// IngestersMetaRules struct for IngestersMetaRules
+type IngestersMetaRules struct {
 	Author *string `json:"author,omitempty"`
 	Date *string `json:"date,omitempty"`
 	Description *string `json:"description,omitempty"`
 	Filetype *string `json:"filetype,omitempty"`
 	Info *string `json:"info,omitempty"`
+	Reference *string `json:"reference,omitempty"`
 	RuleId *string `json:"rule_id,omitempty"`
 	RuleName *string `json:"rule_name,omitempty"`
 	Version *string `json:"version,omitempty"`
 }
 
-// NewIngestersMalwareRule instantiates a new IngestersMalwareRule object
+// NewIngestersMetaRules instantiates a new IngestersMetaRules object
 // This constructor will assign default values to properties that have it defined,
 // and makes sure properties required by API are set, but the set of arguments
 // will change when the set of required properties is changed
-func NewIngestersMalwareRule() *IngestersMalwareRule {
-	this := IngestersMalwareRule{}
+func NewIngestersMetaRules() *IngestersMetaRules {
+	this := IngestersMetaRules{}
 	return &this
 }
 
-// NewIngestersMalwareRuleWithDefaults instantiates a new IngestersMalwareRule object
+// NewIngestersMetaRulesWithDefaults instantiates a new IngestersMetaRules object
 // This constructor will only assign default values to properties that have it defined,
 // but it doesn't guarantee that properties required by API are set
-func NewIngestersMalwareRuleWithDefaults() *IngestersMalwareRule {
-	this := IngestersMalwareRule{}
+func NewIngestersMetaRulesWithDefaults() *IngestersMetaRules {
+	this := IngestersMetaRules{}
 	return &this
 }
 
 // GetAuthor returns the Author field value if set, zero value otherwise.
-func (o *IngestersMalwareRule) GetAuthor() string {
+func (o *IngestersMetaRules) GetAuthor() string {
 	if o == nil || IsNil(o.Author) {
 		var ret string
 		return ret
@@ -58,7 +59,7 @@ func (o *IngestersMalwareRule) GetAuthor() string {
 
 // GetAuthorOk returns a tuple with the Author field value if set, nil otherwise
 // and a boolean to check if the value has been set.
-func (o *IngestersMalwareRule) GetAuthorOk() (*string, bool) {
+func (o *IngestersMetaRules) GetAuthorOk() (*string, bool) {
 	if o == nil || IsNil(o.Author) {
 		return nil, false
 	}
@@ -66,7 +67,7 @@ func (o *IngestersMalwareRule) GetAuthorOk() (*string, bool) {
 }
 
 // HasAuthor returns a boolean if a field has been set.
-func (o *IngestersMalwareRule) HasAuthor() bool {
+func (o *IngestersMetaRules) HasAuthor() bool {
 	if o != nil && !IsNil(o.Author) {
 		return true
 	}
@@ -75,12 +76,12 @@ func (o *IngestersMalwareRule) HasAuthor() bool {
 }
 
 // SetAuthor gets a reference to the given string and assigns it to the Author field.
-func (o *IngestersMalwareRule) SetAuthor(v string) {
+func (o *IngestersMetaRules) SetAuthor(v string) {
 	o.Author = &v
 }
 
 // GetDate returns the Date field value if set, zero value otherwise.
-func (o *IngestersMalwareRule) GetDate() string {
+func (o *IngestersMetaRules) GetDate() string {
 	if o == nil || IsNil(o.Date) {
 		var ret string
 		return ret
@@ -90,7 +91,7 @@ func (o *IngestersMalwareRule) GetDate() string {
 
 // GetDateOk returns a tuple with the Date field value if set, nil otherwise
 // and a boolean to check if the value has been set.
-func (o *IngestersMalwareRule) GetDateOk() (*string, bool) {
+func (o *IngestersMetaRules) GetDateOk() (*string, bool) {
 	if o == nil || IsNil(o.Date) {
 		return nil, false
 	}
@@ -98,7 +99,7 @@ func (o *IngestersMalwareRule) GetDateOk() (*string, bool) {
 }
 
 // HasDate returns a boolean if a field has been set.
-func (o *IngestersMalwareRule) HasDate() bool {
+func (o *IngestersMetaRules) HasDate() bool {
 	if o != nil && !IsNil(o.Date) {
 		return true
 	}
@@ -107,12 +108,12 @@ func (o *IngestersMalwareRule) HasDate() bool {
 }
 
 // SetDate gets a reference to the given string and assigns it to the Date field.
-func (o *IngestersMalwareRule) SetDate(v string) {
+func (o *IngestersMetaRules) SetDate(v string) {
 	o.Date = &v
 }
 
 // GetDescription returns the Description field value if set, zero value otherwise.
-func (o *IngestersMalwareRule) GetDescription() string {
+func (o *IngestersMetaRules) GetDescription() string {
 	if o == nil || IsNil(o.Description) {
 		var ret string
 		return ret
@@ -122,7 +123,7 @@ func (o *IngestersMalwareRule) GetDescription() string {
 
 // GetDescriptionOk returns a tuple with the Description field value if set, nil otherwise
 // and a boolean to check if the value has been set.
-func (o *IngestersMalwareRule) GetDescriptionOk() (*string, bool) {
+func (o *IngestersMetaRules) GetDescriptionOk() (*string, bool) {
 	if o == nil || IsNil(o.Description) {
 		return nil, false
 	}
@@ -130,7 +131,7 @@ func (o *IngestersMalwareRule) GetDescriptionOk() (*string, bool) {
 }
 
 // HasDescription returns a boolean if a field has been set.
-func (o *IngestersMalwareRule) HasDescription() bool {
+func (o *IngestersMetaRules) HasDescription() bool {
 	if o != nil && !IsNil(o.Description) {
 		return true
 	}
@@ -139,12 +140,12 @@ func (o *IngestersMalwareRule) HasDescription() bool {
 }
 
 // SetDescription gets a reference to the given string and assigns it to the Description field.
-func (o *IngestersMalwareRule) SetDescription(v string) {
+func (o *IngestersMetaRules) SetDescription(v string) {
 	o.Description = &v
 }
 
 // GetFiletype returns the Filetype field value if set, zero value otherwise.
-func (o *IngestersMalwareRule) GetFiletype() string {
+func (o *IngestersMetaRules) GetFiletype() string {
 	if o == nil || IsNil(o.Filetype) {
 		var ret string
 		return ret
@@ -154,7 +155,7 @@ func (o *IngestersMalwareRule) GetFiletype() string {
 
 // GetFiletypeOk returns a tuple with the Filetype field value if set, nil otherwise
 // and a boolean to check if the value has been set.
-func (o *IngestersMalwareRule) GetFiletypeOk() (*string, bool) {
+func (o *IngestersMetaRules) GetFiletypeOk() (*string, bool) {
 	if o == nil || IsNil(o.Filetype) {
 		return nil, false
 	}
@@ -162,7 +163,7 @@ func (o *IngestersMalwareRule) GetFiletypeOk() (*string, bool) {
 }
 
 // HasFiletype returns a boolean if a field has been set.
-func (o *IngestersMalwareRule) HasFiletype() bool {
+func (o *IngestersMetaRules) HasFiletype() bool {
 	if o != nil && !IsNil(o.Filetype) {
 		return true
 	}
@@ -171,12 +172,12 @@ func (o *IngestersMalwareRule) HasFiletype() bool {
 }
 
 // SetFiletype gets a reference to the given string and assigns it to the Filetype field.
-func (o *IngestersMalwareRule) SetFiletype(v string) {
+func (o *IngestersMetaRules) SetFiletype(v string) {
 	o.Filetype = &v
 }
 
 // GetInfo returns the Info field value if set, zero value otherwise.
-func (o *IngestersMalwareRule) GetInfo() string {
+func (o *IngestersMetaRules) GetInfo() string {
 	if o == nil || IsNil(o.Info) {
 		var ret string
 		return ret
@@ -186,7 +187,7 @@ func (o *IngestersMalwareRule) GetInfo() string {
 
 // GetInfoOk returns a tuple with the Info field value if set, nil otherwise
 // and a boolean to check if the value has been set.
-func (o *IngestersMalwareRule) GetInfoOk() (*string, bool) {
+func (o *IngestersMetaRules) GetInfoOk() (*string, bool) {
 	if o == nil || IsNil(o.Info) {
 		return nil, false
 	}
@@ -194,7 +195,7 @@ func (o *IngestersMalwareRule) GetInfoOk() (*string, bool) {
 }
 
 // HasInfo returns a boolean if a field has been set.
-func (o *IngestersMalwareRule) HasInfo() bool {
+func (o *IngestersMetaRules) HasInfo() bool {
 	if o != nil && !IsNil(o.Info) {
 		return true
 	}
@@ -203,12 +204,44 @@ func (o *IngestersMalwareRule) HasInfo() bool {
 }
 
 // SetInfo gets a reference to the given string and assigns it to the Info field.
-func (o *IngestersMalwareRule) SetInfo(v string) {
+func (o *IngestersMetaRules) SetInfo(v string) {
 	o.Info = &v
 }
 
+// GetReference returns the Reference field value if set, zero value otherwise.
+func (o *IngestersMetaRules) GetReference() string {
+	if o == nil || IsNil(o.Reference) {
+		var ret string
+		return ret
+	}
+	return *o.Reference
+}
+
+// GetReferenceOk returns a tuple with the Reference field value if set, nil otherwise
+// and a boolean to check if the value has been set.
+func (o *IngestersMetaRules) GetReferenceOk() (*string, bool) {
+	if o == nil || IsNil(o.Reference) {
+		return nil, false
+	}
+	return o.Reference, true
+}
+
+// HasReference returns a boolean if a field has been set.
+func (o *IngestersMetaRules) HasReference() bool {
+	if o != nil && !IsNil(o.Reference) {
+		return true
+	}
+
+	return false
+}
+
+// SetReference gets a reference to the given string and assigns it to the Reference field.
+func (o *IngestersMetaRules) SetReference(v string) {
+	o.Reference = &v
+}
+
 // GetRuleId returns the RuleId field value if set, zero value otherwise.
-func (o *IngestersMalwareRule) GetRuleId() string {
+func (o *IngestersMetaRules) GetRuleId() string {
 	if o == nil || IsNil(o.RuleId) {
 		var ret string
 		return ret
@@ -218,7 +251,7 @@ func (o *IngestersMalwareRule) GetRuleId() string {
 
 // GetRuleIdOk returns a tuple with the RuleId field value if set, nil otherwise
 // and a boolean to check if the value has been set.
-func (o *IngestersMalwareRule) GetRuleIdOk() (*string, bool) {
+func (o *IngestersMetaRules) GetRuleIdOk() (*string, bool) {
 	if o == nil || IsNil(o.RuleId) {
 		return nil, false
 	}
@@ -226,7 +259,7 @@ func (o *IngestersMalwareRule) GetRuleIdOk() (*string, bool) {
 }
 
 // HasRuleId returns a boolean if a field has been set.
-func (o *IngestersMalwareRule) HasRuleId() bool {
+func (o *IngestersMetaRules) HasRuleId() bool {
 	if o != nil && !IsNil(o.RuleId) {
 		return true
 	}
@@ -235,12 +268,12 @@ func (o *IngestersMalwareRule) HasRuleId() bool {
 }
 
 // SetRuleId gets a reference to the given string and assigns it to the RuleId field.
-func (o *IngestersMalwareRule) SetRuleId(v string) {
+func (o *IngestersMetaRules) SetRuleId(v string) {
 	o.RuleId = &v
 }
 
 // GetRuleName returns the RuleName field value if set, zero value otherwise.
-func (o *IngestersMalwareRule) GetRuleName() string {
+func (o *IngestersMetaRules) GetRuleName() string {
 	if o == nil || IsNil(o.RuleName) {
 		var ret string
 		return ret
@@ -250,7 +283,7 @@ func (o *IngestersMalwareRule) GetRuleName() string {
 
 // GetRuleNameOk returns a tuple with the RuleName field value if set, nil otherwise
 // and a boolean to check if the value has been set.
-func (o *IngestersMalwareRule) GetRuleNameOk() (*string, bool) {
+func (o *IngestersMetaRules) GetRuleNameOk() (*string, bool) {
 	if o == nil || IsNil(o.RuleName) {
 		return nil, false
 	}
@@ -258,7 +291,7 @@ func (o *IngestersMalwareRule) GetRuleNameOk() (*string, bool) {
 }
 
 // HasRuleName returns a boolean if a field has been set.
-func (o *IngestersMalwareRule) HasRuleName() bool {
+func (o *IngestersMetaRules) HasRuleName() bool {
 	if o != nil && !IsNil(o.RuleName) {
 		return true
 	}
@@ -267,12 +300,12 @@ func (o *IngestersMalwareRule) HasRuleName() bool {
 }
 
 // SetRuleName gets a reference to the given string and assigns it to the RuleName field.
-func (o *IngestersMalwareRule) SetRuleName(v string) {
+func (o *IngestersMetaRules) SetRuleName(v string) {
 	o.RuleName = &v
 }
 
 // GetVersion returns the Version field value if set, zero value otherwise.
-func (o *IngestersMalwareRule) GetVersion() string {
+func (o *IngestersMetaRules) GetVersion() string {
 	if o == nil || IsNil(o.Version) {
 		var ret string
 		return ret
@@ -282,7 +315,7 @@ func (o *IngestersMalwareRule) GetVersion() string {
 
 // GetVersionOk returns a tuple with the Version field value if set, nil otherwise
 // and a boolean to check if the value has been set.
-func (o *IngestersMalwareRule) GetVersionOk() (*string, bool) {
+func (o *IngestersMetaRules) GetVersionOk() (*string, bool) {
 	if o == nil || IsNil(o.Version) {
 		return nil, false
 	}
@@ -290,7 +323,7 @@ func (o *IngestersMalwareRule) GetVersionOk() (*string, bool) {
 }
 
 // HasVersion returns a boolean if a field has been set.
-func (o *IngestersMalwareRule) HasVersion() bool {
+func (o *IngestersMetaRules) HasVersion() bool {
 	if o != nil && !IsNil(o.Version) {
 		return true
 	}
@@ -299,11 +332,11 @@ func (o *IngestersMalwareRule) HasVersion() bool {
 }
 
 // SetVersion gets a reference to the given string and assigns it to the Version field.
-func (o *IngestersMalwareRule) SetVersion(v string) {
+func (o *IngestersMetaRules) SetVersion(v string) {
 	o.Version = &v
 }
 
-func (o IngestersMalwareRule) MarshalJSON() ([]byte, error) {
+func (o IngestersMetaRules) MarshalJSON() ([]byte, error) {
 	toSerialize,err := o.ToMap()
 	if err != nil {
 		return []byte{}, err
@@ -311,7 +344,7 @@ func (o IngestersMalwareRule) MarshalJSON() ([]byte, error) {
 	return json.Marshal(toSerialize)
 }
 
-func (o IngestersMalwareRule) ToMap() (map[string]interface{}, error) {
+func (o IngestersMetaRules) ToMap() (map[string]interface{}, error) {
 	toSerialize := map[string]interface{}{}
 	if !IsNil(o.Author) {
 		toSerialize["author"] = o.Author
@@ -328,6 +361,9 @@ func (o IngestersMalwareRule) ToMap() (map[string]interface{}, error) {
 	if !IsNil(o.Info) {
 		toSerialize["info"] = o.Info
 	}
+	if !IsNil(o.Reference) {
+		toSerialize["reference"] = o.Reference
+	}
 	if !IsNil(o.RuleId) {
 		toSerialize["rule_id"] = o.RuleId
 	}
@@ -340,38 +376,38 @@ func (o IngestersMalwareRule) ToMap() (map[string]interface{}, error) {
 	return toSerialize, nil
 }
 
-type NullableIngestersMalwareRule struct {
-	value *IngestersMalwareRule
+type NullableIngestersMetaRules struct {
+	value *IngestersMetaRules
 	isSet bool
 }
 
-func (v NullableIngestersMalwareRule) Get() *IngestersMalwareRule {
+func (v NullableIngestersMetaRules) Get() *IngestersMetaRules {
 	return v.value
 }
 
-func (v *NullableIngestersMalwareRule) Set(val *IngestersMalwareRule) {
+func (v *NullableIngestersMetaRules) Set(val *IngestersMetaRules) {
 	v.value = val
 	v.isSet = true
 }
 
-func (v NullableIngestersMalwareRule) IsSet() bool {
+func (v NullableIngestersMetaRules) IsSet() bool {
 	return v.isSet
 }
 
-func (v *NullableIngestersMalwareRule) Unset() {
+func (v *NullableIngestersMetaRules) Unset() {
 	v.value = nil
 	v.isSet = false
 }
 
-func NewNullableIngestersMalwareRule(val *IngestersMalwareRule) *NullableIngestersMalwareRule {
-	return &NullableIngestersMalwareRule{value: val, isSet: true}
+func NewNullableIngestersMetaRules(val *IngestersMetaRules) *NullableIngestersMetaRules {
+	return &NullableIngestersMetaRules{value: val, isSet: true}
 }
 
-func (v NullableIngestersMalwareRule) MarshalJSON() ([]byte, error) {
+func (v NullableIngestersMetaRules) MarshalJSON() ([]byte, error) {
 	return json.Marshal(v.value)
 }
 
-func (v *NullableIngestersMalwareRule) UnmarshalJSON(src []byte) error {
+func (v *NullableIngestersMetaRules) UnmarshalJSON(src []byte) error {
 	v.isSet = true
 	return json.Unmarshal(src, &v.value)
 }

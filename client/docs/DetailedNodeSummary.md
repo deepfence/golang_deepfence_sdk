@@ -6,6 +6,7 @@ Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
 **Adjacency** | Pointer to **[]string** |  | [optional] 
 **Id** | Pointer to **string** |  | [optional] 
+**Ids** | Pointer to **[]string** |  | [optional] 
 **Image** | Pointer to **string** |  | [optional] 
 **ImmediateParentId** | Pointer to **string** |  | [optional] 
 **Label** | Pointer to **string** |  | [optional] 
@@ -87,6 +88,31 @@ SetId sets Id field to given value.
 `func (o *DetailedNodeSummary) HasId() bool`
 
 HasId returns a boolean if a field has been set.
+
+### GetIds
+
+`func (o *DetailedNodeSummary) GetIds() []string`
+
+GetIds returns the Ids field if non-nil, zero value otherwise.
+
+### GetIdsOk
+
+`func (o *DetailedNodeSummary) GetIdsOk() (*[]string, bool)`
+
+GetIdsOk returns a tuple with the Ids field if it's non-nil, zero value otherwise
+and a boolean to check if the value has been set.
+
+### SetIds
+
+`func (o *DetailedNodeSummary) SetIds(v []string)`
+
+SetIds sets Ids field to given value.
+
+### HasIds
+
+`func (o *DetailedNodeSummary) HasIds() bool`
+
+HasIds returns a boolean if a field has been set.
 
 ### GetImage
 

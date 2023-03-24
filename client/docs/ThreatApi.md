@@ -29,7 +29,7 @@ import (
 )
 
 func main() {
-    graphThreatFilters := *openapiclient.NewGraphThreatFilters(map[string]interface{}(123), map[string]interface{}(123), false, map[string]interface{}(123), "Type_example") // GraphThreatFilters |  (optional)
+    graphThreatFilters := *openapiclient.NewGraphThreatFilters(*openapiclient.NewGraphCloudProviderFilter([]string{"AccountIds_example"}), *openapiclient.NewGraphCloudProviderFilter([]string{"AccountIds_example"}), false, *openapiclient.NewGraphCloudProviderFilter([]string{"AccountIds_example"}), "Type_example") // GraphThreatFilters |  (optional)
 
     configuration := openapiclient.NewConfiguration()
     apiClient := openapiclient.NewAPIClient(configuration)

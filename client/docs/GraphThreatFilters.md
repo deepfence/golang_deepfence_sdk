@@ -4,17 +4,17 @@
 
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
-**AwsFilter** | **map[string]interface{}** |  | 
-**AzureFilter** | **map[string]interface{}** |  | 
+**AwsFilter** | [**GraphCloudProviderFilter**](GraphCloudProviderFilter.md) |  | 
+**AzureFilter** | [**GraphCloudProviderFilter**](GraphCloudProviderFilter.md) |  | 
 **CloudResourceOnly** | **bool** |  | 
-**GcpFilter** | **map[string]interface{}** |  | 
+**GcpFilter** | [**GraphCloudProviderFilter**](GraphCloudProviderFilter.md) |  | 
 **Type** | **string** |  | 
 
 ## Methods
 
 ### NewGraphThreatFilters
 
-`func NewGraphThreatFilters(awsFilter map[string]interface{}, azureFilter map[string]interface{}, cloudResourceOnly bool, gcpFilter map[string]interface{}, type_ string, ) *GraphThreatFilters`
+`func NewGraphThreatFilters(awsFilter GraphCloudProviderFilter, azureFilter GraphCloudProviderFilter, cloudResourceOnly bool, gcpFilter GraphCloudProviderFilter, type_ string, ) *GraphThreatFilters`
 
 NewGraphThreatFilters instantiates a new GraphThreatFilters object
 This constructor will assign default values to properties that have it defined,
@@ -31,40 +31,40 @@ but it doesn't guarantee that properties required by API are set
 
 ### GetAwsFilter
 
-`func (o *GraphThreatFilters) GetAwsFilter() map[string]interface{}`
+`func (o *GraphThreatFilters) GetAwsFilter() GraphCloudProviderFilter`
 
 GetAwsFilter returns the AwsFilter field if non-nil, zero value otherwise.
 
 ### GetAwsFilterOk
 
-`func (o *GraphThreatFilters) GetAwsFilterOk() (*map[string]interface{}, bool)`
+`func (o *GraphThreatFilters) GetAwsFilterOk() (*GraphCloudProviderFilter, bool)`
 
 GetAwsFilterOk returns a tuple with the AwsFilter field if it's non-nil, zero value otherwise
 and a boolean to check if the value has been set.
 
 ### SetAwsFilter
 
-`func (o *GraphThreatFilters) SetAwsFilter(v map[string]interface{})`
+`func (o *GraphThreatFilters) SetAwsFilter(v GraphCloudProviderFilter)`
 
 SetAwsFilter sets AwsFilter field to given value.
 
 
 ### GetAzureFilter
 
-`func (o *GraphThreatFilters) GetAzureFilter() map[string]interface{}`
+`func (o *GraphThreatFilters) GetAzureFilter() GraphCloudProviderFilter`
 
 GetAzureFilter returns the AzureFilter field if non-nil, zero value otherwise.
 
 ### GetAzureFilterOk
 
-`func (o *GraphThreatFilters) GetAzureFilterOk() (*map[string]interface{}, bool)`
+`func (o *GraphThreatFilters) GetAzureFilterOk() (*GraphCloudProviderFilter, bool)`
 
 GetAzureFilterOk returns a tuple with the AzureFilter field if it's non-nil, zero value otherwise
 and a boolean to check if the value has been set.
 
 ### SetAzureFilter
 
-`func (o *GraphThreatFilters) SetAzureFilter(v map[string]interface{})`
+`func (o *GraphThreatFilters) SetAzureFilter(v GraphCloudProviderFilter)`
 
 SetAzureFilter sets AzureFilter field to given value.
 
@@ -91,20 +91,20 @@ SetCloudResourceOnly sets CloudResourceOnly field to given value.
 
 ### GetGcpFilter
 
-`func (o *GraphThreatFilters) GetGcpFilter() map[string]interface{}`
+`func (o *GraphThreatFilters) GetGcpFilter() GraphCloudProviderFilter`
 
 GetGcpFilter returns the GcpFilter field if non-nil, zero value otherwise.
 
 ### GetGcpFilterOk
 
-`func (o *GraphThreatFilters) GetGcpFilterOk() (*map[string]interface{}, bool)`
+`func (o *GraphThreatFilters) GetGcpFilterOk() (*GraphCloudProviderFilter, bool)`
 
 GetGcpFilterOk returns a tuple with the GcpFilter field if it's non-nil, zero value otherwise
 and a boolean to check if the value has been set.
 
 ### SetGcpFilter
 
-`func (o *GraphThreatFilters) SetGcpFilter(v map[string]interface{})`
+`func (o *GraphThreatFilters) SetGcpFilter(v GraphCloudProviderFilter)`
 
 SetGcpFilter sets GcpFilter field to given value.
 

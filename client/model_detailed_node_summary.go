@@ -22,6 +22,7 @@ var _ MappedNullable = &DetailedNodeSummary{}
 type DetailedNodeSummary struct {
 	Adjacency []string `json:"adjacency,omitempty"`
 	Id *string `json:"id,omitempty"`
+	Ids []string `json:"ids,omitempty"`
 	Image *string `json:"image,omitempty"`
 	ImmediateParentId *string `json:"immediate_parent_id,omitempty"`
 	Label *string `json:"label,omitempty"`
@@ -115,6 +116,38 @@ func (o *DetailedNodeSummary) HasId() bool {
 // SetId gets a reference to the given string and assigns it to the Id field.
 func (o *DetailedNodeSummary) SetId(v string) {
 	o.Id = &v
+}
+
+// GetIds returns the Ids field value if set, zero value otherwise.
+func (o *DetailedNodeSummary) GetIds() []string {
+	if o == nil || IsNil(o.Ids) {
+		var ret []string
+		return ret
+	}
+	return o.Ids
+}
+
+// GetIdsOk returns a tuple with the Ids field value if set, nil otherwise
+// and a boolean to check if the value has been set.
+func (o *DetailedNodeSummary) GetIdsOk() ([]string, bool) {
+	if o == nil || IsNil(o.Ids) {
+		return nil, false
+	}
+	return o.Ids, true
+}
+
+// HasIds returns a boolean if a field has been set.
+func (o *DetailedNodeSummary) HasIds() bool {
+	if o != nil && !IsNil(o.Ids) {
+		return true
+	}
+
+	return false
+}
+
+// SetIds gets a reference to the given []string and assigns it to the Ids field.
+func (o *DetailedNodeSummary) SetIds(v []string) {
+	o.Ids = v
 }
 
 // GetImage returns the Image field value if set, zero value otherwise.
@@ -516,6 +549,9 @@ func (o DetailedNodeSummary) ToMap() (map[string]interface{}, error) {
 	}
 	if !IsNil(o.Id) {
 		toSerialize["id"] = o.Id
+	}
+	if !IsNil(o.Ids) {
+		toSerialize["ids"] = o.Ids
 	}
 	if !IsNil(o.Image) {
 		toSerialize["image"] = o.Image
