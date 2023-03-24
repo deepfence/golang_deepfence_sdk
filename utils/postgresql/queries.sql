@@ -543,8 +543,8 @@ WITH deleted AS (
 SELECT count(*) FROM deleted;
 
 -- name: CreateIntegration :one
-INSERT INTO integration (resource, filters, integration_type, interval_minutes, config)
-VALUES ($1, $2, $3, $4, $5)
+INSERT INTO integration (resource, filters, integration_type, interval_minutes, config, created_by_user_id)
+VALUES ($1, $2, $3, $4, $5, $6)
 RETURNING *;
 
 -- name: GetIntegrationFromID :one
@@ -553,7 +553,16 @@ FROM integration
 WHERE id = $1
 LIMIT 1;
 
--- name: GetIntegrationFromType :many
+-- name: GetIntegrationsFromType :many
 SELECT *
 FROM integration
 WHERE integration_type = $1;
+
+-- name: GetIntegrations :many
+SELECT *
+FROM integration;
+
+-- name: DeleteIntegration :exec
+DELETE
+FROM integration
+WHERE id = $1;
