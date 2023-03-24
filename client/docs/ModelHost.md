@@ -4,9 +4,11 @@
 
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
+**CloudComplianceLatestScanId** | **string** |  | 
 **CloudComplianceScanStatus** | **string** |  | 
 **CloudCompliancesCount** | **int32** |  | 
 **CloudMetadata** | **map[string]interface{}** |  | 
+**ComplianceLatestScanId** | **string** |  | 
 **ComplianceScanStatus** | **string** |  | 
 **CompliancesCount** | **int32** |  | 
 **ContainerImages** | [**[]ModelContainerImage**](ModelContainerImage.md) |  | 
@@ -15,6 +17,7 @@ Name | Type | Description | Notes
 **InterfaceIps** | **string** |  | 
 **InterfaceNames** | **string** |  | 
 **KernelVersion** | **string** |  | 
+**MalwareLatestScanId** | **string** |  | 
 **MalwareScanStatus** | **string** |  | 
 **MalwaresCount** | **int32** |  | 
 **Metrics** | [**ModelComputeMetrics**](ModelComputeMetrics.md) |  | 
@@ -22,17 +25,19 @@ Name | Type | Description | Notes
 **NodeName** | **string** |  | 
 **Pods** | [**[]ModelPod**](ModelPod.md) |  | 
 **Processes** | [**[]ModelProcess**](ModelProcess.md) |  | 
+**SecretLatestScan** | **string** |  | 
 **SecretScanStatus** | **string** |  | 
 **SecretsCount** | **int32** |  | 
 **Uptime** | **string** |  | 
 **VulnerabilitiesCount** | **int32** |  | 
+**VulnerabilityLatestScanId** | **string** |  | 
 **VulnerabilityScanStatus** | **string** |  | 
 
 ## Methods
 
 ### NewModelHost
 
-`func NewModelHost(cloudComplianceScanStatus string, cloudCompliancesCount int32, cloudMetadata map[string]interface{}, complianceScanStatus string, compliancesCount int32, containerImages []ModelContainerImage, containers []ModelContainer, hostName string, interfaceIps string, interfaceNames string, kernelVersion string, malwareScanStatus string, malwaresCount int32, metrics ModelComputeMetrics, nodeId string, nodeName string, pods []ModelPod, processes []ModelProcess, secretScanStatus string, secretsCount int32, uptime string, vulnerabilitiesCount int32, vulnerabilityScanStatus string, ) *ModelHost`
+`func NewModelHost(cloudComplianceLatestScanId string, cloudComplianceScanStatus string, cloudCompliancesCount int32, cloudMetadata map[string]interface{}, complianceLatestScanId string, complianceScanStatus string, compliancesCount int32, containerImages []ModelContainerImage, containers []ModelContainer, hostName string, interfaceIps string, interfaceNames string, kernelVersion string, malwareLatestScanId string, malwareScanStatus string, malwaresCount int32, metrics ModelComputeMetrics, nodeId string, nodeName string, pods []ModelPod, processes []ModelProcess, secretLatestScan string, secretScanStatus string, secretsCount int32, uptime string, vulnerabilitiesCount int32, vulnerabilityLatestScanId string, vulnerabilityScanStatus string, ) *ModelHost`
 
 NewModelHost instantiates a new ModelHost object
 This constructor will assign default values to properties that have it defined,
@@ -46,6 +51,26 @@ will change when the set of required properties is changed
 NewModelHostWithDefaults instantiates a new ModelHost object
 This constructor will only assign default values to properties that have it defined,
 but it doesn't guarantee that properties required by API are set
+
+### GetCloudComplianceLatestScanId
+
+`func (o *ModelHost) GetCloudComplianceLatestScanId() string`
+
+GetCloudComplianceLatestScanId returns the CloudComplianceLatestScanId field if non-nil, zero value otherwise.
+
+### GetCloudComplianceLatestScanIdOk
+
+`func (o *ModelHost) GetCloudComplianceLatestScanIdOk() (*string, bool)`
+
+GetCloudComplianceLatestScanIdOk returns a tuple with the CloudComplianceLatestScanId field if it's non-nil, zero value otherwise
+and a boolean to check if the value has been set.
+
+### SetCloudComplianceLatestScanId
+
+`func (o *ModelHost) SetCloudComplianceLatestScanId(v string)`
+
+SetCloudComplianceLatestScanId sets CloudComplianceLatestScanId field to given value.
+
 
 ### GetCloudComplianceScanStatus
 
@@ -105,6 +130,26 @@ and a boolean to check if the value has been set.
 `func (o *ModelHost) SetCloudMetadata(v map[string]interface{})`
 
 SetCloudMetadata sets CloudMetadata field to given value.
+
+
+### GetComplianceLatestScanId
+
+`func (o *ModelHost) GetComplianceLatestScanId() string`
+
+GetComplianceLatestScanId returns the ComplianceLatestScanId field if non-nil, zero value otherwise.
+
+### GetComplianceLatestScanIdOk
+
+`func (o *ModelHost) GetComplianceLatestScanIdOk() (*string, bool)`
+
+GetComplianceLatestScanIdOk returns a tuple with the ComplianceLatestScanId field if it's non-nil, zero value otherwise
+and a boolean to check if the value has been set.
+
+### SetComplianceLatestScanId
+
+`func (o *ModelHost) SetComplianceLatestScanId(v string)`
+
+SetComplianceLatestScanId sets ComplianceLatestScanId field to given value.
 
 
 ### GetComplianceScanStatus
@@ -287,6 +332,26 @@ and a boolean to check if the value has been set.
 SetKernelVersion sets KernelVersion field to given value.
 
 
+### GetMalwareLatestScanId
+
+`func (o *ModelHost) GetMalwareLatestScanId() string`
+
+GetMalwareLatestScanId returns the MalwareLatestScanId field if non-nil, zero value otherwise.
+
+### GetMalwareLatestScanIdOk
+
+`func (o *ModelHost) GetMalwareLatestScanIdOk() (*string, bool)`
+
+GetMalwareLatestScanIdOk returns a tuple with the MalwareLatestScanId field if it's non-nil, zero value otherwise
+and a boolean to check if the value has been set.
+
+### SetMalwareLatestScanId
+
+`func (o *ModelHost) SetMalwareLatestScanId(v string)`
+
+SetMalwareLatestScanId sets MalwareLatestScanId field to given value.
+
+
 ### GetMalwareScanStatus
 
 `func (o *ModelHost) GetMalwareScanStatus() string`
@@ -447,6 +512,26 @@ SetProcesses sets Processes field to given value.
 `func (o *ModelHost) UnsetProcesses()`
 
 UnsetProcesses ensures that no value is present for Processes, not even an explicit nil
+### GetSecretLatestScan
+
+`func (o *ModelHost) GetSecretLatestScan() string`
+
+GetSecretLatestScan returns the SecretLatestScan field if non-nil, zero value otherwise.
+
+### GetSecretLatestScanOk
+
+`func (o *ModelHost) GetSecretLatestScanOk() (*string, bool)`
+
+GetSecretLatestScanOk returns a tuple with the SecretLatestScan field if it's non-nil, zero value otherwise
+and a boolean to check if the value has been set.
+
+### SetSecretLatestScan
+
+`func (o *ModelHost) SetSecretLatestScan(v string)`
+
+SetSecretLatestScan sets SecretLatestScan field to given value.
+
+
 ### GetSecretScanStatus
 
 `func (o *ModelHost) GetSecretScanStatus() string`
@@ -525,6 +610,26 @@ and a boolean to check if the value has been set.
 `func (o *ModelHost) SetVulnerabilitiesCount(v int32)`
 
 SetVulnerabilitiesCount sets VulnerabilitiesCount field to given value.
+
+
+### GetVulnerabilityLatestScanId
+
+`func (o *ModelHost) GetVulnerabilityLatestScanId() string`
+
+GetVulnerabilityLatestScanId returns the VulnerabilityLatestScanId field if non-nil, zero value otherwise.
+
+### GetVulnerabilityLatestScanIdOk
+
+`func (o *ModelHost) GetVulnerabilityLatestScanIdOk() (*string, bool)`
+
+GetVulnerabilityLatestScanIdOk returns a tuple with the VulnerabilityLatestScanId field if it's non-nil, zero value otherwise
+and a boolean to check if the value has been set.
+
+### SetVulnerabilityLatestScanId
+
+`func (o *ModelHost) SetVulnerabilityLatestScanId(v string)`
+
+SetVulnerabilityLatestScanId sets VulnerabilityLatestScanId field to given value.
 
 
 ### GetVulnerabilityScanStatus

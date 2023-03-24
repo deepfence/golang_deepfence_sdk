@@ -4,29 +4,34 @@
 
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
+**CloudComplianceLatestScanId** | **string** |  | 
 **CloudComplianceScanStatus** | **string** |  | 
 **CloudCompliancesCount** | **int32** |  | 
+**ComplianceLatestScanId** | **string** |  | 
 **ComplianceScanStatus** | **string** |  | 
 **CompliancesCount** | **int32** |  | 
 **DockerImageName** | **string** |  | 
 **DockerImageSize** | **string** |  | 
 **DockerImageTag** | **string** |  | 
+**MalwareLatestScanId** | **string** |  | 
 **MalwareScanStatus** | **string** |  | 
 **MalwaresCount** | **int32** |  | 
 **Metadata** | **map[string]interface{}** |  | 
 **Metrics** | [**ModelComputeMetrics**](ModelComputeMetrics.md) |  | 
 **NodeId** | **string** |  | 
 **NodeName** | **string** |  | 
+**SecretLatestScan** | **string** |  | 
 **SecretScanStatus** | **string** |  | 
 **SecretsCount** | **int32** |  | 
 **VulnerabilitiesCount** | **int32** |  | 
+**VulnerabilityLatestScanId** | **string** |  | 
 **VulnerabilityScanStatus** | **string** |  | 
 
 ## Methods
 
 ### NewModelContainerImage
 
-`func NewModelContainerImage(cloudComplianceScanStatus string, cloudCompliancesCount int32, complianceScanStatus string, compliancesCount int32, dockerImageName string, dockerImageSize string, dockerImageTag string, malwareScanStatus string, malwaresCount int32, metadata map[string]interface{}, metrics ModelComputeMetrics, nodeId string, nodeName string, secretScanStatus string, secretsCount int32, vulnerabilitiesCount int32, vulnerabilityScanStatus string, ) *ModelContainerImage`
+`func NewModelContainerImage(cloudComplianceLatestScanId string, cloudComplianceScanStatus string, cloudCompliancesCount int32, complianceLatestScanId string, complianceScanStatus string, compliancesCount int32, dockerImageName string, dockerImageSize string, dockerImageTag string, malwareLatestScanId string, malwareScanStatus string, malwaresCount int32, metadata map[string]interface{}, metrics ModelComputeMetrics, nodeId string, nodeName string, secretLatestScan string, secretScanStatus string, secretsCount int32, vulnerabilitiesCount int32, vulnerabilityLatestScanId string, vulnerabilityScanStatus string, ) *ModelContainerImage`
 
 NewModelContainerImage instantiates a new ModelContainerImage object
 This constructor will assign default values to properties that have it defined,
@@ -40,6 +45,26 @@ will change when the set of required properties is changed
 NewModelContainerImageWithDefaults instantiates a new ModelContainerImage object
 This constructor will only assign default values to properties that have it defined,
 but it doesn't guarantee that properties required by API are set
+
+### GetCloudComplianceLatestScanId
+
+`func (o *ModelContainerImage) GetCloudComplianceLatestScanId() string`
+
+GetCloudComplianceLatestScanId returns the CloudComplianceLatestScanId field if non-nil, zero value otherwise.
+
+### GetCloudComplianceLatestScanIdOk
+
+`func (o *ModelContainerImage) GetCloudComplianceLatestScanIdOk() (*string, bool)`
+
+GetCloudComplianceLatestScanIdOk returns a tuple with the CloudComplianceLatestScanId field if it's non-nil, zero value otherwise
+and a boolean to check if the value has been set.
+
+### SetCloudComplianceLatestScanId
+
+`func (o *ModelContainerImage) SetCloudComplianceLatestScanId(v string)`
+
+SetCloudComplianceLatestScanId sets CloudComplianceLatestScanId field to given value.
+
 
 ### GetCloudComplianceScanStatus
 
@@ -79,6 +104,26 @@ and a boolean to check if the value has been set.
 `func (o *ModelContainerImage) SetCloudCompliancesCount(v int32)`
 
 SetCloudCompliancesCount sets CloudCompliancesCount field to given value.
+
+
+### GetComplianceLatestScanId
+
+`func (o *ModelContainerImage) GetComplianceLatestScanId() string`
+
+GetComplianceLatestScanId returns the ComplianceLatestScanId field if non-nil, zero value otherwise.
+
+### GetComplianceLatestScanIdOk
+
+`func (o *ModelContainerImage) GetComplianceLatestScanIdOk() (*string, bool)`
+
+GetComplianceLatestScanIdOk returns a tuple with the ComplianceLatestScanId field if it's non-nil, zero value otherwise
+and a boolean to check if the value has been set.
+
+### SetComplianceLatestScanId
+
+`func (o *ModelContainerImage) SetComplianceLatestScanId(v string)`
+
+SetComplianceLatestScanId sets ComplianceLatestScanId field to given value.
 
 
 ### GetComplianceScanStatus
@@ -179,6 +224,26 @@ and a boolean to check if the value has been set.
 `func (o *ModelContainerImage) SetDockerImageTag(v string)`
 
 SetDockerImageTag sets DockerImageTag field to given value.
+
+
+### GetMalwareLatestScanId
+
+`func (o *ModelContainerImage) GetMalwareLatestScanId() string`
+
+GetMalwareLatestScanId returns the MalwareLatestScanId field if non-nil, zero value otherwise.
+
+### GetMalwareLatestScanIdOk
+
+`func (o *ModelContainerImage) GetMalwareLatestScanIdOk() (*string, bool)`
+
+GetMalwareLatestScanIdOk returns a tuple with the MalwareLatestScanId field if it's non-nil, zero value otherwise
+and a boolean to check if the value has been set.
+
+### SetMalwareLatestScanId
+
+`func (o *ModelContainerImage) SetMalwareLatestScanId(v string)`
+
+SetMalwareLatestScanId sets MalwareLatestScanId field to given value.
 
 
 ### GetMalwareScanStatus
@@ -301,6 +366,26 @@ and a boolean to check if the value has been set.
 SetNodeName sets NodeName field to given value.
 
 
+### GetSecretLatestScan
+
+`func (o *ModelContainerImage) GetSecretLatestScan() string`
+
+GetSecretLatestScan returns the SecretLatestScan field if non-nil, zero value otherwise.
+
+### GetSecretLatestScanOk
+
+`func (o *ModelContainerImage) GetSecretLatestScanOk() (*string, bool)`
+
+GetSecretLatestScanOk returns a tuple with the SecretLatestScan field if it's non-nil, zero value otherwise
+and a boolean to check if the value has been set.
+
+### SetSecretLatestScan
+
+`func (o *ModelContainerImage) SetSecretLatestScan(v string)`
+
+SetSecretLatestScan sets SecretLatestScan field to given value.
+
+
 ### GetSecretScanStatus
 
 `func (o *ModelContainerImage) GetSecretScanStatus() string`
@@ -359,6 +444,26 @@ and a boolean to check if the value has been set.
 `func (o *ModelContainerImage) SetVulnerabilitiesCount(v int32)`
 
 SetVulnerabilitiesCount sets VulnerabilitiesCount field to given value.
+
+
+### GetVulnerabilityLatestScanId
+
+`func (o *ModelContainerImage) GetVulnerabilityLatestScanId() string`
+
+GetVulnerabilityLatestScanId returns the VulnerabilityLatestScanId field if non-nil, zero value otherwise.
+
+### GetVulnerabilityLatestScanIdOk
+
+`func (o *ModelContainerImage) GetVulnerabilityLatestScanIdOk() (*string, bool)`
+
+GetVulnerabilityLatestScanIdOk returns a tuple with the VulnerabilityLatestScanId field if it's non-nil, zero value otherwise
+and a boolean to check if the value has been set.
+
+### SetVulnerabilityLatestScanId
+
+`func (o *ModelContainerImage) SetVulnerabilityLatestScanId(v string)`
+
+SetVulnerabilityLatestScanId sets VulnerabilityLatestScanId field to given value.
 
 
 ### GetVulnerabilityScanStatus

@@ -808,6 +808,82 @@ paths:
       summary: Get Diagnostic Notification
       tags:
       - Diagnosis
+  /deepfence/filters/cloud-compliance:
+    get:
+      description: Get all applicable filter values for cloud compliance
+      operationId: getCloudComplianceFilters
+      responses:
+        "200":
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ModelFiltersResult'
+          description: OK
+        "400":
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ApiDocsBadRequestResponse'
+          description: Bad Request
+        "401":
+          description: Unauthorized
+        "403":
+          description: Forbidden
+        "404":
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ApiDocsFailureResponse'
+          description: Not Found
+        "500":
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ApiDocsFailureResponse'
+          description: Internal Server Error
+      security:
+      - bearer_token: []
+      summary: Get Cloud Compliance Filters
+      tags:
+      - Search
+  /deepfence/filters/compliance:
+    get:
+      description: Get all applicable filter values for compliance
+      operationId: getComplianceFilters
+      responses:
+        "200":
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ModelFiltersResult'
+          description: OK
+        "400":
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ApiDocsBadRequestResponse'
+          description: Bad Request
+        "401":
+          description: Unauthorized
+        "403":
+          description: Forbidden
+        "404":
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ApiDocsFailureResponse'
+          description: Not Found
+        "500":
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ApiDocsFailureResponse'
+          description: Internal Server Error
+      security:
+      - bearer_token: []
+      summary: Get Compliance Filters
+      tags:
+      - Search
   /deepfence/graph/threat:
     post:
       description: Retrieve the full threat graph associated with the account
@@ -7768,24 +7844,35 @@ components:
         vulnerabilities_count: 5
         compliance_scan_status: compliance_scan_status
         secrets_count: 5
+        malware_latest_scan_id: malware_latest_scan_id
         malwares_count: 1
         node_name: node_name
+        secret_latest_scan: secret_latest_scan
+        vulnerability_latest_scan_id: vulnerability_latest_scan_id
         cloud_compliances_count: 0
         node_type: node_type
         cloud_compliance_scan_status: cloud_compliance_scan_status
         compliances_count: 6
         malware_scan_status: malware_scan_status
+        compliance_latest_scan_id: compliance_latest_scan_id
+        cloud_compliance_latest scan_id: cloud_compliance_latest scan_id
         vulnerability_scan_status: vulnerability_scan_status
         node_id: node_id
       properties:
+        cloud_compliance_latest scan_id:
+          type: string
         cloud_compliance_scan_status:
           type: string
         cloud_compliances_count:
           type: integer
+        compliance_latest_scan_id:
+          type: string
         compliance_scan_status:
           type: string
         compliances_count:
           type: integer
+        malware_latest_scan_id:
+          type: string
         malware_scan_status:
           type: string
         malwares_count:
@@ -7796,27 +7883,36 @@ components:
           type: string
         node_type:
           type: string
+        secret_latest_scan:
+          type: string
         secret_scan_status:
           type: string
         secrets_count:
           type: integer
         vulnerabilities_count:
           type: integer
+        vulnerability_latest_scan_id:
+          type: string
         vulnerability_scan_status:
           type: string
       required:
+      - cloud_compliance_latest scan_id
       - cloud_compliance_scan_status
       - cloud_compliances_count
+      - compliance_latest_scan_id
       - compliance_scan_status
       - compliances_count
+      - malware_latest_scan_id
       - malware_scan_status
       - malwares_count
       - node_id
       - node_name
       - node_type
+      - secret_latest_scan
       - secret_scan_status
       - secrets_count
       - vulnerabilities_count
+      - vulnerability_latest_scan_id
       - vulnerability_scan_status
       type: object
     ModelCompliance:
@@ -8143,17 +8239,22 @@ components:
           vulnerabilities_count: 7
           compliance_scan_status: compliance_scan_status
           secrets_count: 2
+          malware_latest_scan_id: malware_latest_scan_id
           malwares_count: 1
           node_name: node_name
+          secret_latest_scan: secret_latest_scan
+          vulnerability_latest_scan_id: vulnerability_latest_scan_id
           cloud_compliances_count: 0
           cloud_compliance_scan_status: cloud_compliance_scan_status
           compliances_count: 6
           docker_image_tag: docker_image_tag
           malware_scan_status: malware_scan_status
           docker_image_size: docker_image_size
+          compliance_latest_scan_id: compliance_latest_scan_id
           metrics:
             memory_mb: 5.637376656633329
             cpu_percent: 5.962133916683182
+          cloud_compliance_latest scan_id: cloud_compliance_latest scan_id
           vulnerability_scan_status: vulnerability_scan_status
           docker_image_name: docker_image_name
           node_id: node_id
@@ -8187,23 +8288,32 @@ components:
         compliance_scan_status: compliance_scan_status
         secrets_count: 5
         docker_container_name: docker_container_name
+        malware_latest_scan_id: malware_latest_scan_id
         malwares_count: 1
         node_name: node_name
+        secret_latest_scan: secret_latest_scan
+        vulnerability_latest_scan_id: vulnerability_latest_scan_id
         cloud_compliances_count: 0
         cloud_compliance_scan_status: cloud_compliance_scan_status
         compliances_count: 6
         malware_scan_status: malware_scan_status
+        compliance_latest_scan_id: compliance_latest_scan_id
         metrics:
           memory_mb: 5.637376656633329
           cpu_percent: 5.962133916683182
+        cloud_compliance_latest scan_id: cloud_compliance_latest scan_id
         vulnerability_scan_status: vulnerability_scan_status
         host_name: host_name
         node_id: node_id
       properties:
+        cloud_compliance_latest scan_id:
+          type: string
         cloud_compliance_scan_status:
           type: string
         cloud_compliances_count:
           type: integer
+        compliance_latest_scan_id:
+          type: string
         compliance_scan_status:
           type: string
         compliances_count:
@@ -8217,6 +8327,8 @@ components:
           type: string
         image:
           $ref: '#/components/schemas/ModelContainerImage'
+        malware_latest_scan_id:
+          type: string
         malware_scan_status:
           type: string
         malwares_count:
@@ -8235,23 +8347,30 @@ components:
             $ref: '#/components/schemas/ModelProcess'
           nullable: true
           type: array
+        secret_latest_scan:
+          type: string
         secret_scan_status:
           type: string
         secrets_count:
           type: integer
         vulnerabilities_count:
           type: integer
+        vulnerability_latest_scan_id:
+          type: string
         vulnerability_scan_status:
           type: string
       required:
+      - cloud_compliance_latest scan_id
       - cloud_compliance_scan_status
       - cloud_compliances_count
+      - compliance_latest_scan_id
       - compliance_scan_status
       - compliances_count
       - docker_container_name
       - docker_labels
       - host_name
       - image
+      - malware_latest_scan_id
       - malware_scan_status
       - malwares_count
       - metadata
@@ -8259,9 +8378,11 @@ components:
       - node_id
       - node_name
       - processes
+      - secret_latest_scan
       - secret_scan_status
       - secrets_count
       - vulnerabilities_count
+      - vulnerability_latest_scan_id
       - vulnerability_scan_status
       type: object
     ModelContainerImage:
@@ -8272,25 +8393,34 @@ components:
         vulnerabilities_count: 7
         compliance_scan_status: compliance_scan_status
         secrets_count: 2
+        malware_latest_scan_id: malware_latest_scan_id
         malwares_count: 1
         node_name: node_name
+        secret_latest_scan: secret_latest_scan
+        vulnerability_latest_scan_id: vulnerability_latest_scan_id
         cloud_compliances_count: 0
         cloud_compliance_scan_status: cloud_compliance_scan_status
         compliances_count: 6
         docker_image_tag: docker_image_tag
         malware_scan_status: malware_scan_status
         docker_image_size: docker_image_size
+        compliance_latest_scan_id: compliance_latest_scan_id
         metrics:
           memory_mb: 5.637376656633329
           cpu_percent: 5.962133916683182
+        cloud_compliance_latest scan_id: cloud_compliance_latest scan_id
         vulnerability_scan_status: vulnerability_scan_status
         docker_image_name: docker_image_name
         node_id: node_id
       properties:
+        cloud_compliance_latest scan_id:
+          type: string
         cloud_compliance_scan_status:
           type: string
         cloud_compliances_count:
           type: integer
+        compliance_latest_scan_id:
+          type: string
         compliance_scan_status:
           type: string
         compliances_count:
@@ -8300,6 +8430,8 @@ components:
         docker_image_size:
           type: string
         docker_image_tag:
+          type: string
+        malware_latest_scan_id:
           type: string
         malware_scan_status:
           type: string
@@ -8314,31 +8446,40 @@ components:
           type: string
         node_name:
           type: string
+        secret_latest_scan:
+          type: string
         secret_scan_status:
           type: string
         secrets_count:
           type: integer
         vulnerabilities_count:
           type: integer
+        vulnerability_latest_scan_id:
+          type: string
         vulnerability_scan_status:
           type: string
       required:
+      - cloud_compliance_latest scan_id
       - cloud_compliance_scan_status
       - cloud_compliances_count
+      - compliance_latest_scan_id
       - compliance_scan_status
       - compliances_count
       - docker_image_name
       - docker_image_size
       - docker_image_tag
+      - malware_latest_scan_id
       - malware_scan_status
       - malwares_count
       - metadata
       - metrics
       - node_id
       - node_name
+      - secret_latest_scan
       - secret_scan_status
       - secrets_count
       - vulnerabilities_count
+      - vulnerability_latest_scan_id
       - vulnerability_scan_status
       type: object
     ModelDownloadReportResponse:
@@ -8361,8 +8502,82 @@ components:
       - offset
       - size
       type: object
+    ModelFiltersResult:
+      example:
+        filters:
+          key:
+          - filters
+          - filters
+      properties:
+        filters:
+          additionalProperties:
+            items:
+              type: string
+            type: array
+          nullable: true
+          type: object
+      required:
+      - filters
+      type: object
     ModelHost:
       example:
+        vulnerabilities_count: 5
+        secrets_count: 5
+        container_images:
+        - metadata:
+            key: ""
+          secret_scan_status: secret_scan_status
+          vulnerabilities_count: 7
+          compliance_scan_status: compliance_scan_status
+          secrets_count: 2
+          malware_latest_scan_id: malware_latest_scan_id
+          malwares_count: 1
+          node_name: node_name
+          secret_latest_scan: secret_latest_scan
+          vulnerability_latest_scan_id: vulnerability_latest_scan_id
+          cloud_compliances_count: 0
+          cloud_compliance_scan_status: cloud_compliance_scan_status
+          compliances_count: 6
+          docker_image_tag: docker_image_tag
+          malware_scan_status: malware_scan_status
+          docker_image_size: docker_image_size
+          compliance_latest_scan_id: compliance_latest_scan_id
+          metrics:
+            memory_mb: 5.637376656633329
+            cpu_percent: 5.962133916683182
+          cloud_compliance_latest scan_id: cloud_compliance_latest scan_id
+          vulnerability_scan_status: vulnerability_scan_status
+          docker_image_name: docker_image_name
+          node_id: node_id
+        - metadata:
+            key: ""
+          secret_scan_status: secret_scan_status
+          vulnerabilities_count: 7
+          compliance_scan_status: compliance_scan_status
+          secrets_count: 2
+          malware_latest_scan_id: malware_latest_scan_id
+          malwares_count: 1
+          node_name: node_name
+          secret_latest_scan: secret_latest_scan
+          vulnerability_latest_scan_id: vulnerability_latest_scan_id
+          cloud_compliances_count: 0
+          cloud_compliance_scan_status: cloud_compliance_scan_status
+          compliances_count: 6
+          docker_image_tag: docker_image_tag
+          malware_scan_status: malware_scan_status
+          docker_image_size: docker_image_size
+          compliance_latest_scan_id: compliance_latest_scan_id
+          metrics:
+            memory_mb: 5.637376656633329
+            cpu_percent: 5.962133916683182
+          cloud_compliance_latest scan_id: cloud_compliance_latest scan_id
+          vulnerability_scan_status: vulnerability_scan_status
+          docker_image_name: docker_image_name
+          node_id: node_id
+        secret_latest_scan: secret_latest_scan
+        vulnerability_latest_scan_id: vulnerability_latest_scan_id
+        cloud_compliance_scan_status: cloud_compliance_scan_status
+        malware_scan_status: malware_scan_status
         interface_ips: interface_ips
         processes:
         - metadata:
@@ -8388,61 +8603,18 @@ components:
           node_id: node_id
           ppid: ppid
         secret_scan_status: secret_scan_status
-        vulnerabilities_count: 5
         cloud_metadata:
           key: ""
         compliance_scan_status: compliance_scan_status
-        secrets_count: 5
-        container_images:
-        - metadata:
-            key: ""
-          secret_scan_status: secret_scan_status
-          vulnerabilities_count: 7
-          compliance_scan_status: compliance_scan_status
-          secrets_count: 2
-          malwares_count: 1
-          node_name: node_name
-          cloud_compliances_count: 0
-          cloud_compliance_scan_status: cloud_compliance_scan_status
-          compliances_count: 6
-          docker_image_tag: docker_image_tag
-          malware_scan_status: malware_scan_status
-          docker_image_size: docker_image_size
-          metrics:
-            memory_mb: 5.637376656633329
-            cpu_percent: 5.962133916683182
-          vulnerability_scan_status: vulnerability_scan_status
-          docker_image_name: docker_image_name
-          node_id: node_id
-        - metadata:
-            key: ""
-          secret_scan_status: secret_scan_status
-          vulnerabilities_count: 7
-          compliance_scan_status: compliance_scan_status
-          secrets_count: 2
-          malwares_count: 1
-          node_name: node_name
-          cloud_compliances_count: 0
-          cloud_compliance_scan_status: cloud_compliance_scan_status
-          compliances_count: 6
-          docker_image_tag: docker_image_tag
-          malware_scan_status: malware_scan_status
-          docker_image_size: docker_image_size
-          metrics:
-            memory_mb: 5.637376656633329
-            cpu_percent: 5.962133916683182
-          vulnerability_scan_status: vulnerability_scan_status
-          docker_image_name: docker_image_name
-          node_id: node_id
+        malware_latest_scan_id: malware_latest_scan_id
         malwares_count: 1
         node_name: node_name
         interfaceNames: interfaceNames
         uptime: uptime
         cloud_compliances_count: 0
-        cloud_compliance_scan_status: cloud_compliance_scan_status
         compliances_count: 6
         kernel_version: kernel_version
-        malware_scan_status: malware_scan_status
+        compliance_latest_scan_id: compliance_latest_scan_id
         containers:
         - docker_labels:
             key: ""
@@ -8453,17 +8625,22 @@ components:
             vulnerabilities_count: 7
             compliance_scan_status: compliance_scan_status
             secrets_count: 2
+            malware_latest_scan_id: malware_latest_scan_id
             malwares_count: 1
             node_name: node_name
+            secret_latest_scan: secret_latest_scan
+            vulnerability_latest_scan_id: vulnerability_latest_scan_id
             cloud_compliances_count: 0
             cloud_compliance_scan_status: cloud_compliance_scan_status
             compliances_count: 6
             docker_image_tag: docker_image_tag
             malware_scan_status: malware_scan_status
             docker_image_size: docker_image_size
+            compliance_latest_scan_id: compliance_latest_scan_id
             metrics:
               memory_mb: 5.637376656633329
               cpu_percent: 5.962133916683182
+            cloud_compliance_latest scan_id: cloud_compliance_latest scan_id
             vulnerability_scan_status: vulnerability_scan_status
             docker_image_name: docker_image_name
             node_id: node_id
@@ -8497,15 +8674,20 @@ components:
           compliance_scan_status: compliance_scan_status
           secrets_count: 5
           docker_container_name: docker_container_name
+          malware_latest_scan_id: malware_latest_scan_id
           malwares_count: 1
           node_name: node_name
+          secret_latest_scan: secret_latest_scan
+          vulnerability_latest_scan_id: vulnerability_latest_scan_id
           cloud_compliances_count: 0
           cloud_compliance_scan_status: cloud_compliance_scan_status
           compliances_count: 6
           malware_scan_status: malware_scan_status
+          compliance_latest_scan_id: compliance_latest_scan_id
           metrics:
             memory_mb: 5.637376656633329
             cpu_percent: 5.962133916683182
+          cloud_compliance_latest scan_id: cloud_compliance_latest scan_id
           vulnerability_scan_status: vulnerability_scan_status
           host_name: host_name
           node_id: node_id
@@ -8518,17 +8700,22 @@ components:
             vulnerabilities_count: 7
             compliance_scan_status: compliance_scan_status
             secrets_count: 2
+            malware_latest_scan_id: malware_latest_scan_id
             malwares_count: 1
             node_name: node_name
+            secret_latest_scan: secret_latest_scan
+            vulnerability_latest_scan_id: vulnerability_latest_scan_id
             cloud_compliances_count: 0
             cloud_compliance_scan_status: cloud_compliance_scan_status
             compliances_count: 6
             docker_image_tag: docker_image_tag
             malware_scan_status: malware_scan_status
             docker_image_size: docker_image_size
+            compliance_latest_scan_id: compliance_latest_scan_id
             metrics:
               memory_mb: 5.637376656633329
               cpu_percent: 5.962133916683182
+            cloud_compliance_latest scan_id: cloud_compliance_latest scan_id
             vulnerability_scan_status: vulnerability_scan_status
             docker_image_name: docker_image_name
             node_id: node_id
@@ -8562,15 +8749,20 @@ components:
           compliance_scan_status: compliance_scan_status
           secrets_count: 5
           docker_container_name: docker_container_name
+          malware_latest_scan_id: malware_latest_scan_id
           malwares_count: 1
           node_name: node_name
+          secret_latest_scan: secret_latest_scan
+          vulnerability_latest_scan_id: vulnerability_latest_scan_id
           cloud_compliances_count: 0
           cloud_compliance_scan_status: cloud_compliance_scan_status
           compliances_count: 6
           malware_scan_status: malware_scan_status
+          compliance_latest_scan_id: compliance_latest_scan_id
           metrics:
             memory_mb: 5.637376656633329
             cpu_percent: 5.962133916683182
+          cloud_compliance_latest scan_id: cloud_compliance_latest scan_id
           vulnerability_scan_status: vulnerability_scan_status
           host_name: host_name
           node_id: node_id
@@ -8613,17 +8805,22 @@ components:
               vulnerabilities_count: 7
               compliance_scan_status: compliance_scan_status
               secrets_count: 2
+              malware_latest_scan_id: malware_latest_scan_id
               malwares_count: 1
               node_name: node_name
+              secret_latest_scan: secret_latest_scan
+              vulnerability_latest_scan_id: vulnerability_latest_scan_id
               cloud_compliances_count: 0
               cloud_compliance_scan_status: cloud_compliance_scan_status
               compliances_count: 6
               docker_image_tag: docker_image_tag
               malware_scan_status: malware_scan_status
               docker_image_size: docker_image_size
+              compliance_latest_scan_id: compliance_latest_scan_id
               metrics:
                 memory_mb: 5.637376656633329
                 cpu_percent: 5.962133916683182
+              cloud_compliance_latest scan_id: cloud_compliance_latest scan_id
               vulnerability_scan_status: vulnerability_scan_status
               docker_image_name: docker_image_name
               node_id: node_id
@@ -8657,15 +8854,20 @@ components:
             compliance_scan_status: compliance_scan_status
             secrets_count: 5
             docker_container_name: docker_container_name
+            malware_latest_scan_id: malware_latest_scan_id
             malwares_count: 1
             node_name: node_name
+            secret_latest_scan: secret_latest_scan
+            vulnerability_latest_scan_id: vulnerability_latest_scan_id
             cloud_compliances_count: 0
             cloud_compliance_scan_status: cloud_compliance_scan_status
             compliances_count: 6
             malware_scan_status: malware_scan_status
+            compliance_latest_scan_id: compliance_latest_scan_id
             metrics:
               memory_mb: 5.637376656633329
               cpu_percent: 5.962133916683182
+            cloud_compliance_latest scan_id: cloud_compliance_latest scan_id
             vulnerability_scan_status: vulnerability_scan_status
             host_name: host_name
             node_id: node_id
@@ -8678,17 +8880,22 @@ components:
               vulnerabilities_count: 7
               compliance_scan_status: compliance_scan_status
               secrets_count: 2
+              malware_latest_scan_id: malware_latest_scan_id
               malwares_count: 1
               node_name: node_name
+              secret_latest_scan: secret_latest_scan
+              vulnerability_latest_scan_id: vulnerability_latest_scan_id
               cloud_compliances_count: 0
               cloud_compliance_scan_status: cloud_compliance_scan_status
               compliances_count: 6
               docker_image_tag: docker_image_tag
               malware_scan_status: malware_scan_status
               docker_image_size: docker_image_size
+              compliance_latest_scan_id: compliance_latest_scan_id
               metrics:
                 memory_mb: 5.637376656633329
                 cpu_percent: 5.962133916683182
+              cloud_compliance_latest scan_id: cloud_compliance_latest scan_id
               vulnerability_scan_status: vulnerability_scan_status
               docker_image_name: docker_image_name
               node_id: node_id
@@ -8722,15 +8929,20 @@ components:
             compliance_scan_status: compliance_scan_status
             secrets_count: 5
             docker_container_name: docker_container_name
+            malware_latest_scan_id: malware_latest_scan_id
             malwares_count: 1
             node_name: node_name
+            secret_latest_scan: secret_latest_scan
+            vulnerability_latest_scan_id: vulnerability_latest_scan_id
             cloud_compliances_count: 0
             cloud_compliance_scan_status: cloud_compliance_scan_status
             compliances_count: 6
             malware_scan_status: malware_scan_status
+            compliance_latest_scan_id: compliance_latest_scan_id
             metrics:
               memory_mb: 5.637376656633329
               cpu_percent: 5.962133916683182
+            cloud_compliance_latest scan_id: cloud_compliance_latest scan_id
             vulnerability_scan_status: vulnerability_scan_status
             host_name: host_name
             node_id: node_id
@@ -8777,17 +8989,22 @@ components:
               vulnerabilities_count: 7
               compliance_scan_status: compliance_scan_status
               secrets_count: 2
+              malware_latest_scan_id: malware_latest_scan_id
               malwares_count: 1
               node_name: node_name
+              secret_latest_scan: secret_latest_scan
+              vulnerability_latest_scan_id: vulnerability_latest_scan_id
               cloud_compliances_count: 0
               cloud_compliance_scan_status: cloud_compliance_scan_status
               compliances_count: 6
               docker_image_tag: docker_image_tag
               malware_scan_status: malware_scan_status
               docker_image_size: docker_image_size
+              compliance_latest_scan_id: compliance_latest_scan_id
               metrics:
                 memory_mb: 5.637376656633329
                 cpu_percent: 5.962133916683182
+              cloud_compliance_latest scan_id: cloud_compliance_latest scan_id
               vulnerability_scan_status: vulnerability_scan_status
               docker_image_name: docker_image_name
               node_id: node_id
@@ -8821,15 +9038,20 @@ components:
             compliance_scan_status: compliance_scan_status
             secrets_count: 5
             docker_container_name: docker_container_name
+            malware_latest_scan_id: malware_latest_scan_id
             malwares_count: 1
             node_name: node_name
+            secret_latest_scan: secret_latest_scan
+            vulnerability_latest_scan_id: vulnerability_latest_scan_id
             cloud_compliances_count: 0
             cloud_compliance_scan_status: cloud_compliance_scan_status
             compliances_count: 6
             malware_scan_status: malware_scan_status
+            compliance_latest_scan_id: compliance_latest_scan_id
             metrics:
               memory_mb: 5.637376656633329
               cpu_percent: 5.962133916683182
+            cloud_compliance_latest scan_id: cloud_compliance_latest scan_id
             vulnerability_scan_status: vulnerability_scan_status
             host_name: host_name
             node_id: node_id
@@ -8842,17 +9064,22 @@ components:
               vulnerabilities_count: 7
               compliance_scan_status: compliance_scan_status
               secrets_count: 2
+              malware_latest_scan_id: malware_latest_scan_id
               malwares_count: 1
               node_name: node_name
+              secret_latest_scan: secret_latest_scan
+              vulnerability_latest_scan_id: vulnerability_latest_scan_id
               cloud_compliances_count: 0
               cloud_compliance_scan_status: cloud_compliance_scan_status
               compliances_count: 6
               docker_image_tag: docker_image_tag
               malware_scan_status: malware_scan_status
               docker_image_size: docker_image_size
+              compliance_latest_scan_id: compliance_latest_scan_id
               metrics:
                 memory_mb: 5.637376656633329
                 cpu_percent: 5.962133916683182
+              cloud_compliance_latest scan_id: cloud_compliance_latest scan_id
               vulnerability_scan_status: vulnerability_scan_status
               docker_image_name: docker_image_name
               node_id: node_id
@@ -8886,15 +9113,20 @@ components:
             compliance_scan_status: compliance_scan_status
             secrets_count: 5
             docker_container_name: docker_container_name
+            malware_latest_scan_id: malware_latest_scan_id
             malwares_count: 1
             node_name: node_name
+            secret_latest_scan: secret_latest_scan
+            vulnerability_latest_scan_id: vulnerability_latest_scan_id
             cloud_compliances_count: 0
             cloud_compliance_scan_status: cloud_compliance_scan_status
             compliances_count: 6
             malware_scan_status: malware_scan_status
+            compliance_latest_scan_id: compliance_latest_scan_id
             metrics:
               memory_mb: 5.637376656633329
               cpu_percent: 5.962133916683182
+            cloud_compliance_latest scan_id: cloud_compliance_latest scan_id
             vulnerability_scan_status: vulnerability_scan_status
             host_name: host_name
             node_id: node_id
@@ -8906,10 +9138,13 @@ components:
         metrics:
           memory_mb: 5.637376656633329
           cpu_percent: 5.962133916683182
+        cloud_compliance_latest scan_id: cloud_compliance_latest scan_id
         vulnerability_scan_status: vulnerability_scan_status
         host_name: host_name
         node_id: node_id
       properties:
+        cloud_compliance_latest scan_id:
+          type: string
         cloud_compliance_scan_status:
           type: string
         cloud_compliances_count:
@@ -8917,6 +9152,8 @@ components:
         cloud_metadata:
           additionalProperties: {}
           type: object
+        compliance_latest_scan_id:
+          type: string
         compliance_scan_status:
           type: string
         compliances_count:
@@ -8939,6 +9176,8 @@ components:
           type: string
         kernel_version:
           type: string
+        malware_latest_scan_id:
+          type: string
         malware_scan_status:
           type: string
         malwares_count:
@@ -8959,6 +9198,8 @@ components:
             $ref: '#/components/schemas/ModelProcess'
           nullable: true
           type: array
+        secret_latest_scan:
+          type: string
         secret_scan_status:
           type: string
         secrets_count:
@@ -8967,12 +9208,16 @@ components:
           type: string
         vulnerabilities_count:
           type: integer
+        vulnerability_latest_scan_id:
+          type: string
         vulnerability_scan_status:
           type: string
       required:
+      - cloud_compliance_latest scan_id
       - cloud_compliance_scan_status
       - cloud_compliances_count
       - cloud_metadata
+      - compliance_latest_scan_id
       - compliance_scan_status
       - compliances_count
       - container_images
@@ -8981,6 +9226,7 @@ components:
       - interfaceNames
       - interface_ips
       - kernel_version
+      - malware_latest_scan_id
       - malware_scan_status
       - malwares_count
       - metrics
@@ -8988,10 +9234,12 @@ components:
       - node_name
       - pods
       - processes
+      - secret_latest_scan
       - secret_scan_status
       - secrets_count
       - uptime
       - vulnerabilities_count
+      - vulnerability_latest_scan_id
       - vulnerability_scan_status
       type: object
     ModelImageStub:
@@ -9072,7 +9320,64 @@ components:
           key: ""
         node_name: node_name
         containers:
-        - interface_ips: interface_ips
+        - vulnerabilities_count: 5
+          secrets_count: 5
+          container_images:
+          - metadata:
+              key: ""
+            secret_scan_status: secret_scan_status
+            vulnerabilities_count: 7
+            compliance_scan_status: compliance_scan_status
+            secrets_count: 2
+            malware_latest_scan_id: malware_latest_scan_id
+            malwares_count: 1
+            node_name: node_name
+            secret_latest_scan: secret_latest_scan
+            vulnerability_latest_scan_id: vulnerability_latest_scan_id
+            cloud_compliances_count: 0
+            cloud_compliance_scan_status: cloud_compliance_scan_status
+            compliances_count: 6
+            docker_image_tag: docker_image_tag
+            malware_scan_status: malware_scan_status
+            docker_image_size: docker_image_size
+            compliance_latest_scan_id: compliance_latest_scan_id
+            metrics:
+              memory_mb: 5.637376656633329
+              cpu_percent: 5.962133916683182
+            cloud_compliance_latest scan_id: cloud_compliance_latest scan_id
+            vulnerability_scan_status: vulnerability_scan_status
+            docker_image_name: docker_image_name
+            node_id: node_id
+          - metadata:
+              key: ""
+            secret_scan_status: secret_scan_status
+            vulnerabilities_count: 7
+            compliance_scan_status: compliance_scan_status
+            secrets_count: 2
+            malware_latest_scan_id: malware_latest_scan_id
+            malwares_count: 1
+            node_name: node_name
+            secret_latest_scan: secret_latest_scan
+            vulnerability_latest_scan_id: vulnerability_latest_scan_id
+            cloud_compliances_count: 0
+            cloud_compliance_scan_status: cloud_compliance_scan_status
+            compliances_count: 6
+            docker_image_tag: docker_image_tag
+            malware_scan_status: malware_scan_status
+            docker_image_size: docker_image_size
+            compliance_latest_scan_id: compliance_latest_scan_id
+            metrics:
+              memory_mb: 5.637376656633329
+              cpu_percent: 5.962133916683182
+            cloud_compliance_latest scan_id: cloud_compliance_latest scan_id
+            vulnerability_scan_status: vulnerability_scan_status
+            docker_image_name: docker_image_name
+            node_id: node_id
+          secret_latest_scan: secret_latest_scan
+          vulnerability_latest_scan_id: vulnerability_latest_scan_id
+          cloud_compliance_scan_status: cloud_compliance_scan_status
+          malware_scan_status: malware_scan_status
+          interface_ips: interface_ips
           processes:
           - metadata:
               key: ""
@@ -9097,61 +9402,18 @@ components:
             node_id: node_id
             ppid: ppid
           secret_scan_status: secret_scan_status
-          vulnerabilities_count: 5
           cloud_metadata:
             key: ""
           compliance_scan_status: compliance_scan_status
-          secrets_count: 5
-          container_images:
-          - metadata:
-              key: ""
-            secret_scan_status: secret_scan_status
-            vulnerabilities_count: 7
-            compliance_scan_status: compliance_scan_status
-            secrets_count: 2
-            malwares_count: 1
-            node_name: node_name
-            cloud_compliances_count: 0
-            cloud_compliance_scan_status: cloud_compliance_scan_status
-            compliances_count: 6
-            docker_image_tag: docker_image_tag
-            malware_scan_status: malware_scan_status
-            docker_image_size: docker_image_size
-            metrics:
-              memory_mb: 5.637376656633329
-              cpu_percent: 5.962133916683182
-            vulnerability_scan_status: vulnerability_scan_status
-            docker_image_name: docker_image_name
-            node_id: node_id
-          - metadata:
-              key: ""
-            secret_scan_status: secret_scan_status
-            vulnerabilities_count: 7
-            compliance_scan_status: compliance_scan_status
-            secrets_count: 2
-            malwares_count: 1
-            node_name: node_name
-            cloud_compliances_count: 0
-            cloud_compliance_scan_status: cloud_compliance_scan_status
-            compliances_count: 6
-            docker_image_tag: docker_image_tag
-            malware_scan_status: malware_scan_status
-            docker_image_size: docker_image_size
-            metrics:
-              memory_mb: 5.637376656633329
-              cpu_percent: 5.962133916683182
-            vulnerability_scan_status: vulnerability_scan_status
-            docker_image_name: docker_image_name
-            node_id: node_id
+          malware_latest_scan_id: malware_latest_scan_id
           malwares_count: 1
           node_name: node_name
           interfaceNames: interfaceNames
           uptime: uptime
           cloud_compliances_count: 0
-          cloud_compliance_scan_status: cloud_compliance_scan_status
           compliances_count: 6
           kernel_version: kernel_version
-          malware_scan_status: malware_scan_status
+          compliance_latest_scan_id: compliance_latest_scan_id
           containers:
           - docker_labels:
               key: ""
@@ -9162,17 +9424,22 @@ components:
               vulnerabilities_count: 7
               compliance_scan_status: compliance_scan_status
               secrets_count: 2
+              malware_latest_scan_id: malware_latest_scan_id
               malwares_count: 1
               node_name: node_name
+              secret_latest_scan: secret_latest_scan
+              vulnerability_latest_scan_id: vulnerability_latest_scan_id
               cloud_compliances_count: 0
               cloud_compliance_scan_status: cloud_compliance_scan_status
               compliances_count: 6
               docker_image_tag: docker_image_tag
               malware_scan_status: malware_scan_status
               docker_image_size: docker_image_size
+              compliance_latest_scan_id: compliance_latest_scan_id
               metrics:
                 memory_mb: 5.637376656633329
                 cpu_percent: 5.962133916683182
+              cloud_compliance_latest scan_id: cloud_compliance_latest scan_id
               vulnerability_scan_status: vulnerability_scan_status
               docker_image_name: docker_image_name
               node_id: node_id
@@ -9206,15 +9473,20 @@ components:
             compliance_scan_status: compliance_scan_status
             secrets_count: 5
             docker_container_name: docker_container_name
+            malware_latest_scan_id: malware_latest_scan_id
             malwares_count: 1
             node_name: node_name
+            secret_latest_scan: secret_latest_scan
+            vulnerability_latest_scan_id: vulnerability_latest_scan_id
             cloud_compliances_count: 0
             cloud_compliance_scan_status: cloud_compliance_scan_status
             compliances_count: 6
             malware_scan_status: malware_scan_status
+            compliance_latest_scan_id: compliance_latest_scan_id
             metrics:
               memory_mb: 5.637376656633329
               cpu_percent: 5.962133916683182
+            cloud_compliance_latest scan_id: cloud_compliance_latest scan_id
             vulnerability_scan_status: vulnerability_scan_status
             host_name: host_name
             node_id: node_id
@@ -9227,17 +9499,22 @@ components:
               vulnerabilities_count: 7
               compliance_scan_status: compliance_scan_status
               secrets_count: 2
+              malware_latest_scan_id: malware_latest_scan_id
               malwares_count: 1
               node_name: node_name
+              secret_latest_scan: secret_latest_scan
+              vulnerability_latest_scan_id: vulnerability_latest_scan_id
               cloud_compliances_count: 0
               cloud_compliance_scan_status: cloud_compliance_scan_status
               compliances_count: 6
               docker_image_tag: docker_image_tag
               malware_scan_status: malware_scan_status
               docker_image_size: docker_image_size
+              compliance_latest_scan_id: compliance_latest_scan_id
               metrics:
                 memory_mb: 5.637376656633329
                 cpu_percent: 5.962133916683182
+              cloud_compliance_latest scan_id: cloud_compliance_latest scan_id
               vulnerability_scan_status: vulnerability_scan_status
               docker_image_name: docker_image_name
               node_id: node_id
@@ -9271,15 +9548,20 @@ components:
             compliance_scan_status: compliance_scan_status
             secrets_count: 5
             docker_container_name: docker_container_name
+            malware_latest_scan_id: malware_latest_scan_id
             malwares_count: 1
             node_name: node_name
+            secret_latest_scan: secret_latest_scan
+            vulnerability_latest_scan_id: vulnerability_latest_scan_id
             cloud_compliances_count: 0
             cloud_compliance_scan_status: cloud_compliance_scan_status
             compliances_count: 6
             malware_scan_status: malware_scan_status
+            compliance_latest_scan_id: compliance_latest_scan_id
             metrics:
               memory_mb: 5.637376656633329
               cpu_percent: 5.962133916683182
+            cloud_compliance_latest scan_id: cloud_compliance_latest scan_id
             vulnerability_scan_status: vulnerability_scan_status
             host_name: host_name
             node_id: node_id
@@ -9322,17 +9604,22 @@ components:
                 vulnerabilities_count: 7
                 compliance_scan_status: compliance_scan_status
                 secrets_count: 2
+                malware_latest_scan_id: malware_latest_scan_id
                 malwares_count: 1
                 node_name: node_name
+                secret_latest_scan: secret_latest_scan
+                vulnerability_latest_scan_id: vulnerability_latest_scan_id
                 cloud_compliances_count: 0
                 cloud_compliance_scan_status: cloud_compliance_scan_status
                 compliances_count: 6
                 docker_image_tag: docker_image_tag
                 malware_scan_status: malware_scan_status
                 docker_image_size: docker_image_size
+                compliance_latest_scan_id: compliance_latest_scan_id
                 metrics:
                   memory_mb: 5.637376656633329
                   cpu_percent: 5.962133916683182
+                cloud_compliance_latest scan_id: cloud_compliance_latest scan_id
                 vulnerability_scan_status: vulnerability_scan_status
                 docker_image_name: docker_image_name
                 node_id: node_id
@@ -9366,15 +9653,20 @@ components:
               compliance_scan_status: compliance_scan_status
               secrets_count: 5
               docker_container_name: docker_container_name
+              malware_latest_scan_id: malware_latest_scan_id
               malwares_count: 1
               node_name: node_name
+              secret_latest_scan: secret_latest_scan
+              vulnerability_latest_scan_id: vulnerability_latest_scan_id
               cloud_compliances_count: 0
               cloud_compliance_scan_status: cloud_compliance_scan_status
               compliances_count: 6
               malware_scan_status: malware_scan_status
+              compliance_latest_scan_id: compliance_latest_scan_id
               metrics:
                 memory_mb: 5.637376656633329
                 cpu_percent: 5.962133916683182
+              cloud_compliance_latest scan_id: cloud_compliance_latest scan_id
               vulnerability_scan_status: vulnerability_scan_status
               host_name: host_name
               node_id: node_id
@@ -9387,17 +9679,22 @@ components:
                 vulnerabilities_count: 7
                 compliance_scan_status: compliance_scan_status
                 secrets_count: 2
+                malware_latest_scan_id: malware_latest_scan_id
                 malwares_count: 1
                 node_name: node_name
+                secret_latest_scan: secret_latest_scan
+                vulnerability_latest_scan_id: vulnerability_latest_scan_id
                 cloud_compliances_count: 0
                 cloud_compliance_scan_status: cloud_compliance_scan_status
                 compliances_count: 6
                 docker_image_tag: docker_image_tag
                 malware_scan_status: malware_scan_status
                 docker_image_size: docker_image_size
+                compliance_latest_scan_id: compliance_latest_scan_id
                 metrics:
                   memory_mb: 5.637376656633329
                   cpu_percent: 5.962133916683182
+                cloud_compliance_latest scan_id: cloud_compliance_latest scan_id
                 vulnerability_scan_status: vulnerability_scan_status
                 docker_image_name: docker_image_name
                 node_id: node_id
@@ -9431,15 +9728,20 @@ components:
               compliance_scan_status: compliance_scan_status
               secrets_count: 5
               docker_container_name: docker_container_name
+              malware_latest_scan_id: malware_latest_scan_id
               malwares_count: 1
               node_name: node_name
+              secret_latest_scan: secret_latest_scan
+              vulnerability_latest_scan_id: vulnerability_latest_scan_id
               cloud_compliances_count: 0
               cloud_compliance_scan_status: cloud_compliance_scan_status
               compliances_count: 6
               malware_scan_status: malware_scan_status
+              compliance_latest_scan_id: compliance_latest_scan_id
               metrics:
                 memory_mb: 5.637376656633329
                 cpu_percent: 5.962133916683182
+              cloud_compliance_latest scan_id: cloud_compliance_latest scan_id
               vulnerability_scan_status: vulnerability_scan_status
               host_name: host_name
               node_id: node_id
@@ -9486,17 +9788,22 @@ components:
                 vulnerabilities_count: 7
                 compliance_scan_status: compliance_scan_status
                 secrets_count: 2
+                malware_latest_scan_id: malware_latest_scan_id
                 malwares_count: 1
                 node_name: node_name
+                secret_latest_scan: secret_latest_scan
+                vulnerability_latest_scan_id: vulnerability_latest_scan_id
                 cloud_compliances_count: 0
                 cloud_compliance_scan_status: cloud_compliance_scan_status
                 compliances_count: 6
                 docker_image_tag: docker_image_tag
                 malware_scan_status: malware_scan_status
                 docker_image_size: docker_image_size
+                compliance_latest_scan_id: compliance_latest_scan_id
                 metrics:
                   memory_mb: 5.637376656633329
                   cpu_percent: 5.962133916683182
+                cloud_compliance_latest scan_id: cloud_compliance_latest scan_id
                 vulnerability_scan_status: vulnerability_scan_status
                 docker_image_name: docker_image_name
                 node_id: node_id
@@ -9530,15 +9837,20 @@ components:
               compliance_scan_status: compliance_scan_status
               secrets_count: 5
               docker_container_name: docker_container_name
+              malware_latest_scan_id: malware_latest_scan_id
               malwares_count: 1
               node_name: node_name
+              secret_latest_scan: secret_latest_scan
+              vulnerability_latest_scan_id: vulnerability_latest_scan_id
               cloud_compliances_count: 0
               cloud_compliance_scan_status: cloud_compliance_scan_status
               compliances_count: 6
               malware_scan_status: malware_scan_status
+              compliance_latest_scan_id: compliance_latest_scan_id
               metrics:
                 memory_mb: 5.637376656633329
                 cpu_percent: 5.962133916683182
+              cloud_compliance_latest scan_id: cloud_compliance_latest scan_id
               vulnerability_scan_status: vulnerability_scan_status
               host_name: host_name
               node_id: node_id
@@ -9551,17 +9863,22 @@ components:
                 vulnerabilities_count: 7
                 compliance_scan_status: compliance_scan_status
                 secrets_count: 2
+                malware_latest_scan_id: malware_latest_scan_id
                 malwares_count: 1
                 node_name: node_name
+                secret_latest_scan: secret_latest_scan
+                vulnerability_latest_scan_id: vulnerability_latest_scan_id
                 cloud_compliances_count: 0
                 cloud_compliance_scan_status: cloud_compliance_scan_status
                 compliances_count: 6
                 docker_image_tag: docker_image_tag
                 malware_scan_status: malware_scan_status
                 docker_image_size: docker_image_size
+                compliance_latest_scan_id: compliance_latest_scan_id
                 metrics:
                   memory_mb: 5.637376656633329
                   cpu_percent: 5.962133916683182
+                cloud_compliance_latest scan_id: cloud_compliance_latest scan_id
                 vulnerability_scan_status: vulnerability_scan_status
                 docker_image_name: docker_image_name
                 node_id: node_id
@@ -9595,15 +9912,20 @@ components:
               compliance_scan_status: compliance_scan_status
               secrets_count: 5
               docker_container_name: docker_container_name
+              malware_latest_scan_id: malware_latest_scan_id
               malwares_count: 1
               node_name: node_name
+              secret_latest_scan: secret_latest_scan
+              vulnerability_latest_scan_id: vulnerability_latest_scan_id
               cloud_compliances_count: 0
               cloud_compliance_scan_status: cloud_compliance_scan_status
               compliances_count: 6
               malware_scan_status: malware_scan_status
+              compliance_latest_scan_id: compliance_latest_scan_id
               metrics:
                 memory_mb: 5.637376656633329
                 cpu_percent: 5.962133916683182
+              cloud_compliance_latest scan_id: cloud_compliance_latest scan_id
               vulnerability_scan_status: vulnerability_scan_status
               host_name: host_name
               node_id: node_id
@@ -9615,10 +9937,68 @@ components:
           metrics:
             memory_mb: 5.637376656633329
             cpu_percent: 5.962133916683182
+          cloud_compliance_latest scan_id: cloud_compliance_latest scan_id
           vulnerability_scan_status: vulnerability_scan_status
           host_name: host_name
           node_id: node_id
-        - interface_ips: interface_ips
+        - vulnerabilities_count: 5
+          secrets_count: 5
+          container_images:
+          - metadata:
+              key: ""
+            secret_scan_status: secret_scan_status
+            vulnerabilities_count: 7
+            compliance_scan_status: compliance_scan_status
+            secrets_count: 2
+            malware_latest_scan_id: malware_latest_scan_id
+            malwares_count: 1
+            node_name: node_name
+            secret_latest_scan: secret_latest_scan
+            vulnerability_latest_scan_id: vulnerability_latest_scan_id
+            cloud_compliances_count: 0
+            cloud_compliance_scan_status: cloud_compliance_scan_status
+            compliances_count: 6
+            docker_image_tag: docker_image_tag
+            malware_scan_status: malware_scan_status
+            docker_image_size: docker_image_size
+            compliance_latest_scan_id: compliance_latest_scan_id
+            metrics:
+              memory_mb: 5.637376656633329
+              cpu_percent: 5.962133916683182
+            cloud_compliance_latest scan_id: cloud_compliance_latest scan_id
+            vulnerability_scan_status: vulnerability_scan_status
+            docker_image_name: docker_image_name
+            node_id: node_id
+          - metadata:
+              key: ""
+            secret_scan_status: secret_scan_status
+            vulnerabilities_count: 7
+            compliance_scan_status: compliance_scan_status
+            secrets_count: 2
+            malware_latest_scan_id: malware_latest_scan_id
+            malwares_count: 1
+            node_name: node_name
+            secret_latest_scan: secret_latest_scan
+            vulnerability_latest_scan_id: vulnerability_latest_scan_id
+            cloud_compliances_count: 0
+            cloud_compliance_scan_status: cloud_compliance_scan_status
+            compliances_count: 6
+            docker_image_tag: docker_image_tag
+            malware_scan_status: malware_scan_status
+            docker_image_size: docker_image_size
+            compliance_latest_scan_id: compliance_latest_scan_id
+            metrics:
+              memory_mb: 5.637376656633329
+              cpu_percent: 5.962133916683182
+            cloud_compliance_latest scan_id: cloud_compliance_latest scan_id
+            vulnerability_scan_status: vulnerability_scan_status
+            docker_image_name: docker_image_name
+            node_id: node_id
+          secret_latest_scan: secret_latest_scan
+          vulnerability_latest_scan_id: vulnerability_latest_scan_id
+          cloud_compliance_scan_status: cloud_compliance_scan_status
+          malware_scan_status: malware_scan_status
+          interface_ips: interface_ips
           processes:
           - metadata:
               key: ""
@@ -9643,61 +10023,18 @@ components:
             node_id: node_id
             ppid: ppid
           secret_scan_status: secret_scan_status
-          vulnerabilities_count: 5
           cloud_metadata:
             key: ""
           compliance_scan_status: compliance_scan_status
-          secrets_count: 5
-          container_images:
-          - metadata:
-              key: ""
-            secret_scan_status: secret_scan_status
-            vulnerabilities_count: 7
-            compliance_scan_status: compliance_scan_status
-            secrets_count: 2
-            malwares_count: 1
-            node_name: node_name
-            cloud_compliances_count: 0
-            cloud_compliance_scan_status: cloud_compliance_scan_status
-            compliances_count: 6
-            docker_image_tag: docker_image_tag
-            malware_scan_status: malware_scan_status
-            docker_image_size: docker_image_size
-            metrics:
-              memory_mb: 5.637376656633329
-              cpu_percent: 5.962133916683182
-            vulnerability_scan_status: vulnerability_scan_status
-            docker_image_name: docker_image_name
-            node_id: node_id
-          - metadata:
-              key: ""
-            secret_scan_status: secret_scan_status
-            vulnerabilities_count: 7
-            compliance_scan_status: compliance_scan_status
-            secrets_count: 2
-            malwares_count: 1
-            node_name: node_name
-            cloud_compliances_count: 0
-            cloud_compliance_scan_status: cloud_compliance_scan_status
-            compliances_count: 6
-            docker_image_tag: docker_image_tag
-            malware_scan_status: malware_scan_status
-            docker_image_size: docker_image_size
-            metrics:
-              memory_mb: 5.637376656633329
-              cpu_percent: 5.962133916683182
-            vulnerability_scan_status: vulnerability_scan_status
-            docker_image_name: docker_image_name
-            node_id: node_id
+          malware_latest_scan_id: malware_latest_scan_id
           malwares_count: 1
           node_name: node_name
           interfaceNames: interfaceNames
           uptime: uptime
           cloud_compliances_count: 0
-          cloud_compliance_scan_status: cloud_compliance_scan_status
           compliances_count: 6
           kernel_version: kernel_version
-          malware_scan_status: malware_scan_status
+          compliance_latest_scan_id: compliance_latest_scan_id
           containers:
           - docker_labels:
               key: ""
@@ -9708,17 +10045,22 @@ components:
               vulnerabilities_count: 7
               compliance_scan_status: compliance_scan_status
               secrets_count: 2
+              malware_latest_scan_id: malware_latest_scan_id
               malwares_count: 1
               node_name: node_name
+              secret_latest_scan: secret_latest_scan
+              vulnerability_latest_scan_id: vulnerability_latest_scan_id
               cloud_compliances_count: 0
               cloud_compliance_scan_status: cloud_compliance_scan_status
               compliances_count: 6
               docker_image_tag: docker_image_tag
               malware_scan_status: malware_scan_status
               docker_image_size: docker_image_size
+              compliance_latest_scan_id: compliance_latest_scan_id
               metrics:
                 memory_mb: 5.637376656633329
                 cpu_percent: 5.962133916683182
+              cloud_compliance_latest scan_id: cloud_compliance_latest scan_id
               vulnerability_scan_status: vulnerability_scan_status
               docker_image_name: docker_image_name
               node_id: node_id
@@ -9752,15 +10094,20 @@ components:
             compliance_scan_status: compliance_scan_status
             secrets_count: 5
             docker_container_name: docker_container_name
+            malware_latest_scan_id: malware_latest_scan_id
             malwares_count: 1
             node_name: node_name
+            secret_latest_scan: secret_latest_scan
+            vulnerability_latest_scan_id: vulnerability_latest_scan_id
             cloud_compliances_count: 0
             cloud_compliance_scan_status: cloud_compliance_scan_status
             compliances_count: 6
             malware_scan_status: malware_scan_status
+            compliance_latest_scan_id: compliance_latest_scan_id
             metrics:
               memory_mb: 5.637376656633329
               cpu_percent: 5.962133916683182
+            cloud_compliance_latest scan_id: cloud_compliance_latest scan_id
             vulnerability_scan_status: vulnerability_scan_status
             host_name: host_name
             node_id: node_id
@@ -9773,17 +10120,22 @@ components:
               vulnerabilities_count: 7
               compliance_scan_status: compliance_scan_status
               secrets_count: 2
+              malware_latest_scan_id: malware_latest_scan_id
               malwares_count: 1
               node_name: node_name
+              secret_latest_scan: secret_latest_scan
+              vulnerability_latest_scan_id: vulnerability_latest_scan_id
               cloud_compliances_count: 0
               cloud_compliance_scan_status: cloud_compliance_scan_status
               compliances_count: 6
               docker_image_tag: docker_image_tag
               malware_scan_status: malware_scan_status
               docker_image_size: docker_image_size
+              compliance_latest_scan_id: compliance_latest_scan_id
               metrics:
                 memory_mb: 5.637376656633329
                 cpu_percent: 5.962133916683182
+              cloud_compliance_latest scan_id: cloud_compliance_latest scan_id
               vulnerability_scan_status: vulnerability_scan_status
               docker_image_name: docker_image_name
               node_id: node_id
@@ -9817,15 +10169,20 @@ components:
             compliance_scan_status: compliance_scan_status
             secrets_count: 5
             docker_container_name: docker_container_name
+            malware_latest_scan_id: malware_latest_scan_id
             malwares_count: 1
             node_name: node_name
+            secret_latest_scan: secret_latest_scan
+            vulnerability_latest_scan_id: vulnerability_latest_scan_id
             cloud_compliances_count: 0
             cloud_compliance_scan_status: cloud_compliance_scan_status
             compliances_count: 6
             malware_scan_status: malware_scan_status
+            compliance_latest_scan_id: compliance_latest_scan_id
             metrics:
               memory_mb: 5.637376656633329
               cpu_percent: 5.962133916683182
+            cloud_compliance_latest scan_id: cloud_compliance_latest scan_id
             vulnerability_scan_status: vulnerability_scan_status
             host_name: host_name
             node_id: node_id
@@ -9868,17 +10225,22 @@ components:
                 vulnerabilities_count: 7
                 compliance_scan_status: compliance_scan_status
                 secrets_count: 2
+                malware_latest_scan_id: malware_latest_scan_id
                 malwares_count: 1
                 node_name: node_name
+                secret_latest_scan: secret_latest_scan
+                vulnerability_latest_scan_id: vulnerability_latest_scan_id
                 cloud_compliances_count: 0
                 cloud_compliance_scan_status: cloud_compliance_scan_status
                 compliances_count: 6
                 docker_image_tag: docker_image_tag
                 malware_scan_status: malware_scan_status
                 docker_image_size: docker_image_size
+                compliance_latest_scan_id: compliance_latest_scan_id
                 metrics:
                   memory_mb: 5.637376656633329
                   cpu_percent: 5.962133916683182
+                cloud_compliance_latest scan_id: cloud_compliance_latest scan_id
                 vulnerability_scan_status: vulnerability_scan_status
                 docker_image_name: docker_image_name
                 node_id: node_id
@@ -9912,15 +10274,20 @@ components:
               compliance_scan_status: compliance_scan_status
               secrets_count: 5
               docker_container_name: docker_container_name
+              malware_latest_scan_id: malware_latest_scan_id
               malwares_count: 1
               node_name: node_name
+              secret_latest_scan: secret_latest_scan
+              vulnerability_latest_scan_id: vulnerability_latest_scan_id
               cloud_compliances_count: 0
               cloud_compliance_scan_status: cloud_compliance_scan_status
               compliances_count: 6
               malware_scan_status: malware_scan_status
+              compliance_latest_scan_id: compliance_latest_scan_id
               metrics:
                 memory_mb: 5.637376656633329
                 cpu_percent: 5.962133916683182
+              cloud_compliance_latest scan_id: cloud_compliance_latest scan_id
               vulnerability_scan_status: vulnerability_scan_status
               host_name: host_name
               node_id: node_id
@@ -9933,17 +10300,22 @@ components:
                 vulnerabilities_count: 7
                 compliance_scan_status: compliance_scan_status
                 secrets_count: 2
+                malware_latest_scan_id: malware_latest_scan_id
                 malwares_count: 1
                 node_name: node_name
+                secret_latest_scan: secret_latest_scan
+                vulnerability_latest_scan_id: vulnerability_latest_scan_id
                 cloud_compliances_count: 0
                 cloud_compliance_scan_status: cloud_compliance_scan_status
                 compliances_count: 6
                 docker_image_tag: docker_image_tag
                 malware_scan_status: malware_scan_status
                 docker_image_size: docker_image_size
+                compliance_latest_scan_id: compliance_latest_scan_id
                 metrics:
                   memory_mb: 5.637376656633329
                   cpu_percent: 5.962133916683182
+                cloud_compliance_latest scan_id: cloud_compliance_latest scan_id
                 vulnerability_scan_status: vulnerability_scan_status
                 docker_image_name: docker_image_name
                 node_id: node_id
@@ -9977,15 +10349,20 @@ components:
               compliance_scan_status: compliance_scan_status
               secrets_count: 5
               docker_container_name: docker_container_name
+              malware_latest_scan_id: malware_latest_scan_id
               malwares_count: 1
               node_name: node_name
+              secret_latest_scan: secret_latest_scan
+              vulnerability_latest_scan_id: vulnerability_latest_scan_id
               cloud_compliances_count: 0
               cloud_compliance_scan_status: cloud_compliance_scan_status
               compliances_count: 6
               malware_scan_status: malware_scan_status
+              compliance_latest_scan_id: compliance_latest_scan_id
               metrics:
                 memory_mb: 5.637376656633329
                 cpu_percent: 5.962133916683182
+              cloud_compliance_latest scan_id: cloud_compliance_latest scan_id
               vulnerability_scan_status: vulnerability_scan_status
               host_name: host_name
               node_id: node_id
@@ -10032,17 +10409,22 @@ components:
                 vulnerabilities_count: 7
                 compliance_scan_status: compliance_scan_status
                 secrets_count: 2
+                malware_latest_scan_id: malware_latest_scan_id
                 malwares_count: 1
                 node_name: node_name
+                secret_latest_scan: secret_latest_scan
+                vulnerability_latest_scan_id: vulnerability_latest_scan_id
                 cloud_compliances_count: 0
                 cloud_compliance_scan_status: cloud_compliance_scan_status
                 compliances_count: 6
                 docker_image_tag: docker_image_tag
                 malware_scan_status: malware_scan_status
                 docker_image_size: docker_image_size
+                compliance_latest_scan_id: compliance_latest_scan_id
                 metrics:
                   memory_mb: 5.637376656633329
                   cpu_percent: 5.962133916683182
+                cloud_compliance_latest scan_id: cloud_compliance_latest scan_id
                 vulnerability_scan_status: vulnerability_scan_status
                 docker_image_name: docker_image_name
                 node_id: node_id
@@ -10076,15 +10458,20 @@ components:
               compliance_scan_status: compliance_scan_status
               secrets_count: 5
               docker_container_name: docker_container_name
+              malware_latest_scan_id: malware_latest_scan_id
               malwares_count: 1
               node_name: node_name
+              secret_latest_scan: secret_latest_scan
+              vulnerability_latest_scan_id: vulnerability_latest_scan_id
               cloud_compliances_count: 0
               cloud_compliance_scan_status: cloud_compliance_scan_status
               compliances_count: 6
               malware_scan_status: malware_scan_status
+              compliance_latest_scan_id: compliance_latest_scan_id
               metrics:
                 memory_mb: 5.637376656633329
                 cpu_percent: 5.962133916683182
+              cloud_compliance_latest scan_id: cloud_compliance_latest scan_id
               vulnerability_scan_status: vulnerability_scan_status
               host_name: host_name
               node_id: node_id
@@ -10097,17 +10484,22 @@ components:
                 vulnerabilities_count: 7
                 compliance_scan_status: compliance_scan_status
                 secrets_count: 2
+                malware_latest_scan_id: malware_latest_scan_id
                 malwares_count: 1
                 node_name: node_name
+                secret_latest_scan: secret_latest_scan
+                vulnerability_latest_scan_id: vulnerability_latest_scan_id
                 cloud_compliances_count: 0
                 cloud_compliance_scan_status: cloud_compliance_scan_status
                 compliances_count: 6
                 docker_image_tag: docker_image_tag
                 malware_scan_status: malware_scan_status
                 docker_image_size: docker_image_size
+                compliance_latest_scan_id: compliance_latest_scan_id
                 metrics:
                   memory_mb: 5.637376656633329
                   cpu_percent: 5.962133916683182
+                cloud_compliance_latest scan_id: cloud_compliance_latest scan_id
                 vulnerability_scan_status: vulnerability_scan_status
                 docker_image_name: docker_image_name
                 node_id: node_id
@@ -10141,15 +10533,20 @@ components:
               compliance_scan_status: compliance_scan_status
               secrets_count: 5
               docker_container_name: docker_container_name
+              malware_latest_scan_id: malware_latest_scan_id
               malwares_count: 1
               node_name: node_name
+              secret_latest_scan: secret_latest_scan
+              vulnerability_latest_scan_id: vulnerability_latest_scan_id
               cloud_compliances_count: 0
               cloud_compliance_scan_status: cloud_compliance_scan_status
               compliances_count: 6
               malware_scan_status: malware_scan_status
+              compliance_latest_scan_id: compliance_latest_scan_id
               metrics:
                 memory_mb: 5.637376656633329
                 cpu_percent: 5.962133916683182
+              cloud_compliance_latest scan_id: cloud_compliance_latest scan_id
               vulnerability_scan_status: vulnerability_scan_status
               host_name: host_name
               node_id: node_id
@@ -10161,6 +10558,7 @@ components:
           metrics:
             memory_mb: 5.637376656633329
             cpu_percent: 5.962133916683182
+          cloud_compliance_latest scan_id: cloud_compliance_latest scan_id
           vulnerability_scan_status: vulnerability_scan_status
           host_name: host_name
           node_id: node_id
@@ -10536,17 +10934,22 @@ components:
             vulnerabilities_count: 7
             compliance_scan_status: compliance_scan_status
             secrets_count: 2
+            malware_latest_scan_id: malware_latest_scan_id
             malwares_count: 1
             node_name: node_name
+            secret_latest_scan: secret_latest_scan
+            vulnerability_latest_scan_id: vulnerability_latest_scan_id
             cloud_compliances_count: 0
             cloud_compliance_scan_status: cloud_compliance_scan_status
             compliances_count: 6
             docker_image_tag: docker_image_tag
             malware_scan_status: malware_scan_status
             docker_image_size: docker_image_size
+            compliance_latest_scan_id: compliance_latest_scan_id
             metrics:
               memory_mb: 5.637376656633329
               cpu_percent: 5.962133916683182
+            cloud_compliance_latest scan_id: cloud_compliance_latest scan_id
             vulnerability_scan_status: vulnerability_scan_status
             docker_image_name: docker_image_name
             node_id: node_id
@@ -10580,15 +10983,20 @@ components:
           compliance_scan_status: compliance_scan_status
           secrets_count: 5
           docker_container_name: docker_container_name
+          malware_latest_scan_id: malware_latest_scan_id
           malwares_count: 1
           node_name: node_name
+          secret_latest_scan: secret_latest_scan
+          vulnerability_latest_scan_id: vulnerability_latest_scan_id
           cloud_compliances_count: 0
           cloud_compliance_scan_status: cloud_compliance_scan_status
           compliances_count: 6
           malware_scan_status: malware_scan_status
+          compliance_latest_scan_id: compliance_latest_scan_id
           metrics:
             memory_mb: 5.637376656633329
             cpu_percent: 5.962133916683182
+          cloud_compliance_latest scan_id: cloud_compliance_latest scan_id
           vulnerability_scan_status: vulnerability_scan_status
           host_name: host_name
           node_id: node_id
@@ -10601,17 +11009,22 @@ components:
             vulnerabilities_count: 7
             compliance_scan_status: compliance_scan_status
             secrets_count: 2
+            malware_latest_scan_id: malware_latest_scan_id
             malwares_count: 1
             node_name: node_name
+            secret_latest_scan: secret_latest_scan
+            vulnerability_latest_scan_id: vulnerability_latest_scan_id
             cloud_compliances_count: 0
             cloud_compliance_scan_status: cloud_compliance_scan_status
             compliances_count: 6
             docker_image_tag: docker_image_tag
             malware_scan_status: malware_scan_status
             docker_image_size: docker_image_size
+            compliance_latest_scan_id: compliance_latest_scan_id
             metrics:
               memory_mb: 5.637376656633329
               cpu_percent: 5.962133916683182
+            cloud_compliance_latest scan_id: cloud_compliance_latest scan_id
             vulnerability_scan_status: vulnerability_scan_status
             docker_image_name: docker_image_name
             node_id: node_id
@@ -10645,15 +11058,20 @@ components:
           compliance_scan_status: compliance_scan_status
           secrets_count: 5
           docker_container_name: docker_container_name
+          malware_latest_scan_id: malware_latest_scan_id
           malwares_count: 1
           node_name: node_name
+          secret_latest_scan: secret_latest_scan
+          vulnerability_latest_scan_id: vulnerability_latest_scan_id
           cloud_compliances_count: 0
           cloud_compliance_scan_status: cloud_compliance_scan_status
           compliances_count: 6
           malware_scan_status: malware_scan_status
+          compliance_latest_scan_id: compliance_latest_scan_id
           metrics:
             memory_mb: 5.637376656633329
             cpu_percent: 5.962133916683182
+          cloud_compliance_latest scan_id: cloud_compliance_latest scan_id
           vulnerability_scan_status: vulnerability_scan_status
           host_name: host_name
           node_id: node_id
@@ -10796,17 +11214,22 @@ components:
           vulnerabilities_count: 7
           compliance_scan_status: compliance_scan_status
           secrets_count: 2
+          malware_latest_scan_id: malware_latest_scan_id
           malwares_count: 1
           node_name: node_name
+          secret_latest_scan: secret_latest_scan
+          vulnerability_latest_scan_id: vulnerability_latest_scan_id
           cloud_compliances_count: 0
           cloud_compliance_scan_status: cloud_compliance_scan_status
           compliances_count: 6
           docker_image_tag: docker_image_tag
           malware_scan_status: malware_scan_status
           docker_image_size: docker_image_size
+          compliance_latest_scan_id: compliance_latest_scan_id
           metrics:
             memory_mb: 5.637376656633329
             cpu_percent: 5.962133916683182
+          cloud_compliance_latest scan_id: cloud_compliance_latest scan_id
           vulnerability_scan_status: vulnerability_scan_status
           docker_image_name: docker_image_name
           node_id: node_id
@@ -10816,17 +11239,22 @@ components:
           vulnerabilities_count: 7
           compliance_scan_status: compliance_scan_status
           secrets_count: 2
+          malware_latest_scan_id: malware_latest_scan_id
           malwares_count: 1
           node_name: node_name
+          secret_latest_scan: secret_latest_scan
+          vulnerability_latest_scan_id: vulnerability_latest_scan_id
           cloud_compliances_count: 0
           cloud_compliance_scan_status: cloud_compliance_scan_status
           compliances_count: 6
           docker_image_tag: docker_image_tag
           malware_scan_status: malware_scan_status
           docker_image_size: docker_image_size
+          compliance_latest_scan_id: compliance_latest_scan_id
           metrics:
             memory_mb: 5.637376656633329
             cpu_percent: 5.962133916683182
+          cloud_compliance_latest scan_id: cloud_compliance_latest scan_id
           vulnerability_scan_status: vulnerability_scan_status
           docker_image_name: docker_image_name
           node_id: node_id

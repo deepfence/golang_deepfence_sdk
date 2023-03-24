@@ -20,14 +20,17 @@ var _ MappedNullable = &ModelContainer{}
 
 // ModelContainer struct for ModelContainer
 type ModelContainer struct {
+	CloudComplianceLatestScanId string `json:"cloud_compliance_latest scan_id"`
 	CloudComplianceScanStatus string `json:"cloud_compliance_scan_status"`
 	CloudCompliancesCount int32 `json:"cloud_compliances_count"`
+	ComplianceLatestScanId string `json:"compliance_latest_scan_id"`
 	ComplianceScanStatus string `json:"compliance_scan_status"`
 	CompliancesCount int32 `json:"compliances_count"`
 	DockerContainerName string `json:"docker_container_name"`
 	DockerLabels map[string]interface{} `json:"docker_labels"`
 	HostName string `json:"host_name"`
 	Image ModelContainerImage `json:"image"`
+	MalwareLatestScanId string `json:"malware_latest_scan_id"`
 	MalwareScanStatus string `json:"malware_scan_status"`
 	MalwaresCount int32 `json:"malwares_count"`
 	Metadata map[string]interface{} `json:"metadata"`
@@ -35,9 +38,11 @@ type ModelContainer struct {
 	NodeId string `json:"node_id"`
 	NodeName string `json:"node_name"`
 	Processes []ModelProcess `json:"processes"`
+	SecretLatestScan string `json:"secret_latest_scan"`
 	SecretScanStatus string `json:"secret_scan_status"`
 	SecretsCount int32 `json:"secrets_count"`
 	VulnerabilitiesCount int32 `json:"vulnerabilities_count"`
+	VulnerabilityLatestScanId string `json:"vulnerability_latest_scan_id"`
 	VulnerabilityScanStatus string `json:"vulnerability_scan_status"`
 }
 
@@ -45,16 +50,19 @@ type ModelContainer struct {
 // This constructor will assign default values to properties that have it defined,
 // and makes sure properties required by API are set, but the set of arguments
 // will change when the set of required properties is changed
-func NewModelContainer(cloudComplianceScanStatus string, cloudCompliancesCount int32, complianceScanStatus string, compliancesCount int32, dockerContainerName string, dockerLabels map[string]interface{}, hostName string, image ModelContainerImage, malwareScanStatus string, malwaresCount int32, metadata map[string]interface{}, metrics ModelComputeMetrics, nodeId string, nodeName string, processes []ModelProcess, secretScanStatus string, secretsCount int32, vulnerabilitiesCount int32, vulnerabilityScanStatus string) *ModelContainer {
+func NewModelContainer(cloudComplianceLatestScanId string, cloudComplianceScanStatus string, cloudCompliancesCount int32, complianceLatestScanId string, complianceScanStatus string, compliancesCount int32, dockerContainerName string, dockerLabels map[string]interface{}, hostName string, image ModelContainerImage, malwareLatestScanId string, malwareScanStatus string, malwaresCount int32, metadata map[string]interface{}, metrics ModelComputeMetrics, nodeId string, nodeName string, processes []ModelProcess, secretLatestScan string, secretScanStatus string, secretsCount int32, vulnerabilitiesCount int32, vulnerabilityLatestScanId string, vulnerabilityScanStatus string) *ModelContainer {
 	this := ModelContainer{}
+	this.CloudComplianceLatestScanId = cloudComplianceLatestScanId
 	this.CloudComplianceScanStatus = cloudComplianceScanStatus
 	this.CloudCompliancesCount = cloudCompliancesCount
+	this.ComplianceLatestScanId = complianceLatestScanId
 	this.ComplianceScanStatus = complianceScanStatus
 	this.CompliancesCount = compliancesCount
 	this.DockerContainerName = dockerContainerName
 	this.DockerLabels = dockerLabels
 	this.HostName = hostName
 	this.Image = image
+	this.MalwareLatestScanId = malwareLatestScanId
 	this.MalwareScanStatus = malwareScanStatus
 	this.MalwaresCount = malwaresCount
 	this.Metadata = metadata
@@ -62,9 +70,11 @@ func NewModelContainer(cloudComplianceScanStatus string, cloudCompliancesCount i
 	this.NodeId = nodeId
 	this.NodeName = nodeName
 	this.Processes = processes
+	this.SecretLatestScan = secretLatestScan
 	this.SecretScanStatus = secretScanStatus
 	this.SecretsCount = secretsCount
 	this.VulnerabilitiesCount = vulnerabilitiesCount
+	this.VulnerabilityLatestScanId = vulnerabilityLatestScanId
 	this.VulnerabilityScanStatus = vulnerabilityScanStatus
 	return &this
 }
@@ -75,6 +85,30 @@ func NewModelContainer(cloudComplianceScanStatus string, cloudCompliancesCount i
 func NewModelContainerWithDefaults() *ModelContainer {
 	this := ModelContainer{}
 	return &this
+}
+
+// GetCloudComplianceLatestScanId returns the CloudComplianceLatestScanId field value
+func (o *ModelContainer) GetCloudComplianceLatestScanId() string {
+	if o == nil {
+		var ret string
+		return ret
+	}
+
+	return o.CloudComplianceLatestScanId
+}
+
+// GetCloudComplianceLatestScanIdOk returns a tuple with the CloudComplianceLatestScanId field value
+// and a boolean to check if the value has been set.
+func (o *ModelContainer) GetCloudComplianceLatestScanIdOk() (*string, bool) {
+	if o == nil {
+		return nil, false
+	}
+	return &o.CloudComplianceLatestScanId, true
+}
+
+// SetCloudComplianceLatestScanId sets field value
+func (o *ModelContainer) SetCloudComplianceLatestScanId(v string) {
+	o.CloudComplianceLatestScanId = v
 }
 
 // GetCloudComplianceScanStatus returns the CloudComplianceScanStatus field value
@@ -123,6 +157,30 @@ func (o *ModelContainer) GetCloudCompliancesCountOk() (*int32, bool) {
 // SetCloudCompliancesCount sets field value
 func (o *ModelContainer) SetCloudCompliancesCount(v int32) {
 	o.CloudCompliancesCount = v
+}
+
+// GetComplianceLatestScanId returns the ComplianceLatestScanId field value
+func (o *ModelContainer) GetComplianceLatestScanId() string {
+	if o == nil {
+		var ret string
+		return ret
+	}
+
+	return o.ComplianceLatestScanId
+}
+
+// GetComplianceLatestScanIdOk returns a tuple with the ComplianceLatestScanId field value
+// and a boolean to check if the value has been set.
+func (o *ModelContainer) GetComplianceLatestScanIdOk() (*string, bool) {
+	if o == nil {
+		return nil, false
+	}
+	return &o.ComplianceLatestScanId, true
+}
+
+// SetComplianceLatestScanId sets field value
+func (o *ModelContainer) SetComplianceLatestScanId(v string) {
+	o.ComplianceLatestScanId = v
 }
 
 // GetComplianceScanStatus returns the ComplianceScanStatus field value
@@ -267,6 +325,30 @@ func (o *ModelContainer) GetImageOk() (*ModelContainerImage, bool) {
 // SetImage sets field value
 func (o *ModelContainer) SetImage(v ModelContainerImage) {
 	o.Image = v
+}
+
+// GetMalwareLatestScanId returns the MalwareLatestScanId field value
+func (o *ModelContainer) GetMalwareLatestScanId() string {
+	if o == nil {
+		var ret string
+		return ret
+	}
+
+	return o.MalwareLatestScanId
+}
+
+// GetMalwareLatestScanIdOk returns a tuple with the MalwareLatestScanId field value
+// and a boolean to check if the value has been set.
+func (o *ModelContainer) GetMalwareLatestScanIdOk() (*string, bool) {
+	if o == nil {
+		return nil, false
+	}
+	return &o.MalwareLatestScanId, true
+}
+
+// SetMalwareLatestScanId sets field value
+func (o *ModelContainer) SetMalwareLatestScanId(v string) {
+	o.MalwareLatestScanId = v
 }
 
 // GetMalwareScanStatus returns the MalwareScanStatus field value
@@ -439,6 +521,30 @@ func (o *ModelContainer) SetProcesses(v []ModelProcess) {
 	o.Processes = v
 }
 
+// GetSecretLatestScan returns the SecretLatestScan field value
+func (o *ModelContainer) GetSecretLatestScan() string {
+	if o == nil {
+		var ret string
+		return ret
+	}
+
+	return o.SecretLatestScan
+}
+
+// GetSecretLatestScanOk returns a tuple with the SecretLatestScan field value
+// and a boolean to check if the value has been set.
+func (o *ModelContainer) GetSecretLatestScanOk() (*string, bool) {
+	if o == nil {
+		return nil, false
+	}
+	return &o.SecretLatestScan, true
+}
+
+// SetSecretLatestScan sets field value
+func (o *ModelContainer) SetSecretLatestScan(v string) {
+	o.SecretLatestScan = v
+}
+
 // GetSecretScanStatus returns the SecretScanStatus field value
 func (o *ModelContainer) GetSecretScanStatus() string {
 	if o == nil {
@@ -511,6 +617,30 @@ func (o *ModelContainer) SetVulnerabilitiesCount(v int32) {
 	o.VulnerabilitiesCount = v
 }
 
+// GetVulnerabilityLatestScanId returns the VulnerabilityLatestScanId field value
+func (o *ModelContainer) GetVulnerabilityLatestScanId() string {
+	if o == nil {
+		var ret string
+		return ret
+	}
+
+	return o.VulnerabilityLatestScanId
+}
+
+// GetVulnerabilityLatestScanIdOk returns a tuple with the VulnerabilityLatestScanId field value
+// and a boolean to check if the value has been set.
+func (o *ModelContainer) GetVulnerabilityLatestScanIdOk() (*string, bool) {
+	if o == nil {
+		return nil, false
+	}
+	return &o.VulnerabilityLatestScanId, true
+}
+
+// SetVulnerabilityLatestScanId sets field value
+func (o *ModelContainer) SetVulnerabilityLatestScanId(v string) {
+	o.VulnerabilityLatestScanId = v
+}
+
 // GetVulnerabilityScanStatus returns the VulnerabilityScanStatus field value
 func (o *ModelContainer) GetVulnerabilityScanStatus() string {
 	if o == nil {
@@ -545,14 +675,17 @@ func (o ModelContainer) MarshalJSON() ([]byte, error) {
 
 func (o ModelContainer) ToMap() (map[string]interface{}, error) {
 	toSerialize := map[string]interface{}{}
+	toSerialize["cloud_compliance_latest scan_id"] = o.CloudComplianceLatestScanId
 	toSerialize["cloud_compliance_scan_status"] = o.CloudComplianceScanStatus
 	toSerialize["cloud_compliances_count"] = o.CloudCompliancesCount
+	toSerialize["compliance_latest_scan_id"] = o.ComplianceLatestScanId
 	toSerialize["compliance_scan_status"] = o.ComplianceScanStatus
 	toSerialize["compliances_count"] = o.CompliancesCount
 	toSerialize["docker_container_name"] = o.DockerContainerName
 	toSerialize["docker_labels"] = o.DockerLabels
 	toSerialize["host_name"] = o.HostName
 	toSerialize["image"] = o.Image
+	toSerialize["malware_latest_scan_id"] = o.MalwareLatestScanId
 	toSerialize["malware_scan_status"] = o.MalwareScanStatus
 	toSerialize["malwares_count"] = o.MalwaresCount
 	toSerialize["metadata"] = o.Metadata
@@ -562,9 +695,11 @@ func (o ModelContainer) ToMap() (map[string]interface{}, error) {
 	if o.Processes != nil {
 		toSerialize["processes"] = o.Processes
 	}
+	toSerialize["secret_latest_scan"] = o.SecretLatestScan
 	toSerialize["secret_scan_status"] = o.SecretScanStatus
 	toSerialize["secrets_count"] = o.SecretsCount
 	toSerialize["vulnerabilities_count"] = o.VulnerabilitiesCount
+	toSerialize["vulnerability_latest_scan_id"] = o.VulnerabilityLatestScanId
 	toSerialize["vulnerability_scan_status"] = o.VulnerabilityScanStatus
 	return toSerialize, nil
 }

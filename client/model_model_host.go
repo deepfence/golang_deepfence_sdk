@@ -20,9 +20,11 @@ var _ MappedNullable = &ModelHost{}
 
 // ModelHost struct for ModelHost
 type ModelHost struct {
+	CloudComplianceLatestScanId string `json:"cloud_compliance_latest scan_id"`
 	CloudComplianceScanStatus string `json:"cloud_compliance_scan_status"`
 	CloudCompliancesCount int32 `json:"cloud_compliances_count"`
 	CloudMetadata map[string]interface{} `json:"cloud_metadata"`
+	ComplianceLatestScanId string `json:"compliance_latest_scan_id"`
 	ComplianceScanStatus string `json:"compliance_scan_status"`
 	CompliancesCount int32 `json:"compliances_count"`
 	ContainerImages []ModelContainerImage `json:"container_images"`
@@ -31,6 +33,7 @@ type ModelHost struct {
 	InterfaceIps string `json:"interface_ips"`
 	InterfaceNames string `json:"interfaceNames"`
 	KernelVersion string `json:"kernel_version"`
+	MalwareLatestScanId string `json:"malware_latest_scan_id"`
 	MalwareScanStatus string `json:"malware_scan_status"`
 	MalwaresCount int32 `json:"malwares_count"`
 	Metrics ModelComputeMetrics `json:"metrics"`
@@ -38,10 +41,12 @@ type ModelHost struct {
 	NodeName string `json:"node_name"`
 	Pods []ModelPod `json:"pods"`
 	Processes []ModelProcess `json:"processes"`
+	SecretLatestScan string `json:"secret_latest_scan"`
 	SecretScanStatus string `json:"secret_scan_status"`
 	SecretsCount int32 `json:"secrets_count"`
 	Uptime string `json:"uptime"`
 	VulnerabilitiesCount int32 `json:"vulnerabilities_count"`
+	VulnerabilityLatestScanId string `json:"vulnerability_latest_scan_id"`
 	VulnerabilityScanStatus string `json:"vulnerability_scan_status"`
 }
 
@@ -49,11 +54,13 @@ type ModelHost struct {
 // This constructor will assign default values to properties that have it defined,
 // and makes sure properties required by API are set, but the set of arguments
 // will change when the set of required properties is changed
-func NewModelHost(cloudComplianceScanStatus string, cloudCompliancesCount int32, cloudMetadata map[string]interface{}, complianceScanStatus string, compliancesCount int32, containerImages []ModelContainerImage, containers []ModelContainer, hostName string, interfaceIps string, interfaceNames string, kernelVersion string, malwareScanStatus string, malwaresCount int32, metrics ModelComputeMetrics, nodeId string, nodeName string, pods []ModelPod, processes []ModelProcess, secretScanStatus string, secretsCount int32, uptime string, vulnerabilitiesCount int32, vulnerabilityScanStatus string) *ModelHost {
+func NewModelHost(cloudComplianceLatestScanId string, cloudComplianceScanStatus string, cloudCompliancesCount int32, cloudMetadata map[string]interface{}, complianceLatestScanId string, complianceScanStatus string, compliancesCount int32, containerImages []ModelContainerImage, containers []ModelContainer, hostName string, interfaceIps string, interfaceNames string, kernelVersion string, malwareLatestScanId string, malwareScanStatus string, malwaresCount int32, metrics ModelComputeMetrics, nodeId string, nodeName string, pods []ModelPod, processes []ModelProcess, secretLatestScan string, secretScanStatus string, secretsCount int32, uptime string, vulnerabilitiesCount int32, vulnerabilityLatestScanId string, vulnerabilityScanStatus string) *ModelHost {
 	this := ModelHost{}
+	this.CloudComplianceLatestScanId = cloudComplianceLatestScanId
 	this.CloudComplianceScanStatus = cloudComplianceScanStatus
 	this.CloudCompliancesCount = cloudCompliancesCount
 	this.CloudMetadata = cloudMetadata
+	this.ComplianceLatestScanId = complianceLatestScanId
 	this.ComplianceScanStatus = complianceScanStatus
 	this.CompliancesCount = compliancesCount
 	this.ContainerImages = containerImages
@@ -62,6 +69,7 @@ func NewModelHost(cloudComplianceScanStatus string, cloudCompliancesCount int32,
 	this.InterfaceIps = interfaceIps
 	this.InterfaceNames = interfaceNames
 	this.KernelVersion = kernelVersion
+	this.MalwareLatestScanId = malwareLatestScanId
 	this.MalwareScanStatus = malwareScanStatus
 	this.MalwaresCount = malwaresCount
 	this.Metrics = metrics
@@ -69,10 +77,12 @@ func NewModelHost(cloudComplianceScanStatus string, cloudCompliancesCount int32,
 	this.NodeName = nodeName
 	this.Pods = pods
 	this.Processes = processes
+	this.SecretLatestScan = secretLatestScan
 	this.SecretScanStatus = secretScanStatus
 	this.SecretsCount = secretsCount
 	this.Uptime = uptime
 	this.VulnerabilitiesCount = vulnerabilitiesCount
+	this.VulnerabilityLatestScanId = vulnerabilityLatestScanId
 	this.VulnerabilityScanStatus = vulnerabilityScanStatus
 	return &this
 }
@@ -83,6 +93,30 @@ func NewModelHost(cloudComplianceScanStatus string, cloudCompliancesCount int32,
 func NewModelHostWithDefaults() *ModelHost {
 	this := ModelHost{}
 	return &this
+}
+
+// GetCloudComplianceLatestScanId returns the CloudComplianceLatestScanId field value
+func (o *ModelHost) GetCloudComplianceLatestScanId() string {
+	if o == nil {
+		var ret string
+		return ret
+	}
+
+	return o.CloudComplianceLatestScanId
+}
+
+// GetCloudComplianceLatestScanIdOk returns a tuple with the CloudComplianceLatestScanId field value
+// and a boolean to check if the value has been set.
+func (o *ModelHost) GetCloudComplianceLatestScanIdOk() (*string, bool) {
+	if o == nil {
+		return nil, false
+	}
+	return &o.CloudComplianceLatestScanId, true
+}
+
+// SetCloudComplianceLatestScanId sets field value
+func (o *ModelHost) SetCloudComplianceLatestScanId(v string) {
+	o.CloudComplianceLatestScanId = v
 }
 
 // GetCloudComplianceScanStatus returns the CloudComplianceScanStatus field value
@@ -155,6 +189,30 @@ func (o *ModelHost) GetCloudMetadataOk() (map[string]interface{}, bool) {
 // SetCloudMetadata sets field value
 func (o *ModelHost) SetCloudMetadata(v map[string]interface{}) {
 	o.CloudMetadata = v
+}
+
+// GetComplianceLatestScanId returns the ComplianceLatestScanId field value
+func (o *ModelHost) GetComplianceLatestScanId() string {
+	if o == nil {
+		var ret string
+		return ret
+	}
+
+	return o.ComplianceLatestScanId
+}
+
+// GetComplianceLatestScanIdOk returns a tuple with the ComplianceLatestScanId field value
+// and a boolean to check if the value has been set.
+func (o *ModelHost) GetComplianceLatestScanIdOk() (*string, bool) {
+	if o == nil {
+		return nil, false
+	}
+	return &o.ComplianceLatestScanId, true
+}
+
+// SetComplianceLatestScanId sets field value
+func (o *ModelHost) SetComplianceLatestScanId(v string) {
+	o.ComplianceLatestScanId = v
 }
 
 // GetComplianceScanStatus returns the ComplianceScanStatus field value
@@ -353,6 +411,30 @@ func (o *ModelHost) SetKernelVersion(v string) {
 	o.KernelVersion = v
 }
 
+// GetMalwareLatestScanId returns the MalwareLatestScanId field value
+func (o *ModelHost) GetMalwareLatestScanId() string {
+	if o == nil {
+		var ret string
+		return ret
+	}
+
+	return o.MalwareLatestScanId
+}
+
+// GetMalwareLatestScanIdOk returns a tuple with the MalwareLatestScanId field value
+// and a boolean to check if the value has been set.
+func (o *ModelHost) GetMalwareLatestScanIdOk() (*string, bool) {
+	if o == nil {
+		return nil, false
+	}
+	return &o.MalwareLatestScanId, true
+}
+
+// SetMalwareLatestScanId sets field value
+func (o *ModelHost) SetMalwareLatestScanId(v string) {
+	o.MalwareLatestScanId = v
+}
+
 // GetMalwareScanStatus returns the MalwareScanStatus field value
 func (o *ModelHost) GetMalwareScanStatus() string {
 	if o == nil {
@@ -525,6 +607,30 @@ func (o *ModelHost) SetProcesses(v []ModelProcess) {
 	o.Processes = v
 }
 
+// GetSecretLatestScan returns the SecretLatestScan field value
+func (o *ModelHost) GetSecretLatestScan() string {
+	if o == nil {
+		var ret string
+		return ret
+	}
+
+	return o.SecretLatestScan
+}
+
+// GetSecretLatestScanOk returns a tuple with the SecretLatestScan field value
+// and a boolean to check if the value has been set.
+func (o *ModelHost) GetSecretLatestScanOk() (*string, bool) {
+	if o == nil {
+		return nil, false
+	}
+	return &o.SecretLatestScan, true
+}
+
+// SetSecretLatestScan sets field value
+func (o *ModelHost) SetSecretLatestScan(v string) {
+	o.SecretLatestScan = v
+}
+
 // GetSecretScanStatus returns the SecretScanStatus field value
 func (o *ModelHost) GetSecretScanStatus() string {
 	if o == nil {
@@ -621,6 +727,30 @@ func (o *ModelHost) SetVulnerabilitiesCount(v int32) {
 	o.VulnerabilitiesCount = v
 }
 
+// GetVulnerabilityLatestScanId returns the VulnerabilityLatestScanId field value
+func (o *ModelHost) GetVulnerabilityLatestScanId() string {
+	if o == nil {
+		var ret string
+		return ret
+	}
+
+	return o.VulnerabilityLatestScanId
+}
+
+// GetVulnerabilityLatestScanIdOk returns a tuple with the VulnerabilityLatestScanId field value
+// and a boolean to check if the value has been set.
+func (o *ModelHost) GetVulnerabilityLatestScanIdOk() (*string, bool) {
+	if o == nil {
+		return nil, false
+	}
+	return &o.VulnerabilityLatestScanId, true
+}
+
+// SetVulnerabilityLatestScanId sets field value
+func (o *ModelHost) SetVulnerabilityLatestScanId(v string) {
+	o.VulnerabilityLatestScanId = v
+}
+
 // GetVulnerabilityScanStatus returns the VulnerabilityScanStatus field value
 func (o *ModelHost) GetVulnerabilityScanStatus() string {
 	if o == nil {
@@ -655,9 +785,11 @@ func (o ModelHost) MarshalJSON() ([]byte, error) {
 
 func (o ModelHost) ToMap() (map[string]interface{}, error) {
 	toSerialize := map[string]interface{}{}
+	toSerialize["cloud_compliance_latest scan_id"] = o.CloudComplianceLatestScanId
 	toSerialize["cloud_compliance_scan_status"] = o.CloudComplianceScanStatus
 	toSerialize["cloud_compliances_count"] = o.CloudCompliancesCount
 	toSerialize["cloud_metadata"] = o.CloudMetadata
+	toSerialize["compliance_latest_scan_id"] = o.ComplianceLatestScanId
 	toSerialize["compliance_scan_status"] = o.ComplianceScanStatus
 	toSerialize["compliances_count"] = o.CompliancesCount
 	if o.ContainerImages != nil {
@@ -670,6 +802,7 @@ func (o ModelHost) ToMap() (map[string]interface{}, error) {
 	toSerialize["interface_ips"] = o.InterfaceIps
 	toSerialize["interfaceNames"] = o.InterfaceNames
 	toSerialize["kernel_version"] = o.KernelVersion
+	toSerialize["malware_latest_scan_id"] = o.MalwareLatestScanId
 	toSerialize["malware_scan_status"] = o.MalwareScanStatus
 	toSerialize["malwares_count"] = o.MalwaresCount
 	toSerialize["metrics"] = o.Metrics
@@ -681,10 +814,12 @@ func (o ModelHost) ToMap() (map[string]interface{}, error) {
 	if o.Processes != nil {
 		toSerialize["processes"] = o.Processes
 	}
+	toSerialize["secret_latest_scan"] = o.SecretLatestScan
 	toSerialize["secret_scan_status"] = o.SecretScanStatus
 	toSerialize["secrets_count"] = o.SecretsCount
 	toSerialize["uptime"] = o.Uptime
 	toSerialize["vulnerabilities_count"] = o.VulnerabilitiesCount
+	toSerialize["vulnerability_latest_scan_id"] = o.VulnerabilityLatestScanId
 	toSerialize["vulnerability_scan_status"] = o.VulnerabilityScanStatus
 	return toSerialize, nil
 }

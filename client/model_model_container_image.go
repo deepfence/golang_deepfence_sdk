@@ -20,22 +20,27 @@ var _ MappedNullable = &ModelContainerImage{}
 
 // ModelContainerImage struct for ModelContainerImage
 type ModelContainerImage struct {
+	CloudComplianceLatestScanId string `json:"cloud_compliance_latest scan_id"`
 	CloudComplianceScanStatus string `json:"cloud_compliance_scan_status"`
 	CloudCompliancesCount int32 `json:"cloud_compliances_count"`
+	ComplianceLatestScanId string `json:"compliance_latest_scan_id"`
 	ComplianceScanStatus string `json:"compliance_scan_status"`
 	CompliancesCount int32 `json:"compliances_count"`
 	DockerImageName string `json:"docker_image_name"`
 	DockerImageSize string `json:"docker_image_size"`
 	DockerImageTag string `json:"docker_image_tag"`
+	MalwareLatestScanId string `json:"malware_latest_scan_id"`
 	MalwareScanStatus string `json:"malware_scan_status"`
 	MalwaresCount int32 `json:"malwares_count"`
 	Metadata map[string]interface{} `json:"metadata"`
 	Metrics ModelComputeMetrics `json:"metrics"`
 	NodeId string `json:"node_id"`
 	NodeName string `json:"node_name"`
+	SecretLatestScan string `json:"secret_latest_scan"`
 	SecretScanStatus string `json:"secret_scan_status"`
 	SecretsCount int32 `json:"secrets_count"`
 	VulnerabilitiesCount int32 `json:"vulnerabilities_count"`
+	VulnerabilityLatestScanId string `json:"vulnerability_latest_scan_id"`
 	VulnerabilityScanStatus string `json:"vulnerability_scan_status"`
 }
 
@@ -43,24 +48,29 @@ type ModelContainerImage struct {
 // This constructor will assign default values to properties that have it defined,
 // and makes sure properties required by API are set, but the set of arguments
 // will change when the set of required properties is changed
-func NewModelContainerImage(cloudComplianceScanStatus string, cloudCompliancesCount int32, complianceScanStatus string, compliancesCount int32, dockerImageName string, dockerImageSize string, dockerImageTag string, malwareScanStatus string, malwaresCount int32, metadata map[string]interface{}, metrics ModelComputeMetrics, nodeId string, nodeName string, secretScanStatus string, secretsCount int32, vulnerabilitiesCount int32, vulnerabilityScanStatus string) *ModelContainerImage {
+func NewModelContainerImage(cloudComplianceLatestScanId string, cloudComplianceScanStatus string, cloudCompliancesCount int32, complianceLatestScanId string, complianceScanStatus string, compliancesCount int32, dockerImageName string, dockerImageSize string, dockerImageTag string, malwareLatestScanId string, malwareScanStatus string, malwaresCount int32, metadata map[string]interface{}, metrics ModelComputeMetrics, nodeId string, nodeName string, secretLatestScan string, secretScanStatus string, secretsCount int32, vulnerabilitiesCount int32, vulnerabilityLatestScanId string, vulnerabilityScanStatus string) *ModelContainerImage {
 	this := ModelContainerImage{}
+	this.CloudComplianceLatestScanId = cloudComplianceLatestScanId
 	this.CloudComplianceScanStatus = cloudComplianceScanStatus
 	this.CloudCompliancesCount = cloudCompliancesCount
+	this.ComplianceLatestScanId = complianceLatestScanId
 	this.ComplianceScanStatus = complianceScanStatus
 	this.CompliancesCount = compliancesCount
 	this.DockerImageName = dockerImageName
 	this.DockerImageSize = dockerImageSize
 	this.DockerImageTag = dockerImageTag
+	this.MalwareLatestScanId = malwareLatestScanId
 	this.MalwareScanStatus = malwareScanStatus
 	this.MalwaresCount = malwaresCount
 	this.Metadata = metadata
 	this.Metrics = metrics
 	this.NodeId = nodeId
 	this.NodeName = nodeName
+	this.SecretLatestScan = secretLatestScan
 	this.SecretScanStatus = secretScanStatus
 	this.SecretsCount = secretsCount
 	this.VulnerabilitiesCount = vulnerabilitiesCount
+	this.VulnerabilityLatestScanId = vulnerabilityLatestScanId
 	this.VulnerabilityScanStatus = vulnerabilityScanStatus
 	return &this
 }
@@ -71,6 +81,30 @@ func NewModelContainerImage(cloudComplianceScanStatus string, cloudCompliancesCo
 func NewModelContainerImageWithDefaults() *ModelContainerImage {
 	this := ModelContainerImage{}
 	return &this
+}
+
+// GetCloudComplianceLatestScanId returns the CloudComplianceLatestScanId field value
+func (o *ModelContainerImage) GetCloudComplianceLatestScanId() string {
+	if o == nil {
+		var ret string
+		return ret
+	}
+
+	return o.CloudComplianceLatestScanId
+}
+
+// GetCloudComplianceLatestScanIdOk returns a tuple with the CloudComplianceLatestScanId field value
+// and a boolean to check if the value has been set.
+func (o *ModelContainerImage) GetCloudComplianceLatestScanIdOk() (*string, bool) {
+	if o == nil {
+		return nil, false
+	}
+	return &o.CloudComplianceLatestScanId, true
+}
+
+// SetCloudComplianceLatestScanId sets field value
+func (o *ModelContainerImage) SetCloudComplianceLatestScanId(v string) {
+	o.CloudComplianceLatestScanId = v
 }
 
 // GetCloudComplianceScanStatus returns the CloudComplianceScanStatus field value
@@ -119,6 +153,30 @@ func (o *ModelContainerImage) GetCloudCompliancesCountOk() (*int32, bool) {
 // SetCloudCompliancesCount sets field value
 func (o *ModelContainerImage) SetCloudCompliancesCount(v int32) {
 	o.CloudCompliancesCount = v
+}
+
+// GetComplianceLatestScanId returns the ComplianceLatestScanId field value
+func (o *ModelContainerImage) GetComplianceLatestScanId() string {
+	if o == nil {
+		var ret string
+		return ret
+	}
+
+	return o.ComplianceLatestScanId
+}
+
+// GetComplianceLatestScanIdOk returns a tuple with the ComplianceLatestScanId field value
+// and a boolean to check if the value has been set.
+func (o *ModelContainerImage) GetComplianceLatestScanIdOk() (*string, bool) {
+	if o == nil {
+		return nil, false
+	}
+	return &o.ComplianceLatestScanId, true
+}
+
+// SetComplianceLatestScanId sets field value
+func (o *ModelContainerImage) SetComplianceLatestScanId(v string) {
+	o.ComplianceLatestScanId = v
 }
 
 // GetComplianceScanStatus returns the ComplianceScanStatus field value
@@ -239,6 +297,30 @@ func (o *ModelContainerImage) GetDockerImageTagOk() (*string, bool) {
 // SetDockerImageTag sets field value
 func (o *ModelContainerImage) SetDockerImageTag(v string) {
 	o.DockerImageTag = v
+}
+
+// GetMalwareLatestScanId returns the MalwareLatestScanId field value
+func (o *ModelContainerImage) GetMalwareLatestScanId() string {
+	if o == nil {
+		var ret string
+		return ret
+	}
+
+	return o.MalwareLatestScanId
+}
+
+// GetMalwareLatestScanIdOk returns a tuple with the MalwareLatestScanId field value
+// and a boolean to check if the value has been set.
+func (o *ModelContainerImage) GetMalwareLatestScanIdOk() (*string, bool) {
+	if o == nil {
+		return nil, false
+	}
+	return &o.MalwareLatestScanId, true
+}
+
+// SetMalwareLatestScanId sets field value
+func (o *ModelContainerImage) SetMalwareLatestScanId(v string) {
+	o.MalwareLatestScanId = v
 }
 
 // GetMalwareScanStatus returns the MalwareScanStatus field value
@@ -385,6 +467,30 @@ func (o *ModelContainerImage) SetNodeName(v string) {
 	o.NodeName = v
 }
 
+// GetSecretLatestScan returns the SecretLatestScan field value
+func (o *ModelContainerImage) GetSecretLatestScan() string {
+	if o == nil {
+		var ret string
+		return ret
+	}
+
+	return o.SecretLatestScan
+}
+
+// GetSecretLatestScanOk returns a tuple with the SecretLatestScan field value
+// and a boolean to check if the value has been set.
+func (o *ModelContainerImage) GetSecretLatestScanOk() (*string, bool) {
+	if o == nil {
+		return nil, false
+	}
+	return &o.SecretLatestScan, true
+}
+
+// SetSecretLatestScan sets field value
+func (o *ModelContainerImage) SetSecretLatestScan(v string) {
+	o.SecretLatestScan = v
+}
+
 // GetSecretScanStatus returns the SecretScanStatus field value
 func (o *ModelContainerImage) GetSecretScanStatus() string {
 	if o == nil {
@@ -457,6 +563,30 @@ func (o *ModelContainerImage) SetVulnerabilitiesCount(v int32) {
 	o.VulnerabilitiesCount = v
 }
 
+// GetVulnerabilityLatestScanId returns the VulnerabilityLatestScanId field value
+func (o *ModelContainerImage) GetVulnerabilityLatestScanId() string {
+	if o == nil {
+		var ret string
+		return ret
+	}
+
+	return o.VulnerabilityLatestScanId
+}
+
+// GetVulnerabilityLatestScanIdOk returns a tuple with the VulnerabilityLatestScanId field value
+// and a boolean to check if the value has been set.
+func (o *ModelContainerImage) GetVulnerabilityLatestScanIdOk() (*string, bool) {
+	if o == nil {
+		return nil, false
+	}
+	return &o.VulnerabilityLatestScanId, true
+}
+
+// SetVulnerabilityLatestScanId sets field value
+func (o *ModelContainerImage) SetVulnerabilityLatestScanId(v string) {
+	o.VulnerabilityLatestScanId = v
+}
+
 // GetVulnerabilityScanStatus returns the VulnerabilityScanStatus field value
 func (o *ModelContainerImage) GetVulnerabilityScanStatus() string {
 	if o == nil {
@@ -491,22 +621,27 @@ func (o ModelContainerImage) MarshalJSON() ([]byte, error) {
 
 func (o ModelContainerImage) ToMap() (map[string]interface{}, error) {
 	toSerialize := map[string]interface{}{}
+	toSerialize["cloud_compliance_latest scan_id"] = o.CloudComplianceLatestScanId
 	toSerialize["cloud_compliance_scan_status"] = o.CloudComplianceScanStatus
 	toSerialize["cloud_compliances_count"] = o.CloudCompliancesCount
+	toSerialize["compliance_latest_scan_id"] = o.ComplianceLatestScanId
 	toSerialize["compliance_scan_status"] = o.ComplianceScanStatus
 	toSerialize["compliances_count"] = o.CompliancesCount
 	toSerialize["docker_image_name"] = o.DockerImageName
 	toSerialize["docker_image_size"] = o.DockerImageSize
 	toSerialize["docker_image_tag"] = o.DockerImageTag
+	toSerialize["malware_latest_scan_id"] = o.MalwareLatestScanId
 	toSerialize["malware_scan_status"] = o.MalwareScanStatus
 	toSerialize["malwares_count"] = o.MalwaresCount
 	toSerialize["metadata"] = o.Metadata
 	toSerialize["metrics"] = o.Metrics
 	toSerialize["node_id"] = o.NodeId
 	toSerialize["node_name"] = o.NodeName
+	toSerialize["secret_latest_scan"] = o.SecretLatestScan
 	toSerialize["secret_scan_status"] = o.SecretScanStatus
 	toSerialize["secrets_count"] = o.SecretsCount
 	toSerialize["vulnerabilities_count"] = o.VulnerabilitiesCount
+	toSerialize["vulnerability_latest_scan_id"] = o.VulnerabilityLatestScanId
 	toSerialize["vulnerability_scan_status"] = o.VulnerabilityScanStatus
 	return toSerialize, nil
 }

@@ -17,6 +17,8 @@ Method | HTTP request | Description
 [**CountSecretsScans**](SearchApi.md#CountSecretsScans) | **Post** /deepfence/search/count/secret/scans | Count Secret Scan results
 [**CountVulnerabilities**](SearchApi.md#CountVulnerabilities) | **Post** /deepfence/search/count/vulnerabilities | Count Vulnerabilities
 [**CountVulnerabilityScans**](SearchApi.md#CountVulnerabilityScans) | **Post** /deepfence/search/count/vulnerability/scans | Count Vulnerability Scan results
+[**GetCloudComplianceFilters**](SearchApi.md#GetCloudComplianceFilters) | **Get** /deepfence/filters/cloud-compliance | Get Cloud Compliance Filters
+[**GetComplianceFilters**](SearchApi.md#GetComplianceFilters) | **Get** /deepfence/filters/compliance | Get Compliance Filters
 [**SearchCloudComplianceScans**](SearchApi.md#SearchCloudComplianceScans) | **Post** /deepfence/search/cloud-compliance/scans | Search Cloud Compliance Scan results
 [**SearchCloudCompliances**](SearchApi.md#SearchCloudCompliances) | **Post** /deepfence/search/cloud-compliances | Search Cloud compliances
 [**SearchComplianceScans**](SearchApi.md#SearchComplianceScans) | **Post** /deepfence/search/compliance/scans | Search Compliance Scan results
@@ -884,6 +886,128 @@ Name | Type | Description  | Notes
 ### HTTP request headers
 
 - **Content-Type**: application/json
+- **Accept**: application/json
+
+[[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints)
+[[Back to Model list]](../README.md#documentation-for-models)
+[[Back to README]](../README.md)
+
+
+## GetCloudComplianceFilters
+
+> ModelFiltersResult GetCloudComplianceFilters(ctx).Execute()
+
+Get Cloud Compliance Filters
+
+
+
+### Example
+
+```go
+package main
+
+import (
+    "context"
+    "fmt"
+    "os"
+    openapiclient "github.com/deepfence/golang_deepfence_sdk/client"
+)
+
+func main() {
+
+    configuration := openapiclient.NewConfiguration()
+    apiClient := openapiclient.NewAPIClient(configuration)
+    resp, r, err := apiClient.SearchApi.GetCloudComplianceFilters(context.Background()).Execute()
+    if err != nil {
+        fmt.Fprintf(os.Stderr, "Error when calling `SearchApi.GetCloudComplianceFilters``: %v\n", err)
+        fmt.Fprintf(os.Stderr, "Full HTTP response: %v\n", r)
+    }
+    // response from `GetCloudComplianceFilters`: ModelFiltersResult
+    fmt.Fprintf(os.Stdout, "Response from `SearchApi.GetCloudComplianceFilters`: %v\n", resp)
+}
+```
+
+### Path Parameters
+
+This endpoint does not need any parameter.
+
+### Other Parameters
+
+Other parameters are passed through a pointer to a apiGetCloudComplianceFiltersRequest struct via the builder pattern
+
+
+### Return type
+
+[**ModelFiltersResult**](ModelFiltersResult.md)
+
+### Authorization
+
+[bearer_token](../README.md#bearer_token)
+
+### HTTP request headers
+
+- **Content-Type**: Not defined
+- **Accept**: application/json
+
+[[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints)
+[[Back to Model list]](../README.md#documentation-for-models)
+[[Back to README]](../README.md)
+
+
+## GetComplianceFilters
+
+> ModelFiltersResult GetComplianceFilters(ctx).Execute()
+
+Get Compliance Filters
+
+
+
+### Example
+
+```go
+package main
+
+import (
+    "context"
+    "fmt"
+    "os"
+    openapiclient "github.com/deepfence/golang_deepfence_sdk/client"
+)
+
+func main() {
+
+    configuration := openapiclient.NewConfiguration()
+    apiClient := openapiclient.NewAPIClient(configuration)
+    resp, r, err := apiClient.SearchApi.GetComplianceFilters(context.Background()).Execute()
+    if err != nil {
+        fmt.Fprintf(os.Stderr, "Error when calling `SearchApi.GetComplianceFilters``: %v\n", err)
+        fmt.Fprintf(os.Stderr, "Full HTTP response: %v\n", r)
+    }
+    // response from `GetComplianceFilters`: ModelFiltersResult
+    fmt.Fprintf(os.Stdout, "Response from `SearchApi.GetComplianceFilters`: %v\n", resp)
+}
+```
+
+### Path Parameters
+
+This endpoint does not need any parameter.
+
+### Other Parameters
+
+Other parameters are passed through a pointer to a apiGetComplianceFiltersRequest struct via the builder pattern
+
+
+### Return type
+
+[**ModelFiltersResult**](ModelFiltersResult.md)
+
+### Authorization
+
+[bearer_token](../README.md#bearer_token)
+
+### HTTP request headers
+
+- **Content-Type**: Not defined
 - **Accept**: application/json
 
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints)

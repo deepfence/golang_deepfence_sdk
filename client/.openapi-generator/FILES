@@ -98,6 +98,7 @@ docs/ModelContainer.md
 docs/ModelContainerImage.md
 docs/ModelDownloadReportResponse.md
 docs/ModelFetchWindow.md
+docs/ModelFiltersResult.md
 docs/ModelHost.md
 docs/ModelImageStub.md
 docs/ModelInitAgentReq.md
@@ -240,6 +241,7 @@ model_model_container.go
 model_model_container_image.go
 model_model_download_report_response.go
 model_model_fetch_window.go
+model_model_filters_result.go
 model_model_host.go
 model_model_image_stub.go
 model_model_init_agent_req.go
