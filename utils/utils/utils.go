@@ -171,6 +171,27 @@ func GetStringValueFromInterfaceMap(claims map[string]interface{}, key string) (
 	return fmt.Sprintf("%v", val), nil
 }
 
+func StructToMap[T any](c T) map[string]interface{} {
+	bb := map[string]interface{}{}
+
+	t := reflect.TypeOf(c)
+	v := reflect.ValueOf(c)
+
+	for i := 0; i < t.NumField(); i++ {
+		key := t.Field(i).Tag.Get("json")
+		omitempty := strings.HasSuffix(key, ",omitempty")
+		if omitempty {
+			if v.Field(i).IsZero() {
+				continue
+			}
+			key = strings.TrimSuffix(key, ",omitempty")
+		}
+		bb[key] = v.Field(i).Interface()
+	}
+
+	return bb
+}
+
 func ToMap[T any](c T) map[string]interface{} {
 	bb := map[string]interface{}{}
 
