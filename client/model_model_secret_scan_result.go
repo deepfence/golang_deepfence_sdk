@@ -20,6 +20,7 @@ var _ MappedNullable = &ModelSecretScanResult{}
 
 // ModelSecretScanResult struct for ModelSecretScanResult
 type ModelSecretScanResult struct {
+	CreatedAt int64 `json:"created_at"`
 	DockerContainerName string `json:"docker_container_name"`
 	DockerImageName string `json:"docker_image_name"`
 	HostName string `json:"host_name"`
@@ -37,8 +38,9 @@ type ModelSecretScanResult struct {
 // This constructor will assign default values to properties that have it defined,
 // and makes sure properties required by API are set, but the set of arguments
 // will change when the set of required properties is changed
-func NewModelSecretScanResult(dockerContainerName string, dockerImageName string, hostName string, kubernetesClusterName string, nodeId string, nodeName string, nodeType string, scanId string, secrets []ModelSecret, severityCounts map[string]int32, updatedAt int64) *ModelSecretScanResult {
+func NewModelSecretScanResult(createdAt int64, dockerContainerName string, dockerImageName string, hostName string, kubernetesClusterName string, nodeId string, nodeName string, nodeType string, scanId string, secrets []ModelSecret, severityCounts map[string]int32, updatedAt int64) *ModelSecretScanResult {
 	this := ModelSecretScanResult{}
+	this.CreatedAt = createdAt
 	this.DockerContainerName = dockerContainerName
 	this.DockerImageName = dockerImageName
 	this.HostName = hostName
@@ -59,6 +61,30 @@ func NewModelSecretScanResult(dockerContainerName string, dockerImageName string
 func NewModelSecretScanResultWithDefaults() *ModelSecretScanResult {
 	this := ModelSecretScanResult{}
 	return &this
+}
+
+// GetCreatedAt returns the CreatedAt field value
+func (o *ModelSecretScanResult) GetCreatedAt() int64 {
+	if o == nil {
+		var ret int64
+		return ret
+	}
+
+	return o.CreatedAt
+}
+
+// GetCreatedAtOk returns a tuple with the CreatedAt field value
+// and a boolean to check if the value has been set.
+func (o *ModelSecretScanResult) GetCreatedAtOk() (*int64, bool) {
+	if o == nil {
+		return nil, false
+	}
+	return &o.CreatedAt, true
+}
+
+// SetCreatedAt sets field value
+func (o *ModelSecretScanResult) SetCreatedAt(v int64) {
+	o.CreatedAt = v
 }
 
 // GetDockerContainerName returns the DockerContainerName field value
@@ -339,6 +365,7 @@ func (o ModelSecretScanResult) MarshalJSON() ([]byte, error) {
 
 func (o ModelSecretScanResult) ToMap() (map[string]interface{}, error) {
 	toSerialize := map[string]interface{}{}
+	toSerialize["created_at"] = o.CreatedAt
 	toSerialize["docker_container_name"] = o.DockerContainerName
 	toSerialize["docker_image_name"] = o.DockerImageName
 	toSerialize["host_name"] = o.HostName

@@ -4,6 +4,7 @@
 
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
+**CreatedAt** | **int64** |  | 
 **DockerContainerName** | **string** |  | 
 **DockerImageName** | **string** |  | 
 **HostName** | **string** |  | 
@@ -20,7 +21,7 @@ Name | Type | Description | Notes
 
 ### NewModelSecretScanResult
 
-`func NewModelSecretScanResult(dockerContainerName string, dockerImageName string, hostName string, kubernetesClusterName string, nodeId string, nodeName string, nodeType string, scanId string, secrets []ModelSecret, severityCounts map[string]int32, updatedAt int64, ) *ModelSecretScanResult`
+`func NewModelSecretScanResult(createdAt int64, dockerContainerName string, dockerImageName string, hostName string, kubernetesClusterName string, nodeId string, nodeName string, nodeType string, scanId string, secrets []ModelSecret, severityCounts map[string]int32, updatedAt int64, ) *ModelSecretScanResult`
 
 NewModelSecretScanResult instantiates a new ModelSecretScanResult object
 This constructor will assign default values to properties that have it defined,
@@ -34,6 +35,26 @@ will change when the set of required properties is changed
 NewModelSecretScanResultWithDefaults instantiates a new ModelSecretScanResult object
 This constructor will only assign default values to properties that have it defined,
 but it doesn't guarantee that properties required by API are set
+
+### GetCreatedAt
+
+`func (o *ModelSecretScanResult) GetCreatedAt() int64`
+
+GetCreatedAt returns the CreatedAt field if non-nil, zero value otherwise.
+
+### GetCreatedAtOk
+
+`func (o *ModelSecretScanResult) GetCreatedAtOk() (*int64, bool)`
+
+GetCreatedAtOk returns a tuple with the CreatedAt field if it's non-nil, zero value otherwise
+and a boolean to check if the value has been set.
+
+### SetCreatedAt
+
+`func (o *ModelSecretScanResult) SetCreatedAt(v int64)`
+
+SetCreatedAt sets CreatedAt field to given value.
+
 
 ### GetDockerContainerName
 

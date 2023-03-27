@@ -23,6 +23,7 @@ type ModelComplianceScanResult struct {
 	BenchmarkType []string `json:"benchmark_type"`
 	CompliancePercentage float32 `json:"compliance_percentage"`
 	Compliances []ModelCompliance `json:"compliances"`
+	CreatedAt int64 `json:"created_at"`
 	DockerContainerName string `json:"docker_container_name"`
 	DockerImageName string `json:"docker_image_name"`
 	HostName string `json:"host_name"`
@@ -39,11 +40,12 @@ type ModelComplianceScanResult struct {
 // This constructor will assign default values to properties that have it defined,
 // and makes sure properties required by API are set, but the set of arguments
 // will change when the set of required properties is changed
-func NewModelComplianceScanResult(benchmarkType []string, compliancePercentage float32, compliances []ModelCompliance, dockerContainerName string, dockerImageName string, hostName string, kubernetesClusterName string, nodeId string, nodeName string, nodeType string, scanId string, statusCounts map[string]int32, updatedAt int64) *ModelComplianceScanResult {
+func NewModelComplianceScanResult(benchmarkType []string, compliancePercentage float32, compliances []ModelCompliance, createdAt int64, dockerContainerName string, dockerImageName string, hostName string, kubernetesClusterName string, nodeId string, nodeName string, nodeType string, scanId string, statusCounts map[string]int32, updatedAt int64) *ModelComplianceScanResult {
 	this := ModelComplianceScanResult{}
 	this.BenchmarkType = benchmarkType
 	this.CompliancePercentage = compliancePercentage
 	this.Compliances = compliances
+	this.CreatedAt = createdAt
 	this.DockerContainerName = dockerContainerName
 	this.DockerImageName = dockerImageName
 	this.HostName = hostName
@@ -139,6 +141,30 @@ func (o *ModelComplianceScanResult) GetCompliancesOk() ([]ModelCompliance, bool)
 // SetCompliances sets field value
 func (o *ModelComplianceScanResult) SetCompliances(v []ModelCompliance) {
 	o.Compliances = v
+}
+
+// GetCreatedAt returns the CreatedAt field value
+func (o *ModelComplianceScanResult) GetCreatedAt() int64 {
+	if o == nil {
+		var ret int64
+		return ret
+	}
+
+	return o.CreatedAt
+}
+
+// GetCreatedAtOk returns a tuple with the CreatedAt field value
+// and a boolean to check if the value has been set.
+func (o *ModelComplianceScanResult) GetCreatedAtOk() (*int64, bool) {
+	if o == nil {
+		return nil, false
+	}
+	return &o.CreatedAt, true
+}
+
+// SetCreatedAt sets field value
+func (o *ModelComplianceScanResult) SetCreatedAt(v int64) {
+	o.CreatedAt = v
 }
 
 // GetDockerContainerName returns the DockerContainerName field value
@@ -400,6 +426,7 @@ func (o ModelComplianceScanResult) ToMap() (map[string]interface{}, error) {
 	if o.Compliances != nil {
 		toSerialize["compliances"] = o.Compliances
 	}
+	toSerialize["created_at"] = o.CreatedAt
 	toSerialize["docker_container_name"] = o.DockerContainerName
 	toSerialize["docker_image_name"] = o.DockerImageName
 	toSerialize["host_name"] = o.HostName

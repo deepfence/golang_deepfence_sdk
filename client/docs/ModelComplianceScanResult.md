@@ -7,6 +7,7 @@ Name | Type | Description | Notes
 **BenchmarkType** | **[]string** |  | 
 **CompliancePercentage** | **float32** |  | 
 **Compliances** | [**[]ModelCompliance**](ModelCompliance.md) |  | 
+**CreatedAt** | **int64** |  | 
 **DockerContainerName** | **string** |  | 
 **DockerImageName** | **string** |  | 
 **HostName** | **string** |  | 
@@ -22,7 +23,7 @@ Name | Type | Description | Notes
 
 ### NewModelComplianceScanResult
 
-`func NewModelComplianceScanResult(benchmarkType []string, compliancePercentage float32, compliances []ModelCompliance, dockerContainerName string, dockerImageName string, hostName string, kubernetesClusterName string, nodeId string, nodeName string, nodeType string, scanId string, statusCounts map[string]int32, updatedAt int64, ) *ModelComplianceScanResult`
+`func NewModelComplianceScanResult(benchmarkType []string, compliancePercentage float32, compliances []ModelCompliance, createdAt int64, dockerContainerName string, dockerImageName string, hostName string, kubernetesClusterName string, nodeId string, nodeName string, nodeType string, scanId string, statusCounts map[string]int32, updatedAt int64, ) *ModelComplianceScanResult`
 
 NewModelComplianceScanResult instantiates a new ModelComplianceScanResult object
 This constructor will assign default values to properties that have it defined,
@@ -117,6 +118,26 @@ SetCompliances sets Compliances field to given value.
 `func (o *ModelComplianceScanResult) UnsetCompliances()`
 
 UnsetCompliances ensures that no value is present for Compliances, not even an explicit nil
+### GetCreatedAt
+
+`func (o *ModelComplianceScanResult) GetCreatedAt() int64`
+
+GetCreatedAt returns the CreatedAt field if non-nil, zero value otherwise.
+
+### GetCreatedAtOk
+
+`func (o *ModelComplianceScanResult) GetCreatedAtOk() (*int64, bool)`
+
+GetCreatedAtOk returns a tuple with the CreatedAt field if it's non-nil, zero value otherwise
+and a boolean to check if the value has been set.
+
+### SetCreatedAt
+
+`func (o *ModelComplianceScanResult) SetCreatedAt(v int64)`
+
+SetCreatedAt sets CreatedAt field to given value.
+
+
 ### GetDockerContainerName
 
 `func (o *ModelComplianceScanResult) GetDockerContainerName() string`
