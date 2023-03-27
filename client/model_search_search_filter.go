@@ -22,16 +22,18 @@ var _ MappedNullable = &SearchSearchFilter{}
 type SearchSearchFilter struct {
 	Filters ReportersFieldsFilters `json:"filters"`
 	InFieldFilter []string `json:"in_field_filter"`
+	Window ModelFetchWindow `json:"window"`
 }
 
 // NewSearchSearchFilter instantiates a new SearchSearchFilter object
 // This constructor will assign default values to properties that have it defined,
 // and makes sure properties required by API are set, but the set of arguments
 // will change when the set of required properties is changed
-func NewSearchSearchFilter(filters ReportersFieldsFilters, inFieldFilter []string) *SearchSearchFilter {
+func NewSearchSearchFilter(filters ReportersFieldsFilters, inFieldFilter []string, window ModelFetchWindow) *SearchSearchFilter {
 	this := SearchSearchFilter{}
 	this.Filters = filters
 	this.InFieldFilter = inFieldFilter
+	this.Window = window
 	return &this
 }
 
@@ -93,6 +95,30 @@ func (o *SearchSearchFilter) SetInFieldFilter(v []string) {
 	o.InFieldFilter = v
 }
 
+// GetWindow returns the Window field value
+func (o *SearchSearchFilter) GetWindow() ModelFetchWindow {
+	if o == nil {
+		var ret ModelFetchWindow
+		return ret
+	}
+
+	return o.Window
+}
+
+// GetWindowOk returns a tuple with the Window field value
+// and a boolean to check if the value has been set.
+func (o *SearchSearchFilter) GetWindowOk() (*ModelFetchWindow, bool) {
+	if o == nil {
+		return nil, false
+	}
+	return &o.Window, true
+}
+
+// SetWindow sets field value
+func (o *SearchSearchFilter) SetWindow(v ModelFetchWindow) {
+	o.Window = v
+}
+
 func (o SearchSearchFilter) MarshalJSON() ([]byte, error) {
 	toSerialize,err := o.ToMap()
 	if err != nil {
@@ -107,6 +133,7 @@ func (o SearchSearchFilter) ToMap() (map[string]interface{}, error) {
 	if o.InFieldFilter != nil {
 		toSerialize["in_field_filter"] = o.InFieldFilter
 	}
+	toSerialize["window"] = o.Window
 	return toSerialize, nil
 }
 

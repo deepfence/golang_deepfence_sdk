@@ -161,8 +161,8 @@ Class | Method | HTTP request | Description
 *SearchApi* | [**CountSecretsScans**](docs/SearchApi.md#countsecretsscans) | **Post** /deepfence/search/count/secret/scans | Count Secret Scan results
 *SearchApi* | [**CountVulnerabilities**](docs/SearchApi.md#countvulnerabilities) | **Post** /deepfence/search/count/vulnerabilities | Count Vulnerabilities
 *SearchApi* | [**CountVulnerabilityScans**](docs/SearchApi.md#countvulnerabilityscans) | **Post** /deepfence/search/count/vulnerability/scans | Count Vulnerability Scan results
-*SearchApi* | [**GetCloudComplianceFilters**](docs/SearchApi.md#getcloudcompliancefilters) | **Get** /deepfence/filters/cloud-compliance | Get Cloud Compliance Filters
-*SearchApi* | [**GetComplianceFilters**](docs/SearchApi.md#getcompliancefilters) | **Get** /deepfence/filters/compliance | Get Compliance Filters
+*SearchApi* | [**GetCloudComplianceFilters**](docs/SearchApi.md#getcloudcompliancefilters) | **Post** /deepfence/filters/cloud-compliance | Get Cloud Compliance Filters
+*SearchApi* | [**GetComplianceFilters**](docs/SearchApi.md#getcompliancefilters) | **Post** /deepfence/filters/compliance | Get Compliance Filters
 *SearchApi* | [**SearchCloudComplianceScans**](docs/SearchApi.md#searchcloudcompliancescans) | **Post** /deepfence/search/cloud-compliance/scans | Search Cloud Compliance Scan results
 *SearchApi* | [**SearchCloudCompliances**](docs/SearchApi.md#searchcloudcompliances) | **Post** /deepfence/search/cloud-compliances | Search Cloud compliances
 *SearchApi* | [**SearchComplianceScans**](docs/SearchApi.md#searchcompliancescans) | **Post** /deepfence/search/compliance/scans | Search Compliance Scan results
@@ -289,6 +289,7 @@ Class | Method | HTTP request | Description
  - [ModelContainerImage](docs/ModelContainerImage.md)
  - [ModelDownloadReportResponse](docs/ModelDownloadReportResponse.md)
  - [ModelFetchWindow](docs/ModelFetchWindow.md)
+ - [ModelFiltersReq](docs/ModelFiltersReq.md)
  - [ModelFiltersResult](docs/ModelFiltersResult.md)
  - [ModelHost](docs/ModelHost.md)
  - [ModelImageStub](docs/ModelImageStub.md)

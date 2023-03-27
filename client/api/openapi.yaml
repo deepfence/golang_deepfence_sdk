@@ -809,9 +809,14 @@ paths:
       tags:
       - Diagnosis
   /deepfence/filters/cloud-compliance:
-    get:
+    post:
       description: Get all applicable filter values for cloud compliance
       operationId: getCloudComplianceFilters
+      requestBody:
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/ModelFiltersReq'
       responses:
         "200":
           content:
@@ -847,9 +852,14 @@ paths:
       tags:
       - Search
   /deepfence/filters/compliance:
-    get:
+    post:
       description: Get all applicable filter values for compliance
       operationId: getComplianceFilters
+      requestBody:
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/ModelFiltersReq'
       responses:
         "200":
           content:
@@ -8502,6 +8512,26 @@ components:
       - offset
       - size
       type: object
+    ModelFiltersReq:
+      example:
+        having:
+          key: ""
+        filters:
+        - filters
+        - filters
+      properties:
+        filters:
+          items:
+            type: string
+          nullable: true
+          type: array
+        having:
+          additionalProperties: {}
+          nullable: true
+          type: object
+      required:
+      - filters
+      type: object
     ModelFiltersResult:
       example:
         filters:
@@ -12571,6 +12601,9 @@ components:
               key:
               - ""
               - ""
+        window:
+          offset: 0
+          size: 6
       properties:
         filters:
           $ref: '#/components/schemas/ReportersFieldsFilters'
@@ -12579,9 +12612,12 @@ components:
             type: string
           nullable: true
           type: array
+        window:
+          $ref: '#/components/schemas/ModelFetchWindow'
       required:
       - filters
       - in_field_filter
+      - window
       type: object
     SearchSearchNodeReq:
       example:
@@ -12606,6 +12642,9 @@ components:
                 key:
                 - ""
                 - ""
+          window:
+            offset: 0
+            size: 6
         window:
           offset: 0
           size: 6
@@ -12641,6 +12680,9 @@ components:
                 key:
                 - ""
                 - ""
+          window:
+            offset: 0
+            size: 6
         scan_filters:
           in_field_filter:
           - in_field_filter
@@ -12662,6 +12704,9 @@ components:
                 key:
                 - ""
                 - ""
+          window:
+            offset: 0
+            size: 6
         window:
           offset: 0
           size: 6

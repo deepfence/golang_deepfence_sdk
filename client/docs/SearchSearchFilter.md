@@ -6,12 +6,13 @@ Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
 **Filters** | [**ReportersFieldsFilters**](ReportersFieldsFilters.md) |  | 
 **InFieldFilter** | **[]string** |  | 
+**Window** | [**ModelFetchWindow**](ModelFetchWindow.md) |  | 
 
 ## Methods
 
 ### NewSearchSearchFilter
 
-`func NewSearchSearchFilter(filters ReportersFieldsFilters, inFieldFilter []string, ) *SearchSearchFilter`
+`func NewSearchSearchFilter(filters ReportersFieldsFilters, inFieldFilter []string, window ModelFetchWindow, ) *SearchSearchFilter`
 
 NewSearchSearchFilter instantiates a new SearchSearchFilter object
 This constructor will assign default values to properties that have it defined,
@@ -76,6 +77,26 @@ SetInFieldFilter sets InFieldFilter field to given value.
 `func (o *SearchSearchFilter) UnsetInFieldFilter()`
 
 UnsetInFieldFilter ensures that no value is present for InFieldFilter, not even an explicit nil
+### GetWindow
+
+`func (o *SearchSearchFilter) GetWindow() ModelFetchWindow`
+
+GetWindow returns the Window field if non-nil, zero value otherwise.
+
+### GetWindowOk
+
+`func (o *SearchSearchFilter) GetWindowOk() (*ModelFetchWindow, bool)`
+
+GetWindowOk returns a tuple with the Window field if it's non-nil, zero value otherwise
+and a boolean to check if the value has been set.
+
+### SetWindow
+
+`func (o *SearchSearchFilter) SetWindow(v ModelFetchWindow)`
+
+SetWindow sets Window field to given value.
+
+
 
 [[Back to Model list]](../README.md#documentation-for-models) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to README]](../README.md)
 

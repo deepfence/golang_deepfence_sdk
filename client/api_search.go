@@ -1833,6 +1833,12 @@ func (a *SearchApiService) CountVulnerabilityScansExecute(r ApiCountVulnerabilit
 type ApiGetCloudComplianceFiltersRequest struct {
 	ctx context.Context
 	ApiService *SearchApiService
+	modelFiltersReq *ModelFiltersReq
+}
+
+func (r ApiGetCloudComplianceFiltersRequest) ModelFiltersReq(modelFiltersReq ModelFiltersReq) ApiGetCloudComplianceFiltersRequest {
+	r.modelFiltersReq = &modelFiltersReq
+	return r
 }
 
 func (r ApiGetCloudComplianceFiltersRequest) Execute() (*ModelFiltersResult, *http.Response, error) {
@@ -1858,7 +1864,7 @@ func (a *SearchApiService) GetCloudComplianceFilters(ctx context.Context) ApiGet
 //  @return ModelFiltersResult
 func (a *SearchApiService) GetCloudComplianceFiltersExecute(r ApiGetCloudComplianceFiltersRequest) (*ModelFiltersResult, *http.Response, error) {
 	var (
-		localVarHTTPMethod   = http.MethodGet
+		localVarHTTPMethod   = http.MethodPost
 		localVarPostBody     interface{}
 		formFiles            []formFile
 		localVarReturnValue  *ModelFiltersResult
@@ -1876,7 +1882,7 @@ func (a *SearchApiService) GetCloudComplianceFiltersExecute(r ApiGetCloudComplia
 	localVarFormParams := url.Values{}
 
 	// to determine the Content-Type header
-	localVarHTTPContentTypes := []string{}
+	localVarHTTPContentTypes := []string{"application/json"}
 
 	// set Content-Type header
 	localVarHTTPContentType := selectHeaderContentType(localVarHTTPContentTypes)
@@ -1892,6 +1898,8 @@ func (a *SearchApiService) GetCloudComplianceFiltersExecute(r ApiGetCloudComplia
 	if localVarHTTPHeaderAccept != "" {
 		localVarHeaderParams["Accept"] = localVarHTTPHeaderAccept
 	}
+	// body params
+	localVarPostBody = r.modelFiltersReq
 	req, err := a.client.prepareRequest(r.ctx, localVarPath, localVarHTTPMethod, localVarPostBody, localVarHeaderParams, localVarQueryParams, localVarFormParams, formFiles)
 	if err != nil {
 		return localVarReturnValue, nil, err
@@ -1964,6 +1972,12 @@ func (a *SearchApiService) GetCloudComplianceFiltersExecute(r ApiGetCloudComplia
 type ApiGetComplianceFiltersRequest struct {
 	ctx context.Context
 	ApiService *SearchApiService
+	modelFiltersReq *ModelFiltersReq
+}
+
+func (r ApiGetComplianceFiltersRequest) ModelFiltersReq(modelFiltersReq ModelFiltersReq) ApiGetComplianceFiltersRequest {
+	r.modelFiltersReq = &modelFiltersReq
+	return r
 }
 
 func (r ApiGetComplianceFiltersRequest) Execute() (*ModelFiltersResult, *http.Response, error) {
@@ -1989,7 +2003,7 @@ func (a *SearchApiService) GetComplianceFilters(ctx context.Context) ApiGetCompl
 //  @return ModelFiltersResult
 func (a *SearchApiService) GetComplianceFiltersExecute(r ApiGetComplianceFiltersRequest) (*ModelFiltersResult, *http.Response, error) {
 	var (
-		localVarHTTPMethod   = http.MethodGet
+		localVarHTTPMethod   = http.MethodPost
 		localVarPostBody     interface{}
 		formFiles            []formFile
 		localVarReturnValue  *ModelFiltersResult
@@ -2007,7 +2021,7 @@ func (a *SearchApiService) GetComplianceFiltersExecute(r ApiGetComplianceFilters
 	localVarFormParams := url.Values{}
 
 	// to determine the Content-Type header
-	localVarHTTPContentTypes := []string{}
+	localVarHTTPContentTypes := []string{"application/json"}
 
 	// set Content-Type header
 	localVarHTTPContentType := selectHeaderContentType(localVarHTTPContentTypes)
@@ -2023,6 +2037,8 @@ func (a *SearchApiService) GetComplianceFiltersExecute(r ApiGetComplianceFilters
 	if localVarHTTPHeaderAccept != "" {
 		localVarHeaderParams["Accept"] = localVarHTTPHeaderAccept
 	}
+	// body params
+	localVarPostBody = r.modelFiltersReq
 	req, err := a.client.prepareRequest(r.ctx, localVarPath, localVarHTTPMethod, localVarPostBody, localVarHeaderParams, localVarQueryParams, localVarFormParams, formFiles)
 	if err != nil {
 		return localVarReturnValue, nil, err
