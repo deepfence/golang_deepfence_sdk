@@ -420,3 +420,11 @@ func NewHTTPClient() (*http.Client, error) {
 	}
 	return client, nil
 }
+
+func StringArrayToInterfaceArray(a []string) []interface{} {
+	l := make([]interface{}, len(a))
+	for _, i := range a {
+		l = append(l, i)
+	}
+	return l
+}
