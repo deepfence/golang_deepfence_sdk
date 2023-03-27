@@ -137,7 +137,6 @@ var Tasks = []string{
 	ReportGeneratorTask,
 	SecretScanTask,
 	MalwareScanTask,
-	ReportGeneratorTask,
 	ComputeThreatTask,
 	SendNotificationTask,
 	CloudComplianceTask,
