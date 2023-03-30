@@ -5,6 +5,7 @@
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
 **BenchmarkTypes** | **[]string** |  | 
+**CreatedAt** | **int64** |  | 
 **NodeId** | **string** |  | 
 **NodeType** | **string** |  | 
 **ScanId** | **string** |  | 
@@ -16,7 +17,7 @@ Name | Type | Description | Notes
 
 ### NewModelComplianceScanInfo
 
-`func NewModelComplianceScanInfo(benchmarkTypes []string, nodeId string, nodeType string, scanId string, severityCounts map[string]int32, status string, updatedAt int64, ) *ModelComplianceScanInfo`
+`func NewModelComplianceScanInfo(benchmarkTypes []string, createdAt int64, nodeId string, nodeType string, scanId string, severityCounts map[string]int32, status string, updatedAt int64, ) *ModelComplianceScanInfo`
 
 NewModelComplianceScanInfo instantiates a new ModelComplianceScanInfo object
 This constructor will assign default values to properties that have it defined,
@@ -61,6 +62,26 @@ SetBenchmarkTypes sets BenchmarkTypes field to given value.
 `func (o *ModelComplianceScanInfo) UnsetBenchmarkTypes()`
 
 UnsetBenchmarkTypes ensures that no value is present for BenchmarkTypes, not even an explicit nil
+### GetCreatedAt
+
+`func (o *ModelComplianceScanInfo) GetCreatedAt() int64`
+
+GetCreatedAt returns the CreatedAt field if non-nil, zero value otherwise.
+
+### GetCreatedAtOk
+
+`func (o *ModelComplianceScanInfo) GetCreatedAtOk() (*int64, bool)`
+
+GetCreatedAtOk returns a tuple with the CreatedAt field if it's non-nil, zero value otherwise
+and a boolean to check if the value has been set.
+
+### SetCreatedAt
+
+`func (o *ModelComplianceScanInfo) SetCreatedAt(v int64)`
+
+SetCreatedAt sets CreatedAt field to given value.
+
+
 ### GetNodeId
 
 `func (o *ModelComplianceScanInfo) GetNodeId() string`

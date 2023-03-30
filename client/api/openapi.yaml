@@ -7455,6 +7455,7 @@ components:
         docker_container_name: docker_container_name
         kubernetes_cluster_name: kubernetes_cluster_name
         node_name: node_name
+        created_at: 5
         compliances:
         - severity: severity
           reason: reason
@@ -7496,7 +7497,7 @@ components:
           status: status
         compliance_percentage: 0.8008281904610115
         node_type: node_type
-        updated_at: 5
+        updated_at: 2
         scan_id: scan_id
         status_counts:
           key: 5
@@ -7516,6 +7517,9 @@ components:
             $ref: '#/components/schemas/ModelCloudCompliance'
           nullable: true
           type: array
+        created_at:
+          format: int64
+          type: integer
         docker_container_name:
           type: string
         docker_image_name:
@@ -7544,6 +7548,7 @@ components:
       - benchmark_type
       - compliance_percentage
       - compliances
+      - created_at
       - docker_container_name
       - docker_image_name
       - host_name
@@ -7997,12 +8002,13 @@ components:
     ModelComplianceScanInfo:
       example:
         severity_counts:
-          key: 0
+          key: 6
         node_type: node_type
         benchmark_types:
         - benchmark_types
         - benchmark_types
-        updated_at: 6
+        updated_at: 1
+        created_at: 0
         scan_id: scan_id
         node_id: node_id
         status: status
@@ -8012,6 +8018,9 @@ components:
             type: string
           nullable: true
           type: array
+        created_at:
+          format: int64
+          type: integer
         node_id:
           type: string
         node_type:
@@ -8030,6 +8039,7 @@ components:
           type: integer
       required:
       - benchmark_types
+      - created_at
       - node_id
       - node_type
       - scan_id
@@ -8045,6 +8055,7 @@ components:
         docker_container_name: docker_container_name
         kubernetes_cluster_name: kubernetes_cluster_name
         node_name: node_name
+        created_at: 1
         compliances:
         - resource: resource
           masked: true
@@ -8083,7 +8094,7 @@ components:
         updated_at: 5
         scan_id: scan_id
         status_counts:
-          key: 1
+          key: 5
         docker_image_name: docker_image_name
         host_name: host_name
         node_id: node_id
@@ -8100,6 +8111,9 @@ components:
             $ref: '#/components/schemas/ModelCompliance'
           nullable: true
           type: array
+        created_at:
+          format: int64
+          type: integer
         docker_container_name:
           type: string
         docker_image_name:
@@ -8128,6 +8142,7 @@ components:
       - benchmark_type
       - compliance_percentage
       - compliances
+      - created_at
       - docker_container_name
       - docker_image_name
       - host_name
@@ -8143,22 +8158,24 @@ components:
       example:
         statuses:
         - severity_counts:
-            key: 0
+            key: 6
           node_type: node_type
           benchmark_types:
           - benchmark_types
           - benchmark_types
-          updated_at: 6
+          updated_at: 1
+          created_at: 0
           scan_id: scan_id
           node_id: node_id
           status: status
         - severity_counts:
-            key: 0
+            key: 6
           node_type: node_type
           benchmark_types:
           - benchmark_types
           - benchmark_types
-          updated_at: 6
+          updated_at: 1
+          created_at: 0
           scan_id: scan_id
           node_id: node_id
           status: status
@@ -10640,7 +10657,7 @@ components:
         rule_name: rule_name
         author: author
         masked: true
-        file_sev_score: 0
+        file_sev_score: 6
         file_severity: file_severity
         strings_to_match:
         - strings_to_match
@@ -10652,7 +10669,7 @@ components:
         class: class
         info: info
         node_id: node_id
-        severity_score: 6
+        severity_score: 1
       properties:
         author:
           type: string
@@ -10707,12 +10724,13 @@ components:
     ModelMalwareScanResult:
       example:
         severity_counts:
-          key: 1
+          key: 5
         node_type: node_type
         docker_container_name: docker_container_name
         updated_at: 5
         kubernetes_cluster_name: kubernetes_cluster_name
         node_name: node_name
+        created_at: 0
         scan_id: scan_id
         malwares:
         - date: date
@@ -10722,7 +10740,7 @@ components:
           rule_name: rule_name
           author: author
           masked: true
-          file_sev_score: 0
+          file_sev_score: 6
           file_severity: file_severity
           strings_to_match:
           - strings_to_match
@@ -10734,7 +10752,7 @@ components:
           class: class
           info: info
           node_id: node_id
-          severity_score: 6
+          severity_score: 1
         - date: date
           summary: summary
           filetype: filetype
@@ -10742,7 +10760,7 @@ components:
           rule_name: rule_name
           author: author
           masked: true
-          file_sev_score: 0
+          file_sev_score: 6
           file_severity: file_severity
           strings_to_match:
           - strings_to_match
@@ -10754,11 +10772,14 @@ components:
           class: class
           info: info
           node_id: node_id
-          severity_score: 6
+          severity_score: 1
         docker_image_name: docker_image_name
         host_name: host_name
         node_id: node_id
       properties:
+        created_at:
+          format: int64
+          type: integer
         docker_container_name:
           type: string
         docker_image_name:
@@ -10789,6 +10810,7 @@ components:
           format: int64
           type: integer
       required:
+      - created_at
       - docker_container_name
       - docker_image_name
       - host_name
@@ -11546,14 +11568,18 @@ components:
     ModelScanInfo:
       example:
         severity_counts:
-          key: 0
+          key: 6
         node_type: node_type
-        updated_at: 6
+        updated_at: 1
         node_name: node_name
+        created_at: 0
         scan_id: scan_id
         node_id: node_id
         status: status
       properties:
+        created_at:
+          format: int64
+          type: integer
         node_id:
           type: string
         node_name:
@@ -11573,6 +11599,7 @@ components:
           format: int64
           type: integer
       required:
+      - created_at
       - node_id
       - node_name
       - node_type
@@ -11615,18 +11642,20 @@ components:
       example:
         scans_info:
         - severity_counts:
-            key: 0
+            key: 6
           node_type: node_type
-          updated_at: 6
+          updated_at: 1
           node_name: node_name
+          created_at: 0
           scan_id: scan_id
           node_id: node_id
           status: status
         - severity_counts:
-            key: 0
+            key: 6
           node_type: node_type
-          updated_at: 6
+          updated_at: 1
           node_name: node_name
+          created_at: 0
           scan_id: scan_id
           node_id: node_id
           status: status
@@ -11780,10 +11809,11 @@ components:
         statuses:
           key:
             severity_counts:
-              key: 0
+              key: 6
             node_type: node_type
-            updated_at: 6
+            updated_at: 1
             node_name: node_name
+            created_at: 0
             scan_id: scan_id
             node_id: node_id
             status: status
@@ -11820,15 +11850,15 @@ components:
         level: level
         masked: true
         part: part
-        relative_ending_index: 0
-        starting_index: 5
+        relative_ending_index: 6
+        starting_index: 2
         signature_to_match: signature_to_match
-        rule_id: 1
-        score: 5.962133916683182
+        rule_id: 5
+        score: 5.637376656633329
         matched_content: matched_content
-        updated_at: 2
+        updated_at: 7
         name: name
-        relative_starting_index: 6
+        relative_starting_index: 1
         node_id: node_id
       properties:
         full_filename:
@@ -11878,46 +11908,50 @@ components:
     ModelSecretScanResult:
       example:
         severity_counts:
-          key: 7
+          key: 9
         node_type: node_type
         docker_container_name: docker_container_name
-        updated_at: 9
+        updated_at: 3
         kubernetes_cluster_name: kubernetes_cluster_name
         node_name: node_name
+        created_at: 0
         scan_id: scan_id
         secrets:
         - full_filename: full_filename
           level: level
           masked: true
           part: part
-          relative_ending_index: 0
-          starting_index: 5
+          relative_ending_index: 6
+          starting_index: 2
           signature_to_match: signature_to_match
-          rule_id: 1
-          score: 5.962133916683182
+          rule_id: 5
+          score: 5.637376656633329
           matched_content: matched_content
-          updated_at: 2
+          updated_at: 7
           name: name
-          relative_starting_index: 6
+          relative_starting_index: 1
           node_id: node_id
         - full_filename: full_filename
           level: level
           masked: true
           part: part
-          relative_ending_index: 0
-          starting_index: 5
+          relative_ending_index: 6
+          starting_index: 2
           signature_to_match: signature_to_match
-          rule_id: 1
-          score: 5.962133916683182
+          rule_id: 5
+          score: 5.637376656633329
           matched_content: matched_content
-          updated_at: 2
+          updated_at: 7
           name: name
-          relative_starting_index: 6
+          relative_starting_index: 1
           node_id: node_id
         docker_image_name: docker_image_name
         host_name: host_name
         node_id: node_id
       properties:
+        created_at:
+          format: int64
+          type: integer
         docker_container_name:
           type: string
         docker_image_name:
@@ -11948,6 +11982,7 @@ components:
           format: int64
           type: integer
       required:
+      - created_at
       - docker_container_name
       - docker_image_name
       - host_name
@@ -12177,16 +12212,16 @@ components:
         cve_container_layer: cve_container_layer
         masked: true
         cve_description: cve_description
-        cve_overall_score: 5.962133916683182
+        cve_overall_score: 5.637376656633329
         cve_caused_by_package: cve_caused_by_package
         cve_attack_vector: cve_attack_vector
-        cve_cvss_score: 1.4658129805029452
+        cve_cvss_score: 5.962133916683182
         urls:
         - urls
         - urls
         cve_severity: cve_severity
         cve_caused_by_package_path: cve_caused_by_package_path
-        updated_at: 5
+        updated_at: 2
         cve_id: cve_id
         exploit_poc: exploit_poc
         cve_type: cve_type
@@ -12280,27 +12315,28 @@ components:
     ModelVulnerabilityScanResult:
       example:
         severity_counts:
-          key: 0
+          key: 6
         node_type: node_type
         docker_container_name: docker_container_name
-        updated_at: 6
+        updated_at: 1
         kubernetes_cluster_name: kubernetes_cluster_name
         node_name: node_name
+        created_at: 0
         vulnerabilities:
         - parsed_attack_vector: parsed_attack_vector
           cve_container_layer: cve_container_layer
           masked: true
           cve_description: cve_description
-          cve_overall_score: 5.962133916683182
+          cve_overall_score: 5.637376656633329
           cve_caused_by_package: cve_caused_by_package
           cve_attack_vector: cve_attack_vector
-          cve_cvss_score: 1.4658129805029452
+          cve_cvss_score: 5.962133916683182
           urls:
           - urls
           - urls
           cve_severity: cve_severity
           cve_caused_by_package_path: cve_caused_by_package_path
-          updated_at: 5
+          updated_at: 2
           cve_id: cve_id
           exploit_poc: exploit_poc
           cve_type: cve_type
@@ -12312,16 +12348,16 @@ components:
           cve_container_layer: cve_container_layer
           masked: true
           cve_description: cve_description
-          cve_overall_score: 5.962133916683182
+          cve_overall_score: 5.637376656633329
           cve_caused_by_package: cve_caused_by_package
           cve_attack_vector: cve_attack_vector
-          cve_cvss_score: 1.4658129805029452
+          cve_cvss_score: 5.962133916683182
           urls:
           - urls
           - urls
           cve_severity: cve_severity
           cve_caused_by_package_path: cve_caused_by_package_path
-          updated_at: 5
+          updated_at: 2
           cve_id: cve_id
           exploit_poc: exploit_poc
           cve_type: cve_type
@@ -12334,6 +12370,9 @@ components:
         host_name: host_name
         node_id: node_id
       properties:
+        created_at:
+          format: int64
+          type: integer
         docker_container_name:
           type: string
         docker_image_name:
@@ -12364,6 +12403,7 @@ components:
           nullable: true
           type: array
       required:
+      - created_at
       - docker_container_name
       - docker_image_name
       - host_name

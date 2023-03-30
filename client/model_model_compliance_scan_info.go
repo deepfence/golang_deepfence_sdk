@@ -21,6 +21,7 @@ var _ MappedNullable = &ModelComplianceScanInfo{}
 // ModelComplianceScanInfo struct for ModelComplianceScanInfo
 type ModelComplianceScanInfo struct {
 	BenchmarkTypes []string `json:"benchmark_types"`
+	CreatedAt int64 `json:"created_at"`
 	NodeId string `json:"node_id"`
 	NodeType string `json:"node_type"`
 	ScanId string `json:"scan_id"`
@@ -33,9 +34,10 @@ type ModelComplianceScanInfo struct {
 // This constructor will assign default values to properties that have it defined,
 // and makes sure properties required by API are set, but the set of arguments
 // will change when the set of required properties is changed
-func NewModelComplianceScanInfo(benchmarkTypes []string, nodeId string, nodeType string, scanId string, severityCounts map[string]int32, status string, updatedAt int64) *ModelComplianceScanInfo {
+func NewModelComplianceScanInfo(benchmarkTypes []string, createdAt int64, nodeId string, nodeType string, scanId string, severityCounts map[string]int32, status string, updatedAt int64) *ModelComplianceScanInfo {
 	this := ModelComplianceScanInfo{}
 	this.BenchmarkTypes = benchmarkTypes
+	this.CreatedAt = createdAt
 	this.NodeId = nodeId
 	this.NodeType = nodeType
 	this.ScanId = scanId
@@ -77,6 +79,30 @@ func (o *ModelComplianceScanInfo) GetBenchmarkTypesOk() ([]string, bool) {
 // SetBenchmarkTypes sets field value
 func (o *ModelComplianceScanInfo) SetBenchmarkTypes(v []string) {
 	o.BenchmarkTypes = v
+}
+
+// GetCreatedAt returns the CreatedAt field value
+func (o *ModelComplianceScanInfo) GetCreatedAt() int64 {
+	if o == nil {
+		var ret int64
+		return ret
+	}
+
+	return o.CreatedAt
+}
+
+// GetCreatedAtOk returns a tuple with the CreatedAt field value
+// and a boolean to check if the value has been set.
+func (o *ModelComplianceScanInfo) GetCreatedAtOk() (*int64, bool) {
+	if o == nil {
+		return nil, false
+	}
+	return &o.CreatedAt, true
+}
+
+// SetCreatedAt sets field value
+func (o *ModelComplianceScanInfo) SetCreatedAt(v int64) {
+	o.CreatedAt = v
 }
 
 // GetNodeId returns the NodeId field value
@@ -238,6 +264,7 @@ func (o ModelComplianceScanInfo) ToMap() (map[string]interface{}, error) {
 	if o.BenchmarkTypes != nil {
 		toSerialize["benchmark_types"] = o.BenchmarkTypes
 	}
+	toSerialize["created_at"] = o.CreatedAt
 	toSerialize["node_id"] = o.NodeId
 	toSerialize["node_type"] = o.NodeType
 	toSerialize["scan_id"] = o.ScanId

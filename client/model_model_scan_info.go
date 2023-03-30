@@ -20,6 +20,7 @@ var _ MappedNullable = &ModelScanInfo{}
 
 // ModelScanInfo struct for ModelScanInfo
 type ModelScanInfo struct {
+	CreatedAt int64 `json:"created_at"`
 	NodeId string `json:"node_id"`
 	NodeName string `json:"node_name"`
 	NodeType string `json:"node_type"`
@@ -33,8 +34,9 @@ type ModelScanInfo struct {
 // This constructor will assign default values to properties that have it defined,
 // and makes sure properties required by API are set, but the set of arguments
 // will change when the set of required properties is changed
-func NewModelScanInfo(nodeId string, nodeName string, nodeType string, scanId string, severityCounts map[string]int32, status string, updatedAt int64) *ModelScanInfo {
+func NewModelScanInfo(createdAt int64, nodeId string, nodeName string, nodeType string, scanId string, severityCounts map[string]int32, status string, updatedAt int64) *ModelScanInfo {
 	this := ModelScanInfo{}
+	this.CreatedAt = createdAt
 	this.NodeId = nodeId
 	this.NodeName = nodeName
 	this.NodeType = nodeType
@@ -51,6 +53,30 @@ func NewModelScanInfo(nodeId string, nodeName string, nodeType string, scanId st
 func NewModelScanInfoWithDefaults() *ModelScanInfo {
 	this := ModelScanInfo{}
 	return &this
+}
+
+// GetCreatedAt returns the CreatedAt field value
+func (o *ModelScanInfo) GetCreatedAt() int64 {
+	if o == nil {
+		var ret int64
+		return ret
+	}
+
+	return o.CreatedAt
+}
+
+// GetCreatedAtOk returns a tuple with the CreatedAt field value
+// and a boolean to check if the value has been set.
+func (o *ModelScanInfo) GetCreatedAtOk() (*int64, bool) {
+	if o == nil {
+		return nil, false
+	}
+	return &o.CreatedAt, true
+}
+
+// SetCreatedAt sets field value
+func (o *ModelScanInfo) SetCreatedAt(v int64) {
+	o.CreatedAt = v
 }
 
 // GetNodeId returns the NodeId field value
@@ -233,6 +259,7 @@ func (o ModelScanInfo) MarshalJSON() ([]byte, error) {
 
 func (o ModelScanInfo) ToMap() (map[string]interface{}, error) {
 	toSerialize := map[string]interface{}{}
+	toSerialize["created_at"] = o.CreatedAt
 	toSerialize["node_id"] = o.NodeId
 	toSerialize["node_name"] = o.NodeName
 	toSerialize["node_type"] = o.NodeType
