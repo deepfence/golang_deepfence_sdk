@@ -68,6 +68,13 @@ var (
 		NEO4J_COMPLIANCE_SCAN:       "Compliance",
 		NEO4J_CLOUD_COMPLIANCE_SCAN: "CloudCompliance",
 	}
+	DetectedNodeScanType = map[string]Neo4jScanType{
+		"Vulnerability":   NEO4J_VULNERABILITY_SCAN,
+		"Secret":          NEO4J_SECRET_SCAN,
+		"Malware":         NEO4J_MALWARE_SCAN,
+		"Compliance":      NEO4J_COMPLIANCE_SCAN,
+		"CloudCompliance": NEO4J_CLOUD_COMPLIANCE_SCAN,
+	}
 )
 
 type CloudProvider int
