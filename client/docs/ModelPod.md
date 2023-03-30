@@ -5,11 +5,9 @@
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
 **Containers** | [**[]ModelContainer**](ModelContainer.md) |  | 
-**HostNodeId** | **string** |  | 
-**KubernetesName** | **string** |  | 
+**HostName** | **string** |  | 
 **KubernetesNamespace** | **string** |  | 
 **Metadata** | **map[string]interface{}** |  | 
-**Metrics** | [**ModelComputeMetrics**](ModelComputeMetrics.md) |  | 
 **NodeId** | **string** |  | 
 **NodeName** | **string** |  | 
 **Processes** | [**[]ModelProcess**](ModelProcess.md) |  | 
@@ -18,7 +16,7 @@ Name | Type | Description | Notes
 
 ### NewModelPod
 
-`func NewModelPod(containers []ModelContainer, hostNodeId string, kubernetesName string, kubernetesNamespace string, metadata map[string]interface{}, metrics ModelComputeMetrics, nodeId string, nodeName string, processes []ModelProcess, ) *ModelPod`
+`func NewModelPod(containers []ModelContainer, hostName string, kubernetesNamespace string, metadata map[string]interface{}, nodeId string, nodeName string, processes []ModelProcess, ) *ModelPod`
 
 NewModelPod instantiates a new ModelPod object
 This constructor will assign default values to properties that have it defined,
@@ -63,44 +61,24 @@ SetContainers sets Containers field to given value.
 `func (o *ModelPod) UnsetContainers()`
 
 UnsetContainers ensures that no value is present for Containers, not even an explicit nil
-### GetHostNodeId
+### GetHostName
 
-`func (o *ModelPod) GetHostNodeId() string`
+`func (o *ModelPod) GetHostName() string`
 
-GetHostNodeId returns the HostNodeId field if non-nil, zero value otherwise.
+GetHostName returns the HostName field if non-nil, zero value otherwise.
 
-### GetHostNodeIdOk
+### GetHostNameOk
 
-`func (o *ModelPod) GetHostNodeIdOk() (*string, bool)`
+`func (o *ModelPod) GetHostNameOk() (*string, bool)`
 
-GetHostNodeIdOk returns a tuple with the HostNodeId field if it's non-nil, zero value otherwise
+GetHostNameOk returns a tuple with the HostName field if it's non-nil, zero value otherwise
 and a boolean to check if the value has been set.
 
-### SetHostNodeId
+### SetHostName
 
-`func (o *ModelPod) SetHostNodeId(v string)`
+`func (o *ModelPod) SetHostName(v string)`
 
-SetHostNodeId sets HostNodeId field to given value.
-
-
-### GetKubernetesName
-
-`func (o *ModelPod) GetKubernetesName() string`
-
-GetKubernetesName returns the KubernetesName field if non-nil, zero value otherwise.
-
-### GetKubernetesNameOk
-
-`func (o *ModelPod) GetKubernetesNameOk() (*string, bool)`
-
-GetKubernetesNameOk returns a tuple with the KubernetesName field if it's non-nil, zero value otherwise
-and a boolean to check if the value has been set.
-
-### SetKubernetesName
-
-`func (o *ModelPod) SetKubernetesName(v string)`
-
-SetKubernetesName sets KubernetesName field to given value.
+SetHostName sets HostName field to given value.
 
 
 ### GetKubernetesNamespace
@@ -141,26 +119,6 @@ and a boolean to check if the value has been set.
 `func (o *ModelPod) SetMetadata(v map[string]interface{})`
 
 SetMetadata sets Metadata field to given value.
-
-
-### GetMetrics
-
-`func (o *ModelPod) GetMetrics() ModelComputeMetrics`
-
-GetMetrics returns the Metrics field if non-nil, zero value otherwise.
-
-### GetMetricsOk
-
-`func (o *ModelPod) GetMetricsOk() (*ModelComputeMetrics, bool)`
-
-GetMetricsOk returns a tuple with the Metrics field if it's non-nil, zero value otherwise
-and a boolean to check if the value has been set.
-
-### SetMetrics
-
-`func (o *ModelPod) SetMetrics(v ModelComputeMetrics)`
-
-SetMetrics sets Metrics field to given value.
 
 
 ### GetNodeId

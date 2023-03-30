@@ -192,6 +192,7 @@ func StructToMap[T any](c T) map[string]interface{} {
 	return bb
 }
 
+// TODO: check if StructToMap can replace ToMap
 func ToMap[T any](c T) map[string]interface{} {
 	bb := map[string]interface{}{}
 

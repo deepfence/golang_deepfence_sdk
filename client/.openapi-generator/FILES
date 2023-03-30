@@ -93,7 +93,6 @@ docs/ModelComplianceScanInfo.md
 docs/ModelComplianceScanResult.md
 docs/ModelComplianceScanStatusResp.md
 docs/ModelComplianceScanTriggerReq.md
-docs/ModelComputeMetrics.md
 docs/ModelContainer.md
 docs/ModelContainerImage.md
 docs/ModelDownloadReportResponse.md
@@ -154,8 +153,9 @@ docs/ModelVulnerabilityScanConfigLanguage.md
 docs/ModelVulnerabilityScanResult.md
 docs/ModelVulnerabilityScanTriggerReq.md
 docs/RegistryApi.md
-docs/ReportMetadataRow.md
+docs/ReportMetadata.md
 docs/ReportRawReport.md
+docs/ReportersCompareFilter.md
 docs/ReportersContainsFilter.md
 docs/ReportersFieldsFilters.md
 docs/ReportersMatchFilter.md
@@ -237,7 +237,6 @@ model_model_compliance_scan_info.go
 model_model_compliance_scan_result.go
 model_model_compliance_scan_status_resp.go
 model_model_compliance_scan_trigger_req.go
-model_model_compute_metrics.go
 model_model_container.go
 model_model_container_image.go
 model_model_download_report_response.go
@@ -297,8 +296,9 @@ model_model_vulnerability.go
 model_model_vulnerability_scan_config_language.go
 model_model_vulnerability_scan_result.go
 model_model_vulnerability_scan_trigger_req.go
-model_report_metadata_row.go
+model_report_metadata.go
 model_report_raw_report.go
+model_reporters_compare_filter.go
 model_reporters_contains_filter.go
 model_reporters_fields_filters.go
 model_reporters_match_filter.go

@@ -21,11 +21,9 @@ var _ MappedNullable = &ModelPod{}
 // ModelPod struct for ModelPod
 type ModelPod struct {
 	Containers []ModelContainer `json:"containers"`
-	HostNodeId string `json:"host_node_id"`
-	KubernetesName string `json:"kubernetes_name"`
+	HostName string `json:"host_name"`
 	KubernetesNamespace string `json:"kubernetes_namespace"`
 	Metadata map[string]interface{} `json:"metadata"`
-	Metrics ModelComputeMetrics `json:"metrics"`
 	NodeId string `json:"node_id"`
 	NodeName string `json:"node_name"`
 	Processes []ModelProcess `json:"processes"`
@@ -35,14 +33,12 @@ type ModelPod struct {
 // This constructor will assign default values to properties that have it defined,
 // and makes sure properties required by API are set, but the set of arguments
 // will change when the set of required properties is changed
-func NewModelPod(containers []ModelContainer, hostNodeId string, kubernetesName string, kubernetesNamespace string, metadata map[string]interface{}, metrics ModelComputeMetrics, nodeId string, nodeName string, processes []ModelProcess) *ModelPod {
+func NewModelPod(containers []ModelContainer, hostName string, kubernetesNamespace string, metadata map[string]interface{}, nodeId string, nodeName string, processes []ModelProcess) *ModelPod {
 	this := ModelPod{}
 	this.Containers = containers
-	this.HostNodeId = hostNodeId
-	this.KubernetesName = kubernetesName
+	this.HostName = hostName
 	this.KubernetesNamespace = kubernetesNamespace
 	this.Metadata = metadata
-	this.Metrics = metrics
 	this.NodeId = nodeId
 	this.NodeName = nodeName
 	this.Processes = processes
@@ -83,52 +79,28 @@ func (o *ModelPod) SetContainers(v []ModelContainer) {
 	o.Containers = v
 }
 
-// GetHostNodeId returns the HostNodeId field value
-func (o *ModelPod) GetHostNodeId() string {
+// GetHostName returns the HostName field value
+func (o *ModelPod) GetHostName() string {
 	if o == nil {
 		var ret string
 		return ret
 	}
 
-	return o.HostNodeId
+	return o.HostName
 }
 
-// GetHostNodeIdOk returns a tuple with the HostNodeId field value
+// GetHostNameOk returns a tuple with the HostName field value
 // and a boolean to check if the value has been set.
-func (o *ModelPod) GetHostNodeIdOk() (*string, bool) {
+func (o *ModelPod) GetHostNameOk() (*string, bool) {
 	if o == nil {
 		return nil, false
 	}
-	return &o.HostNodeId, true
+	return &o.HostName, true
 }
 
-// SetHostNodeId sets field value
-func (o *ModelPod) SetHostNodeId(v string) {
-	o.HostNodeId = v
-}
-
-// GetKubernetesName returns the KubernetesName field value
-func (o *ModelPod) GetKubernetesName() string {
-	if o == nil {
-		var ret string
-		return ret
-	}
-
-	return o.KubernetesName
-}
-
-// GetKubernetesNameOk returns a tuple with the KubernetesName field value
-// and a boolean to check if the value has been set.
-func (o *ModelPod) GetKubernetesNameOk() (*string, bool) {
-	if o == nil {
-		return nil, false
-	}
-	return &o.KubernetesName, true
-}
-
-// SetKubernetesName sets field value
-func (o *ModelPod) SetKubernetesName(v string) {
-	o.KubernetesName = v
+// SetHostName sets field value
+func (o *ModelPod) SetHostName(v string) {
+	o.HostName = v
 }
 
 // GetKubernetesNamespace returns the KubernetesNamespace field value
@@ -177,30 +149,6 @@ func (o *ModelPod) GetMetadataOk() (map[string]interface{}, bool) {
 // SetMetadata sets field value
 func (o *ModelPod) SetMetadata(v map[string]interface{}) {
 	o.Metadata = v
-}
-
-// GetMetrics returns the Metrics field value
-func (o *ModelPod) GetMetrics() ModelComputeMetrics {
-	if o == nil {
-		var ret ModelComputeMetrics
-		return ret
-	}
-
-	return o.Metrics
-}
-
-// GetMetricsOk returns a tuple with the Metrics field value
-// and a boolean to check if the value has been set.
-func (o *ModelPod) GetMetricsOk() (*ModelComputeMetrics, bool) {
-	if o == nil {
-		return nil, false
-	}
-	return &o.Metrics, true
-}
-
-// SetMetrics sets field value
-func (o *ModelPod) SetMetrics(v ModelComputeMetrics) {
-	o.Metrics = v
 }
 
 // GetNodeId returns the NodeId field value
@@ -290,11 +238,9 @@ func (o ModelPod) ToMap() (map[string]interface{}, error) {
 	if o.Containers != nil {
 		toSerialize["containers"] = o.Containers
 	}
-	toSerialize["host_node_id"] = o.HostNodeId
-	toSerialize["kubernetes_name"] = o.KubernetesName
+	toSerialize["host_name"] = o.HostName
 	toSerialize["kubernetes_namespace"] = o.KubernetesNamespace
 	toSerialize["metadata"] = o.Metadata
-	toSerialize["metrics"] = o.Metrics
 	toSerialize["node_id"] = o.NodeId
 	toSerialize["node_name"] = o.NodeName
 	if o.Processes != nil {

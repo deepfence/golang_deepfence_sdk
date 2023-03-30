@@ -23,17 +23,9 @@ type DetailedNodeSummary struct {
 	Adjacency []string `json:"adjacency,omitempty"`
 	Id *string `json:"id,omitempty"`
 	Ids []string `json:"ids,omitempty"`
-	Image *string `json:"image,omitempty"`
 	ImmediateParentId *string `json:"immediate_parent_id,omitempty"`
 	Label *string `json:"label,omitempty"`
-	LabelMinor *string `json:"labelMinor,omitempty"`
-	Metadata []ReportMetadataRow `json:"metadata,omitempty"`
-	Metrics []map[string]interface{} `json:"metrics,omitempty"`
-	Pseudo *bool `json:"pseudo,omitempty"`
-	Rank *string `json:"rank,omitempty"`
-	Shape *string `json:"shape,omitempty"`
-	Stack *bool `json:"stack,omitempty"`
-	Tag *string `json:"tag,omitempty"`
+	Metadata *ReportMetadata `json:"metadata,omitempty"`
 	Type *string `json:"type,omitempty"`
 }
 
@@ -150,38 +142,6 @@ func (o *DetailedNodeSummary) SetIds(v []string) {
 	o.Ids = v
 }
 
-// GetImage returns the Image field value if set, zero value otherwise.
-func (o *DetailedNodeSummary) GetImage() string {
-	if o == nil || IsNil(o.Image) {
-		var ret string
-		return ret
-	}
-	return *o.Image
-}
-
-// GetImageOk returns a tuple with the Image field value if set, nil otherwise
-// and a boolean to check if the value has been set.
-func (o *DetailedNodeSummary) GetImageOk() (*string, bool) {
-	if o == nil || IsNil(o.Image) {
-		return nil, false
-	}
-	return o.Image, true
-}
-
-// HasImage returns a boolean if a field has been set.
-func (o *DetailedNodeSummary) HasImage() bool {
-	if o != nil && !IsNil(o.Image) {
-		return true
-	}
-
-	return false
-}
-
-// SetImage gets a reference to the given string and assigns it to the Image field.
-func (o *DetailedNodeSummary) SetImage(v string) {
-	o.Image = &v
-}
-
 // GetImmediateParentId returns the ImmediateParentId field value if set, zero value otherwise.
 func (o *DetailedNodeSummary) GetImmediateParentId() string {
 	if o == nil || IsNil(o.ImmediateParentId) {
@@ -246,50 +206,18 @@ func (o *DetailedNodeSummary) SetLabel(v string) {
 	o.Label = &v
 }
 
-// GetLabelMinor returns the LabelMinor field value if set, zero value otherwise.
-func (o *DetailedNodeSummary) GetLabelMinor() string {
-	if o == nil || IsNil(o.LabelMinor) {
-		var ret string
-		return ret
-	}
-	return *o.LabelMinor
-}
-
-// GetLabelMinorOk returns a tuple with the LabelMinor field value if set, nil otherwise
-// and a boolean to check if the value has been set.
-func (o *DetailedNodeSummary) GetLabelMinorOk() (*string, bool) {
-	if o == nil || IsNil(o.LabelMinor) {
-		return nil, false
-	}
-	return o.LabelMinor, true
-}
-
-// HasLabelMinor returns a boolean if a field has been set.
-func (o *DetailedNodeSummary) HasLabelMinor() bool {
-	if o != nil && !IsNil(o.LabelMinor) {
-		return true
-	}
-
-	return false
-}
-
-// SetLabelMinor gets a reference to the given string and assigns it to the LabelMinor field.
-func (o *DetailedNodeSummary) SetLabelMinor(v string) {
-	o.LabelMinor = &v
-}
-
 // GetMetadata returns the Metadata field value if set, zero value otherwise.
-func (o *DetailedNodeSummary) GetMetadata() []ReportMetadataRow {
+func (o *DetailedNodeSummary) GetMetadata() ReportMetadata {
 	if o == nil || IsNil(o.Metadata) {
-		var ret []ReportMetadataRow
+		var ret ReportMetadata
 		return ret
 	}
-	return o.Metadata
+	return *o.Metadata
 }
 
 // GetMetadataOk returns a tuple with the Metadata field value if set, nil otherwise
 // and a boolean to check if the value has been set.
-func (o *DetailedNodeSummary) GetMetadataOk() ([]ReportMetadataRow, bool) {
+func (o *DetailedNodeSummary) GetMetadataOk() (*ReportMetadata, bool) {
 	if o == nil || IsNil(o.Metadata) {
 		return nil, false
 	}
@@ -305,201 +233,9 @@ func (o *DetailedNodeSummary) HasMetadata() bool {
 	return false
 }
 
-// SetMetadata gets a reference to the given []ReportMetadataRow and assigns it to the Metadata field.
-func (o *DetailedNodeSummary) SetMetadata(v []ReportMetadataRow) {
-	o.Metadata = v
-}
-
-// GetMetrics returns the Metrics field value if set, zero value otherwise.
-func (o *DetailedNodeSummary) GetMetrics() []map[string]interface{} {
-	if o == nil || IsNil(o.Metrics) {
-		var ret []map[string]interface{}
-		return ret
-	}
-	return o.Metrics
-}
-
-// GetMetricsOk returns a tuple with the Metrics field value if set, nil otherwise
-// and a boolean to check if the value has been set.
-func (o *DetailedNodeSummary) GetMetricsOk() ([]map[string]interface{}, bool) {
-	if o == nil || IsNil(o.Metrics) {
-		return nil, false
-	}
-	return o.Metrics, true
-}
-
-// HasMetrics returns a boolean if a field has been set.
-func (o *DetailedNodeSummary) HasMetrics() bool {
-	if o != nil && !IsNil(o.Metrics) {
-		return true
-	}
-
-	return false
-}
-
-// SetMetrics gets a reference to the given []map[string]interface{} and assigns it to the Metrics field.
-func (o *DetailedNodeSummary) SetMetrics(v []map[string]interface{}) {
-	o.Metrics = v
-}
-
-// GetPseudo returns the Pseudo field value if set, zero value otherwise.
-func (o *DetailedNodeSummary) GetPseudo() bool {
-	if o == nil || IsNil(o.Pseudo) {
-		var ret bool
-		return ret
-	}
-	return *o.Pseudo
-}
-
-// GetPseudoOk returns a tuple with the Pseudo field value if set, nil otherwise
-// and a boolean to check if the value has been set.
-func (o *DetailedNodeSummary) GetPseudoOk() (*bool, bool) {
-	if o == nil || IsNil(o.Pseudo) {
-		return nil, false
-	}
-	return o.Pseudo, true
-}
-
-// HasPseudo returns a boolean if a field has been set.
-func (o *DetailedNodeSummary) HasPseudo() bool {
-	if o != nil && !IsNil(o.Pseudo) {
-		return true
-	}
-
-	return false
-}
-
-// SetPseudo gets a reference to the given bool and assigns it to the Pseudo field.
-func (o *DetailedNodeSummary) SetPseudo(v bool) {
-	o.Pseudo = &v
-}
-
-// GetRank returns the Rank field value if set, zero value otherwise.
-func (o *DetailedNodeSummary) GetRank() string {
-	if o == nil || IsNil(o.Rank) {
-		var ret string
-		return ret
-	}
-	return *o.Rank
-}
-
-// GetRankOk returns a tuple with the Rank field value if set, nil otherwise
-// and a boolean to check if the value has been set.
-func (o *DetailedNodeSummary) GetRankOk() (*string, bool) {
-	if o == nil || IsNil(o.Rank) {
-		return nil, false
-	}
-	return o.Rank, true
-}
-
-// HasRank returns a boolean if a field has been set.
-func (o *DetailedNodeSummary) HasRank() bool {
-	if o != nil && !IsNil(o.Rank) {
-		return true
-	}
-
-	return false
-}
-
-// SetRank gets a reference to the given string and assigns it to the Rank field.
-func (o *DetailedNodeSummary) SetRank(v string) {
-	o.Rank = &v
-}
-
-// GetShape returns the Shape field value if set, zero value otherwise.
-func (o *DetailedNodeSummary) GetShape() string {
-	if o == nil || IsNil(o.Shape) {
-		var ret string
-		return ret
-	}
-	return *o.Shape
-}
-
-// GetShapeOk returns a tuple with the Shape field value if set, nil otherwise
-// and a boolean to check if the value has been set.
-func (o *DetailedNodeSummary) GetShapeOk() (*string, bool) {
-	if o == nil || IsNil(o.Shape) {
-		return nil, false
-	}
-	return o.Shape, true
-}
-
-// HasShape returns a boolean if a field has been set.
-func (o *DetailedNodeSummary) HasShape() bool {
-	if o != nil && !IsNil(o.Shape) {
-		return true
-	}
-
-	return false
-}
-
-// SetShape gets a reference to the given string and assigns it to the Shape field.
-func (o *DetailedNodeSummary) SetShape(v string) {
-	o.Shape = &v
-}
-
-// GetStack returns the Stack field value if set, zero value otherwise.
-func (o *DetailedNodeSummary) GetStack() bool {
-	if o == nil || IsNil(o.Stack) {
-		var ret bool
-		return ret
-	}
-	return *o.Stack
-}
-
-// GetStackOk returns a tuple with the Stack field value if set, nil otherwise
-// and a boolean to check if the value has been set.
-func (o *DetailedNodeSummary) GetStackOk() (*bool, bool) {
-	if o == nil || IsNil(o.Stack) {
-		return nil, false
-	}
-	return o.Stack, true
-}
-
-// HasStack returns a boolean if a field has been set.
-func (o *DetailedNodeSummary) HasStack() bool {
-	if o != nil && !IsNil(o.Stack) {
-		return true
-	}
-
-	return false
-}
-
-// SetStack gets a reference to the given bool and assigns it to the Stack field.
-func (o *DetailedNodeSummary) SetStack(v bool) {
-	o.Stack = &v
-}
-
-// GetTag returns the Tag field value if set, zero value otherwise.
-func (o *DetailedNodeSummary) GetTag() string {
-	if o == nil || IsNil(o.Tag) {
-		var ret string
-		return ret
-	}
-	return *o.Tag
-}
-
-// GetTagOk returns a tuple with the Tag field value if set, nil otherwise
-// and a boolean to check if the value has been set.
-func (o *DetailedNodeSummary) GetTagOk() (*string, bool) {
-	if o == nil || IsNil(o.Tag) {
-		return nil, false
-	}
-	return o.Tag, true
-}
-
-// HasTag returns a boolean if a field has been set.
-func (o *DetailedNodeSummary) HasTag() bool {
-	if o != nil && !IsNil(o.Tag) {
-		return true
-	}
-
-	return false
-}
-
-// SetTag gets a reference to the given string and assigns it to the Tag field.
-func (o *DetailedNodeSummary) SetTag(v string) {
-	o.Tag = &v
+// SetMetadata gets a reference to the given ReportMetadata and assigns it to the Metadata field.
+func (o *DetailedNodeSummary) SetMetadata(v ReportMetadata) {
+	o.Metadata = &v
 }
 
 // GetType returns the Type field value if set, zero value otherwise.
@@ -553,38 +289,14 @@ func (o DetailedNodeSummary) ToMap() (map[string]interface{}, error) {
 	if !IsNil(o.Ids) {
 		toSerialize["ids"] = o.Ids
 	}
-	if !IsNil(o.Image) {
-		toSerialize["image"] = o.Image
-	}
 	if !IsNil(o.ImmediateParentId) {
 		toSerialize["immediate_parent_id"] = o.ImmediateParentId
 	}
 	if !IsNil(o.Label) {
 		toSerialize["label"] = o.Label
 	}
-	if !IsNil(o.LabelMinor) {
-		toSerialize["labelMinor"] = o.LabelMinor
-	}
 	if !IsNil(o.Metadata) {
 		toSerialize["metadata"] = o.Metadata
-	}
-	if !IsNil(o.Metrics) {
-		toSerialize["metrics"] = o.Metrics
-	}
-	if !IsNil(o.Pseudo) {
-		toSerialize["pseudo"] = o.Pseudo
-	}
-	if !IsNil(o.Rank) {
-		toSerialize["rank"] = o.Rank
-	}
-	if !IsNil(o.Shape) {
-		toSerialize["shape"] = o.Shape
-	}
-	if !IsNil(o.Stack) {
-		toSerialize["stack"] = o.Stack
-	}
-	if !IsNil(o.Tag) {
-		toSerialize["tag"] = o.Tag
 	}
 	if !IsNil(o.Type) {
 		toSerialize["type"] = o.Type

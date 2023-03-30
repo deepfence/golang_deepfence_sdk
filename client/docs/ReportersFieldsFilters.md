@@ -4,6 +4,7 @@
 
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
+**CompareFilter** | [**[]ReportersCompareFilter**](ReportersCompareFilter.md) |  | 
 **ContainsFilter** | [**ReportersContainsFilter**](ReportersContainsFilter.md) |  | 
 **MatchFilter** | [**ReportersMatchFilter**](ReportersMatchFilter.md) |  | 
 **OrderFilter** | [**ReportersOrderFilter**](ReportersOrderFilter.md) |  | 
@@ -12,7 +13,7 @@ Name | Type | Description | Notes
 
 ### NewReportersFieldsFilters
 
-`func NewReportersFieldsFilters(containsFilter ReportersContainsFilter, matchFilter ReportersMatchFilter, orderFilter ReportersOrderFilter, ) *ReportersFieldsFilters`
+`func NewReportersFieldsFilters(compareFilter []ReportersCompareFilter, containsFilter ReportersContainsFilter, matchFilter ReportersMatchFilter, orderFilter ReportersOrderFilter, ) *ReportersFieldsFilters`
 
 NewReportersFieldsFilters instantiates a new ReportersFieldsFilters object
 This constructor will assign default values to properties that have it defined,
@@ -27,6 +28,36 @@ NewReportersFieldsFiltersWithDefaults instantiates a new ReportersFieldsFilters 
 This constructor will only assign default values to properties that have it defined,
 but it doesn't guarantee that properties required by API are set
 
+### GetCompareFilter
+
+`func (o *ReportersFieldsFilters) GetCompareFilter() []ReportersCompareFilter`
+
+GetCompareFilter returns the CompareFilter field if non-nil, zero value otherwise.
+
+### GetCompareFilterOk
+
+`func (o *ReportersFieldsFilters) GetCompareFilterOk() (*[]ReportersCompareFilter, bool)`
+
+GetCompareFilterOk returns a tuple with the CompareFilter field if it's non-nil, zero value otherwise
+and a boolean to check if the value has been set.
+
+### SetCompareFilter
+
+`func (o *ReportersFieldsFilters) SetCompareFilter(v []ReportersCompareFilter)`
+
+SetCompareFilter sets CompareFilter field to given value.
+
+
+### SetCompareFilterNil
+
+`func (o *ReportersFieldsFilters) SetCompareFilterNil(b bool)`
+
+ SetCompareFilterNil sets the value for CompareFilter to be an explicit nil
+
+### UnsetCompareFilter
+`func (o *ReportersFieldsFilters) UnsetCompareFilter()`
+
+UnsetCompareFilter ensures that no value is present for CompareFilter, not even an explicit nil
 ### GetContainsFilter
 
 `func (o *ReportersFieldsFilters) GetContainsFilter() ReportersContainsFilter`

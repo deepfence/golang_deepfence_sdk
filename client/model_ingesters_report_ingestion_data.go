@@ -20,18 +20,18 @@ var _ MappedNullable = &IngestersReportIngestionData{}
 
 // IngestersReportIngestionData struct for IngestersReportIngestionData
 type IngestersReportIngestionData struct {
-	ContainerBatch []map[string]string `json:"container_batch"`
+	ContainerBatch []map[string]interface{} `json:"container_batch"`
 	ContainerEdgesBatch []map[string]interface{} `json:"container_edges_batch"`
-	ContainerImageBatch []map[string]string `json:"container_image_batch"`
+	ContainerImageBatch []map[string]interface{} `json:"container_image_batch"`
 	ContainerImageEdgeBatch []map[string]interface{} `json:"container_image_edge_batch"`
 	EndpointEdgesBatch []map[string]interface{} `json:"endpoint_edges_batch"`
-	HostBatch []map[string]string `json:"host_batch"`
-	Hosts []map[string]string `json:"hosts"`
-	KubernetesClusterBatch []map[string]string `json:"kubernetes_cluster_batch"`
+	HostBatch []map[string]interface{} `json:"host_batch"`
+	Hosts []map[string]interface{} `json:"hosts"`
+	KubernetesClusterBatch []map[string]interface{} `json:"kubernetes_cluster_batch"`
 	KubernetesClusterEdgeBatch []map[string]interface{} `json:"kubernetes_cluster_edge_batch"`
-	PodBatch []map[string]string `json:"pod_batch"`
+	PodBatch []map[string]interface{} `json:"pod_batch"`
 	PodEdgesBatch []map[string]interface{} `json:"pod_edges_batch"`
-	ProcessBatch []map[string]string `json:"process_batch"`
+	ProcessBatch []map[string]interface{} `json:"process_batch"`
 	ProcessEdgesBatch []map[string]interface{} `json:"process_edges_batch"`
 }
 
@@ -39,7 +39,7 @@ type IngestersReportIngestionData struct {
 // This constructor will assign default values to properties that have it defined,
 // and makes sure properties required by API are set, but the set of arguments
 // will change when the set of required properties is changed
-func NewIngestersReportIngestionData(containerBatch []map[string]string, containerEdgesBatch []map[string]interface{}, containerImageBatch []map[string]string, containerImageEdgeBatch []map[string]interface{}, endpointEdgesBatch []map[string]interface{}, hostBatch []map[string]string, hosts []map[string]string, kubernetesClusterBatch []map[string]string, kubernetesClusterEdgeBatch []map[string]interface{}, podBatch []map[string]string, podEdgesBatch []map[string]interface{}, processBatch []map[string]string, processEdgesBatch []map[string]interface{}) *IngestersReportIngestionData {
+func NewIngestersReportIngestionData(containerBatch []map[string]interface{}, containerEdgesBatch []map[string]interface{}, containerImageBatch []map[string]interface{}, containerImageEdgeBatch []map[string]interface{}, endpointEdgesBatch []map[string]interface{}, hostBatch []map[string]interface{}, hosts []map[string]interface{}, kubernetesClusterBatch []map[string]interface{}, kubernetesClusterEdgeBatch []map[string]interface{}, podBatch []map[string]interface{}, podEdgesBatch []map[string]interface{}, processBatch []map[string]interface{}, processEdgesBatch []map[string]interface{}) *IngestersReportIngestionData {
 	this := IngestersReportIngestionData{}
 	this.ContainerBatch = containerBatch
 	this.ContainerEdgesBatch = containerEdgesBatch
@@ -66,10 +66,10 @@ func NewIngestersReportIngestionDataWithDefaults() *IngestersReportIngestionData
 }
 
 // GetContainerBatch returns the ContainerBatch field value
-// If the value is explicit nil, the zero value for []map[string]string will be returned
-func (o *IngestersReportIngestionData) GetContainerBatch() []map[string]string {
+// If the value is explicit nil, the zero value for []map[string]interface{} will be returned
+func (o *IngestersReportIngestionData) GetContainerBatch() []map[string]interface{} {
 	if o == nil {
-		var ret []map[string]string
+		var ret []map[string]interface{}
 		return ret
 	}
 
@@ -79,7 +79,7 @@ func (o *IngestersReportIngestionData) GetContainerBatch() []map[string]string {
 // GetContainerBatchOk returns a tuple with the ContainerBatch field value
 // and a boolean to check if the value has been set.
 // NOTE: If the value is an explicit nil, `nil, true` will be returned
-func (o *IngestersReportIngestionData) GetContainerBatchOk() ([]map[string]string, bool) {
+func (o *IngestersReportIngestionData) GetContainerBatchOk() ([]map[string]interface{}, bool) {
 	if o == nil || IsNil(o.ContainerBatch) {
 		return nil, false
 	}
@@ -87,7 +87,7 @@ func (o *IngestersReportIngestionData) GetContainerBatchOk() ([]map[string]strin
 }
 
 // SetContainerBatch sets field value
-func (o *IngestersReportIngestionData) SetContainerBatch(v []map[string]string) {
+func (o *IngestersReportIngestionData) SetContainerBatch(v []map[string]interface{}) {
 	o.ContainerBatch = v
 }
 
@@ -118,10 +118,10 @@ func (o *IngestersReportIngestionData) SetContainerEdgesBatch(v []map[string]int
 }
 
 // GetContainerImageBatch returns the ContainerImageBatch field value
-// If the value is explicit nil, the zero value for []map[string]string will be returned
-func (o *IngestersReportIngestionData) GetContainerImageBatch() []map[string]string {
+// If the value is explicit nil, the zero value for []map[string]interface{} will be returned
+func (o *IngestersReportIngestionData) GetContainerImageBatch() []map[string]interface{} {
 	if o == nil {
-		var ret []map[string]string
+		var ret []map[string]interface{}
 		return ret
 	}
 
@@ -131,7 +131,7 @@ func (o *IngestersReportIngestionData) GetContainerImageBatch() []map[string]str
 // GetContainerImageBatchOk returns a tuple with the ContainerImageBatch field value
 // and a boolean to check if the value has been set.
 // NOTE: If the value is an explicit nil, `nil, true` will be returned
-func (o *IngestersReportIngestionData) GetContainerImageBatchOk() ([]map[string]string, bool) {
+func (o *IngestersReportIngestionData) GetContainerImageBatchOk() ([]map[string]interface{}, bool) {
 	if o == nil || IsNil(o.ContainerImageBatch) {
 		return nil, false
 	}
@@ -139,7 +139,7 @@ func (o *IngestersReportIngestionData) GetContainerImageBatchOk() ([]map[string]
 }
 
 // SetContainerImageBatch sets field value
-func (o *IngestersReportIngestionData) SetContainerImageBatch(v []map[string]string) {
+func (o *IngestersReportIngestionData) SetContainerImageBatch(v []map[string]interface{}) {
 	o.ContainerImageBatch = v
 }
 
@@ -196,10 +196,10 @@ func (o *IngestersReportIngestionData) SetEndpointEdgesBatch(v []map[string]inte
 }
 
 // GetHostBatch returns the HostBatch field value
-// If the value is explicit nil, the zero value for []map[string]string will be returned
-func (o *IngestersReportIngestionData) GetHostBatch() []map[string]string {
+// If the value is explicit nil, the zero value for []map[string]interface{} will be returned
+func (o *IngestersReportIngestionData) GetHostBatch() []map[string]interface{} {
 	if o == nil {
-		var ret []map[string]string
+		var ret []map[string]interface{}
 		return ret
 	}
 
@@ -209,7 +209,7 @@ func (o *IngestersReportIngestionData) GetHostBatch() []map[string]string {
 // GetHostBatchOk returns a tuple with the HostBatch field value
 // and a boolean to check if the value has been set.
 // NOTE: If the value is an explicit nil, `nil, true` will be returned
-func (o *IngestersReportIngestionData) GetHostBatchOk() ([]map[string]string, bool) {
+func (o *IngestersReportIngestionData) GetHostBatchOk() ([]map[string]interface{}, bool) {
 	if o == nil || IsNil(o.HostBatch) {
 		return nil, false
 	}
@@ -217,15 +217,15 @@ func (o *IngestersReportIngestionData) GetHostBatchOk() ([]map[string]string, bo
 }
 
 // SetHostBatch sets field value
-func (o *IngestersReportIngestionData) SetHostBatch(v []map[string]string) {
+func (o *IngestersReportIngestionData) SetHostBatch(v []map[string]interface{}) {
 	o.HostBatch = v
 }
 
 // GetHosts returns the Hosts field value
-// If the value is explicit nil, the zero value for []map[string]string will be returned
-func (o *IngestersReportIngestionData) GetHosts() []map[string]string {
+// If the value is explicit nil, the zero value for []map[string]interface{} will be returned
+func (o *IngestersReportIngestionData) GetHosts() []map[string]interface{} {
 	if o == nil {
-		var ret []map[string]string
+		var ret []map[string]interface{}
 		return ret
 	}
 
@@ -235,7 +235,7 @@ func (o *IngestersReportIngestionData) GetHosts() []map[string]string {
 // GetHostsOk returns a tuple with the Hosts field value
 // and a boolean to check if the value has been set.
 // NOTE: If the value is an explicit nil, `nil, true` will be returned
-func (o *IngestersReportIngestionData) GetHostsOk() ([]map[string]string, bool) {
+func (o *IngestersReportIngestionData) GetHostsOk() ([]map[string]interface{}, bool) {
 	if o == nil || IsNil(o.Hosts) {
 		return nil, false
 	}
@@ -243,15 +243,15 @@ func (o *IngestersReportIngestionData) GetHostsOk() ([]map[string]string, bool) 
 }
 
 // SetHosts sets field value
-func (o *IngestersReportIngestionData) SetHosts(v []map[string]string) {
+func (o *IngestersReportIngestionData) SetHosts(v []map[string]interface{}) {
 	o.Hosts = v
 }
 
 // GetKubernetesClusterBatch returns the KubernetesClusterBatch field value
-// If the value is explicit nil, the zero value for []map[string]string will be returned
-func (o *IngestersReportIngestionData) GetKubernetesClusterBatch() []map[string]string {
+// If the value is explicit nil, the zero value for []map[string]interface{} will be returned
+func (o *IngestersReportIngestionData) GetKubernetesClusterBatch() []map[string]interface{} {
 	if o == nil {
-		var ret []map[string]string
+		var ret []map[string]interface{}
 		return ret
 	}
 
@@ -261,7 +261,7 @@ func (o *IngestersReportIngestionData) GetKubernetesClusterBatch() []map[string]
 // GetKubernetesClusterBatchOk returns a tuple with the KubernetesClusterBatch field value
 // and a boolean to check if the value has been set.
 // NOTE: If the value is an explicit nil, `nil, true` will be returned
-func (o *IngestersReportIngestionData) GetKubernetesClusterBatchOk() ([]map[string]string, bool) {
+func (o *IngestersReportIngestionData) GetKubernetesClusterBatchOk() ([]map[string]interface{}, bool) {
 	if o == nil || IsNil(o.KubernetesClusterBatch) {
 		return nil, false
 	}
@@ -269,7 +269,7 @@ func (o *IngestersReportIngestionData) GetKubernetesClusterBatchOk() ([]map[stri
 }
 
 // SetKubernetesClusterBatch sets field value
-func (o *IngestersReportIngestionData) SetKubernetesClusterBatch(v []map[string]string) {
+func (o *IngestersReportIngestionData) SetKubernetesClusterBatch(v []map[string]interface{}) {
 	o.KubernetesClusterBatch = v
 }
 
@@ -300,10 +300,10 @@ func (o *IngestersReportIngestionData) SetKubernetesClusterEdgeBatch(v []map[str
 }
 
 // GetPodBatch returns the PodBatch field value
-// If the value is explicit nil, the zero value for []map[string]string will be returned
-func (o *IngestersReportIngestionData) GetPodBatch() []map[string]string {
+// If the value is explicit nil, the zero value for []map[string]interface{} will be returned
+func (o *IngestersReportIngestionData) GetPodBatch() []map[string]interface{} {
 	if o == nil {
-		var ret []map[string]string
+		var ret []map[string]interface{}
 		return ret
 	}
 
@@ -313,7 +313,7 @@ func (o *IngestersReportIngestionData) GetPodBatch() []map[string]string {
 // GetPodBatchOk returns a tuple with the PodBatch field value
 // and a boolean to check if the value has been set.
 // NOTE: If the value is an explicit nil, `nil, true` will be returned
-func (o *IngestersReportIngestionData) GetPodBatchOk() ([]map[string]string, bool) {
+func (o *IngestersReportIngestionData) GetPodBatchOk() ([]map[string]interface{}, bool) {
 	if o == nil || IsNil(o.PodBatch) {
 		return nil, false
 	}
@@ -321,7 +321,7 @@ func (o *IngestersReportIngestionData) GetPodBatchOk() ([]map[string]string, boo
 }
 
 // SetPodBatch sets field value
-func (o *IngestersReportIngestionData) SetPodBatch(v []map[string]string) {
+func (o *IngestersReportIngestionData) SetPodBatch(v []map[string]interface{}) {
 	o.PodBatch = v
 }
 
@@ -352,10 +352,10 @@ func (o *IngestersReportIngestionData) SetPodEdgesBatch(v []map[string]interface
 }
 
 // GetProcessBatch returns the ProcessBatch field value
-// If the value is explicit nil, the zero value for []map[string]string will be returned
-func (o *IngestersReportIngestionData) GetProcessBatch() []map[string]string {
+// If the value is explicit nil, the zero value for []map[string]interface{} will be returned
+func (o *IngestersReportIngestionData) GetProcessBatch() []map[string]interface{} {
 	if o == nil {
-		var ret []map[string]string
+		var ret []map[string]interface{}
 		return ret
 	}
 
@@ -365,7 +365,7 @@ func (o *IngestersReportIngestionData) GetProcessBatch() []map[string]string {
 // GetProcessBatchOk returns a tuple with the ProcessBatch field value
 // and a boolean to check if the value has been set.
 // NOTE: If the value is an explicit nil, `nil, true` will be returned
-func (o *IngestersReportIngestionData) GetProcessBatchOk() ([]map[string]string, bool) {
+func (o *IngestersReportIngestionData) GetProcessBatchOk() ([]map[string]interface{}, bool) {
 	if o == nil || IsNil(o.ProcessBatch) {
 		return nil, false
 	}
@@ -373,7 +373,7 @@ func (o *IngestersReportIngestionData) GetProcessBatchOk() ([]map[string]string,
 }
 
 // SetProcessBatch sets field value
-func (o *IngestersReportIngestionData) SetProcessBatch(v []map[string]string) {
+func (o *IngestersReportIngestionData) SetProcessBatch(v []map[string]interface{}) {
 	o.ProcessBatch = v
 }
 

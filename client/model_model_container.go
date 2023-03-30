@@ -26,21 +26,32 @@ type ModelContainer struct {
 	ComplianceLatestScanId string `json:"compliance_latest_scan_id"`
 	ComplianceScanStatus string `json:"compliance_scan_status"`
 	CompliancesCount int32 `json:"compliances_count"`
+	CpuMax *float32 `json:"cpu_max,omitempty"`
+	CpuUsage *float32 `json:"cpu_usage,omitempty"`
+	DockerContainerCommand *string `json:"docker_container_command,omitempty"`
+	DockerContainerCreated *string `json:"docker_container_created,omitempty"`
+	DockerContainerIps []string `json:"docker_container_ips,omitempty"`
 	DockerContainerName string `json:"docker_container_name"`
+	DockerContainerNetworkMode *string `json:"docker_container_network_mode,omitempty"`
+	DockerContainerNetworks *string `json:"docker_container_networks,omitempty"`
+	DockerContainerPorts *string `json:"docker_container_ports,omitempty"`
+	DockerContainerState *string `json:"docker_container_state,omitempty"`
+	DockerContainerStateHuman *string `json:"docker_container_state_human,omitempty"`
 	DockerLabels map[string]interface{} `json:"docker_labels"`
 	HostName string `json:"host_name"`
 	Image ModelContainerImage `json:"image"`
 	MalwareLatestScanId string `json:"malware_latest_scan_id"`
 	MalwareScanStatus string `json:"malware_scan_status"`
 	MalwaresCount int32 `json:"malwares_count"`
-	Metadata map[string]interface{} `json:"metadata"`
-	Metrics ModelComputeMetrics `json:"metrics"`
+	MemoryMax *int32 `json:"memory_max,omitempty"`
+	MemoryUsage *int32 `json:"memory_usage,omitempty"`
 	NodeId string `json:"node_id"`
 	NodeName string `json:"node_name"`
 	Processes []ModelProcess `json:"processes"`
 	SecretLatestScan string `json:"secret_latest_scan"`
 	SecretScanStatus string `json:"secret_scan_status"`
 	SecretsCount int32 `json:"secrets_count"`
+	Uptime int32 `json:"uptime"`
 	VulnerabilitiesCount int32 `json:"vulnerabilities_count"`
 	VulnerabilityLatestScanId string `json:"vulnerability_latest_scan_id"`
 	VulnerabilityScanStatus string `json:"vulnerability_scan_status"`
@@ -50,7 +61,7 @@ type ModelContainer struct {
 // This constructor will assign default values to properties that have it defined,
 // and makes sure properties required by API are set, but the set of arguments
 // will change when the set of required properties is changed
-func NewModelContainer(cloudComplianceLatestScanId string, cloudComplianceScanStatus string, cloudCompliancesCount int32, complianceLatestScanId string, complianceScanStatus string, compliancesCount int32, dockerContainerName string, dockerLabels map[string]interface{}, hostName string, image ModelContainerImage, malwareLatestScanId string, malwareScanStatus string, malwaresCount int32, metadata map[string]interface{}, metrics ModelComputeMetrics, nodeId string, nodeName string, processes []ModelProcess, secretLatestScan string, secretScanStatus string, secretsCount int32, vulnerabilitiesCount int32, vulnerabilityLatestScanId string, vulnerabilityScanStatus string) *ModelContainer {
+func NewModelContainer(cloudComplianceLatestScanId string, cloudComplianceScanStatus string, cloudCompliancesCount int32, complianceLatestScanId string, complianceScanStatus string, compliancesCount int32, dockerContainerName string, dockerLabels map[string]interface{}, hostName string, image ModelContainerImage, malwareLatestScanId string, malwareScanStatus string, malwaresCount int32, nodeId string, nodeName string, processes []ModelProcess, secretLatestScan string, secretScanStatus string, secretsCount int32, uptime int32, vulnerabilitiesCount int32, vulnerabilityLatestScanId string, vulnerabilityScanStatus string) *ModelContainer {
 	this := ModelContainer{}
 	this.CloudComplianceLatestScanId = cloudComplianceLatestScanId
 	this.CloudComplianceScanStatus = cloudComplianceScanStatus
@@ -65,14 +76,13 @@ func NewModelContainer(cloudComplianceLatestScanId string, cloudComplianceScanSt
 	this.MalwareLatestScanId = malwareLatestScanId
 	this.MalwareScanStatus = malwareScanStatus
 	this.MalwaresCount = malwaresCount
-	this.Metadata = metadata
-	this.Metrics = metrics
 	this.NodeId = nodeId
 	this.NodeName = nodeName
 	this.Processes = processes
 	this.SecretLatestScan = secretLatestScan
 	this.SecretScanStatus = secretScanStatus
 	this.SecretsCount = secretsCount
+	this.Uptime = uptime
 	this.VulnerabilitiesCount = vulnerabilitiesCount
 	this.VulnerabilityLatestScanId = vulnerabilityLatestScanId
 	this.VulnerabilityScanStatus = vulnerabilityScanStatus
@@ -231,6 +241,166 @@ func (o *ModelContainer) SetCompliancesCount(v int32) {
 	o.CompliancesCount = v
 }
 
+// GetCpuMax returns the CpuMax field value if set, zero value otherwise.
+func (o *ModelContainer) GetCpuMax() float32 {
+	if o == nil || IsNil(o.CpuMax) {
+		var ret float32
+		return ret
+	}
+	return *o.CpuMax
+}
+
+// GetCpuMaxOk returns a tuple with the CpuMax field value if set, nil otherwise
+// and a boolean to check if the value has been set.
+func (o *ModelContainer) GetCpuMaxOk() (*float32, bool) {
+	if o == nil || IsNil(o.CpuMax) {
+		return nil, false
+	}
+	return o.CpuMax, true
+}
+
+// HasCpuMax returns a boolean if a field has been set.
+func (o *ModelContainer) HasCpuMax() bool {
+	if o != nil && !IsNil(o.CpuMax) {
+		return true
+	}
+
+	return false
+}
+
+// SetCpuMax gets a reference to the given float32 and assigns it to the CpuMax field.
+func (o *ModelContainer) SetCpuMax(v float32) {
+	o.CpuMax = &v
+}
+
+// GetCpuUsage returns the CpuUsage field value if set, zero value otherwise.
+func (o *ModelContainer) GetCpuUsage() float32 {
+	if o == nil || IsNil(o.CpuUsage) {
+		var ret float32
+		return ret
+	}
+	return *o.CpuUsage
+}
+
+// GetCpuUsageOk returns a tuple with the CpuUsage field value if set, nil otherwise
+// and a boolean to check if the value has been set.
+func (o *ModelContainer) GetCpuUsageOk() (*float32, bool) {
+	if o == nil || IsNil(o.CpuUsage) {
+		return nil, false
+	}
+	return o.CpuUsage, true
+}
+
+// HasCpuUsage returns a boolean if a field has been set.
+func (o *ModelContainer) HasCpuUsage() bool {
+	if o != nil && !IsNil(o.CpuUsage) {
+		return true
+	}
+
+	return false
+}
+
+// SetCpuUsage gets a reference to the given float32 and assigns it to the CpuUsage field.
+func (o *ModelContainer) SetCpuUsage(v float32) {
+	o.CpuUsage = &v
+}
+
+// GetDockerContainerCommand returns the DockerContainerCommand field value if set, zero value otherwise.
+func (o *ModelContainer) GetDockerContainerCommand() string {
+	if o == nil || IsNil(o.DockerContainerCommand) {
+		var ret string
+		return ret
+	}
+	return *o.DockerContainerCommand
+}
+
+// GetDockerContainerCommandOk returns a tuple with the DockerContainerCommand field value if set, nil otherwise
+// and a boolean to check if the value has been set.
+func (o *ModelContainer) GetDockerContainerCommandOk() (*string, bool) {
+	if o == nil || IsNil(o.DockerContainerCommand) {
+		return nil, false
+	}
+	return o.DockerContainerCommand, true
+}
+
+// HasDockerContainerCommand returns a boolean if a field has been set.
+func (o *ModelContainer) HasDockerContainerCommand() bool {
+	if o != nil && !IsNil(o.DockerContainerCommand) {
+		return true
+	}
+
+	return false
+}
+
+// SetDockerContainerCommand gets a reference to the given string and assigns it to the DockerContainerCommand field.
+func (o *ModelContainer) SetDockerContainerCommand(v string) {
+	o.DockerContainerCommand = &v
+}
+
+// GetDockerContainerCreated returns the DockerContainerCreated field value if set, zero value otherwise.
+func (o *ModelContainer) GetDockerContainerCreated() string {
+	if o == nil || IsNil(o.DockerContainerCreated) {
+		var ret string
+		return ret
+	}
+	return *o.DockerContainerCreated
+}
+
+// GetDockerContainerCreatedOk returns a tuple with the DockerContainerCreated field value if set, nil otherwise
+// and a boolean to check if the value has been set.
+func (o *ModelContainer) GetDockerContainerCreatedOk() (*string, bool) {
+	if o == nil || IsNil(o.DockerContainerCreated) {
+		return nil, false
+	}
+	return o.DockerContainerCreated, true
+}
+
+// HasDockerContainerCreated returns a boolean if a field has been set.
+func (o *ModelContainer) HasDockerContainerCreated() bool {
+	if o != nil && !IsNil(o.DockerContainerCreated) {
+		return true
+	}
+
+	return false
+}
+
+// SetDockerContainerCreated gets a reference to the given string and assigns it to the DockerContainerCreated field.
+func (o *ModelContainer) SetDockerContainerCreated(v string) {
+	o.DockerContainerCreated = &v
+}
+
+// GetDockerContainerIps returns the DockerContainerIps field value if set, zero value otherwise.
+func (o *ModelContainer) GetDockerContainerIps() []string {
+	if o == nil || IsNil(o.DockerContainerIps) {
+		var ret []string
+		return ret
+	}
+	return o.DockerContainerIps
+}
+
+// GetDockerContainerIpsOk returns a tuple with the DockerContainerIps field value if set, nil otherwise
+// and a boolean to check if the value has been set.
+func (o *ModelContainer) GetDockerContainerIpsOk() ([]string, bool) {
+	if o == nil || IsNil(o.DockerContainerIps) {
+		return nil, false
+	}
+	return o.DockerContainerIps, true
+}
+
+// HasDockerContainerIps returns a boolean if a field has been set.
+func (o *ModelContainer) HasDockerContainerIps() bool {
+	if o != nil && !IsNil(o.DockerContainerIps) {
+		return true
+	}
+
+	return false
+}
+
+// SetDockerContainerIps gets a reference to the given []string and assigns it to the DockerContainerIps field.
+func (o *ModelContainer) SetDockerContainerIps(v []string) {
+	o.DockerContainerIps = v
+}
+
 // GetDockerContainerName returns the DockerContainerName field value
 func (o *ModelContainer) GetDockerContainerName() string {
 	if o == nil {
@@ -253,6 +423,166 @@ func (o *ModelContainer) GetDockerContainerNameOk() (*string, bool) {
 // SetDockerContainerName sets field value
 func (o *ModelContainer) SetDockerContainerName(v string) {
 	o.DockerContainerName = v
+}
+
+// GetDockerContainerNetworkMode returns the DockerContainerNetworkMode field value if set, zero value otherwise.
+func (o *ModelContainer) GetDockerContainerNetworkMode() string {
+	if o == nil || IsNil(o.DockerContainerNetworkMode) {
+		var ret string
+		return ret
+	}
+	return *o.DockerContainerNetworkMode
+}
+
+// GetDockerContainerNetworkModeOk returns a tuple with the DockerContainerNetworkMode field value if set, nil otherwise
+// and a boolean to check if the value has been set.
+func (o *ModelContainer) GetDockerContainerNetworkModeOk() (*string, bool) {
+	if o == nil || IsNil(o.DockerContainerNetworkMode) {
+		return nil, false
+	}
+	return o.DockerContainerNetworkMode, true
+}
+
+// HasDockerContainerNetworkMode returns a boolean if a field has been set.
+func (o *ModelContainer) HasDockerContainerNetworkMode() bool {
+	if o != nil && !IsNil(o.DockerContainerNetworkMode) {
+		return true
+	}
+
+	return false
+}
+
+// SetDockerContainerNetworkMode gets a reference to the given string and assigns it to the DockerContainerNetworkMode field.
+func (o *ModelContainer) SetDockerContainerNetworkMode(v string) {
+	o.DockerContainerNetworkMode = &v
+}
+
+// GetDockerContainerNetworks returns the DockerContainerNetworks field value if set, zero value otherwise.
+func (o *ModelContainer) GetDockerContainerNetworks() string {
+	if o == nil || IsNil(o.DockerContainerNetworks) {
+		var ret string
+		return ret
+	}
+	return *o.DockerContainerNetworks
+}
+
+// GetDockerContainerNetworksOk returns a tuple with the DockerContainerNetworks field value if set, nil otherwise
+// and a boolean to check if the value has been set.
+func (o *ModelContainer) GetDockerContainerNetworksOk() (*string, bool) {
+	if o == nil || IsNil(o.DockerContainerNetworks) {
+		return nil, false
+	}
+	return o.DockerContainerNetworks, true
+}
+
+// HasDockerContainerNetworks returns a boolean if a field has been set.
+func (o *ModelContainer) HasDockerContainerNetworks() bool {
+	if o != nil && !IsNil(o.DockerContainerNetworks) {
+		return true
+	}
+
+	return false
+}
+
+// SetDockerContainerNetworks gets a reference to the given string and assigns it to the DockerContainerNetworks field.
+func (o *ModelContainer) SetDockerContainerNetworks(v string) {
+	o.DockerContainerNetworks = &v
+}
+
+// GetDockerContainerPorts returns the DockerContainerPorts field value if set, zero value otherwise.
+func (o *ModelContainer) GetDockerContainerPorts() string {
+	if o == nil || IsNil(o.DockerContainerPorts) {
+		var ret string
+		return ret
+	}
+	return *o.DockerContainerPorts
+}
+
+// GetDockerContainerPortsOk returns a tuple with the DockerContainerPorts field value if set, nil otherwise
+// and a boolean to check if the value has been set.
+func (o *ModelContainer) GetDockerContainerPortsOk() (*string, bool) {
+	if o == nil || IsNil(o.DockerContainerPorts) {
+		return nil, false
+	}
+	return o.DockerContainerPorts, true
+}
+
+// HasDockerContainerPorts returns a boolean if a field has been set.
+func (o *ModelContainer) HasDockerContainerPorts() bool {
+	if o != nil && !IsNil(o.DockerContainerPorts) {
+		return true
+	}
+
+	return false
+}
+
+// SetDockerContainerPorts gets a reference to the given string and assigns it to the DockerContainerPorts field.
+func (o *ModelContainer) SetDockerContainerPorts(v string) {
+	o.DockerContainerPorts = &v
+}
+
+// GetDockerContainerState returns the DockerContainerState field value if set, zero value otherwise.
+func (o *ModelContainer) GetDockerContainerState() string {
+	if o == nil || IsNil(o.DockerContainerState) {
+		var ret string
+		return ret
+	}
+	return *o.DockerContainerState
+}
+
+// GetDockerContainerStateOk returns a tuple with the DockerContainerState field value if set, nil otherwise
+// and a boolean to check if the value has been set.
+func (o *ModelContainer) GetDockerContainerStateOk() (*string, bool) {
+	if o == nil || IsNil(o.DockerContainerState) {
+		return nil, false
+	}
+	return o.DockerContainerState, true
+}
+
+// HasDockerContainerState returns a boolean if a field has been set.
+func (o *ModelContainer) HasDockerContainerState() bool {
+	if o != nil && !IsNil(o.DockerContainerState) {
+		return true
+	}
+
+	return false
+}
+
+// SetDockerContainerState gets a reference to the given string and assigns it to the DockerContainerState field.
+func (o *ModelContainer) SetDockerContainerState(v string) {
+	o.DockerContainerState = &v
+}
+
+// GetDockerContainerStateHuman returns the DockerContainerStateHuman field value if set, zero value otherwise.
+func (o *ModelContainer) GetDockerContainerStateHuman() string {
+	if o == nil || IsNil(o.DockerContainerStateHuman) {
+		var ret string
+		return ret
+	}
+	return *o.DockerContainerStateHuman
+}
+
+// GetDockerContainerStateHumanOk returns a tuple with the DockerContainerStateHuman field value if set, nil otherwise
+// and a boolean to check if the value has been set.
+func (o *ModelContainer) GetDockerContainerStateHumanOk() (*string, bool) {
+	if o == nil || IsNil(o.DockerContainerStateHuman) {
+		return nil, false
+	}
+	return o.DockerContainerStateHuman, true
+}
+
+// HasDockerContainerStateHuman returns a boolean if a field has been set.
+func (o *ModelContainer) HasDockerContainerStateHuman() bool {
+	if o != nil && !IsNil(o.DockerContainerStateHuman) {
+		return true
+	}
+
+	return false
+}
+
+// SetDockerContainerStateHuman gets a reference to the given string and assigns it to the DockerContainerStateHuman field.
+func (o *ModelContainer) SetDockerContainerStateHuman(v string) {
+	o.DockerContainerStateHuman = &v
 }
 
 // GetDockerLabels returns the DockerLabels field value
@@ -399,52 +729,68 @@ func (o *ModelContainer) SetMalwaresCount(v int32) {
 	o.MalwaresCount = v
 }
 
-// GetMetadata returns the Metadata field value
-func (o *ModelContainer) GetMetadata() map[string]interface{} {
-	if o == nil {
-		var ret map[string]interface{}
+// GetMemoryMax returns the MemoryMax field value if set, zero value otherwise.
+func (o *ModelContainer) GetMemoryMax() int32 {
+	if o == nil || IsNil(o.MemoryMax) {
+		var ret int32
 		return ret
 	}
-
-	return o.Metadata
+	return *o.MemoryMax
 }
 
-// GetMetadataOk returns a tuple with the Metadata field value
+// GetMemoryMaxOk returns a tuple with the MemoryMax field value if set, nil otherwise
 // and a boolean to check if the value has been set.
-func (o *ModelContainer) GetMetadataOk() (map[string]interface{}, bool) {
-	if o == nil {
-		return map[string]interface{}{}, false
-	}
-	return o.Metadata, true
-}
-
-// SetMetadata sets field value
-func (o *ModelContainer) SetMetadata(v map[string]interface{}) {
-	o.Metadata = v
-}
-
-// GetMetrics returns the Metrics field value
-func (o *ModelContainer) GetMetrics() ModelComputeMetrics {
-	if o == nil {
-		var ret ModelComputeMetrics
-		return ret
-	}
-
-	return o.Metrics
-}
-
-// GetMetricsOk returns a tuple with the Metrics field value
-// and a boolean to check if the value has been set.
-func (o *ModelContainer) GetMetricsOk() (*ModelComputeMetrics, bool) {
-	if o == nil {
+func (o *ModelContainer) GetMemoryMaxOk() (*int32, bool) {
+	if o == nil || IsNil(o.MemoryMax) {
 		return nil, false
 	}
-	return &o.Metrics, true
+	return o.MemoryMax, true
 }
 
-// SetMetrics sets field value
-func (o *ModelContainer) SetMetrics(v ModelComputeMetrics) {
-	o.Metrics = v
+// HasMemoryMax returns a boolean if a field has been set.
+func (o *ModelContainer) HasMemoryMax() bool {
+	if o != nil && !IsNil(o.MemoryMax) {
+		return true
+	}
+
+	return false
+}
+
+// SetMemoryMax gets a reference to the given int32 and assigns it to the MemoryMax field.
+func (o *ModelContainer) SetMemoryMax(v int32) {
+	o.MemoryMax = &v
+}
+
+// GetMemoryUsage returns the MemoryUsage field value if set, zero value otherwise.
+func (o *ModelContainer) GetMemoryUsage() int32 {
+	if o == nil || IsNil(o.MemoryUsage) {
+		var ret int32
+		return ret
+	}
+	return *o.MemoryUsage
+}
+
+// GetMemoryUsageOk returns a tuple with the MemoryUsage field value if set, nil otherwise
+// and a boolean to check if the value has been set.
+func (o *ModelContainer) GetMemoryUsageOk() (*int32, bool) {
+	if o == nil || IsNil(o.MemoryUsage) {
+		return nil, false
+	}
+	return o.MemoryUsage, true
+}
+
+// HasMemoryUsage returns a boolean if a field has been set.
+func (o *ModelContainer) HasMemoryUsage() bool {
+	if o != nil && !IsNil(o.MemoryUsage) {
+		return true
+	}
+
+	return false
+}
+
+// SetMemoryUsage gets a reference to the given int32 and assigns it to the MemoryUsage field.
+func (o *ModelContainer) SetMemoryUsage(v int32) {
+	o.MemoryUsage = &v
 }
 
 // GetNodeId returns the NodeId field value
@@ -593,6 +939,30 @@ func (o *ModelContainer) SetSecretsCount(v int32) {
 	o.SecretsCount = v
 }
 
+// GetUptime returns the Uptime field value
+func (o *ModelContainer) GetUptime() int32 {
+	if o == nil {
+		var ret int32
+		return ret
+	}
+
+	return o.Uptime
+}
+
+// GetUptimeOk returns a tuple with the Uptime field value
+// and a boolean to check if the value has been set.
+func (o *ModelContainer) GetUptimeOk() (*int32, bool) {
+	if o == nil {
+		return nil, false
+	}
+	return &o.Uptime, true
+}
+
+// SetUptime sets field value
+func (o *ModelContainer) SetUptime(v int32) {
+	o.Uptime = v
+}
+
 // GetVulnerabilitiesCount returns the VulnerabilitiesCount field value
 func (o *ModelContainer) GetVulnerabilitiesCount() int32 {
 	if o == nil {
@@ -681,15 +1051,49 @@ func (o ModelContainer) ToMap() (map[string]interface{}, error) {
 	toSerialize["compliance_latest_scan_id"] = o.ComplianceLatestScanId
 	toSerialize["compliance_scan_status"] = o.ComplianceScanStatus
 	toSerialize["compliances_count"] = o.CompliancesCount
+	if !IsNil(o.CpuMax) {
+		toSerialize["cpu_max"] = o.CpuMax
+	}
+	if !IsNil(o.CpuUsage) {
+		toSerialize["cpu_usage"] = o.CpuUsage
+	}
+	if !IsNil(o.DockerContainerCommand) {
+		toSerialize["docker_container_command"] = o.DockerContainerCommand
+	}
+	if !IsNil(o.DockerContainerCreated) {
+		toSerialize["docker_container_created"] = o.DockerContainerCreated
+	}
+	if !IsNil(o.DockerContainerIps) {
+		toSerialize["docker_container_ips"] = o.DockerContainerIps
+	}
 	toSerialize["docker_container_name"] = o.DockerContainerName
+	if !IsNil(o.DockerContainerNetworkMode) {
+		toSerialize["docker_container_network_mode"] = o.DockerContainerNetworkMode
+	}
+	if !IsNil(o.DockerContainerNetworks) {
+		toSerialize["docker_container_networks"] = o.DockerContainerNetworks
+	}
+	if !IsNil(o.DockerContainerPorts) {
+		toSerialize["docker_container_ports"] = o.DockerContainerPorts
+	}
+	if !IsNil(o.DockerContainerState) {
+		toSerialize["docker_container_state"] = o.DockerContainerState
+	}
+	if !IsNil(o.DockerContainerStateHuman) {
+		toSerialize["docker_container_state_human"] = o.DockerContainerStateHuman
+	}
 	toSerialize["docker_labels"] = o.DockerLabels
 	toSerialize["host_name"] = o.HostName
 	toSerialize["image"] = o.Image
 	toSerialize["malware_latest_scan_id"] = o.MalwareLatestScanId
 	toSerialize["malware_scan_status"] = o.MalwareScanStatus
 	toSerialize["malwares_count"] = o.MalwaresCount
-	toSerialize["metadata"] = o.Metadata
-	toSerialize["metrics"] = o.Metrics
+	if !IsNil(o.MemoryMax) {
+		toSerialize["memory_max"] = o.MemoryMax
+	}
+	if !IsNil(o.MemoryUsage) {
+		toSerialize["memory_usage"] = o.MemoryUsage
+	}
 	toSerialize["node_id"] = o.NodeId
 	toSerialize["node_name"] = o.NodeName
 	if o.Processes != nil {
@@ -698,6 +1102,7 @@ func (o ModelContainer) ToMap() (map[string]interface{}, error) {
 	toSerialize["secret_latest_scan"] = o.SecretLatestScan
 	toSerialize["secret_scan_status"] = o.SecretScanStatus
 	toSerialize["secrets_count"] = o.SecretsCount
+	toSerialize["uptime"] = o.Uptime
 	toSerialize["vulnerabilities_count"] = o.VulnerabilitiesCount
 	toSerialize["vulnerability_latest_scan_id"] = o.VulnerabilityLatestScanId
 	toSerialize["vulnerability_scan_status"] = o.VulnerabilityScanStatus

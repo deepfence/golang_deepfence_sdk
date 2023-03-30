@@ -4,9 +4,7 @@
 
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
-**CloudMetadata** | **map[string]interface{}** |  | 
-**Containers** | [**[]ModelHost**](ModelHost.md) |  | 
-**Metrics** | [**ModelComputeMetrics**](ModelComputeMetrics.md) |  | 
+**Hosts** | [**[]ModelHost**](ModelHost.md) |  | 
 **NodeId** | **string** |  | 
 **NodeName** | **string** |  | 
 
@@ -14,7 +12,7 @@ Name | Type | Description | Notes
 
 ### NewModelKubernetesCluster
 
-`func NewModelKubernetesCluster(cloudMetadata map[string]interface{}, containers []ModelHost, metrics ModelComputeMetrics, nodeId string, nodeName string, ) *ModelKubernetesCluster`
+`func NewModelKubernetesCluster(hosts []ModelHost, nodeId string, nodeName string, ) *ModelKubernetesCluster`
 
 NewModelKubernetesCluster instantiates a new ModelKubernetesCluster object
 This constructor will assign default values to properties that have it defined,
@@ -29,76 +27,36 @@ NewModelKubernetesClusterWithDefaults instantiates a new ModelKubernetesCluster 
 This constructor will only assign default values to properties that have it defined,
 but it doesn't guarantee that properties required by API are set
 
-### GetCloudMetadata
+### GetHosts
 
-`func (o *ModelKubernetesCluster) GetCloudMetadata() map[string]interface{}`
+`func (o *ModelKubernetesCluster) GetHosts() []ModelHost`
 
-GetCloudMetadata returns the CloudMetadata field if non-nil, zero value otherwise.
+GetHosts returns the Hosts field if non-nil, zero value otherwise.
 
-### GetCloudMetadataOk
+### GetHostsOk
 
-`func (o *ModelKubernetesCluster) GetCloudMetadataOk() (*map[string]interface{}, bool)`
+`func (o *ModelKubernetesCluster) GetHostsOk() (*[]ModelHost, bool)`
 
-GetCloudMetadataOk returns a tuple with the CloudMetadata field if it's non-nil, zero value otherwise
+GetHostsOk returns a tuple with the Hosts field if it's non-nil, zero value otherwise
 and a boolean to check if the value has been set.
 
-### SetCloudMetadata
+### SetHosts
 
-`func (o *ModelKubernetesCluster) SetCloudMetadata(v map[string]interface{})`
+`func (o *ModelKubernetesCluster) SetHosts(v []ModelHost)`
 
-SetCloudMetadata sets CloudMetadata field to given value.
-
-
-### GetContainers
-
-`func (o *ModelKubernetesCluster) GetContainers() []ModelHost`
-
-GetContainers returns the Containers field if non-nil, zero value otherwise.
-
-### GetContainersOk
-
-`func (o *ModelKubernetesCluster) GetContainersOk() (*[]ModelHost, bool)`
-
-GetContainersOk returns a tuple with the Containers field if it's non-nil, zero value otherwise
-and a boolean to check if the value has been set.
-
-### SetContainers
-
-`func (o *ModelKubernetesCluster) SetContainers(v []ModelHost)`
-
-SetContainers sets Containers field to given value.
+SetHosts sets Hosts field to given value.
 
 
-### SetContainersNil
+### SetHostsNil
 
-`func (o *ModelKubernetesCluster) SetContainersNil(b bool)`
+`func (o *ModelKubernetesCluster) SetHostsNil(b bool)`
 
- SetContainersNil sets the value for Containers to be an explicit nil
+ SetHostsNil sets the value for Hosts to be an explicit nil
 
-### UnsetContainers
-`func (o *ModelKubernetesCluster) UnsetContainers()`
+### UnsetHosts
+`func (o *ModelKubernetesCluster) UnsetHosts()`
 
-UnsetContainers ensures that no value is present for Containers, not even an explicit nil
-### GetMetrics
-
-`func (o *ModelKubernetesCluster) GetMetrics() ModelComputeMetrics`
-
-GetMetrics returns the Metrics field if non-nil, zero value otherwise.
-
-### GetMetricsOk
-
-`func (o *ModelKubernetesCluster) GetMetricsOk() (*ModelComputeMetrics, bool)`
-
-GetMetricsOk returns a tuple with the Metrics field if it's non-nil, zero value otherwise
-and a boolean to check if the value has been set.
-
-### SetMetrics
-
-`func (o *ModelKubernetesCluster) SetMetrics(v ModelComputeMetrics)`
-
-SetMetrics sets Metrics field to given value.
-
-
+UnsetHosts ensures that no value is present for Hosts, not even an explicit nil
 ### GetNodeId
 
 `func (o *ModelKubernetesCluster) GetNodeId() string`

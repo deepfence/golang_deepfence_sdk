@@ -4,25 +4,25 @@
 
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
-**ContainerBatch** | **[]map[string]string** |  | 
+**ContainerBatch** | **[]map[string]interface{}** |  | 
 **ContainerEdgesBatch** | **[]map[string]interface{}** |  | 
-**ContainerImageBatch** | **[]map[string]string** |  | 
+**ContainerImageBatch** | **[]map[string]interface{}** |  | 
 **ContainerImageEdgeBatch** | **[]map[string]interface{}** |  | 
 **EndpointEdgesBatch** | **[]map[string]interface{}** |  | 
-**HostBatch** | **[]map[string]string** |  | 
-**Hosts** | **[]map[string]string** |  | 
-**KubernetesClusterBatch** | **[]map[string]string** |  | 
+**HostBatch** | **[]map[string]interface{}** |  | 
+**Hosts** | **[]map[string]interface{}** |  | 
+**KubernetesClusterBatch** | **[]map[string]interface{}** |  | 
 **KubernetesClusterEdgeBatch** | **[]map[string]interface{}** |  | 
-**PodBatch** | **[]map[string]string** |  | 
+**PodBatch** | **[]map[string]interface{}** |  | 
 **PodEdgesBatch** | **[]map[string]interface{}** |  | 
-**ProcessBatch** | **[]map[string]string** |  | 
+**ProcessBatch** | **[]map[string]interface{}** |  | 
 **ProcessEdgesBatch** | **[]map[string]interface{}** |  | 
 
 ## Methods
 
 ### NewIngestersReportIngestionData
 
-`func NewIngestersReportIngestionData(containerBatch []map[string]string, containerEdgesBatch []map[string]interface{}, containerImageBatch []map[string]string, containerImageEdgeBatch []map[string]interface{}, endpointEdgesBatch []map[string]interface{}, hostBatch []map[string]string, hosts []map[string]string, kubernetesClusterBatch []map[string]string, kubernetesClusterEdgeBatch []map[string]interface{}, podBatch []map[string]string, podEdgesBatch []map[string]interface{}, processBatch []map[string]string, processEdgesBatch []map[string]interface{}, ) *IngestersReportIngestionData`
+`func NewIngestersReportIngestionData(containerBatch []map[string]interface{}, containerEdgesBatch []map[string]interface{}, containerImageBatch []map[string]interface{}, containerImageEdgeBatch []map[string]interface{}, endpointEdgesBatch []map[string]interface{}, hostBatch []map[string]interface{}, hosts []map[string]interface{}, kubernetesClusterBatch []map[string]interface{}, kubernetesClusterEdgeBatch []map[string]interface{}, podBatch []map[string]interface{}, podEdgesBatch []map[string]interface{}, processBatch []map[string]interface{}, processEdgesBatch []map[string]interface{}, ) *IngestersReportIngestionData`
 
 NewIngestersReportIngestionData instantiates a new IngestersReportIngestionData object
 This constructor will assign default values to properties that have it defined,
@@ -39,20 +39,20 @@ but it doesn't guarantee that properties required by API are set
 
 ### GetContainerBatch
 
-`func (o *IngestersReportIngestionData) GetContainerBatch() []map[string]string`
+`func (o *IngestersReportIngestionData) GetContainerBatch() []map[string]interface{}`
 
 GetContainerBatch returns the ContainerBatch field if non-nil, zero value otherwise.
 
 ### GetContainerBatchOk
 
-`func (o *IngestersReportIngestionData) GetContainerBatchOk() (*[]map[string]string, bool)`
+`func (o *IngestersReportIngestionData) GetContainerBatchOk() (*[]map[string]interface{}, bool)`
 
 GetContainerBatchOk returns a tuple with the ContainerBatch field if it's non-nil, zero value otherwise
 and a boolean to check if the value has been set.
 
 ### SetContainerBatch
 
-`func (o *IngestersReportIngestionData) SetContainerBatch(v []map[string]string)`
+`func (o *IngestersReportIngestionData) SetContainerBatch(v []map[string]interface{})`
 
 SetContainerBatch sets ContainerBatch field to given value.
 
@@ -99,20 +99,20 @@ SetContainerEdgesBatch sets ContainerEdgesBatch field to given value.
 UnsetContainerEdgesBatch ensures that no value is present for ContainerEdgesBatch, not even an explicit nil
 ### GetContainerImageBatch
 
-`func (o *IngestersReportIngestionData) GetContainerImageBatch() []map[string]string`
+`func (o *IngestersReportIngestionData) GetContainerImageBatch() []map[string]interface{}`
 
 GetContainerImageBatch returns the ContainerImageBatch field if non-nil, zero value otherwise.
 
 ### GetContainerImageBatchOk
 
-`func (o *IngestersReportIngestionData) GetContainerImageBatchOk() (*[]map[string]string, bool)`
+`func (o *IngestersReportIngestionData) GetContainerImageBatchOk() (*[]map[string]interface{}, bool)`
 
 GetContainerImageBatchOk returns a tuple with the ContainerImageBatch field if it's non-nil, zero value otherwise
 and a boolean to check if the value has been set.
 
 ### SetContainerImageBatch
 
-`func (o *IngestersReportIngestionData) SetContainerImageBatch(v []map[string]string)`
+`func (o *IngestersReportIngestionData) SetContainerImageBatch(v []map[string]interface{})`
 
 SetContainerImageBatch sets ContainerImageBatch field to given value.
 
@@ -189,20 +189,20 @@ SetEndpointEdgesBatch sets EndpointEdgesBatch field to given value.
 UnsetEndpointEdgesBatch ensures that no value is present for EndpointEdgesBatch, not even an explicit nil
 ### GetHostBatch
 
-`func (o *IngestersReportIngestionData) GetHostBatch() []map[string]string`
+`func (o *IngestersReportIngestionData) GetHostBatch() []map[string]interface{}`
 
 GetHostBatch returns the HostBatch field if non-nil, zero value otherwise.
 
 ### GetHostBatchOk
 
-`func (o *IngestersReportIngestionData) GetHostBatchOk() (*[]map[string]string, bool)`
+`func (o *IngestersReportIngestionData) GetHostBatchOk() (*[]map[string]interface{}, bool)`
 
 GetHostBatchOk returns a tuple with the HostBatch field if it's non-nil, zero value otherwise
 and a boolean to check if the value has been set.
 
 ### SetHostBatch
 
-`func (o *IngestersReportIngestionData) SetHostBatch(v []map[string]string)`
+`func (o *IngestersReportIngestionData) SetHostBatch(v []map[string]interface{})`
 
 SetHostBatch sets HostBatch field to given value.
 
@@ -219,20 +219,20 @@ SetHostBatch sets HostBatch field to given value.
 UnsetHostBatch ensures that no value is present for HostBatch, not even an explicit nil
 ### GetHosts
 
-`func (o *IngestersReportIngestionData) GetHosts() []map[string]string`
+`func (o *IngestersReportIngestionData) GetHosts() []map[string]interface{}`
 
 GetHosts returns the Hosts field if non-nil, zero value otherwise.
 
 ### GetHostsOk
 
-`func (o *IngestersReportIngestionData) GetHostsOk() (*[]map[string]string, bool)`
+`func (o *IngestersReportIngestionData) GetHostsOk() (*[]map[string]interface{}, bool)`
 
 GetHostsOk returns a tuple with the Hosts field if it's non-nil, zero value otherwise
 and a boolean to check if the value has been set.
 
 ### SetHosts
 
-`func (o *IngestersReportIngestionData) SetHosts(v []map[string]string)`
+`func (o *IngestersReportIngestionData) SetHosts(v []map[string]interface{})`
 
 SetHosts sets Hosts field to given value.
 
@@ -249,20 +249,20 @@ SetHosts sets Hosts field to given value.
 UnsetHosts ensures that no value is present for Hosts, not even an explicit nil
 ### GetKubernetesClusterBatch
 
-`func (o *IngestersReportIngestionData) GetKubernetesClusterBatch() []map[string]string`
+`func (o *IngestersReportIngestionData) GetKubernetesClusterBatch() []map[string]interface{}`
 
 GetKubernetesClusterBatch returns the KubernetesClusterBatch field if non-nil, zero value otherwise.
 
 ### GetKubernetesClusterBatchOk
 
-`func (o *IngestersReportIngestionData) GetKubernetesClusterBatchOk() (*[]map[string]string, bool)`
+`func (o *IngestersReportIngestionData) GetKubernetesClusterBatchOk() (*[]map[string]interface{}, bool)`
 
 GetKubernetesClusterBatchOk returns a tuple with the KubernetesClusterBatch field if it's non-nil, zero value otherwise
 and a boolean to check if the value has been set.
 
 ### SetKubernetesClusterBatch
 
-`func (o *IngestersReportIngestionData) SetKubernetesClusterBatch(v []map[string]string)`
+`func (o *IngestersReportIngestionData) SetKubernetesClusterBatch(v []map[string]interface{})`
 
 SetKubernetesClusterBatch sets KubernetesClusterBatch field to given value.
 
@@ -309,20 +309,20 @@ SetKubernetesClusterEdgeBatch sets KubernetesClusterEdgeBatch field to given val
 UnsetKubernetesClusterEdgeBatch ensures that no value is present for KubernetesClusterEdgeBatch, not even an explicit nil
 ### GetPodBatch
 
-`func (o *IngestersReportIngestionData) GetPodBatch() []map[string]string`
+`func (o *IngestersReportIngestionData) GetPodBatch() []map[string]interface{}`
 
 GetPodBatch returns the PodBatch field if non-nil, zero value otherwise.
 
 ### GetPodBatchOk
 
-`func (o *IngestersReportIngestionData) GetPodBatchOk() (*[]map[string]string, bool)`
+`func (o *IngestersReportIngestionData) GetPodBatchOk() (*[]map[string]interface{}, bool)`
 
 GetPodBatchOk returns a tuple with the PodBatch field if it's non-nil, zero value otherwise
 and a boolean to check if the value has been set.
 
 ### SetPodBatch
 
-`func (o *IngestersReportIngestionData) SetPodBatch(v []map[string]string)`
+`func (o *IngestersReportIngestionData) SetPodBatch(v []map[string]interface{})`
 
 SetPodBatch sets PodBatch field to given value.
 
@@ -369,20 +369,20 @@ SetPodEdgesBatch sets PodEdgesBatch field to given value.
 UnsetPodEdgesBatch ensures that no value is present for PodEdgesBatch, not even an explicit nil
 ### GetProcessBatch
 
-`func (o *IngestersReportIngestionData) GetProcessBatch() []map[string]string`
+`func (o *IngestersReportIngestionData) GetProcessBatch() []map[string]interface{}`
 
 GetProcessBatch returns the ProcessBatch field if non-nil, zero value otherwise.
 
 ### GetProcessBatchOk
 
-`func (o *IngestersReportIngestionData) GetProcessBatchOk() (*[]map[string]string, bool)`
+`func (o *IngestersReportIngestionData) GetProcessBatchOk() (*[]map[string]interface{}, bool)`
 
 GetProcessBatchOk returns a tuple with the ProcessBatch field if it's non-nil, zero value otherwise
 and a boolean to check if the value has been set.
 
 ### SetProcessBatch
 
-`func (o *IngestersReportIngestionData) SetProcessBatch(v []map[string]string)`
+`func (o *IngestersReportIngestionData) SetProcessBatch(v []map[string]interface{})`
 
 SetProcessBatch sets ProcessBatch field to given value.
 

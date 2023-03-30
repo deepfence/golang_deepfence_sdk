@@ -10,14 +10,16 @@ Name | Type | Description | Notes
 **ComplianceLatestScanId** | **string** |  | 
 **ComplianceScanStatus** | **string** |  | 
 **CompliancesCount** | **int32** |  | 
+**DockerImageCreatedAt** | Pointer to **string** |  | [optional] 
+**DockerImageId** | Pointer to **string** |  | [optional] 
 **DockerImageName** | **string** |  | 
 **DockerImageSize** | **string** |  | 
 **DockerImageTag** | **string** |  | 
+**DockerImageVirtualSize** | Pointer to **string** |  | [optional] 
 **MalwareLatestScanId** | **string** |  | 
 **MalwareScanStatus** | **string** |  | 
 **MalwaresCount** | **int32** |  | 
 **Metadata** | **map[string]interface{}** |  | 
-**Metrics** | [**ModelComputeMetrics**](ModelComputeMetrics.md) |  | 
 **NodeId** | **string** |  | 
 **NodeName** | **string** |  | 
 **SecretLatestScan** | **string** |  | 
@@ -31,7 +33,7 @@ Name | Type | Description | Notes
 
 ### NewModelContainerImage
 
-`func NewModelContainerImage(cloudComplianceLatestScanId string, cloudComplianceScanStatus string, cloudCompliancesCount int32, complianceLatestScanId string, complianceScanStatus string, compliancesCount int32, dockerImageName string, dockerImageSize string, dockerImageTag string, malwareLatestScanId string, malwareScanStatus string, malwaresCount int32, metadata map[string]interface{}, metrics ModelComputeMetrics, nodeId string, nodeName string, secretLatestScan string, secretScanStatus string, secretsCount int32, vulnerabilitiesCount int32, vulnerabilityLatestScanId string, vulnerabilityScanStatus string, ) *ModelContainerImage`
+`func NewModelContainerImage(cloudComplianceLatestScanId string, cloudComplianceScanStatus string, cloudCompliancesCount int32, complianceLatestScanId string, complianceScanStatus string, compliancesCount int32, dockerImageName string, dockerImageSize string, dockerImageTag string, malwareLatestScanId string, malwareScanStatus string, malwaresCount int32, metadata map[string]interface{}, nodeId string, nodeName string, secretLatestScan string, secretScanStatus string, secretsCount int32, vulnerabilitiesCount int32, vulnerabilityLatestScanId string, vulnerabilityScanStatus string, ) *ModelContainerImage`
 
 NewModelContainerImage instantiates a new ModelContainerImage object
 This constructor will assign default values to properties that have it defined,
@@ -166,6 +168,56 @@ and a boolean to check if the value has been set.
 SetCompliancesCount sets CompliancesCount field to given value.
 
 
+### GetDockerImageCreatedAt
+
+`func (o *ModelContainerImage) GetDockerImageCreatedAt() string`
+
+GetDockerImageCreatedAt returns the DockerImageCreatedAt field if non-nil, zero value otherwise.
+
+### GetDockerImageCreatedAtOk
+
+`func (o *ModelContainerImage) GetDockerImageCreatedAtOk() (*string, bool)`
+
+GetDockerImageCreatedAtOk returns a tuple with the DockerImageCreatedAt field if it's non-nil, zero value otherwise
+and a boolean to check if the value has been set.
+
+### SetDockerImageCreatedAt
+
+`func (o *ModelContainerImage) SetDockerImageCreatedAt(v string)`
+
+SetDockerImageCreatedAt sets DockerImageCreatedAt field to given value.
+
+### HasDockerImageCreatedAt
+
+`func (o *ModelContainerImage) HasDockerImageCreatedAt() bool`
+
+HasDockerImageCreatedAt returns a boolean if a field has been set.
+
+### GetDockerImageId
+
+`func (o *ModelContainerImage) GetDockerImageId() string`
+
+GetDockerImageId returns the DockerImageId field if non-nil, zero value otherwise.
+
+### GetDockerImageIdOk
+
+`func (o *ModelContainerImage) GetDockerImageIdOk() (*string, bool)`
+
+GetDockerImageIdOk returns a tuple with the DockerImageId field if it's non-nil, zero value otherwise
+and a boolean to check if the value has been set.
+
+### SetDockerImageId
+
+`func (o *ModelContainerImage) SetDockerImageId(v string)`
+
+SetDockerImageId sets DockerImageId field to given value.
+
+### HasDockerImageId
+
+`func (o *ModelContainerImage) HasDockerImageId() bool`
+
+HasDockerImageId returns a boolean if a field has been set.
+
 ### GetDockerImageName
 
 `func (o *ModelContainerImage) GetDockerImageName() string`
@@ -225,6 +277,31 @@ and a boolean to check if the value has been set.
 
 SetDockerImageTag sets DockerImageTag field to given value.
 
+
+### GetDockerImageVirtualSize
+
+`func (o *ModelContainerImage) GetDockerImageVirtualSize() string`
+
+GetDockerImageVirtualSize returns the DockerImageVirtualSize field if non-nil, zero value otherwise.
+
+### GetDockerImageVirtualSizeOk
+
+`func (o *ModelContainerImage) GetDockerImageVirtualSizeOk() (*string, bool)`
+
+GetDockerImageVirtualSizeOk returns a tuple with the DockerImageVirtualSize field if it's non-nil, zero value otherwise
+and a boolean to check if the value has been set.
+
+### SetDockerImageVirtualSize
+
+`func (o *ModelContainerImage) SetDockerImageVirtualSize(v string)`
+
+SetDockerImageVirtualSize sets DockerImageVirtualSize field to given value.
+
+### HasDockerImageVirtualSize
+
+`func (o *ModelContainerImage) HasDockerImageVirtualSize() bool`
+
+HasDockerImageVirtualSize returns a boolean if a field has been set.
 
 ### GetMalwareLatestScanId
 
@@ -304,26 +381,6 @@ and a boolean to check if the value has been set.
 `func (o *ModelContainerImage) SetMetadata(v map[string]interface{})`
 
 SetMetadata sets Metadata field to given value.
-
-
-### GetMetrics
-
-`func (o *ModelContainerImage) GetMetrics() ModelComputeMetrics`
-
-GetMetrics returns the Metrics field if non-nil, zero value otherwise.
-
-### GetMetricsOk
-
-`func (o *ModelContainerImage) GetMetricsOk() (*ModelComputeMetrics, bool)`
-
-GetMetricsOk returns a tuple with the Metrics field if it's non-nil, zero value otherwise
-and a boolean to check if the value has been set.
-
-### SetMetrics
-
-`func (o *ModelContainerImage) SetMetrics(v ModelComputeMetrics)`
-
-SetMetrics sets Metrics field to given value.
 
 
 ### GetNodeId

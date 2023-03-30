@@ -20,6 +20,7 @@ var _ MappedNullable = &ModelScanListReq{}
 
 // ModelScanListReq struct for ModelScanListReq
 type ModelScanListReq struct {
+	FieldsFilter ReportersFieldsFilters `json:"fields_filter"`
 	NodeIds []ModelNodeIdentifier `json:"node_ids"`
 	ScanStatus []string `json:"scan_status,omitempty"`
 	Window ModelFetchWindow `json:"window"`
@@ -29,8 +30,9 @@ type ModelScanListReq struct {
 // This constructor will assign default values to properties that have it defined,
 // and makes sure properties required by API are set, but the set of arguments
 // will change when the set of required properties is changed
-func NewModelScanListReq(nodeIds []ModelNodeIdentifier, window ModelFetchWindow) *ModelScanListReq {
+func NewModelScanListReq(fieldsFilter ReportersFieldsFilters, nodeIds []ModelNodeIdentifier, window ModelFetchWindow) *ModelScanListReq {
 	this := ModelScanListReq{}
+	this.FieldsFilter = fieldsFilter
 	this.NodeIds = nodeIds
 	this.Window = window
 	return &this
@@ -42,6 +44,30 @@ func NewModelScanListReq(nodeIds []ModelNodeIdentifier, window ModelFetchWindow)
 func NewModelScanListReqWithDefaults() *ModelScanListReq {
 	this := ModelScanListReq{}
 	return &this
+}
+
+// GetFieldsFilter returns the FieldsFilter field value
+func (o *ModelScanListReq) GetFieldsFilter() ReportersFieldsFilters {
+	if o == nil {
+		var ret ReportersFieldsFilters
+		return ret
+	}
+
+	return o.FieldsFilter
+}
+
+// GetFieldsFilterOk returns a tuple with the FieldsFilter field value
+// and a boolean to check if the value has been set.
+func (o *ModelScanListReq) GetFieldsFilterOk() (*ReportersFieldsFilters, bool) {
+	if o == nil {
+		return nil, false
+	}
+	return &o.FieldsFilter, true
+}
+
+// SetFieldsFilter sets field value
+func (o *ModelScanListReq) SetFieldsFilter(v ReportersFieldsFilters) {
+	o.FieldsFilter = v
 }
 
 // GetNodeIds returns the NodeIds field value
@@ -137,6 +163,7 @@ func (o ModelScanListReq) MarshalJSON() ([]byte, error) {
 
 func (o ModelScanListReq) ToMap() (map[string]interface{}, error) {
 	toSerialize := map[string]interface{}{}
+	toSerialize["fields_filter"] = o.FieldsFilter
 	if o.NodeIds != nil {
 		toSerialize["node_ids"] = o.NodeIds
 	}

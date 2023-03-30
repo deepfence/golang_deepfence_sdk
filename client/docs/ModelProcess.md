@@ -5,19 +5,22 @@
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
 **Cmdline** | **string** |  | 
-**Metadata** | **map[string]interface{}** |  | 
-**Metrics** | [**ModelComputeMetrics**](ModelComputeMetrics.md) |  | 
-**Name** | **string** |  | 
+**CpuMax** | Pointer to **float32** |  | [optional] 
+**CpuUsage** | Pointer to **float32** |  | [optional] 
+**MemoryMax** | Pointer to **int32** |  | [optional] 
+**MemoryUsage** | Pointer to **int32** |  | [optional] 
 **NodeId** | **string** |  | 
-**Pid** | **string** |  | 
-**Ppid** | **string** |  | 
-**Threads** | **string** |  | 
+**NodeName** | **string** |  | 
+**OpenFilesCount** | Pointer to **int32** |  | [optional] 
+**Pid** | **int32** |  | 
+**Ppid** | **int32** |  | 
+**Threads** | **int32** |  | 
 
 ## Methods
 
 ### NewModelProcess
 
-`func NewModelProcess(cmdline string, metadata map[string]interface{}, metrics ModelComputeMetrics, name string, nodeId string, pid string, ppid string, threads string, ) *ModelProcess`
+`func NewModelProcess(cmdline string, nodeId string, nodeName string, pid int32, ppid int32, threads int32, ) *ModelProcess`
 
 NewModelProcess instantiates a new ModelProcess object
 This constructor will assign default values to properties that have it defined,
@@ -52,65 +55,105 @@ and a boolean to check if the value has been set.
 SetCmdline sets Cmdline field to given value.
 
 
-### GetMetadata
+### GetCpuMax
 
-`func (o *ModelProcess) GetMetadata() map[string]interface{}`
+`func (o *ModelProcess) GetCpuMax() float32`
 
-GetMetadata returns the Metadata field if non-nil, zero value otherwise.
+GetCpuMax returns the CpuMax field if non-nil, zero value otherwise.
 
-### GetMetadataOk
+### GetCpuMaxOk
 
-`func (o *ModelProcess) GetMetadataOk() (*map[string]interface{}, bool)`
+`func (o *ModelProcess) GetCpuMaxOk() (*float32, bool)`
 
-GetMetadataOk returns a tuple with the Metadata field if it's non-nil, zero value otherwise
+GetCpuMaxOk returns a tuple with the CpuMax field if it's non-nil, zero value otherwise
 and a boolean to check if the value has been set.
 
-### SetMetadata
+### SetCpuMax
 
-`func (o *ModelProcess) SetMetadata(v map[string]interface{})`
+`func (o *ModelProcess) SetCpuMax(v float32)`
 
-SetMetadata sets Metadata field to given value.
+SetCpuMax sets CpuMax field to given value.
 
+### HasCpuMax
 
-### GetMetrics
+`func (o *ModelProcess) HasCpuMax() bool`
 
-`func (o *ModelProcess) GetMetrics() ModelComputeMetrics`
+HasCpuMax returns a boolean if a field has been set.
 
-GetMetrics returns the Metrics field if non-nil, zero value otherwise.
+### GetCpuUsage
 
-### GetMetricsOk
+`func (o *ModelProcess) GetCpuUsage() float32`
 
-`func (o *ModelProcess) GetMetricsOk() (*ModelComputeMetrics, bool)`
+GetCpuUsage returns the CpuUsage field if non-nil, zero value otherwise.
 
-GetMetricsOk returns a tuple with the Metrics field if it's non-nil, zero value otherwise
+### GetCpuUsageOk
+
+`func (o *ModelProcess) GetCpuUsageOk() (*float32, bool)`
+
+GetCpuUsageOk returns a tuple with the CpuUsage field if it's non-nil, zero value otherwise
 and a boolean to check if the value has been set.
 
-### SetMetrics
+### SetCpuUsage
 
-`func (o *ModelProcess) SetMetrics(v ModelComputeMetrics)`
+`func (o *ModelProcess) SetCpuUsage(v float32)`
 
-SetMetrics sets Metrics field to given value.
+SetCpuUsage sets CpuUsage field to given value.
 
+### HasCpuUsage
 
-### GetName
+`func (o *ModelProcess) HasCpuUsage() bool`
 
-`func (o *ModelProcess) GetName() string`
+HasCpuUsage returns a boolean if a field has been set.
 
-GetName returns the Name field if non-nil, zero value otherwise.
+### GetMemoryMax
 
-### GetNameOk
+`func (o *ModelProcess) GetMemoryMax() int32`
 
-`func (o *ModelProcess) GetNameOk() (*string, bool)`
+GetMemoryMax returns the MemoryMax field if non-nil, zero value otherwise.
 
-GetNameOk returns a tuple with the Name field if it's non-nil, zero value otherwise
+### GetMemoryMaxOk
+
+`func (o *ModelProcess) GetMemoryMaxOk() (*int32, bool)`
+
+GetMemoryMaxOk returns a tuple with the MemoryMax field if it's non-nil, zero value otherwise
 and a boolean to check if the value has been set.
 
-### SetName
+### SetMemoryMax
 
-`func (o *ModelProcess) SetName(v string)`
+`func (o *ModelProcess) SetMemoryMax(v int32)`
 
-SetName sets Name field to given value.
+SetMemoryMax sets MemoryMax field to given value.
 
+### HasMemoryMax
+
+`func (o *ModelProcess) HasMemoryMax() bool`
+
+HasMemoryMax returns a boolean if a field has been set.
+
+### GetMemoryUsage
+
+`func (o *ModelProcess) GetMemoryUsage() int32`
+
+GetMemoryUsage returns the MemoryUsage field if non-nil, zero value otherwise.
+
+### GetMemoryUsageOk
+
+`func (o *ModelProcess) GetMemoryUsageOk() (*int32, bool)`
+
+GetMemoryUsageOk returns a tuple with the MemoryUsage field if it's non-nil, zero value otherwise
+and a boolean to check if the value has been set.
+
+### SetMemoryUsage
+
+`func (o *ModelProcess) SetMemoryUsage(v int32)`
+
+SetMemoryUsage sets MemoryUsage field to given value.
+
+### HasMemoryUsage
+
+`func (o *ModelProcess) HasMemoryUsage() bool`
+
+HasMemoryUsage returns a boolean if a field has been set.
 
 ### GetNodeId
 
@@ -132,62 +175,107 @@ and a boolean to check if the value has been set.
 SetNodeId sets NodeId field to given value.
 
 
+### GetNodeName
+
+`func (o *ModelProcess) GetNodeName() string`
+
+GetNodeName returns the NodeName field if non-nil, zero value otherwise.
+
+### GetNodeNameOk
+
+`func (o *ModelProcess) GetNodeNameOk() (*string, bool)`
+
+GetNodeNameOk returns a tuple with the NodeName field if it's non-nil, zero value otherwise
+and a boolean to check if the value has been set.
+
+### SetNodeName
+
+`func (o *ModelProcess) SetNodeName(v string)`
+
+SetNodeName sets NodeName field to given value.
+
+
+### GetOpenFilesCount
+
+`func (o *ModelProcess) GetOpenFilesCount() int32`
+
+GetOpenFilesCount returns the OpenFilesCount field if non-nil, zero value otherwise.
+
+### GetOpenFilesCountOk
+
+`func (o *ModelProcess) GetOpenFilesCountOk() (*int32, bool)`
+
+GetOpenFilesCountOk returns a tuple with the OpenFilesCount field if it's non-nil, zero value otherwise
+and a boolean to check if the value has been set.
+
+### SetOpenFilesCount
+
+`func (o *ModelProcess) SetOpenFilesCount(v int32)`
+
+SetOpenFilesCount sets OpenFilesCount field to given value.
+
+### HasOpenFilesCount
+
+`func (o *ModelProcess) HasOpenFilesCount() bool`
+
+HasOpenFilesCount returns a boolean if a field has been set.
+
 ### GetPid
 
-`func (o *ModelProcess) GetPid() string`
+`func (o *ModelProcess) GetPid() int32`
 
 GetPid returns the Pid field if non-nil, zero value otherwise.
 
 ### GetPidOk
 
-`func (o *ModelProcess) GetPidOk() (*string, bool)`
+`func (o *ModelProcess) GetPidOk() (*int32, bool)`
 
 GetPidOk returns a tuple with the Pid field if it's non-nil, zero value otherwise
 and a boolean to check if the value has been set.
 
 ### SetPid
 
-`func (o *ModelProcess) SetPid(v string)`
+`func (o *ModelProcess) SetPid(v int32)`
 
 SetPid sets Pid field to given value.
 
 
 ### GetPpid
 
-`func (o *ModelProcess) GetPpid() string`
+`func (o *ModelProcess) GetPpid() int32`
 
 GetPpid returns the Ppid field if non-nil, zero value otherwise.
 
 ### GetPpidOk
 
-`func (o *ModelProcess) GetPpidOk() (*string, bool)`
+`func (o *ModelProcess) GetPpidOk() (*int32, bool)`
 
 GetPpidOk returns a tuple with the Ppid field if it's non-nil, zero value otherwise
 and a boolean to check if the value has been set.
 
 ### SetPpid
 
-`func (o *ModelProcess) SetPpid(v string)`
+`func (o *ModelProcess) SetPpid(v int32)`
 
 SetPpid sets Ppid field to given value.
 
 
 ### GetThreads
 
-`func (o *ModelProcess) GetThreads() string`
+`func (o *ModelProcess) GetThreads() int32`
 
 GetThreads returns the Threads field if non-nil, zero value otherwise.
 
 ### GetThreadsOk
 
-`func (o *ModelProcess) GetThreadsOk() (*string, bool)`
+`func (o *ModelProcess) GetThreadsOk() (*int32, bool)`
 
 GetThreadsOk returns a tuple with the Threads field if it's non-nil, zero value otherwise
 and a boolean to check if the value has been set.
 
 ### SetThreads
 
-`func (o *ModelProcess) SetThreads(v string)`
+`func (o *ModelProcess) SetThreads(v int32)`
 
 SetThreads sets Threads field to given value.
 
