@@ -22,6 +22,7 @@ import (
 	"strings"
 	"time"
 
+	"github.com/deepfence/golang_deepfence_sdk/utils/log"
 	"github.com/google/uuid"
 	"github.com/lestrrat-go/jwx/v2/jwt"
 )
@@ -319,6 +320,16 @@ func InSlice[T comparable](e T, s []T) bool {
 	return false
 }
 
+func FileExists(name string) bool {
+	// Reports whether the named file or directory exists.
+	if _, err := os.Stat(name); err != nil {
+		if os.IsNotExist(err) {
+			return false
+		}
+	}
+	return true
+}
+
 func RecursiveZip(pathsToZip []string, excludePathPrefixes []string, destinationPath string) error {
 	destinationFile, err := os.Create(destinationPath)
 	if err != nil {
@@ -327,12 +338,15 @@ func RecursiveZip(pathsToZip []string, excludePathPrefixes []string, destination
 	excludePathsSet := len(excludePathPrefixes) > 0
 	myZip := zip.NewWriter(destinationFile)
 	for _, pathToZip := range pathsToZip {
+		if !FileExists(pathToZip) {
+			continue
+		}
 		err = filepath.Walk(pathToZip, func(filePath string, info os.FileInfo, err error) error {
-			if info.IsDir() {
-				return nil
-			}
 			if err != nil {
 				return err
+			}
+			if info.IsDir() {
+				return nil
 			}
 			if excludePathsSet {
 				for _, v := range excludePathPrefixes {
@@ -357,7 +371,8 @@ func RecursiveZip(pathsToZip []string, excludePathPrefixes []string, destination
 			return nil
 		})
 		if err != nil {
-			return err
+			log.Warn().Msg(err.Error())
+			continue
 		}
 	}
 	err = myZip.Close()
