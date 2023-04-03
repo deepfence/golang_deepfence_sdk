@@ -9072,18 +9072,29 @@ components:
       example:
         duration: 0
         filters:
-          node_type: node_type
-          scan_type: scan_type
+          node_type: host
+          scan_type: vulnerability
           severity_or_check_type:
           - severity_or_check_type
           - severity_or_check_type
-        report_type: report_type
+        report_type: pdf
       properties:
         duration:
+          enum:
+          - 0
+          - 1
+          - 7
+          - 30
+          - 60
+          - 90
+          - 180
           type: integer
         filters:
           $ref: '#/components/schemas/UtilsReportFilters'
         report_type:
+          enum:
+          - pdf
+          - xlsx
           type: string
       required:
       - report_type
@@ -13999,21 +14010,49 @@ components:
       type: object
     UtilsReportFilters:
       example:
-        node_type: node_type
-        scan_type: scan_type
+        node_type: host
+        scan_type: vulnerability
         severity_or_check_type:
         - severity_or_check_type
         - severity_or_check_type
       properties:
         node_type:
+          enum:
+          - host
+          - container
+          - container_image
+          - linux
+          - aws
+          - gcp
+          - azure
           type: string
         scan_type:
+          enum:
+          - vulnerability
+          - secret
+          - malware
+          - compliance
+          - cloud_compliance
           type: string
         severity_or_check_type:
+          enum:
+          - critical
+          - high
+          - medium
+          - low
+          - cis
+          - gdpr
+          - nist
+          - hipaa
+          - pci
+          - soc2
           items:
             type: string
           nullable: true
           type: array
+      required:
+      - node_type
+      - scan_type
       type: object
     UtilsScanSbomRequest:
       example:

@@ -20,8 +20,8 @@ var _ MappedNullable = &UtilsReportFilters{}
 
 // UtilsReportFilters struct for UtilsReportFilters
 type UtilsReportFilters struct {
-	NodeType *string `json:"node_type,omitempty"`
-	ScanType *string `json:"scan_type,omitempty"`
+	NodeType string `json:"node_type"`
+	ScanType string `json:"scan_type"`
 	SeverityOrCheckType []string `json:"severity_or_check_type,omitempty"`
 }
 
@@ -29,8 +29,10 @@ type UtilsReportFilters struct {
 // This constructor will assign default values to properties that have it defined,
 // and makes sure properties required by API are set, but the set of arguments
 // will change when the set of required properties is changed
-func NewUtilsReportFilters() *UtilsReportFilters {
+func NewUtilsReportFilters(nodeType string, scanType string) *UtilsReportFilters {
 	this := UtilsReportFilters{}
+	this.NodeType = nodeType
+	this.ScanType = scanType
 	return &this
 }
 
@@ -42,68 +44,52 @@ func NewUtilsReportFiltersWithDefaults() *UtilsReportFilters {
 	return &this
 }
 
-// GetNodeType returns the NodeType field value if set, zero value otherwise.
+// GetNodeType returns the NodeType field value
 func (o *UtilsReportFilters) GetNodeType() string {
-	if o == nil || IsNil(o.NodeType) {
+	if o == nil {
 		var ret string
 		return ret
 	}
-	return *o.NodeType
+
+	return o.NodeType
 }
 
-// GetNodeTypeOk returns a tuple with the NodeType field value if set, nil otherwise
+// GetNodeTypeOk returns a tuple with the NodeType field value
 // and a boolean to check if the value has been set.
 func (o *UtilsReportFilters) GetNodeTypeOk() (*string, bool) {
-	if o == nil || IsNil(o.NodeType) {
+	if o == nil {
 		return nil, false
 	}
-	return o.NodeType, true
+	return &o.NodeType, true
 }
 
-// HasNodeType returns a boolean if a field has been set.
-func (o *UtilsReportFilters) HasNodeType() bool {
-	if o != nil && !IsNil(o.NodeType) {
-		return true
-	}
-
-	return false
-}
-
-// SetNodeType gets a reference to the given string and assigns it to the NodeType field.
+// SetNodeType sets field value
 func (o *UtilsReportFilters) SetNodeType(v string) {
-	o.NodeType = &v
+	o.NodeType = v
 }
 
-// GetScanType returns the ScanType field value if set, zero value otherwise.
+// GetScanType returns the ScanType field value
 func (o *UtilsReportFilters) GetScanType() string {
-	if o == nil || IsNil(o.ScanType) {
+	if o == nil {
 		var ret string
 		return ret
 	}
-	return *o.ScanType
+
+	return o.ScanType
 }
 
-// GetScanTypeOk returns a tuple with the ScanType field value if set, nil otherwise
+// GetScanTypeOk returns a tuple with the ScanType field value
 // and a boolean to check if the value has been set.
 func (o *UtilsReportFilters) GetScanTypeOk() (*string, bool) {
-	if o == nil || IsNil(o.ScanType) {
+	if o == nil {
 		return nil, false
 	}
-	return o.ScanType, true
+	return &o.ScanType, true
 }
 
-// HasScanType returns a boolean if a field has been set.
-func (o *UtilsReportFilters) HasScanType() bool {
-	if o != nil && !IsNil(o.ScanType) {
-		return true
-	}
-
-	return false
-}
-
-// SetScanType gets a reference to the given string and assigns it to the ScanType field.
+// SetScanType sets field value
 func (o *UtilsReportFilters) SetScanType(v string) {
-	o.ScanType = &v
+	o.ScanType = v
 }
 
 // GetSeverityOrCheckType returns the SeverityOrCheckType field value if set, zero value otherwise (both if not set or set to explicit null).
@@ -149,12 +135,8 @@ func (o UtilsReportFilters) MarshalJSON() ([]byte, error) {
 
 func (o UtilsReportFilters) ToMap() (map[string]interface{}, error) {
 	toSerialize := map[string]interface{}{}
-	if !IsNil(o.NodeType) {
-		toSerialize["node_type"] = o.NodeType
-	}
-	if !IsNil(o.ScanType) {
-		toSerialize["scan_type"] = o.ScanType
-	}
+	toSerialize["node_type"] = o.NodeType
+	toSerialize["scan_type"] = o.ScanType
 	if o.SeverityOrCheckType != nil {
 		toSerialize["severity_or_check_type"] = o.SeverityOrCheckType
 	}

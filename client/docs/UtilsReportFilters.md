@@ -4,15 +4,15 @@
 
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
-**NodeType** | Pointer to **string** |  | [optional] 
-**ScanType** | Pointer to **string** |  | [optional] 
+**NodeType** | **string** |  | 
+**ScanType** | **string** |  | 
 **SeverityOrCheckType** | Pointer to **[]string** |  | [optional] 
 
 ## Methods
 
 ### NewUtilsReportFilters
 
-`func NewUtilsReportFilters() *UtilsReportFilters`
+`func NewUtilsReportFilters(nodeType string, scanType string, ) *UtilsReportFilters`
 
 NewUtilsReportFilters instantiates a new UtilsReportFilters object
 This constructor will assign default values to properties that have it defined,
@@ -46,11 +46,6 @@ and a boolean to check if the value has been set.
 
 SetNodeType sets NodeType field to given value.
 
-### HasNodeType
-
-`func (o *UtilsReportFilters) HasNodeType() bool`
-
-HasNodeType returns a boolean if a field has been set.
 
 ### GetScanType
 
@@ -71,11 +66,6 @@ and a boolean to check if the value has been set.
 
 SetScanType sets ScanType field to given value.
 
-### HasScanType
-
-`func (o *UtilsReportFilters) HasScanType() bool`
-
-HasScanType returns a boolean if a field has been set.
 
 ### GetSeverityOrCheckType
 
