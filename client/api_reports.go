@@ -64,7 +64,7 @@ func (a *ReportsApiService) DeleteReportExecute(r ApiDeleteReportRequest) (*http
 		return nil, &GenericOpenAPIError{error: err.Error()}
 	}
 
-	localVarPath := localBasePath + "/deepfence/report/{report_id}"
+	localVarPath := localBasePath + "/deepfence/reports/{report_id}"
 	localVarPath = strings.Replace(localVarPath, "{"+"report_id"+"}", url.PathEscape(parameterValueToString(r.reportId, "reportId")), -1)
 
 	localVarHeaderParams := make(map[string]string)
@@ -193,7 +193,7 @@ func (a *ReportsApiService) GenerateReportExecute(r ApiGenerateReportRequest) (*
 		return localVarReturnValue, nil, &GenericOpenAPIError{error: err.Error()}
 	}
 
-	localVarPath := localBasePath + "/deepfence/report"
+	localVarPath := localBasePath + "/deepfence/reports"
 
 	localVarHeaderParams := make(map[string]string)
 	localVarQueryParams := url.Values{}
@@ -329,7 +329,7 @@ func (a *ReportsApiService) GetReportExecute(r ApiGetReportRequest) (*ModelExpor
 		return localVarReturnValue, nil, &GenericOpenAPIError{error: err.Error()}
 	}
 
-	localVarPath := localBasePath + "/deepfence/report/{report_id}"
+	localVarPath := localBasePath + "/deepfence/reports/{report_id}"
 	localVarPath = strings.Replace(localVarPath, "{"+"report_id"+"}", url.PathEscape(parameterValueToString(r.reportId, "reportId")), -1)
 
 	localVarHeaderParams := make(map[string]string)
@@ -461,7 +461,7 @@ func (a *ReportsApiService) ListReportsExecute(r ApiListReportsRequest) ([]Model
 		return localVarReturnValue, nil, &GenericOpenAPIError{error: err.Error()}
 	}
 
-	localVarPath := localBasePath + "/deepfence/report"
+	localVarPath := localBasePath + "/deepfence/reports"
 
 	localVarHeaderParams := make(map[string]string)
 	localVarQueryParams := url.Values{}

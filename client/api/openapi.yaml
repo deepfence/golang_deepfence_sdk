@@ -2721,7 +2721,7 @@ paths:
       summary: Get All Registries Summary By Type
       tags:
       - Registry
-  /deepfence/report:
+  /deepfence/reports:
     get:
       description: List all the available reports
       operationId: listReports
@@ -2803,7 +2803,7 @@ paths:
       summary: Generate Report
       tags:
       - Reports
-  /deepfence/report/{report_id}:
+  /deepfence/reports/{report_id}:
     delete:
       description: delete report for given report_id
       operationId: deleteReport

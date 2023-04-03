@@ -4,10 +4,10 @@ All URIs are relative to *http://localhost*
 
 Method | HTTP request | Description
 ------------- | ------------- | -------------
-[**DeleteReport**](ReportsApi.md#DeleteReport) | **Delete** /deepfence/report/{report_id} | Delete Report
-[**GenerateReport**](ReportsApi.md#GenerateReport) | **Post** /deepfence/report | Generate Report
-[**GetReport**](ReportsApi.md#GetReport) | **Get** /deepfence/report/{report_id} | Get Report
-[**ListReports**](ReportsApi.md#ListReports) | **Get** /deepfence/report | List Reports
+[**DeleteReport**](ReportsApi.md#DeleteReport) | **Delete** /deepfence/reports/{report_id} | Delete Report
+[**GenerateReport**](ReportsApi.md#GenerateReport) | **Post** /deepfence/reports | Generate Report
+[**GetReport**](ReportsApi.md#GetReport) | **Get** /deepfence/reports/{report_id} | Get Report
+[**ListReports**](ReportsApi.md#ListReports) | **Get** /deepfence/reports | List Reports
 
 
 

@@ -144,10 +144,10 @@ Class | Method | HTTP request | Description
 *RegistryApi* | [**ListImages**](docs/RegistryApi.md#listimages) | **Post** /deepfence/registryaccount/images | List Registry Images
 *RegistryApi* | [**ListRegistry**](docs/RegistryApi.md#listregistry) | **Get** /deepfence/registryaccount | List Registries
 *RegistryApi* | [**UpdateRegistry**](docs/RegistryApi.md#updateregistry) | **Put** /deepfence/registryaccount/{registry_id} | Update Registry
-*ReportsApi* | [**DeleteReport**](docs/ReportsApi.md#deletereport) | **Delete** /deepfence/report/{report_id} | Delete Report
-*ReportsApi* | [**GenerateReport**](docs/ReportsApi.md#generatereport) | **Post** /deepfence/report | Generate Report
-*ReportsApi* | [**GetReport**](docs/ReportsApi.md#getreport) | **Get** /deepfence/report/{report_id} | Get Report
-*ReportsApi* | [**ListReports**](docs/ReportsApi.md#listreports) | **Get** /deepfence/report | List Reports
+*ReportsApi* | [**DeleteReport**](docs/ReportsApi.md#deletereport) | **Delete** /deepfence/reports/{report_id} | Delete Report
+*ReportsApi* | [**GenerateReport**](docs/ReportsApi.md#generatereport) | **Post** /deepfence/reports | Generate Report
+*ReportsApi* | [**GetReport**](docs/ReportsApi.md#getreport) | **Get** /deepfence/reports/{report_id} | Get Report
+*ReportsApi* | [**ListReports**](docs/ReportsApi.md#listreports) | **Get** /deepfence/reports | List Reports
 *ScanResultsApi* | [**DeleteScanResult**](docs/ScanResultsApi.md#deletescanresult) | **Patch** /deepfence/scan/results/action/delete | Delete selected scan results
 *ScanResultsApi* | [**DeleteScanResultsForScanID**](docs/ScanResultsApi.md#deletescanresultsforscanid) | **Delete** /deepfence/scan/{scan_type}/{scan_id} | Delete all scan results for a scan id
 *ScanResultsApi* | [**DownloadScanResults**](docs/ScanResultsApi.md#downloadscanresults) | **Get** /deepfence/scan/{scan_type}/{scan_id}/download | Download Scans Results
