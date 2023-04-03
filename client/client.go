@@ -64,6 +64,8 @@ type APIClient struct {
 
 	DiagnosisApi *DiagnosisApiService
 
+	IntegrationApi *IntegrationApiService
+
 	InternalApi *InternalApiService
 
 	LookupApi *LookupApiService
@@ -71,6 +73,8 @@ type APIClient struct {
 	MalwareScanApi *MalwareScanApiService
 
 	RegistryApi *RegistryApiService
+
+	ReportsApi *ReportsApiService
 
 	ScanResultsApi *ScanResultsApiService
 
@@ -110,10 +114,12 @@ func NewAPIClient(cfg *Configuration) *APIClient {
 	c.ComplianceApi = (*ComplianceApiService)(&c.common)
 	c.ControlsApi = (*ControlsApiService)(&c.common)
 	c.DiagnosisApi = (*DiagnosisApiService)(&c.common)
+	c.IntegrationApi = (*IntegrationApiService)(&c.common)
 	c.InternalApi = (*InternalApiService)(&c.common)
 	c.LookupApi = (*LookupApiService)(&c.common)
 	c.MalwareScanApi = (*MalwareScanApiService)(&c.common)
 	c.RegistryApi = (*RegistryApiService)(&c.common)
+	c.ReportsApi = (*ReportsApiService)(&c.common)
 	c.ScanResultsApi = (*ScanResultsApiService)(&c.common)
 	c.SearchApi = (*SearchApiService)(&c.common)
 	c.SecretScanApi = (*SecretScanApiService)(&c.common)

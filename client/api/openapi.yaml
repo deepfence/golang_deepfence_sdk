@@ -1693,6 +1693,126 @@ paths:
       summary: Ingest Vulnerabilities Scan Status
       tags:
       - Vulnerability
+  /deepfence/integration:
+    get:
+      description: List all the added Integrations
+      operationId: listIntegration
+      responses:
+        "200":
+          content:
+            application/json:
+              schema:
+                items:
+                  $ref: '#/components/schemas/ModelIntegrationListResp'
+                type: array
+          description: OK
+        "400":
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ApiDocsBadRequestResponse'
+          description: Bad Request
+        "401":
+          description: Unauthorized
+        "403":
+          description: Forbidden
+        "404":
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ApiDocsFailureResponse'
+          description: Not Found
+        "500":
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ApiDocsFailureResponse'
+          description: Internal Server Error
+      security:
+      - bearer_token: []
+      summary: List Integrations
+      tags:
+      - Integration
+    post:
+      description: Add a new supported integration
+      operationId: addIntegration
+      requestBody:
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/ModelIntegrationAddReq'
+      responses:
+        "200":
+          description: OK
+        "400":
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ApiDocsBadRequestResponse'
+          description: Bad Request
+        "401":
+          description: Unauthorized
+        "403":
+          description: Forbidden
+        "404":
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ApiDocsFailureResponse'
+          description: Not Found
+        "500":
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ApiDocsFailureResponse'
+          description: Internal Server Error
+      security:
+      - bearer_token: []
+      summary: Add Integration
+      tags:
+      - Integration
+  /deepfence/integration/{integration_id}:
+    delete:
+      description: Delete integration
+      operationId: deleteIntegration
+      parameters:
+      - explode: false
+        in: path
+        name: integration_id
+        required: true
+        schema:
+          type: string
+        style: simple
+      responses:
+        "200":
+          description: OK
+        "400":
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ApiDocsBadRequestResponse'
+          description: Bad Request
+        "401":
+          description: Unauthorized
+        "403":
+          description: Forbidden
+        "404":
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ApiDocsFailureResponse'
+          description: Not Found
+        "500":
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ApiDocsFailureResponse'
+          description: Internal Server Error
+      security:
+      - bearer_token: []
+      summary: Delete Integration
+      tags:
+      - Integration
   /deepfence/internal/console-api-token:
     get:
       description: Get api-token for console agent
@@ -2601,6 +2721,175 @@ paths:
       summary: Get All Registries Summary By Type
       tags:
       - Registry
+  /deepfence/report:
+    get:
+      description: List all the available reports
+      operationId: listReports
+      responses:
+        "200":
+          content:
+            application/json:
+              schema:
+                items:
+                  $ref: '#/components/schemas/ModelExportReport'
+                type: array
+          description: OK
+        "400":
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ApiDocsBadRequestResponse'
+          description: Bad Request
+        "401":
+          description: Unauthorized
+        "403":
+          description: Forbidden
+        "404":
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ApiDocsFailureResponse'
+          description: Not Found
+        "500":
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ApiDocsFailureResponse'
+          description: Internal Server Error
+      security:
+      - bearer_token: []
+      summary: List Reports
+      tags:
+      - Reports
+    post:
+      description: generate report for given type and filters
+      operationId: generateReport
+      requestBody:
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/ModelGenerateReportReq'
+      responses:
+        "200":
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ModelGenerateReportResp'
+          description: OK
+        "400":
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ApiDocsBadRequestResponse'
+          description: Bad Request
+        "401":
+          description: Unauthorized
+        "403":
+          description: Forbidden
+        "404":
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ApiDocsFailureResponse'
+          description: Not Found
+        "500":
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ApiDocsFailureResponse'
+          description: Internal Server Error
+      security:
+      - bearer_token: []
+      summary: Generate Report
+      tags:
+      - Reports
+  /deepfence/report/{report_id}:
+    delete:
+      description: delete report for given report_id
+      operationId: deleteReport
+      parameters:
+      - explode: false
+        in: path
+        name: report_id
+        required: true
+        schema:
+          type: string
+        style: simple
+      responses:
+        "200":
+          description: OK
+        "400":
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ApiDocsBadRequestResponse'
+          description: Bad Request
+        "401":
+          description: Unauthorized
+        "403":
+          description: Forbidden
+        "404":
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ApiDocsFailureResponse'
+          description: Not Found
+        "500":
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ApiDocsFailureResponse'
+          description: Internal Server Error
+      security:
+      - bearer_token: []
+      summary: Delete Report
+      tags:
+      - Reports
+    get:
+      description: get report by report_id
+      operationId: getReport
+      parameters:
+      - explode: false
+        in: path
+        name: report_id
+        required: true
+        schema:
+          type: string
+        style: simple
+      responses:
+        "200":
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ModelExportReport'
+          description: OK
+        "400":
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ApiDocsBadRequestResponse'
+          description: Bad Request
+        "401":
+          description: Unauthorized
+        "403":
+          description: Forbidden
+        "404":
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ApiDocsFailureResponse'
+          description: Not Found
+        "500":
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ApiDocsFailureResponse'
+          description: Internal Server Error
+      security:
+      - bearer_token: []
+      summary: Get Report
+      tags:
+      - Reports
   /deepfence/scan/{scan_type}/{scan_id}:
     delete:
       description: Delete all scan results for a scan id
@@ -4802,6 +5091,44 @@ paths:
       security:
       - bearer_token: []
       summary: Count Malwares
+      tags:
+      - Search
+  /deepfence/search/count/nodes:
+    get:
+      description: "Count hosts, containers, pods, k8s clusters, images"
+      operationId: countNodes
+      responses:
+        "200":
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/SearchNodeCountResp'
+          description: OK
+        "400":
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ApiDocsBadRequestResponse'
+          description: Bad Request
+        "401":
+          description: Unauthorized
+        "403":
+          description: Forbidden
+        "404":
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ApiDocsFailureResponse'
+          description: Not Found
+        "500":
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ApiDocsFailureResponse'
+          description: Internal Server Error
+      security:
+      - bearer_token: []
+      summary: Count nodes
       tags:
       - Search
   /deepfence/search/count/secret/scans:
@@ -8660,6 +8987,37 @@ components:
         url_link:
           type: string
       type: object
+    ModelExportReport:
+      example:
+        duration: 6
+        updated_at: 1
+        storage_path: storage_path
+        report_id: report_id
+        created_at: 0
+        filters: filters
+        type: type
+        url: url
+        status: status
+      properties:
+        created_at:
+          type: integer
+        duration:
+          type: integer
+        filters:
+          type: string
+        report_id:
+          type: string
+        status:
+          type: string
+        storage_path:
+          type: string
+        type:
+          type: string
+        updated_at:
+          type: integer
+        url:
+          type: string
+      type: object
     ModelFetchWindow:
       example:
         offset: 0
@@ -8709,6 +9067,33 @@ components:
           type: object
       required:
       - filters
+      type: object
+    ModelGenerateReportReq:
+      example:
+        duration: 0
+        filters:
+          node_type: node_type
+          scan_type: scan_type
+          severity_or_check_type:
+          - severity_or_check_type
+          - severity_or_check_type
+        report_type: report_type
+      properties:
+        duration:
+          type: integer
+        filters:
+          $ref: '#/components/schemas/UtilsReportFilters'
+        report_type:
+          type: string
+      required:
+      - report_type
+      type: object
+    ModelGenerateReportResp:
+      example:
+        report_id: report_id
+      properties:
+        report_id:
+          type: string
       type: object
     ModelHost:
       example:
@@ -9598,6 +9983,63 @@ components:
       - available_workload
       - node_id
       - version
+      type: object
+    ModelIntegrationAddReq:
+      example:
+        notification_type: notification_type
+        filters:
+          key:
+          - filters
+          - filters
+        integration_type: integration_type
+        config:
+          key: ""
+      properties:
+        config:
+          additionalProperties: {}
+          nullable: true
+          type: object
+        filters:
+          additionalProperties:
+            items:
+              type: string
+            type: array
+          nullable: true
+          type: object
+        integration_type:
+          type: string
+        notification_type:
+          type: string
+      type: object
+    ModelIntegrationListResp:
+      example:
+        notification_type: notification_type
+        filters:
+          key:
+          - filters
+          - filters
+        id: 0
+        integration_type: integration_type
+        config:
+          key: ""
+      properties:
+        config:
+          additionalProperties: {}
+          nullable: true
+          type: object
+        filters:
+          additionalProperties:
+            items:
+              type: string
+            type: array
+          nullable: true
+          type: object
+        id:
+          type: integer
+        integration_type:
+          type: string
+        notification_type:
+          type: string
       type: object
     ModelInviteUserRequest:
       example:
@@ -13334,6 +13776,39 @@ components:
       - descending
       - field_name
       type: object
+    SearchNodeCountResp:
+      example:
+        container: 6
+        pod: 7
+        host: 5
+        namespace: 2
+        cloud_provider: 0
+        kubernetes_cluster: 5
+        container_image: 1
+      properties:
+        cloud_provider:
+          type: integer
+        container:
+          type: integer
+        container_image:
+          type: integer
+        host:
+          type: integer
+        kubernetes_cluster:
+          type: integer
+        namespace:
+          type: integer
+        pod:
+          type: integer
+      required:
+      - cloud_provider
+      - container
+      - container_image
+      - host
+      - kubernetes_cluster
+      - namespace
+      - pod
+      type: object
     SearchSearchCountResp:
       example:
         count: 6
@@ -13521,6 +13996,24 @@ components:
       - node_filters
       - scan_filters
       - window
+      type: object
+    UtilsReportFilters:
+      example:
+        node_type: node_type
+        scan_type: scan_type
+        severity_or_check_type:
+        - severity_or_check_type
+        - severity_or_check_type
+      properties:
+        node_type:
+          type: string
+        scan_type:
+          type: string
+        severity_or_check_type:
+          items:
+            type: string
+          nullable: true
+          type: array
       type: object
     UtilsScanSbomRequest:
       example:

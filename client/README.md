@@ -112,6 +112,9 @@ Class | Method | HTTP request | Description
 *DiagnosisApi* | [**GenerateConsoleDiagnosticLogs**](docs/DiagnosisApi.md#generateconsolediagnosticlogs) | **Post** /deepfence/diagnosis/console-logs | Generate Console Diagnostic Logs
 *DiagnosisApi* | [**GetDiagnosticLogs**](docs/DiagnosisApi.md#getdiagnosticlogs) | **Get** /deepfence/diagnosis/diagnostic-logs | Get Diagnostic Logs
 *DiagnosisApi* | [**UpdateAgentDiagnosticLogsStatus**](docs/DiagnosisApi.md#updateagentdiagnosticlogsstatus) | **Put** /deepfence/diagnosis/agent-logs/status/{node_id} | Update Agent Diagnostic Logs Status
+*IntegrationApi* | [**AddIntegration**](docs/IntegrationApi.md#addintegration) | **Post** /deepfence/integration | Add Integration
+*IntegrationApi* | [**DeleteIntegration**](docs/IntegrationApi.md#deleteintegration) | **Delete** /deepfence/integration/{integration_id} | Delete Integration
+*IntegrationApi* | [**ListIntegration**](docs/IntegrationApi.md#listintegration) | **Get** /deepfence/integration | List Integrations
 *InternalApi* | [**GetConsoleApiToken**](docs/InternalApi.md#getconsoleapitoken) | **Get** /deepfence/internal/console-api-token | Get api-token for console agent
 *LookupApi* | [**GetCloudResources**](docs/LookupApi.md#getcloudresources) | **Post** /deepfence/lookup/cloud-resources | Get Cloud Resources
 *LookupApi* | [**GetContainerImages**](docs/LookupApi.md#getcontainerimages) | **Post** /deepfence/lookup/containerimages | Retrieve Container Images data
@@ -141,6 +144,10 @@ Class | Method | HTTP request | Description
 *RegistryApi* | [**ListImages**](docs/RegistryApi.md#listimages) | **Post** /deepfence/registryaccount/images | List Registry Images
 *RegistryApi* | [**ListRegistry**](docs/RegistryApi.md#listregistry) | **Get** /deepfence/registryaccount | List Registries
 *RegistryApi* | [**UpdateRegistry**](docs/RegistryApi.md#updateregistry) | **Put** /deepfence/registryaccount/{registry_id} | Update Registry
+*ReportsApi* | [**DeleteReport**](docs/ReportsApi.md#deletereport) | **Delete** /deepfence/report/{report_id} | Delete Report
+*ReportsApi* | [**GenerateReport**](docs/ReportsApi.md#generatereport) | **Post** /deepfence/report | Generate Report
+*ReportsApi* | [**GetReport**](docs/ReportsApi.md#getreport) | **Get** /deepfence/report/{report_id} | Get Report
+*ReportsApi* | [**ListReports**](docs/ReportsApi.md#listreports) | **Get** /deepfence/report | List Reports
 *ScanResultsApi* | [**DeleteScanResult**](docs/ScanResultsApi.md#deletescanresult) | **Patch** /deepfence/scan/results/action/delete | Delete selected scan results
 *ScanResultsApi* | [**DeleteScanResultsForScanID**](docs/ScanResultsApi.md#deletescanresultsforscanid) | **Delete** /deepfence/scan/{scan_type}/{scan_id} | Delete all scan results for a scan id
 *ScanResultsApi* | [**DownloadScanResults**](docs/ScanResultsApi.md#downloadscanresults) | **Get** /deepfence/scan/{scan_type}/{scan_id}/download | Download Scans Results
@@ -157,6 +164,7 @@ Class | Method | HTTP request | Description
 *SearchApi* | [**CountHosts**](docs/SearchApi.md#counthosts) | **Post** /deepfence/search/count/hosts | Count hosts
 *SearchApi* | [**CountMalwareScans**](docs/SearchApi.md#countmalwarescans) | **Post** /deepfence/search/count/malware/scans | Count Malware Scan results
 *SearchApi* | [**CountMalwares**](docs/SearchApi.md#countmalwares) | **Post** /deepfence/search/count/malwares | Count Malwares
+*SearchApi* | [**CountNodes**](docs/SearchApi.md#countnodes) | **Get** /deepfence/search/count/nodes | Count nodes
 *SearchApi* | [**CountSecrets**](docs/SearchApi.md#countsecrets) | **Post** /deepfence/search/count/secrets | Count Secrets
 *SearchApi* | [**CountSecretsScans**](docs/SearchApi.md#countsecretsscans) | **Post** /deepfence/search/count/secret/scans | Count Secret Scan results
 *SearchApi* | [**CountVulnerabilities**](docs/SearchApi.md#countvulnerabilities) | **Post** /deepfence/search/count/vulnerabilities | Count Vulnerabilities
@@ -287,12 +295,17 @@ Class | Method | HTTP request | Description
  - [ModelContainer](docs/ModelContainer.md)
  - [ModelContainerImage](docs/ModelContainerImage.md)
  - [ModelDownloadReportResponse](docs/ModelDownloadReportResponse.md)
+ - [ModelExportReport](docs/ModelExportReport.md)
  - [ModelFetchWindow](docs/ModelFetchWindow.md)
  - [ModelFiltersReq](docs/ModelFiltersReq.md)
  - [ModelFiltersResult](docs/ModelFiltersResult.md)
+ - [ModelGenerateReportReq](docs/ModelGenerateReportReq.md)
+ - [ModelGenerateReportResp](docs/ModelGenerateReportResp.md)
  - [ModelHost](docs/ModelHost.md)
  - [ModelImageStub](docs/ModelImageStub.md)
  - [ModelInitAgentReq](docs/ModelInitAgentReq.md)
+ - [ModelIntegrationAddReq](docs/ModelIntegrationAddReq.md)
+ - [ModelIntegrationListResp](docs/ModelIntegrationListResp.md)
  - [ModelInviteUserRequest](docs/ModelInviteUserRequest.md)
  - [ModelInviteUserResponse](docs/ModelInviteUserResponse.md)
  - [ModelKubernetesCluster](docs/ModelKubernetesCluster.md)
@@ -351,10 +364,12 @@ Class | Method | HTTP request | Description
  - [ReportersMatchFilter](docs/ReportersMatchFilter.md)
  - [ReportersOrderFilter](docs/ReportersOrderFilter.md)
  - [ReportersOrderSpec](docs/ReportersOrderSpec.md)
+ - [SearchNodeCountResp](docs/SearchNodeCountResp.md)
  - [SearchSearchCountResp](docs/SearchSearchCountResp.md)
  - [SearchSearchFilter](docs/SearchSearchFilter.md)
  - [SearchSearchNodeReq](docs/SearchSearchNodeReq.md)
  - [SearchSearchScanReq](docs/SearchSearchScanReq.md)
+ - [UtilsReportFilters](docs/UtilsReportFilters.md)
  - [UtilsScanSbomRequest](docs/UtilsScanSbomRequest.md)
 
 
