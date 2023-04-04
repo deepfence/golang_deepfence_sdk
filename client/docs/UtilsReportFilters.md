@@ -4,6 +4,7 @@
 
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
+**AdvancedReportFilters** | Pointer to [**UtilsAdvancedReportFilters**](UtilsAdvancedReportFilters.md) |  | [optional] 
 **NodeType** | **string** |  | 
 **ScanType** | **string** |  | 
 **SeverityOrCheckType** | Pointer to **[]string** |  | [optional] 
@@ -26,6 +27,31 @@ will change when the set of required properties is changed
 NewUtilsReportFiltersWithDefaults instantiates a new UtilsReportFilters object
 This constructor will only assign default values to properties that have it defined,
 but it doesn't guarantee that properties required by API are set
+
+### GetAdvancedReportFilters
+
+`func (o *UtilsReportFilters) GetAdvancedReportFilters() UtilsAdvancedReportFilters`
+
+GetAdvancedReportFilters returns the AdvancedReportFilters field if non-nil, zero value otherwise.
+
+### GetAdvancedReportFiltersOk
+
+`func (o *UtilsReportFilters) GetAdvancedReportFiltersOk() (*UtilsAdvancedReportFilters, bool)`
+
+GetAdvancedReportFiltersOk returns a tuple with the AdvancedReportFilters field if it's non-nil, zero value otherwise
+and a boolean to check if the value has been set.
+
+### SetAdvancedReportFilters
+
+`func (o *UtilsReportFilters) SetAdvancedReportFilters(v UtilsAdvancedReportFilters)`
+
+SetAdvancedReportFilters sets AdvancedReportFilters field to given value.
+
+### HasAdvancedReportFilters
+
+`func (o *UtilsReportFilters) HasAdvancedReportFilters() bool`
+
+HasAdvancedReportFilters returns a boolean if a field has been set.
 
 ### GetNodeType
 

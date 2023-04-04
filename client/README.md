@@ -369,6 +369,7 @@ Class | Method | HTTP request | Description
  - [SearchSearchFilter](docs/SearchSearchFilter.md)
  - [SearchSearchNodeReq](docs/SearchSearchNodeReq.md)
  - [SearchSearchScanReq](docs/SearchSearchScanReq.md)
+ - [UtilsAdvancedReportFilters](docs/UtilsAdvancedReportFilters.md)
  - [UtilsReportFilters](docs/UtilsReportFilters.md)
  - [UtilsScanSbomRequest](docs/UtilsScanSbomRequest.md)
 

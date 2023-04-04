@@ -181,6 +181,7 @@ docs/SecretScanApi.md
 docs/ThreatApi.md
 docs/TopologyApi.md
 docs/UserApi.md
+docs/UtilsAdvancedReportFilters.md
 docs/UtilsReportFilters.md
 docs/UtilsScanSbomRequest.md
 docs/VulnerabilityApi.md
@@ -325,6 +326,7 @@ model_search_search_count_resp.go
 model_search_search_filter.go
 model_search_search_node_req.go
 model_search_search_scan_req.go
+model_utils_advanced_report_filters.go
 model_utils_report_filters.go
 model_utils_scan_sbom_request.go
 response.go

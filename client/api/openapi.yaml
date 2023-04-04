@@ -9073,6 +9073,12 @@ components:
         duration: 0
         filters:
           node_type: host
+          advanced_report_filters:
+            account_id: account_id
+            scan_status: scan_status
+            kubernetes_cluster_name: kubernetes_cluster_name
+            masked: true
+            host_name: host_name
           scan_type: vulnerability
           severity_or_check_type:
           - severity_or_check_type
@@ -14008,14 +14014,41 @@ components:
       - scan_filters
       - window
       type: object
+    UtilsAdvancedReportFilters:
+      example:
+        account_id: account_id
+        scan_status: scan_status
+        kubernetes_cluster_name: kubernetes_cluster_name
+        masked: true
+        host_name: host_name
+      properties:
+        account_id:
+          type: string
+        host_name:
+          type: string
+        kubernetes_cluster_name:
+          type: string
+        masked:
+          type: boolean
+        scan_status:
+          type: string
+      type: object
     UtilsReportFilters:
       example:
         node_type: host
+        advanced_report_filters:
+          account_id: account_id
+          scan_status: scan_status
+          kubernetes_cluster_name: kubernetes_cluster_name
+          masked: true
+          host_name: host_name
         scan_type: vulnerability
         severity_or_check_type:
         - severity_or_check_type
         - severity_or_check_type
       properties:
+        advanced_report_filters:
+          $ref: '#/components/schemas/UtilsAdvancedReportFilters'
         node_type:
           enum:
           - host
