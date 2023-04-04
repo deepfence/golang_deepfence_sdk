@@ -233,7 +233,7 @@ func FromMap(bb map[string]interface{}, c interface{}) {
 
 	for i := 0; i < t.NumField(); i++ {
 		data, has := bb[t.Field(i).Tag.Get("json")]
-		if !has {
+		if !has || data == nil {
 			continue
 		}
 		if t.Field(i).Tag.Get("nested_json") == "true" {
