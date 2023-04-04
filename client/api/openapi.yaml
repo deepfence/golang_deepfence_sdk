@@ -9072,6 +9072,7 @@ components:
       example:
         duration: 0
         filters:
+          include_dead_nodes: true
           node_type: host
           advanced_report_filters:
             account_id: account_id
@@ -14035,6 +14036,7 @@ components:
       type: object
     UtilsReportFilters:
       example:
+        include_dead_nodes: true
         node_type: host
         advanced_report_filters:
           account_id: account_id
@@ -14049,6 +14051,8 @@ components:
       properties:
         advanced_report_filters:
           $ref: '#/components/schemas/UtilsAdvancedReportFilters'
+        include_dead_nodes:
+          type: boolean
         node_type:
           enum:
           - host

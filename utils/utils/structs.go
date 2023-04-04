@@ -65,6 +65,7 @@ type ReportFilters struct {
 	ScanType              string                `json:"scan_type" validate:"required" required:"true" enum:"vulnerability,secret,malware,compliance,cloud_compliance"`
 	NodeType              string                `json:"node_type" validate:"required" required:"true" enum:"host,container,container_image,linux,aws,gcp,azure"`
 	SeverityOrCheckType   []string              `json:"severity_or_check_type" enum:"critical,high,medium,low,cis,gdpr,nist,hipaa,pci,soc2"`
+	IncludeDeadNode       bool                  `json:"include_dead_nodes"`
 	AdvancedReportFilters AdvancedReportFilters `json:"advanced_report_filters,omitempty"`
 }
 

@@ -21,6 +21,7 @@ var _ MappedNullable = &UtilsReportFilters{}
 // UtilsReportFilters struct for UtilsReportFilters
 type UtilsReportFilters struct {
 	AdvancedReportFilters *UtilsAdvancedReportFilters `json:"advanced_report_filters,omitempty"`
+	IncludeDeadNodes *bool `json:"include_dead_nodes,omitempty"`
 	NodeType string `json:"node_type"`
 	ScanType string `json:"scan_type"`
 	SeverityOrCheckType []string `json:"severity_or_check_type,omitempty"`
@@ -75,6 +76,38 @@ func (o *UtilsReportFilters) HasAdvancedReportFilters() bool {
 // SetAdvancedReportFilters gets a reference to the given UtilsAdvancedReportFilters and assigns it to the AdvancedReportFilters field.
 func (o *UtilsReportFilters) SetAdvancedReportFilters(v UtilsAdvancedReportFilters) {
 	o.AdvancedReportFilters = &v
+}
+
+// GetIncludeDeadNodes returns the IncludeDeadNodes field value if set, zero value otherwise.
+func (o *UtilsReportFilters) GetIncludeDeadNodes() bool {
+	if o == nil || IsNil(o.IncludeDeadNodes) {
+		var ret bool
+		return ret
+	}
+	return *o.IncludeDeadNodes
+}
+
+// GetIncludeDeadNodesOk returns a tuple with the IncludeDeadNodes field value if set, nil otherwise
+// and a boolean to check if the value has been set.
+func (o *UtilsReportFilters) GetIncludeDeadNodesOk() (*bool, bool) {
+	if o == nil || IsNil(o.IncludeDeadNodes) {
+		return nil, false
+	}
+	return o.IncludeDeadNodes, true
+}
+
+// HasIncludeDeadNodes returns a boolean if a field has been set.
+func (o *UtilsReportFilters) HasIncludeDeadNodes() bool {
+	if o != nil && !IsNil(o.IncludeDeadNodes) {
+		return true
+	}
+
+	return false
+}
+
+// SetIncludeDeadNodes gets a reference to the given bool and assigns it to the IncludeDeadNodes field.
+func (o *UtilsReportFilters) SetIncludeDeadNodes(v bool) {
+	o.IncludeDeadNodes = &v
 }
 
 // GetNodeType returns the NodeType field value
@@ -170,6 +203,9 @@ func (o UtilsReportFilters) ToMap() (map[string]interface{}, error) {
 	toSerialize := map[string]interface{}{}
 	if !IsNil(o.AdvancedReportFilters) {
 		toSerialize["advanced_report_filters"] = o.AdvancedReportFilters
+	}
+	if !IsNil(o.IncludeDeadNodes) {
+		toSerialize["include_dead_nodes"] = o.IncludeDeadNodes
 	}
 	toSerialize["node_type"] = o.NodeType
 	toSerialize["scan_type"] = o.ScanType
