@@ -5,6 +5,7 @@
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
 **CloudFilter** | **[]string** |  | 
+**ContainerFilter** | **[]string** |  | 
 **FieldFilters** | [**ReportersFieldsFilters**](ReportersFieldsFilters.md) |  | 
 **HostFilter** | **[]string** |  | 
 **KubernetesFilter** | **[]string** |  | 
@@ -15,7 +16,7 @@ Name | Type | Description | Notes
 
 ### NewGraphTopologyFilters
 
-`func NewGraphTopologyFilters(cloudFilter []string, fieldFilters ReportersFieldsFilters, hostFilter []string, kubernetesFilter []string, podFilter []string, regionFilter []string, ) *GraphTopologyFilters`
+`func NewGraphTopologyFilters(cloudFilter []string, containerFilter []string, fieldFilters ReportersFieldsFilters, hostFilter []string, kubernetesFilter []string, podFilter []string, regionFilter []string, ) *GraphTopologyFilters`
 
 NewGraphTopologyFilters instantiates a new GraphTopologyFilters object
 This constructor will assign default values to properties that have it defined,
@@ -60,6 +61,36 @@ SetCloudFilter sets CloudFilter field to given value.
 `func (o *GraphTopologyFilters) UnsetCloudFilter()`
 
 UnsetCloudFilter ensures that no value is present for CloudFilter, not even an explicit nil
+### GetContainerFilter
+
+`func (o *GraphTopologyFilters) GetContainerFilter() []string`
+
+GetContainerFilter returns the ContainerFilter field if non-nil, zero value otherwise.
+
+### GetContainerFilterOk
+
+`func (o *GraphTopologyFilters) GetContainerFilterOk() (*[]string, bool)`
+
+GetContainerFilterOk returns a tuple with the ContainerFilter field if it's non-nil, zero value otherwise
+and a boolean to check if the value has been set.
+
+### SetContainerFilter
+
+`func (o *GraphTopologyFilters) SetContainerFilter(v []string)`
+
+SetContainerFilter sets ContainerFilter field to given value.
+
+
+### SetContainerFilterNil
+
+`func (o *GraphTopologyFilters) SetContainerFilterNil(b bool)`
+
+ SetContainerFilterNil sets the value for ContainerFilter to be an explicit nil
+
+### UnsetContainerFilter
+`func (o *GraphTopologyFilters) UnsetContainerFilter()`
+
+UnsetContainerFilter ensures that no value is present for ContainerFilter, not even an explicit nil
 ### GetFieldFilters
 
 `func (o *GraphTopologyFilters) GetFieldFilters() ReportersFieldsFilters`

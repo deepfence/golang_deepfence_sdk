@@ -21,6 +21,7 @@ var _ MappedNullable = &GraphTopologyFilters{}
 // GraphTopologyFilters struct for GraphTopologyFilters
 type GraphTopologyFilters struct {
 	CloudFilter []string `json:"cloud_filter"`
+	ContainerFilter []string `json:"container_filter"`
 	FieldFilters ReportersFieldsFilters `json:"field_filters"`
 	HostFilter []string `json:"host_filter"`
 	KubernetesFilter []string `json:"kubernetes_filter"`
@@ -32,9 +33,10 @@ type GraphTopologyFilters struct {
 // This constructor will assign default values to properties that have it defined,
 // and makes sure properties required by API are set, but the set of arguments
 // will change when the set of required properties is changed
-func NewGraphTopologyFilters(cloudFilter []string, fieldFilters ReportersFieldsFilters, hostFilter []string, kubernetesFilter []string, podFilter []string, regionFilter []string) *GraphTopologyFilters {
+func NewGraphTopologyFilters(cloudFilter []string, containerFilter []string, fieldFilters ReportersFieldsFilters, hostFilter []string, kubernetesFilter []string, podFilter []string, regionFilter []string) *GraphTopologyFilters {
 	this := GraphTopologyFilters{}
 	this.CloudFilter = cloudFilter
+	this.ContainerFilter = containerFilter
 	this.FieldFilters = fieldFilters
 	this.HostFilter = hostFilter
 	this.KubernetesFilter = kubernetesFilter
@@ -75,6 +77,32 @@ func (o *GraphTopologyFilters) GetCloudFilterOk() ([]string, bool) {
 // SetCloudFilter sets field value
 func (o *GraphTopologyFilters) SetCloudFilter(v []string) {
 	o.CloudFilter = v
+}
+
+// GetContainerFilter returns the ContainerFilter field value
+// If the value is explicit nil, the zero value for []string will be returned
+func (o *GraphTopologyFilters) GetContainerFilter() []string {
+	if o == nil {
+		var ret []string
+		return ret
+	}
+
+	return o.ContainerFilter
+}
+
+// GetContainerFilterOk returns a tuple with the ContainerFilter field value
+// and a boolean to check if the value has been set.
+// NOTE: If the value is an explicit nil, `nil, true` will be returned
+func (o *GraphTopologyFilters) GetContainerFilterOk() ([]string, bool) {
+	if o == nil || IsNil(o.ContainerFilter) {
+		return nil, false
+	}
+	return o.ContainerFilter, true
+}
+
+// SetContainerFilter sets field value
+func (o *GraphTopologyFilters) SetContainerFilter(v []string) {
+	o.ContainerFilter = v
 }
 
 // GetFieldFilters returns the FieldFilters field value
@@ -217,6 +245,9 @@ func (o GraphTopologyFilters) ToMap() (map[string]interface{}, error) {
 	toSerialize := map[string]interface{}{}
 	if o.CloudFilter != nil {
 		toSerialize["cloud_filter"] = o.CloudFilter
+	}
+	if o.ContainerFilter != nil {
+		toSerialize["container_filter"] = o.ContainerFilter
 	}
 	toSerialize["field_filters"] = o.FieldFilters
 	if o.HostFilter != nil {

@@ -8,6 +8,7 @@ Name | Type | Description | Notes
 **ContainerEdgesBatch** | **[]map[string]interface{}** |  | 
 **ContainerImageBatch** | **[]map[string]interface{}** |  | 
 **ContainerImageEdgeBatch** | **[]map[string]interface{}** |  | 
+**ContainerProcessEdgeBatch** | **[]map[string]interface{}** |  | 
 **EndpointEdgesBatch** | **[]map[string]interface{}** |  | 
 **HostBatch** | **[]map[string]interface{}** |  | 
 **Hosts** | **[]map[string]interface{}** |  | 
@@ -22,7 +23,7 @@ Name | Type | Description | Notes
 
 ### NewIngestersReportIngestionData
 
-`func NewIngestersReportIngestionData(containerBatch []map[string]interface{}, containerEdgesBatch []map[string]interface{}, containerImageBatch []map[string]interface{}, containerImageEdgeBatch []map[string]interface{}, endpointEdgesBatch []map[string]interface{}, hostBatch []map[string]interface{}, hosts []map[string]interface{}, kubernetesClusterBatch []map[string]interface{}, kubernetesClusterEdgeBatch []map[string]interface{}, podBatch []map[string]interface{}, podEdgesBatch []map[string]interface{}, processBatch []map[string]interface{}, processEdgesBatch []map[string]interface{}, ) *IngestersReportIngestionData`
+`func NewIngestersReportIngestionData(containerBatch []map[string]interface{}, containerEdgesBatch []map[string]interface{}, containerImageBatch []map[string]interface{}, containerImageEdgeBatch []map[string]interface{}, containerProcessEdgeBatch []map[string]interface{}, endpointEdgesBatch []map[string]interface{}, hostBatch []map[string]interface{}, hosts []map[string]interface{}, kubernetesClusterBatch []map[string]interface{}, kubernetesClusterEdgeBatch []map[string]interface{}, podBatch []map[string]interface{}, podEdgesBatch []map[string]interface{}, processBatch []map[string]interface{}, processEdgesBatch []map[string]interface{}, ) *IngestersReportIngestionData`
 
 NewIngestersReportIngestionData instantiates a new IngestersReportIngestionData object
 This constructor will assign default values to properties that have it defined,
@@ -157,6 +158,36 @@ SetContainerImageEdgeBatch sets ContainerImageEdgeBatch field to given value.
 `func (o *IngestersReportIngestionData) UnsetContainerImageEdgeBatch()`
 
 UnsetContainerImageEdgeBatch ensures that no value is present for ContainerImageEdgeBatch, not even an explicit nil
+### GetContainerProcessEdgeBatch
+
+`func (o *IngestersReportIngestionData) GetContainerProcessEdgeBatch() []map[string]interface{}`
+
+GetContainerProcessEdgeBatch returns the ContainerProcessEdgeBatch field if non-nil, zero value otherwise.
+
+### GetContainerProcessEdgeBatchOk
+
+`func (o *IngestersReportIngestionData) GetContainerProcessEdgeBatchOk() (*[]map[string]interface{}, bool)`
+
+GetContainerProcessEdgeBatchOk returns a tuple with the ContainerProcessEdgeBatch field if it's non-nil, zero value otherwise
+and a boolean to check if the value has been set.
+
+### SetContainerProcessEdgeBatch
+
+`func (o *IngestersReportIngestionData) SetContainerProcessEdgeBatch(v []map[string]interface{})`
+
+SetContainerProcessEdgeBatch sets ContainerProcessEdgeBatch field to given value.
+
+
+### SetContainerProcessEdgeBatchNil
+
+`func (o *IngestersReportIngestionData) SetContainerProcessEdgeBatchNil(b bool)`
+
+ SetContainerProcessEdgeBatchNil sets the value for ContainerProcessEdgeBatch to be an explicit nil
+
+### UnsetContainerProcessEdgeBatch
+`func (o *IngestersReportIngestionData) UnsetContainerProcessEdgeBatch()`
+
+UnsetContainerProcessEdgeBatch ensures that no value is present for ContainerProcessEdgeBatch, not even an explicit nil
 ### GetEndpointEdgesBatch
 
 `func (o *IngestersReportIngestionData) GetEndpointEdgesBatch() []map[string]interface{}`

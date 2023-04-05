@@ -6951,6 +6951,9 @@ components:
               key:
               - ""
               - ""
+        container_filter:
+        - container_filter
+        - container_filter
         cloud_filter:
         - cloud_filter
         - cloud_filter
@@ -6965,6 +6968,11 @@ components:
         - region_filter
       properties:
         cloud_filter:
+          items:
+            type: string
+          nullable: true
+          type: array
+        container_filter:
           items:
             type: string
           nullable: true
@@ -6993,6 +7001,7 @@ components:
           type: array
       required:
       - cloud_filter
+      - container_filter
       - field_filters
       - host_filter
       - kubernetes_filter
@@ -7423,6 +7432,9 @@ components:
         container_image_edge_batch:
         - key: ""
         - key: ""
+        container_process_edge_batch:
+        - key: ""
+        - key: ""
         pod_batch:
         - key: ""
         - key: ""
@@ -7467,6 +7479,12 @@ components:
           nullable: true
           type: array
         container_image_edge_batch:
+          items:
+            additionalProperties: {}
+            type: object
+          nullable: true
+          type: array
+        container_process_edge_batch:
           items:
             additionalProperties: {}
             type: object
@@ -7531,6 +7549,7 @@ components:
       - container_edges_batch
       - container_image_batch
       - container_image_edge_batch
+      - container_process_edge_batch
       - endpoint_edges_batch
       - host_batch
       - hosts
