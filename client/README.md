@@ -310,6 +310,7 @@ Class | Method | HTTP request | Description
  - [ModelInviteUserResponse](docs/ModelInviteUserResponse.md)
  - [ModelKubernetesCluster](docs/ModelKubernetesCluster.md)
  - [ModelLoginRequest](docs/ModelLoginRequest.md)
+ - [ModelLoginResponse](docs/ModelLoginResponse.md)
  - [ModelMalware](docs/ModelMalware.md)
  - [ModelMalwareScanResult](docs/ModelMalwareScanResult.md)
  - [ModelMalwareScanTriggerReq](docs/ModelMalwareScanTriggerReq.md)

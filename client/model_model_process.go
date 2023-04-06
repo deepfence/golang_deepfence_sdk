@@ -21,13 +21,13 @@ var _ MappedNullable = &ModelProcess{}
 // ModelProcess struct for ModelProcess
 type ModelProcess struct {
 	Cmdline string `json:"cmdline"`
-	CpuMax *float32 `json:"cpu_max,omitempty"`
-	CpuUsage *float32 `json:"cpu_usage,omitempty"`
-	MemoryMax *int32 `json:"memory_max,omitempty"`
-	MemoryUsage *int32 `json:"memory_usage,omitempty"`
+	CpuMax float32 `json:"cpu_max"`
+	CpuUsage float32 `json:"cpu_usage"`
+	MemoryMax int32 `json:"memory_max"`
+	MemoryUsage int32 `json:"memory_usage"`
 	NodeId string `json:"node_id"`
 	NodeName string `json:"node_name"`
-	OpenFilesCount *int32 `json:"open_files_count,omitempty"`
+	OpenFilesCount int32 `json:"open_files_count"`
 	Pid int32 `json:"pid"`
 	Ppid int32 `json:"ppid"`
 	Threads int32 `json:"threads"`
@@ -37,11 +37,16 @@ type ModelProcess struct {
 // This constructor will assign default values to properties that have it defined,
 // and makes sure properties required by API are set, but the set of arguments
 // will change when the set of required properties is changed
-func NewModelProcess(cmdline string, nodeId string, nodeName string, pid int32, ppid int32, threads int32) *ModelProcess {
+func NewModelProcess(cmdline string, cpuMax float32, cpuUsage float32, memoryMax int32, memoryUsage int32, nodeId string, nodeName string, openFilesCount int32, pid int32, ppid int32, threads int32) *ModelProcess {
 	this := ModelProcess{}
 	this.Cmdline = cmdline
+	this.CpuMax = cpuMax
+	this.CpuUsage = cpuUsage
+	this.MemoryMax = memoryMax
+	this.MemoryUsage = memoryUsage
 	this.NodeId = nodeId
 	this.NodeName = nodeName
+	this.OpenFilesCount = openFilesCount
 	this.Pid = pid
 	this.Ppid = ppid
 	this.Threads = threads
@@ -80,132 +85,100 @@ func (o *ModelProcess) SetCmdline(v string) {
 	o.Cmdline = v
 }
 
-// GetCpuMax returns the CpuMax field value if set, zero value otherwise.
+// GetCpuMax returns the CpuMax field value
 func (o *ModelProcess) GetCpuMax() float32 {
-	if o == nil || IsNil(o.CpuMax) {
+	if o == nil {
 		var ret float32
 		return ret
 	}
-	return *o.CpuMax
+
+	return o.CpuMax
 }
 
-// GetCpuMaxOk returns a tuple with the CpuMax field value if set, nil otherwise
+// GetCpuMaxOk returns a tuple with the CpuMax field value
 // and a boolean to check if the value has been set.
 func (o *ModelProcess) GetCpuMaxOk() (*float32, bool) {
-	if o == nil || IsNil(o.CpuMax) {
+	if o == nil {
 		return nil, false
 	}
-	return o.CpuMax, true
+	return &o.CpuMax, true
 }
 
-// HasCpuMax returns a boolean if a field has been set.
-func (o *ModelProcess) HasCpuMax() bool {
-	if o != nil && !IsNil(o.CpuMax) {
-		return true
-	}
-
-	return false
-}
-
-// SetCpuMax gets a reference to the given float32 and assigns it to the CpuMax field.
+// SetCpuMax sets field value
 func (o *ModelProcess) SetCpuMax(v float32) {
-	o.CpuMax = &v
+	o.CpuMax = v
 }
 
-// GetCpuUsage returns the CpuUsage field value if set, zero value otherwise.
+// GetCpuUsage returns the CpuUsage field value
 func (o *ModelProcess) GetCpuUsage() float32 {
-	if o == nil || IsNil(o.CpuUsage) {
+	if o == nil {
 		var ret float32
 		return ret
 	}
-	return *o.CpuUsage
+
+	return o.CpuUsage
 }
 
-// GetCpuUsageOk returns a tuple with the CpuUsage field value if set, nil otherwise
+// GetCpuUsageOk returns a tuple with the CpuUsage field value
 // and a boolean to check if the value has been set.
 func (o *ModelProcess) GetCpuUsageOk() (*float32, bool) {
-	if o == nil || IsNil(o.CpuUsage) {
+	if o == nil {
 		return nil, false
 	}
-	return o.CpuUsage, true
+	return &o.CpuUsage, true
 }
 
-// HasCpuUsage returns a boolean if a field has been set.
-func (o *ModelProcess) HasCpuUsage() bool {
-	if o != nil && !IsNil(o.CpuUsage) {
-		return true
-	}
-
-	return false
-}
-
-// SetCpuUsage gets a reference to the given float32 and assigns it to the CpuUsage field.
+// SetCpuUsage sets field value
 func (o *ModelProcess) SetCpuUsage(v float32) {
-	o.CpuUsage = &v
+	o.CpuUsage = v
 }
 
-// GetMemoryMax returns the MemoryMax field value if set, zero value otherwise.
+// GetMemoryMax returns the MemoryMax field value
 func (o *ModelProcess) GetMemoryMax() int32 {
-	if o == nil || IsNil(o.MemoryMax) {
+	if o == nil {
 		var ret int32
 		return ret
 	}
-	return *o.MemoryMax
+
+	return o.MemoryMax
 }
 
-// GetMemoryMaxOk returns a tuple with the MemoryMax field value if set, nil otherwise
+// GetMemoryMaxOk returns a tuple with the MemoryMax field value
 // and a boolean to check if the value has been set.
 func (o *ModelProcess) GetMemoryMaxOk() (*int32, bool) {
-	if o == nil || IsNil(o.MemoryMax) {
+	if o == nil {
 		return nil, false
 	}
-	return o.MemoryMax, true
+	return &o.MemoryMax, true
 }
 
-// HasMemoryMax returns a boolean if a field has been set.
-func (o *ModelProcess) HasMemoryMax() bool {
-	if o != nil && !IsNil(o.MemoryMax) {
-		return true
-	}
-
-	return false
-}
-
-// SetMemoryMax gets a reference to the given int32 and assigns it to the MemoryMax field.
+// SetMemoryMax sets field value
 func (o *ModelProcess) SetMemoryMax(v int32) {
-	o.MemoryMax = &v
+	o.MemoryMax = v
 }
 
-// GetMemoryUsage returns the MemoryUsage field value if set, zero value otherwise.
+// GetMemoryUsage returns the MemoryUsage field value
 func (o *ModelProcess) GetMemoryUsage() int32 {
-	if o == nil || IsNil(o.MemoryUsage) {
+	if o == nil {
 		var ret int32
 		return ret
 	}
-	return *o.MemoryUsage
+
+	return o.MemoryUsage
 }
 
-// GetMemoryUsageOk returns a tuple with the MemoryUsage field value if set, nil otherwise
+// GetMemoryUsageOk returns a tuple with the MemoryUsage field value
 // and a boolean to check if the value has been set.
 func (o *ModelProcess) GetMemoryUsageOk() (*int32, bool) {
-	if o == nil || IsNil(o.MemoryUsage) {
+	if o == nil {
 		return nil, false
 	}
-	return o.MemoryUsage, true
+	return &o.MemoryUsage, true
 }
 
-// HasMemoryUsage returns a boolean if a field has been set.
-func (o *ModelProcess) HasMemoryUsage() bool {
-	if o != nil && !IsNil(o.MemoryUsage) {
-		return true
-	}
-
-	return false
-}
-
-// SetMemoryUsage gets a reference to the given int32 and assigns it to the MemoryUsage field.
+// SetMemoryUsage sets field value
 func (o *ModelProcess) SetMemoryUsage(v int32) {
-	o.MemoryUsage = &v
+	o.MemoryUsage = v
 }
 
 // GetNodeId returns the NodeId field value
@@ -256,36 +229,28 @@ func (o *ModelProcess) SetNodeName(v string) {
 	o.NodeName = v
 }
 
-// GetOpenFilesCount returns the OpenFilesCount field value if set, zero value otherwise.
+// GetOpenFilesCount returns the OpenFilesCount field value
 func (o *ModelProcess) GetOpenFilesCount() int32 {
-	if o == nil || IsNil(o.OpenFilesCount) {
+	if o == nil {
 		var ret int32
 		return ret
 	}
-	return *o.OpenFilesCount
+
+	return o.OpenFilesCount
 }
 
-// GetOpenFilesCountOk returns a tuple with the OpenFilesCount field value if set, nil otherwise
+// GetOpenFilesCountOk returns a tuple with the OpenFilesCount field value
 // and a boolean to check if the value has been set.
 func (o *ModelProcess) GetOpenFilesCountOk() (*int32, bool) {
-	if o == nil || IsNil(o.OpenFilesCount) {
+	if o == nil {
 		return nil, false
 	}
-	return o.OpenFilesCount, true
+	return &o.OpenFilesCount, true
 }
 
-// HasOpenFilesCount returns a boolean if a field has been set.
-func (o *ModelProcess) HasOpenFilesCount() bool {
-	if o != nil && !IsNil(o.OpenFilesCount) {
-		return true
-	}
-
-	return false
-}
-
-// SetOpenFilesCount gets a reference to the given int32 and assigns it to the OpenFilesCount field.
+// SetOpenFilesCount sets field value
 func (o *ModelProcess) SetOpenFilesCount(v int32) {
-	o.OpenFilesCount = &v
+	o.OpenFilesCount = v
 }
 
 // GetPid returns the Pid field value
@@ -371,23 +336,13 @@ func (o ModelProcess) MarshalJSON() ([]byte, error) {
 func (o ModelProcess) ToMap() (map[string]interface{}, error) {
 	toSerialize := map[string]interface{}{}
 	toSerialize["cmdline"] = o.Cmdline
-	if !IsNil(o.CpuMax) {
-		toSerialize["cpu_max"] = o.CpuMax
-	}
-	if !IsNil(o.CpuUsage) {
-		toSerialize["cpu_usage"] = o.CpuUsage
-	}
-	if !IsNil(o.MemoryMax) {
-		toSerialize["memory_max"] = o.MemoryMax
-	}
-	if !IsNil(o.MemoryUsage) {
-		toSerialize["memory_usage"] = o.MemoryUsage
-	}
+	toSerialize["cpu_max"] = o.CpuMax
+	toSerialize["cpu_usage"] = o.CpuUsage
+	toSerialize["memory_max"] = o.MemoryMax
+	toSerialize["memory_usage"] = o.MemoryUsage
 	toSerialize["node_id"] = o.NodeId
 	toSerialize["node_name"] = o.NodeName
-	if !IsNil(o.OpenFilesCount) {
-		toSerialize["open_files_count"] = o.OpenFilesCount
-	}
+	toSerialize["open_files_count"] = o.OpenFilesCount
 	toSerialize["pid"] = o.Pid
 	toSerialize["ppid"] = o.Ppid
 	toSerialize["threads"] = o.Threads

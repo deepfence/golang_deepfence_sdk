@@ -5,13 +5,13 @@
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
 **Cmdline** | **string** |  | 
-**CpuMax** | Pointer to **float32** |  | [optional] 
-**CpuUsage** | Pointer to **float32** |  | [optional] 
-**MemoryMax** | Pointer to **int32** |  | [optional] 
-**MemoryUsage** | Pointer to **int32** |  | [optional] 
+**CpuMax** | **float32** |  | 
+**CpuUsage** | **float32** |  | 
+**MemoryMax** | **int32** |  | 
+**MemoryUsage** | **int32** |  | 
 **NodeId** | **string** |  | 
 **NodeName** | **string** |  | 
-**OpenFilesCount** | Pointer to **int32** |  | [optional] 
+**OpenFilesCount** | **int32** |  | 
 **Pid** | **int32** |  | 
 **Ppid** | **int32** |  | 
 **Threads** | **int32** |  | 
@@ -20,7 +20,7 @@ Name | Type | Description | Notes
 
 ### NewModelProcess
 
-`func NewModelProcess(cmdline string, nodeId string, nodeName string, pid int32, ppid int32, threads int32, ) *ModelProcess`
+`func NewModelProcess(cmdline string, cpuMax float32, cpuUsage float32, memoryMax int32, memoryUsage int32, nodeId string, nodeName string, openFilesCount int32, pid int32, ppid int32, threads int32, ) *ModelProcess`
 
 NewModelProcess instantiates a new ModelProcess object
 This constructor will assign default values to properties that have it defined,
@@ -74,11 +74,6 @@ and a boolean to check if the value has been set.
 
 SetCpuMax sets CpuMax field to given value.
 
-### HasCpuMax
-
-`func (o *ModelProcess) HasCpuMax() bool`
-
-HasCpuMax returns a boolean if a field has been set.
 
 ### GetCpuUsage
 
@@ -99,11 +94,6 @@ and a boolean to check if the value has been set.
 
 SetCpuUsage sets CpuUsage field to given value.
 
-### HasCpuUsage
-
-`func (o *ModelProcess) HasCpuUsage() bool`
-
-HasCpuUsage returns a boolean if a field has been set.
 
 ### GetMemoryMax
 
@@ -124,11 +114,6 @@ and a boolean to check if the value has been set.
 
 SetMemoryMax sets MemoryMax field to given value.
 
-### HasMemoryMax
-
-`func (o *ModelProcess) HasMemoryMax() bool`
-
-HasMemoryMax returns a boolean if a field has been set.
 
 ### GetMemoryUsage
 
@@ -149,11 +134,6 @@ and a boolean to check if the value has been set.
 
 SetMemoryUsage sets MemoryUsage field to given value.
 
-### HasMemoryUsage
-
-`func (o *ModelProcess) HasMemoryUsage() bool`
-
-HasMemoryUsage returns a boolean if a field has been set.
 
 ### GetNodeId
 
@@ -214,11 +194,6 @@ and a boolean to check if the value has been set.
 
 SetOpenFilesCount sets OpenFilesCount field to given value.
 
-### HasOpenFilesCount
-
-`func (o *ModelProcess) HasOpenFilesCount() bool`
-
-HasOpenFilesCount returns a boolean if a field has been set.
 
 ### GetPid
 

@@ -5,10 +5,7 @@
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
 **AgentRunning** | **bool** |  | 
-**AvailabilityZone** | Pointer to **string** |  | [optional] 
-**CloudComplianceLatestScanId** | **string** |  | 
-**CloudComplianceScanStatus** | **string** |  | 
-**CloudCompliancesCount** | **int32** |  | 
+**AvailabilityZone** | **string** |  | 
 **CloudProvider** | **string** |  | 
 **CloudRegion** | **string** |  | 
 **ComplianceLatestScanId** | **string** |  | 
@@ -16,32 +13,32 @@ Name | Type | Description | Notes
 **CompliancesCount** | **int32** |  | 
 **ContainerImages** | [**[]ModelContainerImage**](ModelContainerImage.md) |  | 
 **Containers** | [**[]ModelContainer**](ModelContainer.md) |  | 
-**CpuMax** | Pointer to **float32** |  | [optional] 
-**CpuUsage** | Pointer to **float32** |  | [optional] 
+**CpuMax** | **float32** |  | 
+**CpuUsage** | **float32** |  | 
 **HostName** | **string** |  | 
-**InstanceId** | Pointer to **string** |  | [optional] 
-**InstanceType** | Pointer to **string** |  | [optional] 
+**InstanceId** | **string** |  | 
+**InstanceType** | **string** |  | 
 **InterfaceIps** | **[]string** |  | 
 **InterfaceNames** | **[]string** |  | 
 **IsConsoleVm** | **bool** |  | 
-**KernelId** | Pointer to **string** |  | [optional] 
+**KernelId** | **string** |  | 
 **KernelVersion** | **string** |  | 
 **LocalCidr** | **[]string** |  | 
-**LocalNetworks** | Pointer to **[]string** |  | [optional] 
+**LocalNetworks** | **[]string** |  | 
 **MalwareLatestScanId** | **string** |  | 
 **MalwareScanStatus** | **string** |  | 
 **MalwaresCount** | **int32** |  | 
-**MemoryMax** | Pointer to **int32** |  | [optional] 
-**MemoryUsage** | Pointer to **int32** |  | [optional] 
+**MemoryMax** | **int32** |  | 
+**MemoryUsage** | **int32** |  | 
 **NodeId** | **string** |  | 
 **NodeName** | **string** |  | 
 **Os** | **string** |  | 
 **Pods** | [**[]ModelPod**](ModelPod.md) |  | 
-**PrivateIp** | Pointer to **[]string** |  | [optional] 
+**PrivateIp** | **[]string** |  | 
 **Processes** | [**[]ModelProcess**](ModelProcess.md) |  | 
-**PublicIp** | Pointer to **[]string** |  | [optional] 
-**ResourceGroup** | Pointer to **string** |  | [optional] 
-**SecretLatestScan** | **string** |  | 
+**PublicIp** | **[]string** |  | 
+**ResourceGroup** | **string** |  | 
+**SecretLatestScanId** | **string** |  | 
 **SecretScanStatus** | **string** |  | 
 **SecretsCount** | **int32** |  | 
 **Uptime** | **int32** |  | 
@@ -54,7 +51,7 @@ Name | Type | Description | Notes
 
 ### NewModelHost
 
-`func NewModelHost(agentRunning bool, cloudComplianceLatestScanId string, cloudComplianceScanStatus string, cloudCompliancesCount int32, cloudProvider string, cloudRegion string, complianceLatestScanId string, complianceScanStatus string, compliancesCount int32, containerImages []ModelContainerImage, containers []ModelContainer, hostName string, interfaceIps []string, interfaceNames []string, isConsoleVm bool, kernelVersion string, localCidr []string, malwareLatestScanId string, malwareScanStatus string, malwaresCount int32, nodeId string, nodeName string, os string, pods []ModelPod, processes []ModelProcess, secretLatestScan string, secretScanStatus string, secretsCount int32, uptime int32, version string, vulnerabilitiesCount int32, vulnerabilityLatestScanId string, vulnerabilityScanStatus string, ) *ModelHost`
+`func NewModelHost(agentRunning bool, availabilityZone string, cloudProvider string, cloudRegion string, complianceLatestScanId string, complianceScanStatus string, compliancesCount int32, containerImages []ModelContainerImage, containers []ModelContainer, cpuMax float32, cpuUsage float32, hostName string, instanceId string, instanceType string, interfaceIps []string, interfaceNames []string, isConsoleVm bool, kernelId string, kernelVersion string, localCidr []string, localNetworks []string, malwareLatestScanId string, malwareScanStatus string, malwaresCount int32, memoryMax int32, memoryUsage int32, nodeId string, nodeName string, os string, pods []ModelPod, privateIp []string, processes []ModelProcess, publicIp []string, resourceGroup string, secretLatestScanId string, secretScanStatus string, secretsCount int32, uptime int32, version string, vulnerabilitiesCount int32, vulnerabilityLatestScanId string, vulnerabilityScanStatus string, ) *ModelHost`
 
 NewModelHost instantiates a new ModelHost object
 This constructor will assign default values to properties that have it defined,
@@ -107,71 +104,6 @@ and a boolean to check if the value has been set.
 `func (o *ModelHost) SetAvailabilityZone(v string)`
 
 SetAvailabilityZone sets AvailabilityZone field to given value.
-
-### HasAvailabilityZone
-
-`func (o *ModelHost) HasAvailabilityZone() bool`
-
-HasAvailabilityZone returns a boolean if a field has been set.
-
-### GetCloudComplianceLatestScanId
-
-`func (o *ModelHost) GetCloudComplianceLatestScanId() string`
-
-GetCloudComplianceLatestScanId returns the CloudComplianceLatestScanId field if non-nil, zero value otherwise.
-
-### GetCloudComplianceLatestScanIdOk
-
-`func (o *ModelHost) GetCloudComplianceLatestScanIdOk() (*string, bool)`
-
-GetCloudComplianceLatestScanIdOk returns a tuple with the CloudComplianceLatestScanId field if it's non-nil, zero value otherwise
-and a boolean to check if the value has been set.
-
-### SetCloudComplianceLatestScanId
-
-`func (o *ModelHost) SetCloudComplianceLatestScanId(v string)`
-
-SetCloudComplianceLatestScanId sets CloudComplianceLatestScanId field to given value.
-
-
-### GetCloudComplianceScanStatus
-
-`func (o *ModelHost) GetCloudComplianceScanStatus() string`
-
-GetCloudComplianceScanStatus returns the CloudComplianceScanStatus field if non-nil, zero value otherwise.
-
-### GetCloudComplianceScanStatusOk
-
-`func (o *ModelHost) GetCloudComplianceScanStatusOk() (*string, bool)`
-
-GetCloudComplianceScanStatusOk returns a tuple with the CloudComplianceScanStatus field if it's non-nil, zero value otherwise
-and a boolean to check if the value has been set.
-
-### SetCloudComplianceScanStatus
-
-`func (o *ModelHost) SetCloudComplianceScanStatus(v string)`
-
-SetCloudComplianceScanStatus sets CloudComplianceScanStatus field to given value.
-
-
-### GetCloudCompliancesCount
-
-`func (o *ModelHost) GetCloudCompliancesCount() int32`
-
-GetCloudCompliancesCount returns the CloudCompliancesCount field if non-nil, zero value otherwise.
-
-### GetCloudCompliancesCountOk
-
-`func (o *ModelHost) GetCloudCompliancesCountOk() (*int32, bool)`
-
-GetCloudCompliancesCountOk returns a tuple with the CloudCompliancesCount field if it's non-nil, zero value otherwise
-and a boolean to check if the value has been set.
-
-### SetCloudCompliancesCount
-
-`func (o *ModelHost) SetCloudCompliancesCount(v int32)`
-
-SetCloudCompliancesCount sets CloudCompliancesCount field to given value.
 
 
 ### GetCloudProvider
@@ -353,11 +285,6 @@ and a boolean to check if the value has been set.
 
 SetCpuMax sets CpuMax field to given value.
 
-### HasCpuMax
-
-`func (o *ModelHost) HasCpuMax() bool`
-
-HasCpuMax returns a boolean if a field has been set.
 
 ### GetCpuUsage
 
@@ -378,11 +305,6 @@ and a boolean to check if the value has been set.
 
 SetCpuUsage sets CpuUsage field to given value.
 
-### HasCpuUsage
-
-`func (o *ModelHost) HasCpuUsage() bool`
-
-HasCpuUsage returns a boolean if a field has been set.
 
 ### GetHostName
 
@@ -423,11 +345,6 @@ and a boolean to check if the value has been set.
 
 SetInstanceId sets InstanceId field to given value.
 
-### HasInstanceId
-
-`func (o *ModelHost) HasInstanceId() bool`
-
-HasInstanceId returns a boolean if a field has been set.
 
 ### GetInstanceType
 
@@ -448,11 +365,6 @@ and a boolean to check if the value has been set.
 
 SetInstanceType sets InstanceType field to given value.
 
-### HasInstanceType
-
-`func (o *ModelHost) HasInstanceType() bool`
-
-HasInstanceType returns a boolean if a field has been set.
 
 ### GetInterfaceIps
 
@@ -553,11 +465,6 @@ and a boolean to check if the value has been set.
 
 SetKernelId sets KernelId field to given value.
 
-### HasKernelId
-
-`func (o *ModelHost) HasKernelId() bool`
-
-HasKernelId returns a boolean if a field has been set.
 
 ### GetKernelVersion
 
@@ -628,12 +535,17 @@ and a boolean to check if the value has been set.
 
 SetLocalNetworks sets LocalNetworks field to given value.
 
-### HasLocalNetworks
 
-`func (o *ModelHost) HasLocalNetworks() bool`
+### SetLocalNetworksNil
 
-HasLocalNetworks returns a boolean if a field has been set.
+`func (o *ModelHost) SetLocalNetworksNil(b bool)`
 
+ SetLocalNetworksNil sets the value for LocalNetworks to be an explicit nil
+
+### UnsetLocalNetworks
+`func (o *ModelHost) UnsetLocalNetworks()`
+
+UnsetLocalNetworks ensures that no value is present for LocalNetworks, not even an explicit nil
 ### GetMalwareLatestScanId
 
 `func (o *ModelHost) GetMalwareLatestScanId() string`
@@ -713,11 +625,6 @@ and a boolean to check if the value has been set.
 
 SetMemoryMax sets MemoryMax field to given value.
 
-### HasMemoryMax
-
-`func (o *ModelHost) HasMemoryMax() bool`
-
-HasMemoryMax returns a boolean if a field has been set.
 
 ### GetMemoryUsage
 
@@ -738,11 +645,6 @@ and a boolean to check if the value has been set.
 
 SetMemoryUsage sets MemoryUsage field to given value.
 
-### HasMemoryUsage
-
-`func (o *ModelHost) HasMemoryUsage() bool`
-
-HasMemoryUsage returns a boolean if a field has been set.
 
 ### GetNodeId
 
@@ -853,12 +755,17 @@ and a boolean to check if the value has been set.
 
 SetPrivateIp sets PrivateIp field to given value.
 
-### HasPrivateIp
 
-`func (o *ModelHost) HasPrivateIp() bool`
+### SetPrivateIpNil
 
-HasPrivateIp returns a boolean if a field has been set.
+`func (o *ModelHost) SetPrivateIpNil(b bool)`
 
+ SetPrivateIpNil sets the value for PrivateIp to be an explicit nil
+
+### UnsetPrivateIp
+`func (o *ModelHost) UnsetPrivateIp()`
+
+UnsetPrivateIp ensures that no value is present for PrivateIp, not even an explicit nil
 ### GetProcesses
 
 `func (o *ModelHost) GetProcesses() []ModelProcess`
@@ -908,12 +815,17 @@ and a boolean to check if the value has been set.
 
 SetPublicIp sets PublicIp field to given value.
 
-### HasPublicIp
 
-`func (o *ModelHost) HasPublicIp() bool`
+### SetPublicIpNil
 
-HasPublicIp returns a boolean if a field has been set.
+`func (o *ModelHost) SetPublicIpNil(b bool)`
 
+ SetPublicIpNil sets the value for PublicIp to be an explicit nil
+
+### UnsetPublicIp
+`func (o *ModelHost) UnsetPublicIp()`
+
+UnsetPublicIp ensures that no value is present for PublicIp, not even an explicit nil
 ### GetResourceGroup
 
 `func (o *ModelHost) GetResourceGroup() string`
@@ -933,30 +845,25 @@ and a boolean to check if the value has been set.
 
 SetResourceGroup sets ResourceGroup field to given value.
 
-### HasResourceGroup
 
-`func (o *ModelHost) HasResourceGroup() bool`
+### GetSecretLatestScanId
 
-HasResourceGroup returns a boolean if a field has been set.
+`func (o *ModelHost) GetSecretLatestScanId() string`
 
-### GetSecretLatestScan
+GetSecretLatestScanId returns the SecretLatestScanId field if non-nil, zero value otherwise.
 
-`func (o *ModelHost) GetSecretLatestScan() string`
+### GetSecretLatestScanIdOk
 
-GetSecretLatestScan returns the SecretLatestScan field if non-nil, zero value otherwise.
+`func (o *ModelHost) GetSecretLatestScanIdOk() (*string, bool)`
 
-### GetSecretLatestScanOk
-
-`func (o *ModelHost) GetSecretLatestScanOk() (*string, bool)`
-
-GetSecretLatestScanOk returns a tuple with the SecretLatestScan field if it's non-nil, zero value otherwise
+GetSecretLatestScanIdOk returns a tuple with the SecretLatestScanId field if it's non-nil, zero value otherwise
 and a boolean to check if the value has been set.
 
-### SetSecretLatestScan
+### SetSecretLatestScanId
 
-`func (o *ModelHost) SetSecretLatestScan(v string)`
+`func (o *ModelHost) SetSecretLatestScanId(v string)`
 
-SetSecretLatestScan sets SecretLatestScan field to given value.
+SetSecretLatestScanId sets SecretLatestScanId field to given value.
 
 
 ### GetSecretScanStatus

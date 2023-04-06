@@ -22,8 +22,12 @@ var _ MappedNullable = &ModelPod{}
 type ModelPod struct {
 	Containers []ModelContainer `json:"containers"`
 	HostName string `json:"host_name"`
+	KubernetesClusterId string `json:"kubernetes_cluster_id"`
+	KubernetesClusterName string `json:"kubernetes_cluster_name"`
+	KubernetesIp string `json:"kubernetes_ip"`
+	KubernetesIsInHostNetwork string `json:"kubernetes_is_in_host_network"`
 	KubernetesNamespace string `json:"kubernetes_namespace"`
-	Metadata map[string]interface{} `json:"metadata"`
+	KubernetesState string `json:"kubernetes_state"`
 	NodeId string `json:"node_id"`
 	NodeName string `json:"node_name"`
 	Processes []ModelProcess `json:"processes"`
@@ -33,12 +37,16 @@ type ModelPod struct {
 // This constructor will assign default values to properties that have it defined,
 // and makes sure properties required by API are set, but the set of arguments
 // will change when the set of required properties is changed
-func NewModelPod(containers []ModelContainer, hostName string, kubernetesNamespace string, metadata map[string]interface{}, nodeId string, nodeName string, processes []ModelProcess) *ModelPod {
+func NewModelPod(containers []ModelContainer, hostName string, kubernetesClusterId string, kubernetesClusterName string, kubernetesIp string, kubernetesIsInHostNetwork string, kubernetesNamespace string, kubernetesState string, nodeId string, nodeName string, processes []ModelProcess) *ModelPod {
 	this := ModelPod{}
 	this.Containers = containers
 	this.HostName = hostName
+	this.KubernetesClusterId = kubernetesClusterId
+	this.KubernetesClusterName = kubernetesClusterName
+	this.KubernetesIp = kubernetesIp
+	this.KubernetesIsInHostNetwork = kubernetesIsInHostNetwork
 	this.KubernetesNamespace = kubernetesNamespace
-	this.Metadata = metadata
+	this.KubernetesState = kubernetesState
 	this.NodeId = nodeId
 	this.NodeName = nodeName
 	this.Processes = processes
@@ -103,6 +111,102 @@ func (o *ModelPod) SetHostName(v string) {
 	o.HostName = v
 }
 
+// GetKubernetesClusterId returns the KubernetesClusterId field value
+func (o *ModelPod) GetKubernetesClusterId() string {
+	if o == nil {
+		var ret string
+		return ret
+	}
+
+	return o.KubernetesClusterId
+}
+
+// GetKubernetesClusterIdOk returns a tuple with the KubernetesClusterId field value
+// and a boolean to check if the value has been set.
+func (o *ModelPod) GetKubernetesClusterIdOk() (*string, bool) {
+	if o == nil {
+		return nil, false
+	}
+	return &o.KubernetesClusterId, true
+}
+
+// SetKubernetesClusterId sets field value
+func (o *ModelPod) SetKubernetesClusterId(v string) {
+	o.KubernetesClusterId = v
+}
+
+// GetKubernetesClusterName returns the KubernetesClusterName field value
+func (o *ModelPod) GetKubernetesClusterName() string {
+	if o == nil {
+		var ret string
+		return ret
+	}
+
+	return o.KubernetesClusterName
+}
+
+// GetKubernetesClusterNameOk returns a tuple with the KubernetesClusterName field value
+// and a boolean to check if the value has been set.
+func (o *ModelPod) GetKubernetesClusterNameOk() (*string, bool) {
+	if o == nil {
+		return nil, false
+	}
+	return &o.KubernetesClusterName, true
+}
+
+// SetKubernetesClusterName sets field value
+func (o *ModelPod) SetKubernetesClusterName(v string) {
+	o.KubernetesClusterName = v
+}
+
+// GetKubernetesIp returns the KubernetesIp field value
+func (o *ModelPod) GetKubernetesIp() string {
+	if o == nil {
+		var ret string
+		return ret
+	}
+
+	return o.KubernetesIp
+}
+
+// GetKubernetesIpOk returns a tuple with the KubernetesIp field value
+// and a boolean to check if the value has been set.
+func (o *ModelPod) GetKubernetesIpOk() (*string, bool) {
+	if o == nil {
+		return nil, false
+	}
+	return &o.KubernetesIp, true
+}
+
+// SetKubernetesIp sets field value
+func (o *ModelPod) SetKubernetesIp(v string) {
+	o.KubernetesIp = v
+}
+
+// GetKubernetesIsInHostNetwork returns the KubernetesIsInHostNetwork field value
+func (o *ModelPod) GetKubernetesIsInHostNetwork() string {
+	if o == nil {
+		var ret string
+		return ret
+	}
+
+	return o.KubernetesIsInHostNetwork
+}
+
+// GetKubernetesIsInHostNetworkOk returns a tuple with the KubernetesIsInHostNetwork field value
+// and a boolean to check if the value has been set.
+func (o *ModelPod) GetKubernetesIsInHostNetworkOk() (*string, bool) {
+	if o == nil {
+		return nil, false
+	}
+	return &o.KubernetesIsInHostNetwork, true
+}
+
+// SetKubernetesIsInHostNetwork sets field value
+func (o *ModelPod) SetKubernetesIsInHostNetwork(v string) {
+	o.KubernetesIsInHostNetwork = v
+}
+
 // GetKubernetesNamespace returns the KubernetesNamespace field value
 func (o *ModelPod) GetKubernetesNamespace() string {
 	if o == nil {
@@ -127,28 +231,28 @@ func (o *ModelPod) SetKubernetesNamespace(v string) {
 	o.KubernetesNamespace = v
 }
 
-// GetMetadata returns the Metadata field value
-func (o *ModelPod) GetMetadata() map[string]interface{} {
+// GetKubernetesState returns the KubernetesState field value
+func (o *ModelPod) GetKubernetesState() string {
 	if o == nil {
-		var ret map[string]interface{}
+		var ret string
 		return ret
 	}
 
-	return o.Metadata
+	return o.KubernetesState
 }
 
-// GetMetadataOk returns a tuple with the Metadata field value
+// GetKubernetesStateOk returns a tuple with the KubernetesState field value
 // and a boolean to check if the value has been set.
-func (o *ModelPod) GetMetadataOk() (map[string]interface{}, bool) {
+func (o *ModelPod) GetKubernetesStateOk() (*string, bool) {
 	if o == nil {
-		return map[string]interface{}{}, false
+		return nil, false
 	}
-	return o.Metadata, true
+	return &o.KubernetesState, true
 }
 
-// SetMetadata sets field value
-func (o *ModelPod) SetMetadata(v map[string]interface{}) {
-	o.Metadata = v
+// SetKubernetesState sets field value
+func (o *ModelPod) SetKubernetesState(v string) {
+	o.KubernetesState = v
 }
 
 // GetNodeId returns the NodeId field value
@@ -239,8 +343,12 @@ func (o ModelPod) ToMap() (map[string]interface{}, error) {
 		toSerialize["containers"] = o.Containers
 	}
 	toSerialize["host_name"] = o.HostName
+	toSerialize["kubernetes_cluster_id"] = o.KubernetesClusterId
+	toSerialize["kubernetes_cluster_name"] = o.KubernetesClusterName
+	toSerialize["kubernetes_ip"] = o.KubernetesIp
+	toSerialize["kubernetes_is_in_host_network"] = o.KubernetesIsInHostNetwork
 	toSerialize["kubernetes_namespace"] = o.KubernetesNamespace
-	toSerialize["metadata"] = o.Metadata
+	toSerialize["kubernetes_state"] = o.KubernetesState
 	toSerialize["node_id"] = o.NodeId
 	toSerialize["node_name"] = o.NodeName
 	if o.Processes != nil {

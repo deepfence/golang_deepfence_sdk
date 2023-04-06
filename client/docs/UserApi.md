@@ -532,7 +532,7 @@ Name | Type | Description  | Notes
 
 ## RegisterInvitedUser
 
-> ModelResponseAccessToken RegisterInvitedUser(ctx).ModelRegisterInvitedUserRequest(modelRegisterInvitedUserRequest).Execute()
+> ModelLoginResponse RegisterInvitedUser(ctx).ModelRegisterInvitedUserRequest(modelRegisterInvitedUserRequest).Execute()
 
 Register Invited User
 
@@ -560,7 +560,7 @@ func main() {
         fmt.Fprintf(os.Stderr, "Error when calling `UserApi.RegisterInvitedUser``: %v\n", err)
         fmt.Fprintf(os.Stderr, "Full HTTP response: %v\n", r)
     }
-    // response from `RegisterInvitedUser`: ModelResponseAccessToken
+    // response from `RegisterInvitedUser`: ModelLoginResponse
     fmt.Fprintf(os.Stdout, "Response from `UserApi.RegisterInvitedUser`: %v\n", resp)
 }
 ```
@@ -580,7 +580,7 @@ Name | Type | Description  | Notes
 
 ### Return type
 
-[**ModelResponseAccessToken**](ModelResponseAccessToken.md)
+[**ModelLoginResponse**](ModelLoginResponse.md)
 
 ### Authorization
 
@@ -598,7 +598,7 @@ No authorization required
 
 ## RegisterUser
 
-> ModelResponseAccessToken RegisterUser(ctx).ModelUserRegisterRequest(modelUserRegisterRequest).Execute()
+> ModelLoginResponse RegisterUser(ctx).ModelUserRegisterRequest(modelUserRegisterRequest).Execute()
 
 Register User
 
@@ -626,7 +626,7 @@ func main() {
         fmt.Fprintf(os.Stderr, "Error when calling `UserApi.RegisterUser``: %v\n", err)
         fmt.Fprintf(os.Stderr, "Full HTTP response: %v\n", r)
     }
-    // response from `RegisterUser`: ModelResponseAccessToken
+    // response from `RegisterUser`: ModelLoginResponse
     fmt.Fprintf(os.Stdout, "Response from `UserApi.RegisterUser`: %v\n", resp)
 }
 ```
@@ -646,7 +646,7 @@ Name | Type | Description  | Notes
 
 ### Return type
 
-[**ModelResponseAccessToken**](ModelResponseAccessToken.md)
+[**ModelLoginResponse**](ModelLoginResponse.md)
 
 ### Authorization
 

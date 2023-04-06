@@ -20,50 +20,26 @@ var _ MappedNullable = &ModelCloudResource{}
 
 // ModelCloudResource struct for ModelCloudResource
 type ModelCloudResource struct {
-	CloudComplianceLatestScanId string `json:"cloud_compliance_latest scan_id"`
+	CloudComplianceLatestScanId string `json:"cloud_compliance_latest_scan_id"`
 	CloudComplianceScanStatus string `json:"cloud_compliance_scan_status"`
 	CloudCompliancesCount int32 `json:"cloud_compliances_count"`
-	ComplianceLatestScanId string `json:"compliance_latest_scan_id"`
-	ComplianceScanStatus string `json:"compliance_scan_status"`
-	CompliancesCount int32 `json:"compliances_count"`
-	MalwareLatestScanId string `json:"malware_latest_scan_id"`
-	MalwareScanStatus string `json:"malware_scan_status"`
-	MalwaresCount int32 `json:"malwares_count"`
 	NodeId string `json:"node_id"`
 	NodeName string `json:"node_name"`
 	NodeType string `json:"node_type"`
-	SecretLatestScan string `json:"secret_latest_scan"`
-	SecretScanStatus string `json:"secret_scan_status"`
-	SecretsCount int32 `json:"secrets_count"`
-	VulnerabilitiesCount int32 `json:"vulnerabilities_count"`
-	VulnerabilityLatestScanId string `json:"vulnerability_latest_scan_id"`
-	VulnerabilityScanStatus string `json:"vulnerability_scan_status"`
 }
 
 // NewModelCloudResource instantiates a new ModelCloudResource object
 // This constructor will assign default values to properties that have it defined,
 // and makes sure properties required by API are set, but the set of arguments
 // will change when the set of required properties is changed
-func NewModelCloudResource(cloudComplianceLatestScanId string, cloudComplianceScanStatus string, cloudCompliancesCount int32, complianceLatestScanId string, complianceScanStatus string, compliancesCount int32, malwareLatestScanId string, malwareScanStatus string, malwaresCount int32, nodeId string, nodeName string, nodeType string, secretLatestScan string, secretScanStatus string, secretsCount int32, vulnerabilitiesCount int32, vulnerabilityLatestScanId string, vulnerabilityScanStatus string) *ModelCloudResource {
+func NewModelCloudResource(cloudComplianceLatestScanId string, cloudComplianceScanStatus string, cloudCompliancesCount int32, nodeId string, nodeName string, nodeType string) *ModelCloudResource {
 	this := ModelCloudResource{}
 	this.CloudComplianceLatestScanId = cloudComplianceLatestScanId
 	this.CloudComplianceScanStatus = cloudComplianceScanStatus
 	this.CloudCompliancesCount = cloudCompliancesCount
-	this.ComplianceLatestScanId = complianceLatestScanId
-	this.ComplianceScanStatus = complianceScanStatus
-	this.CompliancesCount = compliancesCount
-	this.MalwareLatestScanId = malwareLatestScanId
-	this.MalwareScanStatus = malwareScanStatus
-	this.MalwaresCount = malwaresCount
 	this.NodeId = nodeId
 	this.NodeName = nodeName
 	this.NodeType = nodeType
-	this.SecretLatestScan = secretLatestScan
-	this.SecretScanStatus = secretScanStatus
-	this.SecretsCount = secretsCount
-	this.VulnerabilitiesCount = vulnerabilitiesCount
-	this.VulnerabilityLatestScanId = vulnerabilityLatestScanId
-	this.VulnerabilityScanStatus = vulnerabilityScanStatus
 	return &this
 }
 
@@ -147,150 +123,6 @@ func (o *ModelCloudResource) SetCloudCompliancesCount(v int32) {
 	o.CloudCompliancesCount = v
 }
 
-// GetComplianceLatestScanId returns the ComplianceLatestScanId field value
-func (o *ModelCloudResource) GetComplianceLatestScanId() string {
-	if o == nil {
-		var ret string
-		return ret
-	}
-
-	return o.ComplianceLatestScanId
-}
-
-// GetComplianceLatestScanIdOk returns a tuple with the ComplianceLatestScanId field value
-// and a boolean to check if the value has been set.
-func (o *ModelCloudResource) GetComplianceLatestScanIdOk() (*string, bool) {
-	if o == nil {
-		return nil, false
-	}
-	return &o.ComplianceLatestScanId, true
-}
-
-// SetComplianceLatestScanId sets field value
-func (o *ModelCloudResource) SetComplianceLatestScanId(v string) {
-	o.ComplianceLatestScanId = v
-}
-
-// GetComplianceScanStatus returns the ComplianceScanStatus field value
-func (o *ModelCloudResource) GetComplianceScanStatus() string {
-	if o == nil {
-		var ret string
-		return ret
-	}
-
-	return o.ComplianceScanStatus
-}
-
-// GetComplianceScanStatusOk returns a tuple with the ComplianceScanStatus field value
-// and a boolean to check if the value has been set.
-func (o *ModelCloudResource) GetComplianceScanStatusOk() (*string, bool) {
-	if o == nil {
-		return nil, false
-	}
-	return &o.ComplianceScanStatus, true
-}
-
-// SetComplianceScanStatus sets field value
-func (o *ModelCloudResource) SetComplianceScanStatus(v string) {
-	o.ComplianceScanStatus = v
-}
-
-// GetCompliancesCount returns the CompliancesCount field value
-func (o *ModelCloudResource) GetCompliancesCount() int32 {
-	if o == nil {
-		var ret int32
-		return ret
-	}
-
-	return o.CompliancesCount
-}
-
-// GetCompliancesCountOk returns a tuple with the CompliancesCount field value
-// and a boolean to check if the value has been set.
-func (o *ModelCloudResource) GetCompliancesCountOk() (*int32, bool) {
-	if o == nil {
-		return nil, false
-	}
-	return &o.CompliancesCount, true
-}
-
-// SetCompliancesCount sets field value
-func (o *ModelCloudResource) SetCompliancesCount(v int32) {
-	o.CompliancesCount = v
-}
-
-// GetMalwareLatestScanId returns the MalwareLatestScanId field value
-func (o *ModelCloudResource) GetMalwareLatestScanId() string {
-	if o == nil {
-		var ret string
-		return ret
-	}
-
-	return o.MalwareLatestScanId
-}
-
-// GetMalwareLatestScanIdOk returns a tuple with the MalwareLatestScanId field value
-// and a boolean to check if the value has been set.
-func (o *ModelCloudResource) GetMalwareLatestScanIdOk() (*string, bool) {
-	if o == nil {
-		return nil, false
-	}
-	return &o.MalwareLatestScanId, true
-}
-
-// SetMalwareLatestScanId sets field value
-func (o *ModelCloudResource) SetMalwareLatestScanId(v string) {
-	o.MalwareLatestScanId = v
-}
-
-// GetMalwareScanStatus returns the MalwareScanStatus field value
-func (o *ModelCloudResource) GetMalwareScanStatus() string {
-	if o == nil {
-		var ret string
-		return ret
-	}
-
-	return o.MalwareScanStatus
-}
-
-// GetMalwareScanStatusOk returns a tuple with the MalwareScanStatus field value
-// and a boolean to check if the value has been set.
-func (o *ModelCloudResource) GetMalwareScanStatusOk() (*string, bool) {
-	if o == nil {
-		return nil, false
-	}
-	return &o.MalwareScanStatus, true
-}
-
-// SetMalwareScanStatus sets field value
-func (o *ModelCloudResource) SetMalwareScanStatus(v string) {
-	o.MalwareScanStatus = v
-}
-
-// GetMalwaresCount returns the MalwaresCount field value
-func (o *ModelCloudResource) GetMalwaresCount() int32 {
-	if o == nil {
-		var ret int32
-		return ret
-	}
-
-	return o.MalwaresCount
-}
-
-// GetMalwaresCountOk returns a tuple with the MalwaresCount field value
-// and a boolean to check if the value has been set.
-func (o *ModelCloudResource) GetMalwaresCountOk() (*int32, bool) {
-	if o == nil {
-		return nil, false
-	}
-	return &o.MalwaresCount, true
-}
-
-// SetMalwaresCount sets field value
-func (o *ModelCloudResource) SetMalwaresCount(v int32) {
-	o.MalwaresCount = v
-}
-
 // GetNodeId returns the NodeId field value
 func (o *ModelCloudResource) GetNodeId() string {
 	if o == nil {
@@ -363,150 +195,6 @@ func (o *ModelCloudResource) SetNodeType(v string) {
 	o.NodeType = v
 }
 
-// GetSecretLatestScan returns the SecretLatestScan field value
-func (o *ModelCloudResource) GetSecretLatestScan() string {
-	if o == nil {
-		var ret string
-		return ret
-	}
-
-	return o.SecretLatestScan
-}
-
-// GetSecretLatestScanOk returns a tuple with the SecretLatestScan field value
-// and a boolean to check if the value has been set.
-func (o *ModelCloudResource) GetSecretLatestScanOk() (*string, bool) {
-	if o == nil {
-		return nil, false
-	}
-	return &o.SecretLatestScan, true
-}
-
-// SetSecretLatestScan sets field value
-func (o *ModelCloudResource) SetSecretLatestScan(v string) {
-	o.SecretLatestScan = v
-}
-
-// GetSecretScanStatus returns the SecretScanStatus field value
-func (o *ModelCloudResource) GetSecretScanStatus() string {
-	if o == nil {
-		var ret string
-		return ret
-	}
-
-	return o.SecretScanStatus
-}
-
-// GetSecretScanStatusOk returns a tuple with the SecretScanStatus field value
-// and a boolean to check if the value has been set.
-func (o *ModelCloudResource) GetSecretScanStatusOk() (*string, bool) {
-	if o == nil {
-		return nil, false
-	}
-	return &o.SecretScanStatus, true
-}
-
-// SetSecretScanStatus sets field value
-func (o *ModelCloudResource) SetSecretScanStatus(v string) {
-	o.SecretScanStatus = v
-}
-
-// GetSecretsCount returns the SecretsCount field value
-func (o *ModelCloudResource) GetSecretsCount() int32 {
-	if o == nil {
-		var ret int32
-		return ret
-	}
-
-	return o.SecretsCount
-}
-
-// GetSecretsCountOk returns a tuple with the SecretsCount field value
-// and a boolean to check if the value has been set.
-func (o *ModelCloudResource) GetSecretsCountOk() (*int32, bool) {
-	if o == nil {
-		return nil, false
-	}
-	return &o.SecretsCount, true
-}
-
-// SetSecretsCount sets field value
-func (o *ModelCloudResource) SetSecretsCount(v int32) {
-	o.SecretsCount = v
-}
-
-// GetVulnerabilitiesCount returns the VulnerabilitiesCount field value
-func (o *ModelCloudResource) GetVulnerabilitiesCount() int32 {
-	if o == nil {
-		var ret int32
-		return ret
-	}
-
-	return o.VulnerabilitiesCount
-}
-
-// GetVulnerabilitiesCountOk returns a tuple with the VulnerabilitiesCount field value
-// and a boolean to check if the value has been set.
-func (o *ModelCloudResource) GetVulnerabilitiesCountOk() (*int32, bool) {
-	if o == nil {
-		return nil, false
-	}
-	return &o.VulnerabilitiesCount, true
-}
-
-// SetVulnerabilitiesCount sets field value
-func (o *ModelCloudResource) SetVulnerabilitiesCount(v int32) {
-	o.VulnerabilitiesCount = v
-}
-
-// GetVulnerabilityLatestScanId returns the VulnerabilityLatestScanId field value
-func (o *ModelCloudResource) GetVulnerabilityLatestScanId() string {
-	if o == nil {
-		var ret string
-		return ret
-	}
-
-	return o.VulnerabilityLatestScanId
-}
-
-// GetVulnerabilityLatestScanIdOk returns a tuple with the VulnerabilityLatestScanId field value
-// and a boolean to check if the value has been set.
-func (o *ModelCloudResource) GetVulnerabilityLatestScanIdOk() (*string, bool) {
-	if o == nil {
-		return nil, false
-	}
-	return &o.VulnerabilityLatestScanId, true
-}
-
-// SetVulnerabilityLatestScanId sets field value
-func (o *ModelCloudResource) SetVulnerabilityLatestScanId(v string) {
-	o.VulnerabilityLatestScanId = v
-}
-
-// GetVulnerabilityScanStatus returns the VulnerabilityScanStatus field value
-func (o *ModelCloudResource) GetVulnerabilityScanStatus() string {
-	if o == nil {
-		var ret string
-		return ret
-	}
-
-	return o.VulnerabilityScanStatus
-}
-
-// GetVulnerabilityScanStatusOk returns a tuple with the VulnerabilityScanStatus field value
-// and a boolean to check if the value has been set.
-func (o *ModelCloudResource) GetVulnerabilityScanStatusOk() (*string, bool) {
-	if o == nil {
-		return nil, false
-	}
-	return &o.VulnerabilityScanStatus, true
-}
-
-// SetVulnerabilityScanStatus sets field value
-func (o *ModelCloudResource) SetVulnerabilityScanStatus(v string) {
-	o.VulnerabilityScanStatus = v
-}
-
 func (o ModelCloudResource) MarshalJSON() ([]byte, error) {
 	toSerialize,err := o.ToMap()
 	if err != nil {
@@ -517,24 +205,12 @@ func (o ModelCloudResource) MarshalJSON() ([]byte, error) {
 
 func (o ModelCloudResource) ToMap() (map[string]interface{}, error) {
 	toSerialize := map[string]interface{}{}
-	toSerialize["cloud_compliance_latest scan_id"] = o.CloudComplianceLatestScanId
+	toSerialize["cloud_compliance_latest_scan_id"] = o.CloudComplianceLatestScanId
 	toSerialize["cloud_compliance_scan_status"] = o.CloudComplianceScanStatus
 	toSerialize["cloud_compliances_count"] = o.CloudCompliancesCount
-	toSerialize["compliance_latest_scan_id"] = o.ComplianceLatestScanId
-	toSerialize["compliance_scan_status"] = o.ComplianceScanStatus
-	toSerialize["compliances_count"] = o.CompliancesCount
-	toSerialize["malware_latest_scan_id"] = o.MalwareLatestScanId
-	toSerialize["malware_scan_status"] = o.MalwareScanStatus
-	toSerialize["malwares_count"] = o.MalwaresCount
 	toSerialize["node_id"] = o.NodeId
 	toSerialize["node_name"] = o.NodeName
 	toSerialize["node_type"] = o.NodeType
-	toSerialize["secret_latest_scan"] = o.SecretLatestScan
-	toSerialize["secret_scan_status"] = o.SecretScanStatus
-	toSerialize["secrets_count"] = o.SecretsCount
-	toSerialize["vulnerabilities_count"] = o.VulnerabilitiesCount
-	toSerialize["vulnerability_latest_scan_id"] = o.VulnerabilityLatestScanId
-	toSerialize["vulnerability_scan_status"] = o.VulnerabilityScanStatus
 	return toSerialize, nil
 }
 

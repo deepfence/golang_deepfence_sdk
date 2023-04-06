@@ -21,10 +21,7 @@ var _ MappedNullable = &ModelHost{}
 // ModelHost struct for ModelHost
 type ModelHost struct {
 	AgentRunning bool `json:"agent_running"`
-	AvailabilityZone *string `json:"availability_zone,omitempty"`
-	CloudComplianceLatestScanId string `json:"cloud_compliance_latest scan_id"`
-	CloudComplianceScanStatus string `json:"cloud_compliance_scan_status"`
-	CloudCompliancesCount int32 `json:"cloud_compliances_count"`
+	AvailabilityZone string `json:"availability_zone"`
 	CloudProvider string `json:"cloud_provider"`
 	CloudRegion string `json:"cloud_region"`
 	ComplianceLatestScanId string `json:"compliance_latest_scan_id"`
@@ -32,32 +29,32 @@ type ModelHost struct {
 	CompliancesCount int32 `json:"compliances_count"`
 	ContainerImages []ModelContainerImage `json:"container_images"`
 	Containers []ModelContainer `json:"containers"`
-	CpuMax *float32 `json:"cpu_max,omitempty"`
-	CpuUsage *float32 `json:"cpu_usage,omitempty"`
+	CpuMax float32 `json:"cpu_max"`
+	CpuUsage float32 `json:"cpu_usage"`
 	HostName string `json:"host_name"`
-	InstanceId *string `json:"instance_id,omitempty"`
-	InstanceType *string `json:"instance_type,omitempty"`
+	InstanceId string `json:"instance_id"`
+	InstanceType string `json:"instance_type"`
 	InterfaceIps []string `json:"interface_ips"`
 	InterfaceNames []string `json:"interface_names"`
 	IsConsoleVm bool `json:"is_console_vm"`
-	KernelId *string `json:"kernel_id,omitempty"`
+	KernelId string `json:"kernel_id"`
 	KernelVersion string `json:"kernel_version"`
 	LocalCidr []string `json:"local_cidr"`
-	LocalNetworks []string `json:"local_networks,omitempty"`
+	LocalNetworks []string `json:"local_networks"`
 	MalwareLatestScanId string `json:"malware_latest_scan_id"`
 	MalwareScanStatus string `json:"malware_scan_status"`
 	MalwaresCount int32 `json:"malwares_count"`
-	MemoryMax *int32 `json:"memory_max,omitempty"`
-	MemoryUsage *int32 `json:"memory_usage,omitempty"`
+	MemoryMax int32 `json:"memory_max"`
+	MemoryUsage int32 `json:"memory_usage"`
 	NodeId string `json:"node_id"`
 	NodeName string `json:"node_name"`
 	Os string `json:"os"`
 	Pods []ModelPod `json:"pods"`
-	PrivateIp []string `json:"private_ip,omitempty"`
+	PrivateIp []string `json:"private_ip"`
 	Processes []ModelProcess `json:"processes"`
-	PublicIp []string `json:"public_ip,omitempty"`
-	ResourceGroup *string `json:"resource_group,omitempty"`
-	SecretLatestScan string `json:"secret_latest_scan"`
+	PublicIp []string `json:"public_ip"`
+	ResourceGroup string `json:"resource_group"`
+	SecretLatestScanId string `json:"secret_latest_scan_id"`
 	SecretScanStatus string `json:"secret_scan_status"`
 	SecretsCount int32 `json:"secrets_count"`
 	Uptime int32 `json:"uptime"`
@@ -71,12 +68,10 @@ type ModelHost struct {
 // This constructor will assign default values to properties that have it defined,
 // and makes sure properties required by API are set, but the set of arguments
 // will change when the set of required properties is changed
-func NewModelHost(agentRunning bool, cloudComplianceLatestScanId string, cloudComplianceScanStatus string, cloudCompliancesCount int32, cloudProvider string, cloudRegion string, complianceLatestScanId string, complianceScanStatus string, compliancesCount int32, containerImages []ModelContainerImage, containers []ModelContainer, hostName string, interfaceIps []string, interfaceNames []string, isConsoleVm bool, kernelVersion string, localCidr []string, malwareLatestScanId string, malwareScanStatus string, malwaresCount int32, nodeId string, nodeName string, os string, pods []ModelPod, processes []ModelProcess, secretLatestScan string, secretScanStatus string, secretsCount int32, uptime int32, version string, vulnerabilitiesCount int32, vulnerabilityLatestScanId string, vulnerabilityScanStatus string) *ModelHost {
+func NewModelHost(agentRunning bool, availabilityZone string, cloudProvider string, cloudRegion string, complianceLatestScanId string, complianceScanStatus string, compliancesCount int32, containerImages []ModelContainerImage, containers []ModelContainer, cpuMax float32, cpuUsage float32, hostName string, instanceId string, instanceType string, interfaceIps []string, interfaceNames []string, isConsoleVm bool, kernelId string, kernelVersion string, localCidr []string, localNetworks []string, malwareLatestScanId string, malwareScanStatus string, malwaresCount int32, memoryMax int32, memoryUsage int32, nodeId string, nodeName string, os string, pods []ModelPod, privateIp []string, processes []ModelProcess, publicIp []string, resourceGroup string, secretLatestScanId string, secretScanStatus string, secretsCount int32, uptime int32, version string, vulnerabilitiesCount int32, vulnerabilityLatestScanId string, vulnerabilityScanStatus string) *ModelHost {
 	this := ModelHost{}
 	this.AgentRunning = agentRunning
-	this.CloudComplianceLatestScanId = cloudComplianceLatestScanId
-	this.CloudComplianceScanStatus = cloudComplianceScanStatus
-	this.CloudCompliancesCount = cloudCompliancesCount
+	this.AvailabilityZone = availabilityZone
 	this.CloudProvider = cloudProvider
 	this.CloudRegion = cloudRegion
 	this.ComplianceLatestScanId = complianceLatestScanId
@@ -84,21 +79,32 @@ func NewModelHost(agentRunning bool, cloudComplianceLatestScanId string, cloudCo
 	this.CompliancesCount = compliancesCount
 	this.ContainerImages = containerImages
 	this.Containers = containers
+	this.CpuMax = cpuMax
+	this.CpuUsage = cpuUsage
 	this.HostName = hostName
+	this.InstanceId = instanceId
+	this.InstanceType = instanceType
 	this.InterfaceIps = interfaceIps
 	this.InterfaceNames = interfaceNames
 	this.IsConsoleVm = isConsoleVm
+	this.KernelId = kernelId
 	this.KernelVersion = kernelVersion
 	this.LocalCidr = localCidr
+	this.LocalNetworks = localNetworks
 	this.MalwareLatestScanId = malwareLatestScanId
 	this.MalwareScanStatus = malwareScanStatus
 	this.MalwaresCount = malwaresCount
+	this.MemoryMax = memoryMax
+	this.MemoryUsage = memoryUsage
 	this.NodeId = nodeId
 	this.NodeName = nodeName
 	this.Os = os
 	this.Pods = pods
+	this.PrivateIp = privateIp
 	this.Processes = processes
-	this.SecretLatestScan = secretLatestScan
+	this.PublicIp = publicIp
+	this.ResourceGroup = resourceGroup
+	this.SecretLatestScanId = secretLatestScanId
 	this.SecretScanStatus = secretScanStatus
 	this.SecretsCount = secretsCount
 	this.Uptime = uptime
@@ -141,108 +147,28 @@ func (o *ModelHost) SetAgentRunning(v bool) {
 	o.AgentRunning = v
 }
 
-// GetAvailabilityZone returns the AvailabilityZone field value if set, zero value otherwise.
+// GetAvailabilityZone returns the AvailabilityZone field value
 func (o *ModelHost) GetAvailabilityZone() string {
-	if o == nil || IsNil(o.AvailabilityZone) {
+	if o == nil {
 		var ret string
 		return ret
 	}
-	return *o.AvailabilityZone
+
+	return o.AvailabilityZone
 }
 
-// GetAvailabilityZoneOk returns a tuple with the AvailabilityZone field value if set, nil otherwise
+// GetAvailabilityZoneOk returns a tuple with the AvailabilityZone field value
 // and a boolean to check if the value has been set.
 func (o *ModelHost) GetAvailabilityZoneOk() (*string, bool) {
-	if o == nil || IsNil(o.AvailabilityZone) {
+	if o == nil {
 		return nil, false
 	}
-	return o.AvailabilityZone, true
+	return &o.AvailabilityZone, true
 }
 
-// HasAvailabilityZone returns a boolean if a field has been set.
-func (o *ModelHost) HasAvailabilityZone() bool {
-	if o != nil && !IsNil(o.AvailabilityZone) {
-		return true
-	}
-
-	return false
-}
-
-// SetAvailabilityZone gets a reference to the given string and assigns it to the AvailabilityZone field.
+// SetAvailabilityZone sets field value
 func (o *ModelHost) SetAvailabilityZone(v string) {
-	o.AvailabilityZone = &v
-}
-
-// GetCloudComplianceLatestScanId returns the CloudComplianceLatestScanId field value
-func (o *ModelHost) GetCloudComplianceLatestScanId() string {
-	if o == nil {
-		var ret string
-		return ret
-	}
-
-	return o.CloudComplianceLatestScanId
-}
-
-// GetCloudComplianceLatestScanIdOk returns a tuple with the CloudComplianceLatestScanId field value
-// and a boolean to check if the value has been set.
-func (o *ModelHost) GetCloudComplianceLatestScanIdOk() (*string, bool) {
-	if o == nil {
-		return nil, false
-	}
-	return &o.CloudComplianceLatestScanId, true
-}
-
-// SetCloudComplianceLatestScanId sets field value
-func (o *ModelHost) SetCloudComplianceLatestScanId(v string) {
-	o.CloudComplianceLatestScanId = v
-}
-
-// GetCloudComplianceScanStatus returns the CloudComplianceScanStatus field value
-func (o *ModelHost) GetCloudComplianceScanStatus() string {
-	if o == nil {
-		var ret string
-		return ret
-	}
-
-	return o.CloudComplianceScanStatus
-}
-
-// GetCloudComplianceScanStatusOk returns a tuple with the CloudComplianceScanStatus field value
-// and a boolean to check if the value has been set.
-func (o *ModelHost) GetCloudComplianceScanStatusOk() (*string, bool) {
-	if o == nil {
-		return nil, false
-	}
-	return &o.CloudComplianceScanStatus, true
-}
-
-// SetCloudComplianceScanStatus sets field value
-func (o *ModelHost) SetCloudComplianceScanStatus(v string) {
-	o.CloudComplianceScanStatus = v
-}
-
-// GetCloudCompliancesCount returns the CloudCompliancesCount field value
-func (o *ModelHost) GetCloudCompliancesCount() int32 {
-	if o == nil {
-		var ret int32
-		return ret
-	}
-
-	return o.CloudCompliancesCount
-}
-
-// GetCloudCompliancesCountOk returns a tuple with the CloudCompliancesCount field value
-// and a boolean to check if the value has been set.
-func (o *ModelHost) GetCloudCompliancesCountOk() (*int32, bool) {
-	if o == nil {
-		return nil, false
-	}
-	return &o.CloudCompliancesCount, true
-}
-
-// SetCloudCompliancesCount sets field value
-func (o *ModelHost) SetCloudCompliancesCount(v int32) {
-	o.CloudCompliancesCount = v
+	o.AvailabilityZone = v
 }
 
 // GetCloudProvider returns the CloudProvider field value
@@ -417,68 +343,52 @@ func (o *ModelHost) SetContainers(v []ModelContainer) {
 	o.Containers = v
 }
 
-// GetCpuMax returns the CpuMax field value if set, zero value otherwise.
+// GetCpuMax returns the CpuMax field value
 func (o *ModelHost) GetCpuMax() float32 {
-	if o == nil || IsNil(o.CpuMax) {
+	if o == nil {
 		var ret float32
 		return ret
 	}
-	return *o.CpuMax
+
+	return o.CpuMax
 }
 
-// GetCpuMaxOk returns a tuple with the CpuMax field value if set, nil otherwise
+// GetCpuMaxOk returns a tuple with the CpuMax field value
 // and a boolean to check if the value has been set.
 func (o *ModelHost) GetCpuMaxOk() (*float32, bool) {
-	if o == nil || IsNil(o.CpuMax) {
+	if o == nil {
 		return nil, false
 	}
-	return o.CpuMax, true
+	return &o.CpuMax, true
 }
 
-// HasCpuMax returns a boolean if a field has been set.
-func (o *ModelHost) HasCpuMax() bool {
-	if o != nil && !IsNil(o.CpuMax) {
-		return true
-	}
-
-	return false
-}
-
-// SetCpuMax gets a reference to the given float32 and assigns it to the CpuMax field.
+// SetCpuMax sets field value
 func (o *ModelHost) SetCpuMax(v float32) {
-	o.CpuMax = &v
+	o.CpuMax = v
 }
 
-// GetCpuUsage returns the CpuUsage field value if set, zero value otherwise.
+// GetCpuUsage returns the CpuUsage field value
 func (o *ModelHost) GetCpuUsage() float32 {
-	if o == nil || IsNil(o.CpuUsage) {
+	if o == nil {
 		var ret float32
 		return ret
 	}
-	return *o.CpuUsage
+
+	return o.CpuUsage
 }
 
-// GetCpuUsageOk returns a tuple with the CpuUsage field value if set, nil otherwise
+// GetCpuUsageOk returns a tuple with the CpuUsage field value
 // and a boolean to check if the value has been set.
 func (o *ModelHost) GetCpuUsageOk() (*float32, bool) {
-	if o == nil || IsNil(o.CpuUsage) {
+	if o == nil {
 		return nil, false
 	}
-	return o.CpuUsage, true
+	return &o.CpuUsage, true
 }
 
-// HasCpuUsage returns a boolean if a field has been set.
-func (o *ModelHost) HasCpuUsage() bool {
-	if o != nil && !IsNil(o.CpuUsage) {
-		return true
-	}
-
-	return false
-}
-
-// SetCpuUsage gets a reference to the given float32 and assigns it to the CpuUsage field.
+// SetCpuUsage sets field value
 func (o *ModelHost) SetCpuUsage(v float32) {
-	o.CpuUsage = &v
+	o.CpuUsage = v
 }
 
 // GetHostName returns the HostName field value
@@ -505,68 +415,52 @@ func (o *ModelHost) SetHostName(v string) {
 	o.HostName = v
 }
 
-// GetInstanceId returns the InstanceId field value if set, zero value otherwise.
+// GetInstanceId returns the InstanceId field value
 func (o *ModelHost) GetInstanceId() string {
-	if o == nil || IsNil(o.InstanceId) {
+	if o == nil {
 		var ret string
 		return ret
 	}
-	return *o.InstanceId
+
+	return o.InstanceId
 }
 
-// GetInstanceIdOk returns a tuple with the InstanceId field value if set, nil otherwise
+// GetInstanceIdOk returns a tuple with the InstanceId field value
 // and a boolean to check if the value has been set.
 func (o *ModelHost) GetInstanceIdOk() (*string, bool) {
-	if o == nil || IsNil(o.InstanceId) {
+	if o == nil {
 		return nil, false
 	}
-	return o.InstanceId, true
+	return &o.InstanceId, true
 }
 
-// HasInstanceId returns a boolean if a field has been set.
-func (o *ModelHost) HasInstanceId() bool {
-	if o != nil && !IsNil(o.InstanceId) {
-		return true
-	}
-
-	return false
-}
-
-// SetInstanceId gets a reference to the given string and assigns it to the InstanceId field.
+// SetInstanceId sets field value
 func (o *ModelHost) SetInstanceId(v string) {
-	o.InstanceId = &v
+	o.InstanceId = v
 }
 
-// GetInstanceType returns the InstanceType field value if set, zero value otherwise.
+// GetInstanceType returns the InstanceType field value
 func (o *ModelHost) GetInstanceType() string {
-	if o == nil || IsNil(o.InstanceType) {
+	if o == nil {
 		var ret string
 		return ret
 	}
-	return *o.InstanceType
+
+	return o.InstanceType
 }
 
-// GetInstanceTypeOk returns a tuple with the InstanceType field value if set, nil otherwise
+// GetInstanceTypeOk returns a tuple with the InstanceType field value
 // and a boolean to check if the value has been set.
 func (o *ModelHost) GetInstanceTypeOk() (*string, bool) {
-	if o == nil || IsNil(o.InstanceType) {
+	if o == nil {
 		return nil, false
 	}
-	return o.InstanceType, true
+	return &o.InstanceType, true
 }
 
-// HasInstanceType returns a boolean if a field has been set.
-func (o *ModelHost) HasInstanceType() bool {
-	if o != nil && !IsNil(o.InstanceType) {
-		return true
-	}
-
-	return false
-}
-
-// SetInstanceType gets a reference to the given string and assigns it to the InstanceType field.
+// SetInstanceType sets field value
 func (o *ModelHost) SetInstanceType(v string) {
-	o.InstanceType = &v
+	o.InstanceType = v
 }
 
 // GetInterfaceIps returns the InterfaceIps field value
@@ -645,36 +539,28 @@ func (o *ModelHost) SetIsConsoleVm(v bool) {
 	o.IsConsoleVm = v
 }
 
-// GetKernelId returns the KernelId field value if set, zero value otherwise.
+// GetKernelId returns the KernelId field value
 func (o *ModelHost) GetKernelId() string {
-	if o == nil || IsNil(o.KernelId) {
+	if o == nil {
 		var ret string
 		return ret
 	}
-	return *o.KernelId
+
+	return o.KernelId
 }
 
-// GetKernelIdOk returns a tuple with the KernelId field value if set, nil otherwise
+// GetKernelIdOk returns a tuple with the KernelId field value
 // and a boolean to check if the value has been set.
 func (o *ModelHost) GetKernelIdOk() (*string, bool) {
-	if o == nil || IsNil(o.KernelId) {
+	if o == nil {
 		return nil, false
 	}
-	return o.KernelId, true
+	return &o.KernelId, true
 }
 
-// HasKernelId returns a boolean if a field has been set.
-func (o *ModelHost) HasKernelId() bool {
-	if o != nil && !IsNil(o.KernelId) {
-		return true
-	}
-
-	return false
-}
-
-// SetKernelId gets a reference to the given string and assigns it to the KernelId field.
+// SetKernelId sets field value
 func (o *ModelHost) SetKernelId(v string) {
-	o.KernelId = &v
+	o.KernelId = v
 }
 
 // GetKernelVersion returns the KernelVersion field value
@@ -727,17 +613,20 @@ func (o *ModelHost) SetLocalCidr(v []string) {
 	o.LocalCidr = v
 }
 
-// GetLocalNetworks returns the LocalNetworks field value if set, zero value otherwise.
+// GetLocalNetworks returns the LocalNetworks field value
+// If the value is explicit nil, the zero value for []string will be returned
 func (o *ModelHost) GetLocalNetworks() []string {
-	if o == nil || IsNil(o.LocalNetworks) {
+	if o == nil {
 		var ret []string
 		return ret
 	}
+
 	return o.LocalNetworks
 }
 
-// GetLocalNetworksOk returns a tuple with the LocalNetworks field value if set, nil otherwise
+// GetLocalNetworksOk returns a tuple with the LocalNetworks field value
 // and a boolean to check if the value has been set.
+// NOTE: If the value is an explicit nil, `nil, true` will be returned
 func (o *ModelHost) GetLocalNetworksOk() ([]string, bool) {
 	if o == nil || IsNil(o.LocalNetworks) {
 		return nil, false
@@ -745,16 +634,7 @@ func (o *ModelHost) GetLocalNetworksOk() ([]string, bool) {
 	return o.LocalNetworks, true
 }
 
-// HasLocalNetworks returns a boolean if a field has been set.
-func (o *ModelHost) HasLocalNetworks() bool {
-	if o != nil && !IsNil(o.LocalNetworks) {
-		return true
-	}
-
-	return false
-}
-
-// SetLocalNetworks gets a reference to the given []string and assigns it to the LocalNetworks field.
+// SetLocalNetworks sets field value
 func (o *ModelHost) SetLocalNetworks(v []string) {
 	o.LocalNetworks = v
 }
@@ -831,68 +711,52 @@ func (o *ModelHost) SetMalwaresCount(v int32) {
 	o.MalwaresCount = v
 }
 
-// GetMemoryMax returns the MemoryMax field value if set, zero value otherwise.
+// GetMemoryMax returns the MemoryMax field value
 func (o *ModelHost) GetMemoryMax() int32 {
-	if o == nil || IsNil(o.MemoryMax) {
+	if o == nil {
 		var ret int32
 		return ret
 	}
-	return *o.MemoryMax
+
+	return o.MemoryMax
 }
 
-// GetMemoryMaxOk returns a tuple with the MemoryMax field value if set, nil otherwise
+// GetMemoryMaxOk returns a tuple with the MemoryMax field value
 // and a boolean to check if the value has been set.
 func (o *ModelHost) GetMemoryMaxOk() (*int32, bool) {
-	if o == nil || IsNil(o.MemoryMax) {
+	if o == nil {
 		return nil, false
 	}
-	return o.MemoryMax, true
+	return &o.MemoryMax, true
 }
 
-// HasMemoryMax returns a boolean if a field has been set.
-func (o *ModelHost) HasMemoryMax() bool {
-	if o != nil && !IsNil(o.MemoryMax) {
-		return true
-	}
-
-	return false
-}
-
-// SetMemoryMax gets a reference to the given int32 and assigns it to the MemoryMax field.
+// SetMemoryMax sets field value
 func (o *ModelHost) SetMemoryMax(v int32) {
-	o.MemoryMax = &v
+	o.MemoryMax = v
 }
 
-// GetMemoryUsage returns the MemoryUsage field value if set, zero value otherwise.
+// GetMemoryUsage returns the MemoryUsage field value
 func (o *ModelHost) GetMemoryUsage() int32 {
-	if o == nil || IsNil(o.MemoryUsage) {
+	if o == nil {
 		var ret int32
 		return ret
 	}
-	return *o.MemoryUsage
+
+	return o.MemoryUsage
 }
 
-// GetMemoryUsageOk returns a tuple with the MemoryUsage field value if set, nil otherwise
+// GetMemoryUsageOk returns a tuple with the MemoryUsage field value
 // and a boolean to check if the value has been set.
 func (o *ModelHost) GetMemoryUsageOk() (*int32, bool) {
-	if o == nil || IsNil(o.MemoryUsage) {
+	if o == nil {
 		return nil, false
 	}
-	return o.MemoryUsage, true
+	return &o.MemoryUsage, true
 }
 
-// HasMemoryUsage returns a boolean if a field has been set.
-func (o *ModelHost) HasMemoryUsage() bool {
-	if o != nil && !IsNil(o.MemoryUsage) {
-		return true
-	}
-
-	return false
-}
-
-// SetMemoryUsage gets a reference to the given int32 and assigns it to the MemoryUsage field.
+// SetMemoryUsage sets field value
 func (o *ModelHost) SetMemoryUsage(v int32) {
-	o.MemoryUsage = &v
+	o.MemoryUsage = v
 }
 
 // GetNodeId returns the NodeId field value
@@ -993,17 +857,20 @@ func (o *ModelHost) SetPods(v []ModelPod) {
 	o.Pods = v
 }
 
-// GetPrivateIp returns the PrivateIp field value if set, zero value otherwise.
+// GetPrivateIp returns the PrivateIp field value
+// If the value is explicit nil, the zero value for []string will be returned
 func (o *ModelHost) GetPrivateIp() []string {
-	if o == nil || IsNil(o.PrivateIp) {
+	if o == nil {
 		var ret []string
 		return ret
 	}
+
 	return o.PrivateIp
 }
 
-// GetPrivateIpOk returns a tuple with the PrivateIp field value if set, nil otherwise
+// GetPrivateIpOk returns a tuple with the PrivateIp field value
 // and a boolean to check if the value has been set.
+// NOTE: If the value is an explicit nil, `nil, true` will be returned
 func (o *ModelHost) GetPrivateIpOk() ([]string, bool) {
 	if o == nil || IsNil(o.PrivateIp) {
 		return nil, false
@@ -1011,16 +878,7 @@ func (o *ModelHost) GetPrivateIpOk() ([]string, bool) {
 	return o.PrivateIp, true
 }
 
-// HasPrivateIp returns a boolean if a field has been set.
-func (o *ModelHost) HasPrivateIp() bool {
-	if o != nil && !IsNil(o.PrivateIp) {
-		return true
-	}
-
-	return false
-}
-
-// SetPrivateIp gets a reference to the given []string and assigns it to the PrivateIp field.
+// SetPrivateIp sets field value
 func (o *ModelHost) SetPrivateIp(v []string) {
 	o.PrivateIp = v
 }
@@ -1051,17 +909,20 @@ func (o *ModelHost) SetProcesses(v []ModelProcess) {
 	o.Processes = v
 }
 
-// GetPublicIp returns the PublicIp field value if set, zero value otherwise.
+// GetPublicIp returns the PublicIp field value
+// If the value is explicit nil, the zero value for []string will be returned
 func (o *ModelHost) GetPublicIp() []string {
-	if o == nil || IsNil(o.PublicIp) {
+	if o == nil {
 		var ret []string
 		return ret
 	}
+
 	return o.PublicIp
 }
 
-// GetPublicIpOk returns a tuple with the PublicIp field value if set, nil otherwise
+// GetPublicIpOk returns a tuple with the PublicIp field value
 // and a boolean to check if the value has been set.
+// NOTE: If the value is an explicit nil, `nil, true` will be returned
 func (o *ModelHost) GetPublicIpOk() ([]string, bool) {
 	if o == nil || IsNil(o.PublicIp) {
 		return nil, false
@@ -1069,74 +930,57 @@ func (o *ModelHost) GetPublicIpOk() ([]string, bool) {
 	return o.PublicIp, true
 }
 
-// HasPublicIp returns a boolean if a field has been set.
-func (o *ModelHost) HasPublicIp() bool {
-	if o != nil && !IsNil(o.PublicIp) {
-		return true
-	}
-
-	return false
-}
-
-// SetPublicIp gets a reference to the given []string and assigns it to the PublicIp field.
+// SetPublicIp sets field value
 func (o *ModelHost) SetPublicIp(v []string) {
 	o.PublicIp = v
 }
 
-// GetResourceGroup returns the ResourceGroup field value if set, zero value otherwise.
+// GetResourceGroup returns the ResourceGroup field value
 func (o *ModelHost) GetResourceGroup() string {
-	if o == nil || IsNil(o.ResourceGroup) {
+	if o == nil {
 		var ret string
 		return ret
 	}
-	return *o.ResourceGroup
+
+	return o.ResourceGroup
 }
 
-// GetResourceGroupOk returns a tuple with the ResourceGroup field value if set, nil otherwise
+// GetResourceGroupOk returns a tuple with the ResourceGroup field value
 // and a boolean to check if the value has been set.
 func (o *ModelHost) GetResourceGroupOk() (*string, bool) {
-	if o == nil || IsNil(o.ResourceGroup) {
+	if o == nil {
 		return nil, false
 	}
-	return o.ResourceGroup, true
+	return &o.ResourceGroup, true
 }
 
-// HasResourceGroup returns a boolean if a field has been set.
-func (o *ModelHost) HasResourceGroup() bool {
-	if o != nil && !IsNil(o.ResourceGroup) {
-		return true
-	}
-
-	return false
-}
-
-// SetResourceGroup gets a reference to the given string and assigns it to the ResourceGroup field.
+// SetResourceGroup sets field value
 func (o *ModelHost) SetResourceGroup(v string) {
-	o.ResourceGroup = &v
+	o.ResourceGroup = v
 }
 
-// GetSecretLatestScan returns the SecretLatestScan field value
-func (o *ModelHost) GetSecretLatestScan() string {
+// GetSecretLatestScanId returns the SecretLatestScanId field value
+func (o *ModelHost) GetSecretLatestScanId() string {
 	if o == nil {
 		var ret string
 		return ret
 	}
 
-	return o.SecretLatestScan
+	return o.SecretLatestScanId
 }
 
-// GetSecretLatestScanOk returns a tuple with the SecretLatestScan field value
+// GetSecretLatestScanIdOk returns a tuple with the SecretLatestScanId field value
 // and a boolean to check if the value has been set.
-func (o *ModelHost) GetSecretLatestScanOk() (*string, bool) {
+func (o *ModelHost) GetSecretLatestScanIdOk() (*string, bool) {
 	if o == nil {
 		return nil, false
 	}
-	return &o.SecretLatestScan, true
+	return &o.SecretLatestScanId, true
 }
 
-// SetSecretLatestScan sets field value
-func (o *ModelHost) SetSecretLatestScan(v string) {
-	o.SecretLatestScan = v
+// SetSecretLatestScanId sets field value
+func (o *ModelHost) SetSecretLatestScanId(v string) {
+	o.SecretLatestScanId = v
 }
 
 // GetSecretScanStatus returns the SecretScanStatus field value
@@ -1318,12 +1162,7 @@ func (o ModelHost) MarshalJSON() ([]byte, error) {
 func (o ModelHost) ToMap() (map[string]interface{}, error) {
 	toSerialize := map[string]interface{}{}
 	toSerialize["agent_running"] = o.AgentRunning
-	if !IsNil(o.AvailabilityZone) {
-		toSerialize["availability_zone"] = o.AvailabilityZone
-	}
-	toSerialize["cloud_compliance_latest scan_id"] = o.CloudComplianceLatestScanId
-	toSerialize["cloud_compliance_scan_status"] = o.CloudComplianceScanStatus
-	toSerialize["cloud_compliances_count"] = o.CloudCompliancesCount
+	toSerialize["availability_zone"] = o.AvailabilityZone
 	toSerialize["cloud_provider"] = o.CloudProvider
 	toSerialize["cloud_region"] = o.CloudRegion
 	toSerialize["compliance_latest_scan_id"] = o.ComplianceLatestScanId
@@ -1335,19 +1174,11 @@ func (o ModelHost) ToMap() (map[string]interface{}, error) {
 	if o.Containers != nil {
 		toSerialize["containers"] = o.Containers
 	}
-	if !IsNil(o.CpuMax) {
-		toSerialize["cpu_max"] = o.CpuMax
-	}
-	if !IsNil(o.CpuUsage) {
-		toSerialize["cpu_usage"] = o.CpuUsage
-	}
+	toSerialize["cpu_max"] = o.CpuMax
+	toSerialize["cpu_usage"] = o.CpuUsage
 	toSerialize["host_name"] = o.HostName
-	if !IsNil(o.InstanceId) {
-		toSerialize["instance_id"] = o.InstanceId
-	}
-	if !IsNil(o.InstanceType) {
-		toSerialize["instance_type"] = o.InstanceType
-	}
+	toSerialize["instance_id"] = o.InstanceId
+	toSerialize["instance_type"] = o.InstanceType
 	if o.InterfaceIps != nil {
 		toSerialize["interface_ips"] = o.InterfaceIps
 	}
@@ -1355,44 +1186,36 @@ func (o ModelHost) ToMap() (map[string]interface{}, error) {
 		toSerialize["interface_names"] = o.InterfaceNames
 	}
 	toSerialize["is_console_vm"] = o.IsConsoleVm
-	if !IsNil(o.KernelId) {
-		toSerialize["kernel_id"] = o.KernelId
-	}
+	toSerialize["kernel_id"] = o.KernelId
 	toSerialize["kernel_version"] = o.KernelVersion
 	if o.LocalCidr != nil {
 		toSerialize["local_cidr"] = o.LocalCidr
 	}
-	if !IsNil(o.LocalNetworks) {
+	if o.LocalNetworks != nil {
 		toSerialize["local_networks"] = o.LocalNetworks
 	}
 	toSerialize["malware_latest_scan_id"] = o.MalwareLatestScanId
 	toSerialize["malware_scan_status"] = o.MalwareScanStatus
 	toSerialize["malwares_count"] = o.MalwaresCount
-	if !IsNil(o.MemoryMax) {
-		toSerialize["memory_max"] = o.MemoryMax
-	}
-	if !IsNil(o.MemoryUsage) {
-		toSerialize["memory_usage"] = o.MemoryUsage
-	}
+	toSerialize["memory_max"] = o.MemoryMax
+	toSerialize["memory_usage"] = o.MemoryUsage
 	toSerialize["node_id"] = o.NodeId
 	toSerialize["node_name"] = o.NodeName
 	toSerialize["os"] = o.Os
 	if o.Pods != nil {
 		toSerialize["pods"] = o.Pods
 	}
-	if !IsNil(o.PrivateIp) {
+	if o.PrivateIp != nil {
 		toSerialize["private_ip"] = o.PrivateIp
 	}
 	if o.Processes != nil {
 		toSerialize["processes"] = o.Processes
 	}
-	if !IsNil(o.PublicIp) {
+	if o.PublicIp != nil {
 		toSerialize["public_ip"] = o.PublicIp
 	}
-	if !IsNil(o.ResourceGroup) {
-		toSerialize["resource_group"] = o.ResourceGroup
-	}
-	toSerialize["secret_latest_scan"] = o.SecretLatestScan
+	toSerialize["resource_group"] = o.ResourceGroup
+	toSerialize["secret_latest_scan_id"] = o.SecretLatestScanId
 	toSerialize["secret_scan_status"] = o.SecretScanStatus
 	toSerialize["secrets_count"] = o.SecretsCount
 	toSerialize["uptime"] = o.Uptime

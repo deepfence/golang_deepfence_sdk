@@ -140,7 +140,7 @@ Other parameters are passed through a pointer to a apiAuthTokenRefreshRequest st
 
 ## Login
 
-> ModelResponseAccessToken Login(ctx).ModelLoginRequest(modelLoginRequest).Execute()
+> ModelLoginResponse Login(ctx).ModelLoginRequest(modelLoginRequest).Execute()
 
 Login API
 
@@ -168,7 +168,7 @@ func main() {
         fmt.Fprintf(os.Stderr, "Error when calling `AuthenticationApi.Login``: %v\n", err)
         fmt.Fprintf(os.Stderr, "Full HTTP response: %v\n", r)
     }
-    // response from `Login`: ModelResponseAccessToken
+    // response from `Login`: ModelLoginResponse
     fmt.Fprintf(os.Stdout, "Response from `AuthenticationApi.Login`: %v\n", resp)
 }
 ```
@@ -188,7 +188,7 @@ Name | Type | Description  | Notes
 
 ### Return type
 
-[**ModelResponseAccessToken**](ModelResponseAccessToken.md)
+[**ModelLoginResponse**](ModelLoginResponse.md)
 
 ### Authorization
 

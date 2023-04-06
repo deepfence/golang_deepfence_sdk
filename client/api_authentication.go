@@ -304,7 +304,7 @@ func (r ApiLoginRequest) ModelLoginRequest(modelLoginRequest ModelLoginRequest) 
 	return r
 }
 
-func (r ApiLoginRequest) Execute() (*ModelResponseAccessToken, *http.Response, error) {
+func (r ApiLoginRequest) Execute() (*ModelLoginResponse, *http.Response, error) {
 	return r.ApiService.LoginExecute(r)
 }
 
@@ -324,13 +324,13 @@ func (a *AuthenticationApiService) Login(ctx context.Context) ApiLoginRequest {
 }
 
 // Execute executes the request
-//  @return ModelResponseAccessToken
-func (a *AuthenticationApiService) LoginExecute(r ApiLoginRequest) (*ModelResponseAccessToken, *http.Response, error) {
+//  @return ModelLoginResponse
+func (a *AuthenticationApiService) LoginExecute(r ApiLoginRequest) (*ModelLoginResponse, *http.Response, error) {
 	var (
 		localVarHTTPMethod   = http.MethodPost
 		localVarPostBody     interface{}
 		formFiles            []formFile
-		localVarReturnValue  *ModelResponseAccessToken
+		localVarReturnValue  *ModelLoginResponse
 	)
 
 	localBasePath, err := a.client.cfg.ServerURLWithContext(r.ctx, "AuthenticationApiService.Login")

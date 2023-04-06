@@ -114,6 +114,7 @@ docs/ModelInviteUserRequest.md
 docs/ModelInviteUserResponse.md
 docs/ModelKubernetesCluster.md
 docs/ModelLoginRequest.md
+docs/ModelLoginResponse.md
 docs/ModelMalware.md
 docs/ModelMalwareScanResult.md
 docs/ModelMalwareScanTriggerReq.md
@@ -267,6 +268,7 @@ model_model_invite_user_request.go
 model_model_invite_user_response.go
 model_model_kubernetes_cluster.go
 model_model_login_request.go
+model_model_login_response.go
 model_model_malware.go
 model_model_malware_scan_result.go
 model_model_malware_scan_trigger_req.go

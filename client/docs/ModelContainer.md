@@ -4,35 +4,29 @@
 
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
-**CloudComplianceLatestScanId** | **string** |  | 
-**CloudComplianceScanStatus** | **string** |  | 
-**CloudCompliancesCount** | **int32** |  | 
-**ComplianceLatestScanId** | **string** |  | 
-**ComplianceScanStatus** | **string** |  | 
-**CompliancesCount** | **int32** |  | 
-**CpuMax** | Pointer to **float32** |  | [optional] 
-**CpuUsage** | Pointer to **float32** |  | [optional] 
-**DockerContainerCommand** | Pointer to **string** |  | [optional] 
-**DockerContainerCreated** | Pointer to **string** |  | [optional] 
-**DockerContainerIps** | Pointer to **[]string** |  | [optional] 
+**CpuMax** | **float32** |  | 
+**CpuUsage** | **float32** |  | 
+**DockerContainerCommand** | **string** |  | 
+**DockerContainerCreated** | **string** |  | 
+**DockerContainerIps** | **[]string** |  | 
 **DockerContainerName** | **string** |  | 
-**DockerContainerNetworkMode** | Pointer to **string** |  | [optional] 
-**DockerContainerNetworks** | Pointer to **string** |  | [optional] 
-**DockerContainerPorts** | Pointer to **string** |  | [optional] 
-**DockerContainerState** | Pointer to **string** |  | [optional] 
-**DockerContainerStateHuman** | Pointer to **string** |  | [optional] 
+**DockerContainerNetworkMode** | **string** |  | 
+**DockerContainerNetworks** | **string** |  | 
+**DockerContainerPorts** | **string** |  | 
+**DockerContainerState** | **string** |  | 
+**DockerContainerStateHuman** | **string** |  | 
 **DockerLabels** | **map[string]interface{}** |  | 
 **HostName** | **string** |  | 
 **Image** | [**ModelContainerImage**](ModelContainerImage.md) |  | 
 **MalwareLatestScanId** | **string** |  | 
 **MalwareScanStatus** | **string** |  | 
 **MalwaresCount** | **int32** |  | 
-**MemoryMax** | Pointer to **int32** |  | [optional] 
-**MemoryUsage** | Pointer to **int32** |  | [optional] 
+**MemoryMax** | **int32** |  | 
+**MemoryUsage** | **int32** |  | 
 **NodeId** | **string** |  | 
 **NodeName** | **string** |  | 
 **Processes** | [**[]ModelProcess**](ModelProcess.md) |  | 
-**SecretLatestScan** | **string** |  | 
+**SecretLatestScanId** | **string** |  | 
 **SecretScanStatus** | **string** |  | 
 **SecretsCount** | **int32** |  | 
 **Uptime** | **int32** |  | 
@@ -44,7 +38,7 @@ Name | Type | Description | Notes
 
 ### NewModelContainer
 
-`func NewModelContainer(cloudComplianceLatestScanId string, cloudComplianceScanStatus string, cloudCompliancesCount int32, complianceLatestScanId string, complianceScanStatus string, compliancesCount int32, dockerContainerName string, dockerLabels map[string]interface{}, hostName string, image ModelContainerImage, malwareLatestScanId string, malwareScanStatus string, malwaresCount int32, nodeId string, nodeName string, processes []ModelProcess, secretLatestScan string, secretScanStatus string, secretsCount int32, uptime int32, vulnerabilitiesCount int32, vulnerabilityLatestScanId string, vulnerabilityScanStatus string, ) *ModelContainer`
+`func NewModelContainer(cpuMax float32, cpuUsage float32, dockerContainerCommand string, dockerContainerCreated string, dockerContainerIps []string, dockerContainerName string, dockerContainerNetworkMode string, dockerContainerNetworks string, dockerContainerPorts string, dockerContainerState string, dockerContainerStateHuman string, dockerLabels map[string]interface{}, hostName string, image ModelContainerImage, malwareLatestScanId string, malwareScanStatus string, malwaresCount int32, memoryMax int32, memoryUsage int32, nodeId string, nodeName string, processes []ModelProcess, secretLatestScanId string, secretScanStatus string, secretsCount int32, uptime int32, vulnerabilitiesCount int32, vulnerabilityLatestScanId string, vulnerabilityScanStatus string, ) *ModelContainer`
 
 NewModelContainer instantiates a new ModelContainer object
 This constructor will assign default values to properties that have it defined,
@@ -58,126 +52,6 @@ will change when the set of required properties is changed
 NewModelContainerWithDefaults instantiates a new ModelContainer object
 This constructor will only assign default values to properties that have it defined,
 but it doesn't guarantee that properties required by API are set
-
-### GetCloudComplianceLatestScanId
-
-`func (o *ModelContainer) GetCloudComplianceLatestScanId() string`
-
-GetCloudComplianceLatestScanId returns the CloudComplianceLatestScanId field if non-nil, zero value otherwise.
-
-### GetCloudComplianceLatestScanIdOk
-
-`func (o *ModelContainer) GetCloudComplianceLatestScanIdOk() (*string, bool)`
-
-GetCloudComplianceLatestScanIdOk returns a tuple with the CloudComplianceLatestScanId field if it's non-nil, zero value otherwise
-and a boolean to check if the value has been set.
-
-### SetCloudComplianceLatestScanId
-
-`func (o *ModelContainer) SetCloudComplianceLatestScanId(v string)`
-
-SetCloudComplianceLatestScanId sets CloudComplianceLatestScanId field to given value.
-
-
-### GetCloudComplianceScanStatus
-
-`func (o *ModelContainer) GetCloudComplianceScanStatus() string`
-
-GetCloudComplianceScanStatus returns the CloudComplianceScanStatus field if non-nil, zero value otherwise.
-
-### GetCloudComplianceScanStatusOk
-
-`func (o *ModelContainer) GetCloudComplianceScanStatusOk() (*string, bool)`
-
-GetCloudComplianceScanStatusOk returns a tuple with the CloudComplianceScanStatus field if it's non-nil, zero value otherwise
-and a boolean to check if the value has been set.
-
-### SetCloudComplianceScanStatus
-
-`func (o *ModelContainer) SetCloudComplianceScanStatus(v string)`
-
-SetCloudComplianceScanStatus sets CloudComplianceScanStatus field to given value.
-
-
-### GetCloudCompliancesCount
-
-`func (o *ModelContainer) GetCloudCompliancesCount() int32`
-
-GetCloudCompliancesCount returns the CloudCompliancesCount field if non-nil, zero value otherwise.
-
-### GetCloudCompliancesCountOk
-
-`func (o *ModelContainer) GetCloudCompliancesCountOk() (*int32, bool)`
-
-GetCloudCompliancesCountOk returns a tuple with the CloudCompliancesCount field if it's non-nil, zero value otherwise
-and a boolean to check if the value has been set.
-
-### SetCloudCompliancesCount
-
-`func (o *ModelContainer) SetCloudCompliancesCount(v int32)`
-
-SetCloudCompliancesCount sets CloudCompliancesCount field to given value.
-
-
-### GetComplianceLatestScanId
-
-`func (o *ModelContainer) GetComplianceLatestScanId() string`
-
-GetComplianceLatestScanId returns the ComplianceLatestScanId field if non-nil, zero value otherwise.
-
-### GetComplianceLatestScanIdOk
-
-`func (o *ModelContainer) GetComplianceLatestScanIdOk() (*string, bool)`
-
-GetComplianceLatestScanIdOk returns a tuple with the ComplianceLatestScanId field if it's non-nil, zero value otherwise
-and a boolean to check if the value has been set.
-
-### SetComplianceLatestScanId
-
-`func (o *ModelContainer) SetComplianceLatestScanId(v string)`
-
-SetComplianceLatestScanId sets ComplianceLatestScanId field to given value.
-
-
-### GetComplianceScanStatus
-
-`func (o *ModelContainer) GetComplianceScanStatus() string`
-
-GetComplianceScanStatus returns the ComplianceScanStatus field if non-nil, zero value otherwise.
-
-### GetComplianceScanStatusOk
-
-`func (o *ModelContainer) GetComplianceScanStatusOk() (*string, bool)`
-
-GetComplianceScanStatusOk returns a tuple with the ComplianceScanStatus field if it's non-nil, zero value otherwise
-and a boolean to check if the value has been set.
-
-### SetComplianceScanStatus
-
-`func (o *ModelContainer) SetComplianceScanStatus(v string)`
-
-SetComplianceScanStatus sets ComplianceScanStatus field to given value.
-
-
-### GetCompliancesCount
-
-`func (o *ModelContainer) GetCompliancesCount() int32`
-
-GetCompliancesCount returns the CompliancesCount field if non-nil, zero value otherwise.
-
-### GetCompliancesCountOk
-
-`func (o *ModelContainer) GetCompliancesCountOk() (*int32, bool)`
-
-GetCompliancesCountOk returns a tuple with the CompliancesCount field if it's non-nil, zero value otherwise
-and a boolean to check if the value has been set.
-
-### SetCompliancesCount
-
-`func (o *ModelContainer) SetCompliancesCount(v int32)`
-
-SetCompliancesCount sets CompliancesCount field to given value.
-
 
 ### GetCpuMax
 
@@ -198,11 +72,6 @@ and a boolean to check if the value has been set.
 
 SetCpuMax sets CpuMax field to given value.
 
-### HasCpuMax
-
-`func (o *ModelContainer) HasCpuMax() bool`
-
-HasCpuMax returns a boolean if a field has been set.
 
 ### GetCpuUsage
 
@@ -223,11 +92,6 @@ and a boolean to check if the value has been set.
 
 SetCpuUsage sets CpuUsage field to given value.
 
-### HasCpuUsage
-
-`func (o *ModelContainer) HasCpuUsage() bool`
-
-HasCpuUsage returns a boolean if a field has been set.
 
 ### GetDockerContainerCommand
 
@@ -248,11 +112,6 @@ and a boolean to check if the value has been set.
 
 SetDockerContainerCommand sets DockerContainerCommand field to given value.
 
-### HasDockerContainerCommand
-
-`func (o *ModelContainer) HasDockerContainerCommand() bool`
-
-HasDockerContainerCommand returns a boolean if a field has been set.
 
 ### GetDockerContainerCreated
 
@@ -273,11 +132,6 @@ and a boolean to check if the value has been set.
 
 SetDockerContainerCreated sets DockerContainerCreated field to given value.
 
-### HasDockerContainerCreated
-
-`func (o *ModelContainer) HasDockerContainerCreated() bool`
-
-HasDockerContainerCreated returns a boolean if a field has been set.
 
 ### GetDockerContainerIps
 
@@ -298,12 +152,17 @@ and a boolean to check if the value has been set.
 
 SetDockerContainerIps sets DockerContainerIps field to given value.
 
-### HasDockerContainerIps
 
-`func (o *ModelContainer) HasDockerContainerIps() bool`
+### SetDockerContainerIpsNil
 
-HasDockerContainerIps returns a boolean if a field has been set.
+`func (o *ModelContainer) SetDockerContainerIpsNil(b bool)`
 
+ SetDockerContainerIpsNil sets the value for DockerContainerIps to be an explicit nil
+
+### UnsetDockerContainerIps
+`func (o *ModelContainer) UnsetDockerContainerIps()`
+
+UnsetDockerContainerIps ensures that no value is present for DockerContainerIps, not even an explicit nil
 ### GetDockerContainerName
 
 `func (o *ModelContainer) GetDockerContainerName() string`
@@ -343,11 +202,6 @@ and a boolean to check if the value has been set.
 
 SetDockerContainerNetworkMode sets DockerContainerNetworkMode field to given value.
 
-### HasDockerContainerNetworkMode
-
-`func (o *ModelContainer) HasDockerContainerNetworkMode() bool`
-
-HasDockerContainerNetworkMode returns a boolean if a field has been set.
 
 ### GetDockerContainerNetworks
 
@@ -368,11 +222,6 @@ and a boolean to check if the value has been set.
 
 SetDockerContainerNetworks sets DockerContainerNetworks field to given value.
 
-### HasDockerContainerNetworks
-
-`func (o *ModelContainer) HasDockerContainerNetworks() bool`
-
-HasDockerContainerNetworks returns a boolean if a field has been set.
 
 ### GetDockerContainerPorts
 
@@ -393,11 +242,6 @@ and a boolean to check if the value has been set.
 
 SetDockerContainerPorts sets DockerContainerPorts field to given value.
 
-### HasDockerContainerPorts
-
-`func (o *ModelContainer) HasDockerContainerPorts() bool`
-
-HasDockerContainerPorts returns a boolean if a field has been set.
 
 ### GetDockerContainerState
 
@@ -418,11 +262,6 @@ and a boolean to check if the value has been set.
 
 SetDockerContainerState sets DockerContainerState field to given value.
 
-### HasDockerContainerState
-
-`func (o *ModelContainer) HasDockerContainerState() bool`
-
-HasDockerContainerState returns a boolean if a field has been set.
 
 ### GetDockerContainerStateHuman
 
@@ -443,11 +282,6 @@ and a boolean to check if the value has been set.
 
 SetDockerContainerStateHuman sets DockerContainerStateHuman field to given value.
 
-### HasDockerContainerStateHuman
-
-`func (o *ModelContainer) HasDockerContainerStateHuman() bool`
-
-HasDockerContainerStateHuman returns a boolean if a field has been set.
 
 ### GetDockerLabels
 
@@ -588,11 +422,6 @@ and a boolean to check if the value has been set.
 
 SetMemoryMax sets MemoryMax field to given value.
 
-### HasMemoryMax
-
-`func (o *ModelContainer) HasMemoryMax() bool`
-
-HasMemoryMax returns a boolean if a field has been set.
 
 ### GetMemoryUsage
 
@@ -613,11 +442,6 @@ and a boolean to check if the value has been set.
 
 SetMemoryUsage sets MemoryUsage field to given value.
 
-### HasMemoryUsage
-
-`func (o *ModelContainer) HasMemoryUsage() bool`
-
-HasMemoryUsage returns a boolean if a field has been set.
 
 ### GetNodeId
 
@@ -689,24 +513,24 @@ SetProcesses sets Processes field to given value.
 `func (o *ModelContainer) UnsetProcesses()`
 
 UnsetProcesses ensures that no value is present for Processes, not even an explicit nil
-### GetSecretLatestScan
+### GetSecretLatestScanId
 
-`func (o *ModelContainer) GetSecretLatestScan() string`
+`func (o *ModelContainer) GetSecretLatestScanId() string`
 
-GetSecretLatestScan returns the SecretLatestScan field if non-nil, zero value otherwise.
+GetSecretLatestScanId returns the SecretLatestScanId field if non-nil, zero value otherwise.
 
-### GetSecretLatestScanOk
+### GetSecretLatestScanIdOk
 
-`func (o *ModelContainer) GetSecretLatestScanOk() (*string, bool)`
+`func (o *ModelContainer) GetSecretLatestScanIdOk() (*string, bool)`
 
-GetSecretLatestScanOk returns a tuple with the SecretLatestScan field if it's non-nil, zero value otherwise
+GetSecretLatestScanIdOk returns a tuple with the SecretLatestScanId field if it's non-nil, zero value otherwise
 and a boolean to check if the value has been set.
 
-### SetSecretLatestScan
+### SetSecretLatestScanId
 
-`func (o *ModelContainer) SetSecretLatestScan(v string)`
+`func (o *ModelContainer) SetSecretLatestScanId(v string)`
 
-SetSecretLatestScan sets SecretLatestScan field to given value.
+SetSecretLatestScanId sets SecretLatestScanId field to given value.
 
 
 ### GetSecretScanStatus

@@ -1077,7 +1077,7 @@ func (r ApiRegisterInvitedUserRequest) ModelRegisterInvitedUserRequest(modelRegi
 	return r
 }
 
-func (r ApiRegisterInvitedUserRequest) Execute() (*ModelResponseAccessToken, *http.Response, error) {
+func (r ApiRegisterInvitedUserRequest) Execute() (*ModelLoginResponse, *http.Response, error) {
 	return r.ApiService.RegisterInvitedUserExecute(r)
 }
 
@@ -1097,13 +1097,13 @@ func (a *UserApiService) RegisterInvitedUser(ctx context.Context) ApiRegisterInv
 }
 
 // Execute executes the request
-//  @return ModelResponseAccessToken
-func (a *UserApiService) RegisterInvitedUserExecute(r ApiRegisterInvitedUserRequest) (*ModelResponseAccessToken, *http.Response, error) {
+//  @return ModelLoginResponse
+func (a *UserApiService) RegisterInvitedUserExecute(r ApiRegisterInvitedUserRequest) (*ModelLoginResponse, *http.Response, error) {
 	var (
 		localVarHTTPMethod   = http.MethodPost
 		localVarPostBody     interface{}
 		formFiles            []formFile
-		localVarReturnValue  *ModelResponseAccessToken
+		localVarReturnValue  *ModelLoginResponse
 	)
 
 	localBasePath, err := a.client.cfg.ServerURLWithContext(r.ctx, "UserApiService.RegisterInvitedUser")
@@ -1216,7 +1216,7 @@ func (r ApiRegisterUserRequest) ModelUserRegisterRequest(modelUserRegisterReques
 	return r
 }
 
-func (r ApiRegisterUserRequest) Execute() (*ModelResponseAccessToken, *http.Response, error) {
+func (r ApiRegisterUserRequest) Execute() (*ModelLoginResponse, *http.Response, error) {
 	return r.ApiService.RegisterUserExecute(r)
 }
 
@@ -1236,13 +1236,13 @@ func (a *UserApiService) RegisterUser(ctx context.Context) ApiRegisterUserReques
 }
 
 // Execute executes the request
-//  @return ModelResponseAccessToken
-func (a *UserApiService) RegisterUserExecute(r ApiRegisterUserRequest) (*ModelResponseAccessToken, *http.Response, error) {
+//  @return ModelLoginResponse
+func (a *UserApiService) RegisterUserExecute(r ApiRegisterUserRequest) (*ModelLoginResponse, *http.Response, error) {
 	var (
 		localVarHTTPMethod   = http.MethodPost
 		localVarPostBody     interface{}
 		formFiles            []formFile
-		localVarReturnValue  *ModelResponseAccessToken
+		localVarReturnValue  *ModelLoginResponse
 	)
 
 	localBasePath, err := a.client.cfg.ServerURLWithContext(r.ctx, "UserApiService.RegisterUser")
