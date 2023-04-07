@@ -63,18 +63,18 @@ type ReportParams struct {
 
 type ReportFilters struct {
 	ScanType              string                `json:"scan_type" validate:"required" required:"true" enum:"vulnerability,secret,malware,compliance,cloud_compliance"`
-	NodeType              string                `json:"node_type" validate:"required" required:"true" enum:"host,container,container_image,linux,aws,gcp,azure"`
+	NodeType              string                `json:"node_type" validate:"required" required:"true" enum:"host,container,container_image,pod,linux,aws,gcp,azure"`
 	SeverityOrCheckType   []string              `json:"severity_or_check_type" enum:"critical,high,medium,low,cis,gdpr,nist,hipaa,pci,soc2"`
 	IncludeDeadNode       bool                  `json:"include_dead_nodes"`
 	AdvancedReportFilters AdvancedReportFilters `json:"advanced_report_filters,omitempty"`
 }
 
 type AdvancedReportFilters struct {
-	Masked                bool   `json:"masked,omitempty"`
-	ScanStatus            string `json:"scan_status,omitempty"`
-	HostName              string `json:"host_name,omitempty"`
-	AccountId             string `json:"account_id,omitempty"`
-	KubernetesClusterName string `json:"kubernetes_cluster_name,omitempty"`
+	Masked                []bool   `json:"masked,omitempty"`
+	ScanStatus            []string `json:"scan_status,omitempty"`
+	HostName              []string `json:"host_name,omitempty"`
+	AccountId             []string `json:"account_id,omitempty"`
+	KubernetesClusterName []string `json:"kubernetes_cluster_name,omitempty"`
 }
 
 func (r ReportFilters) String() string {
