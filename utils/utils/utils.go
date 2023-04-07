@@ -207,7 +207,7 @@ func ToMap[T any](c T) map[string]interface{} {
 	return bb
 }
 
-// Convert map[string]interface{} into structs
+// FromMap Convert map[string]interface{} into structs
 // e.g:
 //
 //	type Titi struct {
@@ -215,15 +215,20 @@ func ToMap[T any](c T) map[string]interface{} {
 //	}
 //
 //	type Toto struct {
-//		Foo string `json:"foo"`
-//		Bar int    `json:"bar"`
-//		Ta  Titi   `json:"ta"`
-//		Tas []Titi `json:"tas"`
+//		Foo  string   `json:"foo"`
+//		Bar  int      `json:"bar"`
+//		Ta   Titi     `json:"ta"`
+//		Tas  []Titi   `json:"tas"`
+//		Tass []string `json:"tass"`
 //	}
 //
-// m := map[string]interface{}{"foo": "toto", "bar": 42, "ta": map[string]interface{}{"tata": "ok"},
-//
-//	"tas": []map[string]interface{}{{"tata": "ok2"}, {"tata": "ok1"}}}
+//	m := map[string]interface{}{
+//		"foo": "toto",
+//		"bar": 42,
+//		"ta": map[string]interface{}{"tata": "ok"},
+//		"tas": []map[string]interface{}{{"tata": "ok2"}, {"tata": "ok1"}},
+//		"tass": []string{"a"},
+//	}
 //
 // var t Toto
 // FromMap(m, &t)
@@ -244,6 +249,8 @@ func FromMap(bb map[string]interface{}, c interface{}) {
 		if t.Field(i).Type.Kind() == reflect.Slice {
 			slice, ok := data.([]map[string]interface{})
 			if !ok {
+				vv := reflect.ValueOf(data).Convert(t.Field(i).Type)
+				v.Field(i).Set(vv)
 				continue
 			}
 			tmp := reflect.MakeSlice(t.Field(i).Type, 0, len(slice))
