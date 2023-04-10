@@ -8,7 +8,7 @@ Name | Type | Description | Notes
 **CpuUsage** | **float32** |  | 
 **DockerContainerCommand** | **string** |  | 
 **DockerContainerCreated** | **string** |  | 
-**DockerContainerIps** | **[]string** |  | 
+**DockerContainerIps** | **[]interface{}** |  | 
 **DockerContainerName** | **string** |  | 
 **DockerContainerNetworkMode** | **string** |  | 
 **DockerContainerNetworks** | **string** |  | 
@@ -38,7 +38,7 @@ Name | Type | Description | Notes
 
 ### NewModelContainer
 
-`func NewModelContainer(cpuMax float32, cpuUsage float32, dockerContainerCommand string, dockerContainerCreated string, dockerContainerIps []string, dockerContainerName string, dockerContainerNetworkMode string, dockerContainerNetworks string, dockerContainerPorts string, dockerContainerState string, dockerContainerStateHuman string, dockerLabels map[string]interface{}, hostName string, image ModelContainerImage, malwareLatestScanId string, malwareScanStatus string, malwaresCount int32, memoryMax int32, memoryUsage int32, nodeId string, nodeName string, processes []ModelProcess, secretLatestScanId string, secretScanStatus string, secretsCount int32, uptime int32, vulnerabilitiesCount int32, vulnerabilityLatestScanId string, vulnerabilityScanStatus string, ) *ModelContainer`
+`func NewModelContainer(cpuMax float32, cpuUsage float32, dockerContainerCommand string, dockerContainerCreated string, dockerContainerIps []interface{}, dockerContainerName string, dockerContainerNetworkMode string, dockerContainerNetworks string, dockerContainerPorts string, dockerContainerState string, dockerContainerStateHuman string, dockerLabels map[string]interface{}, hostName string, image ModelContainerImage, malwareLatestScanId string, malwareScanStatus string, malwaresCount int32, memoryMax int32, memoryUsage int32, nodeId string, nodeName string, processes []ModelProcess, secretLatestScanId string, secretScanStatus string, secretsCount int32, uptime int32, vulnerabilitiesCount int32, vulnerabilityLatestScanId string, vulnerabilityScanStatus string, ) *ModelContainer`
 
 NewModelContainer instantiates a new ModelContainer object
 This constructor will assign default values to properties that have it defined,
@@ -135,20 +135,20 @@ SetDockerContainerCreated sets DockerContainerCreated field to given value.
 
 ### GetDockerContainerIps
 
-`func (o *ModelContainer) GetDockerContainerIps() []string`
+`func (o *ModelContainer) GetDockerContainerIps() []interface{}`
 
 GetDockerContainerIps returns the DockerContainerIps field if non-nil, zero value otherwise.
 
 ### GetDockerContainerIpsOk
 
-`func (o *ModelContainer) GetDockerContainerIpsOk() (*[]string, bool)`
+`func (o *ModelContainer) GetDockerContainerIpsOk() (*[]interface{}, bool)`
 
 GetDockerContainerIpsOk returns a tuple with the DockerContainerIps field if it's non-nil, zero value otherwise
 and a boolean to check if the value has been set.
 
 ### SetDockerContainerIps
 
-`func (o *ModelContainer) SetDockerContainerIps(v []string)`
+`func (o *ModelContainer) SetDockerContainerIps(v []interface{})`
 
 SetDockerContainerIps sets DockerContainerIps field to given value.
 
@@ -303,6 +303,16 @@ and a boolean to check if the value has been set.
 SetDockerLabels sets DockerLabels field to given value.
 
 
+### SetDockerLabelsNil
+
+`func (o *ModelContainer) SetDockerLabelsNil(b bool)`
+
+ SetDockerLabelsNil sets the value for DockerLabels to be an explicit nil
+
+### UnsetDockerLabels
+`func (o *ModelContainer) UnsetDockerLabels()`
+
+UnsetDockerLabels ensures that no value is present for DockerLabels, not even an explicit nil
 ### GetHostName
 
 `func (o *ModelContainer) GetHostName() string`

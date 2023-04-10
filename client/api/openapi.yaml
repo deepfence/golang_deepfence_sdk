@@ -7459,6 +7459,9 @@ components:
         endpoint_edges_batch:
         - key: ""
         - key: ""
+        pod_host_edges_batch:
+        - key: ""
+        - key: ""
       properties:
         container_batch:
           items:
@@ -7532,6 +7535,12 @@ components:
             type: object
           nullable: true
           type: array
+        pod_host_edges_batch:
+          items:
+            additionalProperties: {}
+            type: object
+          nullable: true
+          type: array
         process_batch:
           items:
             additionalProperties: {}
@@ -7557,6 +7566,7 @@ components:
       - kubernetes_cluster_edge_batch
       - pod_batch
       - pod_edges_batch
+      - pod_host_edges_batch
       - process_batch
       - process_edges_batch
       type: object
@@ -8674,30 +8684,11 @@ components:
         vulnerability_latest_scan_id: vulnerability_latest_scan_id
         malware_scan_status: malware_scan_status
         docker_container_ips:
-        - docker_container_ips
-        - docker_container_ips
+        - ""
+        - ""
         docker_labels:
           key: ""
-        image:
-          metadata:
-            key: ""
-          secret_scan_status: secret_scan_status
-          vulnerabilities_count: 1
-          secrets_count: 6
-          malware_latest_scan_id: malware_latest_scan_id
-          malwares_count: 0
-          node_name: node_name
-          secret_latest_scan_id: secret_latest_scan_id
-          vulnerability_latest_scan_id: vulnerability_latest_scan_id
-          docker_image_created_at: docker_image_created_at
-          docker_image_tag: docker_image_tag
-          malware_scan_status: malware_scan_status
-          docker_image_size: docker_image_size
-          docker_image_virtual_size: docker_image_virtual_size
-          docker_image_id: docker_image_id
-          vulnerability_scan_status: vulnerability_scan_status
-          docker_image_name: docker_image_name
-          node_id: node_id
+        image: null
         processes:
         - memory_max: 9
           cmdline: cmdline
@@ -8747,8 +8738,7 @@ components:
         docker_container_created:
           type: string
         docker_container_ips:
-          items:
-            type: string
+          items: {}
           nullable: true
           type: array
         docker_container_name:
@@ -8765,6 +8755,7 @@ components:
           type: string
         docker_labels:
           additionalProperties: {}
+          nullable: true
           type: object
         host_name:
           type: string
@@ -8839,10 +8830,10 @@ components:
         metadata:
           key: ""
         secret_scan_status: secret_scan_status
-        vulnerabilities_count: 1
-        secrets_count: 6
+        vulnerabilities_count: 4
+        secrets_count: 1
         malware_latest_scan_id: malware_latest_scan_id
-        malwares_count: 0
+        malwares_count: 7
         node_name: node_name
         secret_latest_scan_id: secret_latest_scan_id
         vulnerability_latest_scan_id: vulnerability_latest_scan_id
@@ -8851,11 +8842,125 @@ components:
         malware_scan_status: malware_scan_status
         docker_image_size: docker_image_size
         docker_image_virtual_size: docker_image_virtual_size
+        containers:
+        - vulnerabilities_count: 6
+          secrets_count: 1
+          docker_container_state: docker_container_state
+          cpu_max: 0.8008281904610115
+          memory_usage: 5
+          secret_latest_scan_id: secret_latest_scan_id
+          docker_container_network_mode: docker_container_network_mode
+          vulnerability_latest_scan_id: vulnerability_latest_scan_id
+          malware_scan_status: malware_scan_status
+          docker_container_ips:
+          - ""
+          - ""
+          docker_labels:
+            key: ""
+          image: null
+          processes:
+          - memory_max: 9
+            cmdline: cmdline
+            cpu_max: 2.3021358869347655
+            node_name: node_name
+            memory_usage: 3
+            open_files_count: 2
+            threads: 1
+            pid: 4
+            cpu_usage: 7.061401241503109
+            node_id: node_id
+            ppid: 7
+          - memory_max: 9
+            cmdline: cmdline
+            cpu_max: 2.3021358869347655
+            node_name: node_name
+            memory_usage: 3
+            open_files_count: 2
+            threads: 1
+            pid: 4
+            cpu_usage: 7.061401241503109
+            node_id: node_id
+            ppid: 7
+          secret_scan_status: secret_scan_status
+          docker_container_name: docker_container_name
+          docker_container_created: docker_container_created
+          malware_latest_scan_id: malware_latest_scan_id
+          malwares_count: 1
+          node_name: node_name
+          docker_container_networks: docker_container_networks
+          docker_container_command: docker_container_command
+          uptime: 1
+          memory_max: 5
+          docker_container_ports: docker_container_ports
+          docker_container_state_human: docker_container_state_human
+          cpu_usage: 6.027456183070403
+          vulnerability_scan_status: vulnerability_scan_status
+          host_name: host_name
+          node_id: node_id
+        - vulnerabilities_count: 6
+          secrets_count: 1
+          docker_container_state: docker_container_state
+          cpu_max: 0.8008281904610115
+          memory_usage: 5
+          secret_latest_scan_id: secret_latest_scan_id
+          docker_container_network_mode: docker_container_network_mode
+          vulnerability_latest_scan_id: vulnerability_latest_scan_id
+          malware_scan_status: malware_scan_status
+          docker_container_ips:
+          - ""
+          - ""
+          docker_labels:
+            key: ""
+          image: null
+          processes:
+          - memory_max: 9
+            cmdline: cmdline
+            cpu_max: 2.3021358869347655
+            node_name: node_name
+            memory_usage: 3
+            open_files_count: 2
+            threads: 1
+            pid: 4
+            cpu_usage: 7.061401241503109
+            node_id: node_id
+            ppid: 7
+          - memory_max: 9
+            cmdline: cmdline
+            cpu_max: 2.3021358869347655
+            node_name: node_name
+            memory_usage: 3
+            open_files_count: 2
+            threads: 1
+            pid: 4
+            cpu_usage: 7.061401241503109
+            node_id: node_id
+            ppid: 7
+          secret_scan_status: secret_scan_status
+          docker_container_name: docker_container_name
+          docker_container_created: docker_container_created
+          malware_latest_scan_id: malware_latest_scan_id
+          malwares_count: 1
+          node_name: node_name
+          docker_container_networks: docker_container_networks
+          docker_container_command: docker_container_command
+          uptime: 1
+          memory_max: 5
+          docker_container_ports: docker_container_ports
+          docker_container_state_human: docker_container_state_human
+          cpu_usage: 6.027456183070403
+          vulnerability_scan_status: vulnerability_scan_status
+          host_name: host_name
+          node_id: node_id
         docker_image_id: docker_image_id
         vulnerability_scan_status: vulnerability_scan_status
         docker_image_name: docker_image_name
         node_id: node_id
       properties:
+        containers:
+          items:
+            $ref: '#/components/schemas/ModelContainer'
+          nullable: true
+          type: array
         docker_image_created_at:
           type: string
         docker_image_id:
@@ -8894,6 +8999,7 @@ components:
         vulnerability_scan_status:
           type: string
       required:
+      - containers
       - docker_image_created_at
       - docker_image_id
       - docker_image_name
@@ -9008,11 +9114,30 @@ components:
           include_dead_nodes: true
           node_type: host
           advanced_report_filters:
-            account_id: account_id
-            scan_status: scan_status
-            kubernetes_cluster_name: kubernetes_cluster_name
-            masked: true
-            host_name: host_name
+            image_name:
+            - image_name
+            - image_name
+            account_id:
+            - account_id
+            - account_id
+            container_name:
+            - container_name
+            - container_name
+            scan_status:
+            - scan_status
+            - scan_status
+            kubernetes_cluster_name:
+            - kubernetes_cluster_name
+            - kubernetes_cluster_name
+            masked:
+            - true
+            - true
+            host_name:
+            - host_name
+            - host_name
+            pod_name:
+            - pod_name
+            - pod_name
           scan_type: vulnerability
           severity_or_check_type:
           - severity_or_check_type
@@ -9050,18 +9175,18 @@ components:
       example:
         vulnerabilities_count: 3
         public_ip:
-        - public_ip
-        - public_ip
+        - ""
+        - ""
         secrets_count: 7
         cloud_region: cloud_region
         container_images:
         - metadata:
             key: ""
           secret_scan_status: secret_scan_status
-          vulnerabilities_count: 1
-          secrets_count: 6
+          vulnerabilities_count: 4
+          secrets_count: 1
           malware_latest_scan_id: malware_latest_scan_id
-          malwares_count: 0
+          malwares_count: 7
           node_name: node_name
           secret_latest_scan_id: secret_latest_scan_id
           vulnerability_latest_scan_id: vulnerability_latest_scan_id
@@ -9070,6 +9195,115 @@ components:
           malware_scan_status: malware_scan_status
           docker_image_size: docker_image_size
           docker_image_virtual_size: docker_image_virtual_size
+          containers:
+          - vulnerabilities_count: 6
+            secrets_count: 1
+            docker_container_state: docker_container_state
+            cpu_max: 0.8008281904610115
+            memory_usage: 5
+            secret_latest_scan_id: secret_latest_scan_id
+            docker_container_network_mode: docker_container_network_mode
+            vulnerability_latest_scan_id: vulnerability_latest_scan_id
+            malware_scan_status: malware_scan_status
+            docker_container_ips:
+            - ""
+            - ""
+            docker_labels:
+              key: ""
+            image: null
+            processes:
+            - memory_max: 9
+              cmdline: cmdline
+              cpu_max: 2.3021358869347655
+              node_name: node_name
+              memory_usage: 3
+              open_files_count: 2
+              threads: 1
+              pid: 4
+              cpu_usage: 7.061401241503109
+              node_id: node_id
+              ppid: 7
+            - memory_max: 9
+              cmdline: cmdline
+              cpu_max: 2.3021358869347655
+              node_name: node_name
+              memory_usage: 3
+              open_files_count: 2
+              threads: 1
+              pid: 4
+              cpu_usage: 7.061401241503109
+              node_id: node_id
+              ppid: 7
+            secret_scan_status: secret_scan_status
+            docker_container_name: docker_container_name
+            docker_container_created: docker_container_created
+            malware_latest_scan_id: malware_latest_scan_id
+            malwares_count: 1
+            node_name: node_name
+            docker_container_networks: docker_container_networks
+            docker_container_command: docker_container_command
+            uptime: 1
+            memory_max: 5
+            docker_container_ports: docker_container_ports
+            docker_container_state_human: docker_container_state_human
+            cpu_usage: 6.027456183070403
+            vulnerability_scan_status: vulnerability_scan_status
+            host_name: host_name
+            node_id: node_id
+          - vulnerabilities_count: 6
+            secrets_count: 1
+            docker_container_state: docker_container_state
+            cpu_max: 0.8008281904610115
+            memory_usage: 5
+            secret_latest_scan_id: secret_latest_scan_id
+            docker_container_network_mode: docker_container_network_mode
+            vulnerability_latest_scan_id: vulnerability_latest_scan_id
+            malware_scan_status: malware_scan_status
+            docker_container_ips:
+            - ""
+            - ""
+            docker_labels:
+              key: ""
+            image: null
+            processes:
+            - memory_max: 9
+              cmdline: cmdline
+              cpu_max: 2.3021358869347655
+              node_name: node_name
+              memory_usage: 3
+              open_files_count: 2
+              threads: 1
+              pid: 4
+              cpu_usage: 7.061401241503109
+              node_id: node_id
+              ppid: 7
+            - memory_max: 9
+              cmdline: cmdline
+              cpu_max: 2.3021358869347655
+              node_name: node_name
+              memory_usage: 3
+              open_files_count: 2
+              threads: 1
+              pid: 4
+              cpu_usage: 7.061401241503109
+              node_id: node_id
+              ppid: 7
+            secret_scan_status: secret_scan_status
+            docker_container_name: docker_container_name
+            docker_container_created: docker_container_created
+            malware_latest_scan_id: malware_latest_scan_id
+            malwares_count: 1
+            node_name: node_name
+            docker_container_networks: docker_container_networks
+            docker_container_command: docker_container_command
+            uptime: 1
+            memory_max: 5
+            docker_container_ports: docker_container_ports
+            docker_container_state_human: docker_container_state_human
+            cpu_usage: 6.027456183070403
+            vulnerability_scan_status: vulnerability_scan_status
+            host_name: host_name
+            node_id: node_id
           docker_image_id: docker_image_id
           vulnerability_scan_status: vulnerability_scan_status
           docker_image_name: docker_image_name
@@ -9077,10 +9311,10 @@ components:
         - metadata:
             key: ""
           secret_scan_status: secret_scan_status
-          vulnerabilities_count: 1
-          secrets_count: 6
+          vulnerabilities_count: 4
+          secrets_count: 1
           malware_latest_scan_id: malware_latest_scan_id
-          malwares_count: 0
+          malwares_count: 7
           node_name: node_name
           secret_latest_scan_id: secret_latest_scan_id
           vulnerability_latest_scan_id: vulnerability_latest_scan_id
@@ -9089,25 +9323,134 @@ components:
           malware_scan_status: malware_scan_status
           docker_image_size: docker_image_size
           docker_image_virtual_size: docker_image_virtual_size
+          containers:
+          - vulnerabilities_count: 6
+            secrets_count: 1
+            docker_container_state: docker_container_state
+            cpu_max: 0.8008281904610115
+            memory_usage: 5
+            secret_latest_scan_id: secret_latest_scan_id
+            docker_container_network_mode: docker_container_network_mode
+            vulnerability_latest_scan_id: vulnerability_latest_scan_id
+            malware_scan_status: malware_scan_status
+            docker_container_ips:
+            - ""
+            - ""
+            docker_labels:
+              key: ""
+            image: null
+            processes:
+            - memory_max: 9
+              cmdline: cmdline
+              cpu_max: 2.3021358869347655
+              node_name: node_name
+              memory_usage: 3
+              open_files_count: 2
+              threads: 1
+              pid: 4
+              cpu_usage: 7.061401241503109
+              node_id: node_id
+              ppid: 7
+            - memory_max: 9
+              cmdline: cmdline
+              cpu_max: 2.3021358869347655
+              node_name: node_name
+              memory_usage: 3
+              open_files_count: 2
+              threads: 1
+              pid: 4
+              cpu_usage: 7.061401241503109
+              node_id: node_id
+              ppid: 7
+            secret_scan_status: secret_scan_status
+            docker_container_name: docker_container_name
+            docker_container_created: docker_container_created
+            malware_latest_scan_id: malware_latest_scan_id
+            malwares_count: 1
+            node_name: node_name
+            docker_container_networks: docker_container_networks
+            docker_container_command: docker_container_command
+            uptime: 1
+            memory_max: 5
+            docker_container_ports: docker_container_ports
+            docker_container_state_human: docker_container_state_human
+            cpu_usage: 6.027456183070403
+            vulnerability_scan_status: vulnerability_scan_status
+            host_name: host_name
+            node_id: node_id
+          - vulnerabilities_count: 6
+            secrets_count: 1
+            docker_container_state: docker_container_state
+            cpu_max: 0.8008281904610115
+            memory_usage: 5
+            secret_latest_scan_id: secret_latest_scan_id
+            docker_container_network_mode: docker_container_network_mode
+            vulnerability_latest_scan_id: vulnerability_latest_scan_id
+            malware_scan_status: malware_scan_status
+            docker_container_ips:
+            - ""
+            - ""
+            docker_labels:
+              key: ""
+            image: null
+            processes:
+            - memory_max: 9
+              cmdline: cmdline
+              cpu_max: 2.3021358869347655
+              node_name: node_name
+              memory_usage: 3
+              open_files_count: 2
+              threads: 1
+              pid: 4
+              cpu_usage: 7.061401241503109
+              node_id: node_id
+              ppid: 7
+            - memory_max: 9
+              cmdline: cmdline
+              cpu_max: 2.3021358869347655
+              node_name: node_name
+              memory_usage: 3
+              open_files_count: 2
+              threads: 1
+              pid: 4
+              cpu_usage: 7.061401241503109
+              node_id: node_id
+              ppid: 7
+            secret_scan_status: secret_scan_status
+            docker_container_name: docker_container_name
+            docker_container_created: docker_container_created
+            malware_latest_scan_id: malware_latest_scan_id
+            malwares_count: 1
+            node_name: node_name
+            docker_container_networks: docker_container_networks
+            docker_container_command: docker_container_command
+            uptime: 1
+            memory_max: 5
+            docker_container_ports: docker_container_ports
+            docker_container_state_human: docker_container_state_human
+            cpu_usage: 6.027456183070403
+            vulnerability_scan_status: vulnerability_scan_status
+            host_name: host_name
+            node_id: node_id
           docker_image_id: docker_image_id
           vulnerability_scan_status: vulnerability_scan_status
           docker_image_name: docker_image_name
           node_id: node_id
         cpu_max: 6.027456183070403
         interface_names:
-        - interface_names
-        - interface_names
+        - ""
+        - ""
         memory_usage: 2
         private_ip:
-        - private_ip
-        - private_ip
+        - ""
+        - ""
         secret_latest_scan_id: secret_latest_scan_id
         vulnerability_latest_scan_id: vulnerability_latest_scan_id
         resource_group: resource_group
         malware_scan_status: malware_scan_status
         interface_ips:
-        - interface_ips
-        - interface_ips
+        - ""
+        - ""
         availability_zone: availability_zone
         is_console_vm: true
         processes:
@@ -9137,8 +9480,8 @@ components:
         compliance_scan_status: compliance_scan_status
         os: os
         local_cidr:
-        - local_cidr
-        - local_cidr
+        - ""
+        - ""
         malware_latest_scan_id: malware_latest_scan_id
         malwares_count: 5
         node_name: node_name
@@ -9163,30 +9506,11 @@ components:
           vulnerability_latest_scan_id: vulnerability_latest_scan_id
           malware_scan_status: malware_scan_status
           docker_container_ips:
-          - docker_container_ips
-          - docker_container_ips
+          - ""
+          - ""
           docker_labels:
             key: ""
-          image:
-            metadata:
-              key: ""
-            secret_scan_status: secret_scan_status
-            vulnerabilities_count: 1
-            secrets_count: 6
-            malware_latest_scan_id: malware_latest_scan_id
-            malwares_count: 0
-            node_name: node_name
-            secret_latest_scan_id: secret_latest_scan_id
-            vulnerability_latest_scan_id: vulnerability_latest_scan_id
-            docker_image_created_at: docker_image_created_at
-            docker_image_tag: docker_image_tag
-            malware_scan_status: malware_scan_status
-            docker_image_size: docker_image_size
-            docker_image_virtual_size: docker_image_virtual_size
-            docker_image_id: docker_image_id
-            vulnerability_scan_status: vulnerability_scan_status
-            docker_image_name: docker_image_name
-            node_id: node_id
+          image: null
           processes:
           - memory_max: 9
             cmdline: cmdline
@@ -9236,30 +9560,11 @@ components:
           vulnerability_latest_scan_id: vulnerability_latest_scan_id
           malware_scan_status: malware_scan_status
           docker_container_ips:
-          - docker_container_ips
-          - docker_container_ips
+          - ""
+          - ""
           docker_labels:
             key: ""
-          image:
-            metadata:
-              key: ""
-            secret_scan_status: secret_scan_status
-            vulnerabilities_count: 1
-            secrets_count: 6
-            malware_latest_scan_id: malware_latest_scan_id
-            malwares_count: 0
-            node_name: node_name
-            secret_latest_scan_id: secret_latest_scan_id
-            vulnerability_latest_scan_id: vulnerability_latest_scan_id
-            docker_image_created_at: docker_image_created_at
-            docker_image_tag: docker_image_tag
-            malware_scan_status: malware_scan_status
-            docker_image_size: docker_image_size
-            docker_image_virtual_size: docker_image_virtual_size
-            docker_image_id: docker_image_id
-            vulnerability_scan_status: vulnerability_scan_status
-            docker_image_name: docker_image_name
-            node_id: node_id
+          image: null
           processes:
           - memory_max: 9
             cmdline: cmdline
@@ -9301,8 +9606,6 @@ components:
           node_id: node_id
         pods:
         - kubernetes_ip: kubernetes_ip
-          kubernetes_namespace: kubernetes_namespace
-          kubernetes_is_in_host_network: kubernetes_is_in_host_network
           processes:
           - memory_max: 9
             cmdline: cmdline
@@ -9330,6 +9633,12 @@ components:
           kubernetes_cluster_name: kubernetes_cluster_name
           kubernetes_state: kubernetes_state
           node_name: node_name
+          kubernetes_created: kubernetes_created
+          pod_name: pod_name
+          kubernetes_namespace: kubernetes_namespace
+          kubernetes_is_in_host_network: true
+          kubernetes_labels:
+            key: ""
           containers:
           - vulnerabilities_count: 6
             secrets_count: 1
@@ -9341,30 +9650,11 @@ components:
             vulnerability_latest_scan_id: vulnerability_latest_scan_id
             malware_scan_status: malware_scan_status
             docker_container_ips:
-            - docker_container_ips
-            - docker_container_ips
+            - ""
+            - ""
             docker_labels:
               key: ""
-            image:
-              metadata:
-                key: ""
-              secret_scan_status: secret_scan_status
-              vulnerabilities_count: 1
-              secrets_count: 6
-              malware_latest_scan_id: malware_latest_scan_id
-              malwares_count: 0
-              node_name: node_name
-              secret_latest_scan_id: secret_latest_scan_id
-              vulnerability_latest_scan_id: vulnerability_latest_scan_id
-              docker_image_created_at: docker_image_created_at
-              docker_image_tag: docker_image_tag
-              malware_scan_status: malware_scan_status
-              docker_image_size: docker_image_size
-              docker_image_virtual_size: docker_image_virtual_size
-              docker_image_id: docker_image_id
-              vulnerability_scan_status: vulnerability_scan_status
-              docker_image_name: docker_image_name
-              node_id: node_id
+            image: null
             processes:
             - memory_max: 9
               cmdline: cmdline
@@ -9414,30 +9704,11 @@ components:
             vulnerability_latest_scan_id: vulnerability_latest_scan_id
             malware_scan_status: malware_scan_status
             docker_container_ips:
-            - docker_container_ips
-            - docker_container_ips
+            - ""
+            - ""
             docker_labels:
               key: ""
-            image:
-              metadata:
-                key: ""
-              secret_scan_status: secret_scan_status
-              vulnerabilities_count: 1
-              secrets_count: 6
-              malware_latest_scan_id: malware_latest_scan_id
-              malwares_count: 0
-              node_name: node_name
-              secret_latest_scan_id: secret_latest_scan_id
-              vulnerability_latest_scan_id: vulnerability_latest_scan_id
-              docker_image_created_at: docker_image_created_at
-              docker_image_tag: docker_image_tag
-              malware_scan_status: malware_scan_status
-              docker_image_size: docker_image_size
-              docker_image_virtual_size: docker_image_virtual_size
-              docker_image_id: docker_image_id
-              vulnerability_scan_status: vulnerability_scan_status
-              docker_image_name: docker_image_name
-              node_id: node_id
+            image: null
             processes:
             - memory_max: 9
               cmdline: cmdline
@@ -9480,8 +9751,6 @@ components:
           host_name: host_name
           node_id: node_id
         - kubernetes_ip: kubernetes_ip
-          kubernetes_namespace: kubernetes_namespace
-          kubernetes_is_in_host_network: kubernetes_is_in_host_network
           processes:
           - memory_max: 9
             cmdline: cmdline
@@ -9509,6 +9778,12 @@ components:
           kubernetes_cluster_name: kubernetes_cluster_name
           kubernetes_state: kubernetes_state
           node_name: node_name
+          kubernetes_created: kubernetes_created
+          pod_name: pod_name
+          kubernetes_namespace: kubernetes_namespace
+          kubernetes_is_in_host_network: true
+          kubernetes_labels:
+            key: ""
           containers:
           - vulnerabilities_count: 6
             secrets_count: 1
@@ -9520,30 +9795,11 @@ components:
             vulnerability_latest_scan_id: vulnerability_latest_scan_id
             malware_scan_status: malware_scan_status
             docker_container_ips:
-            - docker_container_ips
-            - docker_container_ips
+            - ""
+            - ""
             docker_labels:
               key: ""
-            image:
-              metadata:
-                key: ""
-              secret_scan_status: secret_scan_status
-              vulnerabilities_count: 1
-              secrets_count: 6
-              malware_latest_scan_id: malware_latest_scan_id
-              malwares_count: 0
-              node_name: node_name
-              secret_latest_scan_id: secret_latest_scan_id
-              vulnerability_latest_scan_id: vulnerability_latest_scan_id
-              docker_image_created_at: docker_image_created_at
-              docker_image_tag: docker_image_tag
-              malware_scan_status: malware_scan_status
-              docker_image_size: docker_image_size
-              docker_image_virtual_size: docker_image_virtual_size
-              docker_image_id: docker_image_id
-              vulnerability_scan_status: vulnerability_scan_status
-              docker_image_name: docker_image_name
-              node_id: node_id
+            image: null
             processes:
             - memory_max: 9
               cmdline: cmdline
@@ -9593,30 +9849,11 @@ components:
             vulnerability_latest_scan_id: vulnerability_latest_scan_id
             malware_scan_status: malware_scan_status
             docker_container_ips:
-            - docker_container_ips
-            - docker_container_ips
+            - ""
+            - ""
             docker_labels:
               key: ""
-            image:
-              metadata:
-                key: ""
-              secret_scan_status: secret_scan_status
-              vulnerabilities_count: 1
-              secrets_count: 6
-              malware_latest_scan_id: malware_latest_scan_id
-              malwares_count: 0
-              node_name: node_name
-              secret_latest_scan_id: secret_latest_scan_id
-              vulnerability_latest_scan_id: vulnerability_latest_scan_id
-              docker_image_created_at: docker_image_created_at
-              docker_image_tag: docker_image_tag
-              malware_scan_status: malware_scan_status
-              docker_image_size: docker_image_size
-              docker_image_virtual_size: docker_image_virtual_size
-              docker_image_id: docker_image_id
-              vulnerability_scan_status: vulnerability_scan_status
-              docker_image_name: docker_image_name
-              node_id: node_id
+            image: null
             processes:
             - memory_max: 9
               cmdline: cmdline
@@ -9663,8 +9900,8 @@ components:
         vulnerability_scan_status: vulnerability_scan_status
         host_name: host_name
         local_networks:
-        - local_networks
-        - local_networks
+        - ""
+        - ""
         node_id: node_id
       properties:
         agent_running:
@@ -9702,13 +9939,11 @@ components:
         instance_type:
           type: string
         interface_ips:
-          items:
-            type: string
+          items: {}
           nullable: true
           type: array
         interface_names:
-          items:
-            type: string
+          items: {}
           nullable: true
           type: array
         is_console_vm:
@@ -9718,13 +9953,11 @@ components:
         kernel_version:
           type: string
         local_cidr:
-          items:
-            type: string
+          items: {}
           nullable: true
           type: array
         local_networks:
-          items:
-            type: string
+          items: {}
           nullable: true
           type: array
         malware_latest_scan_id:
@@ -9749,8 +9982,7 @@ components:
           nullable: true
           type: array
         private_ip:
-          items:
-            type: string
+          items: {}
           nullable: true
           type: array
         processes:
@@ -9759,8 +9991,7 @@ components:
           nullable: true
           type: array
         public_ip:
-          items:
-            type: string
+          items: {}
           nullable: true
           type: array
         resource_group:
@@ -9959,18 +10190,18 @@ components:
         hosts:
         - vulnerabilities_count: 3
           public_ip:
-          - public_ip
-          - public_ip
+          - ""
+          - ""
           secrets_count: 7
           cloud_region: cloud_region
           container_images:
           - metadata:
               key: ""
             secret_scan_status: secret_scan_status
-            vulnerabilities_count: 1
-            secrets_count: 6
+            vulnerabilities_count: 4
+            secrets_count: 1
             malware_latest_scan_id: malware_latest_scan_id
-            malwares_count: 0
+            malwares_count: 7
             node_name: node_name
             secret_latest_scan_id: secret_latest_scan_id
             vulnerability_latest_scan_id: vulnerability_latest_scan_id
@@ -9979,6 +10210,115 @@ components:
             malware_scan_status: malware_scan_status
             docker_image_size: docker_image_size
             docker_image_virtual_size: docker_image_virtual_size
+            containers:
+            - vulnerabilities_count: 6
+              secrets_count: 1
+              docker_container_state: docker_container_state
+              cpu_max: 0.8008281904610115
+              memory_usage: 5
+              secret_latest_scan_id: secret_latest_scan_id
+              docker_container_network_mode: docker_container_network_mode
+              vulnerability_latest_scan_id: vulnerability_latest_scan_id
+              malware_scan_status: malware_scan_status
+              docker_container_ips:
+              - ""
+              - ""
+              docker_labels:
+                key: ""
+              image: null
+              processes:
+              - memory_max: 9
+                cmdline: cmdline
+                cpu_max: 2.3021358869347655
+                node_name: node_name
+                memory_usage: 3
+                open_files_count: 2
+                threads: 1
+                pid: 4
+                cpu_usage: 7.061401241503109
+                node_id: node_id
+                ppid: 7
+              - memory_max: 9
+                cmdline: cmdline
+                cpu_max: 2.3021358869347655
+                node_name: node_name
+                memory_usage: 3
+                open_files_count: 2
+                threads: 1
+                pid: 4
+                cpu_usage: 7.061401241503109
+                node_id: node_id
+                ppid: 7
+              secret_scan_status: secret_scan_status
+              docker_container_name: docker_container_name
+              docker_container_created: docker_container_created
+              malware_latest_scan_id: malware_latest_scan_id
+              malwares_count: 1
+              node_name: node_name
+              docker_container_networks: docker_container_networks
+              docker_container_command: docker_container_command
+              uptime: 1
+              memory_max: 5
+              docker_container_ports: docker_container_ports
+              docker_container_state_human: docker_container_state_human
+              cpu_usage: 6.027456183070403
+              vulnerability_scan_status: vulnerability_scan_status
+              host_name: host_name
+              node_id: node_id
+            - vulnerabilities_count: 6
+              secrets_count: 1
+              docker_container_state: docker_container_state
+              cpu_max: 0.8008281904610115
+              memory_usage: 5
+              secret_latest_scan_id: secret_latest_scan_id
+              docker_container_network_mode: docker_container_network_mode
+              vulnerability_latest_scan_id: vulnerability_latest_scan_id
+              malware_scan_status: malware_scan_status
+              docker_container_ips:
+              - ""
+              - ""
+              docker_labels:
+                key: ""
+              image: null
+              processes:
+              - memory_max: 9
+                cmdline: cmdline
+                cpu_max: 2.3021358869347655
+                node_name: node_name
+                memory_usage: 3
+                open_files_count: 2
+                threads: 1
+                pid: 4
+                cpu_usage: 7.061401241503109
+                node_id: node_id
+                ppid: 7
+              - memory_max: 9
+                cmdline: cmdline
+                cpu_max: 2.3021358869347655
+                node_name: node_name
+                memory_usage: 3
+                open_files_count: 2
+                threads: 1
+                pid: 4
+                cpu_usage: 7.061401241503109
+                node_id: node_id
+                ppid: 7
+              secret_scan_status: secret_scan_status
+              docker_container_name: docker_container_name
+              docker_container_created: docker_container_created
+              malware_latest_scan_id: malware_latest_scan_id
+              malwares_count: 1
+              node_name: node_name
+              docker_container_networks: docker_container_networks
+              docker_container_command: docker_container_command
+              uptime: 1
+              memory_max: 5
+              docker_container_ports: docker_container_ports
+              docker_container_state_human: docker_container_state_human
+              cpu_usage: 6.027456183070403
+              vulnerability_scan_status: vulnerability_scan_status
+              host_name: host_name
+              node_id: node_id
             docker_image_id: docker_image_id
             vulnerability_scan_status: vulnerability_scan_status
             docker_image_name: docker_image_name
@@ -9986,10 +10326,10 @@ components:
           - metadata:
               key: ""
             secret_scan_status: secret_scan_status
-            vulnerabilities_count: 1
-            secrets_count: 6
+            vulnerabilities_count: 4
+            secrets_count: 1
             malware_latest_scan_id: malware_latest_scan_id
-            malwares_count: 0
+            malwares_count: 7
             node_name: node_name
             secret_latest_scan_id: secret_latest_scan_id
             vulnerability_latest_scan_id: vulnerability_latest_scan_id
@@ -9998,25 +10338,134 @@ components:
             malware_scan_status: malware_scan_status
             docker_image_size: docker_image_size
             docker_image_virtual_size: docker_image_virtual_size
+            containers:
+            - vulnerabilities_count: 6
+              secrets_count: 1
+              docker_container_state: docker_container_state
+              cpu_max: 0.8008281904610115
+              memory_usage: 5
+              secret_latest_scan_id: secret_latest_scan_id
+              docker_container_network_mode: docker_container_network_mode
+              vulnerability_latest_scan_id: vulnerability_latest_scan_id
+              malware_scan_status: malware_scan_status
+              docker_container_ips:
+              - ""
+              - ""
+              docker_labels:
+                key: ""
+              image: null
+              processes:
+              - memory_max: 9
+                cmdline: cmdline
+                cpu_max: 2.3021358869347655
+                node_name: node_name
+                memory_usage: 3
+                open_files_count: 2
+                threads: 1
+                pid: 4
+                cpu_usage: 7.061401241503109
+                node_id: node_id
+                ppid: 7
+              - memory_max: 9
+                cmdline: cmdline
+                cpu_max: 2.3021358869347655
+                node_name: node_name
+                memory_usage: 3
+                open_files_count: 2
+                threads: 1
+                pid: 4
+                cpu_usage: 7.061401241503109
+                node_id: node_id
+                ppid: 7
+              secret_scan_status: secret_scan_status
+              docker_container_name: docker_container_name
+              docker_container_created: docker_container_created
+              malware_latest_scan_id: malware_latest_scan_id
+              malwares_count: 1
+              node_name: node_name
+              docker_container_networks: docker_container_networks
+              docker_container_command: docker_container_command
+              uptime: 1
+              memory_max: 5
+              docker_container_ports: docker_container_ports
+              docker_container_state_human: docker_container_state_human
+              cpu_usage: 6.027456183070403
+              vulnerability_scan_status: vulnerability_scan_status
+              host_name: host_name
+              node_id: node_id
+            - vulnerabilities_count: 6
+              secrets_count: 1
+              docker_container_state: docker_container_state
+              cpu_max: 0.8008281904610115
+              memory_usage: 5
+              secret_latest_scan_id: secret_latest_scan_id
+              docker_container_network_mode: docker_container_network_mode
+              vulnerability_latest_scan_id: vulnerability_latest_scan_id
+              malware_scan_status: malware_scan_status
+              docker_container_ips:
+              - ""
+              - ""
+              docker_labels:
+                key: ""
+              image: null
+              processes:
+              - memory_max: 9
+                cmdline: cmdline
+                cpu_max: 2.3021358869347655
+                node_name: node_name
+                memory_usage: 3
+                open_files_count: 2
+                threads: 1
+                pid: 4
+                cpu_usage: 7.061401241503109
+                node_id: node_id
+                ppid: 7
+              - memory_max: 9
+                cmdline: cmdline
+                cpu_max: 2.3021358869347655
+                node_name: node_name
+                memory_usage: 3
+                open_files_count: 2
+                threads: 1
+                pid: 4
+                cpu_usage: 7.061401241503109
+                node_id: node_id
+                ppid: 7
+              secret_scan_status: secret_scan_status
+              docker_container_name: docker_container_name
+              docker_container_created: docker_container_created
+              malware_latest_scan_id: malware_latest_scan_id
+              malwares_count: 1
+              node_name: node_name
+              docker_container_networks: docker_container_networks
+              docker_container_command: docker_container_command
+              uptime: 1
+              memory_max: 5
+              docker_container_ports: docker_container_ports
+              docker_container_state_human: docker_container_state_human
+              cpu_usage: 6.027456183070403
+              vulnerability_scan_status: vulnerability_scan_status
+              host_name: host_name
+              node_id: node_id
             docker_image_id: docker_image_id
             vulnerability_scan_status: vulnerability_scan_status
             docker_image_name: docker_image_name
             node_id: node_id
           cpu_max: 6.027456183070403
           interface_names:
-          - interface_names
-          - interface_names
+          - ""
+          - ""
           memory_usage: 2
           private_ip:
-          - private_ip
-          - private_ip
+          - ""
+          - ""
           secret_latest_scan_id: secret_latest_scan_id
           vulnerability_latest_scan_id: vulnerability_latest_scan_id
           resource_group: resource_group
           malware_scan_status: malware_scan_status
           interface_ips:
-          - interface_ips
-          - interface_ips
+          - ""
+          - ""
           availability_zone: availability_zone
           is_console_vm: true
           processes:
@@ -10046,8 +10495,8 @@ components:
           compliance_scan_status: compliance_scan_status
           os: os
           local_cidr:
-          - local_cidr
-          - local_cidr
+          - ""
+          - ""
           malware_latest_scan_id: malware_latest_scan_id
           malwares_count: 5
           node_name: node_name
@@ -10072,30 +10521,11 @@ components:
             vulnerability_latest_scan_id: vulnerability_latest_scan_id
             malware_scan_status: malware_scan_status
             docker_container_ips:
-            - docker_container_ips
-            - docker_container_ips
+            - ""
+            - ""
             docker_labels:
               key: ""
-            image:
-              metadata:
-                key: ""
-              secret_scan_status: secret_scan_status
-              vulnerabilities_count: 1
-              secrets_count: 6
-              malware_latest_scan_id: malware_latest_scan_id
-              malwares_count: 0
-              node_name: node_name
-              secret_latest_scan_id: secret_latest_scan_id
-              vulnerability_latest_scan_id: vulnerability_latest_scan_id
-              docker_image_created_at: docker_image_created_at
-              docker_image_tag: docker_image_tag
-              malware_scan_status: malware_scan_status
-              docker_image_size: docker_image_size
-              docker_image_virtual_size: docker_image_virtual_size
-              docker_image_id: docker_image_id
-              vulnerability_scan_status: vulnerability_scan_status
-              docker_image_name: docker_image_name
-              node_id: node_id
+            image: null
             processes:
             - memory_max: 9
               cmdline: cmdline
@@ -10145,30 +10575,11 @@ components:
             vulnerability_latest_scan_id: vulnerability_latest_scan_id
             malware_scan_status: malware_scan_status
             docker_container_ips:
-            - docker_container_ips
-            - docker_container_ips
+            - ""
+            - ""
             docker_labels:
               key: ""
-            image:
-              metadata:
-                key: ""
-              secret_scan_status: secret_scan_status
-              vulnerabilities_count: 1
-              secrets_count: 6
-              malware_latest_scan_id: malware_latest_scan_id
-              malwares_count: 0
-              node_name: node_name
-              secret_latest_scan_id: secret_latest_scan_id
-              vulnerability_latest_scan_id: vulnerability_latest_scan_id
-              docker_image_created_at: docker_image_created_at
-              docker_image_tag: docker_image_tag
-              malware_scan_status: malware_scan_status
-              docker_image_size: docker_image_size
-              docker_image_virtual_size: docker_image_virtual_size
-              docker_image_id: docker_image_id
-              vulnerability_scan_status: vulnerability_scan_status
-              docker_image_name: docker_image_name
-              node_id: node_id
+            image: null
             processes:
             - memory_max: 9
               cmdline: cmdline
@@ -10210,8 +10621,6 @@ components:
             node_id: node_id
           pods:
           - kubernetes_ip: kubernetes_ip
-            kubernetes_namespace: kubernetes_namespace
-            kubernetes_is_in_host_network: kubernetes_is_in_host_network
             processes:
             - memory_max: 9
               cmdline: cmdline
@@ -10239,6 +10648,12 @@ components:
             kubernetes_cluster_name: kubernetes_cluster_name
             kubernetes_state: kubernetes_state
             node_name: node_name
+            kubernetes_created: kubernetes_created
+            pod_name: pod_name
+            kubernetes_namespace: kubernetes_namespace
+            kubernetes_is_in_host_network: true
+            kubernetes_labels:
+              key: ""
             containers:
             - vulnerabilities_count: 6
               secrets_count: 1
@@ -10250,30 +10665,11 @@ components:
               vulnerability_latest_scan_id: vulnerability_latest_scan_id
               malware_scan_status: malware_scan_status
               docker_container_ips:
-              - docker_container_ips
-              - docker_container_ips
+              - ""
+              - ""
               docker_labels:
                 key: ""
-              image:
-                metadata:
-                  key: ""
-                secret_scan_status: secret_scan_status
-                vulnerabilities_count: 1
-                secrets_count: 6
-                malware_latest_scan_id: malware_latest_scan_id
-                malwares_count: 0
-                node_name: node_name
-                secret_latest_scan_id: secret_latest_scan_id
-                vulnerability_latest_scan_id: vulnerability_latest_scan_id
-                docker_image_created_at: docker_image_created_at
-                docker_image_tag: docker_image_tag
-                malware_scan_status: malware_scan_status
-                docker_image_size: docker_image_size
-                docker_image_virtual_size: docker_image_virtual_size
-                docker_image_id: docker_image_id
-                vulnerability_scan_status: vulnerability_scan_status
-                docker_image_name: docker_image_name
-                node_id: node_id
+              image: null
               processes:
               - memory_max: 9
                 cmdline: cmdline
@@ -10323,30 +10719,11 @@ components:
               vulnerability_latest_scan_id: vulnerability_latest_scan_id
               malware_scan_status: malware_scan_status
               docker_container_ips:
-              - docker_container_ips
-              - docker_container_ips
+              - ""
+              - ""
               docker_labels:
                 key: ""
-              image:
-                metadata:
-                  key: ""
-                secret_scan_status: secret_scan_status
-                vulnerabilities_count: 1
-                secrets_count: 6
-                malware_latest_scan_id: malware_latest_scan_id
-                malwares_count: 0
-                node_name: node_name
-                secret_latest_scan_id: secret_latest_scan_id
-                vulnerability_latest_scan_id: vulnerability_latest_scan_id
-                docker_image_created_at: docker_image_created_at
-                docker_image_tag: docker_image_tag
-                malware_scan_status: malware_scan_status
-                docker_image_size: docker_image_size
-                docker_image_virtual_size: docker_image_virtual_size
-                docker_image_id: docker_image_id
-                vulnerability_scan_status: vulnerability_scan_status
-                docker_image_name: docker_image_name
-                node_id: node_id
+              image: null
               processes:
               - memory_max: 9
                 cmdline: cmdline
@@ -10389,8 +10766,6 @@ components:
             host_name: host_name
             node_id: node_id
           - kubernetes_ip: kubernetes_ip
-            kubernetes_namespace: kubernetes_namespace
-            kubernetes_is_in_host_network: kubernetes_is_in_host_network
             processes:
             - memory_max: 9
               cmdline: cmdline
@@ -10418,6 +10793,12 @@ components:
             kubernetes_cluster_name: kubernetes_cluster_name
             kubernetes_state: kubernetes_state
             node_name: node_name
+            kubernetes_created: kubernetes_created
+            pod_name: pod_name
+            kubernetes_namespace: kubernetes_namespace
+            kubernetes_is_in_host_network: true
+            kubernetes_labels:
+              key: ""
             containers:
             - vulnerabilities_count: 6
               secrets_count: 1
@@ -10429,30 +10810,11 @@ components:
               vulnerability_latest_scan_id: vulnerability_latest_scan_id
               malware_scan_status: malware_scan_status
               docker_container_ips:
-              - docker_container_ips
-              - docker_container_ips
+              - ""
+              - ""
               docker_labels:
                 key: ""
-              image:
-                metadata:
-                  key: ""
-                secret_scan_status: secret_scan_status
-                vulnerabilities_count: 1
-                secrets_count: 6
-                malware_latest_scan_id: malware_latest_scan_id
-                malwares_count: 0
-                node_name: node_name
-                secret_latest_scan_id: secret_latest_scan_id
-                vulnerability_latest_scan_id: vulnerability_latest_scan_id
-                docker_image_created_at: docker_image_created_at
-                docker_image_tag: docker_image_tag
-                malware_scan_status: malware_scan_status
-                docker_image_size: docker_image_size
-                docker_image_virtual_size: docker_image_virtual_size
-                docker_image_id: docker_image_id
-                vulnerability_scan_status: vulnerability_scan_status
-                docker_image_name: docker_image_name
-                node_id: node_id
+              image: null
               processes:
               - memory_max: 9
                 cmdline: cmdline
@@ -10502,30 +10864,11 @@ components:
               vulnerability_latest_scan_id: vulnerability_latest_scan_id
               malware_scan_status: malware_scan_status
               docker_container_ips:
-              - docker_container_ips
-              - docker_container_ips
+              - ""
+              - ""
               docker_labels:
                 key: ""
-              image:
-                metadata:
-                  key: ""
-                secret_scan_status: secret_scan_status
-                vulnerabilities_count: 1
-                secrets_count: 6
-                malware_latest_scan_id: malware_latest_scan_id
-                malwares_count: 0
-                node_name: node_name
-                secret_latest_scan_id: secret_latest_scan_id
-                vulnerability_latest_scan_id: vulnerability_latest_scan_id
-                docker_image_created_at: docker_image_created_at
-                docker_image_tag: docker_image_tag
-                malware_scan_status: malware_scan_status
-                docker_image_size: docker_image_size
-                docker_image_virtual_size: docker_image_virtual_size
-                docker_image_id: docker_image_id
-                vulnerability_scan_status: vulnerability_scan_status
-                docker_image_name: docker_image_name
-                node_id: node_id
+              image: null
               processes:
               - memory_max: 9
                 cmdline: cmdline
@@ -10572,23 +10915,23 @@ components:
           vulnerability_scan_status: vulnerability_scan_status
           host_name: host_name
           local_networks:
-          - local_networks
-          - local_networks
+          - ""
+          - ""
           node_id: node_id
         - vulnerabilities_count: 3
           public_ip:
-          - public_ip
-          - public_ip
+          - ""
+          - ""
           secrets_count: 7
           cloud_region: cloud_region
           container_images:
           - metadata:
               key: ""
             secret_scan_status: secret_scan_status
-            vulnerabilities_count: 1
-            secrets_count: 6
+            vulnerabilities_count: 4
+            secrets_count: 1
             malware_latest_scan_id: malware_latest_scan_id
-            malwares_count: 0
+            malwares_count: 7
             node_name: node_name
             secret_latest_scan_id: secret_latest_scan_id
             vulnerability_latest_scan_id: vulnerability_latest_scan_id
@@ -10597,6 +10940,115 @@ components:
             malware_scan_status: malware_scan_status
             docker_image_size: docker_image_size
             docker_image_virtual_size: docker_image_virtual_size
+            containers:
+            - vulnerabilities_count: 6
+              secrets_count: 1
+              docker_container_state: docker_container_state
+              cpu_max: 0.8008281904610115
+              memory_usage: 5
+              secret_latest_scan_id: secret_latest_scan_id
+              docker_container_network_mode: docker_container_network_mode
+              vulnerability_latest_scan_id: vulnerability_latest_scan_id
+              malware_scan_status: malware_scan_status
+              docker_container_ips:
+              - ""
+              - ""
+              docker_labels:
+                key: ""
+              image: null
+              processes:
+              - memory_max: 9
+                cmdline: cmdline
+                cpu_max: 2.3021358869347655
+                node_name: node_name
+                memory_usage: 3
+                open_files_count: 2
+                threads: 1
+                pid: 4
+                cpu_usage: 7.061401241503109
+                node_id: node_id
+                ppid: 7
+              - memory_max: 9
+                cmdline: cmdline
+                cpu_max: 2.3021358869347655
+                node_name: node_name
+                memory_usage: 3
+                open_files_count: 2
+                threads: 1
+                pid: 4
+                cpu_usage: 7.061401241503109
+                node_id: node_id
+                ppid: 7
+              secret_scan_status: secret_scan_status
+              docker_container_name: docker_container_name
+              docker_container_created: docker_container_created
+              malware_latest_scan_id: malware_latest_scan_id
+              malwares_count: 1
+              node_name: node_name
+              docker_container_networks: docker_container_networks
+              docker_container_command: docker_container_command
+              uptime: 1
+              memory_max: 5
+              docker_container_ports: docker_container_ports
+              docker_container_state_human: docker_container_state_human
+              cpu_usage: 6.027456183070403
+              vulnerability_scan_status: vulnerability_scan_status
+              host_name: host_name
+              node_id: node_id
+            - vulnerabilities_count: 6
+              secrets_count: 1
+              docker_container_state: docker_container_state
+              cpu_max: 0.8008281904610115
+              memory_usage: 5
+              secret_latest_scan_id: secret_latest_scan_id
+              docker_container_network_mode: docker_container_network_mode
+              vulnerability_latest_scan_id: vulnerability_latest_scan_id
+              malware_scan_status: malware_scan_status
+              docker_container_ips:
+              - ""
+              - ""
+              docker_labels:
+                key: ""
+              image: null
+              processes:
+              - memory_max: 9
+                cmdline: cmdline
+                cpu_max: 2.3021358869347655
+                node_name: node_name
+                memory_usage: 3
+                open_files_count: 2
+                threads: 1
+                pid: 4
+                cpu_usage: 7.061401241503109
+                node_id: node_id
+                ppid: 7
+              - memory_max: 9
+                cmdline: cmdline
+                cpu_max: 2.3021358869347655
+                node_name: node_name
+                memory_usage: 3
+                open_files_count: 2
+                threads: 1
+                pid: 4
+                cpu_usage: 7.061401241503109
+                node_id: node_id
+                ppid: 7
+              secret_scan_status: secret_scan_status
+              docker_container_name: docker_container_name
+              docker_container_created: docker_container_created
+              malware_latest_scan_id: malware_latest_scan_id
+              malwares_count: 1
+              node_name: node_name
+              docker_container_networks: docker_container_networks
+              docker_container_command: docker_container_command
+              uptime: 1
+              memory_max: 5
+              docker_container_ports: docker_container_ports
+              docker_container_state_human: docker_container_state_human
+              cpu_usage: 6.027456183070403
+              vulnerability_scan_status: vulnerability_scan_status
+              host_name: host_name
+              node_id: node_id
             docker_image_id: docker_image_id
             vulnerability_scan_status: vulnerability_scan_status
             docker_image_name: docker_image_name
@@ -10604,10 +11056,10 @@ components:
           - metadata:
               key: ""
             secret_scan_status: secret_scan_status
-            vulnerabilities_count: 1
-            secrets_count: 6
+            vulnerabilities_count: 4
+            secrets_count: 1
             malware_latest_scan_id: malware_latest_scan_id
-            malwares_count: 0
+            malwares_count: 7
             node_name: node_name
             secret_latest_scan_id: secret_latest_scan_id
             vulnerability_latest_scan_id: vulnerability_latest_scan_id
@@ -10616,25 +11068,134 @@ components:
             malware_scan_status: malware_scan_status
             docker_image_size: docker_image_size
             docker_image_virtual_size: docker_image_virtual_size
+            containers:
+            - vulnerabilities_count: 6
+              secrets_count: 1
+              docker_container_state: docker_container_state
+              cpu_max: 0.8008281904610115
+              memory_usage: 5
+              secret_latest_scan_id: secret_latest_scan_id
+              docker_container_network_mode: docker_container_network_mode
+              vulnerability_latest_scan_id: vulnerability_latest_scan_id
+              malware_scan_status: malware_scan_status
+              docker_container_ips:
+              - ""
+              - ""
+              docker_labels:
+                key: ""
+              image: null
+              processes:
+              - memory_max: 9
+                cmdline: cmdline
+                cpu_max: 2.3021358869347655
+                node_name: node_name
+                memory_usage: 3
+                open_files_count: 2
+                threads: 1
+                pid: 4
+                cpu_usage: 7.061401241503109
+                node_id: node_id
+                ppid: 7
+              - memory_max: 9
+                cmdline: cmdline
+                cpu_max: 2.3021358869347655
+                node_name: node_name
+                memory_usage: 3
+                open_files_count: 2
+                threads: 1
+                pid: 4
+                cpu_usage: 7.061401241503109
+                node_id: node_id
+                ppid: 7
+              secret_scan_status: secret_scan_status
+              docker_container_name: docker_container_name
+              docker_container_created: docker_container_created
+              malware_latest_scan_id: malware_latest_scan_id
+              malwares_count: 1
+              node_name: node_name
+              docker_container_networks: docker_container_networks
+              docker_container_command: docker_container_command
+              uptime: 1
+              memory_max: 5
+              docker_container_ports: docker_container_ports
+              docker_container_state_human: docker_container_state_human
+              cpu_usage: 6.027456183070403
+              vulnerability_scan_status: vulnerability_scan_status
+              host_name: host_name
+              node_id: node_id
+            - vulnerabilities_count: 6
+              secrets_count: 1
+              docker_container_state: docker_container_state
+              cpu_max: 0.8008281904610115
+              memory_usage: 5
+              secret_latest_scan_id: secret_latest_scan_id
+              docker_container_network_mode: docker_container_network_mode
+              vulnerability_latest_scan_id: vulnerability_latest_scan_id
+              malware_scan_status: malware_scan_status
+              docker_container_ips:
+              - ""
+              - ""
+              docker_labels:
+                key: ""
+              image: null
+              processes:
+              - memory_max: 9
+                cmdline: cmdline
+                cpu_max: 2.3021358869347655
+                node_name: node_name
+                memory_usage: 3
+                open_files_count: 2
+                threads: 1
+                pid: 4
+                cpu_usage: 7.061401241503109
+                node_id: node_id
+                ppid: 7
+              - memory_max: 9
+                cmdline: cmdline
+                cpu_max: 2.3021358869347655
+                node_name: node_name
+                memory_usage: 3
+                open_files_count: 2
+                threads: 1
+                pid: 4
+                cpu_usage: 7.061401241503109
+                node_id: node_id
+                ppid: 7
+              secret_scan_status: secret_scan_status
+              docker_container_name: docker_container_name
+              docker_container_created: docker_container_created
+              malware_latest_scan_id: malware_latest_scan_id
+              malwares_count: 1
+              node_name: node_name
+              docker_container_networks: docker_container_networks
+              docker_container_command: docker_container_command
+              uptime: 1
+              memory_max: 5
+              docker_container_ports: docker_container_ports
+              docker_container_state_human: docker_container_state_human
+              cpu_usage: 6.027456183070403
+              vulnerability_scan_status: vulnerability_scan_status
+              host_name: host_name
+              node_id: node_id
             docker_image_id: docker_image_id
             vulnerability_scan_status: vulnerability_scan_status
             docker_image_name: docker_image_name
             node_id: node_id
           cpu_max: 6.027456183070403
           interface_names:
-          - interface_names
-          - interface_names
+          - ""
+          - ""
           memory_usage: 2
           private_ip:
-          - private_ip
-          - private_ip
+          - ""
+          - ""
           secret_latest_scan_id: secret_latest_scan_id
           vulnerability_latest_scan_id: vulnerability_latest_scan_id
           resource_group: resource_group
           malware_scan_status: malware_scan_status
           interface_ips:
-          - interface_ips
-          - interface_ips
+          - ""
+          - ""
           availability_zone: availability_zone
           is_console_vm: true
           processes:
@@ -10664,8 +11225,8 @@ components:
           compliance_scan_status: compliance_scan_status
           os: os
           local_cidr:
-          - local_cidr
-          - local_cidr
+          - ""
+          - ""
           malware_latest_scan_id: malware_latest_scan_id
           malwares_count: 5
           node_name: node_name
@@ -10690,30 +11251,11 @@ components:
             vulnerability_latest_scan_id: vulnerability_latest_scan_id
             malware_scan_status: malware_scan_status
             docker_container_ips:
-            - docker_container_ips
-            - docker_container_ips
+            - ""
+            - ""
             docker_labels:
               key: ""
-            image:
-              metadata:
-                key: ""
-              secret_scan_status: secret_scan_status
-              vulnerabilities_count: 1
-              secrets_count: 6
-              malware_latest_scan_id: malware_latest_scan_id
-              malwares_count: 0
-              node_name: node_name
-              secret_latest_scan_id: secret_latest_scan_id
-              vulnerability_latest_scan_id: vulnerability_latest_scan_id
-              docker_image_created_at: docker_image_created_at
-              docker_image_tag: docker_image_tag
-              malware_scan_status: malware_scan_status
-              docker_image_size: docker_image_size
-              docker_image_virtual_size: docker_image_virtual_size
-              docker_image_id: docker_image_id
-              vulnerability_scan_status: vulnerability_scan_status
-              docker_image_name: docker_image_name
-              node_id: node_id
+            image: null
             processes:
             - memory_max: 9
               cmdline: cmdline
@@ -10763,30 +11305,11 @@ components:
             vulnerability_latest_scan_id: vulnerability_latest_scan_id
             malware_scan_status: malware_scan_status
             docker_container_ips:
-            - docker_container_ips
-            - docker_container_ips
+            - ""
+            - ""
             docker_labels:
               key: ""
-            image:
-              metadata:
-                key: ""
-              secret_scan_status: secret_scan_status
-              vulnerabilities_count: 1
-              secrets_count: 6
-              malware_latest_scan_id: malware_latest_scan_id
-              malwares_count: 0
-              node_name: node_name
-              secret_latest_scan_id: secret_latest_scan_id
-              vulnerability_latest_scan_id: vulnerability_latest_scan_id
-              docker_image_created_at: docker_image_created_at
-              docker_image_tag: docker_image_tag
-              malware_scan_status: malware_scan_status
-              docker_image_size: docker_image_size
-              docker_image_virtual_size: docker_image_virtual_size
-              docker_image_id: docker_image_id
-              vulnerability_scan_status: vulnerability_scan_status
-              docker_image_name: docker_image_name
-              node_id: node_id
+            image: null
             processes:
             - memory_max: 9
               cmdline: cmdline
@@ -10828,8 +11351,6 @@ components:
             node_id: node_id
           pods:
           - kubernetes_ip: kubernetes_ip
-            kubernetes_namespace: kubernetes_namespace
-            kubernetes_is_in_host_network: kubernetes_is_in_host_network
             processes:
             - memory_max: 9
               cmdline: cmdline
@@ -10857,6 +11378,12 @@ components:
             kubernetes_cluster_name: kubernetes_cluster_name
             kubernetes_state: kubernetes_state
             node_name: node_name
+            kubernetes_created: kubernetes_created
+            pod_name: pod_name
+            kubernetes_namespace: kubernetes_namespace
+            kubernetes_is_in_host_network: true
+            kubernetes_labels:
+              key: ""
             containers:
             - vulnerabilities_count: 6
               secrets_count: 1
@@ -10868,30 +11395,11 @@ components:
               vulnerability_latest_scan_id: vulnerability_latest_scan_id
               malware_scan_status: malware_scan_status
               docker_container_ips:
-              - docker_container_ips
-              - docker_container_ips
+              - ""
+              - ""
               docker_labels:
                 key: ""
-              image:
-                metadata:
-                  key: ""
-                secret_scan_status: secret_scan_status
-                vulnerabilities_count: 1
-                secrets_count: 6
-                malware_latest_scan_id: malware_latest_scan_id
-                malwares_count: 0
-                node_name: node_name
-                secret_latest_scan_id: secret_latest_scan_id
-                vulnerability_latest_scan_id: vulnerability_latest_scan_id
-                docker_image_created_at: docker_image_created_at
-                docker_image_tag: docker_image_tag
-                malware_scan_status: malware_scan_status
-                docker_image_size: docker_image_size
-                docker_image_virtual_size: docker_image_virtual_size
-                docker_image_id: docker_image_id
-                vulnerability_scan_status: vulnerability_scan_status
-                docker_image_name: docker_image_name
-                node_id: node_id
+              image: null
               processes:
               - memory_max: 9
                 cmdline: cmdline
@@ -10941,30 +11449,11 @@ components:
               vulnerability_latest_scan_id: vulnerability_latest_scan_id
               malware_scan_status: malware_scan_status
               docker_container_ips:
-              - docker_container_ips
-              - docker_container_ips
+              - ""
+              - ""
               docker_labels:
                 key: ""
-              image:
-                metadata:
-                  key: ""
-                secret_scan_status: secret_scan_status
-                vulnerabilities_count: 1
-                secrets_count: 6
-                malware_latest_scan_id: malware_latest_scan_id
-                malwares_count: 0
-                node_name: node_name
-                secret_latest_scan_id: secret_latest_scan_id
-                vulnerability_latest_scan_id: vulnerability_latest_scan_id
-                docker_image_created_at: docker_image_created_at
-                docker_image_tag: docker_image_tag
-                malware_scan_status: malware_scan_status
-                docker_image_size: docker_image_size
-                docker_image_virtual_size: docker_image_virtual_size
-                docker_image_id: docker_image_id
-                vulnerability_scan_status: vulnerability_scan_status
-                docker_image_name: docker_image_name
-                node_id: node_id
+              image: null
               processes:
               - memory_max: 9
                 cmdline: cmdline
@@ -11007,8 +11496,6 @@ components:
             host_name: host_name
             node_id: node_id
           - kubernetes_ip: kubernetes_ip
-            kubernetes_namespace: kubernetes_namespace
-            kubernetes_is_in_host_network: kubernetes_is_in_host_network
             processes:
             - memory_max: 9
               cmdline: cmdline
@@ -11036,6 +11523,12 @@ components:
             kubernetes_cluster_name: kubernetes_cluster_name
             kubernetes_state: kubernetes_state
             node_name: node_name
+            kubernetes_created: kubernetes_created
+            pod_name: pod_name
+            kubernetes_namespace: kubernetes_namespace
+            kubernetes_is_in_host_network: true
+            kubernetes_labels:
+              key: ""
             containers:
             - vulnerabilities_count: 6
               secrets_count: 1
@@ -11047,30 +11540,11 @@ components:
               vulnerability_latest_scan_id: vulnerability_latest_scan_id
               malware_scan_status: malware_scan_status
               docker_container_ips:
-              - docker_container_ips
-              - docker_container_ips
+              - ""
+              - ""
               docker_labels:
                 key: ""
-              image:
-                metadata:
-                  key: ""
-                secret_scan_status: secret_scan_status
-                vulnerabilities_count: 1
-                secrets_count: 6
-                malware_latest_scan_id: malware_latest_scan_id
-                malwares_count: 0
-                node_name: node_name
-                secret_latest_scan_id: secret_latest_scan_id
-                vulnerability_latest_scan_id: vulnerability_latest_scan_id
-                docker_image_created_at: docker_image_created_at
-                docker_image_tag: docker_image_tag
-                malware_scan_status: malware_scan_status
-                docker_image_size: docker_image_size
-                docker_image_virtual_size: docker_image_virtual_size
-                docker_image_id: docker_image_id
-                vulnerability_scan_status: vulnerability_scan_status
-                docker_image_name: docker_image_name
-                node_id: node_id
+              image: null
               processes:
               - memory_max: 9
                 cmdline: cmdline
@@ -11120,30 +11594,11 @@ components:
               vulnerability_latest_scan_id: vulnerability_latest_scan_id
               malware_scan_status: malware_scan_status
               docker_container_ips:
-              - docker_container_ips
-              - docker_container_ips
+              - ""
+              - ""
               docker_labels:
                 key: ""
-              image:
-                metadata:
-                  key: ""
-                secret_scan_status: secret_scan_status
-                vulnerabilities_count: 1
-                secrets_count: 6
-                malware_latest_scan_id: malware_latest_scan_id
-                malwares_count: 0
-                node_name: node_name
-                secret_latest_scan_id: secret_latest_scan_id
-                vulnerability_latest_scan_id: vulnerability_latest_scan_id
-                docker_image_created_at: docker_image_created_at
-                docker_image_tag: docker_image_tag
-                malware_scan_status: malware_scan_status
-                docker_image_size: docker_image_size
-                docker_image_virtual_size: docker_image_virtual_size
-                docker_image_id: docker_image_id
-                vulnerability_scan_status: vulnerability_scan_status
-                docker_image_name: docker_image_name
-                node_id: node_id
+              image: null
               processes:
               - memory_max: 9
                 cmdline: cmdline
@@ -11190,8 +11645,8 @@ components:
           vulnerability_scan_status: vulnerability_scan_status
           host_name: host_name
           local_networks:
-          - local_networks
-          - local_networks
+          - ""
+          - ""
           node_id: node_id
         node_name: node_name
         node_id: node_id
@@ -11256,8 +11711,8 @@ components:
         file_sev_score: 6
         file_severity: file_severity
         strings_to_match:
-        - strings_to_match
-        - strings_to_match
+        - ""
+        - ""
         description: description
         version: version
         rule_id: rule_id
@@ -11298,8 +11753,7 @@ components:
         severity_score:
           type: integer
         strings_to_match:
-          items:
-            type: string
+          items: {}
           nullable: true
           type: array
         summary:
@@ -11339,8 +11793,8 @@ components:
           file_sev_score: 6
           file_severity: file_severity
           strings_to_match:
-          - strings_to_match
-          - strings_to_match
+          - ""
+          - ""
           description: description
           version: version
           rule_id: rule_id
@@ -11359,8 +11813,8 @@ components:
           file_sev_score: 6
           file_severity: file_severity
           strings_to_match:
-          - strings_to_match
-          - strings_to_match
+          - ""
+          - ""
           description: description
           version: version
           rule_id: rule_id
@@ -11545,8 +11999,6 @@ components:
     ModelPod:
       example:
         kubernetes_ip: kubernetes_ip
-        kubernetes_namespace: kubernetes_namespace
-        kubernetes_is_in_host_network: kubernetes_is_in_host_network
         processes:
         - memory_max: 9
           cmdline: cmdline
@@ -11574,6 +12026,12 @@ components:
         kubernetes_cluster_name: kubernetes_cluster_name
         kubernetes_state: kubernetes_state
         node_name: node_name
+        kubernetes_created: kubernetes_created
+        pod_name: pod_name
+        kubernetes_namespace: kubernetes_namespace
+        kubernetes_is_in_host_network: true
+        kubernetes_labels:
+          key: ""
         containers:
         - vulnerabilities_count: 6
           secrets_count: 1
@@ -11585,30 +12043,11 @@ components:
           vulnerability_latest_scan_id: vulnerability_latest_scan_id
           malware_scan_status: malware_scan_status
           docker_container_ips:
-          - docker_container_ips
-          - docker_container_ips
+          - ""
+          - ""
           docker_labels:
             key: ""
-          image:
-            metadata:
-              key: ""
-            secret_scan_status: secret_scan_status
-            vulnerabilities_count: 1
-            secrets_count: 6
-            malware_latest_scan_id: malware_latest_scan_id
-            malwares_count: 0
-            node_name: node_name
-            secret_latest_scan_id: secret_latest_scan_id
-            vulnerability_latest_scan_id: vulnerability_latest_scan_id
-            docker_image_created_at: docker_image_created_at
-            docker_image_tag: docker_image_tag
-            malware_scan_status: malware_scan_status
-            docker_image_size: docker_image_size
-            docker_image_virtual_size: docker_image_virtual_size
-            docker_image_id: docker_image_id
-            vulnerability_scan_status: vulnerability_scan_status
-            docker_image_name: docker_image_name
-            node_id: node_id
+          image: null
           processes:
           - memory_max: 9
             cmdline: cmdline
@@ -11658,30 +12097,11 @@ components:
           vulnerability_latest_scan_id: vulnerability_latest_scan_id
           malware_scan_status: malware_scan_status
           docker_container_ips:
-          - docker_container_ips
-          - docker_container_ips
+          - ""
+          - ""
           docker_labels:
             key: ""
-          image:
-            metadata:
-              key: ""
-            secret_scan_status: secret_scan_status
-            vulnerabilities_count: 1
-            secrets_count: 6
-            malware_latest_scan_id: malware_latest_scan_id
-            malwares_count: 0
-            node_name: node_name
-            secret_latest_scan_id: secret_latest_scan_id
-            vulnerability_latest_scan_id: vulnerability_latest_scan_id
-            docker_image_created_at: docker_image_created_at
-            docker_image_tag: docker_image_tag
-            malware_scan_status: malware_scan_status
-            docker_image_size: docker_image_size
-            docker_image_virtual_size: docker_image_virtual_size
-            docker_image_id: docker_image_id
-            vulnerability_scan_status: vulnerability_scan_status
-            docker_image_name: docker_image_name
-            node_id: node_id
+          image: null
           processes:
           - memory_max: 9
             cmdline: cmdline
@@ -11735,10 +12155,16 @@ components:
           type: string
         kubernetes_cluster_name:
           type: string
+        kubernetes_created:
+          type: string
         kubernetes_ip:
           type: string
         kubernetes_is_in_host_network:
-          type: string
+          type: boolean
+        kubernetes_labels:
+          additionalProperties: {}
+          nullable: true
+          type: object
         kubernetes_namespace:
           type: string
         kubernetes_state:
@@ -11746,6 +12172,8 @@ components:
         node_id:
           type: string
         node_name:
+          type: string
+        pod_name:
           type: string
         processes:
           items:
@@ -11757,12 +12185,15 @@ components:
       - host_name
       - kubernetes_cluster_id
       - kubernetes_cluster_name
+      - kubernetes_created
       - kubernetes_ip
       - kubernetes_is_in_host_network
+      - kubernetes_labels
       - kubernetes_namespace
       - kubernetes_state
       - node_id
       - node_name
+      - pod_name
       - processes
       type: object
     ModelPostureProvider:
@@ -11867,10 +12298,10 @@ components:
         - metadata:
             key: ""
           secret_scan_status: secret_scan_status
-          vulnerabilities_count: 1
-          secrets_count: 6
+          vulnerabilities_count: 4
+          secrets_count: 1
           malware_latest_scan_id: malware_latest_scan_id
-          malwares_count: 0
+          malwares_count: 7
           node_name: node_name
           secret_latest_scan_id: secret_latest_scan_id
           vulnerability_latest_scan_id: vulnerability_latest_scan_id
@@ -11879,6 +12310,115 @@ components:
           malware_scan_status: malware_scan_status
           docker_image_size: docker_image_size
           docker_image_virtual_size: docker_image_virtual_size
+          containers:
+          - vulnerabilities_count: 6
+            secrets_count: 1
+            docker_container_state: docker_container_state
+            cpu_max: 0.8008281904610115
+            memory_usage: 5
+            secret_latest_scan_id: secret_latest_scan_id
+            docker_container_network_mode: docker_container_network_mode
+            vulnerability_latest_scan_id: vulnerability_latest_scan_id
+            malware_scan_status: malware_scan_status
+            docker_container_ips:
+            - ""
+            - ""
+            docker_labels:
+              key: ""
+            image: null
+            processes:
+            - memory_max: 9
+              cmdline: cmdline
+              cpu_max: 2.3021358869347655
+              node_name: node_name
+              memory_usage: 3
+              open_files_count: 2
+              threads: 1
+              pid: 4
+              cpu_usage: 7.061401241503109
+              node_id: node_id
+              ppid: 7
+            - memory_max: 9
+              cmdline: cmdline
+              cpu_max: 2.3021358869347655
+              node_name: node_name
+              memory_usage: 3
+              open_files_count: 2
+              threads: 1
+              pid: 4
+              cpu_usage: 7.061401241503109
+              node_id: node_id
+              ppid: 7
+            secret_scan_status: secret_scan_status
+            docker_container_name: docker_container_name
+            docker_container_created: docker_container_created
+            malware_latest_scan_id: malware_latest_scan_id
+            malwares_count: 1
+            node_name: node_name
+            docker_container_networks: docker_container_networks
+            docker_container_command: docker_container_command
+            uptime: 1
+            memory_max: 5
+            docker_container_ports: docker_container_ports
+            docker_container_state_human: docker_container_state_human
+            cpu_usage: 6.027456183070403
+            vulnerability_scan_status: vulnerability_scan_status
+            host_name: host_name
+            node_id: node_id
+          - vulnerabilities_count: 6
+            secrets_count: 1
+            docker_container_state: docker_container_state
+            cpu_max: 0.8008281904610115
+            memory_usage: 5
+            secret_latest_scan_id: secret_latest_scan_id
+            docker_container_network_mode: docker_container_network_mode
+            vulnerability_latest_scan_id: vulnerability_latest_scan_id
+            malware_scan_status: malware_scan_status
+            docker_container_ips:
+            - ""
+            - ""
+            docker_labels:
+              key: ""
+            image: null
+            processes:
+            - memory_max: 9
+              cmdline: cmdline
+              cpu_max: 2.3021358869347655
+              node_name: node_name
+              memory_usage: 3
+              open_files_count: 2
+              threads: 1
+              pid: 4
+              cpu_usage: 7.061401241503109
+              node_id: node_id
+              ppid: 7
+            - memory_max: 9
+              cmdline: cmdline
+              cpu_max: 2.3021358869347655
+              node_name: node_name
+              memory_usage: 3
+              open_files_count: 2
+              threads: 1
+              pid: 4
+              cpu_usage: 7.061401241503109
+              node_id: node_id
+              ppid: 7
+            secret_scan_status: secret_scan_status
+            docker_container_name: docker_container_name
+            docker_container_created: docker_container_created
+            malware_latest_scan_id: malware_latest_scan_id
+            malwares_count: 1
+            node_name: node_name
+            docker_container_networks: docker_container_networks
+            docker_container_command: docker_container_command
+            uptime: 1
+            memory_max: 5
+            docker_container_ports: docker_container_ports
+            docker_container_state_human: docker_container_state_human
+            cpu_usage: 6.027456183070403
+            vulnerability_scan_status: vulnerability_scan_status
+            host_name: host_name
+            node_id: node_id
           docker_image_id: docker_image_id
           vulnerability_scan_status: vulnerability_scan_status
           docker_image_name: docker_image_name
@@ -11886,10 +12426,10 @@ components:
         - metadata:
             key: ""
           secret_scan_status: secret_scan_status
-          vulnerabilities_count: 1
-          secrets_count: 6
+          vulnerabilities_count: 4
+          secrets_count: 1
           malware_latest_scan_id: malware_latest_scan_id
-          malwares_count: 0
+          malwares_count: 7
           node_name: node_name
           secret_latest_scan_id: secret_latest_scan_id
           vulnerability_latest_scan_id: vulnerability_latest_scan_id
@@ -11898,6 +12438,115 @@ components:
           malware_scan_status: malware_scan_status
           docker_image_size: docker_image_size
           docker_image_virtual_size: docker_image_virtual_size
+          containers:
+          - vulnerabilities_count: 6
+            secrets_count: 1
+            docker_container_state: docker_container_state
+            cpu_max: 0.8008281904610115
+            memory_usage: 5
+            secret_latest_scan_id: secret_latest_scan_id
+            docker_container_network_mode: docker_container_network_mode
+            vulnerability_latest_scan_id: vulnerability_latest_scan_id
+            malware_scan_status: malware_scan_status
+            docker_container_ips:
+            - ""
+            - ""
+            docker_labels:
+              key: ""
+            image: null
+            processes:
+            - memory_max: 9
+              cmdline: cmdline
+              cpu_max: 2.3021358869347655
+              node_name: node_name
+              memory_usage: 3
+              open_files_count: 2
+              threads: 1
+              pid: 4
+              cpu_usage: 7.061401241503109
+              node_id: node_id
+              ppid: 7
+            - memory_max: 9
+              cmdline: cmdline
+              cpu_max: 2.3021358869347655
+              node_name: node_name
+              memory_usage: 3
+              open_files_count: 2
+              threads: 1
+              pid: 4
+              cpu_usage: 7.061401241503109
+              node_id: node_id
+              ppid: 7
+            secret_scan_status: secret_scan_status
+            docker_container_name: docker_container_name
+            docker_container_created: docker_container_created
+            malware_latest_scan_id: malware_latest_scan_id
+            malwares_count: 1
+            node_name: node_name
+            docker_container_networks: docker_container_networks
+            docker_container_command: docker_container_command
+            uptime: 1
+            memory_max: 5
+            docker_container_ports: docker_container_ports
+            docker_container_state_human: docker_container_state_human
+            cpu_usage: 6.027456183070403
+            vulnerability_scan_status: vulnerability_scan_status
+            host_name: host_name
+            node_id: node_id
+          - vulnerabilities_count: 6
+            secrets_count: 1
+            docker_container_state: docker_container_state
+            cpu_max: 0.8008281904610115
+            memory_usage: 5
+            secret_latest_scan_id: secret_latest_scan_id
+            docker_container_network_mode: docker_container_network_mode
+            vulnerability_latest_scan_id: vulnerability_latest_scan_id
+            malware_scan_status: malware_scan_status
+            docker_container_ips:
+            - ""
+            - ""
+            docker_labels:
+              key: ""
+            image: null
+            processes:
+            - memory_max: 9
+              cmdline: cmdline
+              cpu_max: 2.3021358869347655
+              node_name: node_name
+              memory_usage: 3
+              open_files_count: 2
+              threads: 1
+              pid: 4
+              cpu_usage: 7.061401241503109
+              node_id: node_id
+              ppid: 7
+            - memory_max: 9
+              cmdline: cmdline
+              cpu_max: 2.3021358869347655
+              node_name: node_name
+              memory_usage: 3
+              open_files_count: 2
+              threads: 1
+              pid: 4
+              cpu_usage: 7.061401241503109
+              node_id: node_id
+              ppid: 7
+            secret_scan_status: secret_scan_status
+            docker_container_name: docker_container_name
+            docker_container_created: docker_container_created
+            malware_latest_scan_id: malware_latest_scan_id
+            malwares_count: 1
+            node_name: node_name
+            docker_container_networks: docker_container_networks
+            docker_container_command: docker_container_command
+            uptime: 1
+            memory_max: 5
+            docker_container_ports: docker_container_ports
+            docker_container_state_human: docker_container_state_human
+            cpu_usage: 6.027456183070403
+            vulnerability_scan_status: vulnerability_scan_status
+            host_name: host_name
+            node_id: node_id
           docker_image_id: docker_image_id
           vulnerability_scan_status: vulnerability_scan_status
           docker_image_name: docker_image_name
@@ -12843,8 +13492,8 @@ components:
         cve_attack_vector: cve_attack_vector
         cve_cvss_score: 5.962133916683182
         urls:
-        - urls
-        - urls
+        - ""
+        - ""
         cve_severity: cve_severity
         cve_caused_by_package_path: cve_caused_by_package_path
         updated_at: 2
@@ -12893,8 +13542,7 @@ components:
         updated_at:
           type: integer
         urls:
-          items:
-            type: string
+          items: {}
           nullable: true
           type: array
       required:
@@ -12958,8 +13606,8 @@ components:
           cve_attack_vector: cve_attack_vector
           cve_cvss_score: 5.962133916683182
           urls:
-          - urls
-          - urls
+          - ""
+          - ""
           cve_severity: cve_severity
           cve_caused_by_package_path: cve_caused_by_package_path
           updated_at: 2
@@ -12979,8 +13627,8 @@ components:
           cve_attack_vector: cve_attack_vector
           cve_cvss_score: 5.962133916683182
           urls:
-          - urls
-          - urls
+          - ""
+          - ""
           cve_severity: cve_severity
           cve_caused_by_package_path: cve_caused_by_package_path
           updated_at: 2
@@ -13717,33 +14365,93 @@ components:
       type: object
     UtilsAdvancedReportFilters:
       example:
-        account_id: account_id
-        scan_status: scan_status
-        kubernetes_cluster_name: kubernetes_cluster_name
-        masked: true
-        host_name: host_name
+        image_name:
+        - image_name
+        - image_name
+        account_id:
+        - account_id
+        - account_id
+        container_name:
+        - container_name
+        - container_name
+        scan_status:
+        - scan_status
+        - scan_status
+        kubernetes_cluster_name:
+        - kubernetes_cluster_name
+        - kubernetes_cluster_name
+        masked:
+        - true
+        - true
+        host_name:
+        - host_name
+        - host_name
+        pod_name:
+        - pod_name
+        - pod_name
       properties:
         account_id:
-          type: string
+          items:
+            type: string
+          type: array
+        container_name:
+          items:
+            type: string
+          type: array
         host_name:
-          type: string
+          items:
+            type: string
+          type: array
+        image_name:
+          items:
+            type: string
+          type: array
         kubernetes_cluster_name:
-          type: string
+          items:
+            type: string
+          type: array
         masked:
-          type: boolean
+          items:
+            type: boolean
+          type: array
+        pod_name:
+          items:
+            type: string
+          type: array
         scan_status:
-          type: string
+          items:
+            type: string
+          type: array
       type: object
     UtilsReportFilters:
       example:
         include_dead_nodes: true
         node_type: host
         advanced_report_filters:
-          account_id: account_id
-          scan_status: scan_status
-          kubernetes_cluster_name: kubernetes_cluster_name
-          masked: true
-          host_name: host_name
+          image_name:
+          - image_name
+          - image_name
+          account_id:
+          - account_id
+          - account_id
+          container_name:
+          - container_name
+          - container_name
+          scan_status:
+          - scan_status
+          - scan_status
+          kubernetes_cluster_name:
+          - kubernetes_cluster_name
+          - kubernetes_cluster_name
+          masked:
+          - true
+          - true
+          host_name:
+          - host_name
+          - host_name
+          pod_name:
+          - pod_name
+          - pod_name
         scan_type: vulnerability
         severity_or_check_type:
         - severity_or_check_type

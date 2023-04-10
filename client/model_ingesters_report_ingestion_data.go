@@ -32,6 +32,7 @@ type IngestersReportIngestionData struct {
 	KubernetesClusterEdgeBatch []map[string]interface{} `json:"kubernetes_cluster_edge_batch"`
 	PodBatch []map[string]interface{} `json:"pod_batch"`
 	PodEdgesBatch []map[string]interface{} `json:"pod_edges_batch"`
+	PodHostEdgesBatch []map[string]interface{} `json:"pod_host_edges_batch"`
 	ProcessBatch []map[string]interface{} `json:"process_batch"`
 	ProcessEdgesBatch []map[string]interface{} `json:"process_edges_batch"`
 }
@@ -40,7 +41,7 @@ type IngestersReportIngestionData struct {
 // This constructor will assign default values to properties that have it defined,
 // and makes sure properties required by API are set, but the set of arguments
 // will change when the set of required properties is changed
-func NewIngestersReportIngestionData(containerBatch []map[string]interface{}, containerEdgesBatch []map[string]interface{}, containerImageBatch []map[string]interface{}, containerImageEdgeBatch []map[string]interface{}, containerProcessEdgeBatch []map[string]interface{}, endpointEdgesBatch []map[string]interface{}, hostBatch []map[string]interface{}, hosts []map[string]interface{}, kubernetesClusterBatch []map[string]interface{}, kubernetesClusterEdgeBatch []map[string]interface{}, podBatch []map[string]interface{}, podEdgesBatch []map[string]interface{}, processBatch []map[string]interface{}, processEdgesBatch []map[string]interface{}) *IngestersReportIngestionData {
+func NewIngestersReportIngestionData(containerBatch []map[string]interface{}, containerEdgesBatch []map[string]interface{}, containerImageBatch []map[string]interface{}, containerImageEdgeBatch []map[string]interface{}, containerProcessEdgeBatch []map[string]interface{}, endpointEdgesBatch []map[string]interface{}, hostBatch []map[string]interface{}, hosts []map[string]interface{}, kubernetesClusterBatch []map[string]interface{}, kubernetesClusterEdgeBatch []map[string]interface{}, podBatch []map[string]interface{}, podEdgesBatch []map[string]interface{}, podHostEdgesBatch []map[string]interface{}, processBatch []map[string]interface{}, processEdgesBatch []map[string]interface{}) *IngestersReportIngestionData {
 	this := IngestersReportIngestionData{}
 	this.ContainerBatch = containerBatch
 	this.ContainerEdgesBatch = containerEdgesBatch
@@ -54,6 +55,7 @@ func NewIngestersReportIngestionData(containerBatch []map[string]interface{}, co
 	this.KubernetesClusterEdgeBatch = kubernetesClusterEdgeBatch
 	this.PodBatch = podBatch
 	this.PodEdgesBatch = podEdgesBatch
+	this.PodHostEdgesBatch = podHostEdgesBatch
 	this.ProcessBatch = processBatch
 	this.ProcessEdgesBatch = processEdgesBatch
 	return &this
@@ -379,6 +381,32 @@ func (o *IngestersReportIngestionData) SetPodEdgesBatch(v []map[string]interface
 	o.PodEdgesBatch = v
 }
 
+// GetPodHostEdgesBatch returns the PodHostEdgesBatch field value
+// If the value is explicit nil, the zero value for []map[string]interface{} will be returned
+func (o *IngestersReportIngestionData) GetPodHostEdgesBatch() []map[string]interface{} {
+	if o == nil {
+		var ret []map[string]interface{}
+		return ret
+	}
+
+	return o.PodHostEdgesBatch
+}
+
+// GetPodHostEdgesBatchOk returns a tuple with the PodHostEdgesBatch field value
+// and a boolean to check if the value has been set.
+// NOTE: If the value is an explicit nil, `nil, true` will be returned
+func (o *IngestersReportIngestionData) GetPodHostEdgesBatchOk() ([]map[string]interface{}, bool) {
+	if o == nil || IsNil(o.PodHostEdgesBatch) {
+		return nil, false
+	}
+	return o.PodHostEdgesBatch, true
+}
+
+// SetPodHostEdgesBatch sets field value
+func (o *IngestersReportIngestionData) SetPodHostEdgesBatch(v []map[string]interface{}) {
+	o.PodHostEdgesBatch = v
+}
+
 // GetProcessBatch returns the ProcessBatch field value
 // If the value is explicit nil, the zero value for []map[string]interface{} will be returned
 func (o *IngestersReportIngestionData) GetProcessBatch() []map[string]interface{} {
@@ -476,6 +504,9 @@ func (o IngestersReportIngestionData) ToMap() (map[string]interface{}, error) {
 	}
 	if o.PodEdgesBatch != nil {
 		toSerialize["pod_edges_batch"] = o.PodEdgesBatch
+	}
+	if o.PodHostEdgesBatch != nil {
+		toSerialize["pod_host_edges_batch"] = o.PodHostEdgesBatch
 	}
 	if o.ProcessBatch != nil {
 		toSerialize["process_batch"] = o.ProcessBatch

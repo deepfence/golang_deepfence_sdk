@@ -20,6 +20,7 @@ var _ MappedNullable = &ModelContainerImage{}
 
 // ModelContainerImage struct for ModelContainerImage
 type ModelContainerImage struct {
+	Containers []ModelContainer `json:"containers"`
 	DockerImageCreatedAt string `json:"docker_image_created_at"`
 	DockerImageId string `json:"docker_image_id"`
 	DockerImageName string `json:"docker_image_name"`
@@ -44,8 +45,9 @@ type ModelContainerImage struct {
 // This constructor will assign default values to properties that have it defined,
 // and makes sure properties required by API are set, but the set of arguments
 // will change when the set of required properties is changed
-func NewModelContainerImage(dockerImageCreatedAt string, dockerImageId string, dockerImageName string, dockerImageSize string, dockerImageTag string, dockerImageVirtualSize string, malwareLatestScanId string, malwareScanStatus string, malwaresCount int32, metadata map[string]interface{}, nodeId string, nodeName string, secretLatestScanId string, secretScanStatus string, secretsCount int32, vulnerabilitiesCount int32, vulnerabilityLatestScanId string, vulnerabilityScanStatus string) *ModelContainerImage {
+func NewModelContainerImage(containers []ModelContainer, dockerImageCreatedAt string, dockerImageId string, dockerImageName string, dockerImageSize string, dockerImageTag string, dockerImageVirtualSize string, malwareLatestScanId string, malwareScanStatus string, malwaresCount int32, metadata map[string]interface{}, nodeId string, nodeName string, secretLatestScanId string, secretScanStatus string, secretsCount int32, vulnerabilitiesCount int32, vulnerabilityLatestScanId string, vulnerabilityScanStatus string) *ModelContainerImage {
 	this := ModelContainerImage{}
+	this.Containers = containers
 	this.DockerImageCreatedAt = dockerImageCreatedAt
 	this.DockerImageId = dockerImageId
 	this.DockerImageName = dockerImageName
@@ -73,6 +75,32 @@ func NewModelContainerImage(dockerImageCreatedAt string, dockerImageId string, d
 func NewModelContainerImageWithDefaults() *ModelContainerImage {
 	this := ModelContainerImage{}
 	return &this
+}
+
+// GetContainers returns the Containers field value
+// If the value is explicit nil, the zero value for []ModelContainer will be returned
+func (o *ModelContainerImage) GetContainers() []ModelContainer {
+	if o == nil {
+		var ret []ModelContainer
+		return ret
+	}
+
+	return o.Containers
+}
+
+// GetContainersOk returns a tuple with the Containers field value
+// and a boolean to check if the value has been set.
+// NOTE: If the value is an explicit nil, `nil, true` will be returned
+func (o *ModelContainerImage) GetContainersOk() ([]ModelContainer, bool) {
+	if o == nil || IsNil(o.Containers) {
+		return nil, false
+	}
+	return o.Containers, true
+}
+
+// SetContainers sets field value
+func (o *ModelContainerImage) SetContainers(v []ModelContainer) {
+	o.Containers = v
 }
 
 // GetDockerImageCreatedAt returns the DockerImageCreatedAt field value
@@ -517,6 +545,9 @@ func (o ModelContainerImage) MarshalJSON() ([]byte, error) {
 
 func (o ModelContainerImage) ToMap() (map[string]interface{}, error) {
 	toSerialize := map[string]interface{}{}
+	if o.Containers != nil {
+		toSerialize["containers"] = o.Containers
+	}
 	toSerialize["docker_image_created_at"] = o.DockerImageCreatedAt
 	toSerialize["docker_image_id"] = o.DockerImageId
 	toSerialize["docker_image_name"] = o.DockerImageName

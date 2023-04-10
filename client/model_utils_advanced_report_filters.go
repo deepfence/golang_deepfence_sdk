@@ -20,11 +20,14 @@ var _ MappedNullable = &UtilsAdvancedReportFilters{}
 
 // UtilsAdvancedReportFilters struct for UtilsAdvancedReportFilters
 type UtilsAdvancedReportFilters struct {
-	AccountId *string `json:"account_id,omitempty"`
-	HostName *string `json:"host_name,omitempty"`
-	KubernetesClusterName *string `json:"kubernetes_cluster_name,omitempty"`
-	Masked *bool `json:"masked,omitempty"`
-	ScanStatus *string `json:"scan_status,omitempty"`
+	AccountId []string `json:"account_id,omitempty"`
+	ContainerName []string `json:"container_name,omitempty"`
+	HostName []string `json:"host_name,omitempty"`
+	ImageName []string `json:"image_name,omitempty"`
+	KubernetesClusterName []string `json:"kubernetes_cluster_name,omitempty"`
+	Masked []bool `json:"masked,omitempty"`
+	PodName []string `json:"pod_name,omitempty"`
+	ScanStatus []string `json:"scan_status,omitempty"`
 }
 
 // NewUtilsAdvancedReportFilters instantiates a new UtilsAdvancedReportFilters object
@@ -45,17 +48,17 @@ func NewUtilsAdvancedReportFiltersWithDefaults() *UtilsAdvancedReportFilters {
 }
 
 // GetAccountId returns the AccountId field value if set, zero value otherwise.
-func (o *UtilsAdvancedReportFilters) GetAccountId() string {
+func (o *UtilsAdvancedReportFilters) GetAccountId() []string {
 	if o == nil || IsNil(o.AccountId) {
-		var ret string
+		var ret []string
 		return ret
 	}
-	return *o.AccountId
+	return o.AccountId
 }
 
 // GetAccountIdOk returns a tuple with the AccountId field value if set, nil otherwise
 // and a boolean to check if the value has been set.
-func (o *UtilsAdvancedReportFilters) GetAccountIdOk() (*string, bool) {
+func (o *UtilsAdvancedReportFilters) GetAccountIdOk() ([]string, bool) {
 	if o == nil || IsNil(o.AccountId) {
 		return nil, false
 	}
@@ -71,23 +74,55 @@ func (o *UtilsAdvancedReportFilters) HasAccountId() bool {
 	return false
 }
 
-// SetAccountId gets a reference to the given string and assigns it to the AccountId field.
-func (o *UtilsAdvancedReportFilters) SetAccountId(v string) {
-	o.AccountId = &v
+// SetAccountId gets a reference to the given []string and assigns it to the AccountId field.
+func (o *UtilsAdvancedReportFilters) SetAccountId(v []string) {
+	o.AccountId = v
+}
+
+// GetContainerName returns the ContainerName field value if set, zero value otherwise.
+func (o *UtilsAdvancedReportFilters) GetContainerName() []string {
+	if o == nil || IsNil(o.ContainerName) {
+		var ret []string
+		return ret
+	}
+	return o.ContainerName
+}
+
+// GetContainerNameOk returns a tuple with the ContainerName field value if set, nil otherwise
+// and a boolean to check if the value has been set.
+func (o *UtilsAdvancedReportFilters) GetContainerNameOk() ([]string, bool) {
+	if o == nil || IsNil(o.ContainerName) {
+		return nil, false
+	}
+	return o.ContainerName, true
+}
+
+// HasContainerName returns a boolean if a field has been set.
+func (o *UtilsAdvancedReportFilters) HasContainerName() bool {
+	if o != nil && !IsNil(o.ContainerName) {
+		return true
+	}
+
+	return false
+}
+
+// SetContainerName gets a reference to the given []string and assigns it to the ContainerName field.
+func (o *UtilsAdvancedReportFilters) SetContainerName(v []string) {
+	o.ContainerName = v
 }
 
 // GetHostName returns the HostName field value if set, zero value otherwise.
-func (o *UtilsAdvancedReportFilters) GetHostName() string {
+func (o *UtilsAdvancedReportFilters) GetHostName() []string {
 	if o == nil || IsNil(o.HostName) {
-		var ret string
+		var ret []string
 		return ret
 	}
-	return *o.HostName
+	return o.HostName
 }
 
 // GetHostNameOk returns a tuple with the HostName field value if set, nil otherwise
 // and a boolean to check if the value has been set.
-func (o *UtilsAdvancedReportFilters) GetHostNameOk() (*string, bool) {
+func (o *UtilsAdvancedReportFilters) GetHostNameOk() ([]string, bool) {
 	if o == nil || IsNil(o.HostName) {
 		return nil, false
 	}
@@ -103,23 +138,55 @@ func (o *UtilsAdvancedReportFilters) HasHostName() bool {
 	return false
 }
 
-// SetHostName gets a reference to the given string and assigns it to the HostName field.
-func (o *UtilsAdvancedReportFilters) SetHostName(v string) {
-	o.HostName = &v
+// SetHostName gets a reference to the given []string and assigns it to the HostName field.
+func (o *UtilsAdvancedReportFilters) SetHostName(v []string) {
+	o.HostName = v
+}
+
+// GetImageName returns the ImageName field value if set, zero value otherwise.
+func (o *UtilsAdvancedReportFilters) GetImageName() []string {
+	if o == nil || IsNil(o.ImageName) {
+		var ret []string
+		return ret
+	}
+	return o.ImageName
+}
+
+// GetImageNameOk returns a tuple with the ImageName field value if set, nil otherwise
+// and a boolean to check if the value has been set.
+func (o *UtilsAdvancedReportFilters) GetImageNameOk() ([]string, bool) {
+	if o == nil || IsNil(o.ImageName) {
+		return nil, false
+	}
+	return o.ImageName, true
+}
+
+// HasImageName returns a boolean if a field has been set.
+func (o *UtilsAdvancedReportFilters) HasImageName() bool {
+	if o != nil && !IsNil(o.ImageName) {
+		return true
+	}
+
+	return false
+}
+
+// SetImageName gets a reference to the given []string and assigns it to the ImageName field.
+func (o *UtilsAdvancedReportFilters) SetImageName(v []string) {
+	o.ImageName = v
 }
 
 // GetKubernetesClusterName returns the KubernetesClusterName field value if set, zero value otherwise.
-func (o *UtilsAdvancedReportFilters) GetKubernetesClusterName() string {
+func (o *UtilsAdvancedReportFilters) GetKubernetesClusterName() []string {
 	if o == nil || IsNil(o.KubernetesClusterName) {
-		var ret string
+		var ret []string
 		return ret
 	}
-	return *o.KubernetesClusterName
+	return o.KubernetesClusterName
 }
 
 // GetKubernetesClusterNameOk returns a tuple with the KubernetesClusterName field value if set, nil otherwise
 // and a boolean to check if the value has been set.
-func (o *UtilsAdvancedReportFilters) GetKubernetesClusterNameOk() (*string, bool) {
+func (o *UtilsAdvancedReportFilters) GetKubernetesClusterNameOk() ([]string, bool) {
 	if o == nil || IsNil(o.KubernetesClusterName) {
 		return nil, false
 	}
@@ -135,23 +202,23 @@ func (o *UtilsAdvancedReportFilters) HasKubernetesClusterName() bool {
 	return false
 }
 
-// SetKubernetesClusterName gets a reference to the given string and assigns it to the KubernetesClusterName field.
-func (o *UtilsAdvancedReportFilters) SetKubernetesClusterName(v string) {
-	o.KubernetesClusterName = &v
+// SetKubernetesClusterName gets a reference to the given []string and assigns it to the KubernetesClusterName field.
+func (o *UtilsAdvancedReportFilters) SetKubernetesClusterName(v []string) {
+	o.KubernetesClusterName = v
 }
 
 // GetMasked returns the Masked field value if set, zero value otherwise.
-func (o *UtilsAdvancedReportFilters) GetMasked() bool {
+func (o *UtilsAdvancedReportFilters) GetMasked() []bool {
 	if o == nil || IsNil(o.Masked) {
-		var ret bool
+		var ret []bool
 		return ret
 	}
-	return *o.Masked
+	return o.Masked
 }
 
 // GetMaskedOk returns a tuple with the Masked field value if set, nil otherwise
 // and a boolean to check if the value has been set.
-func (o *UtilsAdvancedReportFilters) GetMaskedOk() (*bool, bool) {
+func (o *UtilsAdvancedReportFilters) GetMaskedOk() ([]bool, bool) {
 	if o == nil || IsNil(o.Masked) {
 		return nil, false
 	}
@@ -167,23 +234,55 @@ func (o *UtilsAdvancedReportFilters) HasMasked() bool {
 	return false
 }
 
-// SetMasked gets a reference to the given bool and assigns it to the Masked field.
-func (o *UtilsAdvancedReportFilters) SetMasked(v bool) {
-	o.Masked = &v
+// SetMasked gets a reference to the given []bool and assigns it to the Masked field.
+func (o *UtilsAdvancedReportFilters) SetMasked(v []bool) {
+	o.Masked = v
+}
+
+// GetPodName returns the PodName field value if set, zero value otherwise.
+func (o *UtilsAdvancedReportFilters) GetPodName() []string {
+	if o == nil || IsNil(o.PodName) {
+		var ret []string
+		return ret
+	}
+	return o.PodName
+}
+
+// GetPodNameOk returns a tuple with the PodName field value if set, nil otherwise
+// and a boolean to check if the value has been set.
+func (o *UtilsAdvancedReportFilters) GetPodNameOk() ([]string, bool) {
+	if o == nil || IsNil(o.PodName) {
+		return nil, false
+	}
+	return o.PodName, true
+}
+
+// HasPodName returns a boolean if a field has been set.
+func (o *UtilsAdvancedReportFilters) HasPodName() bool {
+	if o != nil && !IsNil(o.PodName) {
+		return true
+	}
+
+	return false
+}
+
+// SetPodName gets a reference to the given []string and assigns it to the PodName field.
+func (o *UtilsAdvancedReportFilters) SetPodName(v []string) {
+	o.PodName = v
 }
 
 // GetScanStatus returns the ScanStatus field value if set, zero value otherwise.
-func (o *UtilsAdvancedReportFilters) GetScanStatus() string {
+func (o *UtilsAdvancedReportFilters) GetScanStatus() []string {
 	if o == nil || IsNil(o.ScanStatus) {
-		var ret string
+		var ret []string
 		return ret
 	}
-	return *o.ScanStatus
+	return o.ScanStatus
 }
 
 // GetScanStatusOk returns a tuple with the ScanStatus field value if set, nil otherwise
 // and a boolean to check if the value has been set.
-func (o *UtilsAdvancedReportFilters) GetScanStatusOk() (*string, bool) {
+func (o *UtilsAdvancedReportFilters) GetScanStatusOk() ([]string, bool) {
 	if o == nil || IsNil(o.ScanStatus) {
 		return nil, false
 	}
@@ -199,9 +298,9 @@ func (o *UtilsAdvancedReportFilters) HasScanStatus() bool {
 	return false
 }
 
-// SetScanStatus gets a reference to the given string and assigns it to the ScanStatus field.
-func (o *UtilsAdvancedReportFilters) SetScanStatus(v string) {
-	o.ScanStatus = &v
+// SetScanStatus gets a reference to the given []string and assigns it to the ScanStatus field.
+func (o *UtilsAdvancedReportFilters) SetScanStatus(v []string) {
+	o.ScanStatus = v
 }
 
 func (o UtilsAdvancedReportFilters) MarshalJSON() ([]byte, error) {
@@ -217,14 +316,23 @@ func (o UtilsAdvancedReportFilters) ToMap() (map[string]interface{}, error) {
 	if !IsNil(o.AccountId) {
 		toSerialize["account_id"] = o.AccountId
 	}
+	if !IsNil(o.ContainerName) {
+		toSerialize["container_name"] = o.ContainerName
+	}
 	if !IsNil(o.HostName) {
 		toSerialize["host_name"] = o.HostName
+	}
+	if !IsNil(o.ImageName) {
+		toSerialize["image_name"] = o.ImageName
 	}
 	if !IsNil(o.KubernetesClusterName) {
 		toSerialize["kubernetes_cluster_name"] = o.KubernetesClusterName
 	}
 	if !IsNil(o.Masked) {
 		toSerialize["masked"] = o.Masked
+	}
+	if !IsNil(o.PodName) {
+		toSerialize["pod_name"] = o.PodName
 	}
 	if !IsNil(o.ScanStatus) {
 		toSerialize["scan_status"] = o.ScanStatus

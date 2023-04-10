@@ -4,6 +4,7 @@
 
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
+**Containers** | [**[]ModelContainer**](ModelContainer.md) |  | 
 **DockerImageCreatedAt** | **string** |  | 
 **DockerImageId** | **string** |  | 
 **DockerImageName** | **string** |  | 
@@ -27,7 +28,7 @@ Name | Type | Description | Notes
 
 ### NewModelContainerImage
 
-`func NewModelContainerImage(dockerImageCreatedAt string, dockerImageId string, dockerImageName string, dockerImageSize string, dockerImageTag string, dockerImageVirtualSize string, malwareLatestScanId string, malwareScanStatus string, malwaresCount int32, metadata map[string]interface{}, nodeId string, nodeName string, secretLatestScanId string, secretScanStatus string, secretsCount int32, vulnerabilitiesCount int32, vulnerabilityLatestScanId string, vulnerabilityScanStatus string, ) *ModelContainerImage`
+`func NewModelContainerImage(containers []ModelContainer, dockerImageCreatedAt string, dockerImageId string, dockerImageName string, dockerImageSize string, dockerImageTag string, dockerImageVirtualSize string, malwareLatestScanId string, malwareScanStatus string, malwaresCount int32, metadata map[string]interface{}, nodeId string, nodeName string, secretLatestScanId string, secretScanStatus string, secretsCount int32, vulnerabilitiesCount int32, vulnerabilityLatestScanId string, vulnerabilityScanStatus string, ) *ModelContainerImage`
 
 NewModelContainerImage instantiates a new ModelContainerImage object
 This constructor will assign default values to properties that have it defined,
@@ -42,6 +43,36 @@ NewModelContainerImageWithDefaults instantiates a new ModelContainerImage object
 This constructor will only assign default values to properties that have it defined,
 but it doesn't guarantee that properties required by API are set
 
+### GetContainers
+
+`func (o *ModelContainerImage) GetContainers() []ModelContainer`
+
+GetContainers returns the Containers field if non-nil, zero value otherwise.
+
+### GetContainersOk
+
+`func (o *ModelContainerImage) GetContainersOk() (*[]ModelContainer, bool)`
+
+GetContainersOk returns a tuple with the Containers field if it's non-nil, zero value otherwise
+and a boolean to check if the value has been set.
+
+### SetContainers
+
+`func (o *ModelContainerImage) SetContainers(v []ModelContainer)`
+
+SetContainers sets Containers field to given value.
+
+
+### SetContainersNil
+
+`func (o *ModelContainerImage) SetContainersNil(b bool)`
+
+ SetContainersNil sets the value for Containers to be an explicit nil
+
+### UnsetContainers
+`func (o *ModelContainerImage) UnsetContainers()`
+
+UnsetContainers ensures that no value is present for Containers, not even an explicit nil
 ### GetDockerImageCreatedAt
 
 `func (o *ModelContainerImage) GetDockerImageCreatedAt() string`

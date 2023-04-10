@@ -8,19 +8,22 @@ Name | Type | Description | Notes
 **HostName** | **string** |  | 
 **KubernetesClusterId** | **string** |  | 
 **KubernetesClusterName** | **string** |  | 
+**KubernetesCreated** | **string** |  | 
 **KubernetesIp** | **string** |  | 
-**KubernetesIsInHostNetwork** | **string** |  | 
+**KubernetesIsInHostNetwork** | **bool** |  | 
+**KubernetesLabels** | **map[string]interface{}** |  | 
 **KubernetesNamespace** | **string** |  | 
 **KubernetesState** | **string** |  | 
 **NodeId** | **string** |  | 
 **NodeName** | **string** |  | 
+**PodName** | **string** |  | 
 **Processes** | [**[]ModelProcess**](ModelProcess.md) |  | 
 
 ## Methods
 
 ### NewModelPod
 
-`func NewModelPod(containers []ModelContainer, hostName string, kubernetesClusterId string, kubernetesClusterName string, kubernetesIp string, kubernetesIsInHostNetwork string, kubernetesNamespace string, kubernetesState string, nodeId string, nodeName string, processes []ModelProcess, ) *ModelPod`
+`func NewModelPod(containers []ModelContainer, hostName string, kubernetesClusterId string, kubernetesClusterName string, kubernetesCreated string, kubernetesIp string, kubernetesIsInHostNetwork bool, kubernetesLabels map[string]interface{}, kubernetesNamespace string, kubernetesState string, nodeId string, nodeName string, podName string, processes []ModelProcess, ) *ModelPod`
 
 NewModelPod instantiates a new ModelPod object
 This constructor will assign default values to properties that have it defined,
@@ -125,6 +128,26 @@ and a boolean to check if the value has been set.
 SetKubernetesClusterName sets KubernetesClusterName field to given value.
 
 
+### GetKubernetesCreated
+
+`func (o *ModelPod) GetKubernetesCreated() string`
+
+GetKubernetesCreated returns the KubernetesCreated field if non-nil, zero value otherwise.
+
+### GetKubernetesCreatedOk
+
+`func (o *ModelPod) GetKubernetesCreatedOk() (*string, bool)`
+
+GetKubernetesCreatedOk returns a tuple with the KubernetesCreated field if it's non-nil, zero value otherwise
+and a boolean to check if the value has been set.
+
+### SetKubernetesCreated
+
+`func (o *ModelPod) SetKubernetesCreated(v string)`
+
+SetKubernetesCreated sets KubernetesCreated field to given value.
+
+
 ### GetKubernetesIp
 
 `func (o *ModelPod) GetKubernetesIp() string`
@@ -147,24 +170,54 @@ SetKubernetesIp sets KubernetesIp field to given value.
 
 ### GetKubernetesIsInHostNetwork
 
-`func (o *ModelPod) GetKubernetesIsInHostNetwork() string`
+`func (o *ModelPod) GetKubernetesIsInHostNetwork() bool`
 
 GetKubernetesIsInHostNetwork returns the KubernetesIsInHostNetwork field if non-nil, zero value otherwise.
 
 ### GetKubernetesIsInHostNetworkOk
 
-`func (o *ModelPod) GetKubernetesIsInHostNetworkOk() (*string, bool)`
+`func (o *ModelPod) GetKubernetesIsInHostNetworkOk() (*bool, bool)`
 
 GetKubernetesIsInHostNetworkOk returns a tuple with the KubernetesIsInHostNetwork field if it's non-nil, zero value otherwise
 and a boolean to check if the value has been set.
 
 ### SetKubernetesIsInHostNetwork
 
-`func (o *ModelPod) SetKubernetesIsInHostNetwork(v string)`
+`func (o *ModelPod) SetKubernetesIsInHostNetwork(v bool)`
 
 SetKubernetesIsInHostNetwork sets KubernetesIsInHostNetwork field to given value.
 
 
+### GetKubernetesLabels
+
+`func (o *ModelPod) GetKubernetesLabels() map[string]interface{}`
+
+GetKubernetesLabels returns the KubernetesLabels field if non-nil, zero value otherwise.
+
+### GetKubernetesLabelsOk
+
+`func (o *ModelPod) GetKubernetesLabelsOk() (*map[string]interface{}, bool)`
+
+GetKubernetesLabelsOk returns a tuple with the KubernetesLabels field if it's non-nil, zero value otherwise
+and a boolean to check if the value has been set.
+
+### SetKubernetesLabels
+
+`func (o *ModelPod) SetKubernetesLabels(v map[string]interface{})`
+
+SetKubernetesLabels sets KubernetesLabels field to given value.
+
+
+### SetKubernetesLabelsNil
+
+`func (o *ModelPod) SetKubernetesLabelsNil(b bool)`
+
+ SetKubernetesLabelsNil sets the value for KubernetesLabels to be an explicit nil
+
+### UnsetKubernetesLabels
+`func (o *ModelPod) UnsetKubernetesLabels()`
+
+UnsetKubernetesLabels ensures that no value is present for KubernetesLabels, not even an explicit nil
 ### GetKubernetesNamespace
 
 `func (o *ModelPod) GetKubernetesNamespace() string`
@@ -243,6 +296,26 @@ and a boolean to check if the value has been set.
 `func (o *ModelPod) SetNodeName(v string)`
 
 SetNodeName sets NodeName field to given value.
+
+
+### GetPodName
+
+`func (o *ModelPod) GetPodName() string`
+
+GetPodName returns the PodName field if non-nil, zero value otherwise.
+
+### GetPodNameOk
+
+`func (o *ModelPod) GetPodNameOk() (*string, bool)`
+
+GetPodNameOk returns a tuple with the PodName field if it's non-nil, zero value otherwise
+and a boolean to check if the value has been set.
+
+### SetPodName
+
+`func (o *ModelPod) SetPodName(v string)`
+
+SetPodName sets PodName field to given value.
 
 
 ### GetProcesses

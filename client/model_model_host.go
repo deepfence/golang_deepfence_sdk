@@ -34,13 +34,13 @@ type ModelHost struct {
 	HostName string `json:"host_name"`
 	InstanceId string `json:"instance_id"`
 	InstanceType string `json:"instance_type"`
-	InterfaceIps []string `json:"interface_ips"`
-	InterfaceNames []string `json:"interface_names"`
+	InterfaceIps []interface{} `json:"interface_ips"`
+	InterfaceNames []interface{} `json:"interface_names"`
 	IsConsoleVm bool `json:"is_console_vm"`
 	KernelId string `json:"kernel_id"`
 	KernelVersion string `json:"kernel_version"`
-	LocalCidr []string `json:"local_cidr"`
-	LocalNetworks []string `json:"local_networks"`
+	LocalCidr []interface{} `json:"local_cidr"`
+	LocalNetworks []interface{} `json:"local_networks"`
 	MalwareLatestScanId string `json:"malware_latest_scan_id"`
 	MalwareScanStatus string `json:"malware_scan_status"`
 	MalwaresCount int32 `json:"malwares_count"`
@@ -50,9 +50,9 @@ type ModelHost struct {
 	NodeName string `json:"node_name"`
 	Os string `json:"os"`
 	Pods []ModelPod `json:"pods"`
-	PrivateIp []string `json:"private_ip"`
+	PrivateIp []interface{} `json:"private_ip"`
 	Processes []ModelProcess `json:"processes"`
-	PublicIp []string `json:"public_ip"`
+	PublicIp []interface{} `json:"public_ip"`
 	ResourceGroup string `json:"resource_group"`
 	SecretLatestScanId string `json:"secret_latest_scan_id"`
 	SecretScanStatus string `json:"secret_scan_status"`
@@ -68,7 +68,7 @@ type ModelHost struct {
 // This constructor will assign default values to properties that have it defined,
 // and makes sure properties required by API are set, but the set of arguments
 // will change when the set of required properties is changed
-func NewModelHost(agentRunning bool, availabilityZone string, cloudProvider string, cloudRegion string, complianceLatestScanId string, complianceScanStatus string, compliancesCount int32, containerImages []ModelContainerImage, containers []ModelContainer, cpuMax float32, cpuUsage float32, hostName string, instanceId string, instanceType string, interfaceIps []string, interfaceNames []string, isConsoleVm bool, kernelId string, kernelVersion string, localCidr []string, localNetworks []string, malwareLatestScanId string, malwareScanStatus string, malwaresCount int32, memoryMax int32, memoryUsage int32, nodeId string, nodeName string, os string, pods []ModelPod, privateIp []string, processes []ModelProcess, publicIp []string, resourceGroup string, secretLatestScanId string, secretScanStatus string, secretsCount int32, uptime int32, version string, vulnerabilitiesCount int32, vulnerabilityLatestScanId string, vulnerabilityScanStatus string) *ModelHost {
+func NewModelHost(agentRunning bool, availabilityZone string, cloudProvider string, cloudRegion string, complianceLatestScanId string, complianceScanStatus string, compliancesCount int32, containerImages []ModelContainerImage, containers []ModelContainer, cpuMax float32, cpuUsage float32, hostName string, instanceId string, instanceType string, interfaceIps []interface{}, interfaceNames []interface{}, isConsoleVm bool, kernelId string, kernelVersion string, localCidr []interface{}, localNetworks []interface{}, malwareLatestScanId string, malwareScanStatus string, malwaresCount int32, memoryMax int32, memoryUsage int32, nodeId string, nodeName string, os string, pods []ModelPod, privateIp []interface{}, processes []ModelProcess, publicIp []interface{}, resourceGroup string, secretLatestScanId string, secretScanStatus string, secretsCount int32, uptime int32, version string, vulnerabilitiesCount int32, vulnerabilityLatestScanId string, vulnerabilityScanStatus string) *ModelHost {
 	this := ModelHost{}
 	this.AgentRunning = agentRunning
 	this.AvailabilityZone = availabilityZone
@@ -464,10 +464,10 @@ func (o *ModelHost) SetInstanceType(v string) {
 }
 
 // GetInterfaceIps returns the InterfaceIps field value
-// If the value is explicit nil, the zero value for []string will be returned
-func (o *ModelHost) GetInterfaceIps() []string {
+// If the value is explicit nil, the zero value for []interface{} will be returned
+func (o *ModelHost) GetInterfaceIps() []interface{} {
 	if o == nil {
-		var ret []string
+		var ret []interface{}
 		return ret
 	}
 
@@ -477,7 +477,7 @@ func (o *ModelHost) GetInterfaceIps() []string {
 // GetInterfaceIpsOk returns a tuple with the InterfaceIps field value
 // and a boolean to check if the value has been set.
 // NOTE: If the value is an explicit nil, `nil, true` will be returned
-func (o *ModelHost) GetInterfaceIpsOk() ([]string, bool) {
+func (o *ModelHost) GetInterfaceIpsOk() ([]interface{}, bool) {
 	if o == nil || IsNil(o.InterfaceIps) {
 		return nil, false
 	}
@@ -485,15 +485,15 @@ func (o *ModelHost) GetInterfaceIpsOk() ([]string, bool) {
 }
 
 // SetInterfaceIps sets field value
-func (o *ModelHost) SetInterfaceIps(v []string) {
+func (o *ModelHost) SetInterfaceIps(v []interface{}) {
 	o.InterfaceIps = v
 }
 
 // GetInterfaceNames returns the InterfaceNames field value
-// If the value is explicit nil, the zero value for []string will be returned
-func (o *ModelHost) GetInterfaceNames() []string {
+// If the value is explicit nil, the zero value for []interface{} will be returned
+func (o *ModelHost) GetInterfaceNames() []interface{} {
 	if o == nil {
-		var ret []string
+		var ret []interface{}
 		return ret
 	}
 
@@ -503,7 +503,7 @@ func (o *ModelHost) GetInterfaceNames() []string {
 // GetInterfaceNamesOk returns a tuple with the InterfaceNames field value
 // and a boolean to check if the value has been set.
 // NOTE: If the value is an explicit nil, `nil, true` will be returned
-func (o *ModelHost) GetInterfaceNamesOk() ([]string, bool) {
+func (o *ModelHost) GetInterfaceNamesOk() ([]interface{}, bool) {
 	if o == nil || IsNil(o.InterfaceNames) {
 		return nil, false
 	}
@@ -511,7 +511,7 @@ func (o *ModelHost) GetInterfaceNamesOk() ([]string, bool) {
 }
 
 // SetInterfaceNames sets field value
-func (o *ModelHost) SetInterfaceNames(v []string) {
+func (o *ModelHost) SetInterfaceNames(v []interface{}) {
 	o.InterfaceNames = v
 }
 
@@ -588,10 +588,10 @@ func (o *ModelHost) SetKernelVersion(v string) {
 }
 
 // GetLocalCidr returns the LocalCidr field value
-// If the value is explicit nil, the zero value for []string will be returned
-func (o *ModelHost) GetLocalCidr() []string {
+// If the value is explicit nil, the zero value for []interface{} will be returned
+func (o *ModelHost) GetLocalCidr() []interface{} {
 	if o == nil {
-		var ret []string
+		var ret []interface{}
 		return ret
 	}
 
@@ -601,7 +601,7 @@ func (o *ModelHost) GetLocalCidr() []string {
 // GetLocalCidrOk returns a tuple with the LocalCidr field value
 // and a boolean to check if the value has been set.
 // NOTE: If the value is an explicit nil, `nil, true` will be returned
-func (o *ModelHost) GetLocalCidrOk() ([]string, bool) {
+func (o *ModelHost) GetLocalCidrOk() ([]interface{}, bool) {
 	if o == nil || IsNil(o.LocalCidr) {
 		return nil, false
 	}
@@ -609,15 +609,15 @@ func (o *ModelHost) GetLocalCidrOk() ([]string, bool) {
 }
 
 // SetLocalCidr sets field value
-func (o *ModelHost) SetLocalCidr(v []string) {
+func (o *ModelHost) SetLocalCidr(v []interface{}) {
 	o.LocalCidr = v
 }
 
 // GetLocalNetworks returns the LocalNetworks field value
-// If the value is explicit nil, the zero value for []string will be returned
-func (o *ModelHost) GetLocalNetworks() []string {
+// If the value is explicit nil, the zero value for []interface{} will be returned
+func (o *ModelHost) GetLocalNetworks() []interface{} {
 	if o == nil {
-		var ret []string
+		var ret []interface{}
 		return ret
 	}
 
@@ -627,7 +627,7 @@ func (o *ModelHost) GetLocalNetworks() []string {
 // GetLocalNetworksOk returns a tuple with the LocalNetworks field value
 // and a boolean to check if the value has been set.
 // NOTE: If the value is an explicit nil, `nil, true` will be returned
-func (o *ModelHost) GetLocalNetworksOk() ([]string, bool) {
+func (o *ModelHost) GetLocalNetworksOk() ([]interface{}, bool) {
 	if o == nil || IsNil(o.LocalNetworks) {
 		return nil, false
 	}
@@ -635,7 +635,7 @@ func (o *ModelHost) GetLocalNetworksOk() ([]string, bool) {
 }
 
 // SetLocalNetworks sets field value
-func (o *ModelHost) SetLocalNetworks(v []string) {
+func (o *ModelHost) SetLocalNetworks(v []interface{}) {
 	o.LocalNetworks = v
 }
 
@@ -858,10 +858,10 @@ func (o *ModelHost) SetPods(v []ModelPod) {
 }
 
 // GetPrivateIp returns the PrivateIp field value
-// If the value is explicit nil, the zero value for []string will be returned
-func (o *ModelHost) GetPrivateIp() []string {
+// If the value is explicit nil, the zero value for []interface{} will be returned
+func (o *ModelHost) GetPrivateIp() []interface{} {
 	if o == nil {
-		var ret []string
+		var ret []interface{}
 		return ret
 	}
 
@@ -871,7 +871,7 @@ func (o *ModelHost) GetPrivateIp() []string {
 // GetPrivateIpOk returns a tuple with the PrivateIp field value
 // and a boolean to check if the value has been set.
 // NOTE: If the value is an explicit nil, `nil, true` will be returned
-func (o *ModelHost) GetPrivateIpOk() ([]string, bool) {
+func (o *ModelHost) GetPrivateIpOk() ([]interface{}, bool) {
 	if o == nil || IsNil(o.PrivateIp) {
 		return nil, false
 	}
@@ -879,7 +879,7 @@ func (o *ModelHost) GetPrivateIpOk() ([]string, bool) {
 }
 
 // SetPrivateIp sets field value
-func (o *ModelHost) SetPrivateIp(v []string) {
+func (o *ModelHost) SetPrivateIp(v []interface{}) {
 	o.PrivateIp = v
 }
 
@@ -910,10 +910,10 @@ func (o *ModelHost) SetProcesses(v []ModelProcess) {
 }
 
 // GetPublicIp returns the PublicIp field value
-// If the value is explicit nil, the zero value for []string will be returned
-func (o *ModelHost) GetPublicIp() []string {
+// If the value is explicit nil, the zero value for []interface{} will be returned
+func (o *ModelHost) GetPublicIp() []interface{} {
 	if o == nil {
-		var ret []string
+		var ret []interface{}
 		return ret
 	}
 
@@ -923,7 +923,7 @@ func (o *ModelHost) GetPublicIp() []string {
 // GetPublicIpOk returns a tuple with the PublicIp field value
 // and a boolean to check if the value has been set.
 // NOTE: If the value is an explicit nil, `nil, true` will be returned
-func (o *ModelHost) GetPublicIpOk() ([]string, bool) {
+func (o *ModelHost) GetPublicIpOk() ([]interface{}, bool) {
 	if o == nil || IsNil(o.PublicIp) {
 		return nil, false
 	}
@@ -931,7 +931,7 @@ func (o *ModelHost) GetPublicIpOk() ([]string, bool) {
 }
 
 // SetPublicIp sets field value
-func (o *ModelHost) SetPublicIp(v []string) {
+func (o *ModelHost) SetPublicIp(v []interface{}) {
 	o.PublicIp = v
 }
 

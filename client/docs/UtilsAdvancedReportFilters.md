@@ -4,11 +4,14 @@
 
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
-**AccountId** | Pointer to **string** |  | [optional] 
-**HostName** | Pointer to **string** |  | [optional] 
-**KubernetesClusterName** | Pointer to **string** |  | [optional] 
-**Masked** | Pointer to **bool** |  | [optional] 
-**ScanStatus** | Pointer to **string** |  | [optional] 
+**AccountId** | Pointer to **[]string** |  | [optional] 
+**ContainerName** | Pointer to **[]string** |  | [optional] 
+**HostName** | Pointer to **[]string** |  | [optional] 
+**ImageName** | Pointer to **[]string** |  | [optional] 
+**KubernetesClusterName** | Pointer to **[]string** |  | [optional] 
+**Masked** | Pointer to **[]bool** |  | [optional] 
+**PodName** | Pointer to **[]string** |  | [optional] 
+**ScanStatus** | Pointer to **[]string** |  | [optional] 
 
 ## Methods
 
@@ -31,20 +34,20 @@ but it doesn't guarantee that properties required by API are set
 
 ### GetAccountId
 
-`func (o *UtilsAdvancedReportFilters) GetAccountId() string`
+`func (o *UtilsAdvancedReportFilters) GetAccountId() []string`
 
 GetAccountId returns the AccountId field if non-nil, zero value otherwise.
 
 ### GetAccountIdOk
 
-`func (o *UtilsAdvancedReportFilters) GetAccountIdOk() (*string, bool)`
+`func (o *UtilsAdvancedReportFilters) GetAccountIdOk() (*[]string, bool)`
 
 GetAccountIdOk returns a tuple with the AccountId field if it's non-nil, zero value otherwise
 and a boolean to check if the value has been set.
 
 ### SetAccountId
 
-`func (o *UtilsAdvancedReportFilters) SetAccountId(v string)`
+`func (o *UtilsAdvancedReportFilters) SetAccountId(v []string)`
 
 SetAccountId sets AccountId field to given value.
 
@@ -54,22 +57,47 @@ SetAccountId sets AccountId field to given value.
 
 HasAccountId returns a boolean if a field has been set.
 
+### GetContainerName
+
+`func (o *UtilsAdvancedReportFilters) GetContainerName() []string`
+
+GetContainerName returns the ContainerName field if non-nil, zero value otherwise.
+
+### GetContainerNameOk
+
+`func (o *UtilsAdvancedReportFilters) GetContainerNameOk() (*[]string, bool)`
+
+GetContainerNameOk returns a tuple with the ContainerName field if it's non-nil, zero value otherwise
+and a boolean to check if the value has been set.
+
+### SetContainerName
+
+`func (o *UtilsAdvancedReportFilters) SetContainerName(v []string)`
+
+SetContainerName sets ContainerName field to given value.
+
+### HasContainerName
+
+`func (o *UtilsAdvancedReportFilters) HasContainerName() bool`
+
+HasContainerName returns a boolean if a field has been set.
+
 ### GetHostName
 
-`func (o *UtilsAdvancedReportFilters) GetHostName() string`
+`func (o *UtilsAdvancedReportFilters) GetHostName() []string`
 
 GetHostName returns the HostName field if non-nil, zero value otherwise.
 
 ### GetHostNameOk
 
-`func (o *UtilsAdvancedReportFilters) GetHostNameOk() (*string, bool)`
+`func (o *UtilsAdvancedReportFilters) GetHostNameOk() (*[]string, bool)`
 
 GetHostNameOk returns a tuple with the HostName field if it's non-nil, zero value otherwise
 and a boolean to check if the value has been set.
 
 ### SetHostName
 
-`func (o *UtilsAdvancedReportFilters) SetHostName(v string)`
+`func (o *UtilsAdvancedReportFilters) SetHostName(v []string)`
 
 SetHostName sets HostName field to given value.
 
@@ -79,22 +107,47 @@ SetHostName sets HostName field to given value.
 
 HasHostName returns a boolean if a field has been set.
 
+### GetImageName
+
+`func (o *UtilsAdvancedReportFilters) GetImageName() []string`
+
+GetImageName returns the ImageName field if non-nil, zero value otherwise.
+
+### GetImageNameOk
+
+`func (o *UtilsAdvancedReportFilters) GetImageNameOk() (*[]string, bool)`
+
+GetImageNameOk returns a tuple with the ImageName field if it's non-nil, zero value otherwise
+and a boolean to check if the value has been set.
+
+### SetImageName
+
+`func (o *UtilsAdvancedReportFilters) SetImageName(v []string)`
+
+SetImageName sets ImageName field to given value.
+
+### HasImageName
+
+`func (o *UtilsAdvancedReportFilters) HasImageName() bool`
+
+HasImageName returns a boolean if a field has been set.
+
 ### GetKubernetesClusterName
 
-`func (o *UtilsAdvancedReportFilters) GetKubernetesClusterName() string`
+`func (o *UtilsAdvancedReportFilters) GetKubernetesClusterName() []string`
 
 GetKubernetesClusterName returns the KubernetesClusterName field if non-nil, zero value otherwise.
 
 ### GetKubernetesClusterNameOk
 
-`func (o *UtilsAdvancedReportFilters) GetKubernetesClusterNameOk() (*string, bool)`
+`func (o *UtilsAdvancedReportFilters) GetKubernetesClusterNameOk() (*[]string, bool)`
 
 GetKubernetesClusterNameOk returns a tuple with the KubernetesClusterName field if it's non-nil, zero value otherwise
 and a boolean to check if the value has been set.
 
 ### SetKubernetesClusterName
 
-`func (o *UtilsAdvancedReportFilters) SetKubernetesClusterName(v string)`
+`func (o *UtilsAdvancedReportFilters) SetKubernetesClusterName(v []string)`
 
 SetKubernetesClusterName sets KubernetesClusterName field to given value.
 
@@ -106,20 +159,20 @@ HasKubernetesClusterName returns a boolean if a field has been set.
 
 ### GetMasked
 
-`func (o *UtilsAdvancedReportFilters) GetMasked() bool`
+`func (o *UtilsAdvancedReportFilters) GetMasked() []bool`
 
 GetMasked returns the Masked field if non-nil, zero value otherwise.
 
 ### GetMaskedOk
 
-`func (o *UtilsAdvancedReportFilters) GetMaskedOk() (*bool, bool)`
+`func (o *UtilsAdvancedReportFilters) GetMaskedOk() (*[]bool, bool)`
 
 GetMaskedOk returns a tuple with the Masked field if it's non-nil, zero value otherwise
 and a boolean to check if the value has been set.
 
 ### SetMasked
 
-`func (o *UtilsAdvancedReportFilters) SetMasked(v bool)`
+`func (o *UtilsAdvancedReportFilters) SetMasked(v []bool)`
 
 SetMasked sets Masked field to given value.
 
@@ -129,22 +182,47 @@ SetMasked sets Masked field to given value.
 
 HasMasked returns a boolean if a field has been set.
 
+### GetPodName
+
+`func (o *UtilsAdvancedReportFilters) GetPodName() []string`
+
+GetPodName returns the PodName field if non-nil, zero value otherwise.
+
+### GetPodNameOk
+
+`func (o *UtilsAdvancedReportFilters) GetPodNameOk() (*[]string, bool)`
+
+GetPodNameOk returns a tuple with the PodName field if it's non-nil, zero value otherwise
+and a boolean to check if the value has been set.
+
+### SetPodName
+
+`func (o *UtilsAdvancedReportFilters) SetPodName(v []string)`
+
+SetPodName sets PodName field to given value.
+
+### HasPodName
+
+`func (o *UtilsAdvancedReportFilters) HasPodName() bool`
+
+HasPodName returns a boolean if a field has been set.
+
 ### GetScanStatus
 
-`func (o *UtilsAdvancedReportFilters) GetScanStatus() string`
+`func (o *UtilsAdvancedReportFilters) GetScanStatus() []string`
 
 GetScanStatus returns the ScanStatus field if non-nil, zero value otherwise.
 
 ### GetScanStatusOk
 
-`func (o *UtilsAdvancedReportFilters) GetScanStatusOk() (*string, bool)`
+`func (o *UtilsAdvancedReportFilters) GetScanStatusOk() (*[]string, bool)`
 
 GetScanStatusOk returns a tuple with the ScanStatus field if it's non-nil, zero value otherwise
 and a boolean to check if the value has been set.
 
 ### SetScanStatus
 
-`func (o *UtilsAdvancedReportFilters) SetScanStatus(v string)`
+`func (o *UtilsAdvancedReportFilters) SetScanStatus(v []string)`
 
 SetScanStatus sets ScanStatus field to given value.
 

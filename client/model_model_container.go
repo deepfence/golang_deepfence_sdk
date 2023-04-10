@@ -24,7 +24,7 @@ type ModelContainer struct {
 	CpuUsage float32 `json:"cpu_usage"`
 	DockerContainerCommand string `json:"docker_container_command"`
 	DockerContainerCreated string `json:"docker_container_created"`
-	DockerContainerIps []string `json:"docker_container_ips"`
+	DockerContainerIps []interface{} `json:"docker_container_ips"`
 	DockerContainerName string `json:"docker_container_name"`
 	DockerContainerNetworkMode string `json:"docker_container_network_mode"`
 	DockerContainerNetworks string `json:"docker_container_networks"`
@@ -55,7 +55,7 @@ type ModelContainer struct {
 // This constructor will assign default values to properties that have it defined,
 // and makes sure properties required by API are set, but the set of arguments
 // will change when the set of required properties is changed
-func NewModelContainer(cpuMax float32, cpuUsage float32, dockerContainerCommand string, dockerContainerCreated string, dockerContainerIps []string, dockerContainerName string, dockerContainerNetworkMode string, dockerContainerNetworks string, dockerContainerPorts string, dockerContainerState string, dockerContainerStateHuman string, dockerLabels map[string]interface{}, hostName string, image ModelContainerImage, malwareLatestScanId string, malwareScanStatus string, malwaresCount int32, memoryMax int32, memoryUsage int32, nodeId string, nodeName string, processes []ModelProcess, secretLatestScanId string, secretScanStatus string, secretsCount int32, uptime int32, vulnerabilitiesCount int32, vulnerabilityLatestScanId string, vulnerabilityScanStatus string) *ModelContainer {
+func NewModelContainer(cpuMax float32, cpuUsage float32, dockerContainerCommand string, dockerContainerCreated string, dockerContainerIps []interface{}, dockerContainerName string, dockerContainerNetworkMode string, dockerContainerNetworks string, dockerContainerPorts string, dockerContainerState string, dockerContainerStateHuman string, dockerLabels map[string]interface{}, hostName string, image ModelContainerImage, malwareLatestScanId string, malwareScanStatus string, malwaresCount int32, memoryMax int32, memoryUsage int32, nodeId string, nodeName string, processes []ModelProcess, secretLatestScanId string, secretScanStatus string, secretsCount int32, uptime int32, vulnerabilitiesCount int32, vulnerabilityLatestScanId string, vulnerabilityScanStatus string) *ModelContainer {
 	this := ModelContainer{}
 	this.CpuMax = cpuMax
 	this.CpuUsage = cpuUsage
@@ -194,10 +194,10 @@ func (o *ModelContainer) SetDockerContainerCreated(v string) {
 }
 
 // GetDockerContainerIps returns the DockerContainerIps field value
-// If the value is explicit nil, the zero value for []string will be returned
-func (o *ModelContainer) GetDockerContainerIps() []string {
+// If the value is explicit nil, the zero value for []interface{} will be returned
+func (o *ModelContainer) GetDockerContainerIps() []interface{} {
 	if o == nil {
-		var ret []string
+		var ret []interface{}
 		return ret
 	}
 
@@ -207,7 +207,7 @@ func (o *ModelContainer) GetDockerContainerIps() []string {
 // GetDockerContainerIpsOk returns a tuple with the DockerContainerIps field value
 // and a boolean to check if the value has been set.
 // NOTE: If the value is an explicit nil, `nil, true` will be returned
-func (o *ModelContainer) GetDockerContainerIpsOk() ([]string, bool) {
+func (o *ModelContainer) GetDockerContainerIpsOk() ([]interface{}, bool) {
 	if o == nil || IsNil(o.DockerContainerIps) {
 		return nil, false
 	}
@@ -215,7 +215,7 @@ func (o *ModelContainer) GetDockerContainerIpsOk() ([]string, bool) {
 }
 
 // SetDockerContainerIps sets field value
-func (o *ModelContainer) SetDockerContainerIps(v []string) {
+func (o *ModelContainer) SetDockerContainerIps(v []interface{}) {
 	o.DockerContainerIps = v
 }
 
@@ -364,6 +364,7 @@ func (o *ModelContainer) SetDockerContainerStateHuman(v string) {
 }
 
 // GetDockerLabels returns the DockerLabels field value
+// If the value is explicit nil, the zero value for map[string]interface{} will be returned
 func (o *ModelContainer) GetDockerLabels() map[string]interface{} {
 	if o == nil {
 		var ret map[string]interface{}
@@ -375,8 +376,9 @@ func (o *ModelContainer) GetDockerLabels() map[string]interface{} {
 
 // GetDockerLabelsOk returns a tuple with the DockerLabels field value
 // and a boolean to check if the value has been set.
+// NOTE: If the value is an explicit nil, `nil, true` will be returned
 func (o *ModelContainer) GetDockerLabelsOk() (map[string]interface{}, bool) {
-	if o == nil {
+	if o == nil || IsNil(o.DockerLabels) {
 		return map[string]interface{}{}, false
 	}
 	return o.DockerLabels, true
@@ -820,7 +822,9 @@ func (o ModelContainer) ToMap() (map[string]interface{}, error) {
 	toSerialize["docker_container_ports"] = o.DockerContainerPorts
 	toSerialize["docker_container_state"] = o.DockerContainerState
 	toSerialize["docker_container_state_human"] = o.DockerContainerStateHuman
-	toSerialize["docker_labels"] = o.DockerLabels
+	if o.DockerLabels != nil {
+		toSerialize["docker_labels"] = o.DockerLabels
+	}
 	toSerialize["host_name"] = o.HostName
 	toSerialize["image"] = o.Image
 	toSerialize["malware_latest_scan_id"] = o.MalwareLatestScanId

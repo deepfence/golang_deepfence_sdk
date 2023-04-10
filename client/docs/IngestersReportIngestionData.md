@@ -16,6 +16,7 @@ Name | Type | Description | Notes
 **KubernetesClusterEdgeBatch** | **[]map[string]interface{}** |  | 
 **PodBatch** | **[]map[string]interface{}** |  | 
 **PodEdgesBatch** | **[]map[string]interface{}** |  | 
+**PodHostEdgesBatch** | **[]map[string]interface{}** |  | 
 **ProcessBatch** | **[]map[string]interface{}** |  | 
 **ProcessEdgesBatch** | **[]map[string]interface{}** |  | 
 
@@ -23,7 +24,7 @@ Name | Type | Description | Notes
 
 ### NewIngestersReportIngestionData
 
-`func NewIngestersReportIngestionData(containerBatch []map[string]interface{}, containerEdgesBatch []map[string]interface{}, containerImageBatch []map[string]interface{}, containerImageEdgeBatch []map[string]interface{}, containerProcessEdgeBatch []map[string]interface{}, endpointEdgesBatch []map[string]interface{}, hostBatch []map[string]interface{}, hosts []map[string]interface{}, kubernetesClusterBatch []map[string]interface{}, kubernetesClusterEdgeBatch []map[string]interface{}, podBatch []map[string]interface{}, podEdgesBatch []map[string]interface{}, processBatch []map[string]interface{}, processEdgesBatch []map[string]interface{}, ) *IngestersReportIngestionData`
+`func NewIngestersReportIngestionData(containerBatch []map[string]interface{}, containerEdgesBatch []map[string]interface{}, containerImageBatch []map[string]interface{}, containerImageEdgeBatch []map[string]interface{}, containerProcessEdgeBatch []map[string]interface{}, endpointEdgesBatch []map[string]interface{}, hostBatch []map[string]interface{}, hosts []map[string]interface{}, kubernetesClusterBatch []map[string]interface{}, kubernetesClusterEdgeBatch []map[string]interface{}, podBatch []map[string]interface{}, podEdgesBatch []map[string]interface{}, podHostEdgesBatch []map[string]interface{}, processBatch []map[string]interface{}, processEdgesBatch []map[string]interface{}, ) *IngestersReportIngestionData`
 
 NewIngestersReportIngestionData instantiates a new IngestersReportIngestionData object
 This constructor will assign default values to properties that have it defined,
@@ -398,6 +399,36 @@ SetPodEdgesBatch sets PodEdgesBatch field to given value.
 `func (o *IngestersReportIngestionData) UnsetPodEdgesBatch()`
 
 UnsetPodEdgesBatch ensures that no value is present for PodEdgesBatch, not even an explicit nil
+### GetPodHostEdgesBatch
+
+`func (o *IngestersReportIngestionData) GetPodHostEdgesBatch() []map[string]interface{}`
+
+GetPodHostEdgesBatch returns the PodHostEdgesBatch field if non-nil, zero value otherwise.
+
+### GetPodHostEdgesBatchOk
+
+`func (o *IngestersReportIngestionData) GetPodHostEdgesBatchOk() (*[]map[string]interface{}, bool)`
+
+GetPodHostEdgesBatchOk returns a tuple with the PodHostEdgesBatch field if it's non-nil, zero value otherwise
+and a boolean to check if the value has been set.
+
+### SetPodHostEdgesBatch
+
+`func (o *IngestersReportIngestionData) SetPodHostEdgesBatch(v []map[string]interface{})`
+
+SetPodHostEdgesBatch sets PodHostEdgesBatch field to given value.
+
+
+### SetPodHostEdgesBatchNil
+
+`func (o *IngestersReportIngestionData) SetPodHostEdgesBatchNil(b bool)`
+
+ SetPodHostEdgesBatchNil sets the value for PodHostEdgesBatch to be an explicit nil
+
+### UnsetPodHostEdgesBatch
+`func (o *IngestersReportIngestionData) UnsetPodHostEdgesBatch()`
+
+UnsetPodHostEdgesBatch ensures that no value is present for PodHostEdgesBatch, not even an explicit nil
 ### GetProcessBatch
 
 `func (o *IngestersReportIngestionData) GetProcessBatch() []map[string]interface{}`
