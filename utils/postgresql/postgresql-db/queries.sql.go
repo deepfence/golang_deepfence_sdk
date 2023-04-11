@@ -444,12 +444,12 @@ func (q *Queries) DeleteApiTokensByUserID(ctx context.Context, createdByUserID i
 
 const deleteAuditLogsOlderThan30days = `-- name: DeleteAuditLogsOlderThan30days :one
 WITH deleted AS (
-  DELETE
-  FROM audit_log
-  WHERE created_at < (now() - interval '30 days')
-  RETURNING id, event, action, resources, success, user_id, user_role_id, created_at
-)
-SELECT count(*) FROM deleted
+    DELETE
+        FROM audit_log
+            WHERE created_at < (now() - interval '30 days')
+            RETURNING id, event, action, resources, success, user_id, user_role_id, created_at)
+SELECT count(*)
+FROM deleted
 `
 
 func (q *Queries) DeleteAuditLogsOlderThan30days(ctx context.Context) (int64, error) {
@@ -880,19 +880,18 @@ func (q *Queries) GetApiTokensByUser(ctx context.Context, createdByUserID int64)
 }
 
 const getAuditLogs = `-- name: GetAuditLogs :many
-SELECT
-  l.event,
-  l.action,
-  l.resources,
-  l.success,
-  l.user_id,
-  l.user_role_id,
-  l.created_at,
-  r.name as role,
-  u.email as email
+SELECT l.event,
+       l.action,
+       l.resources,
+       l.success,
+       l.user_id,
+       l.user_role_id,
+       l.created_at,
+       r.name  as role,
+       u.email as email
 FROM audit_log l
-    INNER JOIN role r ON r.id = l.user_role_id
-    INNER JOIN users u ON u.id = l.user_id
+         INNER JOIN role r ON r.id = l.user_role_id
+         INNER JOIN users u ON u.id = l.user_id
 ORDER BY l.created_at
 `
 
@@ -942,19 +941,18 @@ func (q *Queries) GetAuditLogs(ctx context.Context) ([]GetAuditLogsRow, error) {
 }
 
 const getAuditLogsLast5Minutes = `-- name: GetAuditLogsLast5Minutes :many
-SELECT
-  l.event,
-  l.action,
-  l.resources,
-  l.success,
-  l.user_id,
-  l.user_role_id,
-  l.created_at,
-  r.name as role,
-  u.email as email
+SELECT l.event,
+       l.action,
+       l.resources,
+       l.success,
+       l.user_id,
+       l.user_role_id,
+       l.created_at,
+       r.name  as role,
+       u.email as email
 FROM audit_log l
-    INNER JOIN role r ON r.id = l.user_role_id
-    INNER JOIN users u ON u.id = l.user_id
+         INNER JOIN role r ON r.id = l.user_role_id
+         INNER JOIN users u ON u.id = l.user_id
 WHERE l.created_at < (now() - interval '5 minutes')
 ORDER BY l.created_at
 `
@@ -2174,7 +2172,8 @@ func (q *Queries) UpdatePassword(ctx context.Context, arg UpdatePasswordParams) 
 
 const updateSetting = `-- name: UpdateSetting :exec
 UPDATE setting
-SET value = $1 AND is_visible_on_ui = $2
+SET value            = $1,
+    is_visible_on_ui = $2
 WHERE key = $3
 `
 
@@ -2191,7 +2190,8 @@ func (q *Queries) UpdateSetting(ctx context.Context, arg UpdateSettingParams) er
 
 const updateSettingById = `-- name: UpdateSettingById :exec
 UPDATE setting
-SET value = $1 AND is_visible_on_ui = $2
+SET value            = $1,
+    is_visible_on_ui = $2
 WHERE id = $3
 `
 
