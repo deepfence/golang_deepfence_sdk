@@ -127,7 +127,8 @@ CREATE TABLE setting
     value            jsonb                                              NOT NULL,
     is_visible_on_ui bool                     DEFAULT false             NOT NULL,
     created_at       timestamp with time zone DEFAULT CURRENT_TIMESTAMP NOT NULL,
-    updated_at       timestamp with time zone DEFAULT CURRENT_TIMESTAMP NOT NULL
+    updated_at       timestamp with time zone DEFAULT CURRENT_TIMESTAMP NOT NULL,
+    UNIQUE (key)
 );
 
 CREATE TRIGGER setting_updated_at
