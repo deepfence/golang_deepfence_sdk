@@ -20,10 +20,7 @@ var _ MappedNullable = &ModelSettingUpdateRequest{}
 
 // ModelSettingUpdateRequest struct for ModelSettingUpdateRequest
 type ModelSettingUpdateRequest struct {
-	Description string `json:"description"`
-	Id int32 `json:"id"`
 	Key string `json:"key"`
-	Label string `json:"label"`
 	Value interface{} `json:"value"`
 }
 
@@ -31,12 +28,9 @@ type ModelSettingUpdateRequest struct {
 // This constructor will assign default values to properties that have it defined,
 // and makes sure properties required by API are set, but the set of arguments
 // will change when the set of required properties is changed
-func NewModelSettingUpdateRequest(description string, id int32, key string, label string, value interface{}) *ModelSettingUpdateRequest {
+func NewModelSettingUpdateRequest(key string, value interface{}) *ModelSettingUpdateRequest {
 	this := ModelSettingUpdateRequest{}
-	this.Description = description
-	this.Id = id
 	this.Key = key
-	this.Label = label
 	this.Value = value
 	return &this
 }
@@ -47,54 +41,6 @@ func NewModelSettingUpdateRequest(description string, id int32, key string, labe
 func NewModelSettingUpdateRequestWithDefaults() *ModelSettingUpdateRequest {
 	this := ModelSettingUpdateRequest{}
 	return &this
-}
-
-// GetDescription returns the Description field value
-func (o *ModelSettingUpdateRequest) GetDescription() string {
-	if o == nil {
-		var ret string
-		return ret
-	}
-
-	return o.Description
-}
-
-// GetDescriptionOk returns a tuple with the Description field value
-// and a boolean to check if the value has been set.
-func (o *ModelSettingUpdateRequest) GetDescriptionOk() (*string, bool) {
-	if o == nil {
-		return nil, false
-	}
-	return &o.Description, true
-}
-
-// SetDescription sets field value
-func (o *ModelSettingUpdateRequest) SetDescription(v string) {
-	o.Description = v
-}
-
-// GetId returns the Id field value
-func (o *ModelSettingUpdateRequest) GetId() int32 {
-	if o == nil {
-		var ret int32
-		return ret
-	}
-
-	return o.Id
-}
-
-// GetIdOk returns a tuple with the Id field value
-// and a boolean to check if the value has been set.
-func (o *ModelSettingUpdateRequest) GetIdOk() (*int32, bool) {
-	if o == nil {
-		return nil, false
-	}
-	return &o.Id, true
-}
-
-// SetId sets field value
-func (o *ModelSettingUpdateRequest) SetId(v int32) {
-	o.Id = v
 }
 
 // GetKey returns the Key field value
@@ -119,30 +65,6 @@ func (o *ModelSettingUpdateRequest) GetKeyOk() (*string, bool) {
 // SetKey sets field value
 func (o *ModelSettingUpdateRequest) SetKey(v string) {
 	o.Key = v
-}
-
-// GetLabel returns the Label field value
-func (o *ModelSettingUpdateRequest) GetLabel() string {
-	if o == nil {
-		var ret string
-		return ret
-	}
-
-	return o.Label
-}
-
-// GetLabelOk returns a tuple with the Label field value
-// and a boolean to check if the value has been set.
-func (o *ModelSettingUpdateRequest) GetLabelOk() (*string, bool) {
-	if o == nil {
-		return nil, false
-	}
-	return &o.Label, true
-}
-
-// SetLabel sets field value
-func (o *ModelSettingUpdateRequest) SetLabel(v string) {
-	o.Label = v
 }
 
 // GetValue returns the Value field value
@@ -181,10 +103,7 @@ func (o ModelSettingUpdateRequest) MarshalJSON() ([]byte, error) {
 
 func (o ModelSettingUpdateRequest) ToMap() (map[string]interface{}, error) {
 	toSerialize := map[string]interface{}{}
-	toSerialize["description"] = o.Description
-	toSerialize["id"] = o.Id
 	toSerialize["key"] = o.Key
-	toSerialize["label"] = o.Label
 	if o.Value != nil {
 		toSerialize["value"] = o.Value
 	}

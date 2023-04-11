@@ -194,6 +194,7 @@ Class | Method | HTTP request | Description
 *SecretScanApi* | [**StopSecretScan**](docs/SecretScanApi.md#stopsecretscan) | **Post** /deepfence/scan/stop/secret | Stop Secret Scan
 *SettingsApi* | [**GetSettings**](docs/SettingsApi.md#getsettings) | **Get** /deepfence/settings/global-settings | Get settings
 *SettingsApi* | [**GetUserActivityLogs**](docs/SettingsApi.md#getuseractivitylogs) | **Get** /deepfence/settings/user-activity-log | Get activity logs
+*SettingsApi* | [**UpdateSetting**](docs/SettingsApi.md#updatesetting) | **Patch** /deepfence/settings/global-settings/{id} | Update setting
 *ThreatApi* | [**GetThreatGraph**](docs/ThreatApi.md#getthreatgraph) | **Post** /deepfence/graph/threat | Get Threat Graph
 *TopologyApi* | [**GetContainersTopologyGraph**](docs/TopologyApi.md#getcontainerstopologygraph) | **Post** /deepfence/graph/topology/containers | Get Containers Topology Graph
 *TopologyApi* | [**GetHostsTopologyGraph**](docs/TopologyApi.md#gethoststopologygraph) | **Post** /deepfence/graph/topology/hosts | Get Hosts Topology Graph

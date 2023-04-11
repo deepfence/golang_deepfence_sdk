@@ -5703,6 +5703,53 @@ paths:
       summary: Get settings
       tags:
       - Settings
+  /deepfence/settings/global-settings/{id}:
+    patch:
+      description: Update setting
+      operationId: updateSetting
+      parameters:
+      - explode: false
+        in: path
+        name: id
+        required: true
+        schema:
+          type: integer
+        style: simple
+      requestBody:
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/ModelSettingUpdateRequest'
+      responses:
+        "204":
+          description: No Content
+        "400":
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ApiDocsBadRequestResponse'
+          description: Bad Request
+        "401":
+          description: Unauthorized
+        "403":
+          description: Forbidden
+        "404":
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ApiDocsFailureResponse'
+          description: Not Found
+        "500":
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ApiDocsFailureResponse'
+          description: Internal Server Error
+      security:
+      - bearer_token: []
+      summary: Update setting
+      tags:
+      - Settings
   /deepfence/settings/user-activity-log:
     get:
       description: Get activity logs for all users
@@ -13423,23 +13470,18 @@ components:
       - node_ids
       type: object
     ModelSettingUpdateRequest:
+      example:
+        value: ""
+        key: console_url
       properties:
-        description:
-          type: string
-        id:
-          type: integer
         key:
           enum:
           - console_url
-          type: string
-        label:
+          - inactive_delete_scan_results
           type: string
         value: {}
       required:
-      - description
-      - id
       - key
-      - label
       - value
       type: object
     ModelSettingsResponse:

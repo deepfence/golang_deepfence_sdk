@@ -4,17 +4,14 @@
 
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
-**Description** | **string** |  | 
-**Id** | **int32** |  | 
 **Key** | **string** |  | 
-**Label** | **string** |  | 
 **Value** | **interface{}** |  | 
 
 ## Methods
 
 ### NewModelSettingUpdateRequest
 
-`func NewModelSettingUpdateRequest(description string, id int32, key string, label string, value interface{}, ) *ModelSettingUpdateRequest`
+`func NewModelSettingUpdateRequest(key string, value interface{}, ) *ModelSettingUpdateRequest`
 
 NewModelSettingUpdateRequest instantiates a new ModelSettingUpdateRequest object
 This constructor will assign default values to properties that have it defined,
@@ -28,46 +25,6 @@ will change when the set of required properties is changed
 NewModelSettingUpdateRequestWithDefaults instantiates a new ModelSettingUpdateRequest object
 This constructor will only assign default values to properties that have it defined,
 but it doesn't guarantee that properties required by API are set
-
-### GetDescription
-
-`func (o *ModelSettingUpdateRequest) GetDescription() string`
-
-GetDescription returns the Description field if non-nil, zero value otherwise.
-
-### GetDescriptionOk
-
-`func (o *ModelSettingUpdateRequest) GetDescriptionOk() (*string, bool)`
-
-GetDescriptionOk returns a tuple with the Description field if it's non-nil, zero value otherwise
-and a boolean to check if the value has been set.
-
-### SetDescription
-
-`func (o *ModelSettingUpdateRequest) SetDescription(v string)`
-
-SetDescription sets Description field to given value.
-
-
-### GetId
-
-`func (o *ModelSettingUpdateRequest) GetId() int32`
-
-GetId returns the Id field if non-nil, zero value otherwise.
-
-### GetIdOk
-
-`func (o *ModelSettingUpdateRequest) GetIdOk() (*int32, bool)`
-
-GetIdOk returns a tuple with the Id field if it's non-nil, zero value otherwise
-and a boolean to check if the value has been set.
-
-### SetId
-
-`func (o *ModelSettingUpdateRequest) SetId(v int32)`
-
-SetId sets Id field to given value.
-
 
 ### GetKey
 
@@ -87,26 +44,6 @@ and a boolean to check if the value has been set.
 `func (o *ModelSettingUpdateRequest) SetKey(v string)`
 
 SetKey sets Key field to given value.
-
-
-### GetLabel
-
-`func (o *ModelSettingUpdateRequest) GetLabel() string`
-
-GetLabel returns the Label field if non-nil, zero value otherwise.
-
-### GetLabelOk
-
-`func (o *ModelSettingUpdateRequest) GetLabelOk() (*string, bool)`
-
-GetLabelOk returns a tuple with the Label field if it's non-nil, zero value otherwise
-and a boolean to check if the value has been set.
-
-### SetLabel
-
-`func (o *ModelSettingUpdateRequest) SetLabel(v string)`
-
-SetLabel sets Label field to given value.
 
 
 ### GetValue

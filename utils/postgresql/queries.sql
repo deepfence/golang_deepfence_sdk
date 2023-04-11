@@ -325,12 +325,14 @@ ORDER BY key;
 
 -- name: UpdateSetting :exec
 UPDATE setting
-SET value = $1 AND is_visible_on_ui = $2
+SET value            = $1,
+    is_visible_on_ui = $2
 WHERE key = $3;
 
 -- name: UpdateSettingById :exec
 UPDATE setting
-SET value = $1 AND is_visible_on_ui = $2
+SET value            = $1,
+    is_visible_on_ui = $2
 WHERE id = $3;
 
 -- name: CreatePasswordReset :one
@@ -506,46 +508,44 @@ INSERT INTO audit_log (event, action, resources, success, user_id, user_role_id,
 VALUES ($1, $2, $3, $4, $5, $6, $7);
 
 -- name: GetAuditLogs :many
-SELECT
-  l.event,
-  l.action,
-  l.resources,
-  l.success,
-  l.user_id,
-  l.user_role_id,
-  l.created_at,
-  r.name as role,
-  u.email as email
+SELECT l.event,
+       l.action,
+       l.resources,
+       l.success,
+       l.user_id,
+       l.user_role_id,
+       l.created_at,
+       r.name  as role,
+       u.email as email
 FROM audit_log l
-    INNER JOIN role r ON r.id = l.user_role_id
-    INNER JOIN users u ON u.id = l.user_id
+         INNER JOIN role r ON r.id = l.user_role_id
+         INNER JOIN users u ON u.id = l.user_id
 ORDER BY l.created_at;
 
 -- name: GetAuditLogsLast5Minutes :many
-SELECT
-  l.event,
-  l.action,
-  l.resources,
-  l.success,
-  l.user_id,
-  l.user_role_id,
-  l.created_at,
-  r.name as role,
-  u.email as email
+SELECT l.event,
+       l.action,
+       l.resources,
+       l.success,
+       l.user_id,
+       l.user_role_id,
+       l.created_at,
+       r.name  as role,
+       u.email as email
 FROM audit_log l
-    INNER JOIN role r ON r.id = l.user_role_id
-    INNER JOIN users u ON u.id = l.user_id
+         INNER JOIN role r ON r.id = l.user_role_id
+         INNER JOIN users u ON u.id = l.user_id
 WHERE l.created_at < (now() - interval '5 minutes')
 ORDER BY l.created_at;
 
 -- name: DeleteAuditLogsOlderThan30days :one
 WITH deleted AS (
-  DELETE
-  FROM audit_log
-  WHERE created_at < (now() - interval '30 days')
-  RETURNING *
-)
-SELECT count(*) FROM deleted;
+    DELETE
+        FROM audit_log
+            WHERE created_at < (now() - interval '30 days')
+            RETURNING *)
+SELECT count(*)
+FROM deleted;
 
 -- name: CreateIntegration :one
 INSERT INTO integration (resource, filters, integration_type, interval_minutes, config, created_by_user_id)
