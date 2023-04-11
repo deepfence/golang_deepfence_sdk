@@ -2189,6 +2189,23 @@ func (q *Queries) UpdateSetting(ctx context.Context, arg UpdateSettingParams) er
 	return err
 }
 
+const updateSettingById = `-- name: UpdateSettingById :exec
+UPDATE setting
+SET value = $1 AND is_visible_on_ui = $2
+WHERE id = $3
+`
+
+type UpdateSettingByIdParams struct {
+	Value         json.RawMessage
+	IsVisibleOnUi bool
+	ID            int64
+}
+
+func (q *Queries) UpdateSettingById(ctx context.Context, arg UpdateSettingByIdParams) error {
+	_, err := q.db.ExecContext(ctx, updateSettingById, arg.Value, arg.IsVisibleOnUi, arg.ID)
+	return err
+}
+
 const updateUser = `-- name: UpdateUser :one
 UPDATE users
 SET first_name           = $1,

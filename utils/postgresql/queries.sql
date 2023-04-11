@@ -328,6 +328,11 @@ UPDATE setting
 SET value = $1 AND is_visible_on_ui = $2
 WHERE key = $3;
 
+-- name: UpdateSettingById :exec
+UPDATE setting
+SET value = $1 AND is_visible_on_ui = $2
+WHERE id = $3;
+
 -- name: CreatePasswordReset :one
 INSERT INTO password_reset (code, expiry, user_id)
 VALUES ($1, $2, $3)
