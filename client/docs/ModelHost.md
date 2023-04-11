@@ -16,6 +16,7 @@ Name | Type | Description | Notes
 **CpuMax** | **float32** |  | 
 **CpuUsage** | **float32** |  | 
 **HostName** | **string** |  | 
+**InboundConnections** | [**[]ModelConnection**](ModelConnection.md) |  | 
 **InstanceId** | **string** |  | 
 **InstanceType** | **string** |  | 
 **InterfaceIps** | **[]interface{}** |  | 
@@ -33,6 +34,7 @@ Name | Type | Description | Notes
 **NodeId** | **string** |  | 
 **NodeName** | **string** |  | 
 **Os** | **string** |  | 
+**OutboundConnections** | [**[]ModelConnection**](ModelConnection.md) |  | 
 **Pods** | [**[]ModelPod**](ModelPod.md) |  | 
 **PrivateIp** | **[]interface{}** |  | 
 **Processes** | [**[]ModelProcess**](ModelProcess.md) |  | 
@@ -51,7 +53,7 @@ Name | Type | Description | Notes
 
 ### NewModelHost
 
-`func NewModelHost(agentRunning bool, availabilityZone string, cloudProvider string, cloudRegion string, complianceLatestScanId string, complianceScanStatus string, compliancesCount int32, containerImages []ModelContainerImage, containers []ModelContainer, cpuMax float32, cpuUsage float32, hostName string, instanceId string, instanceType string, interfaceIps []interface{}, interfaceNames []interface{}, isConsoleVm bool, kernelId string, kernelVersion string, localCidr []interface{}, localNetworks []interface{}, malwareLatestScanId string, malwareScanStatus string, malwaresCount int32, memoryMax int32, memoryUsage int32, nodeId string, nodeName string, os string, pods []ModelPod, privateIp []interface{}, processes []ModelProcess, publicIp []interface{}, resourceGroup string, secretLatestScanId string, secretScanStatus string, secretsCount int32, uptime int32, version string, vulnerabilitiesCount int32, vulnerabilityLatestScanId string, vulnerabilityScanStatus string, ) *ModelHost`
+`func NewModelHost(agentRunning bool, availabilityZone string, cloudProvider string, cloudRegion string, complianceLatestScanId string, complianceScanStatus string, compliancesCount int32, containerImages []ModelContainerImage, containers []ModelContainer, cpuMax float32, cpuUsage float32, hostName string, inboundConnections []ModelConnection, instanceId string, instanceType string, interfaceIps []interface{}, interfaceNames []interface{}, isConsoleVm bool, kernelId string, kernelVersion string, localCidr []interface{}, localNetworks []interface{}, malwareLatestScanId string, malwareScanStatus string, malwaresCount int32, memoryMax int32, memoryUsage int32, nodeId string, nodeName string, os string, outboundConnections []ModelConnection, pods []ModelPod, privateIp []interface{}, processes []ModelProcess, publicIp []interface{}, resourceGroup string, secretLatestScanId string, secretScanStatus string, secretsCount int32, uptime int32, version string, vulnerabilitiesCount int32, vulnerabilityLatestScanId string, vulnerabilityScanStatus string, ) *ModelHost`
 
 NewModelHost instantiates a new ModelHost object
 This constructor will assign default values to properties that have it defined,
@@ -326,6 +328,36 @@ and a boolean to check if the value has been set.
 SetHostName sets HostName field to given value.
 
 
+### GetInboundConnections
+
+`func (o *ModelHost) GetInboundConnections() []ModelConnection`
+
+GetInboundConnections returns the InboundConnections field if non-nil, zero value otherwise.
+
+### GetInboundConnectionsOk
+
+`func (o *ModelHost) GetInboundConnectionsOk() (*[]ModelConnection, bool)`
+
+GetInboundConnectionsOk returns a tuple with the InboundConnections field if it's non-nil, zero value otherwise
+and a boolean to check if the value has been set.
+
+### SetInboundConnections
+
+`func (o *ModelHost) SetInboundConnections(v []ModelConnection)`
+
+SetInboundConnections sets InboundConnections field to given value.
+
+
+### SetInboundConnectionsNil
+
+`func (o *ModelHost) SetInboundConnectionsNil(b bool)`
+
+ SetInboundConnectionsNil sets the value for InboundConnections to be an explicit nil
+
+### UnsetInboundConnections
+`func (o *ModelHost) UnsetInboundConnections()`
+
+UnsetInboundConnections ensures that no value is present for InboundConnections, not even an explicit nil
 ### GetInstanceId
 
 `func (o *ModelHost) GetInstanceId() string`
@@ -706,6 +738,36 @@ and a boolean to check if the value has been set.
 SetOs sets Os field to given value.
 
 
+### GetOutboundConnections
+
+`func (o *ModelHost) GetOutboundConnections() []ModelConnection`
+
+GetOutboundConnections returns the OutboundConnections field if non-nil, zero value otherwise.
+
+### GetOutboundConnectionsOk
+
+`func (o *ModelHost) GetOutboundConnectionsOk() (*[]ModelConnection, bool)`
+
+GetOutboundConnectionsOk returns a tuple with the OutboundConnections field if it's non-nil, zero value otherwise
+and a boolean to check if the value has been set.
+
+### SetOutboundConnections
+
+`func (o *ModelHost) SetOutboundConnections(v []ModelConnection)`
+
+SetOutboundConnections sets OutboundConnections field to given value.
+
+
+### SetOutboundConnectionsNil
+
+`func (o *ModelHost) SetOutboundConnectionsNil(b bool)`
+
+ SetOutboundConnectionsNil sets the value for OutboundConnections to be an explicit nil
+
+### UnsetOutboundConnections
+`func (o *ModelHost) UnsetOutboundConnections()`
+
+UnsetOutboundConnections ensures that no value is present for OutboundConnections, not even an explicit nil
 ### GetPods
 
 `func (o *ModelHost) GetPods() []ModelPod`

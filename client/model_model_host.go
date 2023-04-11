@@ -32,6 +32,7 @@ type ModelHost struct {
 	CpuMax float32 `json:"cpu_max"`
 	CpuUsage float32 `json:"cpu_usage"`
 	HostName string `json:"host_name"`
+	InboundConnections []ModelConnection `json:"inbound_connections"`
 	InstanceId string `json:"instance_id"`
 	InstanceType string `json:"instance_type"`
 	InterfaceIps []interface{} `json:"interface_ips"`
@@ -49,6 +50,7 @@ type ModelHost struct {
 	NodeId string `json:"node_id"`
 	NodeName string `json:"node_name"`
 	Os string `json:"os"`
+	OutboundConnections []ModelConnection `json:"outbound_connections"`
 	Pods []ModelPod `json:"pods"`
 	PrivateIp []interface{} `json:"private_ip"`
 	Processes []ModelProcess `json:"processes"`
@@ -68,7 +70,7 @@ type ModelHost struct {
 // This constructor will assign default values to properties that have it defined,
 // and makes sure properties required by API are set, but the set of arguments
 // will change when the set of required properties is changed
-func NewModelHost(agentRunning bool, availabilityZone string, cloudProvider string, cloudRegion string, complianceLatestScanId string, complianceScanStatus string, compliancesCount int32, containerImages []ModelContainerImage, containers []ModelContainer, cpuMax float32, cpuUsage float32, hostName string, instanceId string, instanceType string, interfaceIps []interface{}, interfaceNames []interface{}, isConsoleVm bool, kernelId string, kernelVersion string, localCidr []interface{}, localNetworks []interface{}, malwareLatestScanId string, malwareScanStatus string, malwaresCount int32, memoryMax int32, memoryUsage int32, nodeId string, nodeName string, os string, pods []ModelPod, privateIp []interface{}, processes []ModelProcess, publicIp []interface{}, resourceGroup string, secretLatestScanId string, secretScanStatus string, secretsCount int32, uptime int32, version string, vulnerabilitiesCount int32, vulnerabilityLatestScanId string, vulnerabilityScanStatus string) *ModelHost {
+func NewModelHost(agentRunning bool, availabilityZone string, cloudProvider string, cloudRegion string, complianceLatestScanId string, complianceScanStatus string, compliancesCount int32, containerImages []ModelContainerImage, containers []ModelContainer, cpuMax float32, cpuUsage float32, hostName string, inboundConnections []ModelConnection, instanceId string, instanceType string, interfaceIps []interface{}, interfaceNames []interface{}, isConsoleVm bool, kernelId string, kernelVersion string, localCidr []interface{}, localNetworks []interface{}, malwareLatestScanId string, malwareScanStatus string, malwaresCount int32, memoryMax int32, memoryUsage int32, nodeId string, nodeName string, os string, outboundConnections []ModelConnection, pods []ModelPod, privateIp []interface{}, processes []ModelProcess, publicIp []interface{}, resourceGroup string, secretLatestScanId string, secretScanStatus string, secretsCount int32, uptime int32, version string, vulnerabilitiesCount int32, vulnerabilityLatestScanId string, vulnerabilityScanStatus string) *ModelHost {
 	this := ModelHost{}
 	this.AgentRunning = agentRunning
 	this.AvailabilityZone = availabilityZone
@@ -82,6 +84,7 @@ func NewModelHost(agentRunning bool, availabilityZone string, cloudProvider stri
 	this.CpuMax = cpuMax
 	this.CpuUsage = cpuUsage
 	this.HostName = hostName
+	this.InboundConnections = inboundConnections
 	this.InstanceId = instanceId
 	this.InstanceType = instanceType
 	this.InterfaceIps = interfaceIps
@@ -99,6 +102,7 @@ func NewModelHost(agentRunning bool, availabilityZone string, cloudProvider stri
 	this.NodeId = nodeId
 	this.NodeName = nodeName
 	this.Os = os
+	this.OutboundConnections = outboundConnections
 	this.Pods = pods
 	this.PrivateIp = privateIp
 	this.Processes = processes
@@ -413,6 +417,32 @@ func (o *ModelHost) GetHostNameOk() (*string, bool) {
 // SetHostName sets field value
 func (o *ModelHost) SetHostName(v string) {
 	o.HostName = v
+}
+
+// GetInboundConnections returns the InboundConnections field value
+// If the value is explicit nil, the zero value for []ModelConnection will be returned
+func (o *ModelHost) GetInboundConnections() []ModelConnection {
+	if o == nil {
+		var ret []ModelConnection
+		return ret
+	}
+
+	return o.InboundConnections
+}
+
+// GetInboundConnectionsOk returns a tuple with the InboundConnections field value
+// and a boolean to check if the value has been set.
+// NOTE: If the value is an explicit nil, `nil, true` will be returned
+func (o *ModelHost) GetInboundConnectionsOk() ([]ModelConnection, bool) {
+	if o == nil || IsNil(o.InboundConnections) {
+		return nil, false
+	}
+	return o.InboundConnections, true
+}
+
+// SetInboundConnections sets field value
+func (o *ModelHost) SetInboundConnections(v []ModelConnection) {
+	o.InboundConnections = v
 }
 
 // GetInstanceId returns the InstanceId field value
@@ -831,6 +861,32 @@ func (o *ModelHost) SetOs(v string) {
 	o.Os = v
 }
 
+// GetOutboundConnections returns the OutboundConnections field value
+// If the value is explicit nil, the zero value for []ModelConnection will be returned
+func (o *ModelHost) GetOutboundConnections() []ModelConnection {
+	if o == nil {
+		var ret []ModelConnection
+		return ret
+	}
+
+	return o.OutboundConnections
+}
+
+// GetOutboundConnectionsOk returns a tuple with the OutboundConnections field value
+// and a boolean to check if the value has been set.
+// NOTE: If the value is an explicit nil, `nil, true` will be returned
+func (o *ModelHost) GetOutboundConnectionsOk() ([]ModelConnection, bool) {
+	if o == nil || IsNil(o.OutboundConnections) {
+		return nil, false
+	}
+	return o.OutboundConnections, true
+}
+
+// SetOutboundConnections sets field value
+func (o *ModelHost) SetOutboundConnections(v []ModelConnection) {
+	o.OutboundConnections = v
+}
+
 // GetPods returns the Pods field value
 // If the value is explicit nil, the zero value for []ModelPod will be returned
 func (o *ModelHost) GetPods() []ModelPod {
@@ -1177,6 +1233,9 @@ func (o ModelHost) ToMap() (map[string]interface{}, error) {
 	toSerialize["cpu_max"] = o.CpuMax
 	toSerialize["cpu_usage"] = o.CpuUsage
 	toSerialize["host_name"] = o.HostName
+	if o.InboundConnections != nil {
+		toSerialize["inbound_connections"] = o.InboundConnections
+	}
 	toSerialize["instance_id"] = o.InstanceId
 	toSerialize["instance_type"] = o.InstanceType
 	if o.InterfaceIps != nil {
@@ -1202,6 +1261,9 @@ func (o ModelHost) ToMap() (map[string]interface{}, error) {
 	toSerialize["node_id"] = o.NodeId
 	toSerialize["node_name"] = o.NodeName
 	toSerialize["os"] = o.Os
+	if o.OutboundConnections != nil {
+		toSerialize["outbound_connections"] = o.OutboundConnections
+	}
 	if o.Pods != nil {
 		toSerialize["pods"] = o.Pods
 	}

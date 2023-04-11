@@ -5663,6 +5663,86 @@ paths:
       summary: Search Vulnerability Scan results
       tags:
       - Search
+  /deepfence/settings/global-settings:
+    get:
+      description: Get all settings
+      operationId: getSettings
+      responses:
+        "200":
+          content:
+            application/json:
+              schema:
+                items:
+                  $ref: '#/components/schemas/ModelSettingsResponse'
+                type: array
+          description: OK
+        "400":
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ApiDocsBadRequestResponse'
+          description: Bad Request
+        "401":
+          description: Unauthorized
+        "403":
+          description: Forbidden
+        "404":
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ApiDocsFailureResponse'
+          description: Not Found
+        "500":
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ApiDocsFailureResponse'
+          description: Internal Server Error
+      security:
+      - bearer_token: []
+      summary: Get settings
+      tags:
+      - Settings
+  /deepfence/settings/user-activity-log:
+    get:
+      description: Get activity logs for all users
+      operationId: getUserActivityLogs
+      responses:
+        "200":
+          content:
+            application/json:
+              schema:
+                items:
+                  $ref: '#/components/schemas/PostgresqlDbGetAuditLogsRow'
+                type: array
+          description: OK
+        "400":
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ApiDocsBadRequestResponse'
+          description: Bad Request
+        "401":
+          description: Unauthorized
+        "403":
+          description: Forbidden
+        "404":
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ApiDocsFailureResponse'
+          description: Not Found
+        "500":
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ApiDocsFailureResponse'
+          description: Internal Server Error
+      security:
+      - bearer_token: []
+      summary: Get activity logs
+      tags:
+      - Settings
   /deepfence/user:
     delete:
       description: Delete logged in user
@@ -5774,46 +5854,6 @@ paths:
       security:
       - bearer_token: []
       summary: Update Current User
-      tags:
-      - User
-  /deepfence/user-activity-log:
-    get:
-      description: Get activity logs for all users
-      operationId: getUserActivityLogs
-      responses:
-        "200":
-          content:
-            application/json:
-              schema:
-                items:
-                  $ref: '#/components/schemas/PostgresqlDbGetAuditLogsRow'
-                type: array
-          description: OK
-        "400":
-          content:
-            application/json:
-              schema:
-                $ref: '#/components/schemas/ApiDocsBadRequestResponse'
-          description: Bad Request
-        "401":
-          description: Unauthorized
-        "403":
-          description: Forbidden
-        "404":
-          content:
-            application/json:
-              schema:
-                $ref: '#/components/schemas/ApiDocsFailureResponse'
-          description: Not Found
-        "500":
-          content:
-            application/json:
-              schema:
-                $ref: '#/components/schemas/ApiDocsFailureResponse'
-          description: Internal Server Error
-      security:
-      - bearer_token: []
-      summary: Get activity logs for all users
       tags:
       - User
   /deepfence/user/invite:
@@ -8672,6 +8712,19 @@ components:
       - filters
       - node_ids
       type: object
+    ModelConnection:
+      example:
+        count: 5
+        node_name: node_name
+        node_id: node_id
+      properties:
+        count:
+          type: integer
+        node_id:
+          type: string
+        node_name:
+          type: string
+      type: object
     ModelContainer:
       example:
         vulnerabilities_count: 6
@@ -9173,11 +9226,11 @@ components:
       type: object
     ModelHost:
       example:
-        vulnerabilities_count: 3
+        vulnerabilities_count: 2
         public_ip:
         - ""
         - ""
-        secrets_count: 7
+        secrets_count: 9
         cloud_region: cloud_region
         container_images:
         - metadata:
@@ -9440,7 +9493,7 @@ components:
         interface_names:
         - ""
         - ""
-        memory_usage: 2
+        memory_usage: 7
         private_ip:
         - ""
         - ""
@@ -9448,6 +9501,13 @@ components:
         vulnerability_latest_scan_id: vulnerability_latest_scan_id
         resource_group: resource_group
         malware_scan_status: malware_scan_status
+        inbound_connections:
+        - count: 5
+          node_name: node_name
+          node_id: node_id
+        - count: 5
+          node_name: node_name
+          node_id: node_id
         interface_ips:
         - ""
         - ""
@@ -9478,6 +9538,13 @@ components:
           ppid: 7
         secret_scan_status: secret_scan_status
         compliance_scan_status: compliance_scan_status
+        outbound_connections:
+        - count: 5
+          node_name: node_name
+          node_id: node_id
+        - count: 5
+          node_name: node_name
+          node_id: node_id
         os: os
         local_cidr:
         - ""
@@ -9488,8 +9555,8 @@ components:
         cloud_provider: cloud_provider
         agent_running: true
         version: version
-        uptime: 9
-        memory_max: 5
+        uptime: 3
+        memory_max: 2
         instance_id: instance_id
         kernel_id: kernel_id
         compliances_count: 0
@@ -9934,6 +10001,11 @@ components:
           type: number
         host_name:
           type: string
+        inbound_connections:
+          items:
+            $ref: '#/components/schemas/ModelConnection'
+          nullable: true
+          type: array
         instance_id:
           type: string
         instance_type:
@@ -9976,6 +10048,11 @@ components:
           type: string
         os:
           type: string
+        outbound_connections:
+          items:
+            $ref: '#/components/schemas/ModelConnection'
+          nullable: true
+          type: array
         pods:
           items:
             $ref: '#/components/schemas/ModelPod'
@@ -10025,6 +10102,7 @@ components:
       - cpu_max
       - cpu_usage
       - host_name
+      - inbound_connections
       - instance_id
       - instance_type
       - interface_ips
@@ -10042,6 +10120,7 @@ components:
       - node_id
       - node_name
       - os
+      - outbound_connections
       - pods
       - private_ip
       - processes
@@ -10188,11 +10267,11 @@ components:
     ModelKubernetesCluster:
       example:
         hosts:
-        - vulnerabilities_count: 3
+        - vulnerabilities_count: 2
           public_ip:
           - ""
           - ""
-          secrets_count: 7
+          secrets_count: 9
           cloud_region: cloud_region
           container_images:
           - metadata:
@@ -10455,7 +10534,7 @@ components:
           interface_names:
           - ""
           - ""
-          memory_usage: 2
+          memory_usage: 7
           private_ip:
           - ""
           - ""
@@ -10463,6 +10542,13 @@ components:
           vulnerability_latest_scan_id: vulnerability_latest_scan_id
           resource_group: resource_group
           malware_scan_status: malware_scan_status
+          inbound_connections:
+          - count: 5
+            node_name: node_name
+            node_id: node_id
+          - count: 5
+            node_name: node_name
+            node_id: node_id
           interface_ips:
           - ""
           - ""
@@ -10493,6 +10579,13 @@ components:
             ppid: 7
           secret_scan_status: secret_scan_status
           compliance_scan_status: compliance_scan_status
+          outbound_connections:
+          - count: 5
+            node_name: node_name
+            node_id: node_id
+          - count: 5
+            node_name: node_name
+            node_id: node_id
           os: os
           local_cidr:
           - ""
@@ -10503,8 +10596,8 @@ components:
           cloud_provider: cloud_provider
           agent_running: true
           version: version
-          uptime: 9
-          memory_max: 5
+          uptime: 3
+          memory_max: 2
           instance_id: instance_id
           kernel_id: kernel_id
           compliances_count: 0
@@ -10918,11 +11011,11 @@ components:
           - ""
           - ""
           node_id: node_id
-        - vulnerabilities_count: 3
+        - vulnerabilities_count: 2
           public_ip:
           - ""
           - ""
-          secrets_count: 7
+          secrets_count: 9
           cloud_region: cloud_region
           container_images:
           - metadata:
@@ -11185,7 +11278,7 @@ components:
           interface_names:
           - ""
           - ""
-          memory_usage: 2
+          memory_usage: 7
           private_ip:
           - ""
           - ""
@@ -11193,6 +11286,13 @@ components:
           vulnerability_latest_scan_id: vulnerability_latest_scan_id
           resource_group: resource_group
           malware_scan_status: malware_scan_status
+          inbound_connections:
+          - count: 5
+            node_name: node_name
+            node_id: node_id
+          - count: 5
+            node_name: node_name
+            node_id: node_id
           interface_ips:
           - ""
           - ""
@@ -11223,6 +11323,13 @@ components:
             ppid: 7
           secret_scan_status: secret_scan_status
           compliance_scan_status: compliance_scan_status
+          outbound_connections:
+          - count: 5
+            node_name: node_name
+            node_id: node_id
+          - count: 5
+            node_name: node_name
+            node_id: node_id
           os: os
           local_cidr:
           - ""
@@ -11233,8 +11340,8 @@ components:
           cloud_provider: cloud_provider
           agent_running: true
           version: version
-          uptime: 9
-          memory_max: 5
+          uptime: 3
+          memory_max: 2
           instance_id: instance_id
           kernel_id: kernel_id
           compliances_count: 0
@@ -13314,6 +13421,50 @@ components:
       required:
       - filters
       - node_ids
+      type: object
+    ModelSettingUpdateRequest:
+      properties:
+        description:
+          type: string
+        id:
+          type: integer
+        key:
+          enum:
+          - console_url
+          type: string
+        label:
+          type: string
+        value: {}
+      required:
+      - description
+      - id
+      - key
+      - label
+      - value
+      type: object
+    ModelSettingsResponse:
+      example:
+        description: description
+        id: 0
+        label: label
+        value: ""
+        key: key
+      properties:
+        description:
+          type: string
+        id:
+          type: integer
+        key:
+          type: string
+        label:
+          type: string
+        value: {}
+      required:
+      - description
+      - id
+      - key
+      - label
+      - value
       type: object
     ModelSummary:
       example:

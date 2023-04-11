@@ -18,6 +18,7 @@ api_reports.go
 api_scan_results.go
 api_search.go
 api_secret_scan.go
+api_settings.go
 api_threat.go
 api_topology.go
 api_user.go
@@ -96,6 +97,7 @@ docs/ModelComplianceScanInfo.md
 docs/ModelComplianceScanResult.md
 docs/ModelComplianceScanStatusResp.md
 docs/ModelComplianceScanTriggerReq.md
+docs/ModelConnection.md
 docs/ModelContainer.md
 docs/ModelContainerImage.md
 docs/ModelDownloadReportResponse.md
@@ -151,6 +153,8 @@ docs/ModelScanTriggerResp.md
 docs/ModelSecret.md
 docs/ModelSecretScanResult.md
 docs/ModelSecretScanTriggerReq.md
+docs/ModelSettingUpdateRequest.md
+docs/ModelSettingsResponse.md
 docs/ModelSummary.md
 docs/ModelUpdateUserIdRequest.md
 docs/ModelUpdateUserPasswordRequest.md
@@ -179,6 +183,7 @@ docs/SearchSearchFilter.md
 docs/SearchSearchNodeReq.md
 docs/SearchSearchScanReq.md
 docs/SecretScanApi.md
+docs/SettingsApi.md
 docs/ThreatApi.md
 docs/TopologyApi.md
 docs/UserApi.md
@@ -250,6 +255,7 @@ model_model_compliance_scan_info.go
 model_model_compliance_scan_result.go
 model_model_compliance_scan_status_resp.go
 model_model_compliance_scan_trigger_req.go
+model_model_connection.go
 model_model_container.go
 model_model_container_image.go
 model_model_download_report_response.go
@@ -305,6 +311,8 @@ model_model_scan_trigger_resp.go
 model_model_secret.go
 model_model_secret_scan_result.go
 model_model_secret_scan_trigger_req.go
+model_model_setting_update_request.go
+model_model_settings_response.go
 model_model_summary.go
 model_model_update_user_id_request.go
 model_model_update_user_password_request.go
@@ -348,6 +356,7 @@ test/api_reports_test.go
 test/api_scan_results_test.go
 test/api_search_test.go
 test/api_secret_scan_test.go
+test/api_settings_test.go
 test/api_threat_test.go
 test/api_topology_test.go
 test/api_user_test.go

@@ -192,6 +192,8 @@ Class | Method | HTTP request | Description
 *SecretScanApi* | [**StartSecretScan**](docs/SecretScanApi.md#startsecretscan) | **Post** /deepfence/scan/start/secret | Start Secret Scan
 *SecretScanApi* | [**StatusSecretScan**](docs/SecretScanApi.md#statussecretscan) | **Post** /deepfence/scan/status/secret | Get Secret Scan Status
 *SecretScanApi* | [**StopSecretScan**](docs/SecretScanApi.md#stopsecretscan) | **Post** /deepfence/scan/stop/secret | Stop Secret Scan
+*SettingsApi* | [**GetSettings**](docs/SettingsApi.md#getsettings) | **Get** /deepfence/settings/global-settings | Get settings
+*SettingsApi* | [**GetUserActivityLogs**](docs/SettingsApi.md#getuseractivitylogs) | **Get** /deepfence/settings/user-activity-log | Get activity logs
 *ThreatApi* | [**GetThreatGraph**](docs/ThreatApi.md#getthreatgraph) | **Post** /deepfence/graph/threat | Get Threat Graph
 *TopologyApi* | [**GetContainersTopologyGraph**](docs/TopologyApi.md#getcontainerstopologygraph) | **Post** /deepfence/graph/topology/containers | Get Containers Topology Graph
 *TopologyApi* | [**GetHostsTopologyGraph**](docs/TopologyApi.md#gethoststopologygraph) | **Post** /deepfence/graph/topology/hosts | Get Hosts Topology Graph
@@ -205,7 +207,6 @@ Class | Method | HTTP request | Description
 *UserApi* | [**GetApiTokens**](docs/UserApi.md#getapitokens) | **Get** /deepfence/api-token | Get User&#39;s API Tokens
 *UserApi* | [**GetCurrentUser**](docs/UserApi.md#getcurrentuser) | **Get** /deepfence/user | Get Current User
 *UserApi* | [**GetUser**](docs/UserApi.md#getuser) | **Get** /deepfence/users/{id} | Get User by User ID
-*UserApi* | [**GetUserActivityLogs**](docs/UserApi.md#getuseractivitylogs) | **Get** /deepfence/user-activity-log | Get activity logs for all users
 *UserApi* | [**GetUsers**](docs/UserApi.md#getusers) | **Get** /deepfence/users | Get all users
 *UserApi* | [**InviteUser**](docs/UserApi.md#inviteuser) | **Post** /deepfence/user/invite | Invite User
 *UserApi* | [**RegisterInvitedUser**](docs/UserApi.md#registerinviteduser) | **Post** /deepfence/user/invite/register | Register Invited User
@@ -292,6 +293,7 @@ Class | Method | HTTP request | Description
  - [ModelComplianceScanResult](docs/ModelComplianceScanResult.md)
  - [ModelComplianceScanStatusResp](docs/ModelComplianceScanStatusResp.md)
  - [ModelComplianceScanTriggerReq](docs/ModelComplianceScanTriggerReq.md)
+ - [ModelConnection](docs/ModelConnection.md)
  - [ModelContainer](docs/ModelContainer.md)
  - [ModelContainerImage](docs/ModelContainerImage.md)
  - [ModelDownloadReportResponse](docs/ModelDownloadReportResponse.md)
@@ -347,6 +349,8 @@ Class | Method | HTTP request | Description
  - [ModelSecret](docs/ModelSecret.md)
  - [ModelSecretScanResult](docs/ModelSecretScanResult.md)
  - [ModelSecretScanTriggerReq](docs/ModelSecretScanTriggerReq.md)
+ - [ModelSettingUpdateRequest](docs/ModelSettingUpdateRequest.md)
+ - [ModelSettingsResponse](docs/ModelSettingsResponse.md)
  - [ModelSummary](docs/ModelSummary.md)
  - [ModelUpdateUserIdRequest](docs/ModelUpdateUserIdRequest.md)
  - [ModelUpdateUserPasswordRequest](docs/ModelUpdateUserPasswordRequest.md)
