@@ -100,7 +100,7 @@ CREATE TABLE public.audit_log
     id           BIGSERIAL PRIMARY KEY,
     event        character varying(100)                             NOT NULL,
     action       character varying(100)                             NOT NULL,
-    resources    text                     default NULL,
+    resources    text                                               NOT NULL,
     success      boolean                                            NOT NULL,
     user_id      integer                                            NOT NULL,
     user_role_id integer                                            NOT NULL,

@@ -7,7 +7,6 @@ package postgresql_db
 
 import (
 	"context"
-	"database/sql"
 	"encoding/json"
 	"time"
 
@@ -110,7 +109,7 @@ VALUES ($1, $2, $3, $4, $5, $6, $7)
 type CreateAuditLogParams struct {
 	Event      string
 	Action     string
-	Resources  sql.NullString
+	Resources  string
 	Success    bool
 	UserID     int32
 	UserRoleID int32
@@ -898,7 +897,7 @@ ORDER BY l.created_at
 type GetAuditLogsRow struct {
 	Event      string
 	Action     string
-	Resources  sql.NullString
+	Resources  string
 	Success    bool
 	UserID     int32
 	UserRoleID int32
@@ -960,7 +959,7 @@ ORDER BY l.created_at
 type GetAuditLogsLast5MinutesRow struct {
 	Event      string
 	Action     string
-	Resources  sql.NullString
+	Resources  string
 	Success    bool
 	UserID     int32
 	UserRoleID int32

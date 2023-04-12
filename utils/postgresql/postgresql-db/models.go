@@ -28,7 +28,7 @@ type AuditLog struct {
 	ID         int64
 	Event      string
 	Action     string
-	Resources  sql.NullString
+	Resources  string
 	Success    bool
 	UserID     int32
 	UserRoleID int32
