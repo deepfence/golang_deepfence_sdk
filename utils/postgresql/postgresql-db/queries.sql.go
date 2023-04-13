@@ -515,6 +515,17 @@ func (q *Queries) DeletePasswordResetByUserEmail(ctx context.Context, email stri
 	return err
 }
 
+const deleteSettingByID = `-- name: DeleteSettingByID :exec
+DELETE
+FROM setting
+WHERE id = $1
+`
+
+func (q *Queries) DeleteSettingByID(ctx context.Context, id int64) error {
+	_, err := q.db.ExecContext(ctx, deleteSettingByID, id)
+	return err
+}
+
 const deleteUser = `-- name: DeleteUser :exec
 DELETE
 FROM users
