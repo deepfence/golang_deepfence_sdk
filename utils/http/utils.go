@@ -13,10 +13,10 @@ import (
 )
 
 func IsConsoleAgent(url string) bool {
-	return strings.Contains(url, "127.0.0.1") || strings.Contains(url, "deepfence-server")
+	return strings.Contains(url, "127.0.0.1") || strings.Contains(url, "deepfence-server") || strings.Contains(url, "deepfence-router")
 }
 
-func GetConsoleApiToken(console string) (string, error) {
+func GetConsoleApiToken(console, port string) (string, error) {
 	// setup http client
 	rhc := rhttp.NewClient()
 	rhc.HTTPClient.Timeout = 10 * time.Second
@@ -34,7 +34,7 @@ func GetConsoleApiToken(console string) (string, error) {
 
 	servers := openapi.ServerConfigurations{
 		{
-			URL:         fmt.Sprintf("http://%s:8081", console),
+			URL:         fmt.Sprintf("http://%s:%s", console, port),
 			Description: "deepfence_server_internal",
 		},
 	}
