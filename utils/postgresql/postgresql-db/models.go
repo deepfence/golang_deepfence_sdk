@@ -13,120 +13,120 @@ import (
 )
 
 type ApiToken struct {
-	ID              int64
-	ApiToken        uuid.UUID
-	Name            string
-	CompanyID       int32
-	GroupID         int32
-	RoleID          int32
-	CreatedByUserID int64
-	CreatedAt       time.Time
-	UpdatedAt       time.Time
+	ID              int64     `json:"id"`
+	ApiToken        uuid.UUID `json:"api_token"`
+	Name            string    `json:"name"`
+	CompanyID       int32     `json:"company_id"`
+	GroupID         int32     `json:"group_id"`
+	RoleID          int32     `json:"role_id"`
+	CreatedByUserID int64     `json:"created_by_user_id"`
+	CreatedAt       time.Time `json:"created_at"`
+	UpdatedAt       time.Time `json:"updated_at"`
 }
 
 type AuditLog struct {
-	ID         int64
-	Event      string
-	Action     string
-	Resources  string
-	Success    bool
-	UserID     int32
-	UserRoleID int32
-	CreatedAt  time.Time
+	ID         int64     `json:"id"`
+	Event      string    `json:"event"`
+	Action     string    `json:"action"`
+	Resources  string    `json:"resources"`
+	Success    bool      `json:"success"`
+	UserID     int32     `json:"user_id"`
+	UserRoleID int32     `json:"user_role_id"`
+	CreatedAt  time.Time `json:"created_at"`
 }
 
 type Company struct {
-	ID          int32
-	Name        string
-	EmailDomain string
-	CreatedAt   time.Time
-	UpdatedAt   time.Time
-	Namespace   string
+	ID          int32     `json:"id"`
+	Name        string    `json:"name"`
+	EmailDomain string    `json:"email_domain"`
+	CreatedAt   time.Time `json:"created_at"`
+	UpdatedAt   time.Time `json:"updated_at"`
+	Namespace   string    `json:"namespace"`
 }
 
 type ContainerRegistry struct {
-	ID              int32
-	Name            string
-	RegistryType    string
-	EncryptedSecret json.RawMessage
-	NonSecret       json.RawMessage
-	Extras          json.RawMessage
-	CreatedAt       time.Time
-	UpdatedAt       time.Time
+	ID              int32           `json:"id"`
+	Name            string          `json:"name"`
+	RegistryType    string          `json:"registry_type"`
+	EncryptedSecret json.RawMessage `json:"encrypted_secret"`
+	NonSecret       json.RawMessage `json:"non_secret"`
+	Extras          json.RawMessage `json:"extras"`
+	CreatedAt       time.Time       `json:"created_at"`
+	UpdatedAt       time.Time       `json:"updated_at"`
 }
 
 type Integration struct {
-	ID              int32
-	Resource        string
-	Filters         json.RawMessage
-	IntegrationType string
-	IntervalMinutes int32
-	LastSentTime    sql.NullTime
-	Config          json.RawMessage
-	ErrorMsg        sql.NullString
-	CreatedByUserID int64
-	CreatedAt       time.Time
-	UpdatedAt       time.Time
+	ID              int32           `json:"id"`
+	Resource        string          `json:"resource"`
+	Filters         json.RawMessage `json:"filters"`
+	IntegrationType string          `json:"integration_type"`
+	IntervalMinutes int32           `json:"interval_minutes"`
+	LastSentTime    sql.NullTime    `json:"last_sent_time"`
+	Config          json.RawMessage `json:"config"`
+	ErrorMsg        sql.NullString  `json:"error_msg"`
+	CreatedByUserID int64           `json:"created_by_user_id"`
+	CreatedAt       time.Time       `json:"created_at"`
+	UpdatedAt       time.Time       `json:"updated_at"`
 }
 
 type PasswordReset struct {
-	ID        int32
-	UserID    int64
-	Code      uuid.UUID
-	Expiry    time.Time
-	CreatedAt time.Time
-	UpdatedAt time.Time
+	ID        int32     `json:"id"`
+	UserID    int64     `json:"user_id"`
+	Code      uuid.UUID `json:"code"`
+	Expiry    time.Time `json:"expiry"`
+	CreatedAt time.Time `json:"created_at"`
+	UpdatedAt time.Time `json:"updated_at"`
 }
 
 type Role struct {
-	ID        int32
-	Name      string
-	CreatedAt time.Time
-	UpdatedAt time.Time
+	ID        int32     `json:"id"`
+	Name      string    `json:"name"`
+	CreatedAt time.Time `json:"created_at"`
+	UpdatedAt time.Time `json:"updated_at"`
 }
 
 type Setting struct {
-	ID            int64
-	Key           string
-	Value         json.RawMessage
-	IsVisibleOnUi bool
-	CreatedAt     time.Time
-	UpdatedAt     time.Time
+	ID            int64           `json:"id"`
+	Key           string          `json:"key"`
+	Value         json.RawMessage `json:"value"`
+	IsVisibleOnUi bool            `json:"is_visible_on_ui"`
+	CreatedAt     time.Time       `json:"created_at"`
+	UpdatedAt     time.Time       `json:"updated_at"`
 }
 
 type User struct {
-	ID                  int64
-	FirstName           string
-	LastName            string
-	Email               string
-	RoleID              int32
-	GroupIds            json.RawMessage
-	CompanyID           int32
-	PasswordHash        string
-	IsActive            bool
-	PasswordInvalidated bool
-	CreatedAt           time.Time
-	UpdatedAt           time.Time
+	ID                  int64           `json:"id"`
+	FirstName           string          `json:"first_name"`
+	LastName            string          `json:"last_name"`
+	Email               string          `json:"email"`
+	RoleID              int32           `json:"role_id"`
+	GroupIds            json.RawMessage `json:"group_ids"`
+	CompanyID           int32           `json:"company_id"`
+	PasswordHash        string          `json:"password_hash"`
+	IsActive            bool            `json:"is_active"`
+	PasswordInvalidated bool            `json:"password_invalidated"`
+	CreatedAt           time.Time       `json:"created_at"`
+	UpdatedAt           time.Time       `json:"updated_at"`
 }
 
 type UserGroup struct {
-	ID        int32
-	Name      string
-	IsSystem  bool
-	CompanyID int32
-	CreatedAt time.Time
-	UpdatedAt time.Time
+	ID        int32     `json:"id"`
+	Name      string    `json:"name"`
+	IsSystem  bool      `json:"is_system"`
+	CompanyID int32     `json:"company_id"`
+	CreatedAt time.Time `json:"created_at"`
+	UpdatedAt time.Time `json:"updated_at"`
 }
 
 type UserInvite struct {
-	ID              int32
-	Email           string
-	Code            uuid.UUID
-	CreatedByUserID int64
-	RoleID          int32
-	CompanyID       int32
-	Accepted        bool
-	Expiry          time.Time
-	CreatedAt       time.Time
-	UpdatedAt       time.Time
+	ID              int32     `json:"id"`
+	Email           string    `json:"email"`
+	Code            uuid.UUID `json:"code"`
+	CreatedByUserID int64     `json:"created_by_user_id"`
+	RoleID          int32     `json:"role_id"`
+	CompanyID       int32     `json:"company_id"`
+	Accepted        bool      `json:"accepted"`
+	Expiry          time.Time `json:"expiry"`
+	CreatedAt       time.Time `json:"created_at"`
+	UpdatedAt       time.Time `json:"updated_at"`
 }

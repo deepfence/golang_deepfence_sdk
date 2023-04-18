@@ -69,12 +69,12 @@ RETURNING id, api_token, name, company_id, group_id, role_id, created_by_user_id
 `
 
 type CreateApiTokenParams struct {
-	ApiToken        uuid.UUID
-	Name            string
-	CompanyID       int32
-	RoleID          int32
-	GroupID         int32
-	CreatedByUserID int64
+	ApiToken        uuid.UUID `json:"api_token"`
+	Name            string    `json:"name"`
+	CompanyID       int32     `json:"company_id"`
+	RoleID          int32     `json:"role_id"`
+	GroupID         int32     `json:"group_id"`
+	CreatedByUserID int64     `json:"created_by_user_id"`
 }
 
 func (q *Queries) CreateApiToken(ctx context.Context, arg CreateApiTokenParams) (ApiToken, error) {
@@ -107,13 +107,13 @@ VALUES ($1, $2, $3, $4, $5, $6, $7)
 `
 
 type CreateAuditLogParams struct {
-	Event      string
-	Action     string
-	Resources  string
-	Success    bool
-	UserID     int32
-	UserRoleID int32
-	CreatedAt  time.Time
+	Event      string    `json:"event"`
+	Action     string    `json:"action"`
+	Resources  string    `json:"resources"`
+	Success    bool      `json:"success"`
+	UserID     int32     `json:"user_id"`
+	UserRoleID int32     `json:"user_role_id"`
+	CreatedAt  time.Time `json:"created_at"`
 }
 
 func (q *Queries) CreateAuditLog(ctx context.Context, arg CreateAuditLogParams) error {
@@ -136,9 +136,9 @@ RETURNING id, name, email_domain, created_at, updated_at, namespace
 `
 
 type CreateCompanyParams struct {
-	Name        string
-	EmailDomain string
-	Namespace   string
+	Name        string `json:"name"`
+	EmailDomain string `json:"email_domain"`
+	Namespace   string `json:"namespace"`
 }
 
 func (q *Queries) CreateCompany(ctx context.Context, arg CreateCompanyParams) (Company, error) {
@@ -162,11 +162,11 @@ RETURNING id, name, registry_type, encrypted_secret, non_secret, extras, created
 `
 
 type CreateContainerRegistryParams struct {
-	Name            string
-	RegistryType    string
-	EncryptedSecret json.RawMessage
-	NonSecret       json.RawMessage
-	Extras          json.RawMessage
+	Name            string          `json:"name"`
+	RegistryType    string          `json:"registry_type"`
+	EncryptedSecret json.RawMessage `json:"encrypted_secret"`
+	NonSecret       json.RawMessage `json:"non_secret"`
+	Extras          json.RawMessage `json:"extras"`
 }
 
 func (q *Queries) CreateContainerRegistry(ctx context.Context, arg CreateContainerRegistryParams) (ContainerRegistry, error) {
@@ -198,12 +198,12 @@ RETURNING id, resource, filters, integration_type, interval_minutes, last_sent_t
 `
 
 type CreateIntegrationParams struct {
-	Resource        string
-	Filters         json.RawMessage
-	IntegrationType string
-	IntervalMinutes int32
-	Config          json.RawMessage
-	CreatedByUserID int64
+	Resource        string          `json:"resource"`
+	Filters         json.RawMessage `json:"filters"`
+	IntegrationType string          `json:"integration_type"`
+	IntervalMinutes int32           `json:"interval_minutes"`
+	Config          json.RawMessage `json:"config"`
+	CreatedByUserID int64           `json:"created_by_user_id"`
 }
 
 func (q *Queries) CreateIntegration(ctx context.Context, arg CreateIntegrationParams) (Integration, error) {
@@ -239,9 +239,9 @@ RETURNING id, user_id, code, expiry, created_at, updated_at
 `
 
 type CreatePasswordResetParams struct {
-	Code   uuid.UUID
-	Expiry time.Time
-	UserID int64
+	Code   uuid.UUID `json:"code"`
+	Expiry time.Time `json:"expiry"`
+	UserID int64     `json:"user_id"`
 }
 
 func (q *Queries) CreatePasswordReset(ctx context.Context, arg CreatePasswordResetParams) (PasswordReset, error) {
@@ -283,9 +283,9 @@ RETURNING id, key, value, is_visible_on_ui, created_at, updated_at
 `
 
 type CreateSettingParams struct {
-	Key           string
-	Value         json.RawMessage
-	IsVisibleOnUi bool
+	Key           string          `json:"key"`
+	Value         json.RawMessage `json:"value"`
+	IsVisibleOnUi bool            `json:"is_visible_on_ui"`
 }
 
 func (q *Queries) CreateSetting(ctx context.Context, arg CreateSettingParams) (Setting, error) {
@@ -310,15 +310,15 @@ RETURNING id, first_name, last_name, email, role_id, group_ids, company_id, pass
 `
 
 type CreateUserParams struct {
-	FirstName           string
-	LastName            string
-	Email               string
-	RoleID              int32
-	GroupIds            json.RawMessage
-	CompanyID           int32
-	PasswordHash        string
-	IsActive            bool
-	PasswordInvalidated bool
+	FirstName           string          `json:"first_name"`
+	LastName            string          `json:"last_name"`
+	Email               string          `json:"email"`
+	RoleID              int32           `json:"role_id"`
+	GroupIds            json.RawMessage `json:"group_ids"`
+	CompanyID           int32           `json:"company_id"`
+	PasswordHash        string          `json:"password_hash"`
+	IsActive            bool            `json:"is_active"`
+	PasswordInvalidated bool            `json:"password_invalidated"`
 }
 
 func (q *Queries) CreateUser(ctx context.Context, arg CreateUserParams) (User, error) {
@@ -358,9 +358,9 @@ RETURNING id, name, is_system, company_id, created_at, updated_at
 `
 
 type CreateUserGroupParams struct {
-	Name      string
-	CompanyID int32
-	IsSystem  bool
+	Name      string `json:"name"`
+	CompanyID int32  `json:"company_id"`
+	IsSystem  bool   `json:"is_system"`
 }
 
 func (q *Queries) CreateUserGroup(ctx context.Context, arg CreateUserGroupParams) (UserGroup, error) {
@@ -384,13 +384,13 @@ RETURNING id, email, code, created_by_user_id, role_id, company_id, accepted, ex
 `
 
 type CreateUserInviteParams struct {
-	Email           string
-	Code            uuid.UUID
-	CreatedByUserID int64
-	RoleID          int32
-	CompanyID       int32
-	Accepted        bool
-	Expiry          time.Time
+	Email           string    `json:"email"`
+	Code            uuid.UUID `json:"code"`
+	CreatedByUserID int64     `json:"created_by_user_id"`
+	RoleID          int32     `json:"role_id"`
+	CompanyID       int32     `json:"company_id"`
+	Accepted        bool      `json:"accepted"`
+	Expiry          time.Time `json:"expiry"`
 }
 
 func (q *Queries) CreateUserInvite(ctx context.Context, arg CreateUserInviteParams) (UserInvite, error) {
@@ -560,20 +560,20 @@ ORDER BY first_name
 `
 
 type GetActiveUsersRow struct {
-	ID                  int64
-	FirstName           string
-	LastName            string
-	Email               string
-	RoleID              int32
-	RoleName            string
-	GroupIds            json.RawMessage
-	CompanyID           int32
-	CompanyName         string
-	IsActive            bool
-	PasswordInvalidated bool
-	CreatedAt           time.Time
-	UpdatedAt           time.Time
-	CompanyNamespace    string
+	ID                  int64           `json:"id"`
+	FirstName           string          `json:"first_name"`
+	LastName            string          `json:"last_name"`
+	Email               string          `json:"email"`
+	RoleID              int32           `json:"role_id"`
+	RoleName            string          `json:"role_name"`
+	GroupIds            json.RawMessage `json:"group_ids"`
+	CompanyID           int32           `json:"company_id"`
+	CompanyName         string          `json:"company_name"`
+	IsActive            bool            `json:"is_active"`
+	PasswordInvalidated bool            `json:"password_invalidated"`
+	CreatedAt           time.Time       `json:"created_at"`
+	UpdatedAt           time.Time       `json:"updated_at"`
+	CompanyNamespace    string          `json:"company_namespace"`
 }
 
 func (q *Queries) GetActiveUsers(ctx context.Context) ([]GetActiveUsersRow, error) {
@@ -638,20 +638,20 @@ ORDER BY first_name
 `
 
 type GetActiveUsersByCompanyIDRow struct {
-	ID                  int64
-	FirstName           string
-	LastName            string
-	Email               string
-	RoleID              int32
-	RoleName            string
-	GroupIds            json.RawMessage
-	CompanyID           int32
-	CompanyName         string
-	IsActive            bool
-	PasswordInvalidated bool
-	CreatedAt           time.Time
-	UpdatedAt           time.Time
-	CompanyNamespace    string
+	ID                  int64           `json:"id"`
+	FirstName           string          `json:"first_name"`
+	LastName            string          `json:"last_name"`
+	Email               string          `json:"email"`
+	RoleID              int32           `json:"role_id"`
+	RoleName            string          `json:"role_name"`
+	GroupIds            json.RawMessage `json:"group_ids"`
+	CompanyID           int32           `json:"company_id"`
+	CompanyName         string          `json:"company_name"`
+	IsActive            bool            `json:"is_active"`
+	PasswordInvalidated bool            `json:"password_invalidated"`
+	CreatedAt           time.Time       `json:"created_at"`
+	UpdatedAt           time.Time       `json:"updated_at"`
+	CompanyNamespace    string          `json:"company_namespace"`
 }
 
 func (q *Queries) GetActiveUsersByCompanyID(ctx context.Context, companyID int32) ([]GetActiveUsersByCompanyIDRow, error) {
@@ -757,22 +757,22 @@ LIMIT 1
 `
 
 type GetApiTokenByTokenRow struct {
-	ApiToken                uuid.UUID
-	Name                    string
-	CompanyID               int32
-	RoleID                  int32
-	GroupID                 int32
-	CreatedByUserID         int64
-	FirstName               string
-	LastName                string
-	Email                   string
-	RoleName                string
-	CompanyName             string
-	CompanyNamespace        string
-	IsUserActive            bool
-	UserPasswordInvalidated bool
-	CreatedAt               time.Time
-	UpdatedAt               time.Time
+	ApiToken                uuid.UUID `json:"api_token"`
+	Name                    string    `json:"name"`
+	CompanyID               int32     `json:"company_id"`
+	RoleID                  int32     `json:"role_id"`
+	GroupID                 int32     `json:"group_id"`
+	CreatedByUserID         int64     `json:"created_by_user_id"`
+	FirstName               string    `json:"first_name"`
+	LastName                string    `json:"last_name"`
+	Email                   string    `json:"email"`
+	RoleName                string    `json:"role_name"`
+	CompanyName             string    `json:"company_name"`
+	CompanyNamespace        string    `json:"company_namespace"`
+	IsUserActive            bool      `json:"is_user_active"`
+	UserPasswordInvalidated bool      `json:"user_password_invalidated"`
+	CreatedAt               time.Time `json:"created_at"`
+	UpdatedAt               time.Time `json:"updated_at"`
 }
 
 func (q *Queries) GetApiTokenByToken(ctx context.Context, apiToken uuid.UUID) (GetApiTokenByTokenRow, error) {
@@ -895,15 +895,15 @@ ORDER BY l.created_at
 `
 
 type GetAuditLogsRow struct {
-	Event      string
-	Action     string
-	Resources  string
-	Success    bool
-	UserID     int32
-	UserRoleID int32
-	CreatedAt  time.Time
-	Role       string
-	Email      string
+	Event      string    `json:"event"`
+	Action     string    `json:"action"`
+	Resources  string    `json:"resources"`
+	Success    bool      `json:"success"`
+	UserID     int32     `json:"user_id"`
+	UserRoleID int32     `json:"user_role_id"`
+	CreatedAt  time.Time `json:"created_at"`
+	Role       string    `json:"role"`
+	Email      string    `json:"email"`
 }
 
 func (q *Queries) GetAuditLogs(ctx context.Context) ([]GetAuditLogsRow, error) {
@@ -957,15 +957,15 @@ ORDER BY l.created_at
 `
 
 type GetAuditLogsLast5MinutesRow struct {
-	Event      string
-	Action     string
-	Resources  string
-	Success    bool
-	UserID     int32
-	UserRoleID int32
-	CreatedAt  time.Time
-	Role       string
-	Email      string
+	Event      string    `json:"event"`
+	Action     string    `json:"action"`
+	Resources  string    `json:"resources"`
+	Success    bool      `json:"success"`
+	UserID     int32     `json:"user_id"`
+	UserRoleID int32     `json:"user_role_id"`
+	CreatedAt  time.Time `json:"created_at"`
+	Role       string    `json:"role"`
+	Email      string    `json:"email"`
 }
 
 func (q *Queries) GetAuditLogsLast5Minutes(ctx context.Context) ([]GetAuditLogsLast5MinutesRow, error) {
@@ -1092,14 +1092,14 @@ FROM container_registry
 `
 
 type GetContainerRegistriesRow struct {
-	ID              int32
-	Name            string
-	RegistryType    string
-	EncryptedSecret json.RawMessage
-	NonSecret       json.RawMessage
-	CreatedAt       time.Time
-	UpdatedAt       time.Time
-	Extras          json.RawMessage
+	ID              int32           `json:"id"`
+	Name            string          `json:"name"`
+	RegistryType    string          `json:"registry_type"`
+	EncryptedSecret json.RawMessage `json:"encrypted_secret"`
+	NonSecret       json.RawMessage `json:"non_secret"`
+	CreatedAt       time.Time       `json:"created_at"`
+	UpdatedAt       time.Time       `json:"updated_at"`
+	Extras          json.RawMessage `json:"extras"`
 }
 
 func (q *Queries) GetContainerRegistries(ctx context.Context) ([]GetContainerRegistriesRow, error) {
@@ -1145,12 +1145,12 @@ FROM container_registry
 `
 
 type GetContainerRegistriesSafeRow struct {
-	ID           int32
-	Name         string
-	RegistryType string
-	NonSecret    json.RawMessage
-	CreatedAt    time.Time
-	UpdatedAt    time.Time
+	ID           int32           `json:"id"`
+	Name         string          `json:"name"`
+	RegistryType string          `json:"registry_type"`
+	NonSecret    json.RawMessage `json:"non_secret"`
+	CreatedAt    time.Time       `json:"created_at"`
+	UpdatedAt    time.Time       `json:"updated_at"`
 }
 
 func (q *Queries) GetContainerRegistriesSafe(ctx context.Context) ([]GetContainerRegistriesSafeRow, error) {
@@ -1198,14 +1198,14 @@ LIMIT 1
 `
 
 type GetContainerRegistryRow struct {
-	ID              int32
-	Name            string
-	RegistryType    string
-	EncryptedSecret json.RawMessage
-	NonSecret       json.RawMessage
-	CreatedAt       time.Time
-	UpdatedAt       time.Time
-	Extras          json.RawMessage
+	ID              int32           `json:"id"`
+	Name            string          `json:"name"`
+	RegistryType    string          `json:"registry_type"`
+	EncryptedSecret json.RawMessage `json:"encrypted_secret"`
+	NonSecret       json.RawMessage `json:"non_secret"`
+	CreatedAt       time.Time       `json:"created_at"`
+	UpdatedAt       time.Time       `json:"updated_at"`
+	Extras          json.RawMessage `json:"extras"`
 }
 
 func (q *Queries) GetContainerRegistry(ctx context.Context, id int32) (GetContainerRegistryRow, error) {
@@ -1238,14 +1238,14 @@ WHERE container_registry.registry_type = $1
 `
 
 type GetContainerRegistryByTypeRow struct {
-	ID              int32
-	Name            string
-	RegistryType    string
-	EncryptedSecret json.RawMessage
-	NonSecret       json.RawMessage
-	CreatedAt       time.Time
-	UpdatedAt       time.Time
-	Extras          json.RawMessage
+	ID              int32           `json:"id"`
+	Name            string          `json:"name"`
+	RegistryType    string          `json:"registry_type"`
+	EncryptedSecret json.RawMessage `json:"encrypted_secret"`
+	NonSecret       json.RawMessage `json:"non_secret"`
+	CreatedAt       time.Time       `json:"created_at"`
+	UpdatedAt       time.Time       `json:"updated_at"`
+	Extras          json.RawMessage `json:"extras"`
 }
 
 func (q *Queries) GetContainerRegistryByType(ctx context.Context, registryType string) ([]GetContainerRegistryByTypeRow, error) {
@@ -1296,19 +1296,19 @@ LIMIT 1
 `
 
 type GetContainerRegistryByTypeAndNameParams struct {
-	RegistryType string
-	Name         string
+	RegistryType string `json:"registry_type"`
+	Name         string `json:"name"`
 }
 
 type GetContainerRegistryByTypeAndNameRow struct {
-	ID              int32
-	Name            string
-	RegistryType    string
-	EncryptedSecret json.RawMessage
-	NonSecret       json.RawMessage
-	CreatedAt       time.Time
-	UpdatedAt       time.Time
-	Extras          json.RawMessage
+	ID              int32           `json:"id"`
+	Name            string          `json:"name"`
+	RegistryType    string          `json:"registry_type"`
+	EncryptedSecret json.RawMessage `json:"encrypted_secret"`
+	NonSecret       json.RawMessage `json:"non_secret"`
+	CreatedAt       time.Time       `json:"created_at"`
+	UpdatedAt       time.Time       `json:"updated_at"`
+	Extras          json.RawMessage `json:"extras"`
 }
 
 func (q *Queries) GetContainerRegistryByTypeAndName(ctx context.Context, arg GetContainerRegistryByTypeAndNameParams) (GetContainerRegistryByTypeAndNameRow, error) {
@@ -1340,12 +1340,12 @@ LIMIT 1
 `
 
 type GetContainerRegistrySafeRow struct {
-	ID           int32
-	Name         string
-	RegistryType string
-	NonSecret    json.RawMessage
-	CreatedAt    time.Time
-	UpdatedAt    time.Time
+	ID           int32           `json:"id"`
+	Name         string          `json:"name"`
+	RegistryType string          `json:"registry_type"`
+	NonSecret    json.RawMessage `json:"non_secret"`
+	CreatedAt    time.Time       `json:"created_at"`
+	UpdatedAt    time.Time       `json:"updated_at"`
 }
 
 func (q *Queries) GetContainerRegistrySafe(ctx context.Context, id int32) (GetContainerRegistrySafeRow, error) {
@@ -1497,12 +1497,12 @@ LIMIT 1
 `
 
 type GetPasswordResetByCodeRow struct {
-	ID        int32
-	Code      uuid.UUID
-	Expiry    time.Time
-	UserID    int64
-	CreatedAt time.Time
-	UpdatedAt time.Time
+	ID        int32     `json:"id"`
+	Code      uuid.UUID `json:"code"`
+	Expiry    time.Time `json:"expiry"`
+	UserID    int64     `json:"user_id"`
+	CreatedAt time.Time `json:"created_at"`
+	UpdatedAt time.Time `json:"updated_at"`
 }
 
 func (q *Queries) GetPasswordResetByCode(ctx context.Context, code uuid.UUID) (GetPasswordResetByCodeRow, error) {
@@ -1533,12 +1533,12 @@ LIMIT 1
 `
 
 type GetPasswordResetByIdRow struct {
-	ID        int32
-	Code      uuid.UUID
-	Expiry    time.Time
-	UserID    int64
-	CreatedAt time.Time
-	UpdatedAt time.Time
+	ID        int32     `json:"id"`
+	Code      uuid.UUID `json:"code"`
+	Expiry    time.Time `json:"expiry"`
+	UserID    int64     `json:"user_id"`
+	CreatedAt time.Time `json:"created_at"`
+	UpdatedAt time.Time `json:"updated_at"`
 }
 
 func (q *Queries) GetPasswordResetById(ctx context.Context, id int32) (GetPasswordResetByIdRow, error) {
@@ -1708,21 +1708,21 @@ LIMIT 1
 `
 
 type GetUserRow struct {
-	ID                  int64
-	FirstName           string
-	LastName            string
-	Email               string
-	RoleID              int32
-	RoleName            string
-	GroupIds            json.RawMessage
-	CompanyID           int32
-	CompanyName         string
-	PasswordHash        string
-	IsActive            bool
-	PasswordInvalidated bool
-	CreatedAt           time.Time
-	UpdatedAt           time.Time
-	CompanyNamespace    string
+	ID                  int64           `json:"id"`
+	FirstName           string          `json:"first_name"`
+	LastName            string          `json:"last_name"`
+	Email               string          `json:"email"`
+	RoleID              int32           `json:"role_id"`
+	RoleName            string          `json:"role_name"`
+	GroupIds            json.RawMessage `json:"group_ids"`
+	CompanyID           int32           `json:"company_id"`
+	CompanyName         string          `json:"company_name"`
+	PasswordHash        string          `json:"password_hash"`
+	IsActive            bool            `json:"is_active"`
+	PasswordInvalidated bool            `json:"password_invalidated"`
+	CreatedAt           time.Time       `json:"created_at"`
+	UpdatedAt           time.Time       `json:"updated_at"`
+	CompanyNamespace    string          `json:"company_namespace"`
 }
 
 func (q *Queries) GetUser(ctx context.Context, id int64) (GetUserRow, error) {
@@ -1772,21 +1772,21 @@ LIMIT 1
 `
 
 type GetUserByEmailRow struct {
-	ID                  int64
-	FirstName           string
-	LastName            string
-	Email               string
-	RoleID              int32
-	RoleName            string
-	GroupIds            json.RawMessage
-	CompanyID           int32
-	CompanyName         string
-	PasswordHash        string
-	IsActive            bool
-	PasswordInvalidated bool
-	CreatedAt           time.Time
-	UpdatedAt           time.Time
-	CompanyNamespace    string
+	ID                  int64           `json:"id"`
+	FirstName           string          `json:"first_name"`
+	LastName            string          `json:"last_name"`
+	Email               string          `json:"email"`
+	RoleID              int32           `json:"role_id"`
+	RoleName            string          `json:"role_name"`
+	GroupIds            json.RawMessage `json:"group_ids"`
+	CompanyID           int32           `json:"company_id"`
+	CompanyName         string          `json:"company_name"`
+	PasswordHash        string          `json:"password_hash"`
+	IsActive            bool            `json:"is_active"`
+	PasswordInvalidated bool            `json:"password_invalidated"`
+	CreatedAt           time.Time       `json:"created_at"`
+	UpdatedAt           time.Time       `json:"updated_at"`
+	CompanyNamespace    string          `json:"company_namespace"`
 }
 
 func (q *Queries) GetUserByEmail(ctx context.Context, email string) (GetUserByEmailRow, error) {
@@ -1942,20 +1942,20 @@ ORDER BY first_name
 `
 
 type GetUsersRow struct {
-	ID                  int64
-	FirstName           string
-	LastName            string
-	Email               string
-	RoleID              int32
-	RoleName            string
-	GroupIds            json.RawMessage
-	CompanyID           int32
-	CompanyName         string
-	IsActive            bool
-	PasswordInvalidated bool
-	CreatedAt           time.Time
-	UpdatedAt           time.Time
-	CompanyNamespace    string
+	ID                  int64           `json:"id"`
+	FirstName           string          `json:"first_name"`
+	LastName            string          `json:"last_name"`
+	Email               string          `json:"email"`
+	RoleID              int32           `json:"role_id"`
+	RoleName            string          `json:"role_name"`
+	GroupIds            json.RawMessage `json:"group_ids"`
+	CompanyID           int32           `json:"company_id"`
+	CompanyName         string          `json:"company_name"`
+	IsActive            bool            `json:"is_active"`
+	PasswordInvalidated bool            `json:"password_invalidated"`
+	CreatedAt           time.Time       `json:"created_at"`
+	UpdatedAt           time.Time       `json:"updated_at"`
+	CompanyNamespace    string          `json:"company_namespace"`
 }
 
 func (q *Queries) GetUsers(ctx context.Context) ([]GetUsersRow, error) {
@@ -2019,20 +2019,20 @@ ORDER BY first_name
 `
 
 type GetUsersByCompanyIDRow struct {
-	ID                  int64
-	FirstName           string
-	LastName            string
-	Email               string
-	RoleID              int32
-	RoleName            string
-	GroupIds            json.RawMessage
-	CompanyID           int32
-	CompanyName         string
-	IsActive            bool
-	PasswordInvalidated bool
-	CreatedAt           time.Time
-	UpdatedAt           time.Time
-	CompanyNamespace    string
+	ID                  int64           `json:"id"`
+	FirstName           string          `json:"first_name"`
+	LastName            string          `json:"last_name"`
+	Email               string          `json:"email"`
+	RoleID              int32           `json:"role_id"`
+	RoleName            string          `json:"role_name"`
+	GroupIds            json.RawMessage `json:"group_ids"`
+	CompanyID           int32           `json:"company_id"`
+	CompanyName         string          `json:"company_name"`
+	IsActive            bool            `json:"is_active"`
+	PasswordInvalidated bool            `json:"password_invalidated"`
+	CreatedAt           time.Time       `json:"created_at"`
+	UpdatedAt           time.Time       `json:"updated_at"`
+	CompanyNamespace    string          `json:"company_namespace"`
 }
 
 func (q *Queries) GetUsersByCompanyID(ctx context.Context, companyID int32) ([]GetUsersByCompanyIDRow, error) {
@@ -2122,12 +2122,12 @@ RETURNING id, name, registry_type, encrypted_secret, non_secret, extras, created
 `
 
 type UpdateContainerRegistryParams struct {
-	Name            string
-	RegistryType    string
-	EncryptedSecret json.RawMessage
-	NonSecret       json.RawMessage
-	Extras          json.RawMessage
-	ID              int32
+	Name            string          `json:"name"`
+	RegistryType    string          `json:"registry_type"`
+	EncryptedSecret json.RawMessage `json:"encrypted_secret"`
+	NonSecret       json.RawMessage `json:"non_secret"`
+	Extras          json.RawMessage `json:"extras"`
+	ID              int32           `json:"id"`
 }
 
 func (q *Queries) UpdateContainerRegistry(ctx context.Context, arg UpdateContainerRegistryParams) (ContainerRegistry, error) {
@@ -2160,8 +2160,8 @@ WHERE id = $2
 `
 
 type UpdatePasswordParams struct {
-	PasswordHash string
-	ID           int64
+	PasswordHash string `json:"password_hash"`
+	ID           int64  `json:"id"`
 }
 
 func (q *Queries) UpdatePassword(ctx context.Context, arg UpdatePasswordParams) error {
@@ -2177,9 +2177,9 @@ WHERE key = $3
 `
 
 type UpdateSettingParams struct {
-	Value         json.RawMessage
-	IsVisibleOnUi bool
-	Key           string
+	Value         json.RawMessage `json:"value"`
+	IsVisibleOnUi bool            `json:"is_visible_on_ui"`
+	Key           string          `json:"key"`
 }
 
 func (q *Queries) UpdateSetting(ctx context.Context, arg UpdateSettingParams) error {
@@ -2195,9 +2195,9 @@ WHERE id = $3
 `
 
 type UpdateSettingByIdParams struct {
-	Value         json.RawMessage
-	IsVisibleOnUi bool
-	ID            int64
+	Value         json.RawMessage `json:"value"`
+	IsVisibleOnUi bool            `json:"is_visible_on_ui"`
+	ID            int64           `json:"id"`
 }
 
 func (q *Queries) UpdateSettingById(ctx context.Context, arg UpdateSettingByIdParams) error {
@@ -2218,13 +2218,13 @@ RETURNING id, first_name, last_name, email, role_id, group_ids, company_id, pass
 `
 
 type UpdateUserParams struct {
-	FirstName           string
-	LastName            string
-	RoleID              int32
-	GroupIds            json.RawMessage
-	IsActive            bool
-	PasswordInvalidated bool
-	ID                  int64
+	FirstName           string          `json:"first_name"`
+	LastName            string          `json:"last_name"`
+	RoleID              int32           `json:"role_id"`
+	GroupIds            json.RawMessage `json:"group_ids"`
+	IsActive            bool            `json:"is_active"`
+	PasswordInvalidated bool            `json:"password_invalidated"`
+	ID                  int64           `json:"id"`
 }
 
 func (q *Queries) UpdateUser(ctx context.Context, arg UpdateUserParams) (User, error) {
@@ -2268,13 +2268,13 @@ RETURNING id, email, code, created_by_user_id, role_id, company_id, accepted, ex
 `
 
 type UpdateUserInviteParams struct {
-	Code            uuid.UUID
-	CreatedByUserID int64
-	RoleID          int32
-	CompanyID       int32
-	Accepted        bool
-	Expiry          time.Time
-	ID              int32
+	Code            uuid.UUID `json:"code"`
+	CreatedByUserID int64     `json:"created_by_user_id"`
+	RoleID          int32     `json:"role_id"`
+	CompanyID       int32     `json:"company_id"`
+	Accepted        bool      `json:"accepted"`
+	Expiry          time.Time `json:"expiry"`
+	ID              int32     `json:"id"`
 }
 
 func (q *Queries) UpdateUserInvite(ctx context.Context, arg UpdateUserInviteParams) (UserInvite, error) {
