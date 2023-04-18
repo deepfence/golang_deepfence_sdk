@@ -23,6 +23,7 @@ type ReportersFieldsFilters struct {
 	CompareFilter []ReportersCompareFilter `json:"compare_filter"`
 	ContainsFilter ReportersContainsFilter `json:"contains_filter"`
 	MatchFilter ReportersMatchFilter `json:"match_filter"`
+	NotContainsFilter *ReportersContainsFilter `json:"not_contains_filter,omitempty"`
 	OrderFilter ReportersOrderFilter `json:"order_filter"`
 }
 
@@ -121,6 +122,38 @@ func (o *ReportersFieldsFilters) SetMatchFilter(v ReportersMatchFilter) {
 	o.MatchFilter = v
 }
 
+// GetNotContainsFilter returns the NotContainsFilter field value if set, zero value otherwise.
+func (o *ReportersFieldsFilters) GetNotContainsFilter() ReportersContainsFilter {
+	if o == nil || IsNil(o.NotContainsFilter) {
+		var ret ReportersContainsFilter
+		return ret
+	}
+	return *o.NotContainsFilter
+}
+
+// GetNotContainsFilterOk returns a tuple with the NotContainsFilter field value if set, nil otherwise
+// and a boolean to check if the value has been set.
+func (o *ReportersFieldsFilters) GetNotContainsFilterOk() (*ReportersContainsFilter, bool) {
+	if o == nil || IsNil(o.NotContainsFilter) {
+		return nil, false
+	}
+	return o.NotContainsFilter, true
+}
+
+// HasNotContainsFilter returns a boolean if a field has been set.
+func (o *ReportersFieldsFilters) HasNotContainsFilter() bool {
+	if o != nil && !IsNil(o.NotContainsFilter) {
+		return true
+	}
+
+	return false
+}
+
+// SetNotContainsFilter gets a reference to the given ReportersContainsFilter and assigns it to the NotContainsFilter field.
+func (o *ReportersFieldsFilters) SetNotContainsFilter(v ReportersContainsFilter) {
+	o.NotContainsFilter = &v
+}
+
 // GetOrderFilter returns the OrderFilter field value
 func (o *ReportersFieldsFilters) GetOrderFilter() ReportersOrderFilter {
 	if o == nil {
@@ -160,6 +193,9 @@ func (o ReportersFieldsFilters) ToMap() (map[string]interface{}, error) {
 	}
 	toSerialize["contains_filter"] = o.ContainsFilter
 	toSerialize["match_filter"] = o.MatchFilter
+	if !IsNil(o.NotContainsFilter) {
+		toSerialize["not_contains_filter"] = o.NotContainsFilter
+	}
 	toSerialize["order_filter"] = o.OrderFilter
 	return toSerialize, nil
 }

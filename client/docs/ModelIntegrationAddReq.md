@@ -5,7 +5,7 @@
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
 **Config** | Pointer to **map[string]interface{}** |  | [optional] 
-**Filters** | Pointer to **map[string][]string** |  | [optional] 
+**Filters** | Pointer to [**ModelIntegrationFilters**](ModelIntegrationFilters.md) |  | [optional] 
 **IntegrationType** | Pointer to **string** |  | [optional] 
 **NotificationType** | Pointer to **string** |  | [optional] 
 
@@ -65,20 +65,20 @@ HasConfig returns a boolean if a field has been set.
 UnsetConfig ensures that no value is present for Config, not even an explicit nil
 ### GetFilters
 
-`func (o *ModelIntegrationAddReq) GetFilters() map[string][]string`
+`func (o *ModelIntegrationAddReq) GetFilters() ModelIntegrationFilters`
 
 GetFilters returns the Filters field if non-nil, zero value otherwise.
 
 ### GetFiltersOk
 
-`func (o *ModelIntegrationAddReq) GetFiltersOk() (*map[string][]string, bool)`
+`func (o *ModelIntegrationAddReq) GetFiltersOk() (*ModelIntegrationFilters, bool)`
 
 GetFiltersOk returns a tuple with the Filters field if it's non-nil, zero value otherwise
 and a boolean to check if the value has been set.
 
 ### SetFilters
 
-`func (o *ModelIntegrationAddReq) SetFilters(v map[string][]string)`
+`func (o *ModelIntegrationAddReq) SetFilters(v ModelIntegrationFilters)`
 
 SetFilters sets Filters field to given value.
 
@@ -88,16 +88,6 @@ SetFilters sets Filters field to given value.
 
 HasFilters returns a boolean if a field has been set.
 
-### SetFiltersNil
-
-`func (o *ModelIntegrationAddReq) SetFiltersNil(b bool)`
-
- SetFiltersNil sets the value for Filters to be an explicit nil
-
-### UnsetFilters
-`func (o *ModelIntegrationAddReq) UnsetFilters()`
-
-UnsetFilters ensures that no value is present for Filters, not even an explicit nil
 ### GetIntegrationType
 
 `func (o *ModelIntegrationAddReq) GetIntegrationType() string`

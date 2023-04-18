@@ -151,7 +151,7 @@ Name | Type | Description  | Notes
 
 ## GetApiTokens
 
-> []map[string]interface{} GetApiTokens(ctx).Execute()
+> ModelApiTokenResponse GetApiTokens(ctx).Execute()
 
 Get User's API Tokens
 
@@ -178,7 +178,7 @@ func main() {
         fmt.Fprintf(os.Stderr, "Error when calling `UserApi.GetApiTokens``: %v\n", err)
         fmt.Fprintf(os.Stderr, "Full HTTP response: %v\n", r)
     }
-    // response from `GetApiTokens`: []map[string]interface{}
+    // response from `GetApiTokens`: ModelApiTokenResponse
     fmt.Fprintf(os.Stdout, "Response from `UserApi.GetApiTokens`: %v\n", resp)
 }
 ```
@@ -194,7 +194,7 @@ Other parameters are passed through a pointer to a apiGetApiTokensRequest struct
 
 ### Return type
 
-**[]map[string]interface{}**
+[**ModelApiTokenResponse**](ModelApiTokenResponse.md)
 
 ### Authorization
 
@@ -602,7 +602,7 @@ No authorization required
 
 ## ResetApiTokens
 
-> []map[string]interface{} ResetApiTokens(ctx).Execute()
+> ModelApiTokenResponse ResetApiTokens(ctx).Execute()
 
 Reset User's API Tokens
 
@@ -629,7 +629,7 @@ func main() {
         fmt.Fprintf(os.Stderr, "Error when calling `UserApi.ResetApiTokens``: %v\n", err)
         fmt.Fprintf(os.Stderr, "Full HTTP response: %v\n", r)
     }
-    // response from `ResetApiTokens`: []map[string]interface{}
+    // response from `ResetApiTokens`: ModelApiTokenResponse
     fmt.Fprintf(os.Stdout, "Response from `UserApi.ResetApiTokens`: %v\n", resp)
 }
 ```
@@ -645,7 +645,7 @@ Other parameters are passed through a pointer to a apiResetApiTokensRequest stru
 
 ### Return type
 
-**[]map[string]interface{}**
+[**ModelApiTokenResponse**](ModelApiTokenResponse.md)
 
 ### Authorization
 

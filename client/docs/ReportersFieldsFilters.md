@@ -7,6 +7,7 @@ Name | Type | Description | Notes
 **CompareFilter** | [**[]ReportersCompareFilter**](ReportersCompareFilter.md) |  | 
 **ContainsFilter** | [**ReportersContainsFilter**](ReportersContainsFilter.md) |  | 
 **MatchFilter** | [**ReportersMatchFilter**](ReportersMatchFilter.md) |  | 
+**NotContainsFilter** | Pointer to [**ReportersContainsFilter**](ReportersContainsFilter.md) |  | [optional] 
 **OrderFilter** | [**ReportersOrderFilter**](ReportersOrderFilter.md) |  | 
 
 ## Methods
@@ -97,6 +98,31 @@ and a boolean to check if the value has been set.
 
 SetMatchFilter sets MatchFilter field to given value.
 
+
+### GetNotContainsFilter
+
+`func (o *ReportersFieldsFilters) GetNotContainsFilter() ReportersContainsFilter`
+
+GetNotContainsFilter returns the NotContainsFilter field if non-nil, zero value otherwise.
+
+### GetNotContainsFilterOk
+
+`func (o *ReportersFieldsFilters) GetNotContainsFilterOk() (*ReportersContainsFilter, bool)`
+
+GetNotContainsFilterOk returns a tuple with the NotContainsFilter field if it's non-nil, zero value otherwise
+and a boolean to check if the value has been set.
+
+### SetNotContainsFilter
+
+`func (o *ReportersFieldsFilters) SetNotContainsFilter(v ReportersContainsFilter)`
+
+SetNotContainsFilter sets NotContainsFilter field to given value.
+
+### HasNotContainsFilter
+
+`func (o *ReportersFieldsFilters) HasNotContainsFilter() bool`
+
+HasNotContainsFilter returns a boolean if a field has been set.
 
 ### GetOrderFilter
 

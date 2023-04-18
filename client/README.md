@@ -157,11 +157,13 @@ Class | Method | HTTP request | Description
 *ScanResultsApi* | [**UnmaskScanResult**](docs/ScanResultsApi.md#unmaskscanresult) | **Post** /deepfence/scan/results/action/unmask | Unmask Scans Results
 *SearchApi* | [**CountCloudComplianceScans**](docs/SearchApi.md#countcloudcompliancescans) | **Post** /deepfence/search/count/cloud-compliance/scans | Count Cloud Compliance Scan results
 *SearchApi* | [**CountCloudCompliances**](docs/SearchApi.md#countcloudcompliances) | **Post** /deepfence/search/count/cloud-compliances | Count Cloud compliances
+*SearchApi* | [**CountCloudResources**](docs/SearchApi.md#countcloudresources) | **Post** /deepfence/search/count/cloud-resources | Count Cloud resources
 *SearchApi* | [**CountComplianceScans**](docs/SearchApi.md#countcompliancescans) | **Post** /deepfence/search/count/compliance/scans | Count Compliance Scan results
 *SearchApi* | [**CountCompliances**](docs/SearchApi.md#countcompliances) | **Post** /deepfence/search/count/compliances | Count Compliances
 *SearchApi* | [**CountContainerImages**](docs/SearchApi.md#countcontainerimages) | **Post** /deepfence/search/count/images | Count Container images
 *SearchApi* | [**CountContainers**](docs/SearchApi.md#countcontainers) | **Post** /deepfence/search/count/containers | Count Containers data
 *SearchApi* | [**CountHosts**](docs/SearchApi.md#counthosts) | **Post** /deepfence/search/count/hosts | Count hosts
+*SearchApi* | [**CountKubernetesClusters**](docs/SearchApi.md#countkubernetesclusters) | **Post** /deepfence/search/count/kubernetes-clusters | Count Kubernetes clusters
 *SearchApi* | [**CountMalwareScans**](docs/SearchApi.md#countmalwarescans) | **Post** /deepfence/search/count/malware/scans | Count Malware Scan results
 *SearchApi* | [**CountMalwares**](docs/SearchApi.md#countmalwares) | **Post** /deepfence/search/count/malwares | Count Malwares
 *SearchApi* | [**CountNodes**](docs/SearchApi.md#countnodes) | **Get** /deepfence/search/count/nodes | Count nodes
@@ -173,11 +175,13 @@ Class | Method | HTTP request | Description
 *SearchApi* | [**GetComplianceFilters**](docs/SearchApi.md#getcompliancefilters) | **Post** /deepfence/filters/compliance | Get Compliance Filters
 *SearchApi* | [**SearchCloudComplianceScans**](docs/SearchApi.md#searchcloudcompliancescans) | **Post** /deepfence/search/cloud-compliance/scans | Search Cloud Compliance Scan results
 *SearchApi* | [**SearchCloudCompliances**](docs/SearchApi.md#searchcloudcompliances) | **Post** /deepfence/search/cloud-compliances | Search Cloud compliances
+*SearchApi* | [**SearchCloudResources**](docs/SearchApi.md#searchcloudresources) | **Post** /deepfence/search/cloud-resources | Search Cloud Resources
 *SearchApi* | [**SearchComplianceScans**](docs/SearchApi.md#searchcompliancescans) | **Post** /deepfence/search/compliance/scans | Search Compliance Scan results
 *SearchApi* | [**SearchCompliances**](docs/SearchApi.md#searchcompliances) | **Post** /deepfence/search/compliances | Search Compliances
 *SearchApi* | [**SearchContainerImages**](docs/SearchApi.md#searchcontainerimages) | **Post** /deepfence/search/images | Search Container images
 *SearchApi* | [**SearchContainers**](docs/SearchApi.md#searchcontainers) | **Post** /deepfence/search/containers | Search Containers data
 *SearchApi* | [**SearchHosts**](docs/SearchApi.md#searchhosts) | **Post** /deepfence/search/hosts | Search hosts
+*SearchApi* | [**SearchKubernetesClusters**](docs/SearchApi.md#searchkubernetesclusters) | **Post** /deepfence/search/kubernetes-clusters | Search Kuberenetes Clusters
 *SearchApi* | [**SearchMalwareScans**](docs/SearchApi.md#searchmalwarescans) | **Post** /deepfence/search/malware/scans | Search Malware Scan results
 *SearchApi* | [**SearchMalwares**](docs/SearchApi.md#searchmalwares) | **Post** /deepfence/search/malwares | Search Malwares
 *SearchApi* | [**SearchSecrets**](docs/SearchApi.md#searchsecrets) | **Post** /deepfence/search/secrets | Search Secrets
@@ -192,6 +196,9 @@ Class | Method | HTTP request | Description
 *SecretScanApi* | [**StartSecretScan**](docs/SecretScanApi.md#startsecretscan) | **Post** /deepfence/scan/start/secret | Start Secret Scan
 *SecretScanApi* | [**StatusSecretScan**](docs/SecretScanApi.md#statussecretscan) | **Post** /deepfence/scan/status/secret | Get Secret Scan Status
 *SecretScanApi* | [**StopSecretScan**](docs/SecretScanApi.md#stopsecretscan) | **Post** /deepfence/scan/stop/secret | Stop Secret Scan
+*SettingsApi* | [**AddEmailConfiguration**](docs/SettingsApi.md#addemailconfiguration) | **Post** /deepfence/settings/email | Add Email Configuration
+*SettingsApi* | [**DeleteEmailConfiguration**](docs/SettingsApi.md#deleteemailconfiguration) | **Delete** /deepfence/settings/email/{config_id} | Delete Email Configurations
+*SettingsApi* | [**GetEmailConfiguration**](docs/SettingsApi.md#getemailconfiguration) | **Get** /deepfence/settings/email | Get Email Configurations
 *SettingsApi* | [**GetSettings**](docs/SettingsApi.md#getsettings) | **Get** /deepfence/settings/global-settings | Get settings
 *SettingsApi* | [**GetUserActivityLogs**](docs/SettingsApi.md#getuseractivitylogs) | **Get** /deepfence/settings/user-activity-log | Get activity logs
 *SettingsApi* | [**UpdateSetting**](docs/SettingsApi.md#updatesetting) | **Patch** /deepfence/settings/global-settings/{id} | Update setting
@@ -271,6 +278,7 @@ Class | Method | HTTP request | Description
  - [ModelAgentId](docs/ModelAgentId.md)
  - [ModelAgentUpgrade](docs/ModelAgentUpgrade.md)
  - [ModelApiAuthRequest](docs/ModelApiAuthRequest.md)
+ - [ModelApiTokenResponse](docs/ModelApiTokenResponse.md)
  - [ModelBasicNode](docs/ModelBasicNode.md)
  - [ModelCloudCompliance](docs/ModelCloudCompliance.md)
  - [ModelCloudComplianceBenchmark](docs/ModelCloudComplianceBenchmark.md)
@@ -298,6 +306,8 @@ Class | Method | HTTP request | Description
  - [ModelContainer](docs/ModelContainer.md)
  - [ModelContainerImage](docs/ModelContainerImage.md)
  - [ModelDownloadReportResponse](docs/ModelDownloadReportResponse.md)
+ - [ModelEmailConfigurationAdd](docs/ModelEmailConfigurationAdd.md)
+ - [ModelEmailConfigurationResp](docs/ModelEmailConfigurationResp.md)
  - [ModelExportReport](docs/ModelExportReport.md)
  - [ModelFetchWindow](docs/ModelFetchWindow.md)
  - [ModelFiltersReq](docs/ModelFiltersReq.md)
@@ -308,6 +318,7 @@ Class | Method | HTTP request | Description
  - [ModelImageStub](docs/ModelImageStub.md)
  - [ModelInitAgentReq](docs/ModelInitAgentReq.md)
  - [ModelIntegrationAddReq](docs/ModelIntegrationAddReq.md)
+ - [ModelIntegrationFilters](docs/ModelIntegrationFilters.md)
  - [ModelIntegrationListResp](docs/ModelIntegrationListResp.md)
  - [ModelInviteUserRequest](docs/ModelInviteUserRequest.md)
  - [ModelInviteUserResponse](docs/ModelInviteUserResponse.md)
@@ -362,6 +373,7 @@ Class | Method | HTTP request | Description
  - [ModelVulnerabilityScanConfigLanguage](docs/ModelVulnerabilityScanConfigLanguage.md)
  - [ModelVulnerabilityScanResult](docs/ModelVulnerabilityScanResult.md)
  - [ModelVulnerabilityScanTriggerReq](docs/ModelVulnerabilityScanTriggerReq.md)
+ - [PostgresqlDbGetAuditLogsRow](docs/PostgresqlDbGetAuditLogsRow.md)
  - [ReportMetadata](docs/ReportMetadata.md)
  - [ReportRawReport](docs/ReportRawReport.md)
  - [ReportersCompareFilter](docs/ReportersCompareFilter.md)

@@ -21,7 +21,7 @@ var _ MappedNullable = &ModelIntegrationListResp{}
 // ModelIntegrationListResp struct for ModelIntegrationListResp
 type ModelIntegrationListResp struct {
 	Config map[string]interface{} `json:"config,omitempty"`
-	Filters map[string][]string `json:"filters,omitempty"`
+	Filters *ReportersFieldsFilters `json:"filters,omitempty"`
 	Id *int32 `json:"id,omitempty"`
 	IntegrationType *string `json:"integration_type,omitempty"`
 	NotificationType *string `json:"notification_type,omitempty"`
@@ -77,37 +77,36 @@ func (o *ModelIntegrationListResp) SetConfig(v map[string]interface{}) {
 	o.Config = v
 }
 
-// GetFilters returns the Filters field value if set, zero value otherwise (both if not set or set to explicit null).
-func (o *ModelIntegrationListResp) GetFilters() map[string][]string {
-	if o == nil {
-		var ret map[string][]string
+// GetFilters returns the Filters field value if set, zero value otherwise.
+func (o *ModelIntegrationListResp) GetFilters() ReportersFieldsFilters {
+	if o == nil || IsNil(o.Filters) {
+		var ret ReportersFieldsFilters
 		return ret
 	}
-	return o.Filters
+	return *o.Filters
 }
 
 // GetFiltersOk returns a tuple with the Filters field value if set, nil otherwise
 // and a boolean to check if the value has been set.
-// NOTE: If the value is an explicit nil, `nil, true` will be returned
-func (o *ModelIntegrationListResp) GetFiltersOk() (*map[string][]string, bool) {
+func (o *ModelIntegrationListResp) GetFiltersOk() (*ReportersFieldsFilters, bool) {
 	if o == nil || IsNil(o.Filters) {
 		return nil, false
 	}
-	return &o.Filters, true
+	return o.Filters, true
 }
 
 // HasFilters returns a boolean if a field has been set.
 func (o *ModelIntegrationListResp) HasFilters() bool {
-	if o != nil && IsNil(o.Filters) {
+	if o != nil && !IsNil(o.Filters) {
 		return true
 	}
 
 	return false
 }
 
-// SetFilters gets a reference to the given map[string][]string and assigns it to the Filters field.
-func (o *ModelIntegrationListResp) SetFilters(v map[string][]string) {
-	o.Filters = v
+// SetFilters gets a reference to the given ReportersFieldsFilters and assigns it to the Filters field.
+func (o *ModelIntegrationListResp) SetFilters(v ReportersFieldsFilters) {
+	o.Filters = &v
 }
 
 // GetId returns the Id field value if set, zero value otherwise.
@@ -219,7 +218,7 @@ func (o ModelIntegrationListResp) ToMap() (map[string]interface{}, error) {
 	if o.Config != nil {
 		toSerialize["config"] = o.Config
 	}
-	if o.Filters != nil {
+	if !IsNil(o.Filters) {
 		toSerialize["filters"] = o.Filters
 	}
 	if !IsNil(o.Id) {

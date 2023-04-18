@@ -21,7 +21,7 @@ var _ MappedNullable = &ModelIntegrationAddReq{}
 // ModelIntegrationAddReq struct for ModelIntegrationAddReq
 type ModelIntegrationAddReq struct {
 	Config map[string]interface{} `json:"config,omitempty"`
-	Filters map[string][]string `json:"filters,omitempty"`
+	Filters *ModelIntegrationFilters `json:"filters,omitempty"`
 	IntegrationType *string `json:"integration_type,omitempty"`
 	NotificationType *string `json:"notification_type,omitempty"`
 }
@@ -76,37 +76,36 @@ func (o *ModelIntegrationAddReq) SetConfig(v map[string]interface{}) {
 	o.Config = v
 }
 
-// GetFilters returns the Filters field value if set, zero value otherwise (both if not set or set to explicit null).
-func (o *ModelIntegrationAddReq) GetFilters() map[string][]string {
-	if o == nil {
-		var ret map[string][]string
+// GetFilters returns the Filters field value if set, zero value otherwise.
+func (o *ModelIntegrationAddReq) GetFilters() ModelIntegrationFilters {
+	if o == nil || IsNil(o.Filters) {
+		var ret ModelIntegrationFilters
 		return ret
 	}
-	return o.Filters
+	return *o.Filters
 }
 
 // GetFiltersOk returns a tuple with the Filters field value if set, nil otherwise
 // and a boolean to check if the value has been set.
-// NOTE: If the value is an explicit nil, `nil, true` will be returned
-func (o *ModelIntegrationAddReq) GetFiltersOk() (*map[string][]string, bool) {
+func (o *ModelIntegrationAddReq) GetFiltersOk() (*ModelIntegrationFilters, bool) {
 	if o == nil || IsNil(o.Filters) {
 		return nil, false
 	}
-	return &o.Filters, true
+	return o.Filters, true
 }
 
 // HasFilters returns a boolean if a field has been set.
 func (o *ModelIntegrationAddReq) HasFilters() bool {
-	if o != nil && IsNil(o.Filters) {
+	if o != nil && !IsNil(o.Filters) {
 		return true
 	}
 
 	return false
 }
 
-// SetFilters gets a reference to the given map[string][]string and assigns it to the Filters field.
-func (o *ModelIntegrationAddReq) SetFilters(v map[string][]string) {
-	o.Filters = v
+// SetFilters gets a reference to the given ModelIntegrationFilters and assigns it to the Filters field.
+func (o *ModelIntegrationAddReq) SetFilters(v ModelIntegrationFilters) {
+	o.Filters = &v
 }
 
 // GetIntegrationType returns the IntegrationType field value if set, zero value otherwise.
@@ -186,7 +185,7 @@ func (o ModelIntegrationAddReq) ToMap() (map[string]interface{}, error) {
 	if o.Config != nil {
 		toSerialize["config"] = o.Config
 	}
-	if o.Filters != nil {
+	if !IsNil(o.Filters) {
 		toSerialize["filters"] = o.Filters
 	}
 	if !IsNil(o.IntegrationType) {

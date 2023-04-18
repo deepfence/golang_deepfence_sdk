@@ -6,11 +6,13 @@ Method | HTTP request | Description
 ------------- | ------------- | -------------
 [**CountCloudComplianceScans**](SearchApi.md#CountCloudComplianceScans) | **Post** /deepfence/search/count/cloud-compliance/scans | Count Cloud Compliance Scan results
 [**CountCloudCompliances**](SearchApi.md#CountCloudCompliances) | **Post** /deepfence/search/count/cloud-compliances | Count Cloud compliances
+[**CountCloudResources**](SearchApi.md#CountCloudResources) | **Post** /deepfence/search/count/cloud-resources | Count Cloud resources
 [**CountComplianceScans**](SearchApi.md#CountComplianceScans) | **Post** /deepfence/search/count/compliance/scans | Count Compliance Scan results
 [**CountCompliances**](SearchApi.md#CountCompliances) | **Post** /deepfence/search/count/compliances | Count Compliances
 [**CountContainerImages**](SearchApi.md#CountContainerImages) | **Post** /deepfence/search/count/images | Count Container images
 [**CountContainers**](SearchApi.md#CountContainers) | **Post** /deepfence/search/count/containers | Count Containers data
 [**CountHosts**](SearchApi.md#CountHosts) | **Post** /deepfence/search/count/hosts | Count hosts
+[**CountKubernetesClusters**](SearchApi.md#CountKubernetesClusters) | **Post** /deepfence/search/count/kubernetes-clusters | Count Kubernetes clusters
 [**CountMalwareScans**](SearchApi.md#CountMalwareScans) | **Post** /deepfence/search/count/malware/scans | Count Malware Scan results
 [**CountMalwares**](SearchApi.md#CountMalwares) | **Post** /deepfence/search/count/malwares | Count Malwares
 [**CountNodes**](SearchApi.md#CountNodes) | **Get** /deepfence/search/count/nodes | Count nodes
@@ -22,11 +24,13 @@ Method | HTTP request | Description
 [**GetComplianceFilters**](SearchApi.md#GetComplianceFilters) | **Post** /deepfence/filters/compliance | Get Compliance Filters
 [**SearchCloudComplianceScans**](SearchApi.md#SearchCloudComplianceScans) | **Post** /deepfence/search/cloud-compliance/scans | Search Cloud Compliance Scan results
 [**SearchCloudCompliances**](SearchApi.md#SearchCloudCompliances) | **Post** /deepfence/search/cloud-compliances | Search Cloud compliances
+[**SearchCloudResources**](SearchApi.md#SearchCloudResources) | **Post** /deepfence/search/cloud-resources | Search Cloud Resources
 [**SearchComplianceScans**](SearchApi.md#SearchComplianceScans) | **Post** /deepfence/search/compliance/scans | Search Compliance Scan results
 [**SearchCompliances**](SearchApi.md#SearchCompliances) | **Post** /deepfence/search/compliances | Search Compliances
 [**SearchContainerImages**](SearchApi.md#SearchContainerImages) | **Post** /deepfence/search/images | Search Container images
 [**SearchContainers**](SearchApi.md#SearchContainers) | **Post** /deepfence/search/containers | Search Containers data
 [**SearchHosts**](SearchApi.md#SearchHosts) | **Post** /deepfence/search/hosts | Search hosts
+[**SearchKubernetesClusters**](SearchApi.md#SearchKubernetesClusters) | **Post** /deepfence/search/kubernetes-clusters | Search Kuberenetes Clusters
 [**SearchMalwareScans**](SearchApi.md#SearchMalwareScans) | **Post** /deepfence/search/malware/scans | Search Malware Scan results
 [**SearchMalwares**](SearchApi.md#SearchMalwares) | **Post** /deepfence/search/malwares | Search Malwares
 [**SearchSecrets**](SearchApi.md#SearchSecrets) | **Post** /deepfence/search/secrets | Search Secrets
@@ -144,6 +148,72 @@ func main() {
 ### Other Parameters
 
 Other parameters are passed through a pointer to a apiCountCloudCompliancesRequest struct via the builder pattern
+
+
+Name | Type | Description  | Notes
+------------- | ------------- | ------------- | -------------
+ **searchSearchNodeReq** | [**SearchSearchNodeReq**](SearchSearchNodeReq.md) |  | 
+
+### Return type
+
+[**SearchSearchCountResp**](SearchSearchCountResp.md)
+
+### Authorization
+
+[bearer_token](../README.md#bearer_token)
+
+### HTTP request headers
+
+- **Content-Type**: application/json
+- **Accept**: application/json
+
+[[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints)
+[[Back to Model list]](../README.md#documentation-for-models)
+[[Back to README]](../README.md)
+
+
+## CountCloudResources
+
+> SearchSearchCountResp CountCloudResources(ctx).SearchSearchNodeReq(searchSearchNodeReq).Execute()
+
+Count Cloud resources
+
+
+
+### Example
+
+```go
+package main
+
+import (
+    "context"
+    "fmt"
+    "os"
+    openapiclient "github.com/deepfence/golang_deepfence_sdk/client"
+)
+
+func main() {
+    searchSearchNodeReq := *openapiclient.NewSearchSearchNodeReq(*openapiclient.NewSearchSearchFilter(*openapiclient.NewReportersFieldsFilters([]openapiclient.ReportersCompareFilter{*openapiclient.NewReportersCompareFilter("FieldName_example", interface{}(123), false)}, *openapiclient.NewReportersContainsFilter(map[string][]interface{}{"key": []interface{}{nil}}), *openapiclient.NewReportersMatchFilter(map[string][]interface{}{"key": []interface{}{nil}}), *openapiclient.NewReportersOrderFilter([]openapiclient.ReportersOrderSpec{*openapiclient.NewReportersOrderSpec(false, "FieldName_example")})), []string{"InFieldFilter_example"}, *openapiclient.NewModelFetchWindow(int32(123), int32(123))), *openapiclient.NewModelFetchWindow(int32(123), int32(123))) // SearchSearchNodeReq |  (optional)
+
+    configuration := openapiclient.NewConfiguration()
+    apiClient := openapiclient.NewAPIClient(configuration)
+    resp, r, err := apiClient.SearchApi.CountCloudResources(context.Background()).SearchSearchNodeReq(searchSearchNodeReq).Execute()
+    if err != nil {
+        fmt.Fprintf(os.Stderr, "Error when calling `SearchApi.CountCloudResources``: %v\n", err)
+        fmt.Fprintf(os.Stderr, "Full HTTP response: %v\n", r)
+    }
+    // response from `CountCloudResources`: SearchSearchCountResp
+    fmt.Fprintf(os.Stdout, "Response from `SearchApi.CountCloudResources`: %v\n", resp)
+}
+```
+
+### Path Parameters
+
+
+
+### Other Parameters
+
+Other parameters are passed through a pointer to a apiCountCloudResourcesRequest struct via the builder pattern
 
 
 Name | Type | Description  | Notes
@@ -474,6 +544,72 @@ func main() {
 ### Other Parameters
 
 Other parameters are passed through a pointer to a apiCountHostsRequest struct via the builder pattern
+
+
+Name | Type | Description  | Notes
+------------- | ------------- | ------------- | -------------
+ **searchSearchNodeReq** | [**SearchSearchNodeReq**](SearchSearchNodeReq.md) |  | 
+
+### Return type
+
+[**SearchSearchCountResp**](SearchSearchCountResp.md)
+
+### Authorization
+
+[bearer_token](../README.md#bearer_token)
+
+### HTTP request headers
+
+- **Content-Type**: application/json
+- **Accept**: application/json
+
+[[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints)
+[[Back to Model list]](../README.md#documentation-for-models)
+[[Back to README]](../README.md)
+
+
+## CountKubernetesClusters
+
+> SearchSearchCountResp CountKubernetesClusters(ctx).SearchSearchNodeReq(searchSearchNodeReq).Execute()
+
+Count Kubernetes clusters
+
+
+
+### Example
+
+```go
+package main
+
+import (
+    "context"
+    "fmt"
+    "os"
+    openapiclient "github.com/deepfence/golang_deepfence_sdk/client"
+)
+
+func main() {
+    searchSearchNodeReq := *openapiclient.NewSearchSearchNodeReq(*openapiclient.NewSearchSearchFilter(*openapiclient.NewReportersFieldsFilters([]openapiclient.ReportersCompareFilter{*openapiclient.NewReportersCompareFilter("FieldName_example", interface{}(123), false)}, *openapiclient.NewReportersContainsFilter(map[string][]interface{}{"key": []interface{}{nil}}), *openapiclient.NewReportersMatchFilter(map[string][]interface{}{"key": []interface{}{nil}}), *openapiclient.NewReportersOrderFilter([]openapiclient.ReportersOrderSpec{*openapiclient.NewReportersOrderSpec(false, "FieldName_example")})), []string{"InFieldFilter_example"}, *openapiclient.NewModelFetchWindow(int32(123), int32(123))), *openapiclient.NewModelFetchWindow(int32(123), int32(123))) // SearchSearchNodeReq |  (optional)
+
+    configuration := openapiclient.NewConfiguration()
+    apiClient := openapiclient.NewAPIClient(configuration)
+    resp, r, err := apiClient.SearchApi.CountKubernetesClusters(context.Background()).SearchSearchNodeReq(searchSearchNodeReq).Execute()
+    if err != nil {
+        fmt.Fprintf(os.Stderr, "Error when calling `SearchApi.CountKubernetesClusters``: %v\n", err)
+        fmt.Fprintf(os.Stderr, "Full HTTP response: %v\n", r)
+    }
+    // response from `CountKubernetesClusters`: SearchSearchCountResp
+    fmt.Fprintf(os.Stdout, "Response from `SearchApi.CountKubernetesClusters`: %v\n", resp)
+}
+```
+
+### Path Parameters
+
+
+
+### Other Parameters
+
+Other parameters are passed through a pointer to a apiCountKubernetesClustersRequest struct via the builder pattern
 
 
 Name | Type | Description  | Notes
@@ -1219,6 +1355,72 @@ Name | Type | Description  | Notes
 [[Back to README]](../README.md)
 
 
+## SearchCloudResources
+
+> []ModelCloudResource SearchCloudResources(ctx).SearchSearchNodeReq(searchSearchNodeReq).Execute()
+
+Search Cloud Resources
+
+
+
+### Example
+
+```go
+package main
+
+import (
+    "context"
+    "fmt"
+    "os"
+    openapiclient "github.com/deepfence/golang_deepfence_sdk/client"
+)
+
+func main() {
+    searchSearchNodeReq := *openapiclient.NewSearchSearchNodeReq(*openapiclient.NewSearchSearchFilter(*openapiclient.NewReportersFieldsFilters([]openapiclient.ReportersCompareFilter{*openapiclient.NewReportersCompareFilter("FieldName_example", interface{}(123), false)}, *openapiclient.NewReportersContainsFilter(map[string][]interface{}{"key": []interface{}{nil}}), *openapiclient.NewReportersMatchFilter(map[string][]interface{}{"key": []interface{}{nil}}), *openapiclient.NewReportersOrderFilter([]openapiclient.ReportersOrderSpec{*openapiclient.NewReportersOrderSpec(false, "FieldName_example")})), []string{"InFieldFilter_example"}, *openapiclient.NewModelFetchWindow(int32(123), int32(123))), *openapiclient.NewModelFetchWindow(int32(123), int32(123))) // SearchSearchNodeReq |  (optional)
+
+    configuration := openapiclient.NewConfiguration()
+    apiClient := openapiclient.NewAPIClient(configuration)
+    resp, r, err := apiClient.SearchApi.SearchCloudResources(context.Background()).SearchSearchNodeReq(searchSearchNodeReq).Execute()
+    if err != nil {
+        fmt.Fprintf(os.Stderr, "Error when calling `SearchApi.SearchCloudResources``: %v\n", err)
+        fmt.Fprintf(os.Stderr, "Full HTTP response: %v\n", r)
+    }
+    // response from `SearchCloudResources`: []ModelCloudResource
+    fmt.Fprintf(os.Stdout, "Response from `SearchApi.SearchCloudResources`: %v\n", resp)
+}
+```
+
+### Path Parameters
+
+
+
+### Other Parameters
+
+Other parameters are passed through a pointer to a apiSearchCloudResourcesRequest struct via the builder pattern
+
+
+Name | Type | Description  | Notes
+------------- | ------------- | ------------- | -------------
+ **searchSearchNodeReq** | [**SearchSearchNodeReq**](SearchSearchNodeReq.md) |  | 
+
+### Return type
+
+[**[]ModelCloudResource**](ModelCloudResource.md)
+
+### Authorization
+
+[bearer_token](../README.md#bearer_token)
+
+### HTTP request headers
+
+- **Content-Type**: application/json
+- **Accept**: application/json
+
+[[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints)
+[[Back to Model list]](../README.md#documentation-for-models)
+[[Back to README]](../README.md)
+
+
 ## SearchComplianceScans
 
 > []ModelScanInfo SearchComplianceScans(ctx).SearchSearchScanReq(searchSearchScanReq).Execute()
@@ -1534,6 +1736,72 @@ Name | Type | Description  | Notes
 ### Return type
 
 [**[]ModelHost**](ModelHost.md)
+
+### Authorization
+
+[bearer_token](../README.md#bearer_token)
+
+### HTTP request headers
+
+- **Content-Type**: application/json
+- **Accept**: application/json
+
+[[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints)
+[[Back to Model list]](../README.md#documentation-for-models)
+[[Back to README]](../README.md)
+
+
+## SearchKubernetesClusters
+
+> []ModelKubernetesCluster SearchKubernetesClusters(ctx).SearchSearchNodeReq(searchSearchNodeReq).Execute()
+
+Search Kuberenetes Clusters
+
+
+
+### Example
+
+```go
+package main
+
+import (
+    "context"
+    "fmt"
+    "os"
+    openapiclient "github.com/deepfence/golang_deepfence_sdk/client"
+)
+
+func main() {
+    searchSearchNodeReq := *openapiclient.NewSearchSearchNodeReq(*openapiclient.NewSearchSearchFilter(*openapiclient.NewReportersFieldsFilters([]openapiclient.ReportersCompareFilter{*openapiclient.NewReportersCompareFilter("FieldName_example", interface{}(123), false)}, *openapiclient.NewReportersContainsFilter(map[string][]interface{}{"key": []interface{}{nil}}), *openapiclient.NewReportersMatchFilter(map[string][]interface{}{"key": []interface{}{nil}}), *openapiclient.NewReportersOrderFilter([]openapiclient.ReportersOrderSpec{*openapiclient.NewReportersOrderSpec(false, "FieldName_example")})), []string{"InFieldFilter_example"}, *openapiclient.NewModelFetchWindow(int32(123), int32(123))), *openapiclient.NewModelFetchWindow(int32(123), int32(123))) // SearchSearchNodeReq |  (optional)
+
+    configuration := openapiclient.NewConfiguration()
+    apiClient := openapiclient.NewAPIClient(configuration)
+    resp, r, err := apiClient.SearchApi.SearchKubernetesClusters(context.Background()).SearchSearchNodeReq(searchSearchNodeReq).Execute()
+    if err != nil {
+        fmt.Fprintf(os.Stderr, "Error when calling `SearchApi.SearchKubernetesClusters``: %v\n", err)
+        fmt.Fprintf(os.Stderr, "Full HTTP response: %v\n", r)
+    }
+    // response from `SearchKubernetesClusters`: []ModelKubernetesCluster
+    fmt.Fprintf(os.Stdout, "Response from `SearchApi.SearchKubernetesClusters`: %v\n", resp)
+}
+```
+
+### Path Parameters
+
+
+
+### Other Parameters
+
+Other parameters are passed through a pointer to a apiSearchKubernetesClustersRequest struct via the builder pattern
+
+
+Name | Type | Description  | Notes
+------------- | ------------- | ------------- | -------------
+ **searchSearchNodeReq** | [**SearchSearchNodeReq**](SearchSearchNodeReq.md) |  | 
+
+### Return type
+
+[**[]ModelKubernetesCluster**](ModelKubernetesCluster.md)
 
 ### Authorization
 

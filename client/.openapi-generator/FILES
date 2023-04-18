@@ -74,6 +74,7 @@ docs/MalwareScanApi.md
 docs/ModelAgentId.md
 docs/ModelAgentUpgrade.md
 docs/ModelApiAuthRequest.md
+docs/ModelApiTokenResponse.md
 docs/ModelBasicNode.md
 docs/ModelCloudCompliance.md
 docs/ModelCloudComplianceBenchmark.md
@@ -101,6 +102,8 @@ docs/ModelConnection.md
 docs/ModelContainer.md
 docs/ModelContainerImage.md
 docs/ModelDownloadReportResponse.md
+docs/ModelEmailConfigurationAdd.md
+docs/ModelEmailConfigurationResp.md
 docs/ModelExportReport.md
 docs/ModelFetchWindow.md
 docs/ModelFiltersReq.md
@@ -111,6 +114,7 @@ docs/ModelHost.md
 docs/ModelImageStub.md
 docs/ModelInitAgentReq.md
 docs/ModelIntegrationAddReq.md
+docs/ModelIntegrationFilters.md
 docs/ModelIntegrationListResp.md
 docs/ModelInviteUserRequest.md
 docs/ModelInviteUserResponse.md
@@ -165,6 +169,7 @@ docs/ModelVulnerability.md
 docs/ModelVulnerabilityScanConfigLanguage.md
 docs/ModelVulnerabilityScanResult.md
 docs/ModelVulnerabilityScanTriggerReq.md
+docs/PostgresqlDbGetAuditLogsRow.md
 docs/RegistryApi.md
 docs/ReportMetadata.md
 docs/ReportRawReport.md
@@ -232,6 +237,7 @@ model_lookup_lookup_filter.go
 model_model_agent_id.go
 model_model_agent_upgrade.go
 model_model_api_auth_request.go
+model_model_api_token_response.go
 model_model_basic_node.go
 model_model_cloud_compliance.go
 model_model_cloud_compliance_benchmark.go
@@ -259,6 +265,8 @@ model_model_connection.go
 model_model_container.go
 model_model_container_image.go
 model_model_download_report_response.go
+model_model_email_configuration_add.go
+model_model_email_configuration_resp.go
 model_model_export_report.go
 model_model_fetch_window.go
 model_model_filters_req.go
@@ -269,6 +277,7 @@ model_model_host.go
 model_model_image_stub.go
 model_model_init_agent_req.go
 model_model_integration_add_req.go
+model_model_integration_filters.go
 model_model_integration_list_resp.go
 model_model_invite_user_request.go
 model_model_invite_user_response.go
@@ -323,6 +332,7 @@ model_model_vulnerability.go
 model_model_vulnerability_scan_config_language.go
 model_model_vulnerability_scan_result.go
 model_model_vulnerability_scan_trigger_req.go
+model_postgresql_db_get_audit_logs_row.go
 model_report_metadata.go
 model_report_raw_report.go
 model_reporters_compare_filter.go

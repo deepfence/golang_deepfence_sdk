@@ -40,9 +40,7 @@ paths:
           content:
             application/json:
               schema:
-                items:
-                  $ref: '#/components/schemas/PostgresqlDbApiToken'
-                type: array
+                $ref: '#/components/schemas/ModelApiTokenResponse'
           description: OK
         "400":
           content:
@@ -80,9 +78,7 @@ paths:
           content:
             application/json:
               schema:
-                items:
-                  $ref: '#/components/schemas/PostgresqlDbApiToken'
-                type: array
+                $ref: '#/components/schemas/ModelApiTokenResponse'
           description: OK
         "400":
           content:
@@ -4571,6 +4567,51 @@ paths:
       summary: Search Cloud compliances
       tags:
       - Search
+  /deepfence/search/cloud-resources:
+    post:
+      description: Search across all data associated with CloudResources
+      operationId: searchCloudResources
+      requestBody:
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/SearchSearchNodeReq'
+      responses:
+        "200":
+          content:
+            application/json:
+              schema:
+                items:
+                  $ref: '#/components/schemas/ModelCloudResource'
+                type: array
+          description: OK
+        "400":
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ApiDocsBadRequestResponse'
+          description: Bad Request
+        "401":
+          description: Unauthorized
+        "403":
+          description: Forbidden
+        "404":
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ApiDocsFailureResponse'
+          description: Not Found
+        "500":
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ApiDocsFailureResponse'
+          description: Internal Server Error
+      security:
+      - bearer_token: []
+      summary: Search Cloud Resources
+      tags:
+      - Search
   /deepfence/search/compliance/scans:
     post:
       description: Search across all the data associated with compliance scan
@@ -4792,6 +4833,49 @@ paths:
       summary: Count Cloud compliances
       tags:
       - Search
+  /deepfence/search/count/cloud-resources:
+    post:
+      description: Count across all the data ssociated with cloud resources
+      operationId: countCloudResources
+      requestBody:
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/SearchSearchNodeReq'
+      responses:
+        "200":
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/SearchSearchCountResp'
+          description: OK
+        "400":
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ApiDocsBadRequestResponse'
+          description: Bad Request
+        "401":
+          description: Unauthorized
+        "403":
+          description: Forbidden
+        "404":
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ApiDocsFailureResponse'
+          description: Not Found
+        "500":
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ApiDocsFailureResponse'
+          description: Internal Server Error
+      security:
+      - bearer_token: []
+      summary: Count Cloud resources
+      tags:
+      - Search
   /deepfence/search/count/compliance/scans:
     post:
       description: Count across all the data associated with compliance scans
@@ -5005,6 +5089,49 @@ paths:
       security:
       - bearer_token: []
       summary: Count Container images
+      tags:
+      - Search
+  /deepfence/search/count/kubernetes-clusters:
+    post:
+      description: Count across all the data ssociated with kubernetes clusters
+      operationId: countKubernetesClusters
+      requestBody:
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/SearchSearchNodeReq'
+      responses:
+        "200":
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/SearchSearchCountResp'
+          description: OK
+        "400":
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ApiDocsBadRequestResponse'
+          description: Bad Request
+        "401":
+          description: Unauthorized
+        "403":
+          description: Forbidden
+        "404":
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ApiDocsFailureResponse'
+          description: Not Found
+        "500":
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ApiDocsFailureResponse'
+          description: Internal Server Error
+      security:
+      - bearer_token: []
+      summary: Count Kubernetes clusters
       tags:
       - Search
   /deepfence/search/count/malware/scans:
@@ -5393,6 +5520,51 @@ paths:
       summary: Search Container images
       tags:
       - Search
+  /deepfence/search/kubernetes-clusters:
+    post:
+      description: Search across all data associated with kuberentes clusters
+      operationId: searchKubernetesClusters
+      requestBody:
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/SearchSearchNodeReq'
+      responses:
+        "200":
+          content:
+            application/json:
+              schema:
+                items:
+                  $ref: '#/components/schemas/ModelKubernetesCluster'
+                type: array
+          description: OK
+        "400":
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ApiDocsBadRequestResponse'
+          description: Bad Request
+        "401":
+          description: Unauthorized
+        "403":
+          description: Forbidden
+        "404":
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ApiDocsFailureResponse'
+          description: Not Found
+        "500":
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ApiDocsFailureResponse'
+          description: Internal Server Error
+      security:
+      - bearer_token: []
+      summary: Search Kuberenetes Clusters
+      tags:
+      - Search
   /deepfence/search/malware/scans:
     post:
       description: Search across all the data associated with malwares scan
@@ -5663,6 +5835,126 @@ paths:
       summary: Search Vulnerability Scan results
       tags:
       - Search
+  /deepfence/settings/email:
+    get:
+      description: Get Email Smtp / ses Configurations in system
+      operationId: getEmailConfiguration
+      responses:
+        "200":
+          content:
+            application/json:
+              schema:
+                items:
+                  $ref: '#/components/schemas/ModelEmailConfigurationResp'
+                type: array
+          description: OK
+        "400":
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ApiDocsBadRequestResponse'
+          description: Bad Request
+        "401":
+          description: Unauthorized
+        "403":
+          description: Forbidden
+        "404":
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ApiDocsFailureResponse'
+          description: Not Found
+        "500":
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ApiDocsFailureResponse'
+          description: Internal Server Error
+      security:
+      - bearer_token: []
+      summary: Get Email Configurations
+      tags:
+      - Settings
+    post:
+      description: This email configuration is used to send email notifications
+      operationId: addEmailConfiguration
+      requestBody:
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/ModelEmailConfigurationAdd'
+      responses:
+        "200":
+          description: OK
+        "400":
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ApiDocsBadRequestResponse'
+          description: Bad Request
+        "401":
+          description: Unauthorized
+        "403":
+          description: Forbidden
+        "404":
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ApiDocsFailureResponse'
+          description: Not Found
+        "500":
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ApiDocsFailureResponse'
+          description: Internal Server Error
+      security:
+      - bearer_token: []
+      summary: Add Email Configuration
+      tags:
+      - Settings
+  /deepfence/settings/email/{config_id}:
+    delete:
+      description: Delete Email Smtp / ses Configurations in system
+      operationId: deleteEmailConfiguration
+      parameters:
+      - explode: false
+        in: path
+        name: config_id
+        required: true
+        schema:
+          type: string
+        style: simple
+      responses:
+        "204":
+          description: No Content
+        "400":
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ApiDocsBadRequestResponse'
+          description: Bad Request
+        "401":
+          description: Unauthorized
+        "403":
+          description: Forbidden
+        "404":
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ApiDocsFailureResponse'
+          description: Not Found
+        "500":
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ApiDocsFailureResponse'
+          description: Internal Server Error
+      security:
+      - bearer_token: []
+      summary: Delete Email Configurations
+      tags:
+      - Settings
   /deepfence/settings/global-settings:
     get:
       description: Get all settings
@@ -7022,6 +7314,11 @@ components:
           - greater_than: true
             field_value: ""
             field_name: field_name
+          not_contains_filter:
+            filter_in:
+              key:
+              - ""
+              - ""
           order_filter:
             order_fields:
             - descending: true
@@ -7857,6 +8154,29 @@ components:
           type: string
       required:
       - api_token
+      type: object
+    ModelApiTokenResponse:
+      example:
+        company_id: 0
+        api_token: api_token
+        name: name
+        created_at: 2000-01-23T04:56:07.000+00:00
+        id: 1
+        created_by_user_id: 6
+      properties:
+        api_token:
+          type: string
+        company_id:
+          type: integer
+        created_at:
+          format: date-time
+          type: string
+        created_by_user_id:
+          type: integer
+        id:
+          type: integer
+        name:
+          type: string
       type: object
     ModelBasicNode:
       example:
@@ -9126,6 +9446,62 @@ components:
         url_link:
           type: string
       type: object
+    ModelEmailConfigurationAdd:
+      example:
+        email_id: email_id
+        password: password
+        smtp: smtp
+        port: port
+        email_provider: email_provider
+        amazon_secret_key: amazon_secret_key
+        amazon_access_key: amazon_access_key
+        created_by_user_id: 0
+        ses_region: ses_region
+      properties:
+        amazon_access_key:
+          type: string
+        amazon_secret_key:
+          type: string
+        created_by_user_id:
+          type: integer
+        email_id:
+          type: string
+        email_provider:
+          type: string
+        password:
+          type: string
+        port:
+          type: string
+        ses_region:
+          type: string
+        smtp:
+          type: string
+      type: object
+    ModelEmailConfigurationResp:
+      example:
+        email_id: email_id
+        smtp: smtp
+        port: port
+        email_provider: email_provider
+        id: 6
+        created_by_user_id: 0
+        ses_region: ses_region
+      properties:
+        created_by_user_id:
+          type: integer
+        email_id:
+          type: string
+        email_provider:
+          type: string
+        id:
+          type: integer
+        port:
+          type: string
+        ses_region:
+          type: string
+        smtp:
+          type: string
+      type: object
     ModelExportReport:
       example:
         duration: 6
@@ -10221,9 +10597,40 @@ components:
       example:
         notification_type: notification_type
         filters:
-          key:
-          - filters
-          - filters
+          fields_filters:
+            compare_filter:
+            - greater_than: true
+              field_value: ""
+              field_name: field_name
+            - greater_than: true
+              field_value: ""
+              field_name: field_name
+            not_contains_filter:
+              filter_in:
+                key:
+                - ""
+                - ""
+            order_filter:
+              order_fields:
+              - descending: true
+                field_name: field_name
+              - descending: true
+                field_name: field_name
+            contains_filter:
+              filter_in:
+                key:
+                - ""
+                - ""
+            match_filter:
+              filter_in:
+                key:
+                - ""
+                - ""
+          node_ids:
+          - node_type: image
+            node_id: node_id
+          - node_type: image
+            node_id: node_id
         integration_type: integration_type
         config:
           key: ""
@@ -10233,24 +10640,91 @@ components:
           nullable: true
           type: object
         filters:
-          additionalProperties:
-            items:
-              type: string
-            type: array
-          nullable: true
-          type: object
+          $ref: '#/components/schemas/ModelIntegrationFilters'
         integration_type:
           type: string
         notification_type:
           type: string
       type: object
+    ModelIntegrationFilters:
+      example:
+        fields_filters:
+          compare_filter:
+          - greater_than: true
+            field_value: ""
+            field_name: field_name
+          - greater_than: true
+            field_value: ""
+            field_name: field_name
+          not_contains_filter:
+            filter_in:
+              key:
+              - ""
+              - ""
+          order_filter:
+            order_fields:
+            - descending: true
+              field_name: field_name
+            - descending: true
+              field_name: field_name
+          contains_filter:
+            filter_in:
+              key:
+              - ""
+              - ""
+          match_filter:
+            filter_in:
+              key:
+              - ""
+              - ""
+        node_ids:
+        - node_type: image
+          node_id: node_id
+        - node_type: image
+          node_id: node_id
+      properties:
+        fields_filters:
+          $ref: '#/components/schemas/ReportersFieldsFilters'
+        node_ids:
+          items:
+            $ref: '#/components/schemas/ModelNodeIdentifier'
+          nullable: true
+          type: array
+      required:
+      - node_ids
+      type: object
     ModelIntegrationListResp:
       example:
         notification_type: notification_type
         filters:
-          key:
-          - filters
-          - filters
+          compare_filter:
+          - greater_than: true
+            field_value: ""
+            field_name: field_name
+          - greater_than: true
+            field_value: ""
+            field_name: field_name
+          not_contains_filter:
+            filter_in:
+              key:
+              - ""
+              - ""
+          order_filter:
+            order_fields:
+            - descending: true
+              field_name: field_name
+            - descending: true
+              field_name: field_name
+          contains_filter:
+            filter_in:
+              key:
+              - ""
+              - ""
+          match_filter:
+            filter_in:
+              key:
+              - ""
+              - ""
         id: 0
         integration_type: integration_type
         config:
@@ -10261,12 +10735,7 @@ components:
           nullable: true
           type: object
         filters:
-          additionalProperties:
-            items:
-              type: string
-            type: array
-          nullable: true
-          type: object
+          $ref: '#/components/schemas/ReportersFieldsFilters'
         id:
           type: integer
         integration_type:
@@ -13019,6 +13488,11 @@ components:
           - greater_than: true
             field_value: ""
             field_name: field_name
+          not_contains_filter:
+            filter_in:
+              key:
+              - ""
+              - ""
           order_filter:
             order_fields:
             - descending: true
@@ -13187,6 +13661,11 @@ components:
           - greater_than: true
             field_value: ""
             field_name: field_name
+          not_contains_filter:
+            filter_in:
+              key:
+              - ""
+              - ""
           order_filter:
             order_fields:
             - descending: true
@@ -13937,9 +14416,37 @@ components:
       - node_ids
       - scan_config
       type: object
-    PostgresqlDbApiToken:
-      type: object
     PostgresqlDbGetAuditLogsRow:
+      example:
+        user_role_id: 6
+        role: role
+        user_id: 0
+        success: true
+        action: action
+        created_at: 2000-01-23T04:56:07.000+00:00
+        resources: resources
+        event: event
+        email: email
+      properties:
+        action:
+          type: string
+        created_at:
+          format: date-time
+          type: string
+        email:
+          type: string
+        event:
+          type: string
+        resources:
+          type: string
+        role:
+          type: string
+        success:
+          type: boolean
+        user_id:
+          type: integer
+        user_role_id:
+          type: integer
       type: object
     ReportIDList:
       items:
@@ -14256,6 +14763,11 @@ components:
         - greater_than: true
           field_value: ""
           field_name: field_name
+        not_contains_filter:
+          filter_in:
+            key:
+            - ""
+            - ""
         order_filter:
           order_fields:
           - descending: true
@@ -14282,6 +14794,8 @@ components:
           $ref: '#/components/schemas/ReportersContainsFilter'
         match_filter:
           $ref: '#/components/schemas/ReportersMatchFilter'
+        not_contains_filter:
+          $ref: '#/components/schemas/ReportersContainsFilter'
         order_filter:
           $ref: '#/components/schemas/ReportersOrderFilter'
       required:
@@ -14398,6 +14912,11 @@ components:
           - greater_than: true
             field_value: ""
             field_name: field_name
+          not_contains_filter:
+            filter_in:
+              key:
+              - ""
+              - ""
           order_filter:
             order_fields:
             - descending: true
@@ -14446,6 +14965,11 @@ components:
             - greater_than: true
               field_value: ""
               field_name: field_name
+            not_contains_filter:
+              filter_in:
+                key:
+                - ""
+                - ""
             order_filter:
               order_fields:
               - descending: true
@@ -14491,6 +15015,11 @@ components:
             - greater_than: true
               field_value: ""
               field_name: field_name
+            not_contains_filter:
+              filter_in:
+                key:
+                - ""
+                - ""
             order_filter:
               order_fields:
               - descending: true
@@ -14522,6 +15051,11 @@ components:
             - greater_than: true
               field_value: ""
               field_name: field_name
+            not_contains_filter:
+              filter_in:
+                key:
+                - ""
+                - ""
             order_filter:
               order_fields:
               - descending: true
