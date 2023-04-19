@@ -13,6 +13,20 @@ import (
 	"github.com/google/uuid"
 )
 
+const countActiveAdminUsers = `-- name: CountActiveAdminUsers :one
+SELECT count(*)
+FROM users
+         INNER JOIN role ON role.id = users.role_id
+WHERE users.is_active = true AND role.name = 'admin'
+`
+
+func (q *Queries) CountActiveAdminUsers(ctx context.Context) (int64, error) {
+	row := q.db.QueryRowContext(ctx, countActiveAdminUsers)
+	var count int64
+	err := row.Scan(&count)
+	return count, err
+}
+
 const countActiveUsers = `-- name: CountActiveUsers :one
 SELECT count(*)
 FROM users

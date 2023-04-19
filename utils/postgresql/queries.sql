@@ -83,6 +83,12 @@ SELECT count(*)
 FROM users
 WHERE users.is_active = true;
 
+-- name: CountActiveAdminUsers :one
+SELECT count(*)
+FROM users
+         INNER JOIN role ON role.id = users.role_id
+WHERE users.is_active = true AND role.name = 'admin';
+
 -- name: GetUser :one
 SELECT users.id,
        users.first_name,
