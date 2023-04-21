@@ -4,18 +4,20 @@
 
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
+**AccountId** | **string** |  | 
 **CloudComplianceLatestScanId** | **string** |  | 
 **CloudComplianceScanStatus** | **string** |  | 
 **CloudCompliancesCount** | **int32** |  | 
 **NodeId** | **string** |  | 
 **NodeName** | **string** |  | 
 **NodeType** | **string** |  | 
+**TypeLabel** | **string** |  | 
 
 ## Methods
 
 ### NewModelCloudResource
 
-`func NewModelCloudResource(cloudComplianceLatestScanId string, cloudComplianceScanStatus string, cloudCompliancesCount int32, nodeId string, nodeName string, nodeType string, ) *ModelCloudResource`
+`func NewModelCloudResource(accountId string, cloudComplianceLatestScanId string, cloudComplianceScanStatus string, cloudCompliancesCount int32, nodeId string, nodeName string, nodeType string, typeLabel string, ) *ModelCloudResource`
 
 NewModelCloudResource instantiates a new ModelCloudResource object
 This constructor will assign default values to properties that have it defined,
@@ -29,6 +31,26 @@ will change when the set of required properties is changed
 NewModelCloudResourceWithDefaults instantiates a new ModelCloudResource object
 This constructor will only assign default values to properties that have it defined,
 but it doesn't guarantee that properties required by API are set
+
+### GetAccountId
+
+`func (o *ModelCloudResource) GetAccountId() string`
+
+GetAccountId returns the AccountId field if non-nil, zero value otherwise.
+
+### GetAccountIdOk
+
+`func (o *ModelCloudResource) GetAccountIdOk() (*string, bool)`
+
+GetAccountIdOk returns a tuple with the AccountId field if it's non-nil, zero value otherwise
+and a boolean to check if the value has been set.
+
+### SetAccountId
+
+`func (o *ModelCloudResource) SetAccountId(v string)`
+
+SetAccountId sets AccountId field to given value.
+
 
 ### GetCloudComplianceLatestScanId
 
@@ -148,6 +170,26 @@ and a boolean to check if the value has been set.
 `func (o *ModelCloudResource) SetNodeType(v string)`
 
 SetNodeType sets NodeType field to given value.
+
+
+### GetTypeLabel
+
+`func (o *ModelCloudResource) GetTypeLabel() string`
+
+GetTypeLabel returns the TypeLabel field if non-nil, zero value otherwise.
+
+### GetTypeLabelOk
+
+`func (o *ModelCloudResource) GetTypeLabelOk() (*string, bool)`
+
+GetTypeLabelOk returns a tuple with the TypeLabel field if it's non-nil, zero value otherwise
+and a boolean to check if the value has been set.
+
+### SetTypeLabel
+
+`func (o *ModelCloudResource) SetTypeLabel(v string)`
+
+SetTypeLabel sets TypeLabel field to given value.
 
 
 

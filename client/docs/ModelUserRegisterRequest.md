@@ -8,7 +8,7 @@ Name | Type | Description | Notes
 **ConsoleUrl** | **string** |  | 
 **Email** | **string** |  | 
 **FirstName** | **string** |  | 
-**IsTemporaryPassword** | **bool** |  | 
+**IsTemporaryPassword** | Pointer to **bool** |  | [optional] 
 **LastName** | **string** |  | 
 **Password** | **string** |  | 
 
@@ -16,7 +16,7 @@ Name | Type | Description | Notes
 
 ### NewModelUserRegisterRequest
 
-`func NewModelUserRegisterRequest(company string, consoleUrl string, email string, firstName string, isTemporaryPassword bool, lastName string, password string, ) *ModelUserRegisterRequest`
+`func NewModelUserRegisterRequest(company string, consoleUrl string, email string, firstName string, lastName string, password string, ) *ModelUserRegisterRequest`
 
 NewModelUserRegisterRequest instantiates a new ModelUserRegisterRequest object
 This constructor will assign default values to properties that have it defined,
@@ -130,6 +130,11 @@ and a boolean to check if the value has been set.
 
 SetIsTemporaryPassword sets IsTemporaryPassword field to given value.
 
+### HasIsTemporaryPassword
+
+`func (o *ModelUserRegisterRequest) HasIsTemporaryPassword() bool`
+
+HasIsTemporaryPassword returns a boolean if a field has been set.
 
 ### GetLastName
 

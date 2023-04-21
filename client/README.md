@@ -167,6 +167,7 @@ Class | Method | HTTP request | Description
 *SearchApi* | [**CountMalwareScans**](docs/SearchApi.md#countmalwarescans) | **Post** /deepfence/search/count/malware/scans | Count Malware Scan results
 *SearchApi* | [**CountMalwares**](docs/SearchApi.md#countmalwares) | **Post** /deepfence/search/count/malwares | Count Malwares
 *SearchApi* | [**CountNodes**](docs/SearchApi.md#countnodes) | **Get** /deepfence/search/count/nodes | Count nodes
+*SearchApi* | [**CountPods**](docs/SearchApi.md#countpods) | **Post** /deepfence/search/count/pods | Count Pods
 *SearchApi* | [**CountSecrets**](docs/SearchApi.md#countsecrets) | **Post** /deepfence/search/count/secrets | Count Secrets
 *SearchApi* | [**CountSecretsScans**](docs/SearchApi.md#countsecretsscans) | **Post** /deepfence/search/count/secret/scans | Count Secret Scan results
 *SearchApi* | [**CountVulnerabilities**](docs/SearchApi.md#countvulnerabilities) | **Post** /deepfence/search/count/vulnerabilities | Count Vulnerabilities
@@ -184,6 +185,7 @@ Class | Method | HTTP request | Description
 *SearchApi* | [**SearchKubernetesClusters**](docs/SearchApi.md#searchkubernetesclusters) | **Post** /deepfence/search/kubernetes-clusters | Search Kuberenetes Clusters
 *SearchApi* | [**SearchMalwareScans**](docs/SearchApi.md#searchmalwarescans) | **Post** /deepfence/search/malware/scans | Search Malware Scan results
 *SearchApi* | [**SearchMalwares**](docs/SearchApi.md#searchmalwares) | **Post** /deepfence/search/malwares | Search Malwares
+*SearchApi* | [**SearchPods**](docs/SearchApi.md#searchpods) | **Post** /deepfence/search/pods | Search Pods
 *SearchApi* | [**SearchSecrets**](docs/SearchApi.md#searchsecrets) | **Post** /deepfence/search/secrets | Search Secrets
 *SearchApi* | [**SearchSecretsScans**](docs/SearchApi.md#searchsecretsscans) | **Post** /deepfence/search/secret/scans | Search Secrets Scan results
 *SearchApi* | [**SearchVulnerabilities**](docs/SearchApi.md#searchvulnerabilities) | **Post** /deepfence/search/vulnerabilities | Search Vulnerabilities
@@ -203,6 +205,7 @@ Class | Method | HTTP request | Description
 *SettingsApi* | [**GetUserActivityLogs**](docs/SettingsApi.md#getuseractivitylogs) | **Get** /deepfence/settings/user-activity-log | Get activity logs
 *SettingsApi* | [**UpdateSetting**](docs/SettingsApi.md#updatesetting) | **Patch** /deepfence/settings/global-settings/{id} | Update setting
 *ThreatApi* | [**GetThreatGraph**](docs/ThreatApi.md#getthreatgraph) | **Post** /deepfence/graph/threat | Get Threat Graph
+*ThreatApi* | [**GetVulnerabilityThreatGraph**](docs/ThreatApi.md#getvulnerabilitythreatgraph) | **Post** /deepfence/graph/threat/vulnerability | Get Vulnerability Threat Graph
 *TopologyApi* | [**GetContainersTopologyGraph**](docs/TopologyApi.md#getcontainerstopologygraph) | **Post** /deepfence/graph/topology/containers | Get Containers Topology Graph
 *TopologyApi* | [**GetHostsTopologyGraph**](docs/TopologyApi.md#gethoststopologygraph) | **Post** /deepfence/graph/topology/hosts | Get Hosts Topology Graph
 *TopologyApi* | [**GetKubernetesTopologyGraph**](docs/TopologyApi.md#getkubernetestopologygraph) | **Post** /deepfence/graph/topology/kubernetes | Get Kubernetes Topology Graph
@@ -260,6 +263,8 @@ Class | Method | HTTP request | Description
  - [GraphThreatFilters](docs/GraphThreatFilters.md)
  - [GraphThreatNodeInfo](docs/GraphThreatNodeInfo.md)
  - [GraphTopologyFilters](docs/GraphTopologyFilters.md)
+ - [GraphVulnerabilityThreatGraph](docs/GraphVulnerabilityThreatGraph.md)
+ - [GraphVulnerabilityThreatGraphRequest](docs/GraphVulnerabilityThreatGraphRequest.md)
  - [IngestersCloudCompliance](docs/IngestersCloudCompliance.md)
  - [IngestersCloudResource](docs/IngestersCloudResource.md)
  - [IngestersCompliance](docs/IngestersCompliance.md)

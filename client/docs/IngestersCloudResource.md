@@ -14,6 +14,7 @@ Name | Type | Description | Notes
 **BlockPublicPolicy** | Pointer to **bool** |  | [optional] 
 **BucketPolicyIsPublic** | Pointer to **bool** |  | [optional] 
 **CidrIpv4** | Pointer to **string** |  | [optional] 
+**CloudProvider** | Pointer to **string** |  | [optional] 
 **ContainerDefinitions** | Pointer to **interface{}** |  | [optional] 
 **Containers** | Pointer to **interface{}** |  | [optional] 
 **CreateDate** | Pointer to **string** |  | [optional] 
@@ -349,6 +350,31 @@ SetCidrIpv4 sets CidrIpv4 field to given value.
 `func (o *IngestersCloudResource) HasCidrIpv4() bool`
 
 HasCidrIpv4 returns a boolean if a field has been set.
+
+### GetCloudProvider
+
+`func (o *IngestersCloudResource) GetCloudProvider() string`
+
+GetCloudProvider returns the CloudProvider field if non-nil, zero value otherwise.
+
+### GetCloudProviderOk
+
+`func (o *IngestersCloudResource) GetCloudProviderOk() (*string, bool)`
+
+GetCloudProviderOk returns a tuple with the CloudProvider field if it's non-nil, zero value otherwise
+and a boolean to check if the value has been set.
+
+### SetCloudProvider
+
+`func (o *IngestersCloudResource) SetCloudProvider(v string)`
+
+SetCloudProvider sets CloudProvider field to given value.
+
+### HasCloudProvider
+
+`func (o *IngestersCloudResource) HasCloudProvider() bool`
+
+HasCloudProvider returns a boolean if a field has been set.
 
 ### GetContainerDefinitions
 

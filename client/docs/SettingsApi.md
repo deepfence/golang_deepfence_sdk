@@ -15,7 +15,7 @@ Method | HTTP request | Description
 
 ## AddEmailConfiguration
 
-> AddEmailConfiguration(ctx).ModelEmailConfigurationAdd(modelEmailConfigurationAdd).Execute()
+> ModelMessageResponse AddEmailConfiguration(ctx).ModelEmailConfigurationAdd(modelEmailConfigurationAdd).Execute()
 
 Add Email Configuration
 
@@ -38,11 +38,13 @@ func main() {
 
     configuration := openapiclient.NewConfiguration()
     apiClient := openapiclient.NewAPIClient(configuration)
-    r, err := apiClient.SettingsApi.AddEmailConfiguration(context.Background()).ModelEmailConfigurationAdd(modelEmailConfigurationAdd).Execute()
+    resp, r, err := apiClient.SettingsApi.AddEmailConfiguration(context.Background()).ModelEmailConfigurationAdd(modelEmailConfigurationAdd).Execute()
     if err != nil {
         fmt.Fprintf(os.Stderr, "Error when calling `SettingsApi.AddEmailConfiguration``: %v\n", err)
         fmt.Fprintf(os.Stderr, "Full HTTP response: %v\n", r)
     }
+    // response from `AddEmailConfiguration`: ModelMessageResponse
+    fmt.Fprintf(os.Stdout, "Response from `SettingsApi.AddEmailConfiguration`: %v\n", resp)
 }
 ```
 
@@ -61,7 +63,7 @@ Name | Type | Description  | Notes
 
 ### Return type
 
- (empty response body)
+[**ModelMessageResponse**](ModelMessageResponse.md)
 
 ### Authorization
 

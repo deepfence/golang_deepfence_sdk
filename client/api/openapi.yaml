@@ -40,7 +40,9 @@ paths:
           content:
             application/json:
               schema:
-                $ref: '#/components/schemas/ModelApiTokenResponse'
+                items:
+                  $ref: '#/components/schemas/ModelApiTokenResponse'
+                type: array
           description: OK
         "400":
           content:
@@ -78,7 +80,9 @@ paths:
           content:
             application/json:
               schema:
-                $ref: '#/components/schemas/ModelApiTokenResponse'
+                items:
+                  $ref: '#/components/schemas/ModelApiTokenResponse'
+                type: array
           description: OK
         "400":
           content:
@@ -933,6 +937,51 @@ paths:
       summary: Get Threat Graph
       tags:
       - Threat
+  /deepfence/graph/threat/vulnerability:
+    post:
+      description: Retrieve threat graph associated with vulnerabilities
+      operationId: getVulnerabilityThreatGraph
+      requestBody:
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/GraphVulnerabilityThreatGraphRequest'
+      responses:
+        "200":
+          content:
+            application/json:
+              schema:
+                items:
+                  $ref: '#/components/schemas/GraphVulnerabilityThreatGraph'
+                type: array
+          description: OK
+        "400":
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ApiDocsBadRequestResponse'
+          description: Bad Request
+        "401":
+          description: Unauthorized
+        "403":
+          description: Forbidden
+        "404":
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ApiDocsFailureResponse'
+          description: Not Found
+        "500":
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ApiDocsFailureResponse'
+          description: Internal Server Error
+      security:
+      - bearer_token: []
+      summary: Get Vulnerability Threat Graph
+      tags:
+      - Threat
   /deepfence/graph/topology/:
     post:
       description: Retrieve the full topology graph associated with the account
@@ -1739,6 +1788,10 @@ paths:
               $ref: '#/components/schemas/ModelIntegrationAddReq'
       responses:
         "200":
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ModelMessageResponse'
           description: OK
         "400":
           content:
@@ -1780,8 +1833,8 @@ paths:
           type: string
         style: simple
       responses:
-        "200":
-          description: OK
+        "204":
+          description: No Content
         "400":
           content:
             application/json:
@@ -2296,8 +2349,8 @@ paths:
           type: string
         style: simple
       responses:
-        "200":
-          description: OK
+        "204":
+          description: No Content
         "400":
           content:
             application/json:
@@ -2812,8 +2865,8 @@ paths:
           type: string
         style: simple
       responses:
-        "200":
-          description: OK
+        "204":
+          description: No Content
         "400":
           content:
             application/json:
@@ -5258,6 +5311,49 @@ paths:
       summary: Count nodes
       tags:
       - Search
+  /deepfence/search/count/pods:
+    post:
+      description: Count across all the data associated with pods
+      operationId: countPods
+      requestBody:
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/SearchSearchNodeReq'
+      responses:
+        "200":
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/SearchSearchCountResp'
+          description: OK
+        "400":
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ApiDocsBadRequestResponse'
+          description: Bad Request
+        "401":
+          description: Unauthorized
+        "403":
+          description: Forbidden
+        "404":
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ApiDocsFailureResponse'
+          description: Not Found
+        "500":
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ApiDocsFailureResponse'
+          description: Internal Server Error
+      security:
+      - bearer_token: []
+      summary: Count Pods
+      tags:
+      - Search
   /deepfence/search/count/secret/scans:
     post:
       description: Count across all the data associated with secret scans
@@ -5655,6 +5751,51 @@ paths:
       summary: Search Malwares
       tags:
       - Search
+  /deepfence/search/pods:
+    post:
+      description: Search across all the data associated with pods
+      operationId: searchPods
+      requestBody:
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/SearchSearchNodeReq'
+      responses:
+        "200":
+          content:
+            application/json:
+              schema:
+                items:
+                  $ref: '#/components/schemas/ModelPod'
+                type: array
+          description: OK
+        "400":
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ApiDocsBadRequestResponse'
+          description: Bad Request
+        "401":
+          description: Unauthorized
+        "403":
+          description: Forbidden
+        "404":
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ApiDocsFailureResponse'
+          description: Not Found
+        "500":
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ApiDocsFailureResponse'
+          description: Internal Server Error
+      security:
+      - bearer_token: []
+      summary: Search Pods
+      tags:
+      - Search
   /deepfence/search/secret/scans:
     post:
       description: Search across all the data associated with secrets scan
@@ -5885,6 +6026,10 @@ paths:
               $ref: '#/components/schemas/ModelEmailConfigurationAdd'
       responses:
         "200":
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ModelMessageResponse'
           description: OK
         "400":
           content:
@@ -7392,6 +7537,53 @@ components:
       - pod_filter
       - region_filter
       type: object
+    GraphVulnerabilityThreatGraph:
+      example:
+        cve_id:
+        - cve_id
+        - cve_id
+        ports:
+        - ""
+        - ""
+        attack_path:
+        - - attack_path
+          - attack_path
+        - - attack_path
+          - attack_path
+        cve_attack_vector: cve_attack_vector
+      properties:
+        attack_path:
+          items:
+            items:
+              type: string
+            type: array
+          nullable: true
+          type: array
+        cve_attack_vector:
+          type: string
+        cve_id:
+          items:
+            type: string
+          nullable: true
+          type: array
+        ports:
+          items: {}
+          nullable: true
+          type: array
+      type: object
+    GraphVulnerabilityThreatGraphRequest:
+      example:
+        graph_type: most_vulnerable_attack_paths
+      properties:
+        graph_type:
+          enum:
+          - most_vulnerable_attack_paths
+          - direct_internet_exposure
+          - indirect_internet_exposure
+          type: string
+      required:
+      - graph_type
+      type: object
     IngestersCloudCompliance:
       example:
         severity: severity
@@ -7512,6 +7704,7 @@ components:
         cidr_ipv4: cidr_ipv4
         groups: ""
         user-groups: ""
+        cloud_provider: cloud_provider
         vpc_security_groups: ""
         block_public_policy: true
         account_id: account_id
@@ -7540,6 +7733,8 @@ components:
         bucket_policy_is_public:
           type: boolean
         cidr_ipv4:
+          type: string
+        cloud_provider:
           type: string
         container_definitions: {}
         containers: {}
@@ -8741,12 +8936,16 @@ components:
     ModelCloudResource:
       example:
         cloud_compliances_count: 0
+        account_id: account_id
         cloud_compliance_latest_scan_id: cloud_compliance_latest_scan_id
         node_type: node_type
         cloud_compliance_scan_status: cloud_compliance_scan_status
         node_name: node_name
+        type_label: type_label
         node_id: node_id
       properties:
+        account_id:
+          type: string
         cloud_compliance_latest_scan_id:
           type: string
         cloud_compliance_scan_status:
@@ -8759,13 +8958,17 @@ components:
           type: string
         node_type:
           type: string
+        type_label:
+          type: string
       required:
+      - account_id
       - cloud_compliance_latest_scan_id
       - cloud_compliance_scan_status
       - cloud_compliances_count
       - node_id
       - node_name
       - node_type
+      - type_label
       type: object
     ModelCompliance:
       example:
@@ -9913,9 +10116,6 @@ components:
           docker_image_name: docker_image_name
           node_id: node_id
         cpu_max: 6.027456183070403
-        interface_names:
-        - ""
-        - ""
         memory_usage: 7
         private_ip:
         - ""
@@ -9931,9 +10131,6 @@ components:
         - count: 5
           node_name: node_name
           node_id: node_id
-        interface_ips:
-        - ""
-        - ""
         availability_zone: availability_zone
         is_console_vm: true
         processes:
@@ -10433,14 +10630,6 @@ components:
           type: string
         instance_type:
           type: string
-        interface_ips:
-          items: {}
-          nullable: true
-          type: array
-        interface_names:
-          items: {}
-          nullable: true
-          type: array
         is_console_vm:
           type: boolean
         kernel_id:
@@ -10528,8 +10717,6 @@ components:
       - inbound_connections
       - instance_id
       - instance_type
-      - interface_ips
-      - interface_names
       - is_console_vm
       - kernel_id
       - kernel_version
@@ -11047,9 +11234,6 @@ components:
             docker_image_name: docker_image_name
             node_id: node_id
           cpu_max: 6.027456183070403
-          interface_names:
-          - ""
-          - ""
           memory_usage: 7
           private_ip:
           - ""
@@ -11065,9 +11249,6 @@ components:
           - count: 5
             node_name: node_name
             node_id: node_id
-          interface_ips:
-          - ""
-          - ""
           availability_zone: availability_zone
           is_console_vm: true
           processes:
@@ -11791,9 +11972,6 @@ components:
             docker_image_name: docker_image_name
             node_id: node_id
           cpu_max: 6.027456183070403
-          interface_names:
-          - ""
-          - ""
           memory_usage: 7
           private_ip:
           - ""
@@ -11809,9 +11987,6 @@ components:
           - count: 5
             node_name: node_name
             node_id: node_id
-          interface_ips:
-          - ""
-          - ""
           availability_zone: availability_zone
           is_console_vm: true
           processes:
@@ -12911,7 +13086,6 @@ components:
       required:
       - code
       - first_name
-      - is_temporary_password
       - last_name
       - password
       type: object
@@ -14028,8 +14202,6 @@ components:
           - standard-user
           - read-only-user
           type: string
-      required:
-      - role
       type: object
     ModelUpdateUserPasswordRequest:
       example:
@@ -14063,8 +14235,6 @@ components:
           - standard-user
           - read-only-user
           type: string
-      required:
-      - role
       type: object
     ModelUser:
       example:
@@ -14149,7 +14319,6 @@ components:
       - console_url
       - email
       - first_name
-      - is_temporary_password
       - last_name
       - password
       type: object

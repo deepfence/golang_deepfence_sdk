@@ -24,7 +24,7 @@ type ModelUserRegisterRequest struct {
 	ConsoleUrl string `json:"console_url"`
 	Email string `json:"email"`
 	FirstName string `json:"first_name"`
-	IsTemporaryPassword bool `json:"is_temporary_password"`
+	IsTemporaryPassword *bool `json:"is_temporary_password,omitempty"`
 	LastName string `json:"last_name"`
 	Password string `json:"password"`
 }
@@ -33,13 +33,12 @@ type ModelUserRegisterRequest struct {
 // This constructor will assign default values to properties that have it defined,
 // and makes sure properties required by API are set, but the set of arguments
 // will change when the set of required properties is changed
-func NewModelUserRegisterRequest(company string, consoleUrl string, email string, firstName string, isTemporaryPassword bool, lastName string, password string) *ModelUserRegisterRequest {
+func NewModelUserRegisterRequest(company string, consoleUrl string, email string, firstName string, lastName string, password string) *ModelUserRegisterRequest {
 	this := ModelUserRegisterRequest{}
 	this.Company = company
 	this.ConsoleUrl = consoleUrl
 	this.Email = email
 	this.FirstName = firstName
-	this.IsTemporaryPassword = isTemporaryPassword
 	this.LastName = lastName
 	this.Password = password
 	return &this
@@ -149,28 +148,36 @@ func (o *ModelUserRegisterRequest) SetFirstName(v string) {
 	o.FirstName = v
 }
 
-// GetIsTemporaryPassword returns the IsTemporaryPassword field value
+// GetIsTemporaryPassword returns the IsTemporaryPassword field value if set, zero value otherwise.
 func (o *ModelUserRegisterRequest) GetIsTemporaryPassword() bool {
-	if o == nil {
+	if o == nil || IsNil(o.IsTemporaryPassword) {
 		var ret bool
 		return ret
 	}
-
-	return o.IsTemporaryPassword
+	return *o.IsTemporaryPassword
 }
 
-// GetIsTemporaryPasswordOk returns a tuple with the IsTemporaryPassword field value
+// GetIsTemporaryPasswordOk returns a tuple with the IsTemporaryPassword field value if set, nil otherwise
 // and a boolean to check if the value has been set.
 func (o *ModelUserRegisterRequest) GetIsTemporaryPasswordOk() (*bool, bool) {
-	if o == nil {
+	if o == nil || IsNil(o.IsTemporaryPassword) {
 		return nil, false
 	}
-	return &o.IsTemporaryPassword, true
+	return o.IsTemporaryPassword, true
 }
 
-// SetIsTemporaryPassword sets field value
+// HasIsTemporaryPassword returns a boolean if a field has been set.
+func (o *ModelUserRegisterRequest) HasIsTemporaryPassword() bool {
+	if o != nil && !IsNil(o.IsTemporaryPassword) {
+		return true
+	}
+
+	return false
+}
+
+// SetIsTemporaryPassword gets a reference to the given bool and assigns it to the IsTemporaryPassword field.
 func (o *ModelUserRegisterRequest) SetIsTemporaryPassword(v bool) {
-	o.IsTemporaryPassword = v
+	o.IsTemporaryPassword = &v
 }
 
 // GetLastName returns the LastName field value
@@ -235,7 +242,9 @@ func (o ModelUserRegisterRequest) ToMap() (map[string]interface{}, error) {
 	toSerialize["console_url"] = o.ConsoleUrl
 	toSerialize["email"] = o.Email
 	toSerialize["first_name"] = o.FirstName
-	toSerialize["is_temporary_password"] = o.IsTemporaryPassword
+	if !IsNil(o.IsTemporaryPassword) {
+		toSerialize["is_temporary_password"] = o.IsTemporaryPassword
+	}
 	toSerialize["last_name"] = o.LastName
 	toSerialize["password"] = o.Password
 	return toSerialize, nil

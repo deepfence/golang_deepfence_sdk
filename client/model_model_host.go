@@ -35,8 +35,6 @@ type ModelHost struct {
 	InboundConnections []ModelConnection `json:"inbound_connections"`
 	InstanceId string `json:"instance_id"`
 	InstanceType string `json:"instance_type"`
-	InterfaceIps []interface{} `json:"interface_ips"`
-	InterfaceNames []interface{} `json:"interface_names"`
 	IsConsoleVm bool `json:"is_console_vm"`
 	KernelId string `json:"kernel_id"`
 	KernelVersion string `json:"kernel_version"`
@@ -70,7 +68,7 @@ type ModelHost struct {
 // This constructor will assign default values to properties that have it defined,
 // and makes sure properties required by API are set, but the set of arguments
 // will change when the set of required properties is changed
-func NewModelHost(agentRunning bool, availabilityZone string, cloudProvider string, cloudRegion string, complianceLatestScanId string, complianceScanStatus string, compliancesCount int32, containerImages []ModelContainerImage, containers []ModelContainer, cpuMax float32, cpuUsage float32, hostName string, inboundConnections []ModelConnection, instanceId string, instanceType string, interfaceIps []interface{}, interfaceNames []interface{}, isConsoleVm bool, kernelId string, kernelVersion string, localCidr []interface{}, localNetworks []interface{}, malwareLatestScanId string, malwareScanStatus string, malwaresCount int32, memoryMax int32, memoryUsage int32, nodeId string, nodeName string, os string, outboundConnections []ModelConnection, pods []ModelPod, privateIp []interface{}, processes []ModelProcess, publicIp []interface{}, resourceGroup string, secretLatestScanId string, secretScanStatus string, secretsCount int32, uptime int32, version string, vulnerabilitiesCount int32, vulnerabilityLatestScanId string, vulnerabilityScanStatus string) *ModelHost {
+func NewModelHost(agentRunning bool, availabilityZone string, cloudProvider string, cloudRegion string, complianceLatestScanId string, complianceScanStatus string, compliancesCount int32, containerImages []ModelContainerImage, containers []ModelContainer, cpuMax float32, cpuUsage float32, hostName string, inboundConnections []ModelConnection, instanceId string, instanceType string, isConsoleVm bool, kernelId string, kernelVersion string, localCidr []interface{}, localNetworks []interface{}, malwareLatestScanId string, malwareScanStatus string, malwaresCount int32, memoryMax int32, memoryUsage int32, nodeId string, nodeName string, os string, outboundConnections []ModelConnection, pods []ModelPod, privateIp []interface{}, processes []ModelProcess, publicIp []interface{}, resourceGroup string, secretLatestScanId string, secretScanStatus string, secretsCount int32, uptime int32, version string, vulnerabilitiesCount int32, vulnerabilityLatestScanId string, vulnerabilityScanStatus string) *ModelHost {
 	this := ModelHost{}
 	this.AgentRunning = agentRunning
 	this.AvailabilityZone = availabilityZone
@@ -87,8 +85,6 @@ func NewModelHost(agentRunning bool, availabilityZone string, cloudProvider stri
 	this.InboundConnections = inboundConnections
 	this.InstanceId = instanceId
 	this.InstanceType = instanceType
-	this.InterfaceIps = interfaceIps
-	this.InterfaceNames = interfaceNames
 	this.IsConsoleVm = isConsoleVm
 	this.KernelId = kernelId
 	this.KernelVersion = kernelVersion
@@ -491,58 +487,6 @@ func (o *ModelHost) GetInstanceTypeOk() (*string, bool) {
 // SetInstanceType sets field value
 func (o *ModelHost) SetInstanceType(v string) {
 	o.InstanceType = v
-}
-
-// GetInterfaceIps returns the InterfaceIps field value
-// If the value is explicit nil, the zero value for []interface{} will be returned
-func (o *ModelHost) GetInterfaceIps() []interface{} {
-	if o == nil {
-		var ret []interface{}
-		return ret
-	}
-
-	return o.InterfaceIps
-}
-
-// GetInterfaceIpsOk returns a tuple with the InterfaceIps field value
-// and a boolean to check if the value has been set.
-// NOTE: If the value is an explicit nil, `nil, true` will be returned
-func (o *ModelHost) GetInterfaceIpsOk() ([]interface{}, bool) {
-	if o == nil || IsNil(o.InterfaceIps) {
-		return nil, false
-	}
-	return o.InterfaceIps, true
-}
-
-// SetInterfaceIps sets field value
-func (o *ModelHost) SetInterfaceIps(v []interface{}) {
-	o.InterfaceIps = v
-}
-
-// GetInterfaceNames returns the InterfaceNames field value
-// If the value is explicit nil, the zero value for []interface{} will be returned
-func (o *ModelHost) GetInterfaceNames() []interface{} {
-	if o == nil {
-		var ret []interface{}
-		return ret
-	}
-
-	return o.InterfaceNames
-}
-
-// GetInterfaceNamesOk returns a tuple with the InterfaceNames field value
-// and a boolean to check if the value has been set.
-// NOTE: If the value is an explicit nil, `nil, true` will be returned
-func (o *ModelHost) GetInterfaceNamesOk() ([]interface{}, bool) {
-	if o == nil || IsNil(o.InterfaceNames) {
-		return nil, false
-	}
-	return o.InterfaceNames, true
-}
-
-// SetInterfaceNames sets field value
-func (o *ModelHost) SetInterfaceNames(v []interface{}) {
-	o.InterfaceNames = v
 }
 
 // GetIsConsoleVm returns the IsConsoleVm field value
@@ -1238,12 +1182,6 @@ func (o ModelHost) ToMap() (map[string]interface{}, error) {
 	}
 	toSerialize["instance_id"] = o.InstanceId
 	toSerialize["instance_type"] = o.InstanceType
-	if o.InterfaceIps != nil {
-		toSerialize["interface_ips"] = o.InterfaceIps
-	}
-	if o.InterfaceNames != nil {
-		toSerialize["interface_names"] = o.InterfaceNames
-	}
 	toSerialize["is_console_vm"] = o.IsConsoleVm
 	toSerialize["kernel_id"] = o.KernelId
 	toSerialize["kernel_version"] = o.KernelVersion

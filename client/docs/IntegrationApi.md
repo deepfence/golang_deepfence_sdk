@@ -12,7 +12,7 @@ Method | HTTP request | Description
 
 ## AddIntegration
 
-> AddIntegration(ctx).ModelIntegrationAddReq(modelIntegrationAddReq).Execute()
+> ModelMessageResponse AddIntegration(ctx).ModelIntegrationAddReq(modelIntegrationAddReq).Execute()
 
 Add Integration
 
@@ -35,11 +35,13 @@ func main() {
 
     configuration := openapiclient.NewConfiguration()
     apiClient := openapiclient.NewAPIClient(configuration)
-    r, err := apiClient.IntegrationApi.AddIntegration(context.Background()).ModelIntegrationAddReq(modelIntegrationAddReq).Execute()
+    resp, r, err := apiClient.IntegrationApi.AddIntegration(context.Background()).ModelIntegrationAddReq(modelIntegrationAddReq).Execute()
     if err != nil {
         fmt.Fprintf(os.Stderr, "Error when calling `IntegrationApi.AddIntegration``: %v\n", err)
         fmt.Fprintf(os.Stderr, "Full HTTP response: %v\n", r)
     }
+    // response from `AddIntegration`: ModelMessageResponse
+    fmt.Fprintf(os.Stdout, "Response from `IntegrationApi.AddIntegration`: %v\n", resp)
 }
 ```
 
@@ -58,7 +60,7 @@ Name | Type | Description  | Notes
 
 ### Return type
 
- (empty response body)
+[**ModelMessageResponse**](ModelMessageResponse.md)
 
 ### Authorization
 

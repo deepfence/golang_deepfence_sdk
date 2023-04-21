@@ -6,7 +6,7 @@ Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
 **Code** | **string** |  | 
 **FirstName** | **string** |  | 
-**IsTemporaryPassword** | **bool** |  | 
+**IsTemporaryPassword** | Pointer to **bool** |  | [optional] 
 **LastName** | **string** |  | 
 **Password** | **string** |  | 
 
@@ -14,7 +14,7 @@ Name | Type | Description | Notes
 
 ### NewModelRegisterInvitedUserRequest
 
-`func NewModelRegisterInvitedUserRequest(code string, firstName string, isTemporaryPassword bool, lastName string, password string, ) *ModelRegisterInvitedUserRequest`
+`func NewModelRegisterInvitedUserRequest(code string, firstName string, lastName string, password string, ) *ModelRegisterInvitedUserRequest`
 
 NewModelRegisterInvitedUserRequest instantiates a new ModelRegisterInvitedUserRequest object
 This constructor will assign default values to properties that have it defined,
@@ -88,6 +88,11 @@ and a boolean to check if the value has been set.
 
 SetIsTemporaryPassword sets IsTemporaryPassword field to given value.
 
+### HasIsTemporaryPassword
+
+`func (o *ModelRegisterInvitedUserRequest) HasIsTemporaryPassword() bool`
+
+HasIsTemporaryPassword returns a boolean if a field has been set.
 
 ### GetLastName
 

@@ -19,8 +19,6 @@ Name | Type | Description | Notes
 **InboundConnections** | [**[]ModelConnection**](ModelConnection.md) |  | 
 **InstanceId** | **string** |  | 
 **InstanceType** | **string** |  | 
-**InterfaceIps** | **[]interface{}** |  | 
-**InterfaceNames** | **[]interface{}** |  | 
 **IsConsoleVm** | **bool** |  | 
 **KernelId** | **string** |  | 
 **KernelVersion** | **string** |  | 
@@ -53,7 +51,7 @@ Name | Type | Description | Notes
 
 ### NewModelHost
 
-`func NewModelHost(agentRunning bool, availabilityZone string, cloudProvider string, cloudRegion string, complianceLatestScanId string, complianceScanStatus string, compliancesCount int32, containerImages []ModelContainerImage, containers []ModelContainer, cpuMax float32, cpuUsage float32, hostName string, inboundConnections []ModelConnection, instanceId string, instanceType string, interfaceIps []interface{}, interfaceNames []interface{}, isConsoleVm bool, kernelId string, kernelVersion string, localCidr []interface{}, localNetworks []interface{}, malwareLatestScanId string, malwareScanStatus string, malwaresCount int32, memoryMax int32, memoryUsage int32, nodeId string, nodeName string, os string, outboundConnections []ModelConnection, pods []ModelPod, privateIp []interface{}, processes []ModelProcess, publicIp []interface{}, resourceGroup string, secretLatestScanId string, secretScanStatus string, secretsCount int32, uptime int32, version string, vulnerabilitiesCount int32, vulnerabilityLatestScanId string, vulnerabilityScanStatus string, ) *ModelHost`
+`func NewModelHost(agentRunning bool, availabilityZone string, cloudProvider string, cloudRegion string, complianceLatestScanId string, complianceScanStatus string, compliancesCount int32, containerImages []ModelContainerImage, containers []ModelContainer, cpuMax float32, cpuUsage float32, hostName string, inboundConnections []ModelConnection, instanceId string, instanceType string, isConsoleVm bool, kernelId string, kernelVersion string, localCidr []interface{}, localNetworks []interface{}, malwareLatestScanId string, malwareScanStatus string, malwaresCount int32, memoryMax int32, memoryUsage int32, nodeId string, nodeName string, os string, outboundConnections []ModelConnection, pods []ModelPod, privateIp []interface{}, processes []ModelProcess, publicIp []interface{}, resourceGroup string, secretLatestScanId string, secretScanStatus string, secretsCount int32, uptime int32, version string, vulnerabilitiesCount int32, vulnerabilityLatestScanId string, vulnerabilityScanStatus string, ) *ModelHost`
 
 NewModelHost instantiates a new ModelHost object
 This constructor will assign default values to properties that have it defined,
@@ -398,66 +396,6 @@ and a boolean to check if the value has been set.
 SetInstanceType sets InstanceType field to given value.
 
 
-### GetInterfaceIps
-
-`func (o *ModelHost) GetInterfaceIps() []interface{}`
-
-GetInterfaceIps returns the InterfaceIps field if non-nil, zero value otherwise.
-
-### GetInterfaceIpsOk
-
-`func (o *ModelHost) GetInterfaceIpsOk() (*[]interface{}, bool)`
-
-GetInterfaceIpsOk returns a tuple with the InterfaceIps field if it's non-nil, zero value otherwise
-and a boolean to check if the value has been set.
-
-### SetInterfaceIps
-
-`func (o *ModelHost) SetInterfaceIps(v []interface{})`
-
-SetInterfaceIps sets InterfaceIps field to given value.
-
-
-### SetInterfaceIpsNil
-
-`func (o *ModelHost) SetInterfaceIpsNil(b bool)`
-
- SetInterfaceIpsNil sets the value for InterfaceIps to be an explicit nil
-
-### UnsetInterfaceIps
-`func (o *ModelHost) UnsetInterfaceIps()`
-
-UnsetInterfaceIps ensures that no value is present for InterfaceIps, not even an explicit nil
-### GetInterfaceNames
-
-`func (o *ModelHost) GetInterfaceNames() []interface{}`
-
-GetInterfaceNames returns the InterfaceNames field if non-nil, zero value otherwise.
-
-### GetInterfaceNamesOk
-
-`func (o *ModelHost) GetInterfaceNamesOk() (*[]interface{}, bool)`
-
-GetInterfaceNamesOk returns a tuple with the InterfaceNames field if it's non-nil, zero value otherwise
-and a boolean to check if the value has been set.
-
-### SetInterfaceNames
-
-`func (o *ModelHost) SetInterfaceNames(v []interface{})`
-
-SetInterfaceNames sets InterfaceNames field to given value.
-
-
-### SetInterfaceNamesNil
-
-`func (o *ModelHost) SetInterfaceNamesNil(b bool)`
-
- SetInterfaceNamesNil sets the value for InterfaceNames to be an explicit nil
-
-### UnsetInterfaceNames
-`func (o *ModelHost) UnsetInterfaceNames()`
-
-UnsetInterfaceNames ensures that no value is present for InterfaceNames, not even an explicit nil
 ### GetIsConsoleVm
 
 `func (o *ModelHost) GetIsConsoleVm() bool`

@@ -151,7 +151,7 @@ Name | Type | Description  | Notes
 
 ## GetApiTokens
 
-> ModelApiTokenResponse GetApiTokens(ctx).Execute()
+> []ModelApiTokenResponse GetApiTokens(ctx).Execute()
 
 Get User's API Tokens
 
@@ -178,7 +178,7 @@ func main() {
         fmt.Fprintf(os.Stderr, "Error when calling `UserApi.GetApiTokens``: %v\n", err)
         fmt.Fprintf(os.Stderr, "Full HTTP response: %v\n", r)
     }
-    // response from `GetApiTokens`: ModelApiTokenResponse
+    // response from `GetApiTokens`: []ModelApiTokenResponse
     fmt.Fprintf(os.Stdout, "Response from `UserApi.GetApiTokens`: %v\n", resp)
 }
 ```
@@ -194,7 +194,7 @@ Other parameters are passed through a pointer to a apiGetApiTokensRequest struct
 
 ### Return type
 
-[**ModelApiTokenResponse**](ModelApiTokenResponse.md)
+[**[]ModelApiTokenResponse**](ModelApiTokenResponse.md)
 
 ### Authorization
 
@@ -489,7 +489,7 @@ import (
 )
 
 func main() {
-    modelRegisterInvitedUserRequest := *openapiclient.NewModelRegisterInvitedUserRequest("Code_example", "FirstName_example", false, "LastName_example", "Password_example") // ModelRegisterInvitedUserRequest |  (optional)
+    modelRegisterInvitedUserRequest := *openapiclient.NewModelRegisterInvitedUserRequest("Code_example", "FirstName_example", "LastName_example", "Password_example") // ModelRegisterInvitedUserRequest |  (optional)
 
     configuration := openapiclient.NewConfiguration()
     apiClient := openapiclient.NewAPIClient(configuration)
@@ -555,7 +555,7 @@ import (
 )
 
 func main() {
-    modelUserRegisterRequest := *openapiclient.NewModelUserRegisterRequest("Company_example", "ConsoleUrl_example", "Email_example", "FirstName_example", false, "LastName_example", "Password_example") // ModelUserRegisterRequest |  (optional)
+    modelUserRegisterRequest := *openapiclient.NewModelUserRegisterRequest("Company_example", "ConsoleUrl_example", "Email_example", "FirstName_example", "LastName_example", "Password_example") // ModelUserRegisterRequest |  (optional)
 
     configuration := openapiclient.NewConfiguration()
     apiClient := openapiclient.NewAPIClient(configuration)
@@ -602,7 +602,7 @@ No authorization required
 
 ## ResetApiTokens
 
-> ModelApiTokenResponse ResetApiTokens(ctx).Execute()
+> []ModelApiTokenResponse ResetApiTokens(ctx).Execute()
 
 Reset User's API Tokens
 
@@ -629,7 +629,7 @@ func main() {
         fmt.Fprintf(os.Stderr, "Error when calling `UserApi.ResetApiTokens``: %v\n", err)
         fmt.Fprintf(os.Stderr, "Full HTTP response: %v\n", r)
     }
-    // response from `ResetApiTokens`: ModelApiTokenResponse
+    // response from `ResetApiTokens`: []ModelApiTokenResponse
     fmt.Fprintf(os.Stdout, "Response from `UserApi.ResetApiTokens`: %v\n", resp)
 }
 ```
@@ -645,7 +645,7 @@ Other parameters are passed through a pointer to a apiResetApiTokensRequest stru
 
 ### Return type
 
-[**ModelApiTokenResponse**](ModelApiTokenResponse.md)
+[**[]ModelApiTokenResponse**](ModelApiTokenResponse.md)
 
 ### Authorization
 
@@ -748,7 +748,7 @@ import (
 )
 
 func main() {
-    modelUpdateUserRequest := *openapiclient.NewModelUpdateUserRequest("Role_example") // ModelUpdateUserRequest |  (optional)
+    modelUpdateUserRequest := *openapiclient.NewModelUpdateUserRequest() // ModelUpdateUserRequest |  (optional)
 
     configuration := openapiclient.NewConfiguration()
     apiClient := openapiclient.NewAPIClient(configuration)
@@ -879,7 +879,7 @@ import (
 
 func main() {
     id := int32(56) // int32 | 
-    modelUpdateUserIdRequest := *openapiclient.NewModelUpdateUserIdRequest("Role_example") // ModelUpdateUserIdRequest |  (optional)
+    modelUpdateUserIdRequest := *openapiclient.NewModelUpdateUserIdRequest() // ModelUpdateUserIdRequest |  (optional)
 
     configuration := openapiclient.NewConfiguration()
     apiClient := openapiclient.NewAPIClient(configuration)

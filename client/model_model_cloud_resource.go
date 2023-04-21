@@ -20,26 +20,30 @@ var _ MappedNullable = &ModelCloudResource{}
 
 // ModelCloudResource struct for ModelCloudResource
 type ModelCloudResource struct {
+	AccountId string `json:"account_id"`
 	CloudComplianceLatestScanId string `json:"cloud_compliance_latest_scan_id"`
 	CloudComplianceScanStatus string `json:"cloud_compliance_scan_status"`
 	CloudCompliancesCount int32 `json:"cloud_compliances_count"`
 	NodeId string `json:"node_id"`
 	NodeName string `json:"node_name"`
 	NodeType string `json:"node_type"`
+	TypeLabel string `json:"type_label"`
 }
 
 // NewModelCloudResource instantiates a new ModelCloudResource object
 // This constructor will assign default values to properties that have it defined,
 // and makes sure properties required by API are set, but the set of arguments
 // will change when the set of required properties is changed
-func NewModelCloudResource(cloudComplianceLatestScanId string, cloudComplianceScanStatus string, cloudCompliancesCount int32, nodeId string, nodeName string, nodeType string) *ModelCloudResource {
+func NewModelCloudResource(accountId string, cloudComplianceLatestScanId string, cloudComplianceScanStatus string, cloudCompliancesCount int32, nodeId string, nodeName string, nodeType string, typeLabel string) *ModelCloudResource {
 	this := ModelCloudResource{}
+	this.AccountId = accountId
 	this.CloudComplianceLatestScanId = cloudComplianceLatestScanId
 	this.CloudComplianceScanStatus = cloudComplianceScanStatus
 	this.CloudCompliancesCount = cloudCompliancesCount
 	this.NodeId = nodeId
 	this.NodeName = nodeName
 	this.NodeType = nodeType
+	this.TypeLabel = typeLabel
 	return &this
 }
 
@@ -49,6 +53,30 @@ func NewModelCloudResource(cloudComplianceLatestScanId string, cloudComplianceSc
 func NewModelCloudResourceWithDefaults() *ModelCloudResource {
 	this := ModelCloudResource{}
 	return &this
+}
+
+// GetAccountId returns the AccountId field value
+func (o *ModelCloudResource) GetAccountId() string {
+	if o == nil {
+		var ret string
+		return ret
+	}
+
+	return o.AccountId
+}
+
+// GetAccountIdOk returns a tuple with the AccountId field value
+// and a boolean to check if the value has been set.
+func (o *ModelCloudResource) GetAccountIdOk() (*string, bool) {
+	if o == nil {
+		return nil, false
+	}
+	return &o.AccountId, true
+}
+
+// SetAccountId sets field value
+func (o *ModelCloudResource) SetAccountId(v string) {
+	o.AccountId = v
 }
 
 // GetCloudComplianceLatestScanId returns the CloudComplianceLatestScanId field value
@@ -195,6 +223,30 @@ func (o *ModelCloudResource) SetNodeType(v string) {
 	o.NodeType = v
 }
 
+// GetTypeLabel returns the TypeLabel field value
+func (o *ModelCloudResource) GetTypeLabel() string {
+	if o == nil {
+		var ret string
+		return ret
+	}
+
+	return o.TypeLabel
+}
+
+// GetTypeLabelOk returns a tuple with the TypeLabel field value
+// and a boolean to check if the value has been set.
+func (o *ModelCloudResource) GetTypeLabelOk() (*string, bool) {
+	if o == nil {
+		return nil, false
+	}
+	return &o.TypeLabel, true
+}
+
+// SetTypeLabel sets field value
+func (o *ModelCloudResource) SetTypeLabel(v string) {
+	o.TypeLabel = v
+}
+
 func (o ModelCloudResource) MarshalJSON() ([]byte, error) {
 	toSerialize,err := o.ToMap()
 	if err != nil {
@@ -205,12 +257,14 @@ func (o ModelCloudResource) MarshalJSON() ([]byte, error) {
 
 func (o ModelCloudResource) ToMap() (map[string]interface{}, error) {
 	toSerialize := map[string]interface{}{}
+	toSerialize["account_id"] = o.AccountId
 	toSerialize["cloud_compliance_latest_scan_id"] = o.CloudComplianceLatestScanId
 	toSerialize["cloud_compliance_scan_status"] = o.CloudComplianceScanStatus
 	toSerialize["cloud_compliances_count"] = o.CloudCompliancesCount
 	toSerialize["node_id"] = o.NodeId
 	toSerialize["node_name"] = o.NodeName
 	toSerialize["node_type"] = o.NodeType
+	toSerialize["type_label"] = o.TypeLabel
 	return toSerialize, nil
 }
 

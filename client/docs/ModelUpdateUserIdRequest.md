@@ -7,13 +7,13 @@ Name | Type | Description | Notes
 **FirstName** | Pointer to **string** |  | [optional] 
 **IsActive** | Pointer to **bool** |  | [optional] 
 **LastName** | Pointer to **string** |  | [optional] 
-**Role** | **string** |  | 
+**Role** | Pointer to **string** |  | [optional] 
 
 ## Methods
 
 ### NewModelUpdateUserIdRequest
 
-`func NewModelUpdateUserIdRequest(role string, ) *ModelUpdateUserIdRequest`
+`func NewModelUpdateUserIdRequest() *ModelUpdateUserIdRequest`
 
 NewModelUpdateUserIdRequest instantiates a new ModelUpdateUserIdRequest object
 This constructor will assign default values to properties that have it defined,
@@ -122,6 +122,11 @@ and a boolean to check if the value has been set.
 
 SetRole sets Role field to given value.
 
+### HasRole
+
+`func (o *ModelUpdateUserIdRequest) HasRole() bool`
+
+HasRole returns a boolean if a field has been set.
 
 
 [[Back to Model list]](../README.md#documentation-for-models) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to README]](../README.md)

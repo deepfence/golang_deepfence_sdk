@@ -23,16 +23,15 @@ type ModelUpdateUserIdRequest struct {
 	FirstName *string `json:"first_name,omitempty"`
 	IsActive *bool `json:"is_active,omitempty"`
 	LastName *string `json:"last_name,omitempty"`
-	Role string `json:"role"`
+	Role *string `json:"role,omitempty"`
 }
 
 // NewModelUpdateUserIdRequest instantiates a new ModelUpdateUserIdRequest object
 // This constructor will assign default values to properties that have it defined,
 // and makes sure properties required by API are set, but the set of arguments
 // will change when the set of required properties is changed
-func NewModelUpdateUserIdRequest(role string) *ModelUpdateUserIdRequest {
+func NewModelUpdateUserIdRequest() *ModelUpdateUserIdRequest {
 	this := ModelUpdateUserIdRequest{}
-	this.Role = role
 	return &this
 }
 
@@ -140,28 +139,36 @@ func (o *ModelUpdateUserIdRequest) SetLastName(v string) {
 	o.LastName = &v
 }
 
-// GetRole returns the Role field value
+// GetRole returns the Role field value if set, zero value otherwise.
 func (o *ModelUpdateUserIdRequest) GetRole() string {
-	if o == nil {
+	if o == nil || IsNil(o.Role) {
 		var ret string
 		return ret
 	}
-
-	return o.Role
+	return *o.Role
 }
 
-// GetRoleOk returns a tuple with the Role field value
+// GetRoleOk returns a tuple with the Role field value if set, nil otherwise
 // and a boolean to check if the value has been set.
 func (o *ModelUpdateUserIdRequest) GetRoleOk() (*string, bool) {
-	if o == nil {
+	if o == nil || IsNil(o.Role) {
 		return nil, false
 	}
-	return &o.Role, true
+	return o.Role, true
 }
 
-// SetRole sets field value
+// HasRole returns a boolean if a field has been set.
+func (o *ModelUpdateUserIdRequest) HasRole() bool {
+	if o != nil && !IsNil(o.Role) {
+		return true
+	}
+
+	return false
+}
+
+// SetRole gets a reference to the given string and assigns it to the Role field.
 func (o *ModelUpdateUserIdRequest) SetRole(v string) {
-	o.Role = v
+	o.Role = &v
 }
 
 func (o ModelUpdateUserIdRequest) MarshalJSON() ([]byte, error) {
@@ -183,7 +190,9 @@ func (o ModelUpdateUserIdRequest) ToMap() (map[string]interface{}, error) {
 	if !IsNil(o.LastName) {
 		toSerialize["last_name"] = o.LastName
 	}
-	toSerialize["role"] = o.Role
+	if !IsNil(o.Role) {
+		toSerialize["role"] = o.Role
+	}
 	return toSerialize, nil
 }
 

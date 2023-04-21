@@ -30,6 +30,7 @@ type IngestersCloudResource struct {
 	BlockPublicPolicy *bool `json:"block_public_policy,omitempty"`
 	BucketPolicyIsPublic *bool `json:"bucket_policy_is_public,omitempty"`
 	CidrIpv4 *string `json:"cidr_ipv4,omitempty"`
+	CloudProvider *string `json:"cloud_provider,omitempty"`
 	ContainerDefinitions interface{} `json:"container_definitions,omitempty"`
 	Containers interface{} `json:"containers,omitempty"`
 	CreateDate *string `json:"create_date,omitempty"`
@@ -424,6 +425,38 @@ func (o *IngestersCloudResource) HasCidrIpv4() bool {
 // SetCidrIpv4 gets a reference to the given string and assigns it to the CidrIpv4 field.
 func (o *IngestersCloudResource) SetCidrIpv4(v string) {
 	o.CidrIpv4 = &v
+}
+
+// GetCloudProvider returns the CloudProvider field value if set, zero value otherwise.
+func (o *IngestersCloudResource) GetCloudProvider() string {
+	if o == nil || IsNil(o.CloudProvider) {
+		var ret string
+		return ret
+	}
+	return *o.CloudProvider
+}
+
+// GetCloudProviderOk returns a tuple with the CloudProvider field value if set, nil otherwise
+// and a boolean to check if the value has been set.
+func (o *IngestersCloudResource) GetCloudProviderOk() (*string, bool) {
+	if o == nil || IsNil(o.CloudProvider) {
+		return nil, false
+	}
+	return o.CloudProvider, true
+}
+
+// HasCloudProvider returns a boolean if a field has been set.
+func (o *IngestersCloudResource) HasCloudProvider() bool {
+	if o != nil && !IsNil(o.CloudProvider) {
+		return true
+	}
+
+	return false
+}
+
+// SetCloudProvider gets a reference to the given string and assigns it to the CloudProvider field.
+func (o *IngestersCloudResource) SetCloudProvider(v string) {
+	o.CloudProvider = &v
 }
 
 // GetContainerDefinitions returns the ContainerDefinitions field value if set, zero value otherwise (both if not set or set to explicit null).
@@ -2281,6 +2314,9 @@ func (o IngestersCloudResource) ToMap() (map[string]interface{}, error) {
 	}
 	if !IsNil(o.CidrIpv4) {
 		toSerialize["cidr_ipv4"] = o.CidrIpv4
+	}
+	if !IsNil(o.CloudProvider) {
+		toSerialize["cloud_provider"] = o.CloudProvider
 	}
 	if o.ContainerDefinitions != nil {
 		toSerialize["container_definitions"] = o.ContainerDefinitions
