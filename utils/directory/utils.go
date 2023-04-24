@@ -32,25 +32,21 @@ func getLock[T any]() *sync.Mutex {
 	return &locks[0]
 }
 
-func getClient[T *redis.Client | *CypherDriver | *postgresqlDb.Queries | *minio.Client](ctx context.Context, pool map[NamespaceID]T, newClient func(DBConfigs) (T, error)) (T, error) {
+func getClient[T *redis.Client | *CypherDriver | *postgresqlDb.Queries | *minio.Client](ctx context.Context, pool sync.Map, newClient func(DBConfigs) (T, error)) (T, error) {
 	key, err := ExtractNamespace(ctx)
 	if err != nil {
 		return nil, err
 	}
 
-	lock := getLock[T]()
-	lock.Lock()
-	defer lock.Unlock()
-
-	val, has := pool[key]
+	val, has := pool.Load(key)
 	if has {
-		return val, nil
+		return val.(T), nil
 	}
 
 	client, err := newClient(directory[key])
 	if err != nil {
 		return nil, err
 	}
-	pool[key] = client
-	return client, nil
+	new_client, _ := pool.LoadOrStore(key, client)
+	return new_client.(T), nil
 }

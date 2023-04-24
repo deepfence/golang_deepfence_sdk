@@ -8,15 +8,16 @@ import (
 	"path"
 	"runtime"
 	"strings"
+	"sync"
 
 	"github.com/neo4j/neo4j-go-driver/v4/neo4j"
 	"go.opentelemetry.io/otel"
 )
 
-var neo4j_clients_pool map[NamespaceID]*CypherDriver
+var neo4j_clients_pool sync.Map
 
 func init() {
-	neo4j_clients_pool = map[NamespaceID]*CypherDriver{}
+	neo4j_clients_pool = sync.Map{}
 }
 
 type CypherTransaction struct {

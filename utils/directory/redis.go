@@ -3,14 +3,15 @@ package directory
 import (
 	"context"
 	"errors"
+	"sync"
 
 	"github.com/redis/go-redis/v9"
 )
 
-var redisClientsPool map[NamespaceID]*redis.Client
+var redisClientsPool sync.Map
 
 func init() {
-	redisClientsPool = map[NamespaceID]*redis.Client{}
+	redisClientsPool = sync.Map{}
 }
 
 func newRedisClient(endpoints DBConfigs) (*redis.Client, error) {

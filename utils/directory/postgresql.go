@@ -6,6 +6,7 @@ import (
 	"errors"
 	"fmt"
 	"strings"
+	"sync"
 
 	"github.com/XSAM/otelsql"
 	postgresqlDb "github.com/deepfence/golang_deepfence_sdk/utils/postgresql/postgresql-db"
@@ -22,10 +23,10 @@ type SettingValue struct {
 	Description string      `json:"description"`
 }
 
-var postgresClientsPool map[NamespaceID]*postgresqlDb.Queries
+var postgresClientsPool sync.Map
 
 func init() {
-	postgresClientsPool = map[NamespaceID]*postgresqlDb.Queries{}
+	postgresClientsPool = sync.Map{}
 }
 
 func newPostgresClient(endpoints DBConfigs) (*postgresqlDb.Queries, error) {

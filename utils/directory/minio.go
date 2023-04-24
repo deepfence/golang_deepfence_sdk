@@ -10,6 +10,7 @@ import (
 	"net/http"
 	"net/url"
 	"strings"
+	"sync"
 	"time"
 
 	"github.com/minio/minio-go/v7"
@@ -18,10 +19,10 @@ import (
 	_ "github.com/lib/pq"
 )
 
-var minioClientMap map[NamespaceID]*minio.Client
+var minioClientMap sync.Map
 
 func init() {
-	minioClientMap = map[NamespaceID]*minio.Client{}
+	minioClientMap = sync.Map{}
 }
 
 type AlreadyPresentError struct {
