@@ -23,6 +23,7 @@ type ModelComplianceScanInfo struct {
 	BenchmarkTypes []string `json:"benchmark_types"`
 	CreatedAt int64 `json:"created_at"`
 	NodeId string `json:"node_id"`
+	NodeName string `json:"node_name"`
 	NodeType string `json:"node_type"`
 	ScanId string `json:"scan_id"`
 	SeverityCounts map[string]int32 `json:"severity_counts"`
@@ -34,11 +35,12 @@ type ModelComplianceScanInfo struct {
 // This constructor will assign default values to properties that have it defined,
 // and makes sure properties required by API are set, but the set of arguments
 // will change when the set of required properties is changed
-func NewModelComplianceScanInfo(benchmarkTypes []string, createdAt int64, nodeId string, nodeType string, scanId string, severityCounts map[string]int32, status string, updatedAt int64) *ModelComplianceScanInfo {
+func NewModelComplianceScanInfo(benchmarkTypes []string, createdAt int64, nodeId string, nodeName string, nodeType string, scanId string, severityCounts map[string]int32, status string, updatedAt int64) *ModelComplianceScanInfo {
 	this := ModelComplianceScanInfo{}
 	this.BenchmarkTypes = benchmarkTypes
 	this.CreatedAt = createdAt
 	this.NodeId = nodeId
+	this.NodeName = nodeName
 	this.NodeType = nodeType
 	this.ScanId = scanId
 	this.SeverityCounts = severityCounts
@@ -127,6 +129,30 @@ func (o *ModelComplianceScanInfo) GetNodeIdOk() (*string, bool) {
 // SetNodeId sets field value
 func (o *ModelComplianceScanInfo) SetNodeId(v string) {
 	o.NodeId = v
+}
+
+// GetNodeName returns the NodeName field value
+func (o *ModelComplianceScanInfo) GetNodeName() string {
+	if o == nil {
+		var ret string
+		return ret
+	}
+
+	return o.NodeName
+}
+
+// GetNodeNameOk returns a tuple with the NodeName field value
+// and a boolean to check if the value has been set.
+func (o *ModelComplianceScanInfo) GetNodeNameOk() (*string, bool) {
+	if o == nil {
+		return nil, false
+	}
+	return &o.NodeName, true
+}
+
+// SetNodeName sets field value
+func (o *ModelComplianceScanInfo) SetNodeName(v string) {
+	o.NodeName = v
 }
 
 // GetNodeType returns the NodeType field value
@@ -266,6 +292,7 @@ func (o ModelComplianceScanInfo) ToMap() (map[string]interface{}, error) {
 	}
 	toSerialize["created_at"] = o.CreatedAt
 	toSerialize["node_id"] = o.NodeId
+	toSerialize["node_name"] = o.NodeName
 	toSerialize["node_type"] = o.NodeType
 	toSerialize["scan_id"] = o.ScanId
 	if o.SeverityCounts != nil {

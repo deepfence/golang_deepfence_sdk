@@ -7,6 +7,7 @@ Name | Type | Description | Notes
 **BenchmarkTypes** | **[]string** |  | 
 **CreatedAt** | **int64** |  | 
 **NodeId** | **string** |  | 
+**NodeName** | **string** |  | 
 **NodeType** | **string** |  | 
 **ScanId** | **string** |  | 
 **SeverityCounts** | **map[string]int32** |  | 
@@ -17,7 +18,7 @@ Name | Type | Description | Notes
 
 ### NewModelComplianceScanInfo
 
-`func NewModelComplianceScanInfo(benchmarkTypes []string, createdAt int64, nodeId string, nodeType string, scanId string, severityCounts map[string]int32, status string, updatedAt int64, ) *ModelComplianceScanInfo`
+`func NewModelComplianceScanInfo(benchmarkTypes []string, createdAt int64, nodeId string, nodeName string, nodeType string, scanId string, severityCounts map[string]int32, status string, updatedAt int64, ) *ModelComplianceScanInfo`
 
 NewModelComplianceScanInfo instantiates a new ModelComplianceScanInfo object
 This constructor will assign default values to properties that have it defined,
@@ -100,6 +101,26 @@ and a boolean to check if the value has been set.
 `func (o *ModelComplianceScanInfo) SetNodeId(v string)`
 
 SetNodeId sets NodeId field to given value.
+
+
+### GetNodeName
+
+`func (o *ModelComplianceScanInfo) GetNodeName() string`
+
+GetNodeName returns the NodeName field if non-nil, zero value otherwise.
+
+### GetNodeNameOk
+
+`func (o *ModelComplianceScanInfo) GetNodeNameOk() (*string, bool)`
+
+GetNodeNameOk returns a tuple with the NodeName field if it's non-nil, zero value otherwise
+and a boolean to check if the value has been set.
+
+### SetNodeName
+
+`func (o *ModelComplianceScanInfo) SetNodeName(v string)`
+
+SetNodeName sets NodeName field to given value.
 
 
 ### GetNodeType

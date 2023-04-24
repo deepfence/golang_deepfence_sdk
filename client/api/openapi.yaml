@@ -8940,6 +8940,7 @@ components:
         cloud_compliance_latest_scan_id: cloud_compliance_latest_scan_id
         node_type: node_type
         cloud_compliance_scan_status: cloud_compliance_scan_status
+        cloud_region: cloud_region
         node_name: node_name
         type_label: type_label
         node_id: node_id
@@ -8952,6 +8953,8 @@ components:
           type: string
         cloud_compliances_count:
           type: integer
+        cloud_region:
+          type: string
         node_id:
           type: string
         node_name:
@@ -8965,6 +8968,7 @@ components:
       - cloud_compliance_latest_scan_id
       - cloud_compliance_scan_status
       - cloud_compliances_count
+      - cloud_region
       - node_id
       - node_name
       - node_type
@@ -9048,6 +9052,7 @@ components:
         - benchmark_types
         - benchmark_types
         updated_at: 1
+        node_name: node_name
         created_at: 0
         scan_id: scan_id
         node_id: node_id
@@ -9062,6 +9067,8 @@ components:
           format: int64
           type: integer
         node_id:
+          type: string
+        node_name:
           type: string
         node_type:
           type: string
@@ -9081,6 +9088,7 @@ components:
       - benchmark_types
       - created_at
       - node_id
+      - node_name
       - node_type
       - scan_id
       - severity_counts
@@ -9204,6 +9212,7 @@ components:
           - benchmark_types
           - benchmark_types
           updated_at: 1
+          node_name: node_name
           created_at: 0
           scan_id: scan_id
           node_id: node_id
@@ -9215,6 +9224,7 @@ components:
           - benchmark_types
           - benchmark_types
           updated_at: 1
+          node_name: node_name
           created_at: 0
           scan_id: scan_id
           node_id: node_id

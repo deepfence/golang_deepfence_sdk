@@ -8,6 +8,7 @@ Name | Type | Description | Notes
 **CloudComplianceLatestScanId** | **string** |  | 
 **CloudComplianceScanStatus** | **string** |  | 
 **CloudCompliancesCount** | **int32** |  | 
+**CloudRegion** | **string** |  | 
 **NodeId** | **string** |  | 
 **NodeName** | **string** |  | 
 **NodeType** | **string** |  | 
@@ -17,7 +18,7 @@ Name | Type | Description | Notes
 
 ### NewModelCloudResource
 
-`func NewModelCloudResource(accountId string, cloudComplianceLatestScanId string, cloudComplianceScanStatus string, cloudCompliancesCount int32, nodeId string, nodeName string, nodeType string, typeLabel string, ) *ModelCloudResource`
+`func NewModelCloudResource(accountId string, cloudComplianceLatestScanId string, cloudComplianceScanStatus string, cloudCompliancesCount int32, cloudRegion string, nodeId string, nodeName string, nodeType string, typeLabel string, ) *ModelCloudResource`
 
 NewModelCloudResource instantiates a new ModelCloudResource object
 This constructor will assign default values to properties that have it defined,
@@ -110,6 +111,26 @@ and a boolean to check if the value has been set.
 `func (o *ModelCloudResource) SetCloudCompliancesCount(v int32)`
 
 SetCloudCompliancesCount sets CloudCompliancesCount field to given value.
+
+
+### GetCloudRegion
+
+`func (o *ModelCloudResource) GetCloudRegion() string`
+
+GetCloudRegion returns the CloudRegion field if non-nil, zero value otherwise.
+
+### GetCloudRegionOk
+
+`func (o *ModelCloudResource) GetCloudRegionOk() (*string, bool)`
+
+GetCloudRegionOk returns a tuple with the CloudRegion field if it's non-nil, zero value otherwise
+and a boolean to check if the value has been set.
+
+### SetCloudRegion
+
+`func (o *ModelCloudResource) SetCloudRegion(v string)`
+
+SetCloudRegion sets CloudRegion field to given value.
 
 
 ### GetNodeId
