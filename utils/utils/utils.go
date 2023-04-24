@@ -173,10 +173,10 @@ func GetStringValueFromInterfaceMap(claims map[string]interface{}, key string) (
 }
 
 func StructToMap[T any](c T) map[string]interface{} {
-	bb := map[string]interface{}{}
-
 	t := reflect.TypeOf(c)
 	v := reflect.ValueOf(c)
+
+	bb := make(map[string]interface{}, t.NumField())
 
 	for i := 0; i < t.NumField(); i++ {
 		key := t.Field(i).Tag.Get("json")
