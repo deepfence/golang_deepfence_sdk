@@ -41,6 +41,8 @@ func newPostgresClient(endpoints DBConfigs) (*postgresqlDb.Queries, error) {
 		endpoints.Postgres.Host, endpoints.Postgres.Port,
 		endpoints.Postgres.Database, endpoints.Postgres.SslMode)
 	db, err := otelsql.Open("postgres", psqlDSN)
+	//db.SetMaxOpenConns(100)
+	db.SetMaxIdleConns(100)
 	if err != nil {
 		return nil, err
 	}
