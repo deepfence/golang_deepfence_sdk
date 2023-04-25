@@ -26,7 +26,7 @@ func newRedisClient(endpoints DBConfigs) (*redis.Client, error) {
 }
 
 func RedisClient(ctx context.Context) (*redis.Client, error) {
-	return getClient(ctx, redisClientsPool, newRedisClient)
+	return getClient(ctx, &redisClientsPool, newRedisClient)
 }
 
 func GetRedisConfig(ctx context.Context) (RedisConfig, error) {

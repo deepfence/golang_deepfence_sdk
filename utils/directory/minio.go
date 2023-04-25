@@ -293,7 +293,7 @@ func newMinioClient(endpoints DBConfigs) (*minio.Client, error) {
 }
 
 func MinioClient(ctx context.Context) (FileManager, error) {
-	client, err := getClient(NewGlobalContext(), minioClientMap, newMinioClient)
+	client, err := getClient(NewGlobalContext(), &minioClientMap, newMinioClient)
 	if err != nil {
 		return nil, err
 	}
