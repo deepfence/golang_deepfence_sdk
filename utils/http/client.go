@@ -33,6 +33,7 @@ type OpenapiHttpClient struct {
 	token_access  sync.RWMutex
 	access_token  string
 	refresh_token string
+	api_token     *string
 }
 
 func (client *OpenapiHttpClient) Client() *openapi.APIClient {
@@ -127,6 +128,8 @@ func (cl *OpenapiHttpClient) APITokenAuthenticate(api_token string) error {
 		return AuthError
 	}
 
+	cl.api_token = &api_token
+
 	return cl.updateHeaders(*resp)
 }
 
@@ -134,9 +137,23 @@ func (cl *OpenapiHttpClient) refreshToken() error {
 
 	req := cl.refresher.AuthenticationApi.AuthTokenRefresh(context.Background())
 
-	resp, _, err := cl.refresher.AuthenticationApi.AuthTokenRefreshExecute(req)
+	resp, http_resp, err := cl.refresher.AuthenticationApi.AuthTokenRefreshExecute(req)
 	if err != nil {
 		return err
+	}
+
+	if http_resp.StatusCode == http.StatusUnauthorized && cl.api_token != nil {
+		req := cl.client.AuthenticationApi.AuthToken(context.Background()).ModelApiAuthRequest(openapi.ModelApiAuthRequest{
+			ApiToken: *cl.api_token,
+		})
+		resp, http_resp, err = cl.client.AuthenticationApi.AuthTokenExecute(req)
+		if err != nil {
+			return AuthError
+		}
+
+		if http_resp.StatusCode == http.StatusUnauthorized {
+			return AuthError
+		}
 	}
 
 	return cl.updateHeaders(*resp)
