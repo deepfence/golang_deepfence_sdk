@@ -41,6 +41,7 @@ const (
 	ComputeThreatTask         = "compute_threat"
 	SendNotificationTask      = "tasks_send_notification"
 	CloudComplianceTask       = "cloud_compliance"
+	ReportCleanUpTask         = "tasks_cleanup_reports"
 )
 
 const (
@@ -147,6 +148,7 @@ var Tasks = []string{
 	ComputeThreatTask,
 	SendNotificationTask,
 	CloudComplianceTask,
+	ReportCleanUpTask,
 }
 
 type ReportType string
