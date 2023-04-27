@@ -61,6 +61,23 @@ const (
 	NEO4J_CLOUD_COMPLIANCE_SCAN Neo4jScanType = "CloudComplianceScan"
 )
 
+func StringToNeo4jScanType(s string) Neo4jScanType {
+	switch s {
+	case "VulnerabilityScan":
+		return NEO4J_VULNERABILITY_SCAN
+	case "SecretScan":
+		return NEO4J_SECRET_SCAN
+	case "MalwareScan":
+		return NEO4J_MALWARE_SCAN
+	case "ComplianceScan":
+		return NEO4J_COMPLIANCE_SCAN
+	case "CloudComplianceScan":
+		return NEO4J_CLOUD_COMPLIANCE_SCAN
+	default:
+		return ""
+	}
+}
+
 var (
 	ScanTypeDetectedNode = map[Neo4jScanType]string{
 		NEO4J_VULNERABILITY_SCAN:    "Vulnerability",
