@@ -24,6 +24,134 @@ import (
 // ScanResultsApiService ScanResultsApi service
 type ScanResultsApiService service
 
+type ApiBulkDeleteScansRequest struct {
+	ctx context.Context
+	ApiService *ScanResultsApiService
+	scanType string
+	duration int32
+}
+
+func (r ApiBulkDeleteScansRequest) Execute() (*http.Response, error) {
+	return r.ApiService.BulkDeleteScansExecute(r)
+}
+
+/*
+BulkDeleteScans Bulk Delete Scans
+
+Bulk delete scans along with their results for a particular scan type
+
+ @param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
+ @param scanType
+ @param duration
+ @return ApiBulkDeleteScansRequest
+*/
+func (a *ScanResultsApiService) BulkDeleteScans(ctx context.Context, scanType string, duration int32) ApiBulkDeleteScansRequest {
+	return ApiBulkDeleteScansRequest{
+		ApiService: a,
+		ctx: ctx,
+		scanType: scanType,
+		duration: duration,
+	}
+}
+
+// Execute executes the request
+func (a *ScanResultsApiService) BulkDeleteScansExecute(r ApiBulkDeleteScansRequest) (*http.Response, error) {
+	var (
+		localVarHTTPMethod   = http.MethodDelete
+		localVarPostBody     interface{}
+		formFiles            []formFile
+	)
+
+	localBasePath, err := a.client.cfg.ServerURLWithContext(r.ctx, "ScanResultsApiService.BulkDeleteScans")
+	if err != nil {
+		return nil, &GenericOpenAPIError{error: err.Error()}
+	}
+
+	localVarPath := localBasePath + "/deepfence/scans/{scan_type}/{duration}"
+	localVarPath = strings.Replace(localVarPath, "{"+"scan_type"+"}", url.PathEscape(parameterValueToString(r.scanType, "scanType")), -1)
+	localVarPath = strings.Replace(localVarPath, "{"+"duration"+"}", url.PathEscape(parameterValueToString(r.duration, "duration")), -1)
+
+	localVarHeaderParams := make(map[string]string)
+	localVarQueryParams := url.Values{}
+	localVarFormParams := url.Values{}
+
+	// to determine the Content-Type header
+	localVarHTTPContentTypes := []string{}
+
+	// set Content-Type header
+	localVarHTTPContentType := selectHeaderContentType(localVarHTTPContentTypes)
+	if localVarHTTPContentType != "" {
+		localVarHeaderParams["Content-Type"] = localVarHTTPContentType
+	}
+
+	// to determine the Accept header
+	localVarHTTPHeaderAccepts := []string{"application/json"}
+
+	// set Accept header
+	localVarHTTPHeaderAccept := selectHeaderAccept(localVarHTTPHeaderAccepts)
+	if localVarHTTPHeaderAccept != "" {
+		localVarHeaderParams["Accept"] = localVarHTTPHeaderAccept
+	}
+	req, err := a.client.prepareRequest(r.ctx, localVarPath, localVarHTTPMethod, localVarPostBody, localVarHeaderParams, localVarQueryParams, localVarFormParams, formFiles)
+	if err != nil {
+		return nil, err
+	}
+
+	localVarHTTPResponse, err := a.client.callAPI(req)
+	if err != nil || localVarHTTPResponse == nil {
+		return localVarHTTPResponse, err
+	}
+
+	localVarBody, err := io.ReadAll(localVarHTTPResponse.Body)
+	localVarHTTPResponse.Body.Close()
+	localVarHTTPResponse.Body = io.NopCloser(bytes.NewBuffer(localVarBody))
+	if err != nil {
+		return localVarHTTPResponse, err
+	}
+
+	if localVarHTTPResponse.StatusCode >= 300 {
+		newErr := &GenericOpenAPIError{
+			body:  localVarBody,
+			error: localVarHTTPResponse.Status,
+		}
+		if localVarHTTPResponse.StatusCode == 400 {
+			var v ApiDocsBadRequestResponse
+			err = a.client.decode(&v, localVarBody, localVarHTTPResponse.Header.Get("Content-Type"))
+			if err != nil {
+				newErr.error = err.Error()
+				return localVarHTTPResponse, newErr
+			}
+					newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
+					newErr.model = v
+			return localVarHTTPResponse, newErr
+		}
+		if localVarHTTPResponse.StatusCode == 404 {
+			var v ApiDocsFailureResponse
+			err = a.client.decode(&v, localVarBody, localVarHTTPResponse.Header.Get("Content-Type"))
+			if err != nil {
+				newErr.error = err.Error()
+				return localVarHTTPResponse, newErr
+			}
+					newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
+					newErr.model = v
+			return localVarHTTPResponse, newErr
+		}
+		if localVarHTTPResponse.StatusCode == 500 {
+			var v ApiDocsFailureResponse
+			err = a.client.decode(&v, localVarBody, localVarHTTPResponse.Header.Get("Content-Type"))
+			if err != nil {
+				newErr.error = err.Error()
+				return localVarHTTPResponse, newErr
+			}
+					newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
+					newErr.model = v
+		}
+		return localVarHTTPResponse, newErr
+	}
+
+	return localVarHTTPResponse, nil
+}
+
 type ApiDeleteScanResultRequest struct {
 	ctx context.Context
 	ApiService *ScanResultsApiService
@@ -287,7 +415,7 @@ type ApiDownloadScanResultsRequest struct {
 	scanType string
 }
 
-func (r ApiDownloadScanResultsRequest) Execute() (*ModelDownloadReportResponse, *http.Response, error) {
+func (r ApiDownloadScanResultsRequest) Execute() (*ModelDownloadScanResultsResponse, *http.Response, error) {
 	return r.ApiService.DownloadScanResultsExecute(r)
 }
 
@@ -311,13 +439,13 @@ func (a *ScanResultsApiService) DownloadScanResults(ctx context.Context, scanId 
 }
 
 // Execute executes the request
-//  @return ModelDownloadReportResponse
-func (a *ScanResultsApiService) DownloadScanResultsExecute(r ApiDownloadScanResultsRequest) (*ModelDownloadReportResponse, *http.Response, error) {
+//  @return ModelDownloadScanResultsResponse
+func (a *ScanResultsApiService) DownloadScanResultsExecute(r ApiDownloadScanResultsRequest) (*ModelDownloadScanResultsResponse, *http.Response, error) {
 	var (
 		localVarHTTPMethod   = http.MethodGet
 		localVarPostBody     interface{}
 		formFiles            []formFile
-		localVarReturnValue  *ModelDownloadReportResponse
+		localVarReturnValue  *ModelDownloadScanResultsResponse
 	)
 
 	localBasePath, err := a.client.cfg.ServerURLWithContext(r.ctx, "ScanResultsApiService.DownloadScanResults")

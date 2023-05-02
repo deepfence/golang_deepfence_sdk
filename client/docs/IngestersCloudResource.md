@@ -7,7 +7,7 @@ Name | Type | Description | Notes
 **AccessLevel** | Pointer to **string** |  | [optional] 
 **AccountId** | Pointer to **string** |  | [optional] 
 **Action** | Pointer to **string** |  | [optional] 
-**AllowBlobPublicAccess** | Pointer to **string** |  | [optional] 
+**AllowBlobPublicAccess** | Pointer to **bool** |  | [optional] 
 **Arn** | Pointer to **string** |  | [optional] 
 **AttachedPolicyArns** | Pointer to **interface{}** |  | [optional] 
 **BlockPublicAcls** | Pointer to **bool** |  | [optional] 
@@ -168,20 +168,20 @@ HasAction returns a boolean if a field has been set.
 
 ### GetAllowBlobPublicAccess
 
-`func (o *IngestersCloudResource) GetAllowBlobPublicAccess() string`
+`func (o *IngestersCloudResource) GetAllowBlobPublicAccess() bool`
 
 GetAllowBlobPublicAccess returns the AllowBlobPublicAccess field if non-nil, zero value otherwise.
 
 ### GetAllowBlobPublicAccessOk
 
-`func (o *IngestersCloudResource) GetAllowBlobPublicAccessOk() (*string, bool)`
+`func (o *IngestersCloudResource) GetAllowBlobPublicAccessOk() (*bool, bool)`
 
 GetAllowBlobPublicAccessOk returns a tuple with the AllowBlobPublicAccess field if it's non-nil, zero value otherwise
 and a boolean to check if the value has been set.
 
 ### SetAllowBlobPublicAccess
 
-`func (o *IngestersCloudResource) SetAllowBlobPublicAccess(v string)`
+`func (o *IngestersCloudResource) SetAllowBlobPublicAccess(v bool)`
 
 SetAllowBlobPublicAccess sets AllowBlobPublicAccess field to given value.
 

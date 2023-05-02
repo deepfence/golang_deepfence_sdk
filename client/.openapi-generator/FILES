@@ -104,6 +104,7 @@ docs/ModelConnection.md
 docs/ModelContainer.md
 docs/ModelContainerImage.md
 docs/ModelDownloadReportResponse.md
+docs/ModelDownloadScanResultsResponse.md
 docs/ModelEmailConfigurationAdd.md
 docs/ModelEmailConfigurationResp.md
 docs/ModelExportReport.md
@@ -151,6 +152,7 @@ docs/ModelScanListReq.md
 docs/ModelScanListResp.md
 docs/ModelScanResultBasicNode.md
 docs/ModelScanResultsActionRequest.md
+docs/ModelScanResultsCommon.md
 docs/ModelScanResultsMaskRequest.md
 docs/ModelScanResultsReq.md
 docs/ModelScanStatusReq.md
@@ -269,6 +271,7 @@ model_model_connection.go
 model_model_container.go
 model_model_container_image.go
 model_model_download_report_response.go
+model_model_download_scan_results_response.go
 model_model_email_configuration_add.go
 model_model_email_configuration_resp.go
 model_model_export_report.go
@@ -316,6 +319,7 @@ model_model_scan_list_req.go
 model_model_scan_list_resp.go
 model_model_scan_result_basic_node.go
 model_model_scan_results_action_request.go
+model_model_scan_results_common.go
 model_model_scan_results_mask_request.go
 model_model_scan_results_req.go
 model_model_scan_status_req.go

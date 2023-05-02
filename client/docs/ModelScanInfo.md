@@ -11,13 +11,14 @@ Name | Type | Description | Notes
 **ScanId** | **string** |  | 
 **SeverityCounts** | **map[string]int32** |  | 
 **Status** | **string** |  | 
+**StatusMessage** | **string** |  | 
 **UpdatedAt** | **int64** |  | 
 
 ## Methods
 
 ### NewModelScanInfo
 
-`func NewModelScanInfo(createdAt int64, nodeId string, nodeName string, nodeType string, scanId string, severityCounts map[string]int32, status string, updatedAt int64, ) *ModelScanInfo`
+`func NewModelScanInfo(createdAt int64, nodeId string, nodeName string, nodeType string, scanId string, severityCounts map[string]int32, status string, statusMessage string, updatedAt int64, ) *ModelScanInfo`
 
 NewModelScanInfo instantiates a new ModelScanInfo object
 This constructor will assign default values to properties that have it defined,
@@ -180,6 +181,26 @@ and a boolean to check if the value has been set.
 `func (o *ModelScanInfo) SetStatus(v string)`
 
 SetStatus sets Status field to given value.
+
+
+### GetStatusMessage
+
+`func (o *ModelScanInfo) GetStatusMessage() string`
+
+GetStatusMessage returns the StatusMessage field if non-nil, zero value otherwise.
+
+### GetStatusMessageOk
+
+`func (o *ModelScanInfo) GetStatusMessageOk() (*string, bool)`
+
+GetStatusMessageOk returns a tuple with the StatusMessage field if it's non-nil, zero value otherwise
+and a boolean to check if the value has been set.
+
+### SetStatusMessage
+
+`func (o *ModelScanInfo) SetStatusMessage(v string)`
+
+SetStatusMessage sets StatusMessage field to given value.
 
 
 ### GetUpdatedAt

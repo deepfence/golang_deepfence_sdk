@@ -148,6 +148,7 @@ Class | Method | HTTP request | Description
 *ReportsApi* | [**GenerateReport**](docs/ReportsApi.md#generatereport) | **Post** /deepfence/reports | Generate Report
 *ReportsApi* | [**GetReport**](docs/ReportsApi.md#getreport) | **Get** /deepfence/reports/{report_id} | Get Report
 *ReportsApi* | [**ListReports**](docs/ReportsApi.md#listreports) | **Get** /deepfence/reports | List Reports
+*ScanResultsApi* | [**BulkDeleteScans**](docs/ScanResultsApi.md#bulkdeletescans) | **Delete** /deepfence/scans/{scan_type}/{duration} | Bulk Delete Scans
 *ScanResultsApi* | [**DeleteScanResult**](docs/ScanResultsApi.md#deletescanresult) | **Patch** /deepfence/scan/results/action/delete | Delete selected scan results
 *ScanResultsApi* | [**DeleteScanResultsForScanID**](docs/ScanResultsApi.md#deletescanresultsforscanid) | **Delete** /deepfence/scan/{scan_type}/{scan_id} | Delete all scan results for a scan id
 *ScanResultsApi* | [**DownloadScanResults**](docs/ScanResultsApi.md#downloadscanresults) | **Get** /deepfence/scan/{scan_type}/{scan_id}/download | Download Scans Results
@@ -311,6 +312,7 @@ Class | Method | HTTP request | Description
  - [ModelContainer](docs/ModelContainer.md)
  - [ModelContainerImage](docs/ModelContainerImage.md)
  - [ModelDownloadReportResponse](docs/ModelDownloadReportResponse.md)
+ - [ModelDownloadScanResultsResponse](docs/ModelDownloadScanResultsResponse.md)
  - [ModelEmailConfigurationAdd](docs/ModelEmailConfigurationAdd.md)
  - [ModelEmailConfigurationResp](docs/ModelEmailConfigurationResp.md)
  - [ModelExportReport](docs/ModelExportReport.md)
@@ -358,6 +360,7 @@ Class | Method | HTTP request | Description
  - [ModelScanListResp](docs/ModelScanListResp.md)
  - [ModelScanResultBasicNode](docs/ModelScanResultBasicNode.md)
  - [ModelScanResultsActionRequest](docs/ModelScanResultsActionRequest.md)
+ - [ModelScanResultsCommon](docs/ModelScanResultsCommon.md)
  - [ModelScanResultsMaskRequest](docs/ModelScanResultsMaskRequest.md)
  - [ModelScanResultsReq](docs/ModelScanResultsReq.md)
  - [ModelScanStatusReq](docs/ModelScanStatusReq.md)

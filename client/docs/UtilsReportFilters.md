@@ -7,6 +7,7 @@ Name | Type | Description | Notes
 **AdvancedReportFilters** | Pointer to [**UtilsAdvancedReportFilters**](UtilsAdvancedReportFilters.md) |  | [optional] 
 **IncludeDeadNodes** | Pointer to **bool** |  | [optional] 
 **NodeType** | **string** |  | 
+**ScanId** | Pointer to **string** |  | [optional] 
 **ScanType** | **string** |  | 
 **SeverityOrCheckType** | Pointer to **[]string** |  | [optional] 
 
@@ -98,6 +99,31 @@ and a boolean to check if the value has been set.
 
 SetNodeType sets NodeType field to given value.
 
+
+### GetScanId
+
+`func (o *UtilsReportFilters) GetScanId() string`
+
+GetScanId returns the ScanId field if non-nil, zero value otherwise.
+
+### GetScanIdOk
+
+`func (o *UtilsReportFilters) GetScanIdOk() (*string, bool)`
+
+GetScanIdOk returns a tuple with the ScanId field if it's non-nil, zero value otherwise
+and a boolean to check if the value has been set.
+
+### SetScanId
+
+`func (o *UtilsReportFilters) SetScanId(v string)`
+
+SetScanId sets ScanId field to given value.
+
+### HasScanId
+
+`func (o *UtilsReportFilters) HasScanId() bool`
+
+HasScanId returns a boolean if a field has been set.
 
 ### GetScanType
 

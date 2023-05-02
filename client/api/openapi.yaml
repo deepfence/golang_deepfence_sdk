@@ -3024,7 +3024,7 @@ paths:
           content:
             application/json:
               schema:
-                $ref: '#/components/schemas/ModelDownloadReportResponse'
+                $ref: '#/components/schemas/ModelDownloadScanResultsResponse'
           description: OK
         "400":
           content:
@@ -4530,6 +4530,70 @@ paths:
       summary: Stop Vulnerability Scan
       tags:
       - Vulnerability
+  /deepfence/scans/{scan_type}/{duration}:
+    delete:
+      description: Bulk delete scans along with their results for a particular scan
+        type
+      operationId: bulkDeleteScans
+      parameters:
+      - explode: false
+        in: path
+        name: scan_type
+        required: true
+        schema:
+          enum:
+          - Secret
+          - Vulnerability
+          - Malware
+          - Compliance
+          - CloudCompliance
+          type: string
+        style: simple
+      - explode: false
+        in: path
+        name: duration
+        required: true
+        schema:
+          enum:
+          - -1
+          - 1
+          - 7
+          - 30
+          - 60
+          - 90
+          - 180
+          type: integer
+        style: simple
+      responses:
+        "200":
+          description: OK
+        "400":
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ApiDocsBadRequestResponse'
+          description: Bad Request
+        "401":
+          description: Unauthorized
+        "403":
+          description: Forbidden
+        "404":
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ApiDocsFailureResponse'
+          description: Not Found
+        "500":
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ApiDocsFailureResponse'
+          description: Internal Server Error
+      security:
+      - bearer_token: []
+      summary: Bulk Delete Scans
+      tags:
+      - Scan Results
   /deepfence/search/cloud-compliance/scans:
     post:
       description: Search across all the data associated with cloud-compliance scan
@@ -7648,7 +7712,7 @@ components:
     IngestersCloudResource:
       example:
         iam_instance_profile_arn: iam_instance_profile_arn
-        allow_blob_public_access: allow_blob_public_access
+        allow_blob_public_access: true
         ingress_settings: ingress_settings
         vpc_id: vpc_id
         event_notification_configuration: ""
@@ -7951,6 +8015,7 @@ components:
       type: object
     IngestersMalwareScanStatus:
       example:
+        scan_message: scan_message
         '@timestamp': 2000-01-23T04:56:07.000+00:00
         scan_status: scan_status
         scan_id: scan_id
@@ -7959,6 +8024,8 @@ components:
           format: date-time
           type: string
         scan_id:
+          type: string
+        scan_message:
           type: string
         scan_status:
           type: string
@@ -9047,6 +9114,7 @@ components:
       example:
         severity_counts:
           key: 6
+        status_message: status_message
         node_type: node_type
         benchmark_types:
         - benchmark_types
@@ -9081,6 +9149,8 @@ components:
           type: object
         status:
           type: string
+        status_message:
+          type: string
         updated_at:
           format: int64
           type: integer
@@ -9093,6 +9163,7 @@ components:
       - scan_id
       - severity_counts
       - status
+      - status_message
       - updated_at
       type: object
     ModelComplianceScanResult:
@@ -9207,6 +9278,7 @@ components:
         statuses:
         - severity_counts:
             key: 6
+          status_message: status_message
           node_type: node_type
           benchmark_types:
           - benchmark_types
@@ -9219,6 +9291,7 @@ components:
           status: status
         - severity_counts:
             key: 6
+          status_message: status_message
           node_type: node_type
           benchmark_types:
           - benchmark_types
@@ -9659,6 +9732,30 @@ components:
         url_link:
           type: string
       type: object
+    ModelDownloadScanResultsResponse:
+      example:
+        scan_results:
+        - ""
+        - ""
+        scan_info:
+          node_type: node_type
+          docker_container_name: docker_container_name
+          updated_at: 6
+          kubernetes_cluster_name: kubernetes_cluster_name
+          node_name: node_name
+          created_at: 0
+          scan_id: scan_id
+          docker_image_name: docker_image_name
+          host_name: host_name
+          node_id: node_id
+      properties:
+        scan_info:
+          $ref: '#/components/schemas/ModelScanResultsCommon'
+        scan_results:
+          items: {}
+          nullable: true
+          type: array
+      type: object
     ModelEmailConfigurationAdd:
       example:
         email_id: email_id
@@ -9828,6 +9925,7 @@ components:
             - pod_name
             - pod_name
           scan_type: vulnerability
+          scan_id: scan_id
           severity_or_check_type:
           - severity_or_check_type
           - severity_or_check_type
@@ -13617,6 +13715,7 @@ components:
       example:
         severity_counts:
           key: 6
+        status_message: status_message
         node_type: node_type
         updated_at: 1
         node_name: node_name
@@ -13643,6 +13742,8 @@ components:
           type: object
         status:
           type: string
+        status_message:
+          type: string
         updated_at:
           format: int64
           type: integer
@@ -13654,13 +13755,11 @@ components:
       - scan_id
       - severity_counts
       - status
+      - status_message
       - updated_at
       type: object
     ModelScanListReq:
       example:
-        scan_status:
-        - scan_status
-        - scan_status
         window:
           offset: 0
           size: 6
@@ -13706,11 +13805,6 @@ components:
             $ref: '#/components/schemas/ModelNodeIdentifier'
           nullable: true
           type: array
-        scan_status:
-          items:
-            type: string
-          nullable: true
-          type: array
         window:
           $ref: '#/components/schemas/ModelFetchWindow'
       required:
@@ -13723,6 +13817,7 @@ components:
         scans_info:
         - severity_counts:
             key: 6
+          status_message: status_message
           node_type: node_type
           updated_at: 1
           node_name: node_name
@@ -13732,6 +13827,7 @@ components:
           status: status
         - severity_counts:
             key: 6
+          status_message: status_message
           node_type: node_type
           updated_at: 1
           node_name: node_name
@@ -13799,6 +13895,53 @@ components:
       - result_ids
       - scan_id
       - scan_type
+      type: object
+    ModelScanResultsCommon:
+      example:
+        node_type: node_type
+        docker_container_name: docker_container_name
+        updated_at: 6
+        kubernetes_cluster_name: kubernetes_cluster_name
+        node_name: node_name
+        created_at: 0
+        scan_id: scan_id
+        docker_image_name: docker_image_name
+        host_name: host_name
+        node_id: node_id
+      properties:
+        created_at:
+          format: int64
+          type: integer
+        docker_container_name:
+          type: string
+        docker_image_name:
+          type: string
+        host_name:
+          type: string
+        kubernetes_cluster_name:
+          type: string
+        node_id:
+          type: string
+        node_name:
+          type: string
+        node_type:
+          type: string
+        scan_id:
+          type: string
+        updated_at:
+          format: int64
+          type: integer
+      required:
+      - created_at
+      - docker_container_name
+      - docker_image_name
+      - host_name
+      - kubernetes_cluster_name
+      - node_id
+      - node_name
+      - node_type
+      - scan_id
+      - updated_at
       type: object
     ModelScanResultsMaskRequest:
       example:
@@ -13902,6 +14045,7 @@ components:
           key:
             severity_counts:
               key: 6
+            status_message: status_message
             node_type: node_type
             updated_at: 1
             node_name: node_name
@@ -15359,6 +15503,7 @@ components:
           - pod_name
           - pod_name
         scan_type: vulnerability
+        scan_id: scan_id
         severity_or_check_type:
         - severity_or_check_type
         - severity_or_check_type
@@ -15376,6 +15521,8 @@ components:
           - aws
           - gcp
           - azure
+          type: string
+        scan_id:
           type: string
         scan_type:
           enum:
@@ -15396,7 +15543,7 @@ components:
           - nist
           - hipaa
           - pci
-          - soc2
+          - soc_2
           items:
             type: string
           nullable: true
