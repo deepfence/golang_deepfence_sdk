@@ -7722,7 +7722,7 @@ components:
         action:
           type: string
         allow_blob_public_access:
-          type: string
+          type: boolean
         arn:
           type: string
         attached_policy_arns: {}

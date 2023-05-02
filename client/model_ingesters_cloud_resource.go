@@ -23,7 +23,7 @@ type IngestersCloudResource struct {
 	AccessLevel *string `json:"access_level,omitempty"`
 	AccountId *string `json:"account_id,omitempty"`
 	Action *string `json:"action,omitempty"`
-	AllowBlobPublicAccess *string `json:"allow_blob_public_access,omitempty"`
+	AllowBlobPublicAccess *bool `json:"allow_blob_public_access,omitempty"`
 	Arn *string `json:"arn,omitempty"`
 	AttachedPolicyArns interface{} `json:"attached_policy_arns,omitempty"`
 	BlockPublicAcls *bool `json:"block_public_acls,omitempty"`
@@ -203,9 +203,9 @@ func (o *IngestersCloudResource) SetAction(v string) {
 }
 
 // GetAllowBlobPublicAccess returns the AllowBlobPublicAccess field value if set, zero value otherwise.
-func (o *IngestersCloudResource) GetAllowBlobPublicAccess() string {
+func (o *IngestersCloudResource) GetAllowBlobPublicAccess() bool {
 	if o == nil || IsNil(o.AllowBlobPublicAccess) {
-		var ret string
+		var ret bool
 		return ret
 	}
 	return *o.AllowBlobPublicAccess
@@ -213,7 +213,7 @@ func (o *IngestersCloudResource) GetAllowBlobPublicAccess() string {
 
 // GetAllowBlobPublicAccessOk returns a tuple with the AllowBlobPublicAccess field value if set, nil otherwise
 // and a boolean to check if the value has been set.
-func (o *IngestersCloudResource) GetAllowBlobPublicAccessOk() (*string, bool) {
+func (o *IngestersCloudResource) GetAllowBlobPublicAccessOk() (*bool, bool) {
 	if o == nil || IsNil(o.AllowBlobPublicAccess) {
 		return nil, false
 	}
@@ -230,7 +230,7 @@ func (o *IngestersCloudResource) HasAllowBlobPublicAccess() bool {
 }
 
 // SetAllowBlobPublicAccess gets a reference to the given string and assigns it to the AllowBlobPublicAccess field.
-func (o *IngestersCloudResource) SetAllowBlobPublicAccess(v string) {
+func (o *IngestersCloudResource) SetAllowBlobPublicAccess(v bool) {
 	o.AllowBlobPublicAccess = &v
 }
 
