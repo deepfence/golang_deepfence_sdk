@@ -57,7 +57,7 @@ const (
 	NodeTypeCloudRegion       = "CloudRegion"
 	NodeTypeKubernetesCluster = "KubernetesCluster"
 	NodeTypeContainerImage    = "ContainerImage"
-	NodeTypeNode              = "Node"
+	NodeTypeHost              = "Node"
 	NodeTypeContainer         = "Container"
 	NodeTypePod               = "Pod"
 	NodeTypeProcess           = "Process"
