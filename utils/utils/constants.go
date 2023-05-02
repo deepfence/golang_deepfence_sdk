@@ -51,6 +51,21 @@ const (
 	SCAN_STATUS_FAILED     = "ERROR"
 )
 
+// Neo4j Node Labels
+const (
+	NodeTypeCloudProvider     = "CloudProvider"
+	NodeTypeCloudRegion       = "CloudRegion"
+	NodeTypeKubernetesCluster = "KubernetesCluster"
+	NodeTypeContainerImage    = "ContainerImage"
+	NodeTypeNode              = "Node"
+	NodeTypeContainer         = "Container"
+	NodeTypePod               = "Pod"
+	NodeTypeProcess           = "Process"
+	NodeTypeCloudNode         = "CloudNode"
+	NodeTypeCloudResource     = "CloudResource"
+	NodeTypeRegistryAccount   = "RegistryAccount"
+)
+
 type Neo4jScanType string
 
 const (
