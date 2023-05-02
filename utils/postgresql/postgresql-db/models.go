@@ -85,6 +85,19 @@ type Role struct {
 	UpdatedAt time.Time `json:"updated_at"`
 }
 
+type Scheduler struct {
+	ID          int64           `json:"id"`
+	Action      string          `json:"action"`
+	Description string          `json:"description"`
+	CronExpr    string          `json:"cron_expr"`
+	Filter      json.RawMessage `json:"filter"`
+	IsEnabled   bool            `json:"is_enabled"`
+	Status      string          `json:"status"`
+	LastRanAt   sql.NullTime    `json:"last_ran_at"`
+	CreatedAt   time.Time       `json:"created_at"`
+	UpdatedAt   time.Time       `json:"updated_at"`
+}
+
 type Setting struct {
 	ID            int64           `json:"id"`
 	Key           string          `json:"key"`

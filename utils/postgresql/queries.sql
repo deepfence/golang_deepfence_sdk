@@ -87,7 +87,8 @@ WHERE users.is_active = true;
 SELECT count(*)
 FROM users
          INNER JOIN role ON role.id = users.role_id
-WHERE users.is_active = true AND role.name = 'admin';
+WHERE users.is_active = true
+  AND role.name = 'admin';
 
 -- name: GetUser :one
 SELECT users.id,
@@ -581,4 +582,40 @@ FROM integration;
 -- name: DeleteIntegration :exec
 DELETE
 FROM integration
+WHERE id = $1;
+
+-- name: CreateSchedule :one
+INSERT INTO scheduler (action, description, cron_expr, filter, is_enabled, status)
+VALUES ($1, $2, $3, $4, $5, '')
+RETURNING *;
+
+-- name: GetSchedules :many
+SELECT *
+FROM scheduler
+ORDER BY created_at;
+
+-- name: GetActiveSchedules :many
+SELECT *
+FROM scheduler
+WHERE is_enabled = 't'
+ORDER BY created_at;
+
+-- name: UpdateScheduleStatus :exec
+UPDATE scheduler
+SET status      = $1,
+    last_ran_at = now()
+WHERE id = $2;
+
+-- name: UpdateSchedule :exec
+UPDATE scheduler
+SET description = $1,
+    cron_expr   = $2,
+    filter      = $3,
+    is_enabled  = $4,
+    status      = $5
+WHERE id = $6;
+
+-- name: DeleteSchedule :exec
+DELETE
+FROM scheduler
 WHERE id = $1;

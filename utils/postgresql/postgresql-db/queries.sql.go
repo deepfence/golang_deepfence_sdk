@@ -17,7 +17,8 @@ const countActiveAdminUsers = `-- name: CountActiveAdminUsers :one
 SELECT count(*)
 FROM users
          INNER JOIN role ON role.id = users.role_id
-WHERE users.is_active = true AND role.name = 'admin'
+WHERE users.is_active = true
+  AND role.name = 'admin'
 `
 
 func (q *Queries) CountActiveAdminUsers(ctx context.Context) (int64, error) {
@@ -290,6 +291,44 @@ func (q *Queries) CreateRole(ctx context.Context, name string) (Role, error) {
 	return i, err
 }
 
+const createSchedule = `-- name: CreateSchedule :one
+INSERT INTO scheduler (action, description, cron_expr, filter, is_enabled, status)
+VALUES ($1, $2, $3, $4, $5, '')
+RETURNING id, action, description, cron_expr, filter, is_enabled, status, last_ran_at, created_at, updated_at
+`
+
+type CreateScheduleParams struct {
+	Action      string          `json:"action"`
+	Description string          `json:"description"`
+	CronExpr    string          `json:"cron_expr"`
+	Filter      json.RawMessage `json:"filter"`
+	IsEnabled   bool            `json:"is_enabled"`
+}
+
+func (q *Queries) CreateSchedule(ctx context.Context, arg CreateScheduleParams) (Scheduler, error) {
+	row := q.db.QueryRowContext(ctx, createSchedule,
+		arg.Action,
+		arg.Description,
+		arg.CronExpr,
+		arg.Filter,
+		arg.IsEnabled,
+	)
+	var i Scheduler
+	err := row.Scan(
+		&i.ID,
+		&i.Action,
+		&i.Description,
+		&i.CronExpr,
+		&i.Filter,
+		&i.IsEnabled,
+		&i.Status,
+		&i.LastRanAt,
+		&i.CreatedAt,
+		&i.UpdatedAt,
+	)
+	return i, err
+}
+
 const createSetting = `-- name: CreateSetting :one
 INSERT INTO setting (key, value, is_visible_on_ui)
 VALUES ($1, $2, $3)
@@ -529,6 +568,17 @@ func (q *Queries) DeletePasswordResetByUserEmail(ctx context.Context, email stri
 	return err
 }
 
+const deleteSchedule = `-- name: DeleteSchedule :exec
+DELETE
+FROM scheduler
+WHERE id = $1
+`
+
+func (q *Queries) DeleteSchedule(ctx context.Context, id int64) error {
+	_, err := q.db.ExecContext(ctx, deleteSchedule, id)
+	return err
+}
+
 const deleteSettingByID = `-- name: DeleteSettingByID :exec
 DELETE
 FROM setting
@@ -560,6 +610,47 @@ WHERE expiry >= $1
 func (q *Queries) DeleteUserInviteByExpiry(ctx context.Context, expiry time.Time) error {
 	_, err := q.db.ExecContext(ctx, deleteUserInviteByExpiry, expiry)
 	return err
+}
+
+const getActiveSchedules = `-- name: GetActiveSchedules :many
+SELECT id, action, description, cron_expr, filter, is_enabled, status, last_ran_at, created_at, updated_at
+FROM scheduler
+WHERE is_enabled = 't'
+ORDER BY created_at
+`
+
+func (q *Queries) GetActiveSchedules(ctx context.Context) ([]Scheduler, error) {
+	rows, err := q.db.QueryContext(ctx, getActiveSchedules)
+	if err != nil {
+		return nil, err
+	}
+	defer rows.Close()
+	var items []Scheduler
+	for rows.Next() {
+		var i Scheduler
+		if err := rows.Scan(
+			&i.ID,
+			&i.Action,
+			&i.Description,
+			&i.CronExpr,
+			&i.Filter,
+			&i.IsEnabled,
+			&i.Status,
+			&i.LastRanAt,
+			&i.CreatedAt,
+			&i.UpdatedAt,
+		); err != nil {
+			return nil, err
+		}
+		items = append(items, i)
+	}
+	if err := rows.Close(); err != nil {
+		return nil, err
+	}
+	if err := rows.Err(); err != nil {
+		return nil, err
+	}
+	return items, nil
 }
 
 const getActiveUsers = `-- name: GetActiveUsers :many
@@ -1652,6 +1743,46 @@ func (q *Queries) GetRoles(ctx context.Context) ([]Role, error) {
 	return items, nil
 }
 
+const getSchedules = `-- name: GetSchedules :many
+SELECT id, action, description, cron_expr, filter, is_enabled, status, last_ran_at, created_at, updated_at
+FROM scheduler
+ORDER BY created_at
+`
+
+func (q *Queries) GetSchedules(ctx context.Context) ([]Scheduler, error) {
+	rows, err := q.db.QueryContext(ctx, getSchedules)
+	if err != nil {
+		return nil, err
+	}
+	defer rows.Close()
+	var items []Scheduler
+	for rows.Next() {
+		var i Scheduler
+		if err := rows.Scan(
+			&i.ID,
+			&i.Action,
+			&i.Description,
+			&i.CronExpr,
+			&i.Filter,
+			&i.IsEnabled,
+			&i.Status,
+			&i.LastRanAt,
+			&i.CreatedAt,
+			&i.UpdatedAt,
+		); err != nil {
+			return nil, err
+		}
+		items = append(items, i)
+	}
+	if err := rows.Close(); err != nil {
+		return nil, err
+	}
+	if err := rows.Err(); err != nil {
+		return nil, err
+	}
+	return items, nil
+}
+
 const getSetting = `-- name: GetSetting :one
 SELECT id, key, value, is_visible_on_ui, created_at, updated_at
 FROM setting
@@ -2191,6 +2322,54 @@ type UpdatePasswordParams struct {
 
 func (q *Queries) UpdatePassword(ctx context.Context, arg UpdatePasswordParams) error {
 	_, err := q.db.ExecContext(ctx, updatePassword, arg.PasswordHash, arg.ID)
+	return err
+}
+
+const updateSchedule = `-- name: UpdateSchedule :exec
+UPDATE scheduler
+SET description = $1,
+    cron_expr   = $2,
+    filter      = $3,
+    is_enabled  = $4,
+    status      = $5
+WHERE id = $6
+`
+
+type UpdateScheduleParams struct {
+	Description string          `json:"description"`
+	CronExpr    string          `json:"cron_expr"`
+	Filter      json.RawMessage `json:"filter"`
+	IsEnabled   bool            `json:"is_enabled"`
+	Status      string          `json:"status"`
+	ID          int64           `json:"id"`
+}
+
+func (q *Queries) UpdateSchedule(ctx context.Context, arg UpdateScheduleParams) error {
+	_, err := q.db.ExecContext(ctx, updateSchedule,
+		arg.Description,
+		arg.CronExpr,
+		arg.Filter,
+		arg.IsEnabled,
+		arg.Status,
+		arg.ID,
+	)
+	return err
+}
+
+const updateScheduleStatus = `-- name: UpdateScheduleStatus :exec
+UPDATE scheduler
+SET status      = $1,
+    last_ran_at = now()
+WHERE id = $2
+`
+
+type UpdateScheduleStatusParams struct {
+	Status string `json:"status"`
+	ID     int64  `json:"id"`
+}
+
+func (q *Queries) UpdateScheduleStatus(ctx context.Context, arg UpdateScheduleStatusParams) error {
+	_, err := q.db.ExecContext(ctx, updateScheduleStatus, arg.Status, arg.ID)
 	return err
 }
 
