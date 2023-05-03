@@ -585,8 +585,8 @@ FROM integration
 WHERE id = $1;
 
 -- name: CreateSchedule :one
-INSERT INTO scheduler (action, description, cron_expr, filter, is_enabled, status)
-VALUES ($1, $2, $3, $4, $5, '')
+INSERT INTO scheduler (action, description, cron_expr, payload, is_enabled, is_system, status)
+VALUES ($1, $2, $3, $4, $5, $6, '')
 RETURNING *;
 
 -- name: GetSchedules :many
@@ -610,7 +610,7 @@ WHERE id = $2;
 UPDATE scheduler
 SET description = $1,
     cron_expr   = $2,
-    filter      = $3,
+    payload     = $3,
     is_enabled  = $4,
     status      = $5
 WHERE id = $6;

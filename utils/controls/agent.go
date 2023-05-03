@@ -35,7 +35,7 @@ func ResourceTypeToNeo4j(t ScanResource) string {
 	case Host:
 		return "Node"
 	case CloudAccount:
-		return "Node"
+		return "CloudNode"
 	case KubernetesCluster:
 		return "KubernetesCluster"
 	case RegistryAccount:

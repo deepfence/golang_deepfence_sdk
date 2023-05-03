@@ -90,8 +90,9 @@ type Scheduler struct {
 	Action      string          `json:"action"`
 	Description string          `json:"description"`
 	CronExpr    string          `json:"cron_expr"`
-	Filter      json.RawMessage `json:"filter"`
+	Payload     json.RawMessage `json:"payload"`
 	IsEnabled   bool            `json:"is_enabled"`
+	IsSystem    bool            `json:"is_system"`
 	Status      string          `json:"status"`
 	LastRanAt   sql.NullTime    `json:"last_ran_at"`
 	CreatedAt   time.Time       `json:"created_at"`

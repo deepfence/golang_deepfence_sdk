@@ -35,6 +35,7 @@ const (
 	CheckAgentUpgradeTask     = "tasks_check_agent_upgrade"
 	SyncRegistryTask          = "task_sync_registry"
 	TriggerConsoleActionsTask = "trigger_console_actions"
+	ScheduledTasks            = "scheduled_tasks"
 	SecretScanTask            = "task_secret_scan"
 	MalwareScanTask           = "task_malware_scan"
 	ReportGeneratorTask       = "tasks_generate_report"

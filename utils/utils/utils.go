@@ -8,6 +8,7 @@ import (
 	"encoding/json"
 	"errors"
 	"fmt"
+	"hash/fnv"
 	"io"
 	"net"
 	"net/http"
@@ -450,4 +451,10 @@ func StringArrayToInterfaceArray(a []string) []interface{} {
 		l = append(l, i)
 	}
 	return l
+}
+
+func GenerateHashFromString(s string) string {
+	h := fnv.New32a()
+	h.Write([]byte(s))
+	return fmt.Sprintf("%x", h.Sum32())
 }

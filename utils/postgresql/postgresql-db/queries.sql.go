@@ -292,17 +292,18 @@ func (q *Queries) CreateRole(ctx context.Context, name string) (Role, error) {
 }
 
 const createSchedule = `-- name: CreateSchedule :one
-INSERT INTO scheduler (action, description, cron_expr, filter, is_enabled, status)
-VALUES ($1, $2, $3, $4, $5, '')
-RETURNING id, action, description, cron_expr, filter, is_enabled, status, last_ran_at, created_at, updated_at
+INSERT INTO scheduler (action, description, cron_expr, payload, is_enabled, is_system, status)
+VALUES ($1, $2, $3, $4, $5, $6, '')
+RETURNING id, action, description, cron_expr, payload, is_enabled, is_system, status, last_ran_at, created_at, updated_at
 `
 
 type CreateScheduleParams struct {
 	Action      string          `json:"action"`
 	Description string          `json:"description"`
 	CronExpr    string          `json:"cron_expr"`
-	Filter      json.RawMessage `json:"filter"`
+	Payload     json.RawMessage `json:"payload"`
 	IsEnabled   bool            `json:"is_enabled"`
+	IsSystem    bool            `json:"is_system"`
 }
 
 func (q *Queries) CreateSchedule(ctx context.Context, arg CreateScheduleParams) (Scheduler, error) {
@@ -310,8 +311,9 @@ func (q *Queries) CreateSchedule(ctx context.Context, arg CreateScheduleParams) 
 		arg.Action,
 		arg.Description,
 		arg.CronExpr,
-		arg.Filter,
+		arg.Payload,
 		arg.IsEnabled,
+		arg.IsSystem,
 	)
 	var i Scheduler
 	err := row.Scan(
@@ -319,8 +321,9 @@ func (q *Queries) CreateSchedule(ctx context.Context, arg CreateScheduleParams) 
 		&i.Action,
 		&i.Description,
 		&i.CronExpr,
-		&i.Filter,
+		&i.Payload,
 		&i.IsEnabled,
+		&i.IsSystem,
 		&i.Status,
 		&i.LastRanAt,
 		&i.CreatedAt,
@@ -613,7 +616,7 @@ func (q *Queries) DeleteUserInviteByExpiry(ctx context.Context, expiry time.Time
 }
 
 const getActiveSchedules = `-- name: GetActiveSchedules :many
-SELECT id, action, description, cron_expr, filter, is_enabled, status, last_ran_at, created_at, updated_at
+SELECT id, action, description, cron_expr, payload, is_enabled, is_system, status, last_ran_at, created_at, updated_at
 FROM scheduler
 WHERE is_enabled = 't'
 ORDER BY created_at
@@ -633,8 +636,9 @@ func (q *Queries) GetActiveSchedules(ctx context.Context) ([]Scheduler, error) {
 			&i.Action,
 			&i.Description,
 			&i.CronExpr,
-			&i.Filter,
+			&i.Payload,
 			&i.IsEnabled,
+			&i.IsSystem,
 			&i.Status,
 			&i.LastRanAt,
 			&i.CreatedAt,
@@ -1744,7 +1748,7 @@ func (q *Queries) GetRoles(ctx context.Context) ([]Role, error) {
 }
 
 const getSchedules = `-- name: GetSchedules :many
-SELECT id, action, description, cron_expr, filter, is_enabled, status, last_ran_at, created_at, updated_at
+SELECT id, action, description, cron_expr, payload, is_enabled, is_system, status, last_ran_at, created_at, updated_at
 FROM scheduler
 ORDER BY created_at
 `
@@ -1763,8 +1767,9 @@ func (q *Queries) GetSchedules(ctx context.Context) ([]Scheduler, error) {
 			&i.Action,
 			&i.Description,
 			&i.CronExpr,
-			&i.Filter,
+			&i.Payload,
 			&i.IsEnabled,
+			&i.IsSystem,
 			&i.Status,
 			&i.LastRanAt,
 			&i.CreatedAt,
@@ -2329,7 +2334,7 @@ const updateSchedule = `-- name: UpdateSchedule :exec
 UPDATE scheduler
 SET description = $1,
     cron_expr   = $2,
-    filter      = $3,
+    payload     = $3,
     is_enabled  = $4,
     status      = $5
 WHERE id = $6
@@ -2338,7 +2343,7 @@ WHERE id = $6
 type UpdateScheduleParams struct {
 	Description string          `json:"description"`
 	CronExpr    string          `json:"cron_expr"`
-	Filter      json.RawMessage `json:"filter"`
+	Payload     json.RawMessage `json:"payload"`
 	IsEnabled   bool            `json:"is_enabled"`
 	Status      string          `json:"status"`
 	ID          int64           `json:"id"`
@@ -2348,7 +2353,7 @@ func (q *Queries) UpdateSchedule(ctx context.Context, arg UpdateScheduleParams) 
 	_, err := q.db.ExecContext(ctx, updateSchedule,
 		arg.Description,
 		arg.CronExpr,
-		arg.Filter,
+		arg.Payload,
 		arg.IsEnabled,
 		arg.Status,
 		arg.ID,
