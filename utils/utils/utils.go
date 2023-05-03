@@ -24,6 +24,7 @@ import (
 	"time"
 
 	"github.com/deepfence/golang_deepfence_sdk/utils/log"
+	postgresqlDb "github.com/deepfence/golang_deepfence_sdk/utils/postgresql/postgresql-db"
 	"github.com/google/uuid"
 	"github.com/lestrrat-go/jwx/v2/jwt"
 )
@@ -451,6 +452,14 @@ func StringArrayToInterfaceArray(a []string) []interface{} {
 		l = append(l, i)
 	}
 	return l
+}
+
+func GetScheduledJobHash(schedule postgresqlDb.Scheduler) string {
+	var payload map[string]string
+	json.Unmarshal(schedule.Payload, &payload)
+	message := map[string]interface{}{"action": schedule.Action, "payload": payload, "cron": schedule.CronExpr}
+	scheduleStr, _ := json.Marshal(message)
+	return GenerateHashFromString(string(scheduleStr))
 }
 
 func GenerateHashFromString(s string) string {
