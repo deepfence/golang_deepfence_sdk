@@ -4594,6 +4594,93 @@ paths:
       summary: Bulk Delete Scans
       tags:
       - Scan Results
+  /deepfence/scheduled-task:
+    get:
+      description: Get scheduled tasks
+      operationId: getScheduledTasks
+      responses:
+        "200":
+          content:
+            application/json:
+              schema:
+                items:
+                  $ref: '#/components/schemas/PostgresqlDbScheduler'
+                type: array
+          description: OK
+        "400":
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ApiDocsBadRequestResponse'
+          description: Bad Request
+        "401":
+          description: Unauthorized
+        "403":
+          description: Forbidden
+        "404":
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ApiDocsFailureResponse'
+          description: Not Found
+        "500":
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ApiDocsFailureResponse'
+          description: Internal Server Error
+      security:
+      - bearer_token: []
+      summary: Get scheduled tasks
+      tags:
+      - Settings
+  /deepfence/scheduled-task/{id}:
+    patch:
+      description: Update scheduled task
+      operationId: updateScheduledTask
+      parameters:
+      - explode: false
+        in: path
+        name: id
+        required: true
+        schema:
+          type: integer
+        style: simple
+      requestBody:
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/ModelUpdateScheduledTaskRequest'
+      responses:
+        "204":
+          description: No Content
+        "400":
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ApiDocsBadRequestResponse'
+          description: Bad Request
+        "401":
+          description: Unauthorized
+        "403":
+          description: Forbidden
+        "404":
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ApiDocsFailureResponse'
+          description: Not Found
+        "500":
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ApiDocsFailureResponse'
+          description: Internal Server Error
+      security:
+      - bearer_token: []
+      summary: Update scheduled task
+      tags:
+      - Settings
   /deepfence/search/cloud-compliance/scans:
     post:
       description: Search across all the data associated with cloud-compliance scan
@@ -14337,6 +14424,15 @@ components:
         tags:
           type: integer
       type: object
+    ModelUpdateScheduledTaskRequest:
+      example:
+        is_enabled: true
+      properties:
+        is_enabled:
+          type: boolean
+      required:
+      - is_enabled
+      type: object
     ModelUpdateUserIdRequest:
       example:
         is_active: true
@@ -14770,6 +14866,44 @@ components:
           type: integer
         user_role_id:
           type: integer
+      type: object
+    PostgresqlDbScheduler:
+      example:
+        is_enabled: true
+        is_system: true
+        last_ran_at: "{}"
+        updated_at: 2000-01-23T04:56:07.000+00:00
+        payload: ""
+        cron_expr: cron_expr
+        action: action
+        created_at: 2000-01-23T04:56:07.000+00:00
+        description: description
+        id: 0
+        status: status
+      properties:
+        action:
+          type: string
+        created_at:
+          format: date-time
+          type: string
+        cron_expr:
+          type: string
+        description:
+          type: string
+        id:
+          type: integer
+        is_enabled:
+          type: boolean
+        is_system:
+          type: boolean
+        last_ran_at:
+          type: object
+        payload: {}
+        status:
+          type: string
+        updated_at:
+          format: date-time
+          type: string
       type: object
     ReportIDList:
       items:
@@ -15412,6 +15546,8 @@ components:
       - node_filters
       - scan_filters
       - window
+      type: object
+    SqlNullTime:
       type: object
     UtilsAdvancedReportFilters:
       example:

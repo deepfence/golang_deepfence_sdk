@@ -202,8 +202,10 @@ Class | Method | HTTP request | Description
 *SettingsApi* | [**AddEmailConfiguration**](docs/SettingsApi.md#addemailconfiguration) | **Post** /deepfence/settings/email | Add Email Configuration
 *SettingsApi* | [**DeleteEmailConfiguration**](docs/SettingsApi.md#deleteemailconfiguration) | **Delete** /deepfence/settings/email/{config_id} | Delete Email Configurations
 *SettingsApi* | [**GetEmailConfiguration**](docs/SettingsApi.md#getemailconfiguration) | **Get** /deepfence/settings/email | Get Email Configurations
+*SettingsApi* | [**GetScheduledTasks**](docs/SettingsApi.md#getscheduledtasks) | **Get** /deepfence/scheduled-task | Get scheduled tasks
 *SettingsApi* | [**GetSettings**](docs/SettingsApi.md#getsettings) | **Get** /deepfence/settings/global-settings | Get settings
 *SettingsApi* | [**GetUserActivityLogs**](docs/SettingsApi.md#getuseractivitylogs) | **Get** /deepfence/settings/user-activity-log | Get activity logs
+*SettingsApi* | [**UpdateScheduledTask**](docs/SettingsApi.md#updatescheduledtask) | **Patch** /deepfence/scheduled-task/{id} | Update scheduled task
 *SettingsApi* | [**UpdateSetting**](docs/SettingsApi.md#updatesetting) | **Patch** /deepfence/settings/global-settings/{id} | Update setting
 *ThreatApi* | [**GetThreatGraph**](docs/ThreatApi.md#getthreatgraph) | **Post** /deepfence/graph/threat | Get Threat Graph
 *ThreatApi* | [**GetVulnerabilityThreatGraph**](docs/ThreatApi.md#getvulnerabilitythreatgraph) | **Post** /deepfence/graph/threat/vulnerability | Get Vulnerability Threat Graph
@@ -372,6 +374,7 @@ Class | Method | HTTP request | Description
  - [ModelSettingUpdateRequest](docs/ModelSettingUpdateRequest.md)
  - [ModelSettingsResponse](docs/ModelSettingsResponse.md)
  - [ModelSummary](docs/ModelSummary.md)
+ - [ModelUpdateScheduledTaskRequest](docs/ModelUpdateScheduledTaskRequest.md)
  - [ModelUpdateUserIdRequest](docs/ModelUpdateUserIdRequest.md)
  - [ModelUpdateUserPasswordRequest](docs/ModelUpdateUserPasswordRequest.md)
  - [ModelUpdateUserRequest](docs/ModelUpdateUserRequest.md)
@@ -382,6 +385,7 @@ Class | Method | HTTP request | Description
  - [ModelVulnerabilityScanResult](docs/ModelVulnerabilityScanResult.md)
  - [ModelVulnerabilityScanTriggerReq](docs/ModelVulnerabilityScanTriggerReq.md)
  - [PostgresqlDbGetAuditLogsRow](docs/PostgresqlDbGetAuditLogsRow.md)
+ - [PostgresqlDbScheduler](docs/PostgresqlDbScheduler.md)
  - [ReportMetadata](docs/ReportMetadata.md)
  - [ReportRawReport](docs/ReportRawReport.md)
  - [ReportersCompareFilter](docs/ReportersCompareFilter.md)

@@ -164,6 +164,7 @@ docs/ModelSecretScanTriggerReq.md
 docs/ModelSettingUpdateRequest.md
 docs/ModelSettingsResponse.md
 docs/ModelSummary.md
+docs/ModelUpdateScheduledTaskRequest.md
 docs/ModelUpdateUserIdRequest.md
 docs/ModelUpdateUserPasswordRequest.md
 docs/ModelUpdateUserRequest.md
@@ -174,6 +175,7 @@ docs/ModelVulnerabilityScanConfigLanguage.md
 docs/ModelVulnerabilityScanResult.md
 docs/ModelVulnerabilityScanTriggerReq.md
 docs/PostgresqlDbGetAuditLogsRow.md
+docs/PostgresqlDbScheduler.md
 docs/RegistryApi.md
 docs/ReportMetadata.md
 docs/ReportRawReport.md
@@ -331,6 +333,7 @@ model_model_secret_scan_trigger_req.go
 model_model_setting_update_request.go
 model_model_settings_response.go
 model_model_summary.go
+model_model_update_scheduled_task_request.go
 model_model_update_user_id_request.go
 model_model_update_user_password_request.go
 model_model_update_user_request.go
@@ -341,6 +344,7 @@ model_model_vulnerability_scan_config_language.go
 model_model_vulnerability_scan_result.go
 model_model_vulnerability_scan_trigger_req.go
 model_postgresql_db_get_audit_logs_row.go
+model_postgresql_db_scheduler.go
 model_report_metadata.go
 model_report_raw_report.go
 model_reporters_compare_filter.go

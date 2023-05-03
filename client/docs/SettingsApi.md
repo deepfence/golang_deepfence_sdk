@@ -7,8 +7,10 @@ Method | HTTP request | Description
 [**AddEmailConfiguration**](SettingsApi.md#AddEmailConfiguration) | **Post** /deepfence/settings/email | Add Email Configuration
 [**DeleteEmailConfiguration**](SettingsApi.md#DeleteEmailConfiguration) | **Delete** /deepfence/settings/email/{config_id} | Delete Email Configurations
 [**GetEmailConfiguration**](SettingsApi.md#GetEmailConfiguration) | **Get** /deepfence/settings/email | Get Email Configurations
+[**GetScheduledTasks**](SettingsApi.md#GetScheduledTasks) | **Get** /deepfence/scheduled-task | Get scheduled tasks
 [**GetSettings**](SettingsApi.md#GetSettings) | **Get** /deepfence/settings/global-settings | Get settings
 [**GetUserActivityLogs**](SettingsApi.md#GetUserActivityLogs) | **Get** /deepfence/settings/user-activity-log | Get activity logs
+[**UpdateScheduledTask**](SettingsApi.md#UpdateScheduledTask) | **Patch** /deepfence/scheduled-task/{id} | Update scheduled task
 [**UpdateSetting**](SettingsApi.md#UpdateSetting) | **Patch** /deepfence/settings/global-settings/{id} | Update setting
 
 
@@ -208,6 +210,67 @@ Other parameters are passed through a pointer to a apiGetEmailConfigurationReque
 [[Back to README]](../README.md)
 
 
+## GetScheduledTasks
+
+> []PostgresqlDbScheduler GetScheduledTasks(ctx).Execute()
+
+Get scheduled tasks
+
+
+
+### Example
+
+```go
+package main
+
+import (
+    "context"
+    "fmt"
+    "os"
+    openapiclient "github.com/deepfence/golang_deepfence_sdk/client"
+)
+
+func main() {
+
+    configuration := openapiclient.NewConfiguration()
+    apiClient := openapiclient.NewAPIClient(configuration)
+    resp, r, err := apiClient.SettingsApi.GetScheduledTasks(context.Background()).Execute()
+    if err != nil {
+        fmt.Fprintf(os.Stderr, "Error when calling `SettingsApi.GetScheduledTasks``: %v\n", err)
+        fmt.Fprintf(os.Stderr, "Full HTTP response: %v\n", r)
+    }
+    // response from `GetScheduledTasks`: []PostgresqlDbScheduler
+    fmt.Fprintf(os.Stdout, "Response from `SettingsApi.GetScheduledTasks`: %v\n", resp)
+}
+```
+
+### Path Parameters
+
+This endpoint does not need any parameter.
+
+### Other Parameters
+
+Other parameters are passed through a pointer to a apiGetScheduledTasksRequest struct via the builder pattern
+
+
+### Return type
+
+[**[]PostgresqlDbScheduler**](PostgresqlDbScheduler.md)
+
+### Authorization
+
+[bearer_token](../README.md#bearer_token)
+
+### HTTP request headers
+
+- **Content-Type**: Not defined
+- **Accept**: application/json
+
+[[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints)
+[[Back to Model list]](../README.md#documentation-for-models)
+[[Back to README]](../README.md)
+
+
 ## GetSettings
 
 > []ModelSettingsResponse GetSettings(ctx).Execute()
@@ -323,6 +386,76 @@ Other parameters are passed through a pointer to a apiGetUserActivityLogsRequest
 ### HTTP request headers
 
 - **Content-Type**: Not defined
+- **Accept**: application/json
+
+[[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints)
+[[Back to Model list]](../README.md#documentation-for-models)
+[[Back to README]](../README.md)
+
+
+## UpdateScheduledTask
+
+> UpdateScheduledTask(ctx, id).ModelUpdateScheduledTaskRequest(modelUpdateScheduledTaskRequest).Execute()
+
+Update scheduled task
+
+
+
+### Example
+
+```go
+package main
+
+import (
+    "context"
+    "fmt"
+    "os"
+    openapiclient "github.com/deepfence/golang_deepfence_sdk/client"
+)
+
+func main() {
+    id := int32(56) // int32 | 
+    modelUpdateScheduledTaskRequest := *openapiclient.NewModelUpdateScheduledTaskRequest(false) // ModelUpdateScheduledTaskRequest |  (optional)
+
+    configuration := openapiclient.NewConfiguration()
+    apiClient := openapiclient.NewAPIClient(configuration)
+    r, err := apiClient.SettingsApi.UpdateScheduledTask(context.Background(), id).ModelUpdateScheduledTaskRequest(modelUpdateScheduledTaskRequest).Execute()
+    if err != nil {
+        fmt.Fprintf(os.Stderr, "Error when calling `SettingsApi.UpdateScheduledTask``: %v\n", err)
+        fmt.Fprintf(os.Stderr, "Full HTTP response: %v\n", r)
+    }
+}
+```
+
+### Path Parameters
+
+
+Name | Type | Description  | Notes
+------------- | ------------- | ------------- | -------------
+**ctx** | **context.Context** | context for authentication, logging, cancellation, deadlines, tracing, etc.
+**id** | **int32** |  | 
+
+### Other Parameters
+
+Other parameters are passed through a pointer to a apiUpdateScheduledTaskRequest struct via the builder pattern
+
+
+Name | Type | Description  | Notes
+------------- | ------------- | ------------- | -------------
+
+ **modelUpdateScheduledTaskRequest** | [**ModelUpdateScheduledTaskRequest**](ModelUpdateScheduledTaskRequest.md) |  | 
+
+### Return type
+
+ (empty response body)
+
+### Authorization
+
+[bearer_token](../README.md#bearer_token)
+
+### HTTP request headers
+
+- **Content-Type**: application/json
 - **Accept**: application/json
 
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints)
