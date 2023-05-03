@@ -1747,6 +1747,32 @@ func (q *Queries) GetRoles(ctx context.Context) ([]Role, error) {
 	return items, nil
 }
 
+const getSchedule = `-- name: GetSchedule :one
+SELECT id, action, description, cron_expr, payload, is_enabled, is_system, status, last_ran_at, created_at, updated_at
+FROM scheduler
+WHERE id = $1
+LIMIT 1
+`
+
+func (q *Queries) GetSchedule(ctx context.Context, id int64) (Scheduler, error) {
+	row := q.db.QueryRowContext(ctx, getSchedule, id)
+	var i Scheduler
+	err := row.Scan(
+		&i.ID,
+		&i.Action,
+		&i.Description,
+		&i.CronExpr,
+		&i.Payload,
+		&i.IsEnabled,
+		&i.IsSystem,
+		&i.Status,
+		&i.LastRanAt,
+		&i.CreatedAt,
+		&i.UpdatedAt,
+	)
+	return i, err
+}
+
 const getSchedules = `-- name: GetSchedules :many
 SELECT id, action, description, cron_expr, payload, is_enabled, is_system, status, last_ran_at, created_at, updated_at
 FROM scheduler

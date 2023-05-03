@@ -589,6 +589,12 @@ INSERT INTO scheduler (action, description, cron_expr, payload, is_enabled, is_s
 VALUES ($1, $2, $3, $4, $5, $6, '')
 RETURNING *;
 
+-- name: GetSchedule :one
+SELECT *
+FROM scheduler
+WHERE id = $1
+LIMIT 1;
+
 -- name: GetSchedules :many
 SELECT *
 FROM scheduler
