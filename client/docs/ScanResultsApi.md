@@ -4,6 +4,7 @@ All URIs are relative to *http://localhost*
 
 Method | HTTP request | Description
 ------------- | ------------- | -------------
+[**BulkDeleteScans**](ScanResultsApi.md#BulkDeleteScans) | **Delete** /deepfence/scans/{scan_type}/{duration} | Bulk Delete Scans
 [**DeleteScanResult**](ScanResultsApi.md#DeleteScanResult) | **Patch** /deepfence/scan/results/action/delete | Delete selected scan results
 [**DeleteScanResultsForScanID**](ScanResultsApi.md#DeleteScanResultsForScanID) | **Delete** /deepfence/scan/{scan_type}/{scan_id} | Delete all scan results for a scan id
 [**DownloadScanResults**](ScanResultsApi.md#DownloadScanResults) | **Get** /deepfence/scan/{scan_type}/{scan_id}/download | Download Scans Results
@@ -12,6 +13,77 @@ Method | HTTP request | Description
 [**NotifyScanResult**](ScanResultsApi.md#NotifyScanResult) | **Post** /deepfence/scan/results/action/notify | Notify Scans Results
 [**UnmaskScanResult**](ScanResultsApi.md#UnmaskScanResult) | **Post** /deepfence/scan/results/action/unmask | Unmask Scans Results
 
+
+
+## BulkDeleteScans
+
+> BulkDeleteScans(ctx, scanType, duration).Execute()
+
+Bulk Delete Scans
+
+
+
+### Example
+
+```go
+package main
+
+import (
+    "context"
+    "fmt"
+    "os"
+    openapiclient "github.com/deepfence/golang_deepfence_sdk/client"
+)
+
+func main() {
+    scanType := "scanType_example" // string | 
+    duration := int32(56) // int32 | 
+
+    configuration := openapiclient.NewConfiguration()
+    apiClient := openapiclient.NewAPIClient(configuration)
+    r, err := apiClient.ScanResultsApi.BulkDeleteScans(context.Background(), scanType, duration).Execute()
+    if err != nil {
+        fmt.Fprintf(os.Stderr, "Error when calling `ScanResultsApi.BulkDeleteScans``: %v\n", err)
+        fmt.Fprintf(os.Stderr, "Full HTTP response: %v\n", r)
+    }
+}
+```
+
+### Path Parameters
+
+
+Name | Type | Description  | Notes
+------------- | ------------- | ------------- | -------------
+**ctx** | **context.Context** | context for authentication, logging, cancellation, deadlines, tracing, etc.
+**scanType** | **string** |  | 
+**duration** | **int32** |  | 
+
+### Other Parameters
+
+Other parameters are passed through a pointer to a apiBulkDeleteScansRequest struct via the builder pattern
+
+
+Name | Type | Description  | Notes
+------------- | ------------- | ------------- | -------------
+
+
+
+### Return type
+
+ (empty response body)
+
+### Authorization
+
+[bearer_token](../README.md#bearer_token)
+
+### HTTP request headers
+
+- **Content-Type**: Not defined
+- **Accept**: application/json
+
+[[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints)
+[[Back to Model list]](../README.md#documentation-for-models)
+[[Back to README]](../README.md)
 
 
 ## DeleteScanResult
@@ -151,7 +223,7 @@ Name | Type | Description  | Notes
 
 ## DownloadScanResults
 
-> ModelDownloadReportResponse DownloadScanResults(ctx, scanId, scanType).Execute()
+> ModelDownloadScanResultsResponse DownloadScanResults(ctx, scanId, scanType).Execute()
 
 Download Scans Results
 
@@ -180,7 +252,7 @@ func main() {
         fmt.Fprintf(os.Stderr, "Error when calling `ScanResultsApi.DownloadScanResults``: %v\n", err)
         fmt.Fprintf(os.Stderr, "Full HTTP response: %v\n", r)
     }
-    // response from `DownloadScanResults`: ModelDownloadReportResponse
+    // response from `DownloadScanResults`: ModelDownloadScanResultsResponse
     fmt.Fprintf(os.Stdout, "Response from `ScanResultsApi.DownloadScanResults`: %v\n", resp)
 }
 ```
@@ -206,7 +278,7 @@ Name | Type | Description  | Notes
 
 ### Return type
 
-[**ModelDownloadReportResponse**](ModelDownloadReportResponse.md)
+[**ModelDownloadScanResultsResponse**](ModelDownloadScanResultsResponse.md)
 
 ### Authorization
 

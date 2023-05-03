@@ -28,6 +28,7 @@ type ModelComplianceScanInfo struct {
 	ScanId string `json:"scan_id"`
 	SeverityCounts map[string]int32 `json:"severity_counts"`
 	Status string `json:"status"`
+	StatusMessage string `json:"status_message"`
 	UpdatedAt int64 `json:"updated_at"`
 }
 
@@ -35,7 +36,7 @@ type ModelComplianceScanInfo struct {
 // This constructor will assign default values to properties that have it defined,
 // and makes sure properties required by API are set, but the set of arguments
 // will change when the set of required properties is changed
-func NewModelComplianceScanInfo(benchmarkTypes []string, createdAt int64, nodeId string, nodeName string, nodeType string, scanId string, severityCounts map[string]int32, status string, updatedAt int64) *ModelComplianceScanInfo {
+func NewModelComplianceScanInfo(benchmarkTypes []string, createdAt int64, nodeId string, nodeName string, nodeType string, scanId string, severityCounts map[string]int32, status string, statusMessage string, updatedAt int64) *ModelComplianceScanInfo {
 	this := ModelComplianceScanInfo{}
 	this.BenchmarkTypes = benchmarkTypes
 	this.CreatedAt = createdAt
@@ -45,6 +46,7 @@ func NewModelComplianceScanInfo(benchmarkTypes []string, createdAt int64, nodeId
 	this.ScanId = scanId
 	this.SeverityCounts = severityCounts
 	this.Status = status
+	this.StatusMessage = statusMessage
 	this.UpdatedAt = updatedAt
 	return &this
 }
@@ -253,6 +255,30 @@ func (o *ModelComplianceScanInfo) SetStatus(v string) {
 	o.Status = v
 }
 
+// GetStatusMessage returns the StatusMessage field value
+func (o *ModelComplianceScanInfo) GetStatusMessage() string {
+	if o == nil {
+		var ret string
+		return ret
+	}
+
+	return o.StatusMessage
+}
+
+// GetStatusMessageOk returns a tuple with the StatusMessage field value
+// and a boolean to check if the value has been set.
+func (o *ModelComplianceScanInfo) GetStatusMessageOk() (*string, bool) {
+	if o == nil {
+		return nil, false
+	}
+	return &o.StatusMessage, true
+}
+
+// SetStatusMessage sets field value
+func (o *ModelComplianceScanInfo) SetStatusMessage(v string) {
+	o.StatusMessage = v
+}
+
 // GetUpdatedAt returns the UpdatedAt field value
 func (o *ModelComplianceScanInfo) GetUpdatedAt() int64 {
 	if o == nil {
@@ -299,6 +325,7 @@ func (o ModelComplianceScanInfo) ToMap() (map[string]interface{}, error) {
 		toSerialize["severity_counts"] = o.SeverityCounts
 	}
 	toSerialize["status"] = o.Status
+	toSerialize["status_message"] = o.StatusMessage
 	toSerialize["updated_at"] = o.UpdatedAt
 	return toSerialize, nil
 }

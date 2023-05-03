@@ -22,7 +22,6 @@ var _ MappedNullable = &ModelScanListReq{}
 type ModelScanListReq struct {
 	FieldsFilter ReportersFieldsFilters `json:"fields_filter"`
 	NodeIds []ModelNodeIdentifier `json:"node_ids"`
-	ScanStatus []string `json:"scan_status,omitempty"`
 	Window ModelFetchWindow `json:"window"`
 }
 
@@ -96,39 +95,6 @@ func (o *ModelScanListReq) SetNodeIds(v []ModelNodeIdentifier) {
 	o.NodeIds = v
 }
 
-// GetScanStatus returns the ScanStatus field value if set, zero value otherwise (both if not set or set to explicit null).
-func (o *ModelScanListReq) GetScanStatus() []string {
-	if o == nil {
-		var ret []string
-		return ret
-	}
-	return o.ScanStatus
-}
-
-// GetScanStatusOk returns a tuple with the ScanStatus field value if set, nil otherwise
-// and a boolean to check if the value has been set.
-// NOTE: If the value is an explicit nil, `nil, true` will be returned
-func (o *ModelScanListReq) GetScanStatusOk() ([]string, bool) {
-	if o == nil || IsNil(o.ScanStatus) {
-		return nil, false
-	}
-	return o.ScanStatus, true
-}
-
-// HasScanStatus returns a boolean if a field has been set.
-func (o *ModelScanListReq) HasScanStatus() bool {
-	if o != nil && IsNil(o.ScanStatus) {
-		return true
-	}
-
-	return false
-}
-
-// SetScanStatus gets a reference to the given []string and assigns it to the ScanStatus field.
-func (o *ModelScanListReq) SetScanStatus(v []string) {
-	o.ScanStatus = v
-}
-
 // GetWindow returns the Window field value
 func (o *ModelScanListReq) GetWindow() ModelFetchWindow {
 	if o == nil {
@@ -166,9 +132,6 @@ func (o ModelScanListReq) ToMap() (map[string]interface{}, error) {
 	toSerialize["fields_filter"] = o.FieldsFilter
 	if o.NodeIds != nil {
 		toSerialize["node_ids"] = o.NodeIds
-	}
-	if o.ScanStatus != nil {
-		toSerialize["scan_status"] = o.ScanStatus
 	}
 	toSerialize["window"] = o.Window
 	return toSerialize, nil

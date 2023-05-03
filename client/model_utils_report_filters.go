@@ -23,6 +23,7 @@ type UtilsReportFilters struct {
 	AdvancedReportFilters *UtilsAdvancedReportFilters `json:"advanced_report_filters,omitempty"`
 	IncludeDeadNodes *bool `json:"include_dead_nodes,omitempty"`
 	NodeType string `json:"node_type"`
+	ScanId *string `json:"scan_id,omitempty"`
 	ScanType string `json:"scan_type"`
 	SeverityOrCheckType []string `json:"severity_or_check_type,omitempty"`
 }
@@ -134,6 +135,38 @@ func (o *UtilsReportFilters) SetNodeType(v string) {
 	o.NodeType = v
 }
 
+// GetScanId returns the ScanId field value if set, zero value otherwise.
+func (o *UtilsReportFilters) GetScanId() string {
+	if o == nil || IsNil(o.ScanId) {
+		var ret string
+		return ret
+	}
+	return *o.ScanId
+}
+
+// GetScanIdOk returns a tuple with the ScanId field value if set, nil otherwise
+// and a boolean to check if the value has been set.
+func (o *UtilsReportFilters) GetScanIdOk() (*string, bool) {
+	if o == nil || IsNil(o.ScanId) {
+		return nil, false
+	}
+	return o.ScanId, true
+}
+
+// HasScanId returns a boolean if a field has been set.
+func (o *UtilsReportFilters) HasScanId() bool {
+	if o != nil && !IsNil(o.ScanId) {
+		return true
+	}
+
+	return false
+}
+
+// SetScanId gets a reference to the given string and assigns it to the ScanId field.
+func (o *UtilsReportFilters) SetScanId(v string) {
+	o.ScanId = &v
+}
+
 // GetScanType returns the ScanType field value
 func (o *UtilsReportFilters) GetScanType() string {
 	if o == nil {
@@ -208,6 +241,9 @@ func (o UtilsReportFilters) ToMap() (map[string]interface{}, error) {
 		toSerialize["include_dead_nodes"] = o.IncludeDeadNodes
 	}
 	toSerialize["node_type"] = o.NodeType
+	if !IsNil(o.ScanId) {
+		toSerialize["scan_id"] = o.ScanId
+	}
 	toSerialize["scan_type"] = o.ScanType
 	if o.SeverityOrCheckType != nil {
 		toSerialize["severity_or_check_type"] = o.SeverityOrCheckType

@@ -229,7 +229,7 @@ func (o *IngestersCloudResource) HasAllowBlobPublicAccess() bool {
 	return false
 }
 
-// SetAllowBlobPublicAccess gets a reference to the given string and assigns it to the AllowBlobPublicAccess field.
+// SetAllowBlobPublicAccess gets a reference to the given bool and assigns it to the AllowBlobPublicAccess field.
 func (o *IngestersCloudResource) SetAllowBlobPublicAccess(v bool) {
 	o.AllowBlobPublicAccess = &v
 }
