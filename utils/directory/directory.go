@@ -8,9 +8,10 @@ import (
 )
 
 const (
-	GlobalDirKey  = NamespaceID("global")
-	NonSaaSDirKey = NamespaceID("default")
-	NamespaceKey  = "namespace"
+	GlobalDirKey   = NamespaceID("global")
+	NonSaaSDirKey  = NamespaceID("default")
+	DatabaseDirKey = NamespaceID("database")
+	NamespaceKey   = "namespace"
 )
 
 type NamespaceID string

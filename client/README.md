@@ -148,7 +148,7 @@ Class | Method | HTTP request | Description
 *ReportsApi* | [**GenerateReport**](docs/ReportsApi.md#generatereport) | **Post** /deepfence/reports | Generate Report
 *ReportsApi* | [**GetReport**](docs/ReportsApi.md#getreport) | **Get** /deepfence/reports/{report_id} | Get Report
 *ReportsApi* | [**ListReports**](docs/ReportsApi.md#listreports) | **Get** /deepfence/reports | List Reports
-*ScanResultsApi* | [**BulkDeleteScans**](docs/ScanResultsApi.md#bulkdeletescans) | **Delete** /deepfence/scans/{scan_type}/{duration} | Bulk Delete Scans
+*ScanResultsApi* | [**BulkDeleteScans**](docs/ScanResultsApi.md#bulkdeletescans) | **Post** /deepfence/scans/bulk/delete | Bulk Delete Scans
 *ScanResultsApi* | [**DeleteScanResult**](docs/ScanResultsApi.md#deletescanresult) | **Patch** /deepfence/scan/results/action/delete | Delete selected scan results
 *ScanResultsApi* | [**DeleteScanResultsForScanID**](docs/ScanResultsApi.md#deletescanresultsforscanid) | **Delete** /deepfence/scan/{scan_type}/{scan_id} | Delete all scan results for a scan id
 *ScanResultsApi* | [**DownloadScanResults**](docs/ScanResultsApi.md#downloadscanresults) | **Get** /deepfence/scan/{scan_type}/{scan_id}/download | Download Scans Results
@@ -207,6 +207,7 @@ Class | Method | HTTP request | Description
 *SettingsApi* | [**GetUserActivityLogs**](docs/SettingsApi.md#getuseractivitylogs) | **Get** /deepfence/settings/user-activity-log | Get activity logs
 *SettingsApi* | [**UpdateScheduledTask**](docs/SettingsApi.md#updatescheduledtask) | **Patch** /deepfence/scheduled-task/{id} | Update scheduled task
 *SettingsApi* | [**UpdateSetting**](docs/SettingsApi.md#updatesetting) | **Patch** /deepfence/settings/global-settings/{id} | Update setting
+*SettingsApi* | [**UploadVulnerabilityDatabase**](docs/SettingsApi.md#uploadvulnerabilitydatabase) | **Put** /deepfence/database/vulnerability | Upload Vulnerability Database
 *ThreatApi* | [**GetThreatGraph**](docs/ThreatApi.md#getthreatgraph) | **Post** /deepfence/graph/threat | Get Threat Graph
 *ThreatApi* | [**GetVulnerabilityThreatGraph**](docs/ThreatApi.md#getvulnerabilitythreatgraph) | **Post** /deepfence/graph/threat/vulnerability | Get Vulnerability Threat Graph
 *TopologyApi* | [**GetContainersTopologyGraph**](docs/TopologyApi.md#getcontainerstopologygraph) | **Post** /deepfence/graph/topology/containers | Get Containers Topology Graph
@@ -288,6 +289,7 @@ Class | Method | HTTP request | Description
  - [ModelApiAuthRequest](docs/ModelApiAuthRequest.md)
  - [ModelApiTokenResponse](docs/ModelApiTokenResponse.md)
  - [ModelBasicNode](docs/ModelBasicNode.md)
+ - [ModelBulkDeleteScansRequest](docs/ModelBulkDeleteScansRequest.md)
  - [ModelCloudCompliance](docs/ModelCloudCompliance.md)
  - [ModelCloudComplianceBenchmark](docs/ModelCloudComplianceBenchmark.md)
  - [ModelCloudComplianceScanDetails](docs/ModelCloudComplianceScanDetails.md)

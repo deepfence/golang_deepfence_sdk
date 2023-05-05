@@ -78,6 +78,7 @@ docs/ModelAgentUpgrade.md
 docs/ModelApiAuthRequest.md
 docs/ModelApiTokenResponse.md
 docs/ModelBasicNode.md
+docs/ModelBulkDeleteScansRequest.md
 docs/ModelCloudCompliance.md
 docs/ModelCloudComplianceBenchmark.md
 docs/ModelCloudComplianceScanDetails.md
@@ -247,6 +248,7 @@ model_model_agent_upgrade.go
 model_model_api_auth_request.go
 model_model_api_token_response.go
 model_model_basic_node.go
+model_model_bulk_delete_scans_request.go
 model_model_cloud_compliance.go
 model_model_cloud_compliance_benchmark.go
 model_model_cloud_compliance_scan_details.go

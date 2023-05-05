@@ -4,7 +4,7 @@ All URIs are relative to *http://localhost*
 
 Method | HTTP request | Description
 ------------- | ------------- | -------------
-[**BulkDeleteScans**](ScanResultsApi.md#BulkDeleteScans) | **Delete** /deepfence/scans/{scan_type}/{duration} | Bulk Delete Scans
+[**BulkDeleteScans**](ScanResultsApi.md#BulkDeleteScans) | **Post** /deepfence/scans/bulk/delete | Bulk Delete Scans
 [**DeleteScanResult**](ScanResultsApi.md#DeleteScanResult) | **Patch** /deepfence/scan/results/action/delete | Delete selected scan results
 [**DeleteScanResultsForScanID**](ScanResultsApi.md#DeleteScanResultsForScanID) | **Delete** /deepfence/scan/{scan_type}/{scan_id} | Delete all scan results for a scan id
 [**DownloadScanResults**](ScanResultsApi.md#DownloadScanResults) | **Get** /deepfence/scan/{scan_type}/{scan_id}/download | Download Scans Results
@@ -17,7 +17,7 @@ Method | HTTP request | Description
 
 ## BulkDeleteScans
 
-> BulkDeleteScans(ctx, scanType, duration).Execute()
+> BulkDeleteScans(ctx).ModelBulkDeleteScansRequest(modelBulkDeleteScansRequest).Execute()
 
 Bulk Delete Scans
 
@@ -36,12 +36,11 @@ import (
 )
 
 func main() {
-    scanType := "scanType_example" // string | 
-    duration := int32(56) // int32 | 
+    modelBulkDeleteScansRequest := *openapiclient.NewModelBulkDeleteScansRequest(*openapiclient.NewReportersFieldsFilters([]openapiclient.ReportersCompareFilter{*openapiclient.NewReportersCompareFilter("FieldName_example", interface{}(123), false)}, *openapiclient.NewReportersContainsFilter(map[string][]interface{}{"key": []interface{}{nil}}), *openapiclient.NewReportersMatchFilter(map[string][]interface{}{"key": []interface{}{nil}}), *openapiclient.NewReportersOrderFilter([]openapiclient.ReportersOrderSpec{*openapiclient.NewReportersOrderSpec(false, "FieldName_example")})), "ScanType_example") // ModelBulkDeleteScansRequest |  (optional)
 
     configuration := openapiclient.NewConfiguration()
     apiClient := openapiclient.NewAPIClient(configuration)
-    r, err := apiClient.ScanResultsApi.BulkDeleteScans(context.Background(), scanType, duration).Execute()
+    r, err := apiClient.ScanResultsApi.BulkDeleteScans(context.Background()).ModelBulkDeleteScansRequest(modelBulkDeleteScansRequest).Execute()
     if err != nil {
         fmt.Fprintf(os.Stderr, "Error when calling `ScanResultsApi.BulkDeleteScans``: %v\n", err)
         fmt.Fprintf(os.Stderr, "Full HTTP response: %v\n", r)
@@ -52,11 +51,6 @@ func main() {
 ### Path Parameters
 
 
-Name | Type | Description  | Notes
-------------- | ------------- | ------------- | -------------
-**ctx** | **context.Context** | context for authentication, logging, cancellation, deadlines, tracing, etc.
-**scanType** | **string** |  | 
-**duration** | **int32** |  | 
 
 ### Other Parameters
 
@@ -65,8 +59,7 @@ Other parameters are passed through a pointer to a apiBulkDeleteScansRequest str
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
-
-
+ **modelBulkDeleteScansRequest** | [**ModelBulkDeleteScansRequest**](ModelBulkDeleteScansRequest.md) |  | 
 
 ### Return type
 
@@ -78,7 +71,7 @@ Name | Type | Description  | Notes
 
 ### HTTP request headers
 
-- **Content-Type**: Not defined
+- **Content-Type**: application/json
 - **Accept**: application/json
 
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints)

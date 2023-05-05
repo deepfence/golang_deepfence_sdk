@@ -44,6 +44,7 @@ type FileManager interface {
 	CreatePublicUploadURL(ctx context.Context, filePath string, addFilePathPrefix bool, expires time.Duration, reqParams url.Values) (string, error)
 	Client() interface{}
 	Bucket() string
+	CreatePublicBucket(ctx context.Context) error
 }
 
 type MinioFileManager struct {
@@ -279,6 +280,33 @@ func (mfm *MinioFileManager) createBucketIfNeeded(ctx context.Context) error {
 
 	}
 	return err
+}
+
+func (mfm *MinioFileManager) CreatePublicBucket(ctx context.Context) error {
+
+	exists, err := mfm.client.BucketExists(ctx, mfm.namespace)
+	if err != nil {
+		return err
+	} else if exists {
+		return nil
+	}
+
+	err = mfm.client.MakeBucket(ctx, mfm.namespace, minio.MakeBucketOptions{ObjectLocking: false})
+	if err != nil {
+		return err
+	}
+
+	public := fmt.Sprintf(
+		`{"Statement":[{"Action":["s3:ListBucketMultipartUploads","s3:GetBucketLocation","s3:ListBucket"],"Effect":"Allow","Principal":{"AWS":["*"]},"Resource":["arn:aws:s3:::%s"]},{"Action":["s3:AbortMultipartUpload","s3:DeleteObject","s3:GetObject","s3:ListMultipartUploadParts","s3:PutObject"],"Effect":"Allow","Principal":{"AWS":["*"]},"Resource":["arn:aws:s3:::%s/*"]}],"Version":"2012-10-17"}`,
+		mfm.namespace,
+		mfm.namespace,
+	)
+
+	if err = mfm.client.SetBucketPolicy(ctx, mfm.namespace, public); err != nil {
+		return err
+	}
+
+	return nil
 }
 
 func newMinioClient(endpoints DBConfigs) (*minio.Client, error) {

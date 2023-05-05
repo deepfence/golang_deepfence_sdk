@@ -25,7 +25,6 @@ Name | Type | Description | Notes
 **DockerEnv** | Pointer to **string** |  | [optional] 
 **DockerImageCreatedAt** | Pointer to **string** |  | [optional] 
 **DockerImageId** | Pointer to **string** |  | [optional] 
-**DockerImageLabels** | Pointer to **string** |  | [optional] 
 **DockerImageName** | Pointer to **string** |  | [optional] 
 **DockerImageNameWithTag** | Pointer to **string** |  | [optional] 
 **DockerImageSize** | Pointer to **string** |  | [optional] 
@@ -49,7 +48,7 @@ Name | Type | Description | Notes
 **KubernetesIsInHostNetwork** | Pointer to **bool** |  | [optional] 
 **KubernetesLabels** | Pointer to **string** |  | [optional] 
 **KubernetesNamespace** | Pointer to **string** |  | [optional] 
-**KubernetesPorts** | Pointer to **[]int32** |  | [optional] 
+**KubernetesPorts** | Pointer to **[]string** |  | [optional] 
 **KubernetesPublicIp** | Pointer to **string** |  | [optional] 
 **KubernetesState** | Pointer to **string** |  | [optional] 
 **KubernetesType** | Pointer to **string** |  | [optional] 
@@ -619,31 +618,6 @@ SetDockerImageId sets DockerImageId field to given value.
 `func (o *ReportMetadata) HasDockerImageId() bool`
 
 HasDockerImageId returns a boolean if a field has been set.
-
-### GetDockerImageLabels
-
-`func (o *ReportMetadata) GetDockerImageLabels() string`
-
-GetDockerImageLabels returns the DockerImageLabels field if non-nil, zero value otherwise.
-
-### GetDockerImageLabelsOk
-
-`func (o *ReportMetadata) GetDockerImageLabelsOk() (*string, bool)`
-
-GetDockerImageLabelsOk returns a tuple with the DockerImageLabels field if it's non-nil, zero value otherwise
-and a boolean to check if the value has been set.
-
-### SetDockerImageLabels
-
-`func (o *ReportMetadata) SetDockerImageLabels(v string)`
-
-SetDockerImageLabels sets DockerImageLabels field to given value.
-
-### HasDockerImageLabels
-
-`func (o *ReportMetadata) HasDockerImageLabels() bool`
-
-HasDockerImageLabels returns a boolean if a field has been set.
 
 ### GetDockerImageName
 
@@ -1222,20 +1196,20 @@ HasKubernetesNamespace returns a boolean if a field has been set.
 
 ### GetKubernetesPorts
 
-`func (o *ReportMetadata) GetKubernetesPorts() []int32`
+`func (o *ReportMetadata) GetKubernetesPorts() []string`
 
 GetKubernetesPorts returns the KubernetesPorts field if non-nil, zero value otherwise.
 
 ### GetKubernetesPortsOk
 
-`func (o *ReportMetadata) GetKubernetesPortsOk() (*[]int32, bool)`
+`func (o *ReportMetadata) GetKubernetesPortsOk() (*[]string, bool)`
 
 GetKubernetesPortsOk returns a tuple with the KubernetesPorts field if it's non-nil, zero value otherwise
 and a boolean to check if the value has been set.
 
 ### SetKubernetesPorts
 
-`func (o *ReportMetadata) SetKubernetesPorts(v []int32)`
+`func (o *ReportMetadata) SetKubernetesPorts(v []string)`
 
 SetKubernetesPorts sets KubernetesPorts field to given value.
 

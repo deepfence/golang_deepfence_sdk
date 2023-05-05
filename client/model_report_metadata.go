@@ -41,7 +41,6 @@ type ReportMetadata struct {
 	DockerEnv *string `json:"docker_env,omitempty"`
 	DockerImageCreatedAt *string `json:"docker_image_created_at,omitempty"`
 	DockerImageId *string `json:"docker_image_id,omitempty"`
-	DockerImageLabels *string `json:"docker_image_labels,omitempty"`
 	DockerImageName *string `json:"docker_image_name,omitempty"`
 	DockerImageNameWithTag *string `json:"docker_image_name_with_tag,omitempty"`
 	DockerImageSize *string `json:"docker_image_size,omitempty"`
@@ -65,7 +64,7 @@ type ReportMetadata struct {
 	KubernetesIsInHostNetwork *bool `json:"kubernetes_is_in_host_network,omitempty"`
 	KubernetesLabels *string `json:"kubernetes_labels,omitempty"`
 	KubernetesNamespace *string `json:"kubernetes_namespace,omitempty"`
-	KubernetesPorts []int32 `json:"kubernetes_ports,omitempty"`
+	KubernetesPorts []string `json:"kubernetes_ports,omitempty"`
 	KubernetesPublicIp *string `json:"kubernetes_public_ip,omitempty"`
 	KubernetesState *string `json:"kubernetes_state,omitempty"`
 	KubernetesType *string `json:"kubernetes_type,omitempty"`
@@ -780,38 +779,6 @@ func (o *ReportMetadata) HasDockerImageId() bool {
 // SetDockerImageId gets a reference to the given string and assigns it to the DockerImageId field.
 func (o *ReportMetadata) SetDockerImageId(v string) {
 	o.DockerImageId = &v
-}
-
-// GetDockerImageLabels returns the DockerImageLabels field value if set, zero value otherwise.
-func (o *ReportMetadata) GetDockerImageLabels() string {
-	if o == nil || IsNil(o.DockerImageLabels) {
-		var ret string
-		return ret
-	}
-	return *o.DockerImageLabels
-}
-
-// GetDockerImageLabelsOk returns a tuple with the DockerImageLabels field value if set, nil otherwise
-// and a boolean to check if the value has been set.
-func (o *ReportMetadata) GetDockerImageLabelsOk() (*string, bool) {
-	if o == nil || IsNil(o.DockerImageLabels) {
-		return nil, false
-	}
-	return o.DockerImageLabels, true
-}
-
-// HasDockerImageLabels returns a boolean if a field has been set.
-func (o *ReportMetadata) HasDockerImageLabels() bool {
-	if o != nil && !IsNil(o.DockerImageLabels) {
-		return true
-	}
-
-	return false
-}
-
-// SetDockerImageLabels gets a reference to the given string and assigns it to the DockerImageLabels field.
-func (o *ReportMetadata) SetDockerImageLabels(v string) {
-	o.DockerImageLabels = &v
 }
 
 // GetDockerImageName returns the DockerImageName field value if set, zero value otherwise.
@@ -1551,9 +1518,9 @@ func (o *ReportMetadata) SetKubernetesNamespace(v string) {
 }
 
 // GetKubernetesPorts returns the KubernetesPorts field value if set, zero value otherwise.
-func (o *ReportMetadata) GetKubernetesPorts() []int32 {
+func (o *ReportMetadata) GetKubernetesPorts() []string {
 	if o == nil || IsNil(o.KubernetesPorts) {
-		var ret []int32
+		var ret []string
 		return ret
 	}
 	return o.KubernetesPorts
@@ -1561,7 +1528,7 @@ func (o *ReportMetadata) GetKubernetesPorts() []int32 {
 
 // GetKubernetesPortsOk returns a tuple with the KubernetesPorts field value if set, nil otherwise
 // and a boolean to check if the value has been set.
-func (o *ReportMetadata) GetKubernetesPortsOk() ([]int32, bool) {
+func (o *ReportMetadata) GetKubernetesPortsOk() ([]string, bool) {
 	if o == nil || IsNil(o.KubernetesPorts) {
 		return nil, false
 	}
@@ -1577,8 +1544,8 @@ func (o *ReportMetadata) HasKubernetesPorts() bool {
 	return false
 }
 
-// SetKubernetesPorts gets a reference to the given []int32 and assigns it to the KubernetesPorts field.
-func (o *ReportMetadata) SetKubernetesPorts(v []int32) {
+// SetKubernetesPorts gets a reference to the given []string and assigns it to the KubernetesPorts field.
+func (o *ReportMetadata) SetKubernetesPorts(v []string) {
 	o.KubernetesPorts = v
 }
 
@@ -2454,9 +2421,6 @@ func (o ReportMetadata) ToMap() (map[string]interface{}, error) {
 	}
 	if !IsNil(o.DockerImageId) {
 		toSerialize["docker_image_id"] = o.DockerImageId
-	}
-	if !IsNil(o.DockerImageLabels) {
-		toSerialize["docker_image_labels"] = o.DockerImageLabels
 	}
 	if !IsNil(o.DockerImageName) {
 		toSerialize["docker_image_name"] = o.DockerImageName

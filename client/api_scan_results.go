@@ -27,8 +27,12 @@ type ScanResultsApiService service
 type ApiBulkDeleteScansRequest struct {
 	ctx context.Context
 	ApiService *ScanResultsApiService
-	scanType string
-	duration int32
+	modelBulkDeleteScansRequest *ModelBulkDeleteScansRequest
+}
+
+func (r ApiBulkDeleteScansRequest) ModelBulkDeleteScansRequest(modelBulkDeleteScansRequest ModelBulkDeleteScansRequest) ApiBulkDeleteScansRequest {
+	r.modelBulkDeleteScansRequest = &modelBulkDeleteScansRequest
+	return r
 }
 
 func (r ApiBulkDeleteScansRequest) Execute() (*http.Response, error) {
@@ -41,23 +45,19 @@ BulkDeleteScans Bulk Delete Scans
 Bulk delete scans along with their results for a particular scan type
 
  @param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
- @param scanType
- @param duration
  @return ApiBulkDeleteScansRequest
 */
-func (a *ScanResultsApiService) BulkDeleteScans(ctx context.Context, scanType string, duration int32) ApiBulkDeleteScansRequest {
+func (a *ScanResultsApiService) BulkDeleteScans(ctx context.Context) ApiBulkDeleteScansRequest {
 	return ApiBulkDeleteScansRequest{
 		ApiService: a,
 		ctx: ctx,
-		scanType: scanType,
-		duration: duration,
 	}
 }
 
 // Execute executes the request
 func (a *ScanResultsApiService) BulkDeleteScansExecute(r ApiBulkDeleteScansRequest) (*http.Response, error) {
 	var (
-		localVarHTTPMethod   = http.MethodDelete
+		localVarHTTPMethod   = http.MethodPost
 		localVarPostBody     interface{}
 		formFiles            []formFile
 	)
@@ -67,16 +67,14 @@ func (a *ScanResultsApiService) BulkDeleteScansExecute(r ApiBulkDeleteScansReque
 		return nil, &GenericOpenAPIError{error: err.Error()}
 	}
 
-	localVarPath := localBasePath + "/deepfence/scans/{scan_type}/{duration}"
-	localVarPath = strings.Replace(localVarPath, "{"+"scan_type"+"}", url.PathEscape(parameterValueToString(r.scanType, "scanType")), -1)
-	localVarPath = strings.Replace(localVarPath, "{"+"duration"+"}", url.PathEscape(parameterValueToString(r.duration, "duration")), -1)
+	localVarPath := localBasePath + "/deepfence/scans/bulk/delete"
 
 	localVarHeaderParams := make(map[string]string)
 	localVarQueryParams := url.Values{}
 	localVarFormParams := url.Values{}
 
 	// to determine the Content-Type header
-	localVarHTTPContentTypes := []string{}
+	localVarHTTPContentTypes := []string{"application/json"}
 
 	// set Content-Type header
 	localVarHTTPContentType := selectHeaderContentType(localVarHTTPContentTypes)
@@ -92,6 +90,8 @@ func (a *ScanResultsApiService) BulkDeleteScansExecute(r ApiBulkDeleteScansReque
 	if localVarHTTPHeaderAccept != "" {
 		localVarHeaderParams["Accept"] = localVarHTTPHeaderAccept
 	}
+	// body params
+	localVarPostBody = r.modelBulkDeleteScansRequest
 	req, err := a.client.prepareRequest(r.ctx, localVarPath, localVarHTTPMethod, localVarPostBody, localVarHeaderParams, localVarQueryParams, localVarFormParams, formFiles)
 	if err != nil {
 		return nil, err

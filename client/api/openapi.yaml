@@ -605,6 +605,49 @@ paths:
       summary: Fetch Kubernetes Cluster Actions
       tags:
       - Controls
+  /deepfence/database/vulnerability:
+    put:
+      description: Upload Vulnerability Database for use in vulnerability scans
+      operationId: uploadVulnerabilityDatabase
+      requestBody:
+        content:
+          multipart/form-data:
+            schema:
+              $ref: '#/components/schemas/FormDataModelDBUploadRequest'
+      responses:
+        "200":
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ModelMessageResponse'
+          description: OK
+        "400":
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ApiDocsBadRequestResponse'
+          description: Bad Request
+        "401":
+          description: Unauthorized
+        "403":
+          description: Forbidden
+        "404":
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ApiDocsFailureResponse'
+          description: Not Found
+        "500":
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ApiDocsFailureResponse'
+          description: Internal Server Error
+      security:
+      - bearer_token: []
+      summary: Upload Vulnerability Database
+      tags:
+      - Settings
   /deepfence/diagnosis/agent-logs:
     post:
       description: Generate Agent Diagnostic Logs
@@ -4530,40 +4573,16 @@ paths:
       summary: Stop Vulnerability Scan
       tags:
       - Vulnerability
-  /deepfence/scans/{scan_type}/{duration}:
-    delete:
+  /deepfence/scans/bulk/delete:
+    post:
       description: Bulk delete scans along with their results for a particular scan
         type
       operationId: bulkDeleteScans
-      parameters:
-      - explode: false
-        in: path
-        name: scan_type
-        required: true
-        schema:
-          enum:
-          - Secret
-          - Vulnerability
-          - Malware
-          - Compliance
-          - CloudCompliance
-          type: string
-        style: simple
-      - explode: false
-        in: path
-        name: duration
-        required: true
-        schema:
-          enum:
-          - -1
-          - 1
-          - 7
-          - 30
-          - 60
-          - 90
-          - 180
-          type: integer
-        style: simple
+      requestBody:
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/ModelBulkDeleteScansRequest'
       responses:
         "200":
           description: OK
@@ -7022,7 +7041,7 @@ components:
               kubernetes_cluster_name: kubernetes_cluster_name
               docker_container_state: docker_container_state
               cpu_max: 6.027456183070403
-              pid: 9
+              pid: 7
               kubernetes_created: kubernetes_created
               kubernetes_namespace: kubernetes_namespace
               cmdline: cmdline
@@ -7034,11 +7053,11 @@ components:
               kubernetes_cluster_id: kubernetes_cluster_id
               docker_container_networks: docker_container_networks
               kubernetes_ports:
-              - 5
-              - 5
+              - kubernetes_ports
+              - kubernetes_ports
               version: version
               pod_name: pod_name
-              ppid: 3
+              ppid: 9
               docker_container_ports: docker_container_ports
               kubernetes_is_in_host_network: true
               instance_id: instance_id
@@ -7053,7 +7072,6 @@ components:
               cpu_usage: 1.4658129805029452
               docker_label: docker_label
               instance_type: instance_type
-              docker_image_labels: docker_image_labels
               docker_image_name: docker_image_name
               user_defined_tags:
               - user_defined_tags
@@ -7066,8 +7084,8 @@ components:
               interface_names:
               - interface_names
               - interface_names
-              memory_usage: 2
-              open_files_count: 7
+              memory_usage: 5
+              open_files_count: 2
               kubernetes_public_ip: kubernetes_public_ip
               private_ip:
               - private_ip
@@ -7092,11 +7110,11 @@ components:
               - local_cidr
               - local_cidr
               node_name: node_name
-              threads: 2
+              threads: 3
               cloud_provider: cloud_provider
               docker_container_command: docker_container_command
               agent_running: true
-              uptime: 4
+              uptime: 2
               memory_max: 5
               docker_image_created_at: docker_image_created_at
               kernel_version: kernel_version
@@ -7194,7 +7212,7 @@ components:
           kubernetes_cluster_name: kubernetes_cluster_name
           docker_container_state: docker_container_state
           cpu_max: 6.027456183070403
-          pid: 9
+          pid: 7
           kubernetes_created: kubernetes_created
           kubernetes_namespace: kubernetes_namespace
           cmdline: cmdline
@@ -7206,11 +7224,11 @@ components:
           kubernetes_cluster_id: kubernetes_cluster_id
           docker_container_networks: docker_container_networks
           kubernetes_ports:
-          - 5
-          - 5
+          - kubernetes_ports
+          - kubernetes_ports
           version: version
           pod_name: pod_name
-          ppid: 3
+          ppid: 9
           docker_container_ports: docker_container_ports
           kubernetes_is_in_host_network: true
           instance_id: instance_id
@@ -7225,7 +7243,6 @@ components:
           cpu_usage: 1.4658129805029452
           docker_label: docker_label
           instance_type: instance_type
-          docker_image_labels: docker_image_labels
           docker_image_name: docker_image_name
           user_defined_tags:
           - user_defined_tags
@@ -7238,8 +7255,8 @@ components:
           interface_names:
           - interface_names
           - interface_names
-          memory_usage: 2
-          open_files_count: 7
+          memory_usage: 5
+          open_files_count: 2
           kubernetes_public_ip: kubernetes_public_ip
           private_ip:
           - private_ip
@@ -7264,11 +7281,11 @@ components:
           - local_cidr
           - local_cidr
           node_name: node_name
-          threads: 2
+          threads: 3
           cloud_provider: cloud_provider
           docker_container_command: docker_container_command
           agent_running: true
-          uptime: 4
+          uptime: 2
           memory_max: 5
           docker_image_created_at: docker_image_created_at
           kernel_version: kernel_version
@@ -7433,6 +7450,13 @@ components:
       required:
       - node_id
       - node_type
+      type: object
+    FormDataModelDBUploadRequest:
+      properties:
+        database:
+          $ref: '#/components/schemas/FormDataMultipartFile'
+      required:
+      - database
       type: object
     FormDataModelRegistryGCRAddReq:
       properties:
@@ -8547,6 +8571,53 @@ components:
       - name
       - node_id
       - node_type
+      type: object
+    ModelBulkDeleteScansRequest:
+      example:
+        scan_type: Secret
+        filters:
+          compare_filter:
+          - greater_than: true
+            field_value: ""
+            field_name: field_name
+          - greater_than: true
+            field_value: ""
+            field_name: field_name
+          not_contains_filter:
+            filter_in:
+              key:
+              - ""
+              - ""
+          order_filter:
+            order_fields:
+            - descending: true
+              field_name: field_name
+            - descending: true
+              field_name: field_name
+          contains_filter:
+            filter_in:
+              key:
+              - ""
+              - ""
+          match_filter:
+            filter_in:
+              key:
+              - ""
+              - ""
+      properties:
+        filters:
+          $ref: '#/components/schemas/ReportersFieldsFilters'
+        scan_type:
+          enum:
+          - Secret
+          - Vulnerability
+          - Malware
+          - Compliance
+          - CloudCompliance
+          type: string
+      required:
+      - filters
+      - scan_type
       type: object
     ModelCloudCompliance:
       example:
@@ -14919,7 +14990,7 @@ components:
         kubernetes_cluster_name: kubernetes_cluster_name
         docker_container_state: docker_container_state
         cpu_max: 6.027456183070403
-        pid: 9
+        pid: 7
         kubernetes_created: kubernetes_created
         kubernetes_namespace: kubernetes_namespace
         cmdline: cmdline
@@ -14931,11 +15002,11 @@ components:
         kubernetes_cluster_id: kubernetes_cluster_id
         docker_container_networks: docker_container_networks
         kubernetes_ports:
-        - 5
-        - 5
+        - kubernetes_ports
+        - kubernetes_ports
         version: version
         pod_name: pod_name
-        ppid: 3
+        ppid: 9
         docker_container_ports: docker_container_ports
         kubernetes_is_in_host_network: true
         instance_id: instance_id
@@ -14950,7 +15021,6 @@ components:
         cpu_usage: 1.4658129805029452
         docker_label: docker_label
         instance_type: instance_type
-        docker_image_labels: docker_image_labels
         docker_image_name: docker_image_name
         user_defined_tags:
         - user_defined_tags
@@ -14963,8 +15033,8 @@ components:
         interface_names:
         - interface_names
         - interface_names
-        memory_usage: 2
-        open_files_count: 7
+        memory_usage: 5
+        open_files_count: 2
         kubernetes_public_ip: kubernetes_public_ip
         private_ip:
         - private_ip
@@ -14989,11 +15059,11 @@ components:
         - local_cidr
         - local_cidr
         node_name: node_name
-        threads: 2
+        threads: 3
         cloud_provider: cloud_provider
         docker_container_command: docker_container_command
         agent_running: true
-        uptime: 4
+        uptime: 2
         memory_max: 5
         docker_image_created_at: docker_image_created_at
         kernel_version: kernel_version
@@ -15049,8 +15119,6 @@ components:
           type: string
         docker_image_id:
           type: string
-        docker_image_labels:
-          type: string
         docker_image_name:
           type: string
         docker_image_name_with_tag:
@@ -15105,7 +15173,7 @@ components:
           type: string
         kubernetes_ports:
           items:
-            type: integer
+            type: string
           type: array
         kubernetes_public_ip:
           type: string
