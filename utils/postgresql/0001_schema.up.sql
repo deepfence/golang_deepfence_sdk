@@ -104,7 +104,8 @@ CREATE TABLE api_token
             REFERENCES company (id),
     CONSTRAINT fk_created_by_user_id
         FOREIGN KEY (created_by_user_id)
-            REFERENCES users (id),
+            REFERENCES users (id)
+            ON DELETE CASCADE,
     CONSTRAINT fk_role
         FOREIGN KEY (role_id)
             REFERENCES role (id),

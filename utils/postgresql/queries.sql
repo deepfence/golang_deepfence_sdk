@@ -421,6 +421,11 @@ DELETE
 FROM user_invite
 WHERE expiry >= $1;
 
+-- name: DeleteUserInviteByUserID :exec
+DELETE
+FROM user_invite
+WHERE created_by_user_id = $1;
+
 -- name: CreateContainerRegistry :one
 INSERT INTO container_registry (name, registry_type, encrypted_secret, non_secret, extras)
 VALUES ($1, $2, $3, $4, $5)
@@ -583,6 +588,11 @@ FROM integration;
 DELETE
 FROM integration
 WHERE id = $1;
+
+-- name: DeleteIntegrationByUserID :exec
+DELETE
+FROM integration
+WHERE created_by_user_id = $1;
 
 -- name: CreateSchedule :one
 INSERT INTO scheduler (action, description, cron_expr, payload, is_enabled, is_system, status)

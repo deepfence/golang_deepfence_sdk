@@ -39,6 +39,7 @@ CREATE TABLE public.integration
     CONSTRAINT fk_created_by_user_id
         FOREIGN KEY (created_by_user_id)
             REFERENCES users (id)
+            ON DELETE CASCADE
 );
 
 CREATE TRIGGER integration_updated_at
@@ -59,6 +60,7 @@ CREATE TABLE public.password_reset
     CONSTRAINT fk_user_id
         FOREIGN KEY (user_id)
             REFERENCES users (id)
+            ON DELETE CASCADE
 );
 
 CREATE TRIGGER password_reset_updated_at
@@ -83,7 +85,8 @@ CREATE TABLE public.user_invite
     UNIQUE (code),
     CONSTRAINT fk_created_by_user_id
         FOREIGN KEY (created_by_user_id)
-            REFERENCES users (id),
+            REFERENCES users (id)
+            ON DELETE CASCADE,
     CONSTRAINT fk_role
         FOREIGN KEY (role_id)
             REFERENCES role (id)
@@ -102,12 +105,13 @@ CREATE TABLE public.audit_log
     action       character varying(100)                             NOT NULL,
     resources    text                                               NOT NULL,
     success      boolean                                            NOT NULL,
-    user_id      integer                                            NOT NULL,
+    user_id      integer                  DEFAULT NULL              NULL,
     user_role_id integer                                            NOT NULL,
     created_at   timestamp with time zone DEFAULT CURRENT_TIMESTAMP NOT NULL,
     CONSTRAINT fk_user_id
         FOREIGN KEY (user_id)
-            REFERENCES users (id),
+            REFERENCES users (id)
+            ON DELETE SET NULL,
     CONSTRAINT fk_role
         FOREIGN KEY (user_role_id)
             REFERENCES role (id)
