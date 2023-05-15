@@ -6,6 +6,7 @@ import (
 	"crypto/x509"
 	"errors"
 	"fmt"
+	"net"
 	"net/http"
 	"sync"
 	"time"
@@ -43,17 +44,18 @@ func (client *OpenapiHttpClient) Client() *openapi.APIClient {
 func buildHttpClient() *http.Client {
 	// Set up our own certificate pool
 	tlsConfig := &tls.Config{RootCAs: x509.NewCertPool(), InsecureSkipVerify: true}
-	// transport := &http.Transport{
-	// 	MaxIdleConnsPerHost: maxIdleConnsPerHost,
-	// 	DialContext: (&net.Dialer{
-	// 		Timeout:   10 * time.Second,
-	// 		KeepAlive: 30 * time.Second,
-	// 	}).DialContext,
-	// 	TLSHandshakeTimeout: 30 * time.Second,
-	// 	TLSClientConfig:     tlsConfig}
-	transport := http.DefaultTransport.(*http.Transport).Clone()
-	transport.TLSClientConfig = tlsConfig
-	transport.DisableKeepAlives = true
+	transport := &http.Transport{
+		MaxIdleConnsPerHost: maxIdleConnsPerHost,
+		DialContext: (&net.Dialer{
+			Timeout:   10 * time.Second,
+			KeepAlive: 30 * time.Second,
+		}).DialContext,
+		TLSHandshakeTimeout: 30 * time.Second,
+		TLSClientConfig:     tlsConfig,
+	}
+	//transport := http.DefaultTransport.(*http.Transport).Clone()
+	//transport.TLSClientConfig = tlsConfig
+	transport.DisableKeepAlives = false
 	transport.DisableCompression = false
 	client := &http.Client{Transport: transport}
 	return client
@@ -63,20 +65,21 @@ func buildHttpClient() *http.Client {
 func NewHttpsConsoleClient(url, port string) *OpenapiHttpClient {
 
 	tlsConfig := &tls.Config{RootCAs: x509.NewCertPool(), InsecureSkipVerify: true}
-	// transport := &http.Transport{
-	// 	MaxIdleConnsPerHost: maxIdleConnsPerHost,
-	// 	DialContext: (&net.Dialer{
-	// 		Timeout:   10 * time.Second,
-	// 		KeepAlive: 30 * time.Second,
-	// 	}).DialContext,
-	// 	TLSHandshakeTimeout: 30 * time.Second,
-	// 	TLSClientConfig:     tlsConfig}
-	transport := http.DefaultTransport.(*http.Transport).Clone()
-	transport.TLSClientConfig = tlsConfig
-	transport.DisableKeepAlives = true
+	transport := &http.Transport{
+		MaxIdleConnsPerHost: maxIdleConnsPerHost,
+		DialContext: (&net.Dialer{
+			Timeout:   10 * time.Second,
+			KeepAlive: 30 * time.Second,
+		}).DialContext,
+		TLSHandshakeTimeout: 30 * time.Second,
+		TLSClientConfig:     tlsConfig,
+	}
+	//transport := http.DefaultTransport.(*http.Transport).Clone()
+	//transport.TLSClientConfig = tlsConfig
+	transport.DisableKeepAlives = false
 	transport.DisableCompression = false
 	rhc := rhttp.NewClient()
-	rhc.HTTPClient.Timeout = 10 * time.Second
+	//rhc.HTTPClient.Timeout = 10 * time.Second
 	rhc.RetryMax = 3
 	rhc.RetryWaitMin = 1 * time.Second
 	rhc.RetryWaitMax = 10 * time.Second
