@@ -191,3 +191,13 @@ func (cl *OpenapiHttpClient) SetTokens(access string, refresh string) {
 	cl.client.GetConfig().AddDefaultHeader(auth_field, fmt.Sprintf(bearer_format, access))
 	cl.refresher.GetConfig().AddDefaultHeader(auth_field, fmt.Sprintf(bearer_format, refresh))
 }
+
+func (cl *OpenapiHttpClient) GetDefaultHeaders() map[string]string {
+	cl.token_access.Lock()
+	defer cl.token_access.Unlock()
+	res := map[string]string{}
+	for k, v := range cl.client.GetConfig().DefaultHeader {
+		res[k] = v
+	}
+	return res
+}
