@@ -175,44 +175,22 @@ func NewHttpsConsoleClient(url, port string) *OpenapiHttpClient {
 		tokens:    auth_tokens,
 	}
 
-	update_tokens := make(chan struct{})
-	cv := sync.NewCond(&auth_tokens.mu)
-
 	rhc.CheckRetry = func(ctx context.Context, resp *http.Response, err error) (bool, error) {
 		if err != nil || resp == nil {
 			return false, err
 		}
 		if resp.StatusCode == http.StatusUnauthorized {
-			select {
-			case update_tokens <- struct{}{}:
-			default:
-			}
-			cv.L.Lock()
+			auth_tokens.mu.Lock()
 			if auth_tokens.HasExpired() {
-				cv.Wait()
+				err = unique_client.refreshToken()
+			} else {
+				err = nil
 			}
-			cv.L.Unlock()
-			return true, err
+			auth_tokens.mu.Unlock()
+			return err == nil, err
 		}
 		return rhttp.DefaultRetryPolicy(ctx, resp, err)
 	}
-
-	// Refresher task
-	go func() {
-	loop:
-		for {
-			select {
-			case <-update_tokens:
-			case <-done:
-				break loop
-			}
-			err := unique_client.refreshToken()
-			if err != nil {
-				log.Error().Msgf("Tokens renegociation err: %v", err)
-			}
-			cv.Broadcast()
-		}
-	}()
 
 	return unique_client
 }
@@ -226,6 +204,8 @@ func (cl *OpenapiHttpClient) APITokenAuthenticate(api_token string) error {
 		return AuthError
 	}
 
+	cl.tokens.mu.Lock()
+	defer cl.tokens.mu.Unlock()
 	cl.api_token = &api_token
 
 	return cl.updateHeaders(*resp)
@@ -263,9 +243,6 @@ func (cl *OpenapiHttpClient) updateHeaders(tokens openapi.ModelResponseAccessTok
 	if accessToken == "" || refreshToken == "" {
 		return AuthError
 	}
-
-	cl.tokens.mu.Lock()
-	defer cl.tokens.mu.Unlock()
 
 	cl.tokens.access_token = accessToken
 	cl.tokens.refresh_token = refreshToken
