@@ -50,6 +50,11 @@ type ThreadSafeTokens struct {
 	refresh_header_value string
 	access_token         string
 	refresh_token        string
+	last_update          time.Time
+}
+
+func (tst *ThreadSafeTokens) HasExpired() bool {
+	return tst.last_update.Before(time.Now().Local().Add(-30 * time.Minute))
 }
 
 func NewThreadSafeTokens() *ThreadSafeTokens {
@@ -171,20 +176,22 @@ func NewHttpsConsoleClient(url, port string) *OpenapiHttpClient {
 	}
 
 	update_tokens := make(chan struct{})
-	wg := sync.WaitGroup{}
+	cv := sync.NewCond(&auth_tokens.mu)
 
 	rhc.CheckRetry = func(ctx context.Context, resp *http.Response, err error) (bool, error) {
 		if err != nil || resp == nil {
 			return false, err
 		}
 		if resp.StatusCode == http.StatusUnauthorized {
-			wg.Add(1)
 			select {
 			case update_tokens <- struct{}{}:
 			default:
-				wg.Done()
 			}
-			wg.Wait()
+			cv.L.Lock()
+			if auth_tokens.HasExpired() {
+				cv.Wait()
+			}
+			cv.L.Unlock()
 			return true, err
 		}
 		return rhttp.DefaultRetryPolicy(ctx, resp, err)
@@ -203,7 +210,7 @@ func NewHttpsConsoleClient(url, port string) *OpenapiHttpClient {
 			if err != nil {
 				log.Error().Msgf("Tokens renegociation err: %v", err)
 			}
-			wg.Done()
+			cv.Broadcast()
 		}
 	}()
 
@@ -266,6 +273,8 @@ func (cl *OpenapiHttpClient) updateHeaders(tokens openapi.ModelResponseAccessTok
 	cl.tokens.access_header_value = fmt.Sprintf(bearer_format, accessToken)
 	cl.tokens.refresh_header_value = fmt.Sprintf(bearer_format, refreshToken)
 
+	cl.tokens.last_update = time.Now()
+
 	return nil
 }
 
@@ -283,6 +292,8 @@ func (cl *OpenapiHttpClient) SetTokens(access string, refresh string) {
 
 	cl.tokens.access_header_value = fmt.Sprintf(bearer_format, access)
 	cl.tokens.refresh_header_value = fmt.Sprintf(bearer_format, refresh)
+
+	cl.tokens.last_update = time.Now()
 }
 
 func (cl *OpenapiHttpClient) GetDefaultHeaders() map[string]string {
