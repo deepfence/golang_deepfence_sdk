@@ -66,6 +66,8 @@ func StringToResourceType(s string) ScanResource {
 	switch s {
 	case "container":
 		return Container
+	case "container_image":
+		return Image
 	case "image":
 		return Image
 	case "host":
