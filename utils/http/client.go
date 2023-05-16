@@ -272,9 +272,3 @@ func (cl *OpenapiHttpClient) SetTokens(access string, refresh string) {
 
 	cl.tokens.last_update = time.Now()
 }
-
-func (cl *OpenapiHttpClient) GetDefaultHeaders() map[string]string {
-	cl.tokens.mu.RLock()
-	defer cl.tokens.mu.RUnlock()
-	return map[string]string{auth_field: cl.tokens.access_header_value}
-}
