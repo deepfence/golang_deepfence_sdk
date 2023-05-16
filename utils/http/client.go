@@ -29,19 +29,71 @@ var (
 )
 
 type OpenapiHttpClient struct {
-	client        *openapi.APIClient
-	refresher     *openapi.APIClient
-	token_access  sync.RWMutex
-	access_token  string
-	refresh_token string
-	api_token     *string
+	client    *openapi.APIClient
+	refresher *openapi.APIClient
+	api_token *string
+	tokens    *ThreadSafeTokens
+	done      chan struct{}
+}
+
+func (ohc *OpenapiHttpClient) Close() {
+	ohc.done <- struct{}{}
 }
 
 func (client *OpenapiHttpClient) Client() *openapi.APIClient {
 	return client.client
 }
 
-func buildHttpClient() *http.Client {
+type ThreadSafeTokens struct {
+	mu                   sync.RWMutex
+	access_header_value  string
+	refresh_header_value string
+	access_token         string
+	refresh_token        string
+}
+
+func NewThreadSafeTokens() *ThreadSafeTokens {
+	return &ThreadSafeTokens{
+		mu:                   sync.RWMutex{},
+		access_header_value:  "",
+		refresh_header_value: "",
+		access_token:         "",
+		refresh_token:        "",
+	}
+}
+
+type AccessInjectorTransport struct {
+	tokens            *ThreadSafeTokens
+	originalTransport *http.Transport
+}
+
+type RefreshInjectorTransport struct {
+	tokens            *ThreadSafeTokens
+	originalTransport *http.Transport
+}
+
+func NewInjectorTransport[T AccessInjectorTransport | RefreshInjectorTransport](shared_header *ThreadSafeTokens, org *http.Transport) *T {
+	return &T{
+		tokens:            shared_header,
+		originalTransport: org,
+	}
+}
+
+func (c *AccessInjectorTransport) RoundTrip(r *http.Request) (*http.Response, error) {
+	c.tokens.mu.RLock()
+	r.Header.Set(auth_field, c.tokens.access_header_value)
+	c.tokens.mu.RUnlock()
+	return c.originalTransport.RoundTrip(r)
+}
+
+func (c *RefreshInjectorTransport) RoundTrip(r *http.Request) (*http.Response, error) {
+	c.tokens.mu.RLock()
+	r.Header.Set(auth_field, c.tokens.refresh_header_value)
+	c.tokens.mu.RUnlock()
+	return c.originalTransport.RoundTrip(r)
+}
+
+func buildHttpsRefresherClient(tokens *ThreadSafeTokens) *http.Client {
 	// Set up our own certificate pool
 	tlsConfig := &tls.Config{RootCAs: x509.NewCertPool(), InsecureSkipVerify: true}
 	transport := &http.Transport{
@@ -57,7 +109,9 @@ func buildHttpClient() *http.Client {
 	//transport.TLSClientConfig = tlsConfig
 	transport.DisableKeepAlives = false
 	transport.DisableCompression = false
-	client := &http.Client{Transport: transport}
+	client := &http.Client{
+		Transport: NewInjectorTransport[RefreshInjectorTransport](tokens, transport),
+	}
 	return client
 }
 
@@ -74,17 +128,22 @@ func NewHttpsConsoleClient(url, port string) *OpenapiHttpClient {
 		TLSHandshakeTimeout: 30 * time.Second,
 		TLSClientConfig:     tlsConfig,
 	}
-	//transport := http.DefaultTransport.(*http.Transport).Clone()
-	//transport.TLSClientConfig = tlsConfig
 	transport.DisableKeepAlives = false
 	transport.DisableCompression = false
+
+	auth_tokens := NewThreadSafeTokens()
+
+	//transport := http.DefaultTransport.(*http.Transport).Clone()
+	//transport.TLSClientConfig = tlsConfig
 	rhc := rhttp.NewClient()
 	//rhc.HTTPClient.Timeout = 10 * time.Second
 	rhc.RetryMax = 3
 	rhc.RetryWaitMin = 1 * time.Second
 	rhc.RetryWaitMax = 10 * time.Second
 	rhc.Logger = log.NewStdLoggerWithLevel(zerolog.DebugLevel)
-	rhc.HTTPClient = &http.Client{Transport: transport}
+	rhc.HTTPClient = &http.Client{
+		Transport: NewInjectorTransport[AccessInjectorTransport](auth_tokens, transport),
+	}
 
 	servers := openapi.ServerConfigurations{
 		{
@@ -99,25 +158,54 @@ func NewHttpsConsoleClient(url, port string) *OpenapiHttpClient {
 	client := openapi.NewAPIClient(cfg)
 
 	cfg2 := openapi.NewConfiguration()
-	cfg2.HTTPClient = buildHttpClient()
+	cfg2.HTTPClient = buildHttpsRefresherClient(auth_tokens)
 	cfg2.Servers = servers
 	refresher := openapi.NewAPIClient(cfg2)
 
+	done := make(chan struct{})
 	unique_client := &OpenapiHttpClient{
 		client:    client,
 		refresher: refresher,
+		done:      done,
+		tokens:    auth_tokens,
 	}
+
+	update_tokens := make(chan struct{})
+	wg := sync.WaitGroup{}
 
 	rhc.CheckRetry = func(ctx context.Context, resp *http.Response, err error) (bool, error) {
 		if err != nil || resp == nil {
 			return false, err
 		}
 		if resp.StatusCode == http.StatusUnauthorized {
-			err := unique_client.refreshToken()
-			return err == nil, err
+			wg.Add(1)
+			select {
+			case update_tokens <- struct{}{}:
+			default:
+				wg.Done()
+			}
+			wg.Wait()
+			return true, err
 		}
 		return rhttp.DefaultRetryPolicy(ctx, resp, err)
 	}
+
+	// Refresher task
+	go func() {
+	loop:
+		for {
+			select {
+			case <-update_tokens:
+			case <-done:
+				break loop
+			}
+			err := unique_client.refreshToken()
+			if err != nil {
+				log.Error().Msgf("Tokens renegociation err: %v", err)
+			}
+			wg.Done()
+		}
+	}()
 
 	return unique_client
 }
@@ -163,44 +251,42 @@ func (cl *OpenapiHttpClient) refreshToken() error {
 }
 
 func (cl *OpenapiHttpClient) updateHeaders(tokens openapi.ModelResponseAccessToken) error {
-	cl.token_access.Lock()
-	defer cl.token_access.Unlock()
 	accessToken := tokens.AccessToken
 	refreshToken := tokens.RefreshToken
 	if accessToken == "" || refreshToken == "" {
 		return AuthError
 	}
 
-	cl.client.GetConfig().AddDefaultHeader(auth_field, fmt.Sprintf(bearer_format, accessToken))
-	cl.refresher.GetConfig().AddDefaultHeader(auth_field, fmt.Sprintf(bearer_format, refreshToken))
-	cl.access_token = accessToken
-	cl.refresh_token = refreshToken
+	cl.tokens.mu.Lock()
+	defer cl.tokens.mu.Unlock()
+
+	cl.tokens.access_token = accessToken
+	cl.tokens.refresh_token = refreshToken
+
+	cl.tokens.access_header_value = fmt.Sprintf(bearer_format, accessToken)
+	cl.tokens.refresh_header_value = fmt.Sprintf(bearer_format, refreshToken)
 
 	return nil
 }
 
 func (cl *OpenapiHttpClient) DumpTokens() (access string, refresh string) {
-	cl.token_access.RLock()
-	defer cl.token_access.RUnlock()
-	return cl.access_token, cl.refresh_token
+	cl.tokens.mu.RLock()
+	defer cl.tokens.mu.RUnlock()
+	return cl.tokens.access_token, cl.tokens.refresh_token
 }
 
 func (cl *OpenapiHttpClient) SetTokens(access string, refresh string) {
-	cl.token_access.Lock()
-	defer cl.token_access.Unlock()
-	cl.access_token = access
-	cl.refresh_token = refresh
+	cl.tokens.mu.Lock()
+	defer cl.tokens.mu.Unlock()
+	cl.tokens.access_token = access
+	cl.tokens.refresh_token = refresh
 
-	cl.client.GetConfig().AddDefaultHeader(auth_field, fmt.Sprintf(bearer_format, access))
-	cl.refresher.GetConfig().AddDefaultHeader(auth_field, fmt.Sprintf(bearer_format, refresh))
+	cl.tokens.access_header_value = fmt.Sprintf(bearer_format, access)
+	cl.tokens.refresh_header_value = fmt.Sprintf(bearer_format, refresh)
 }
 
 func (cl *OpenapiHttpClient) GetDefaultHeaders() map[string]string {
-	cl.token_access.Lock()
-	defer cl.token_access.Unlock()
-	res := map[string]string{}
-	for k, v := range cl.client.GetConfig().DefaultHeader {
-		res[k] = v
-	}
-	return res
+	cl.tokens.mu.RLock()
+	defer cl.tokens.mu.RUnlock()
+	return map[string]string{auth_field: cl.tokens.access_header_value}
 }
