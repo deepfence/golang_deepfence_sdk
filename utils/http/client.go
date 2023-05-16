@@ -54,7 +54,8 @@ type ThreadSafeTokens struct {
 }
 
 func (tst *ThreadSafeTokens) HasExpired() bool {
-	return tst.last_update.Before(time.Now().Local().Add(-30 * time.Minute))
+	// TODO: extract expiry from JWT token instead of assuming
+	return tst.last_update.Before(time.Now().Local().Add(-5 * time.Minute))
 }
 
 func NewThreadSafeTokens() *ThreadSafeTokens {
