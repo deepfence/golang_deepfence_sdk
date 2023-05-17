@@ -70,6 +70,10 @@ type ReportFilters struct {
 	AdvancedReportFilters AdvancedReportFilters `json:"advanced_report_filters,omitempty"`
 }
 
+type RegistrySyncParams struct {
+	PgID int32 `json:"pg_id"`
+}
+
 type AdvancedReportFilters struct {
 	Masked                []bool   `json:"masked,omitempty"`
 	ScanStatus            []string `json:"scan_status,omitempty"`
