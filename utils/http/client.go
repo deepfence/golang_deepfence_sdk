@@ -29,7 +29,8 @@ var (
 )
 
 type OpenapiHttpClient struct {
-	client    *openapi.APIClient
+	client *openapi.APIClient
+	// Refresher works under the assumption that `tokens.mu` is acquired
 	refresher *openapi.APIClient
 	api_token *string
 	tokens    *ThreadSafeTokens
@@ -93,9 +94,8 @@ func (c *AccessInjectorTransport) RoundTrip(r *http.Request) (*http.Response, er
 }
 
 func (c *RefreshInjectorTransport) RoundTrip(r *http.Request) (*http.Response, error) {
-	c.tokens.mu.RLock()
+	// No need for lock here as refresher only happens under lock already
 	r.Header.Set(auth_field, c.tokens.refresh_header_value)
-	c.tokens.mu.RUnlock()
 	return c.originalTransport.RoundTrip(r)
 }
 
@@ -222,10 +222,10 @@ func (cl *OpenapiHttpClient) refreshToken() error {
 	}
 
 	if http_resp.StatusCode == http.StatusUnauthorized && cl.api_token != nil {
-		req := cl.client.AuthenticationApi.AuthToken(context.Background()).ModelApiAuthRequest(openapi.ModelApiAuthRequest{
+		req := cl.refresher.AuthenticationApi.AuthToken(context.Background()).ModelApiAuthRequest(openapi.ModelApiAuthRequest{
 			ApiToken: *cl.api_token,
 		})
-		resp, http_resp, err = cl.client.AuthenticationApi.AuthTokenExecute(req)
+		resp, http_resp, err = cl.refresher.AuthenticationApi.AuthTokenExecute(req)
 		if err != nil {
 			return AuthError
 		}
