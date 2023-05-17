@@ -447,7 +447,7 @@ func NewHTTPClient() (*http.Client, error) {
 }
 
 func StringArrayToInterfaceArray(a []string) []interface{} {
-	l := make([]interface{}, len(a))
+	l := make([]interface{}, 0)
 	for _, i := range a {
 		l = append(l, i)
 	}
