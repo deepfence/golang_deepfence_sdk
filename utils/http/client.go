@@ -189,6 +189,8 @@ func NewHttpsConsoleClient(url, port string) *OpenapiHttpClient {
 			}
 			auth_tokens.mu.Unlock()
 			return err == nil, err
+		} else if resp.StatusCode == http.StatusServiceUnavailable {
+			return false, err
 		}
 		return rhttp.DefaultRetryPolicy(ctx, resp, err)
 	}
