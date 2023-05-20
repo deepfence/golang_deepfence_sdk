@@ -199,10 +199,10 @@ func NewHttpsConsoleClient(url, port string) *OpenapiHttpClient {
 }
 
 func (cl *OpenapiHttpClient) APITokenAuthenticate(api_token string) error {
-	req := cl.client.AuthenticationApi.AuthToken(context.Background()).ModelApiAuthRequest(openapi.ModelApiAuthRequest{
+	req := cl.client.AuthenticationAPI.AuthToken(context.Background()).ModelApiAuthRequest(openapi.ModelApiAuthRequest{
 		ApiToken: api_token,
 	})
-	resp, _, err := cl.client.AuthenticationApi.AuthTokenExecute(req)
+	resp, _, err := cl.client.AuthenticationAPI.AuthTokenExecute(req)
 	if err != nil {
 		return AuthError
 	}
@@ -216,18 +216,18 @@ func (cl *OpenapiHttpClient) APITokenAuthenticate(api_token string) error {
 
 func (cl *OpenapiHttpClient) refreshToken() error {
 
-	req := cl.refresher.AuthenticationApi.AuthTokenRefresh(context.Background())
+	req := cl.refresher.AuthenticationAPI.AuthTokenRefresh(context.Background())
 
-	resp, http_resp, err := cl.refresher.AuthenticationApi.AuthTokenRefreshExecute(req)
+	resp, http_resp, err := cl.refresher.AuthenticationAPI.AuthTokenRefreshExecute(req)
 	if err != nil {
 		return err
 	}
 
 	if http_resp.StatusCode == http.StatusUnauthorized && cl.api_token != nil {
-		req := cl.refresher.AuthenticationApi.AuthToken(context.Background()).ModelApiAuthRequest(openapi.ModelApiAuthRequest{
+		req := cl.refresher.AuthenticationAPI.AuthToken(context.Background()).ModelApiAuthRequest(openapi.ModelApiAuthRequest{
 			ApiToken: *cl.api_token,
 		})
-		resp, http_resp, err = cl.refresher.AuthenticationApi.AuthTokenExecute(req)
+		resp, http_resp, err = cl.refresher.AuthenticationAPI.AuthTokenExecute(req)
 		if err != nil {
 			return AuthError
 		}

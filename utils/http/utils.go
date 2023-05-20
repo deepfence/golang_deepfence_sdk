@@ -44,7 +44,7 @@ func GetConsoleApiToken(console, port string) (string, error) {
 	cfg.Servers = servers
 	client := openapi.NewAPIClient(cfg)
 
-	token, resp, err := client.InternalApi.GetConsoleApiTokenExecute(openapi.ApiGetConsoleApiTokenRequest{})
+	token, resp, err := client.InternalAPI.GetConsoleApiTokenExecute(openapi.ApiGetConsoleApiTokenRequest{})
 	if err != nil {
 		return "", err
 	}
