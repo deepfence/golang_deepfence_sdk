@@ -20,12 +20,12 @@ import (
 )
 
 
-// ComplianceApiService ComplianceApi service
-type ComplianceApiService service
+// ComplianceAPIService ComplianceAPI service
+type ComplianceAPIService service
 
 type ApiCountResultsComplianceScanRequest struct {
 	ctx context.Context
-	ApiService *ComplianceApiService
+	ApiService *ComplianceAPIService
 	modelScanResultsReq *ModelScanResultsReq
 }
 
@@ -46,7 +46,7 @@ Get Compliance Scans results on agent or registry
  @param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
  @return ApiCountResultsComplianceScanRequest
 */
-func (a *ComplianceApiService) CountResultsComplianceScan(ctx context.Context) ApiCountResultsComplianceScanRequest {
+func (a *ComplianceAPIService) CountResultsComplianceScan(ctx context.Context) ApiCountResultsComplianceScanRequest {
 	return ApiCountResultsComplianceScanRequest{
 		ApiService: a,
 		ctx: ctx,
@@ -55,7 +55,7 @@ func (a *ComplianceApiService) CountResultsComplianceScan(ctx context.Context) A
 
 // Execute executes the request
 //  @return SearchSearchCountResp
-func (a *ComplianceApiService) CountResultsComplianceScanExecute(r ApiCountResultsComplianceScanRequest) (*SearchSearchCountResp, *http.Response, error) {
+func (a *ComplianceAPIService) CountResultsComplianceScanExecute(r ApiCountResultsComplianceScanRequest) (*SearchSearchCountResp, *http.Response, error) {
 	var (
 		localVarHTTPMethod   = http.MethodPost
 		localVarPostBody     interface{}
@@ -63,7 +63,7 @@ func (a *ComplianceApiService) CountResultsComplianceScanExecute(r ApiCountResul
 		localVarReturnValue  *SearchSearchCountResp
 	)
 
-	localBasePath, err := a.client.cfg.ServerURLWithContext(r.ctx, "ComplianceApiService.CountResultsComplianceScan")
+	localBasePath, err := a.client.cfg.ServerURLWithContext(r.ctx, "ComplianceAPIService.CountResultsComplianceScan")
 	if err != nil {
 		return localVarReturnValue, nil, &GenericOpenAPIError{error: err.Error()}
 	}
@@ -164,7 +164,7 @@ func (a *ComplianceApiService) CountResultsComplianceScanExecute(r ApiCountResul
 
 type ApiIngestCompliancesRequest struct {
 	ctx context.Context
-	ApiService *ComplianceApiService
+	ApiService *ComplianceAPIService
 	ingestersCompliance *[]IngestersCompliance
 }
 
@@ -185,7 +185,7 @@ Ingest compliance issues found while scanning the agent
  @param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
  @return ApiIngestCompliancesRequest
 */
-func (a *ComplianceApiService) IngestCompliances(ctx context.Context) ApiIngestCompliancesRequest {
+func (a *ComplianceAPIService) IngestCompliances(ctx context.Context) ApiIngestCompliancesRequest {
 	return ApiIngestCompliancesRequest{
 		ApiService: a,
 		ctx: ctx,
@@ -193,14 +193,14 @@ func (a *ComplianceApiService) IngestCompliances(ctx context.Context) ApiIngestC
 }
 
 // Execute executes the request
-func (a *ComplianceApiService) IngestCompliancesExecute(r ApiIngestCompliancesRequest) (*http.Response, error) {
+func (a *ComplianceAPIService) IngestCompliancesExecute(r ApiIngestCompliancesRequest) (*http.Response, error) {
 	var (
 		localVarHTTPMethod   = http.MethodPost
 		localVarPostBody     interface{}
 		formFiles            []formFile
 	)
 
-	localBasePath, err := a.client.cfg.ServerURLWithContext(r.ctx, "ComplianceApiService.IngestCompliances")
+	localBasePath, err := a.client.cfg.ServerURLWithContext(r.ctx, "ComplianceAPIService.IngestCompliances")
 	if err != nil {
 		return nil, &GenericOpenAPIError{error: err.Error()}
 	}
@@ -292,7 +292,7 @@ func (a *ComplianceApiService) IngestCompliancesExecute(r ApiIngestCompliancesRe
 
 type ApiListComplianceScanRequest struct {
 	ctx context.Context
-	ApiService *ComplianceApiService
+	ApiService *ComplianceAPIService
 	modelScanListReq *ModelScanListReq
 }
 
@@ -313,7 +313,7 @@ Get Compliance Scans list on agent or registry
  @param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
  @return ApiListComplianceScanRequest
 */
-func (a *ComplianceApiService) ListComplianceScan(ctx context.Context) ApiListComplianceScanRequest {
+func (a *ComplianceAPIService) ListComplianceScan(ctx context.Context) ApiListComplianceScanRequest {
 	return ApiListComplianceScanRequest{
 		ApiService: a,
 		ctx: ctx,
@@ -322,7 +322,7 @@ func (a *ComplianceApiService) ListComplianceScan(ctx context.Context) ApiListCo
 
 // Execute executes the request
 //  @return ModelScanListResp
-func (a *ComplianceApiService) ListComplianceScanExecute(r ApiListComplianceScanRequest) (*ModelScanListResp, *http.Response, error) {
+func (a *ComplianceAPIService) ListComplianceScanExecute(r ApiListComplianceScanRequest) (*ModelScanListResp, *http.Response, error) {
 	var (
 		localVarHTTPMethod   = http.MethodPost
 		localVarPostBody     interface{}
@@ -330,7 +330,7 @@ func (a *ComplianceApiService) ListComplianceScanExecute(r ApiListComplianceScan
 		localVarReturnValue  *ModelScanListResp
 	)
 
-	localBasePath, err := a.client.cfg.ServerURLWithContext(r.ctx, "ComplianceApiService.ListComplianceScan")
+	localBasePath, err := a.client.cfg.ServerURLWithContext(r.ctx, "ComplianceAPIService.ListComplianceScan")
 	if err != nil {
 		return localVarReturnValue, nil, &GenericOpenAPIError{error: err.Error()}
 	}
@@ -431,7 +431,7 @@ func (a *ComplianceApiService) ListComplianceScanExecute(r ApiListComplianceScan
 
 type ApiResultsComplianceScanRequest struct {
 	ctx context.Context
-	ApiService *ComplianceApiService
+	ApiService *ComplianceAPIService
 	modelScanResultsReq *ModelScanResultsReq
 }
 
@@ -452,7 +452,7 @@ Get Compliance Scans results on agent or registry
  @param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
  @return ApiResultsComplianceScanRequest
 */
-func (a *ComplianceApiService) ResultsComplianceScan(ctx context.Context) ApiResultsComplianceScanRequest {
+func (a *ComplianceAPIService) ResultsComplianceScan(ctx context.Context) ApiResultsComplianceScanRequest {
 	return ApiResultsComplianceScanRequest{
 		ApiService: a,
 		ctx: ctx,
@@ -461,7 +461,7 @@ func (a *ComplianceApiService) ResultsComplianceScan(ctx context.Context) ApiRes
 
 // Execute executes the request
 //  @return ModelComplianceScanResult
-func (a *ComplianceApiService) ResultsComplianceScanExecute(r ApiResultsComplianceScanRequest) (*ModelComplianceScanResult, *http.Response, error) {
+func (a *ComplianceAPIService) ResultsComplianceScanExecute(r ApiResultsComplianceScanRequest) (*ModelComplianceScanResult, *http.Response, error) {
 	var (
 		localVarHTTPMethod   = http.MethodPost
 		localVarPostBody     interface{}
@@ -469,7 +469,7 @@ func (a *ComplianceApiService) ResultsComplianceScanExecute(r ApiResultsComplian
 		localVarReturnValue  *ModelComplianceScanResult
 	)
 
-	localBasePath, err := a.client.cfg.ServerURLWithContext(r.ctx, "ComplianceApiService.ResultsComplianceScan")
+	localBasePath, err := a.client.cfg.ServerURLWithContext(r.ctx, "ComplianceAPIService.ResultsComplianceScan")
 	if err != nil {
 		return localVarReturnValue, nil, &GenericOpenAPIError{error: err.Error()}
 	}
@@ -570,7 +570,7 @@ func (a *ComplianceApiService) ResultsComplianceScanExecute(r ApiResultsComplian
 
 type ApiStartComplianceScanRequest struct {
 	ctx context.Context
-	ApiService *ComplianceApiService
+	ApiService *ComplianceAPIService
 	modelComplianceScanTriggerReq *ModelComplianceScanTriggerReq
 }
 
@@ -591,7 +591,7 @@ Start Compliance Scan on agent or registry
  @param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
  @return ApiStartComplianceScanRequest
 */
-func (a *ComplianceApiService) StartComplianceScan(ctx context.Context) ApiStartComplianceScanRequest {
+func (a *ComplianceAPIService) StartComplianceScan(ctx context.Context) ApiStartComplianceScanRequest {
 	return ApiStartComplianceScanRequest{
 		ApiService: a,
 		ctx: ctx,
@@ -600,7 +600,7 @@ func (a *ComplianceApiService) StartComplianceScan(ctx context.Context) ApiStart
 
 // Execute executes the request
 //  @return ModelScanTriggerResp
-func (a *ComplianceApiService) StartComplianceScanExecute(r ApiStartComplianceScanRequest) (*ModelScanTriggerResp, *http.Response, error) {
+func (a *ComplianceAPIService) StartComplianceScanExecute(r ApiStartComplianceScanRequest) (*ModelScanTriggerResp, *http.Response, error) {
 	var (
 		localVarHTTPMethod   = http.MethodPost
 		localVarPostBody     interface{}
@@ -608,7 +608,7 @@ func (a *ComplianceApiService) StartComplianceScanExecute(r ApiStartComplianceSc
 		localVarReturnValue  *ModelScanTriggerResp
 	)
 
-	localBasePath, err := a.client.cfg.ServerURLWithContext(r.ctx, "ComplianceApiService.StartComplianceScan")
+	localBasePath, err := a.client.cfg.ServerURLWithContext(r.ctx, "ComplianceAPIService.StartComplianceScan")
 	if err != nil {
 		return localVarReturnValue, nil, &GenericOpenAPIError{error: err.Error()}
 	}
@@ -709,7 +709,7 @@ func (a *ComplianceApiService) StartComplianceScanExecute(r ApiStartComplianceSc
 
 type ApiStatusComplianceScanRequest struct {
 	ctx context.Context
-	ApiService *ComplianceApiService
+	ApiService *ComplianceAPIService
 	modelScanStatusReq *ModelScanStatusReq
 }
 
@@ -730,7 +730,7 @@ Get Compliance Scan Status on agent or registry
  @param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
  @return ApiStatusComplianceScanRequest
 */
-func (a *ComplianceApiService) StatusComplianceScan(ctx context.Context) ApiStatusComplianceScanRequest {
+func (a *ComplianceAPIService) StatusComplianceScan(ctx context.Context) ApiStatusComplianceScanRequest {
 	return ApiStatusComplianceScanRequest{
 		ApiService: a,
 		ctx: ctx,
@@ -739,7 +739,7 @@ func (a *ComplianceApiService) StatusComplianceScan(ctx context.Context) ApiStat
 
 // Execute executes the request
 //  @return ModelScanStatusResp
-func (a *ComplianceApiService) StatusComplianceScanExecute(r ApiStatusComplianceScanRequest) (*ModelScanStatusResp, *http.Response, error) {
+func (a *ComplianceAPIService) StatusComplianceScanExecute(r ApiStatusComplianceScanRequest) (*ModelScanStatusResp, *http.Response, error) {
 	var (
 		localVarHTTPMethod   = http.MethodPost
 		localVarPostBody     interface{}
@@ -747,7 +747,7 @@ func (a *ComplianceApiService) StatusComplianceScanExecute(r ApiStatusCompliance
 		localVarReturnValue  *ModelScanStatusResp
 	)
 
-	localBasePath, err := a.client.cfg.ServerURLWithContext(r.ctx, "ComplianceApiService.StatusComplianceScan")
+	localBasePath, err := a.client.cfg.ServerURLWithContext(r.ctx, "ComplianceAPIService.StatusComplianceScan")
 	if err != nil {
 		return localVarReturnValue, nil, &GenericOpenAPIError{error: err.Error()}
 	}
@@ -848,7 +848,7 @@ func (a *ComplianceApiService) StatusComplianceScanExecute(r ApiStatusCompliance
 
 type ApiStopComplianceScanRequest struct {
 	ctx context.Context
-	ApiService *ComplianceApiService
+	ApiService *ComplianceAPIService
 	modelComplianceScanTriggerReq *ModelComplianceScanTriggerReq
 }
 
@@ -869,7 +869,7 @@ Stop Compliance Scan on agent or registry
  @param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
  @return ApiStopComplianceScanRequest
 */
-func (a *ComplianceApiService) StopComplianceScan(ctx context.Context) ApiStopComplianceScanRequest {
+func (a *ComplianceAPIService) StopComplianceScan(ctx context.Context) ApiStopComplianceScanRequest {
 	return ApiStopComplianceScanRequest{
 		ApiService: a,
 		ctx: ctx,
@@ -877,14 +877,14 @@ func (a *ComplianceApiService) StopComplianceScan(ctx context.Context) ApiStopCo
 }
 
 // Execute executes the request
-func (a *ComplianceApiService) StopComplianceScanExecute(r ApiStopComplianceScanRequest) (*http.Response, error) {
+func (a *ComplianceAPIService) StopComplianceScanExecute(r ApiStopComplianceScanRequest) (*http.Response, error) {
 	var (
 		localVarHTTPMethod   = http.MethodPost
 		localVarPostBody     interface{}
 		formFiles            []formFile
 	)
 
-	localBasePath, err := a.client.cfg.ServerURLWithContext(r.ctx, "ComplianceApiService.StopComplianceScan")
+	localBasePath, err := a.client.cfg.ServerURLWithContext(r.ctx, "ComplianceAPIService.StopComplianceScan")
 	if err != nil {
 		return nil, &GenericOpenAPIError{error: err.Error()}
 	}

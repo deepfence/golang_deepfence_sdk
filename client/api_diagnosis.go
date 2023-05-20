@@ -21,12 +21,12 @@ import (
 )
 
 
-// DiagnosisApiService DiagnosisApi service
-type DiagnosisApiService service
+// DiagnosisAPIService DiagnosisAPI service
+type DiagnosisAPIService service
 
 type ApiDiagnosticNotificationRequest struct {
 	ctx context.Context
-	ApiService *DiagnosisApiService
+	ApiService *DiagnosisAPIService
 }
 
 func (r ApiDiagnosticNotificationRequest) Execute() ([]DiagnosisDiagnosticNotification, *http.Response, error) {
@@ -41,7 +41,7 @@ Get Diagnostic Notification
  @param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
  @return ApiDiagnosticNotificationRequest
 */
-func (a *DiagnosisApiService) DiagnosticNotification(ctx context.Context) ApiDiagnosticNotificationRequest {
+func (a *DiagnosisAPIService) DiagnosticNotification(ctx context.Context) ApiDiagnosticNotificationRequest {
 	return ApiDiagnosticNotificationRequest{
 		ApiService: a,
 		ctx: ctx,
@@ -50,7 +50,7 @@ func (a *DiagnosisApiService) DiagnosticNotification(ctx context.Context) ApiDia
 
 // Execute executes the request
 //  @return []DiagnosisDiagnosticNotification
-func (a *DiagnosisApiService) DiagnosticNotificationExecute(r ApiDiagnosticNotificationRequest) ([]DiagnosisDiagnosticNotification, *http.Response, error) {
+func (a *DiagnosisAPIService) DiagnosticNotificationExecute(r ApiDiagnosticNotificationRequest) ([]DiagnosisDiagnosticNotification, *http.Response, error) {
 	var (
 		localVarHTTPMethod   = http.MethodGet
 		localVarPostBody     interface{}
@@ -58,7 +58,7 @@ func (a *DiagnosisApiService) DiagnosticNotificationExecute(r ApiDiagnosticNotif
 		localVarReturnValue  []DiagnosisDiagnosticNotification
 	)
 
-	localBasePath, err := a.client.cfg.ServerURLWithContext(r.ctx, "DiagnosisApiService.DiagnosticNotification")
+	localBasePath, err := a.client.cfg.ServerURLWithContext(r.ctx, "DiagnosisAPIService.DiagnosticNotification")
 	if err != nil {
 		return localVarReturnValue, nil, &GenericOpenAPIError{error: err.Error()}
 	}
@@ -157,7 +157,7 @@ func (a *DiagnosisApiService) DiagnosticNotificationExecute(r ApiDiagnosticNotif
 
 type ApiGenerateAgentDiagnosticLogsRequest struct {
 	ctx context.Context
-	ApiService *DiagnosisApiService
+	ApiService *DiagnosisAPIService
 	diagnosisGenerateAgentDiagnosticLogsRequest *DiagnosisGenerateAgentDiagnosticLogsRequest
 }
 
@@ -178,7 +178,7 @@ Generate Agent Diagnostic Logs
  @param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
  @return ApiGenerateAgentDiagnosticLogsRequest
 */
-func (a *DiagnosisApiService) GenerateAgentDiagnosticLogs(ctx context.Context) ApiGenerateAgentDiagnosticLogsRequest {
+func (a *DiagnosisAPIService) GenerateAgentDiagnosticLogs(ctx context.Context) ApiGenerateAgentDiagnosticLogsRequest {
 	return ApiGenerateAgentDiagnosticLogsRequest{
 		ApiService: a,
 		ctx: ctx,
@@ -186,14 +186,14 @@ func (a *DiagnosisApiService) GenerateAgentDiagnosticLogs(ctx context.Context) A
 }
 
 // Execute executes the request
-func (a *DiagnosisApiService) GenerateAgentDiagnosticLogsExecute(r ApiGenerateAgentDiagnosticLogsRequest) (*http.Response, error) {
+func (a *DiagnosisAPIService) GenerateAgentDiagnosticLogsExecute(r ApiGenerateAgentDiagnosticLogsRequest) (*http.Response, error) {
 	var (
 		localVarHTTPMethod   = http.MethodPost
 		localVarPostBody     interface{}
 		formFiles            []formFile
 	)
 
-	localBasePath, err := a.client.cfg.ServerURLWithContext(r.ctx, "DiagnosisApiService.GenerateAgentDiagnosticLogs")
+	localBasePath, err := a.client.cfg.ServerURLWithContext(r.ctx, "DiagnosisAPIService.GenerateAgentDiagnosticLogs")
 	if err != nil {
 		return nil, &GenericOpenAPIError{error: err.Error()}
 	}
@@ -285,7 +285,7 @@ func (a *DiagnosisApiService) GenerateAgentDiagnosticLogsExecute(r ApiGenerateAg
 
 type ApiGenerateConsoleDiagnosticLogsRequest struct {
 	ctx context.Context
-	ApiService *DiagnosisApiService
+	ApiService *DiagnosisAPIService
 	diagnosisGenerateConsoleDiagnosticLogsRequest *DiagnosisGenerateConsoleDiagnosticLogsRequest
 }
 
@@ -306,7 +306,7 @@ Generate Console Diagnostic Logs
  @param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
  @return ApiGenerateConsoleDiagnosticLogsRequest
 */
-func (a *DiagnosisApiService) GenerateConsoleDiagnosticLogs(ctx context.Context) ApiGenerateConsoleDiagnosticLogsRequest {
+func (a *DiagnosisAPIService) GenerateConsoleDiagnosticLogs(ctx context.Context) ApiGenerateConsoleDiagnosticLogsRequest {
 	return ApiGenerateConsoleDiagnosticLogsRequest{
 		ApiService: a,
 		ctx: ctx,
@@ -314,14 +314,14 @@ func (a *DiagnosisApiService) GenerateConsoleDiagnosticLogs(ctx context.Context)
 }
 
 // Execute executes the request
-func (a *DiagnosisApiService) GenerateConsoleDiagnosticLogsExecute(r ApiGenerateConsoleDiagnosticLogsRequest) (*http.Response, error) {
+func (a *DiagnosisAPIService) GenerateConsoleDiagnosticLogsExecute(r ApiGenerateConsoleDiagnosticLogsRequest) (*http.Response, error) {
 	var (
 		localVarHTTPMethod   = http.MethodPost
 		localVarPostBody     interface{}
 		formFiles            []formFile
 	)
 
-	localBasePath, err := a.client.cfg.ServerURLWithContext(r.ctx, "DiagnosisApiService.GenerateConsoleDiagnosticLogs")
+	localBasePath, err := a.client.cfg.ServerURLWithContext(r.ctx, "DiagnosisAPIService.GenerateConsoleDiagnosticLogs")
 	if err != nil {
 		return nil, &GenericOpenAPIError{error: err.Error()}
 	}
@@ -413,7 +413,7 @@ func (a *DiagnosisApiService) GenerateConsoleDiagnosticLogsExecute(r ApiGenerate
 
 type ApiGetDiagnosticLogsRequest struct {
 	ctx context.Context
-	ApiService *DiagnosisApiService
+	ApiService *DiagnosisAPIService
 }
 
 func (r ApiGetDiagnosticLogsRequest) Execute() (*DiagnosisGetDiagnosticLogsResponse, *http.Response, error) {
@@ -428,7 +428,7 @@ Get diagnostic logs download url links
  @param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
  @return ApiGetDiagnosticLogsRequest
 */
-func (a *DiagnosisApiService) GetDiagnosticLogs(ctx context.Context) ApiGetDiagnosticLogsRequest {
+func (a *DiagnosisAPIService) GetDiagnosticLogs(ctx context.Context) ApiGetDiagnosticLogsRequest {
 	return ApiGetDiagnosticLogsRequest{
 		ApiService: a,
 		ctx: ctx,
@@ -437,7 +437,7 @@ func (a *DiagnosisApiService) GetDiagnosticLogs(ctx context.Context) ApiGetDiagn
 
 // Execute executes the request
 //  @return DiagnosisGetDiagnosticLogsResponse
-func (a *DiagnosisApiService) GetDiagnosticLogsExecute(r ApiGetDiagnosticLogsRequest) (*DiagnosisGetDiagnosticLogsResponse, *http.Response, error) {
+func (a *DiagnosisAPIService) GetDiagnosticLogsExecute(r ApiGetDiagnosticLogsRequest) (*DiagnosisGetDiagnosticLogsResponse, *http.Response, error) {
 	var (
 		localVarHTTPMethod   = http.MethodGet
 		localVarPostBody     interface{}
@@ -445,7 +445,7 @@ func (a *DiagnosisApiService) GetDiagnosticLogsExecute(r ApiGetDiagnosticLogsReq
 		localVarReturnValue  *DiagnosisGetDiagnosticLogsResponse
 	)
 
-	localBasePath, err := a.client.cfg.ServerURLWithContext(r.ctx, "DiagnosisApiService.GetDiagnosticLogs")
+	localBasePath, err := a.client.cfg.ServerURLWithContext(r.ctx, "DiagnosisAPIService.GetDiagnosticLogs")
 	if err != nil {
 		return localVarReturnValue, nil, &GenericOpenAPIError{error: err.Error()}
 	}
@@ -544,7 +544,7 @@ func (a *DiagnosisApiService) GetDiagnosticLogsExecute(r ApiGetDiagnosticLogsReq
 
 type ApiUpdateAgentDiagnosticLogsStatusRequest struct {
 	ctx context.Context
-	ApiService *DiagnosisApiService
+	ApiService *DiagnosisAPIService
 	nodeId string
 	diagnosisDiagnosticLogsStatus *DiagnosisDiagnosticLogsStatus
 }
@@ -567,7 +567,7 @@ Update agent diagnostic logs status
  @param nodeId
  @return ApiUpdateAgentDiagnosticLogsStatusRequest
 */
-func (a *DiagnosisApiService) UpdateAgentDiagnosticLogsStatus(ctx context.Context, nodeId string) ApiUpdateAgentDiagnosticLogsStatusRequest {
+func (a *DiagnosisAPIService) UpdateAgentDiagnosticLogsStatus(ctx context.Context, nodeId string) ApiUpdateAgentDiagnosticLogsStatusRequest {
 	return ApiUpdateAgentDiagnosticLogsStatusRequest{
 		ApiService: a,
 		ctx: ctx,
@@ -576,14 +576,14 @@ func (a *DiagnosisApiService) UpdateAgentDiagnosticLogsStatus(ctx context.Contex
 }
 
 // Execute executes the request
-func (a *DiagnosisApiService) UpdateAgentDiagnosticLogsStatusExecute(r ApiUpdateAgentDiagnosticLogsStatusRequest) (*http.Response, error) {
+func (a *DiagnosisAPIService) UpdateAgentDiagnosticLogsStatusExecute(r ApiUpdateAgentDiagnosticLogsStatusRequest) (*http.Response, error) {
 	var (
 		localVarHTTPMethod   = http.MethodPut
 		localVarPostBody     interface{}
 		formFiles            []formFile
 	)
 
-	localBasePath, err := a.client.cfg.ServerURLWithContext(r.ctx, "DiagnosisApiService.UpdateAgentDiagnosticLogsStatus")
+	localBasePath, err := a.client.cfg.ServerURLWithContext(r.ctx, "DiagnosisAPIService.UpdateAgentDiagnosticLogsStatus")
 	if err != nil {
 		return nil, &GenericOpenAPIError{error: err.Error()}
 	}

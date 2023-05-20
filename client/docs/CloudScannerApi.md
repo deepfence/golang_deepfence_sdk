@@ -1,15 +1,15 @@
-# \CloudScannerApi
+# \CloudScannerAPI
 
 All URIs are relative to *http://localhost*
 
 Method | HTTP request | Description
 ------------- | ------------- | -------------
-[**CountResultsCloudComplianceScan**](CloudScannerApi.md#CountResultsCloudComplianceScan) | **Post** /deepfence/scan/results/count/cloud-compliance | Get Cloud Compliance Scan Results
-[**IngestCloudComplianceScanStatus**](CloudScannerApi.md#IngestCloudComplianceScanStatus) | **Post** /deepfence/ingest/cloud-compliance-scan-status | Ingest Cloud Compliances
-[**IngestCloudCompliances**](CloudScannerApi.md#IngestCloudCompliances) | **Post** /deepfence/ingest/cloud-compliance | Ingest Cloud Compliances
-[**ListCloudComplianceScan**](CloudScannerApi.md#ListCloudComplianceScan) | **Post** /deepfence/scan/list/cloud-compliance | Get Cloud Compliance Scans List
-[**ResultsCloudComplianceScan**](CloudScannerApi.md#ResultsCloudComplianceScan) | **Post** /deepfence/scan/results/cloud-compliance | Get Cloud Compliance Scan Results
-[**StatusCloudComplianceScan**](CloudScannerApi.md#StatusCloudComplianceScan) | **Post** /deepfence/scan/status/cloud-compliance | Get Cloud Compliance Scan Status
+[**CountResultsCloudComplianceScan**](CloudScannerAPI.md#CountResultsCloudComplianceScan) | **Post** /deepfence/scan/results/count/cloud-compliance | Get Cloud Compliance Scan Results
+[**IngestCloudComplianceScanStatus**](CloudScannerAPI.md#IngestCloudComplianceScanStatus) | **Post** /deepfence/ingest/cloud-compliance-scan-status | Ingest Cloud Compliances
+[**IngestCloudCompliances**](CloudScannerAPI.md#IngestCloudCompliances) | **Post** /deepfence/ingest/cloud-compliance | Ingest Cloud Compliances
+[**ListCloudComplianceScan**](CloudScannerAPI.md#ListCloudComplianceScan) | **Post** /deepfence/scan/list/cloud-compliance | Get Cloud Compliance Scans List
+[**ResultsCloudComplianceScan**](CloudScannerAPI.md#ResultsCloudComplianceScan) | **Post** /deepfence/scan/results/cloud-compliance | Get Cloud Compliance Scan Results
+[**StatusCloudComplianceScan**](CloudScannerAPI.md#StatusCloudComplianceScan) | **Post** /deepfence/scan/status/cloud-compliance | Get Cloud Compliance Scan Status
 
 
 
@@ -38,13 +38,13 @@ func main() {
 
     configuration := openapiclient.NewConfiguration()
     apiClient := openapiclient.NewAPIClient(configuration)
-    resp, r, err := apiClient.CloudScannerApi.CountResultsCloudComplianceScan(context.Background()).ModelScanResultsReq(modelScanResultsReq).Execute()
+    resp, r, err := apiClient.CloudScannerAPI.CountResultsCloudComplianceScan(context.Background()).ModelScanResultsReq(modelScanResultsReq).Execute()
     if err != nil {
-        fmt.Fprintf(os.Stderr, "Error when calling `CloudScannerApi.CountResultsCloudComplianceScan``: %v\n", err)
+        fmt.Fprintf(os.Stderr, "Error when calling `CloudScannerAPI.CountResultsCloudComplianceScan``: %v\n", err)
         fmt.Fprintf(os.Stderr, "Full HTTP response: %v\n", r)
     }
     // response from `CountResultsCloudComplianceScan`: SearchSearchCountResp
-    fmt.Fprintf(os.Stdout, "Response from `CloudScannerApi.CountResultsCloudComplianceScan`: %v\n", resp)
+    fmt.Fprintf(os.Stdout, "Response from `CloudScannerAPI.CountResultsCloudComplianceScan`: %v\n", resp)
 }
 ```
 
@@ -104,9 +104,9 @@ func main() {
 
     configuration := openapiclient.NewConfiguration()
     apiClient := openapiclient.NewAPIClient(configuration)
-    r, err := apiClient.CloudScannerApi.IngestCloudComplianceScanStatus(context.Background()).IngestersCloudCompliance(ingestersCloudCompliance).Execute()
+    r, err := apiClient.CloudScannerAPI.IngestCloudComplianceScanStatus(context.Background()).IngestersCloudCompliance(ingestersCloudCompliance).Execute()
     if err != nil {
-        fmt.Fprintf(os.Stderr, "Error when calling `CloudScannerApi.IngestCloudComplianceScanStatus``: %v\n", err)
+        fmt.Fprintf(os.Stderr, "Error when calling `CloudScannerAPI.IngestCloudComplianceScanStatus``: %v\n", err)
         fmt.Fprintf(os.Stderr, "Full HTTP response: %v\n", r)
     }
 }
@@ -168,9 +168,9 @@ func main() {
 
     configuration := openapiclient.NewConfiguration()
     apiClient := openapiclient.NewAPIClient(configuration)
-    r, err := apiClient.CloudScannerApi.IngestCloudCompliances(context.Background()).IngestersCloudCompliance(ingestersCloudCompliance).Execute()
+    r, err := apiClient.CloudScannerAPI.IngestCloudCompliances(context.Background()).IngestersCloudCompliance(ingestersCloudCompliance).Execute()
     if err != nil {
-        fmt.Fprintf(os.Stderr, "Error when calling `CloudScannerApi.IngestCloudCompliances``: %v\n", err)
+        fmt.Fprintf(os.Stderr, "Error when calling `CloudScannerAPI.IngestCloudCompliances``: %v\n", err)
         fmt.Fprintf(os.Stderr, "Full HTTP response: %v\n", r)
     }
 }
@@ -232,13 +232,13 @@ func main() {
 
     configuration := openapiclient.NewConfiguration()
     apiClient := openapiclient.NewAPIClient(configuration)
-    resp, r, err := apiClient.CloudScannerApi.ListCloudComplianceScan(context.Background()).ModelScanListReq(modelScanListReq).Execute()
+    resp, r, err := apiClient.CloudScannerAPI.ListCloudComplianceScan(context.Background()).ModelScanListReq(modelScanListReq).Execute()
     if err != nil {
-        fmt.Fprintf(os.Stderr, "Error when calling `CloudScannerApi.ListCloudComplianceScan``: %v\n", err)
+        fmt.Fprintf(os.Stderr, "Error when calling `CloudScannerAPI.ListCloudComplianceScan``: %v\n", err)
         fmt.Fprintf(os.Stderr, "Full HTTP response: %v\n", r)
     }
     // response from `ListCloudComplianceScan`: ModelScanListResp
-    fmt.Fprintf(os.Stdout, "Response from `CloudScannerApi.ListCloudComplianceScan`: %v\n", resp)
+    fmt.Fprintf(os.Stdout, "Response from `CloudScannerAPI.ListCloudComplianceScan`: %v\n", resp)
 }
 ```
 
@@ -298,13 +298,13 @@ func main() {
 
     configuration := openapiclient.NewConfiguration()
     apiClient := openapiclient.NewAPIClient(configuration)
-    resp, r, err := apiClient.CloudScannerApi.ResultsCloudComplianceScan(context.Background()).ModelScanResultsReq(modelScanResultsReq).Execute()
+    resp, r, err := apiClient.CloudScannerAPI.ResultsCloudComplianceScan(context.Background()).ModelScanResultsReq(modelScanResultsReq).Execute()
     if err != nil {
-        fmt.Fprintf(os.Stderr, "Error when calling `CloudScannerApi.ResultsCloudComplianceScan``: %v\n", err)
+        fmt.Fprintf(os.Stderr, "Error when calling `CloudScannerAPI.ResultsCloudComplianceScan``: %v\n", err)
         fmt.Fprintf(os.Stderr, "Full HTTP response: %v\n", r)
     }
     // response from `ResultsCloudComplianceScan`: ModelCloudComplianceScanResult
-    fmt.Fprintf(os.Stdout, "Response from `CloudScannerApi.ResultsCloudComplianceScan`: %v\n", resp)
+    fmt.Fprintf(os.Stdout, "Response from `CloudScannerAPI.ResultsCloudComplianceScan`: %v\n", resp)
 }
 ```
 
@@ -364,13 +364,13 @@ func main() {
 
     configuration := openapiclient.NewConfiguration()
     apiClient := openapiclient.NewAPIClient(configuration)
-    resp, r, err := apiClient.CloudScannerApi.StatusCloudComplianceScan(context.Background()).ModelScanStatusReq(modelScanStatusReq).Execute()
+    resp, r, err := apiClient.CloudScannerAPI.StatusCloudComplianceScan(context.Background()).ModelScanStatusReq(modelScanStatusReq).Execute()
     if err != nil {
-        fmt.Fprintf(os.Stderr, "Error when calling `CloudScannerApi.StatusCloudComplianceScan``: %v\n", err)
+        fmt.Fprintf(os.Stderr, "Error when calling `CloudScannerAPI.StatusCloudComplianceScan``: %v\n", err)
         fmt.Fprintf(os.Stderr, "Full HTTP response: %v\n", r)
     }
     // response from `StatusCloudComplianceScan`: ModelComplianceScanStatusResp
-    fmt.Fprintf(os.Stdout, "Response from `CloudScannerApi.StatusCloudComplianceScan`: %v\n", resp)
+    fmt.Fprintf(os.Stdout, "Response from `CloudScannerAPI.StatusCloudComplianceScan`: %v\n", resp)
 }
 ```
 

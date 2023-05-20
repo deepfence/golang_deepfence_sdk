@@ -1,14 +1,14 @@
-# \DiagnosisApi
+# \DiagnosisAPI
 
 All URIs are relative to *http://localhost*
 
 Method | HTTP request | Description
 ------------- | ------------- | -------------
-[**DiagnosticNotification**](DiagnosisApi.md#DiagnosticNotification) | **Get** /deepfence/diagnosis/notification | Get Diagnostic Notification
-[**GenerateAgentDiagnosticLogs**](DiagnosisApi.md#GenerateAgentDiagnosticLogs) | **Post** /deepfence/diagnosis/agent-logs | Generate Agent Diagnostic Logs
-[**GenerateConsoleDiagnosticLogs**](DiagnosisApi.md#GenerateConsoleDiagnosticLogs) | **Post** /deepfence/diagnosis/console-logs | Generate Console Diagnostic Logs
-[**GetDiagnosticLogs**](DiagnosisApi.md#GetDiagnosticLogs) | **Get** /deepfence/diagnosis/diagnostic-logs | Get Diagnostic Logs
-[**UpdateAgentDiagnosticLogsStatus**](DiagnosisApi.md#UpdateAgentDiagnosticLogsStatus) | **Put** /deepfence/diagnosis/agent-logs/status/{node_id} | Update Agent Diagnostic Logs Status
+[**DiagnosticNotification**](DiagnosisAPI.md#DiagnosticNotification) | **Get** /deepfence/diagnosis/notification | Get Diagnostic Notification
+[**GenerateAgentDiagnosticLogs**](DiagnosisAPI.md#GenerateAgentDiagnosticLogs) | **Post** /deepfence/diagnosis/agent-logs | Generate Agent Diagnostic Logs
+[**GenerateConsoleDiagnosticLogs**](DiagnosisAPI.md#GenerateConsoleDiagnosticLogs) | **Post** /deepfence/diagnosis/console-logs | Generate Console Diagnostic Logs
+[**GetDiagnosticLogs**](DiagnosisAPI.md#GetDiagnosticLogs) | **Get** /deepfence/diagnosis/diagnostic-logs | Get Diagnostic Logs
+[**UpdateAgentDiagnosticLogsStatus**](DiagnosisAPI.md#UpdateAgentDiagnosticLogsStatus) | **Put** /deepfence/diagnosis/agent-logs/status/{node_id} | Update Agent Diagnostic Logs Status
 
 
 
@@ -36,13 +36,13 @@ func main() {
 
     configuration := openapiclient.NewConfiguration()
     apiClient := openapiclient.NewAPIClient(configuration)
-    resp, r, err := apiClient.DiagnosisApi.DiagnosticNotification(context.Background()).Execute()
+    resp, r, err := apiClient.DiagnosisAPI.DiagnosticNotification(context.Background()).Execute()
     if err != nil {
-        fmt.Fprintf(os.Stderr, "Error when calling `DiagnosisApi.DiagnosticNotification``: %v\n", err)
+        fmt.Fprintf(os.Stderr, "Error when calling `DiagnosisAPI.DiagnosticNotification``: %v\n", err)
         fmt.Fprintf(os.Stderr, "Full HTTP response: %v\n", r)
     }
     // response from `DiagnosticNotification`: []DiagnosisDiagnosticNotification
-    fmt.Fprintf(os.Stdout, "Response from `DiagnosisApi.DiagnosticNotification`: %v\n", resp)
+    fmt.Fprintf(os.Stdout, "Response from `DiagnosisAPI.DiagnosticNotification`: %v\n", resp)
 }
 ```
 
@@ -98,9 +98,9 @@ func main() {
 
     configuration := openapiclient.NewConfiguration()
     apiClient := openapiclient.NewAPIClient(configuration)
-    r, err := apiClient.DiagnosisApi.GenerateAgentDiagnosticLogs(context.Background()).DiagnosisGenerateAgentDiagnosticLogsRequest(diagnosisGenerateAgentDiagnosticLogsRequest).Execute()
+    r, err := apiClient.DiagnosisAPI.GenerateAgentDiagnosticLogs(context.Background()).DiagnosisGenerateAgentDiagnosticLogsRequest(diagnosisGenerateAgentDiagnosticLogsRequest).Execute()
     if err != nil {
-        fmt.Fprintf(os.Stderr, "Error when calling `DiagnosisApi.GenerateAgentDiagnosticLogs``: %v\n", err)
+        fmt.Fprintf(os.Stderr, "Error when calling `DiagnosisAPI.GenerateAgentDiagnosticLogs``: %v\n", err)
         fmt.Fprintf(os.Stderr, "Full HTTP response: %v\n", r)
     }
 }
@@ -162,9 +162,9 @@ func main() {
 
     configuration := openapiclient.NewConfiguration()
     apiClient := openapiclient.NewAPIClient(configuration)
-    r, err := apiClient.DiagnosisApi.GenerateConsoleDiagnosticLogs(context.Background()).DiagnosisGenerateConsoleDiagnosticLogsRequest(diagnosisGenerateConsoleDiagnosticLogsRequest).Execute()
+    r, err := apiClient.DiagnosisAPI.GenerateConsoleDiagnosticLogs(context.Background()).DiagnosisGenerateConsoleDiagnosticLogsRequest(diagnosisGenerateConsoleDiagnosticLogsRequest).Execute()
     if err != nil {
-        fmt.Fprintf(os.Stderr, "Error when calling `DiagnosisApi.GenerateConsoleDiagnosticLogs``: %v\n", err)
+        fmt.Fprintf(os.Stderr, "Error when calling `DiagnosisAPI.GenerateConsoleDiagnosticLogs``: %v\n", err)
         fmt.Fprintf(os.Stderr, "Full HTTP response: %v\n", r)
     }
 }
@@ -225,13 +225,13 @@ func main() {
 
     configuration := openapiclient.NewConfiguration()
     apiClient := openapiclient.NewAPIClient(configuration)
-    resp, r, err := apiClient.DiagnosisApi.GetDiagnosticLogs(context.Background()).Execute()
+    resp, r, err := apiClient.DiagnosisAPI.GetDiagnosticLogs(context.Background()).Execute()
     if err != nil {
-        fmt.Fprintf(os.Stderr, "Error when calling `DiagnosisApi.GetDiagnosticLogs``: %v\n", err)
+        fmt.Fprintf(os.Stderr, "Error when calling `DiagnosisAPI.GetDiagnosticLogs``: %v\n", err)
         fmt.Fprintf(os.Stderr, "Full HTTP response: %v\n", r)
     }
     // response from `GetDiagnosticLogs`: DiagnosisGetDiagnosticLogsResponse
-    fmt.Fprintf(os.Stdout, "Response from `DiagnosisApi.GetDiagnosticLogs`: %v\n", resp)
+    fmt.Fprintf(os.Stdout, "Response from `DiagnosisAPI.GetDiagnosticLogs`: %v\n", resp)
 }
 ```
 
@@ -288,9 +288,9 @@ func main() {
 
     configuration := openapiclient.NewConfiguration()
     apiClient := openapiclient.NewAPIClient(configuration)
-    r, err := apiClient.DiagnosisApi.UpdateAgentDiagnosticLogsStatus(context.Background(), nodeId).DiagnosisDiagnosticLogsStatus(diagnosisDiagnosticLogsStatus).Execute()
+    r, err := apiClient.DiagnosisAPI.UpdateAgentDiagnosticLogsStatus(context.Background(), nodeId).DiagnosisDiagnosticLogsStatus(diagnosisDiagnosticLogsStatus).Execute()
     if err != nil {
-        fmt.Fprintf(os.Stderr, "Error when calling `DiagnosisApi.UpdateAgentDiagnosticLogsStatus``: %v\n", err)
+        fmt.Fprintf(os.Stderr, "Error when calling `DiagnosisAPI.UpdateAgentDiagnosticLogsStatus``: %v\n", err)
         fmt.Fprintf(os.Stderr, "Full HTTP response: %v\n", r)
     }
 }

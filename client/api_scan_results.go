@@ -21,12 +21,12 @@ import (
 )
 
 
-// ScanResultsApiService ScanResultsApi service
-type ScanResultsApiService service
+// ScanResultsAPIService ScanResultsAPI service
+type ScanResultsAPIService service
 
 type ApiBulkDeleteScansRequest struct {
 	ctx context.Context
-	ApiService *ScanResultsApiService
+	ApiService *ScanResultsAPIService
 	modelBulkDeleteScansRequest *ModelBulkDeleteScansRequest
 }
 
@@ -47,7 +47,7 @@ Bulk delete scans along with their results for a particular scan type
  @param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
  @return ApiBulkDeleteScansRequest
 */
-func (a *ScanResultsApiService) BulkDeleteScans(ctx context.Context) ApiBulkDeleteScansRequest {
+func (a *ScanResultsAPIService) BulkDeleteScans(ctx context.Context) ApiBulkDeleteScansRequest {
 	return ApiBulkDeleteScansRequest{
 		ApiService: a,
 		ctx: ctx,
@@ -55,14 +55,14 @@ func (a *ScanResultsApiService) BulkDeleteScans(ctx context.Context) ApiBulkDele
 }
 
 // Execute executes the request
-func (a *ScanResultsApiService) BulkDeleteScansExecute(r ApiBulkDeleteScansRequest) (*http.Response, error) {
+func (a *ScanResultsAPIService) BulkDeleteScansExecute(r ApiBulkDeleteScansRequest) (*http.Response, error) {
 	var (
 		localVarHTTPMethod   = http.MethodPost
 		localVarPostBody     interface{}
 		formFiles            []formFile
 	)
 
-	localBasePath, err := a.client.cfg.ServerURLWithContext(r.ctx, "ScanResultsApiService.BulkDeleteScans")
+	localBasePath, err := a.client.cfg.ServerURLWithContext(r.ctx, "ScanResultsAPIService.BulkDeleteScans")
 	if err != nil {
 		return nil, &GenericOpenAPIError{error: err.Error()}
 	}
@@ -154,7 +154,7 @@ func (a *ScanResultsApiService) BulkDeleteScansExecute(r ApiBulkDeleteScansReque
 
 type ApiDeleteScanResultRequest struct {
 	ctx context.Context
-	ApiService *ScanResultsApiService
+	ApiService *ScanResultsAPIService
 	modelScanResultsActionRequest *ModelScanResultsActionRequest
 }
 
@@ -175,7 +175,7 @@ Delete selected scan results
  @param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
  @return ApiDeleteScanResultRequest
 */
-func (a *ScanResultsApiService) DeleteScanResult(ctx context.Context) ApiDeleteScanResultRequest {
+func (a *ScanResultsAPIService) DeleteScanResult(ctx context.Context) ApiDeleteScanResultRequest {
 	return ApiDeleteScanResultRequest{
 		ApiService: a,
 		ctx: ctx,
@@ -183,14 +183,14 @@ func (a *ScanResultsApiService) DeleteScanResult(ctx context.Context) ApiDeleteS
 }
 
 // Execute executes the request
-func (a *ScanResultsApiService) DeleteScanResultExecute(r ApiDeleteScanResultRequest) (*http.Response, error) {
+func (a *ScanResultsAPIService) DeleteScanResultExecute(r ApiDeleteScanResultRequest) (*http.Response, error) {
 	var (
 		localVarHTTPMethod   = http.MethodPatch
 		localVarPostBody     interface{}
 		formFiles            []formFile
 	)
 
-	localBasePath, err := a.client.cfg.ServerURLWithContext(r.ctx, "ScanResultsApiService.DeleteScanResult")
+	localBasePath, err := a.client.cfg.ServerURLWithContext(r.ctx, "ScanResultsAPIService.DeleteScanResult")
 	if err != nil {
 		return nil, &GenericOpenAPIError{error: err.Error()}
 	}
@@ -282,7 +282,7 @@ func (a *ScanResultsApiService) DeleteScanResultExecute(r ApiDeleteScanResultReq
 
 type ApiDeleteScanResultsForScanIDRequest struct {
 	ctx context.Context
-	ApiService *ScanResultsApiService
+	ApiService *ScanResultsAPIService
 	scanId string
 	scanType string
 }
@@ -301,7 +301,7 @@ Delete all scan results for a scan id
  @param scanType
  @return ApiDeleteScanResultsForScanIDRequest
 */
-func (a *ScanResultsApiService) DeleteScanResultsForScanID(ctx context.Context, scanId string, scanType string) ApiDeleteScanResultsForScanIDRequest {
+func (a *ScanResultsAPIService) DeleteScanResultsForScanID(ctx context.Context, scanId string, scanType string) ApiDeleteScanResultsForScanIDRequest {
 	return ApiDeleteScanResultsForScanIDRequest{
 		ApiService: a,
 		ctx: ctx,
@@ -311,14 +311,14 @@ func (a *ScanResultsApiService) DeleteScanResultsForScanID(ctx context.Context, 
 }
 
 // Execute executes the request
-func (a *ScanResultsApiService) DeleteScanResultsForScanIDExecute(r ApiDeleteScanResultsForScanIDRequest) (*http.Response, error) {
+func (a *ScanResultsAPIService) DeleteScanResultsForScanIDExecute(r ApiDeleteScanResultsForScanIDRequest) (*http.Response, error) {
 	var (
 		localVarHTTPMethod   = http.MethodDelete
 		localVarPostBody     interface{}
 		formFiles            []formFile
 	)
 
-	localBasePath, err := a.client.cfg.ServerURLWithContext(r.ctx, "ScanResultsApiService.DeleteScanResultsForScanID")
+	localBasePath, err := a.client.cfg.ServerURLWithContext(r.ctx, "ScanResultsAPIService.DeleteScanResultsForScanID")
 	if err != nil {
 		return nil, &GenericOpenAPIError{error: err.Error()}
 	}
@@ -410,7 +410,7 @@ func (a *ScanResultsApiService) DeleteScanResultsForScanIDExecute(r ApiDeleteSca
 
 type ApiDownloadScanResultsRequest struct {
 	ctx context.Context
-	ApiService *ScanResultsApiService
+	ApiService *ScanResultsAPIService
 	scanId string
 	scanType string
 }
@@ -429,7 +429,7 @@ Download scan results
  @param scanType
  @return ApiDownloadScanResultsRequest
 */
-func (a *ScanResultsApiService) DownloadScanResults(ctx context.Context, scanId string, scanType string) ApiDownloadScanResultsRequest {
+func (a *ScanResultsAPIService) DownloadScanResults(ctx context.Context, scanId string, scanType string) ApiDownloadScanResultsRequest {
 	return ApiDownloadScanResultsRequest{
 		ApiService: a,
 		ctx: ctx,
@@ -440,7 +440,7 @@ func (a *ScanResultsApiService) DownloadScanResults(ctx context.Context, scanId 
 
 // Execute executes the request
 //  @return ModelDownloadScanResultsResponse
-func (a *ScanResultsApiService) DownloadScanResultsExecute(r ApiDownloadScanResultsRequest) (*ModelDownloadScanResultsResponse, *http.Response, error) {
+func (a *ScanResultsAPIService) DownloadScanResultsExecute(r ApiDownloadScanResultsRequest) (*ModelDownloadScanResultsResponse, *http.Response, error) {
 	var (
 		localVarHTTPMethod   = http.MethodGet
 		localVarPostBody     interface{}
@@ -448,7 +448,7 @@ func (a *ScanResultsApiService) DownloadScanResultsExecute(r ApiDownloadScanResu
 		localVarReturnValue  *ModelDownloadScanResultsResponse
 	)
 
-	localBasePath, err := a.client.cfg.ServerURLWithContext(r.ctx, "ScanResultsApiService.DownloadScanResults")
+	localBasePath, err := a.client.cfg.ServerURLWithContext(r.ctx, "ScanResultsAPIService.DownloadScanResults")
 	if err != nil {
 		return localVarReturnValue, nil, &GenericOpenAPIError{error: err.Error()}
 	}
@@ -549,7 +549,7 @@ func (a *ScanResultsApiService) DownloadScanResultsExecute(r ApiDownloadScanResu
 
 type ApiGetAllNodesInScanResultsRequest struct {
 	ctx context.Context
-	ApiService *ScanResultsApiService
+	ApiService *ScanResultsAPIService
 	modelNodesInScanResultRequest *ModelNodesInScanResultRequest
 }
 
@@ -570,7 +570,7 @@ Get all nodes in given scan result ids
  @param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
  @return ApiGetAllNodesInScanResultsRequest
 */
-func (a *ScanResultsApiService) GetAllNodesInScanResults(ctx context.Context) ApiGetAllNodesInScanResultsRequest {
+func (a *ScanResultsAPIService) GetAllNodesInScanResults(ctx context.Context) ApiGetAllNodesInScanResultsRequest {
 	return ApiGetAllNodesInScanResultsRequest{
 		ApiService: a,
 		ctx: ctx,
@@ -579,7 +579,7 @@ func (a *ScanResultsApiService) GetAllNodesInScanResults(ctx context.Context) Ap
 
 // Execute executes the request
 //  @return []ModelScanResultBasicNode
-func (a *ScanResultsApiService) GetAllNodesInScanResultsExecute(r ApiGetAllNodesInScanResultsRequest) ([]ModelScanResultBasicNode, *http.Response, error) {
+func (a *ScanResultsAPIService) GetAllNodesInScanResultsExecute(r ApiGetAllNodesInScanResultsRequest) ([]ModelScanResultBasicNode, *http.Response, error) {
 	var (
 		localVarHTTPMethod   = http.MethodPost
 		localVarPostBody     interface{}
@@ -587,7 +587,7 @@ func (a *ScanResultsApiService) GetAllNodesInScanResultsExecute(r ApiGetAllNodes
 		localVarReturnValue  []ModelScanResultBasicNode
 	)
 
-	localBasePath, err := a.client.cfg.ServerURLWithContext(r.ctx, "ScanResultsApiService.GetAllNodesInScanResults")
+	localBasePath, err := a.client.cfg.ServerURLWithContext(r.ctx, "ScanResultsAPIService.GetAllNodesInScanResults")
 	if err != nil {
 		return localVarReturnValue, nil, &GenericOpenAPIError{error: err.Error()}
 	}
@@ -688,7 +688,7 @@ func (a *ScanResultsApiService) GetAllNodesInScanResultsExecute(r ApiGetAllNodes
 
 type ApiMaskScanResultRequest struct {
 	ctx context.Context
-	ApiService *ScanResultsApiService
+	ApiService *ScanResultsAPIService
 	modelScanResultsMaskRequest *ModelScanResultsMaskRequest
 }
 
@@ -709,7 +709,7 @@ Mask scan results
  @param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
  @return ApiMaskScanResultRequest
 */
-func (a *ScanResultsApiService) MaskScanResult(ctx context.Context) ApiMaskScanResultRequest {
+func (a *ScanResultsAPIService) MaskScanResult(ctx context.Context) ApiMaskScanResultRequest {
 	return ApiMaskScanResultRequest{
 		ApiService: a,
 		ctx: ctx,
@@ -717,14 +717,14 @@ func (a *ScanResultsApiService) MaskScanResult(ctx context.Context) ApiMaskScanR
 }
 
 // Execute executes the request
-func (a *ScanResultsApiService) MaskScanResultExecute(r ApiMaskScanResultRequest) (*http.Response, error) {
+func (a *ScanResultsAPIService) MaskScanResultExecute(r ApiMaskScanResultRequest) (*http.Response, error) {
 	var (
 		localVarHTTPMethod   = http.MethodPost
 		localVarPostBody     interface{}
 		formFiles            []formFile
 	)
 
-	localBasePath, err := a.client.cfg.ServerURLWithContext(r.ctx, "ScanResultsApiService.MaskScanResult")
+	localBasePath, err := a.client.cfg.ServerURLWithContext(r.ctx, "ScanResultsAPIService.MaskScanResult")
 	if err != nil {
 		return nil, &GenericOpenAPIError{error: err.Error()}
 	}
@@ -816,7 +816,7 @@ func (a *ScanResultsApiService) MaskScanResultExecute(r ApiMaskScanResultRequest
 
 type ApiNotifyScanResultRequest struct {
 	ctx context.Context
-	ApiService *ScanResultsApiService
+	ApiService *ScanResultsAPIService
 	modelScanResultsActionRequest *ModelScanResultsActionRequest
 }
 
@@ -837,7 +837,7 @@ Notify scan results in connected integration channels
  @param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
  @return ApiNotifyScanResultRequest
 */
-func (a *ScanResultsApiService) NotifyScanResult(ctx context.Context) ApiNotifyScanResultRequest {
+func (a *ScanResultsAPIService) NotifyScanResult(ctx context.Context) ApiNotifyScanResultRequest {
 	return ApiNotifyScanResultRequest{
 		ApiService: a,
 		ctx: ctx,
@@ -845,14 +845,14 @@ func (a *ScanResultsApiService) NotifyScanResult(ctx context.Context) ApiNotifyS
 }
 
 // Execute executes the request
-func (a *ScanResultsApiService) NotifyScanResultExecute(r ApiNotifyScanResultRequest) (*http.Response, error) {
+func (a *ScanResultsAPIService) NotifyScanResultExecute(r ApiNotifyScanResultRequest) (*http.Response, error) {
 	var (
 		localVarHTTPMethod   = http.MethodPost
 		localVarPostBody     interface{}
 		formFiles            []formFile
 	)
 
-	localBasePath, err := a.client.cfg.ServerURLWithContext(r.ctx, "ScanResultsApiService.NotifyScanResult")
+	localBasePath, err := a.client.cfg.ServerURLWithContext(r.ctx, "ScanResultsAPIService.NotifyScanResult")
 	if err != nil {
 		return nil, &GenericOpenAPIError{error: err.Error()}
 	}
@@ -944,7 +944,7 @@ func (a *ScanResultsApiService) NotifyScanResultExecute(r ApiNotifyScanResultReq
 
 type ApiUnmaskScanResultRequest struct {
 	ctx context.Context
-	ApiService *ScanResultsApiService
+	ApiService *ScanResultsAPIService
 	modelScanResultsMaskRequest *ModelScanResultsMaskRequest
 }
 
@@ -965,7 +965,7 @@ Unmask scan results
  @param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
  @return ApiUnmaskScanResultRequest
 */
-func (a *ScanResultsApiService) UnmaskScanResult(ctx context.Context) ApiUnmaskScanResultRequest {
+func (a *ScanResultsAPIService) UnmaskScanResult(ctx context.Context) ApiUnmaskScanResultRequest {
 	return ApiUnmaskScanResultRequest{
 		ApiService: a,
 		ctx: ctx,
@@ -973,14 +973,14 @@ func (a *ScanResultsApiService) UnmaskScanResult(ctx context.Context) ApiUnmaskS
 }
 
 // Execute executes the request
-func (a *ScanResultsApiService) UnmaskScanResultExecute(r ApiUnmaskScanResultRequest) (*http.Response, error) {
+func (a *ScanResultsAPIService) UnmaskScanResultExecute(r ApiUnmaskScanResultRequest) (*http.Response, error) {
 	var (
 		localVarHTTPMethod   = http.MethodPost
 		localVarPostBody     interface{}
 		formFiles            []formFile
 	)
 
-	localBasePath, err := a.client.cfg.ServerURLWithContext(r.ctx, "ScanResultsApiService.UnmaskScanResult")
+	localBasePath, err := a.client.cfg.ServerURLWithContext(r.ctx, "ScanResultsAPIService.UnmaskScanResult")
 	if err != nil {
 		return nil, &GenericOpenAPIError{error: err.Error()}
 	}

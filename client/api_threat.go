@@ -20,12 +20,12 @@ import (
 )
 
 
-// ThreatApiService ThreatApi service
-type ThreatApiService service
+// ThreatAPIService ThreatAPI service
+type ThreatAPIService service
 
 type ApiGetThreatGraphRequest struct {
 	ctx context.Context
-	ApiService *ThreatApiService
+	ApiService *ThreatAPIService
 	graphThreatFilters *GraphThreatFilters
 }
 
@@ -46,7 +46,7 @@ Retrieve the full threat graph associated with the account
  @param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
  @return ApiGetThreatGraphRequest
 */
-func (a *ThreatApiService) GetThreatGraph(ctx context.Context) ApiGetThreatGraphRequest {
+func (a *ThreatAPIService) GetThreatGraph(ctx context.Context) ApiGetThreatGraphRequest {
 	return ApiGetThreatGraphRequest{
 		ApiService: a,
 		ctx: ctx,
@@ -55,7 +55,7 @@ func (a *ThreatApiService) GetThreatGraph(ctx context.Context) ApiGetThreatGraph
 
 // Execute executes the request
 //  @return map[string]GraphProviderThreatGraph
-func (a *ThreatApiService) GetThreatGraphExecute(r ApiGetThreatGraphRequest) (*map[string]GraphProviderThreatGraph, *http.Response, error) {
+func (a *ThreatAPIService) GetThreatGraphExecute(r ApiGetThreatGraphRequest) (*map[string]GraphProviderThreatGraph, *http.Response, error) {
 	var (
 		localVarHTTPMethod   = http.MethodPost
 		localVarPostBody     interface{}
@@ -63,7 +63,7 @@ func (a *ThreatApiService) GetThreatGraphExecute(r ApiGetThreatGraphRequest) (*m
 		localVarReturnValue  *map[string]GraphProviderThreatGraph
 	)
 
-	localBasePath, err := a.client.cfg.ServerURLWithContext(r.ctx, "ThreatApiService.GetThreatGraph")
+	localBasePath, err := a.client.cfg.ServerURLWithContext(r.ctx, "ThreatAPIService.GetThreatGraph")
 	if err != nil {
 		return localVarReturnValue, nil, &GenericOpenAPIError{error: err.Error()}
 	}
@@ -164,7 +164,7 @@ func (a *ThreatApiService) GetThreatGraphExecute(r ApiGetThreatGraphRequest) (*m
 
 type ApiGetVulnerabilityThreatGraphRequest struct {
 	ctx context.Context
-	ApiService *ThreatApiService
+	ApiService *ThreatAPIService
 	graphVulnerabilityThreatGraphRequest *GraphVulnerabilityThreatGraphRequest
 }
 
@@ -185,7 +185,7 @@ Retrieve threat graph associated with vulnerabilities
  @param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
  @return ApiGetVulnerabilityThreatGraphRequest
 */
-func (a *ThreatApiService) GetVulnerabilityThreatGraph(ctx context.Context) ApiGetVulnerabilityThreatGraphRequest {
+func (a *ThreatAPIService) GetVulnerabilityThreatGraph(ctx context.Context) ApiGetVulnerabilityThreatGraphRequest {
 	return ApiGetVulnerabilityThreatGraphRequest{
 		ApiService: a,
 		ctx: ctx,
@@ -194,7 +194,7 @@ func (a *ThreatApiService) GetVulnerabilityThreatGraph(ctx context.Context) ApiG
 
 // Execute executes the request
 //  @return []GraphVulnerabilityThreatGraph
-func (a *ThreatApiService) GetVulnerabilityThreatGraphExecute(r ApiGetVulnerabilityThreatGraphRequest) ([]GraphVulnerabilityThreatGraph, *http.Response, error) {
+func (a *ThreatAPIService) GetVulnerabilityThreatGraphExecute(r ApiGetVulnerabilityThreatGraphRequest) ([]GraphVulnerabilityThreatGraph, *http.Response, error) {
 	var (
 		localVarHTTPMethod   = http.MethodPost
 		localVarPostBody     interface{}
@@ -202,7 +202,7 @@ func (a *ThreatApiService) GetVulnerabilityThreatGraphExecute(r ApiGetVulnerabil
 		localVarReturnValue  []GraphVulnerabilityThreatGraph
 	)
 
-	localBasePath, err := a.client.cfg.ServerURLWithContext(r.ctx, "ThreatApiService.GetVulnerabilityThreatGraph")
+	localBasePath, err := a.client.cfg.ServerURLWithContext(r.ctx, "ThreatAPIService.GetVulnerabilityThreatGraph")
 	if err != nil {
 		return localVarReturnValue, nil, &GenericOpenAPIError{error: err.Error()}
 	}

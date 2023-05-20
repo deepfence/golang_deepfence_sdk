@@ -28,7 +28,7 @@ type PostgresqlDbGetAuditLogsRow struct {
 	Resources *string `json:"resources,omitempty"`
 	Role *string `json:"role,omitempty"`
 	Success *bool `json:"success,omitempty"`
-	UserId *int32 `json:"user_id,omitempty"`
+	UserId map[string]interface{} `json:"user_id,omitempty"`
 	UserRoleId *int32 `json:"user_role_id,omitempty"`
 }
 
@@ -274,19 +274,19 @@ func (o *PostgresqlDbGetAuditLogsRow) SetSuccess(v bool) {
 }
 
 // GetUserId returns the UserId field value if set, zero value otherwise.
-func (o *PostgresqlDbGetAuditLogsRow) GetUserId() int32 {
+func (o *PostgresqlDbGetAuditLogsRow) GetUserId() map[string]interface{} {
 	if o == nil || IsNil(o.UserId) {
-		var ret int32
+		var ret map[string]interface{}
 		return ret
 	}
-	return *o.UserId
+	return o.UserId
 }
 
 // GetUserIdOk returns a tuple with the UserId field value if set, nil otherwise
 // and a boolean to check if the value has been set.
-func (o *PostgresqlDbGetAuditLogsRow) GetUserIdOk() (*int32, bool) {
+func (o *PostgresqlDbGetAuditLogsRow) GetUserIdOk() (map[string]interface{}, bool) {
 	if o == nil || IsNil(o.UserId) {
-		return nil, false
+		return map[string]interface{}{}, false
 	}
 	return o.UserId, true
 }
@@ -300,9 +300,9 @@ func (o *PostgresqlDbGetAuditLogsRow) HasUserId() bool {
 	return false
 }
 
-// SetUserId gets a reference to the given int32 and assigns it to the UserId field.
-func (o *PostgresqlDbGetAuditLogsRow) SetUserId(v int32) {
-	o.UserId = &v
+// SetUserId gets a reference to the given map[string]interface{} and assigns it to the UserId field.
+func (o *PostgresqlDbGetAuditLogsRow) SetUserId(v map[string]interface{}) {
+	o.UserId = v
 }
 
 // GetUserRoleId returns the UserRoleId field value if set, zero value otherwise.

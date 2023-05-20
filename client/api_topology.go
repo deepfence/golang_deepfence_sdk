@@ -20,12 +20,12 @@ import (
 )
 
 
-// TopologyApiService TopologyApi service
-type TopologyApiService service
+// TopologyAPIService TopologyAPI service
+type TopologyAPIService service
 
 type ApiGetContainersTopologyGraphRequest struct {
 	ctx context.Context
-	ApiService *TopologyApiService
+	ApiService *TopologyAPIService
 	graphTopologyFilters *GraphTopologyFilters
 }
 
@@ -46,7 +46,7 @@ Retrieve the full topology graph associated with the account from Containers
  @param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
  @return ApiGetContainersTopologyGraphRequest
 */
-func (a *TopologyApiService) GetContainersTopologyGraph(ctx context.Context) ApiGetContainersTopologyGraphRequest {
+func (a *TopologyAPIService) GetContainersTopologyGraph(ctx context.Context) ApiGetContainersTopologyGraphRequest {
 	return ApiGetContainersTopologyGraphRequest{
 		ApiService: a,
 		ctx: ctx,
@@ -55,7 +55,7 @@ func (a *TopologyApiService) GetContainersTopologyGraph(ctx context.Context) Api
 
 // Execute executes the request
 //  @return ApiDocsGraphResult
-func (a *TopologyApiService) GetContainersTopologyGraphExecute(r ApiGetContainersTopologyGraphRequest) (*ApiDocsGraphResult, *http.Response, error) {
+func (a *TopologyAPIService) GetContainersTopologyGraphExecute(r ApiGetContainersTopologyGraphRequest) (*ApiDocsGraphResult, *http.Response, error) {
 	var (
 		localVarHTTPMethod   = http.MethodPost
 		localVarPostBody     interface{}
@@ -63,7 +63,7 @@ func (a *TopologyApiService) GetContainersTopologyGraphExecute(r ApiGetContainer
 		localVarReturnValue  *ApiDocsGraphResult
 	)
 
-	localBasePath, err := a.client.cfg.ServerURLWithContext(r.ctx, "TopologyApiService.GetContainersTopologyGraph")
+	localBasePath, err := a.client.cfg.ServerURLWithContext(r.ctx, "TopologyAPIService.GetContainersTopologyGraph")
 	if err != nil {
 		return localVarReturnValue, nil, &GenericOpenAPIError{error: err.Error()}
 	}
@@ -164,7 +164,7 @@ func (a *TopologyApiService) GetContainersTopologyGraphExecute(r ApiGetContainer
 
 type ApiGetHostsTopologyGraphRequest struct {
 	ctx context.Context
-	ApiService *TopologyApiService
+	ApiService *TopologyAPIService
 	graphTopologyFilters *GraphTopologyFilters
 }
 
@@ -185,7 +185,7 @@ Retrieve the full topology graph associated with the account from Hosts
  @param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
  @return ApiGetHostsTopologyGraphRequest
 */
-func (a *TopologyApiService) GetHostsTopologyGraph(ctx context.Context) ApiGetHostsTopologyGraphRequest {
+func (a *TopologyAPIService) GetHostsTopologyGraph(ctx context.Context) ApiGetHostsTopologyGraphRequest {
 	return ApiGetHostsTopologyGraphRequest{
 		ApiService: a,
 		ctx: ctx,
@@ -194,7 +194,7 @@ func (a *TopologyApiService) GetHostsTopologyGraph(ctx context.Context) ApiGetHo
 
 // Execute executes the request
 //  @return ApiDocsGraphResult
-func (a *TopologyApiService) GetHostsTopologyGraphExecute(r ApiGetHostsTopologyGraphRequest) (*ApiDocsGraphResult, *http.Response, error) {
+func (a *TopologyAPIService) GetHostsTopologyGraphExecute(r ApiGetHostsTopologyGraphRequest) (*ApiDocsGraphResult, *http.Response, error) {
 	var (
 		localVarHTTPMethod   = http.MethodPost
 		localVarPostBody     interface{}
@@ -202,7 +202,7 @@ func (a *TopologyApiService) GetHostsTopologyGraphExecute(r ApiGetHostsTopologyG
 		localVarReturnValue  *ApiDocsGraphResult
 	)
 
-	localBasePath, err := a.client.cfg.ServerURLWithContext(r.ctx, "TopologyApiService.GetHostsTopologyGraph")
+	localBasePath, err := a.client.cfg.ServerURLWithContext(r.ctx, "TopologyAPIService.GetHostsTopologyGraph")
 	if err != nil {
 		return localVarReturnValue, nil, &GenericOpenAPIError{error: err.Error()}
 	}
@@ -303,7 +303,7 @@ func (a *TopologyApiService) GetHostsTopologyGraphExecute(r ApiGetHostsTopologyG
 
 type ApiGetKubernetesTopologyGraphRequest struct {
 	ctx context.Context
-	ApiService *TopologyApiService
+	ApiService *TopologyAPIService
 	graphTopologyFilters *GraphTopologyFilters
 }
 
@@ -324,7 +324,7 @@ Retrieve the full topology graph associated with the account from Kubernetes
  @param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
  @return ApiGetKubernetesTopologyGraphRequest
 */
-func (a *TopologyApiService) GetKubernetesTopologyGraph(ctx context.Context) ApiGetKubernetesTopologyGraphRequest {
+func (a *TopologyAPIService) GetKubernetesTopologyGraph(ctx context.Context) ApiGetKubernetesTopologyGraphRequest {
 	return ApiGetKubernetesTopologyGraphRequest{
 		ApiService: a,
 		ctx: ctx,
@@ -333,7 +333,7 @@ func (a *TopologyApiService) GetKubernetesTopologyGraph(ctx context.Context) Api
 
 // Execute executes the request
 //  @return ApiDocsGraphResult
-func (a *TopologyApiService) GetKubernetesTopologyGraphExecute(r ApiGetKubernetesTopologyGraphRequest) (*ApiDocsGraphResult, *http.Response, error) {
+func (a *TopologyAPIService) GetKubernetesTopologyGraphExecute(r ApiGetKubernetesTopologyGraphRequest) (*ApiDocsGraphResult, *http.Response, error) {
 	var (
 		localVarHTTPMethod   = http.MethodPost
 		localVarPostBody     interface{}
@@ -341,7 +341,7 @@ func (a *TopologyApiService) GetKubernetesTopologyGraphExecute(r ApiGetKubernete
 		localVarReturnValue  *ApiDocsGraphResult
 	)
 
-	localBasePath, err := a.client.cfg.ServerURLWithContext(r.ctx, "TopologyApiService.GetKubernetesTopologyGraph")
+	localBasePath, err := a.client.cfg.ServerURLWithContext(r.ctx, "TopologyAPIService.GetKubernetesTopologyGraph")
 	if err != nil {
 		return localVarReturnValue, nil, &GenericOpenAPIError{error: err.Error()}
 	}
@@ -442,7 +442,7 @@ func (a *TopologyApiService) GetKubernetesTopologyGraphExecute(r ApiGetKubernete
 
 type ApiGetPodsTopologyGraphRequest struct {
 	ctx context.Context
-	ApiService *TopologyApiService
+	ApiService *TopologyAPIService
 	graphTopologyFilters *GraphTopologyFilters
 }
 
@@ -463,7 +463,7 @@ Retrieve the full topology graph associated with the account from Pods
  @param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
  @return ApiGetPodsTopologyGraphRequest
 */
-func (a *TopologyApiService) GetPodsTopologyGraph(ctx context.Context) ApiGetPodsTopologyGraphRequest {
+func (a *TopologyAPIService) GetPodsTopologyGraph(ctx context.Context) ApiGetPodsTopologyGraphRequest {
 	return ApiGetPodsTopologyGraphRequest{
 		ApiService: a,
 		ctx: ctx,
@@ -472,7 +472,7 @@ func (a *TopologyApiService) GetPodsTopologyGraph(ctx context.Context) ApiGetPod
 
 // Execute executes the request
 //  @return ApiDocsGraphResult
-func (a *TopologyApiService) GetPodsTopologyGraphExecute(r ApiGetPodsTopologyGraphRequest) (*ApiDocsGraphResult, *http.Response, error) {
+func (a *TopologyAPIService) GetPodsTopologyGraphExecute(r ApiGetPodsTopologyGraphRequest) (*ApiDocsGraphResult, *http.Response, error) {
 	var (
 		localVarHTTPMethod   = http.MethodPost
 		localVarPostBody     interface{}
@@ -480,7 +480,7 @@ func (a *TopologyApiService) GetPodsTopologyGraphExecute(r ApiGetPodsTopologyGra
 		localVarReturnValue  *ApiDocsGraphResult
 	)
 
-	localBasePath, err := a.client.cfg.ServerURLWithContext(r.ctx, "TopologyApiService.GetPodsTopologyGraph")
+	localBasePath, err := a.client.cfg.ServerURLWithContext(r.ctx, "TopologyAPIService.GetPodsTopologyGraph")
 	if err != nil {
 		return localVarReturnValue, nil, &GenericOpenAPIError{error: err.Error()}
 	}
@@ -581,7 +581,7 @@ func (a *TopologyApiService) GetPodsTopologyGraphExecute(r ApiGetPodsTopologyGra
 
 type ApiGetTopologyGraphRequest struct {
 	ctx context.Context
-	ApiService *TopologyApiService
+	ApiService *TopologyAPIService
 	graphTopologyFilters *GraphTopologyFilters
 }
 
@@ -602,7 +602,7 @@ Retrieve the full topology graph associated with the account
  @param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
  @return ApiGetTopologyGraphRequest
 */
-func (a *TopologyApiService) GetTopologyGraph(ctx context.Context) ApiGetTopologyGraphRequest {
+func (a *TopologyAPIService) GetTopologyGraph(ctx context.Context) ApiGetTopologyGraphRequest {
 	return ApiGetTopologyGraphRequest{
 		ApiService: a,
 		ctx: ctx,
@@ -611,7 +611,7 @@ func (a *TopologyApiService) GetTopologyGraph(ctx context.Context) ApiGetTopolog
 
 // Execute executes the request
 //  @return ApiDocsGraphResult
-func (a *TopologyApiService) GetTopologyGraphExecute(r ApiGetTopologyGraphRequest) (*ApiDocsGraphResult, *http.Response, error) {
+func (a *TopologyAPIService) GetTopologyGraphExecute(r ApiGetTopologyGraphRequest) (*ApiDocsGraphResult, *http.Response, error) {
 	var (
 		localVarHTTPMethod   = http.MethodPost
 		localVarPostBody     interface{}
@@ -619,7 +619,7 @@ func (a *TopologyApiService) GetTopologyGraphExecute(r ApiGetTopologyGraphReques
 		localVarReturnValue  *ApiDocsGraphResult
 	)
 
-	localBasePath, err := a.client.cfg.ServerURLWithContext(r.ctx, "TopologyApiService.GetTopologyGraph")
+	localBasePath, err := a.client.cfg.ServerURLWithContext(r.ctx, "TopologyAPIService.GetTopologyGraph")
 	if err != nil {
 		return localVarReturnValue, nil, &GenericOpenAPIError{error: err.Error()}
 	}
@@ -720,7 +720,7 @@ func (a *TopologyApiService) GetTopologyGraphExecute(r ApiGetTopologyGraphReques
 
 type ApiIngestAgentReportRequest struct {
 	ctx context.Context
-	ApiService *TopologyApiService
+	ApiService *TopologyAPIService
 	reportRawReport *ReportRawReport
 }
 
@@ -741,7 +741,7 @@ Ingest data reported by one Agent
  @param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
  @return ApiIngestAgentReportRequest
 */
-func (a *TopologyApiService) IngestAgentReport(ctx context.Context) ApiIngestAgentReportRequest {
+func (a *TopologyAPIService) IngestAgentReport(ctx context.Context) ApiIngestAgentReportRequest {
 	return ApiIngestAgentReportRequest{
 		ApiService: a,
 		ctx: ctx,
@@ -749,14 +749,14 @@ func (a *TopologyApiService) IngestAgentReport(ctx context.Context) ApiIngestAge
 }
 
 // Execute executes the request
-func (a *TopologyApiService) IngestAgentReportExecute(r ApiIngestAgentReportRequest) (*http.Response, error) {
+func (a *TopologyAPIService) IngestAgentReportExecute(r ApiIngestAgentReportRequest) (*http.Response, error) {
 	var (
 		localVarHTTPMethod   = http.MethodPost
 		localVarPostBody     interface{}
 		formFiles            []formFile
 	)
 
-	localBasePath, err := a.client.cfg.ServerURLWithContext(r.ctx, "TopologyApiService.IngestAgentReport")
+	localBasePath, err := a.client.cfg.ServerURLWithContext(r.ctx, "TopologyAPIService.IngestAgentReport")
 	if err != nil {
 		return nil, &GenericOpenAPIError{error: err.Error()}
 	}
@@ -848,7 +848,7 @@ func (a *TopologyApiService) IngestAgentReportExecute(r ApiIngestAgentReportRequ
 
 type ApiIngestSyncAgentReportRequest struct {
 	ctx context.Context
-	ApiService *TopologyApiService
+	ApiService *TopologyAPIService
 	ingestersReportIngestionData *IngestersReportIngestionData
 }
 
@@ -869,7 +869,7 @@ Ingest data reported by one Agent
  @param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
  @return ApiIngestSyncAgentReportRequest
 */
-func (a *TopologyApiService) IngestSyncAgentReport(ctx context.Context) ApiIngestSyncAgentReportRequest {
+func (a *TopologyAPIService) IngestSyncAgentReport(ctx context.Context) ApiIngestSyncAgentReportRequest {
 	return ApiIngestSyncAgentReportRequest{
 		ApiService: a,
 		ctx: ctx,
@@ -877,14 +877,14 @@ func (a *TopologyApiService) IngestSyncAgentReport(ctx context.Context) ApiInges
 }
 
 // Execute executes the request
-func (a *TopologyApiService) IngestSyncAgentReportExecute(r ApiIngestSyncAgentReportRequest) (*http.Response, error) {
+func (a *TopologyAPIService) IngestSyncAgentReportExecute(r ApiIngestSyncAgentReportRequest) (*http.Response, error) {
 	var (
 		localVarHTTPMethod   = http.MethodPost
 		localVarPostBody     interface{}
 		formFiles            []formFile
 	)
 
-	localBasePath, err := a.client.cfg.ServerURLWithContext(r.ctx, "TopologyApiService.IngestSyncAgentReport")
+	localBasePath, err := a.client.cfg.ServerURLWithContext(r.ctx, "TopologyAPIService.IngestSyncAgentReport")
 	if err != nil {
 		return nil, &GenericOpenAPIError{error: err.Error()}
 	}

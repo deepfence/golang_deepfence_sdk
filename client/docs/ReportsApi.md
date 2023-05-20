@@ -1,13 +1,13 @@
-# \ReportsApi
+# \ReportsAPI
 
 All URIs are relative to *http://localhost*
 
 Method | HTTP request | Description
 ------------- | ------------- | -------------
-[**DeleteReport**](ReportsApi.md#DeleteReport) | **Delete** /deepfence/reports/{report_id} | Delete Report
-[**GenerateReport**](ReportsApi.md#GenerateReport) | **Post** /deepfence/reports | Generate Report
-[**GetReport**](ReportsApi.md#GetReport) | **Get** /deepfence/reports/{report_id} | Get Report
-[**ListReports**](ReportsApi.md#ListReports) | **Get** /deepfence/reports | List Reports
+[**DeleteReport**](ReportsAPI.md#DeleteReport) | **Delete** /deepfence/reports/{report_id} | Delete Report
+[**GenerateReport**](ReportsAPI.md#GenerateReport) | **Post** /deepfence/reports | Generate Report
+[**GetReport**](ReportsAPI.md#GetReport) | **Get** /deepfence/reports/{report_id} | Get Report
+[**ListReports**](ReportsAPI.md#ListReports) | **Get** /deepfence/reports | List Reports
 
 
 
@@ -36,9 +36,9 @@ func main() {
 
     configuration := openapiclient.NewConfiguration()
     apiClient := openapiclient.NewAPIClient(configuration)
-    r, err := apiClient.ReportsApi.DeleteReport(context.Background(), reportId).Execute()
+    r, err := apiClient.ReportsAPI.DeleteReport(context.Background(), reportId).Execute()
     if err != nil {
-        fmt.Fprintf(os.Stderr, "Error when calling `ReportsApi.DeleteReport``: %v\n", err)
+        fmt.Fprintf(os.Stderr, "Error when calling `ReportsAPI.DeleteReport``: %v\n", err)
         fmt.Fprintf(os.Stderr, "Full HTTP response: %v\n", r)
     }
 }
@@ -104,13 +104,13 @@ func main() {
 
     configuration := openapiclient.NewConfiguration()
     apiClient := openapiclient.NewAPIClient(configuration)
-    resp, r, err := apiClient.ReportsApi.GenerateReport(context.Background()).ModelGenerateReportReq(modelGenerateReportReq).Execute()
+    resp, r, err := apiClient.ReportsAPI.GenerateReport(context.Background()).ModelGenerateReportReq(modelGenerateReportReq).Execute()
     if err != nil {
-        fmt.Fprintf(os.Stderr, "Error when calling `ReportsApi.GenerateReport``: %v\n", err)
+        fmt.Fprintf(os.Stderr, "Error when calling `ReportsAPI.GenerateReport``: %v\n", err)
         fmt.Fprintf(os.Stderr, "Full HTTP response: %v\n", r)
     }
     // response from `GenerateReport`: ModelGenerateReportResp
-    fmt.Fprintf(os.Stdout, "Response from `ReportsApi.GenerateReport`: %v\n", resp)
+    fmt.Fprintf(os.Stdout, "Response from `ReportsAPI.GenerateReport`: %v\n", resp)
 }
 ```
 
@@ -170,13 +170,13 @@ func main() {
 
     configuration := openapiclient.NewConfiguration()
     apiClient := openapiclient.NewAPIClient(configuration)
-    resp, r, err := apiClient.ReportsApi.GetReport(context.Background(), reportId).Execute()
+    resp, r, err := apiClient.ReportsAPI.GetReport(context.Background(), reportId).Execute()
     if err != nil {
-        fmt.Fprintf(os.Stderr, "Error when calling `ReportsApi.GetReport``: %v\n", err)
+        fmt.Fprintf(os.Stderr, "Error when calling `ReportsAPI.GetReport``: %v\n", err)
         fmt.Fprintf(os.Stderr, "Full HTTP response: %v\n", r)
     }
     // response from `GetReport`: ModelExportReport
-    fmt.Fprintf(os.Stdout, "Response from `ReportsApi.GetReport`: %v\n", resp)
+    fmt.Fprintf(os.Stdout, "Response from `ReportsAPI.GetReport`: %v\n", resp)
 }
 ```
 
@@ -239,13 +239,13 @@ func main() {
 
     configuration := openapiclient.NewConfiguration()
     apiClient := openapiclient.NewAPIClient(configuration)
-    resp, r, err := apiClient.ReportsApi.ListReports(context.Background()).Execute()
+    resp, r, err := apiClient.ReportsAPI.ListReports(context.Background()).Execute()
     if err != nil {
-        fmt.Fprintf(os.Stderr, "Error when calling `ReportsApi.ListReports``: %v\n", err)
+        fmt.Fprintf(os.Stderr, "Error when calling `ReportsAPI.ListReports``: %v\n", err)
         fmt.Fprintf(os.Stderr, "Full HTTP response: %v\n", r)
     }
     // response from `ListReports`: []ModelExportReport
-    fmt.Fprintf(os.Stdout, "Response from `ReportsApi.ListReports`: %v\n", resp)
+    fmt.Fprintf(os.Stdout, "Response from `ReportsAPI.ListReports`: %v\n", resp)
 }
 ```
 

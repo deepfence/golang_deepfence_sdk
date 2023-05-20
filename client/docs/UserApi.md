@@ -1,24 +1,24 @@
-# \UserApi
+# \UserAPI
 
 All URIs are relative to *http://localhost*
 
 Method | HTTP request | Description
 ------------- | ------------- | -------------
-[**DeleteCurrentUser**](UserApi.md#DeleteCurrentUser) | **Delete** /deepfence/user | Delete Current User
-[**DeleteUser**](UserApi.md#DeleteUser) | **Delete** /deepfence/users/{id} | Delete User by User ID
-[**GetApiTokens**](UserApi.md#GetApiTokens) | **Get** /deepfence/api-token | Get User&#39;s API Tokens
-[**GetCurrentUser**](UserApi.md#GetCurrentUser) | **Get** /deepfence/user | Get Current User
-[**GetUser**](UserApi.md#GetUser) | **Get** /deepfence/users/{id} | Get User by User ID
-[**GetUsers**](UserApi.md#GetUsers) | **Get** /deepfence/users | Get all users
-[**InviteUser**](UserApi.md#InviteUser) | **Post** /deepfence/user/invite | Invite User
-[**RegisterInvitedUser**](UserApi.md#RegisterInvitedUser) | **Post** /deepfence/user/invite/register | Register Invited User
-[**RegisterUser**](UserApi.md#RegisterUser) | **Post** /deepfence/user/register | Register User
-[**ResetApiTokens**](UserApi.md#ResetApiTokens) | **Post** /deepfence/api-token/reset | Reset User&#39;s API Tokens
-[**ResetPasswordRequest**](UserApi.md#ResetPasswordRequest) | **Post** /deepfence/user/reset-password/request | Reset Password Request
-[**UpdateCurrentUser**](UserApi.md#UpdateCurrentUser) | **Put** /deepfence/user | Update Current User
-[**UpdatePassword**](UserApi.md#UpdatePassword) | **Put** /deepfence/user/password | Update Password
-[**UpdateUser**](UserApi.md#UpdateUser) | **Put** /deepfence/users/{id} | Update User by User ID
-[**VerifyResetPasswordRequest**](UserApi.md#VerifyResetPasswordRequest) | **Post** /deepfence/user/reset-password/verify | Verify and Reset Password
+[**DeleteCurrentUser**](UserAPI.md#DeleteCurrentUser) | **Delete** /deepfence/user | Delete Current User
+[**DeleteUser**](UserAPI.md#DeleteUser) | **Delete** /deepfence/users/{id} | Delete User by User ID
+[**GetApiTokens**](UserAPI.md#GetApiTokens) | **Get** /deepfence/api-token | Get User&#39;s API Tokens
+[**GetCurrentUser**](UserAPI.md#GetCurrentUser) | **Get** /deepfence/user | Get Current User
+[**GetUser**](UserAPI.md#GetUser) | **Get** /deepfence/users/{id} | Get User by User ID
+[**GetUsers**](UserAPI.md#GetUsers) | **Get** /deepfence/users | Get all users
+[**InviteUser**](UserAPI.md#InviteUser) | **Post** /deepfence/user/invite | Invite User
+[**RegisterInvitedUser**](UserAPI.md#RegisterInvitedUser) | **Post** /deepfence/user/invite/register | Register Invited User
+[**RegisterUser**](UserAPI.md#RegisterUser) | **Post** /deepfence/user/register | Register User
+[**ResetApiTokens**](UserAPI.md#ResetApiTokens) | **Post** /deepfence/api-token/reset | Reset User&#39;s API Tokens
+[**ResetPasswordRequest**](UserAPI.md#ResetPasswordRequest) | **Post** /deepfence/user/reset-password/request | Reset Password Request
+[**UpdateCurrentUser**](UserAPI.md#UpdateCurrentUser) | **Put** /deepfence/user | Update Current User
+[**UpdatePassword**](UserAPI.md#UpdatePassword) | **Put** /deepfence/user/password | Update Password
+[**UpdateUser**](UserAPI.md#UpdateUser) | **Put** /deepfence/users/{id} | Update User by User ID
+[**VerifyResetPasswordRequest**](UserAPI.md#VerifyResetPasswordRequest) | **Post** /deepfence/user/reset-password/verify | Verify and Reset Password
 
 
 
@@ -46,9 +46,9 @@ func main() {
 
     configuration := openapiclient.NewConfiguration()
     apiClient := openapiclient.NewAPIClient(configuration)
-    r, err := apiClient.UserApi.DeleteCurrentUser(context.Background()).Execute()
+    r, err := apiClient.UserAPI.DeleteCurrentUser(context.Background()).Execute()
     if err != nil {
-        fmt.Fprintf(os.Stderr, "Error when calling `UserApi.DeleteCurrentUser``: %v\n", err)
+        fmt.Fprintf(os.Stderr, "Error when calling `UserAPI.DeleteCurrentUser``: %v\n", err)
         fmt.Fprintf(os.Stderr, "Full HTTP response: %v\n", r)
     }
 }
@@ -106,9 +106,9 @@ func main() {
 
     configuration := openapiclient.NewConfiguration()
     apiClient := openapiclient.NewAPIClient(configuration)
-    r, err := apiClient.UserApi.DeleteUser(context.Background(), id).Execute()
+    r, err := apiClient.UserAPI.DeleteUser(context.Background(), id).Execute()
     if err != nil {
-        fmt.Fprintf(os.Stderr, "Error when calling `UserApi.DeleteUser``: %v\n", err)
+        fmt.Fprintf(os.Stderr, "Error when calling `UserAPI.DeleteUser``: %v\n", err)
         fmt.Fprintf(os.Stderr, "Full HTTP response: %v\n", r)
     }
 }
@@ -173,13 +173,13 @@ func main() {
 
     configuration := openapiclient.NewConfiguration()
     apiClient := openapiclient.NewAPIClient(configuration)
-    resp, r, err := apiClient.UserApi.GetApiTokens(context.Background()).Execute()
+    resp, r, err := apiClient.UserAPI.GetApiTokens(context.Background()).Execute()
     if err != nil {
-        fmt.Fprintf(os.Stderr, "Error when calling `UserApi.GetApiTokens``: %v\n", err)
+        fmt.Fprintf(os.Stderr, "Error when calling `UserAPI.GetApiTokens``: %v\n", err)
         fmt.Fprintf(os.Stderr, "Full HTTP response: %v\n", r)
     }
     // response from `GetApiTokens`: []ModelApiTokenResponse
-    fmt.Fprintf(os.Stdout, "Response from `UserApi.GetApiTokens`: %v\n", resp)
+    fmt.Fprintf(os.Stdout, "Response from `UserAPI.GetApiTokens`: %v\n", resp)
 }
 ```
 
@@ -234,13 +234,13 @@ func main() {
 
     configuration := openapiclient.NewConfiguration()
     apiClient := openapiclient.NewAPIClient(configuration)
-    resp, r, err := apiClient.UserApi.GetCurrentUser(context.Background()).Execute()
+    resp, r, err := apiClient.UserAPI.GetCurrentUser(context.Background()).Execute()
     if err != nil {
-        fmt.Fprintf(os.Stderr, "Error when calling `UserApi.GetCurrentUser``: %v\n", err)
+        fmt.Fprintf(os.Stderr, "Error when calling `UserAPI.GetCurrentUser``: %v\n", err)
         fmt.Fprintf(os.Stderr, "Full HTTP response: %v\n", r)
     }
     // response from `GetCurrentUser`: ModelUser
-    fmt.Fprintf(os.Stdout, "Response from `UserApi.GetCurrentUser`: %v\n", resp)
+    fmt.Fprintf(os.Stdout, "Response from `UserAPI.GetCurrentUser`: %v\n", resp)
 }
 ```
 
@@ -296,13 +296,13 @@ func main() {
 
     configuration := openapiclient.NewConfiguration()
     apiClient := openapiclient.NewAPIClient(configuration)
-    resp, r, err := apiClient.UserApi.GetUser(context.Background(), id).Execute()
+    resp, r, err := apiClient.UserAPI.GetUser(context.Background(), id).Execute()
     if err != nil {
-        fmt.Fprintf(os.Stderr, "Error when calling `UserApi.GetUser``: %v\n", err)
+        fmt.Fprintf(os.Stderr, "Error when calling `UserAPI.GetUser``: %v\n", err)
         fmt.Fprintf(os.Stderr, "Full HTTP response: %v\n", r)
     }
     // response from `GetUser`: ModelUser
-    fmt.Fprintf(os.Stdout, "Response from `UserApi.GetUser`: %v\n", resp)
+    fmt.Fprintf(os.Stdout, "Response from `UserAPI.GetUser`: %v\n", resp)
 }
 ```
 
@@ -365,13 +365,13 @@ func main() {
 
     configuration := openapiclient.NewConfiguration()
     apiClient := openapiclient.NewAPIClient(configuration)
-    resp, r, err := apiClient.UserApi.GetUsers(context.Background()).Execute()
+    resp, r, err := apiClient.UserAPI.GetUsers(context.Background()).Execute()
     if err != nil {
-        fmt.Fprintf(os.Stderr, "Error when calling `UserApi.GetUsers``: %v\n", err)
+        fmt.Fprintf(os.Stderr, "Error when calling `UserAPI.GetUsers``: %v\n", err)
         fmt.Fprintf(os.Stderr, "Full HTTP response: %v\n", r)
     }
     // response from `GetUsers`: []ModelUser
-    fmt.Fprintf(os.Stdout, "Response from `UserApi.GetUsers`: %v\n", resp)
+    fmt.Fprintf(os.Stdout, "Response from `UserAPI.GetUsers`: %v\n", resp)
 }
 ```
 
@@ -427,13 +427,13 @@ func main() {
 
     configuration := openapiclient.NewConfiguration()
     apiClient := openapiclient.NewAPIClient(configuration)
-    resp, r, err := apiClient.UserApi.InviteUser(context.Background()).ModelInviteUserRequest(modelInviteUserRequest).Execute()
+    resp, r, err := apiClient.UserAPI.InviteUser(context.Background()).ModelInviteUserRequest(modelInviteUserRequest).Execute()
     if err != nil {
-        fmt.Fprintf(os.Stderr, "Error when calling `UserApi.InviteUser``: %v\n", err)
+        fmt.Fprintf(os.Stderr, "Error when calling `UserAPI.InviteUser``: %v\n", err)
         fmt.Fprintf(os.Stderr, "Full HTTP response: %v\n", r)
     }
     // response from `InviteUser`: ModelInviteUserResponse
-    fmt.Fprintf(os.Stdout, "Response from `UserApi.InviteUser`: %v\n", resp)
+    fmt.Fprintf(os.Stdout, "Response from `UserAPI.InviteUser`: %v\n", resp)
 }
 ```
 
@@ -493,13 +493,13 @@ func main() {
 
     configuration := openapiclient.NewConfiguration()
     apiClient := openapiclient.NewAPIClient(configuration)
-    resp, r, err := apiClient.UserApi.RegisterInvitedUser(context.Background()).ModelRegisterInvitedUserRequest(modelRegisterInvitedUserRequest).Execute()
+    resp, r, err := apiClient.UserAPI.RegisterInvitedUser(context.Background()).ModelRegisterInvitedUserRequest(modelRegisterInvitedUserRequest).Execute()
     if err != nil {
-        fmt.Fprintf(os.Stderr, "Error when calling `UserApi.RegisterInvitedUser``: %v\n", err)
+        fmt.Fprintf(os.Stderr, "Error when calling `UserAPI.RegisterInvitedUser``: %v\n", err)
         fmt.Fprintf(os.Stderr, "Full HTTP response: %v\n", r)
     }
     // response from `RegisterInvitedUser`: ModelLoginResponse
-    fmt.Fprintf(os.Stdout, "Response from `UserApi.RegisterInvitedUser`: %v\n", resp)
+    fmt.Fprintf(os.Stdout, "Response from `UserAPI.RegisterInvitedUser`: %v\n", resp)
 }
 ```
 
@@ -559,13 +559,13 @@ func main() {
 
     configuration := openapiclient.NewConfiguration()
     apiClient := openapiclient.NewAPIClient(configuration)
-    resp, r, err := apiClient.UserApi.RegisterUser(context.Background()).ModelUserRegisterRequest(modelUserRegisterRequest).Execute()
+    resp, r, err := apiClient.UserAPI.RegisterUser(context.Background()).ModelUserRegisterRequest(modelUserRegisterRequest).Execute()
     if err != nil {
-        fmt.Fprintf(os.Stderr, "Error when calling `UserApi.RegisterUser``: %v\n", err)
+        fmt.Fprintf(os.Stderr, "Error when calling `UserAPI.RegisterUser``: %v\n", err)
         fmt.Fprintf(os.Stderr, "Full HTTP response: %v\n", r)
     }
     // response from `RegisterUser`: ModelLoginResponse
-    fmt.Fprintf(os.Stdout, "Response from `UserApi.RegisterUser`: %v\n", resp)
+    fmt.Fprintf(os.Stdout, "Response from `UserAPI.RegisterUser`: %v\n", resp)
 }
 ```
 
@@ -624,13 +624,13 @@ func main() {
 
     configuration := openapiclient.NewConfiguration()
     apiClient := openapiclient.NewAPIClient(configuration)
-    resp, r, err := apiClient.UserApi.ResetApiTokens(context.Background()).Execute()
+    resp, r, err := apiClient.UserAPI.ResetApiTokens(context.Background()).Execute()
     if err != nil {
-        fmt.Fprintf(os.Stderr, "Error when calling `UserApi.ResetApiTokens``: %v\n", err)
+        fmt.Fprintf(os.Stderr, "Error when calling `UserAPI.ResetApiTokens``: %v\n", err)
         fmt.Fprintf(os.Stderr, "Full HTTP response: %v\n", r)
     }
     // response from `ResetApiTokens`: []ModelApiTokenResponse
-    fmt.Fprintf(os.Stdout, "Response from `UserApi.ResetApiTokens`: %v\n", resp)
+    fmt.Fprintf(os.Stdout, "Response from `UserAPI.ResetApiTokens`: %v\n", resp)
 }
 ```
 
@@ -686,13 +686,13 @@ func main() {
 
     configuration := openapiclient.NewConfiguration()
     apiClient := openapiclient.NewAPIClient(configuration)
-    resp, r, err := apiClient.UserApi.ResetPasswordRequest(context.Background()).ModelPasswordResetRequest(modelPasswordResetRequest).Execute()
+    resp, r, err := apiClient.UserAPI.ResetPasswordRequest(context.Background()).ModelPasswordResetRequest(modelPasswordResetRequest).Execute()
     if err != nil {
-        fmt.Fprintf(os.Stderr, "Error when calling `UserApi.ResetPasswordRequest``: %v\n", err)
+        fmt.Fprintf(os.Stderr, "Error when calling `UserAPI.ResetPasswordRequest``: %v\n", err)
         fmt.Fprintf(os.Stderr, "Full HTTP response: %v\n", r)
     }
     // response from `ResetPasswordRequest`: ModelMessageResponse
-    fmt.Fprintf(os.Stdout, "Response from `UserApi.ResetPasswordRequest`: %v\n", resp)
+    fmt.Fprintf(os.Stdout, "Response from `UserAPI.ResetPasswordRequest`: %v\n", resp)
 }
 ```
 
@@ -752,13 +752,13 @@ func main() {
 
     configuration := openapiclient.NewConfiguration()
     apiClient := openapiclient.NewAPIClient(configuration)
-    resp, r, err := apiClient.UserApi.UpdateCurrentUser(context.Background()).ModelUpdateUserRequest(modelUpdateUserRequest).Execute()
+    resp, r, err := apiClient.UserAPI.UpdateCurrentUser(context.Background()).ModelUpdateUserRequest(modelUpdateUserRequest).Execute()
     if err != nil {
-        fmt.Fprintf(os.Stderr, "Error when calling `UserApi.UpdateCurrentUser``: %v\n", err)
+        fmt.Fprintf(os.Stderr, "Error when calling `UserAPI.UpdateCurrentUser``: %v\n", err)
         fmt.Fprintf(os.Stderr, "Full HTTP response: %v\n", r)
     }
     // response from `UpdateCurrentUser`: ModelUser
-    fmt.Fprintf(os.Stdout, "Response from `UserApi.UpdateCurrentUser`: %v\n", resp)
+    fmt.Fprintf(os.Stdout, "Response from `UserAPI.UpdateCurrentUser`: %v\n", resp)
 }
 ```
 
@@ -818,9 +818,9 @@ func main() {
 
     configuration := openapiclient.NewConfiguration()
     apiClient := openapiclient.NewAPIClient(configuration)
-    r, err := apiClient.UserApi.UpdatePassword(context.Background()).ModelUpdateUserPasswordRequest(modelUpdateUserPasswordRequest).Execute()
+    r, err := apiClient.UserAPI.UpdatePassword(context.Background()).ModelUpdateUserPasswordRequest(modelUpdateUserPasswordRequest).Execute()
     if err != nil {
-        fmt.Fprintf(os.Stderr, "Error when calling `UserApi.UpdatePassword``: %v\n", err)
+        fmt.Fprintf(os.Stderr, "Error when calling `UserAPI.UpdatePassword``: %v\n", err)
         fmt.Fprintf(os.Stderr, "Full HTTP response: %v\n", r)
     }
 }
@@ -883,13 +883,13 @@ func main() {
 
     configuration := openapiclient.NewConfiguration()
     apiClient := openapiclient.NewAPIClient(configuration)
-    resp, r, err := apiClient.UserApi.UpdateUser(context.Background(), id).ModelUpdateUserIdRequest(modelUpdateUserIdRequest).Execute()
+    resp, r, err := apiClient.UserAPI.UpdateUser(context.Background(), id).ModelUpdateUserIdRequest(modelUpdateUserIdRequest).Execute()
     if err != nil {
-        fmt.Fprintf(os.Stderr, "Error when calling `UserApi.UpdateUser``: %v\n", err)
+        fmt.Fprintf(os.Stderr, "Error when calling `UserAPI.UpdateUser``: %v\n", err)
         fmt.Fprintf(os.Stderr, "Full HTTP response: %v\n", r)
     }
     // response from `UpdateUser`: ModelUser
-    fmt.Fprintf(os.Stdout, "Response from `UserApi.UpdateUser`: %v\n", resp)
+    fmt.Fprintf(os.Stdout, "Response from `UserAPI.UpdateUser`: %v\n", resp)
 }
 ```
 
@@ -954,9 +954,9 @@ func main() {
 
     configuration := openapiclient.NewConfiguration()
     apiClient := openapiclient.NewAPIClient(configuration)
-    r, err := apiClient.UserApi.VerifyResetPasswordRequest(context.Background()).ModelPasswordResetVerifyRequest(modelPasswordResetVerifyRequest).Execute()
+    r, err := apiClient.UserAPI.VerifyResetPasswordRequest(context.Background()).ModelPasswordResetVerifyRequest(modelPasswordResetVerifyRequest).Execute()
     if err != nil {
-        fmt.Fprintf(os.Stderr, "Error when calling `UserApi.VerifyResetPasswordRequest``: %v\n", err)
+        fmt.Fprintf(os.Stderr, "Error when calling `UserAPI.VerifyResetPasswordRequest``: %v\n", err)
         fmt.Fprintf(os.Stderr, "Full HTTP response: %v\n", r)
     }
 }

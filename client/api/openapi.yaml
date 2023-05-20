@@ -3684,6 +3684,120 @@ paths:
       summary: Get Compliance Scans Results
       tags:
       - Compliance
+  /deepfence/scan/results/count/group/malware:
+    get:
+      description: Group Malware Scans results by severity/rule
+      operationId: groupResultsMalwares
+      responses:
+        "200":
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/SearchResultGroupResp'
+          description: OK
+        "400":
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ApiDocsBadRequestResponse'
+          description: Bad Request
+        "401":
+          description: Unauthorized
+        "403":
+          description: Forbidden
+        "404":
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ApiDocsFailureResponse'
+          description: Not Found
+        "500":
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ApiDocsFailureResponse'
+          description: Internal Server Error
+      security:
+      - bearer_token: []
+      summary: Group Malware Results
+      tags:
+      - Malware Scan
+  /deepfence/scan/results/count/group/malware/class:
+    get:
+      description: Group Malware Scans results by severity/class
+      operationId: groupResultsMalwaresClass
+      responses:
+        "200":
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/SearchResultGroupResp'
+          description: OK
+        "400":
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ApiDocsBadRequestResponse'
+          description: Bad Request
+        "401":
+          description: Unauthorized
+        "403":
+          description: Forbidden
+        "404":
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ApiDocsFailureResponse'
+          description: Not Found
+        "500":
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ApiDocsFailureResponse'
+          description: Internal Server Error
+      security:
+      - bearer_token: []
+      summary: Group Malware Results By Class
+      tags:
+      - Malware Scan
+  /deepfence/scan/results/count/group/secret:
+    get:
+      description: Group Secret Scans results by severity/rule
+      operationId: groupResultsSecrets
+      responses:
+        "200":
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/SearchResultGroupResp'
+          description: OK
+        "400":
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ApiDocsBadRequestResponse'
+          description: Bad Request
+        "401":
+          description: Unauthorized
+        "403":
+          description: Forbidden
+        "404":
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ApiDocsFailureResponse'
+          description: Not Found
+        "500":
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ApiDocsFailureResponse'
+          description: Internal Server Error
+      security:
+      - bearer_token: []
+      summary: Group Secret Results
+      tags:
+      - Secret Scan
   /deepfence/scan/results/count/malware:
     post:
       description: Get Malware Scans results on agent or registry
@@ -4788,6 +4902,51 @@ paths:
       security:
       - bearer_token: []
       summary: Search Cloud compliances
+      tags:
+      - Search
+  /deepfence/search/cloud-nodes:
+    post:
+      description: Search across all the data associated with cloud nodes
+      operationId: searchCloudNodes
+      requestBody:
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/SearchSearchNodeReq'
+      responses:
+        "200":
+          content:
+            application/json:
+              schema:
+                items:
+                  $ref: '#/components/schemas/ModelCloudNodeAccountInfo'
+                type: array
+          description: OK
+        "400":
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ApiDocsBadRequestResponse'
+          description: Bad Request
+        "401":
+          description: Unauthorized
+        "403":
+          description: Forbidden
+        "404":
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ApiDocsFailureResponse'
+          description: Not Found
+        "500":
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ApiDocsFailureResponse'
+          description: Internal Server Error
+      security:
+      - bearer_token: []
+      summary: Search Cloud Nodes
       tags:
       - Search
   /deepfence/search/cloud-resources:
@@ -12778,6 +12937,9 @@ components:
         - ""
         - ""
         description: description
+        resources:
+        - resources
+        - resources
         version: version
         rule_id: rule_id
         complete_filename: complete_filename
@@ -12810,6 +12972,11 @@ components:
           type: boolean
         node_id:
           type: string
+        resources:
+          items:
+            type: string
+          nullable: true
+          type: array
         rule_id:
           type: string
         rule_name:
@@ -12860,6 +13027,9 @@ components:
           - ""
           - ""
           description: description
+          resources:
+          - resources
+          - resources
           version: version
           rule_id: rule_id
           complete_filename: complete_filename
@@ -12880,6 +13050,9 @@ components:
           - ""
           - ""
           description: description
+          resources:
+          - resources
+          - resources
           version: version
           rule_id: rule_id
           complete_filename: complete_filename
@@ -14246,6 +14419,9 @@ components:
         part: part
         relative_ending_index: 6
         starting_index: 2
+        resources:
+        - resources
+        - resources
         signature_to_match: signature_to_match
         rule_id: 5
         score: 5.637376656633329
@@ -14273,6 +14449,11 @@ components:
           type: integer
         relative_starting_index:
           type: integer
+        resources:
+          items:
+            type: string
+          nullable: true
+          type: array
         rule_id:
           type: integer
         score:
@@ -14317,6 +14498,9 @@ components:
           part: part
           relative_ending_index: 6
           starting_index: 2
+          resources:
+          - resources
+          - resources
           signature_to_match: signature_to_match
           rule_id: 5
           score: 5.637376656633329
@@ -14331,6 +14515,9 @@ components:
           part: part
           relative_ending_index: 6
           starting_index: 2
+          resources:
+          - resources
+          - resources
           signature_to_match: signature_to_match
           rule_id: 5
           score: 5.637376656633329
@@ -14650,6 +14837,9 @@ components:
         masked: true
         cve_description: cve_description
         cve_overall_score: 5.637376656633329
+        resources:
+        - resources
+        - resources
         cve_caused_by_package: cve_caused_by_package
         cve_attack_vector: cve_attack_vector
         cve_cvss_score: 5.962133916683182
@@ -14701,6 +14891,11 @@ components:
           type: string
         parsed_attack_vector:
           type: string
+        resources:
+          items:
+            type: string
+          nullable: true
+          type: array
         updated_at:
           type: integer
         urls:
@@ -14764,6 +14959,9 @@ components:
           masked: true
           cve_description: cve_description
           cve_overall_score: 5.637376656633329
+          resources:
+          - resources
+          - resources
           cve_caused_by_package: cve_caused_by_package
           cve_attack_vector: cve_attack_vector
           cve_cvss_score: 5.962133916683182
@@ -14785,6 +14983,9 @@ components:
           masked: true
           cve_description: cve_description
           cve_overall_score: 5.637376656633329
+          resources:
+          - resources
+          - resources
           cve_caused_by_package: cve_caused_by_package
           cve_attack_vector: cve_attack_vector
           cve_cvss_score: 5.962133916683182
@@ -14908,9 +15109,9 @@ components:
       type: object
     PostgresqlDbGetAuditLogsRow:
       example:
-        user_role_id: 6
+        user_role_id: 0
         role: role
-        user_id: 0
+        user_id: "{}"
         success: true
         action: action
         created_at: 2000-01-23T04:56:07.000+00:00
@@ -14934,7 +15135,7 @@ components:
         success:
           type: boolean
         user_id:
-          type: integer
+          type: object
         user_role_id:
           type: integer
       type: object
@@ -15407,6 +15608,35 @@ components:
       - namespace
       - pod
       type: object
+    SearchResultGroup:
+      example:
+        severity: severity
+        count: 0
+        name: name
+      properties:
+        count:
+          type: integer
+        name:
+          type: string
+        severity:
+          type: string
+      type: object
+    SearchResultGroupResp:
+      example:
+        groups:
+        - severity: severity
+          count: 0
+          name: name
+        - severity: severity
+          count: 0
+          name: name
+      properties:
+        groups:
+          items:
+            $ref: '#/components/schemas/SearchResultGroup'
+          nullable: true
+          type: array
+      type: object
     SearchSearchCountResp:
       example:
         count: 6
@@ -15614,6 +15844,8 @@ components:
       - node_filters
       - scan_filters
       - window
+      type: object
+    SqlNullInt32:
       type: object
     SqlNullTime:
       type: object

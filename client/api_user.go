@@ -21,12 +21,12 @@ import (
 )
 
 
-// UserApiService UserApi service
-type UserApiService service
+// UserAPIService UserAPI service
+type UserAPIService service
 
 type ApiDeleteCurrentUserRequest struct {
 	ctx context.Context
-	ApiService *UserApiService
+	ApiService *UserAPIService
 }
 
 func (r ApiDeleteCurrentUserRequest) Execute() (*http.Response, error) {
@@ -41,7 +41,7 @@ Delete logged in user
  @param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
  @return ApiDeleteCurrentUserRequest
 */
-func (a *UserApiService) DeleteCurrentUser(ctx context.Context) ApiDeleteCurrentUserRequest {
+func (a *UserAPIService) DeleteCurrentUser(ctx context.Context) ApiDeleteCurrentUserRequest {
 	return ApiDeleteCurrentUserRequest{
 		ApiService: a,
 		ctx: ctx,
@@ -49,14 +49,14 @@ func (a *UserApiService) DeleteCurrentUser(ctx context.Context) ApiDeleteCurrent
 }
 
 // Execute executes the request
-func (a *UserApiService) DeleteCurrentUserExecute(r ApiDeleteCurrentUserRequest) (*http.Response, error) {
+func (a *UserAPIService) DeleteCurrentUserExecute(r ApiDeleteCurrentUserRequest) (*http.Response, error) {
 	var (
 		localVarHTTPMethod   = http.MethodDelete
 		localVarPostBody     interface{}
 		formFiles            []formFile
 	)
 
-	localBasePath, err := a.client.cfg.ServerURLWithContext(r.ctx, "UserApiService.DeleteCurrentUser")
+	localBasePath, err := a.client.cfg.ServerURLWithContext(r.ctx, "UserAPIService.DeleteCurrentUser")
 	if err != nil {
 		return nil, &GenericOpenAPIError{error: err.Error()}
 	}
@@ -146,7 +146,7 @@ func (a *UserApiService) DeleteCurrentUserExecute(r ApiDeleteCurrentUserRequest)
 
 type ApiDeleteUserRequest struct {
 	ctx context.Context
-	ApiService *UserApiService
+	ApiService *UserAPIService
 	id int32
 }
 
@@ -163,7 +163,7 @@ Delete User by User ID
  @param id
  @return ApiDeleteUserRequest
 */
-func (a *UserApiService) DeleteUser(ctx context.Context, id int32) ApiDeleteUserRequest {
+func (a *UserAPIService) DeleteUser(ctx context.Context, id int32) ApiDeleteUserRequest {
 	return ApiDeleteUserRequest{
 		ApiService: a,
 		ctx: ctx,
@@ -172,14 +172,14 @@ func (a *UserApiService) DeleteUser(ctx context.Context, id int32) ApiDeleteUser
 }
 
 // Execute executes the request
-func (a *UserApiService) DeleteUserExecute(r ApiDeleteUserRequest) (*http.Response, error) {
+func (a *UserAPIService) DeleteUserExecute(r ApiDeleteUserRequest) (*http.Response, error) {
 	var (
 		localVarHTTPMethod   = http.MethodDelete
 		localVarPostBody     interface{}
 		formFiles            []formFile
 	)
 
-	localBasePath, err := a.client.cfg.ServerURLWithContext(r.ctx, "UserApiService.DeleteUser")
+	localBasePath, err := a.client.cfg.ServerURLWithContext(r.ctx, "UserAPIService.DeleteUser")
 	if err != nil {
 		return nil, &GenericOpenAPIError{error: err.Error()}
 	}
@@ -270,7 +270,7 @@ func (a *UserApiService) DeleteUserExecute(r ApiDeleteUserRequest) (*http.Respon
 
 type ApiGetApiTokensRequest struct {
 	ctx context.Context
-	ApiService *UserApiService
+	ApiService *UserAPIService
 }
 
 func (r ApiGetApiTokensRequest) Execute() ([]ModelApiTokenResponse, *http.Response, error) {
@@ -285,7 +285,7 @@ Get logged in user's API Tokens
  @param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
  @return ApiGetApiTokensRequest
 */
-func (a *UserApiService) GetApiTokens(ctx context.Context) ApiGetApiTokensRequest {
+func (a *UserAPIService) GetApiTokens(ctx context.Context) ApiGetApiTokensRequest {
 	return ApiGetApiTokensRequest{
 		ApiService: a,
 		ctx: ctx,
@@ -294,7 +294,7 @@ func (a *UserApiService) GetApiTokens(ctx context.Context) ApiGetApiTokensReques
 
 // Execute executes the request
 //  @return []ModelApiTokenResponse
-func (a *UserApiService) GetApiTokensExecute(r ApiGetApiTokensRequest) ([]ModelApiTokenResponse, *http.Response, error) {
+func (a *UserAPIService) GetApiTokensExecute(r ApiGetApiTokensRequest) ([]ModelApiTokenResponse, *http.Response, error) {
 	var (
 		localVarHTTPMethod   = http.MethodGet
 		localVarPostBody     interface{}
@@ -302,7 +302,7 @@ func (a *UserApiService) GetApiTokensExecute(r ApiGetApiTokensRequest) ([]ModelA
 		localVarReturnValue  []ModelApiTokenResponse
 	)
 
-	localBasePath, err := a.client.cfg.ServerURLWithContext(r.ctx, "UserApiService.GetApiTokens")
+	localBasePath, err := a.client.cfg.ServerURLWithContext(r.ctx, "UserAPIService.GetApiTokens")
 	if err != nil {
 		return localVarReturnValue, nil, &GenericOpenAPIError{error: err.Error()}
 	}
@@ -401,7 +401,7 @@ func (a *UserApiService) GetApiTokensExecute(r ApiGetApiTokensRequest) ([]ModelA
 
 type ApiGetCurrentUserRequest struct {
 	ctx context.Context
-	ApiService *UserApiService
+	ApiService *UserAPIService
 }
 
 func (r ApiGetCurrentUserRequest) Execute() (*ModelUser, *http.Response, error) {
@@ -416,7 +416,7 @@ Get logged in user information
  @param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
  @return ApiGetCurrentUserRequest
 */
-func (a *UserApiService) GetCurrentUser(ctx context.Context) ApiGetCurrentUserRequest {
+func (a *UserAPIService) GetCurrentUser(ctx context.Context) ApiGetCurrentUserRequest {
 	return ApiGetCurrentUserRequest{
 		ApiService: a,
 		ctx: ctx,
@@ -425,7 +425,7 @@ func (a *UserApiService) GetCurrentUser(ctx context.Context) ApiGetCurrentUserRe
 
 // Execute executes the request
 //  @return ModelUser
-func (a *UserApiService) GetCurrentUserExecute(r ApiGetCurrentUserRequest) (*ModelUser, *http.Response, error) {
+func (a *UserAPIService) GetCurrentUserExecute(r ApiGetCurrentUserRequest) (*ModelUser, *http.Response, error) {
 	var (
 		localVarHTTPMethod   = http.MethodGet
 		localVarPostBody     interface{}
@@ -433,7 +433,7 @@ func (a *UserApiService) GetCurrentUserExecute(r ApiGetCurrentUserRequest) (*Mod
 		localVarReturnValue  *ModelUser
 	)
 
-	localBasePath, err := a.client.cfg.ServerURLWithContext(r.ctx, "UserApiService.GetCurrentUser")
+	localBasePath, err := a.client.cfg.ServerURLWithContext(r.ctx, "UserAPIService.GetCurrentUser")
 	if err != nil {
 		return localVarReturnValue, nil, &GenericOpenAPIError{error: err.Error()}
 	}
@@ -532,7 +532,7 @@ func (a *UserApiService) GetCurrentUserExecute(r ApiGetCurrentUserRequest) (*Mod
 
 type ApiGetUserRequest struct {
 	ctx context.Context
-	ApiService *UserApiService
+	ApiService *UserAPIService
 	id int32
 }
 
@@ -549,7 +549,7 @@ Get User by User ID
  @param id
  @return ApiGetUserRequest
 */
-func (a *UserApiService) GetUser(ctx context.Context, id int32) ApiGetUserRequest {
+func (a *UserAPIService) GetUser(ctx context.Context, id int32) ApiGetUserRequest {
 	return ApiGetUserRequest{
 		ApiService: a,
 		ctx: ctx,
@@ -559,7 +559,7 @@ func (a *UserApiService) GetUser(ctx context.Context, id int32) ApiGetUserReques
 
 // Execute executes the request
 //  @return ModelUser
-func (a *UserApiService) GetUserExecute(r ApiGetUserRequest) (*ModelUser, *http.Response, error) {
+func (a *UserAPIService) GetUserExecute(r ApiGetUserRequest) (*ModelUser, *http.Response, error) {
 	var (
 		localVarHTTPMethod   = http.MethodGet
 		localVarPostBody     interface{}
@@ -567,7 +567,7 @@ func (a *UserApiService) GetUserExecute(r ApiGetUserRequest) (*ModelUser, *http.
 		localVarReturnValue  *ModelUser
 	)
 
-	localBasePath, err := a.client.cfg.ServerURLWithContext(r.ctx, "UserApiService.GetUser")
+	localBasePath, err := a.client.cfg.ServerURLWithContext(r.ctx, "UserAPIService.GetUser")
 	if err != nil {
 		return localVarReturnValue, nil, &GenericOpenAPIError{error: err.Error()}
 	}
@@ -667,7 +667,7 @@ func (a *UserApiService) GetUserExecute(r ApiGetUserRequest) (*ModelUser, *http.
 
 type ApiGetUsersRequest struct {
 	ctx context.Context
-	ApiService *UserApiService
+	ApiService *UserAPIService
 }
 
 func (r ApiGetUsersRequest) Execute() ([]ModelUser, *http.Response, error) {
@@ -682,7 +682,7 @@ Get all users
  @param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
  @return ApiGetUsersRequest
 */
-func (a *UserApiService) GetUsers(ctx context.Context) ApiGetUsersRequest {
+func (a *UserAPIService) GetUsers(ctx context.Context) ApiGetUsersRequest {
 	return ApiGetUsersRequest{
 		ApiService: a,
 		ctx: ctx,
@@ -691,7 +691,7 @@ func (a *UserApiService) GetUsers(ctx context.Context) ApiGetUsersRequest {
 
 // Execute executes the request
 //  @return []ModelUser
-func (a *UserApiService) GetUsersExecute(r ApiGetUsersRequest) ([]ModelUser, *http.Response, error) {
+func (a *UserAPIService) GetUsersExecute(r ApiGetUsersRequest) ([]ModelUser, *http.Response, error) {
 	var (
 		localVarHTTPMethod   = http.MethodGet
 		localVarPostBody     interface{}
@@ -699,7 +699,7 @@ func (a *UserApiService) GetUsersExecute(r ApiGetUsersRequest) ([]ModelUser, *ht
 		localVarReturnValue  []ModelUser
 	)
 
-	localBasePath, err := a.client.cfg.ServerURLWithContext(r.ctx, "UserApiService.GetUsers")
+	localBasePath, err := a.client.cfg.ServerURLWithContext(r.ctx, "UserAPIService.GetUsers")
 	if err != nil {
 		return localVarReturnValue, nil, &GenericOpenAPIError{error: err.Error()}
 	}
@@ -798,7 +798,7 @@ func (a *UserApiService) GetUsersExecute(r ApiGetUsersRequest) ([]ModelUser, *ht
 
 type ApiInviteUserRequest struct {
 	ctx context.Context
-	ApiService *UserApiService
+	ApiService *UserAPIService
 	modelInviteUserRequest *ModelInviteUserRequest
 }
 
@@ -819,7 +819,7 @@ Invite a user
  @param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
  @return ApiInviteUserRequest
 */
-func (a *UserApiService) InviteUser(ctx context.Context) ApiInviteUserRequest {
+func (a *UserAPIService) InviteUser(ctx context.Context) ApiInviteUserRequest {
 	return ApiInviteUserRequest{
 		ApiService: a,
 		ctx: ctx,
@@ -828,7 +828,7 @@ func (a *UserApiService) InviteUser(ctx context.Context) ApiInviteUserRequest {
 
 // Execute executes the request
 //  @return ModelInviteUserResponse
-func (a *UserApiService) InviteUserExecute(r ApiInviteUserRequest) (*ModelInviteUserResponse, *http.Response, error) {
+func (a *UserAPIService) InviteUserExecute(r ApiInviteUserRequest) (*ModelInviteUserResponse, *http.Response, error) {
 	var (
 		localVarHTTPMethod   = http.MethodPost
 		localVarPostBody     interface{}
@@ -836,7 +836,7 @@ func (a *UserApiService) InviteUserExecute(r ApiInviteUserRequest) (*ModelInvite
 		localVarReturnValue  *ModelInviteUserResponse
 	)
 
-	localBasePath, err := a.client.cfg.ServerURLWithContext(r.ctx, "UserApiService.InviteUser")
+	localBasePath, err := a.client.cfg.ServerURLWithContext(r.ctx, "UserAPIService.InviteUser")
 	if err != nil {
 		return localVarReturnValue, nil, &GenericOpenAPIError{error: err.Error()}
 	}
@@ -937,7 +937,7 @@ func (a *UserApiService) InviteUserExecute(r ApiInviteUserRequest) (*ModelInvite
 
 type ApiRegisterInvitedUserRequest struct {
 	ctx context.Context
-	ApiService *UserApiService
+	ApiService *UserAPIService
 	modelRegisterInvitedUserRequest *ModelRegisterInvitedUserRequest
 }
 
@@ -958,7 +958,7 @@ Register invited user
  @param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
  @return ApiRegisterInvitedUserRequest
 */
-func (a *UserApiService) RegisterInvitedUser(ctx context.Context) ApiRegisterInvitedUserRequest {
+func (a *UserAPIService) RegisterInvitedUser(ctx context.Context) ApiRegisterInvitedUserRequest {
 	return ApiRegisterInvitedUserRequest{
 		ApiService: a,
 		ctx: ctx,
@@ -967,7 +967,7 @@ func (a *UserApiService) RegisterInvitedUser(ctx context.Context) ApiRegisterInv
 
 // Execute executes the request
 //  @return ModelLoginResponse
-func (a *UserApiService) RegisterInvitedUserExecute(r ApiRegisterInvitedUserRequest) (*ModelLoginResponse, *http.Response, error) {
+func (a *UserAPIService) RegisterInvitedUserExecute(r ApiRegisterInvitedUserRequest) (*ModelLoginResponse, *http.Response, error) {
 	var (
 		localVarHTTPMethod   = http.MethodPost
 		localVarPostBody     interface{}
@@ -975,7 +975,7 @@ func (a *UserApiService) RegisterInvitedUserExecute(r ApiRegisterInvitedUserRequ
 		localVarReturnValue  *ModelLoginResponse
 	)
 
-	localBasePath, err := a.client.cfg.ServerURLWithContext(r.ctx, "UserApiService.RegisterInvitedUser")
+	localBasePath, err := a.client.cfg.ServerURLWithContext(r.ctx, "UserAPIService.RegisterInvitedUser")
 	if err != nil {
 		return localVarReturnValue, nil, &GenericOpenAPIError{error: err.Error()}
 	}
@@ -1076,7 +1076,7 @@ func (a *UserApiService) RegisterInvitedUserExecute(r ApiRegisterInvitedUserRequ
 
 type ApiRegisterUserRequest struct {
 	ctx context.Context
-	ApiService *UserApiService
+	ApiService *UserAPIService
 	modelUserRegisterRequest *ModelUserRegisterRequest
 }
 
@@ -1097,7 +1097,7 @@ First user registration. Further users needs to be invited.
  @param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
  @return ApiRegisterUserRequest
 */
-func (a *UserApiService) RegisterUser(ctx context.Context) ApiRegisterUserRequest {
+func (a *UserAPIService) RegisterUser(ctx context.Context) ApiRegisterUserRequest {
 	return ApiRegisterUserRequest{
 		ApiService: a,
 		ctx: ctx,
@@ -1106,7 +1106,7 @@ func (a *UserApiService) RegisterUser(ctx context.Context) ApiRegisterUserReques
 
 // Execute executes the request
 //  @return ModelLoginResponse
-func (a *UserApiService) RegisterUserExecute(r ApiRegisterUserRequest) (*ModelLoginResponse, *http.Response, error) {
+func (a *UserAPIService) RegisterUserExecute(r ApiRegisterUserRequest) (*ModelLoginResponse, *http.Response, error) {
 	var (
 		localVarHTTPMethod   = http.MethodPost
 		localVarPostBody     interface{}
@@ -1114,7 +1114,7 @@ func (a *UserApiService) RegisterUserExecute(r ApiRegisterUserRequest) (*ModelLo
 		localVarReturnValue  *ModelLoginResponse
 	)
 
-	localBasePath, err := a.client.cfg.ServerURLWithContext(r.ctx, "UserApiService.RegisterUser")
+	localBasePath, err := a.client.cfg.ServerURLWithContext(r.ctx, "UserAPIService.RegisterUser")
 	if err != nil {
 		return localVarReturnValue, nil, &GenericOpenAPIError{error: err.Error()}
 	}
@@ -1215,7 +1215,7 @@ func (a *UserApiService) RegisterUserExecute(r ApiRegisterUserRequest) (*ModelLo
 
 type ApiResetApiTokensRequest struct {
 	ctx context.Context
-	ApiService *UserApiService
+	ApiService *UserAPIService
 }
 
 func (r ApiResetApiTokensRequest) Execute() ([]ModelApiTokenResponse, *http.Response, error) {
@@ -1230,7 +1230,7 @@ Reset user's API Tokens
  @param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
  @return ApiResetApiTokensRequest
 */
-func (a *UserApiService) ResetApiTokens(ctx context.Context) ApiResetApiTokensRequest {
+func (a *UserAPIService) ResetApiTokens(ctx context.Context) ApiResetApiTokensRequest {
 	return ApiResetApiTokensRequest{
 		ApiService: a,
 		ctx: ctx,
@@ -1239,7 +1239,7 @@ func (a *UserApiService) ResetApiTokens(ctx context.Context) ApiResetApiTokensRe
 
 // Execute executes the request
 //  @return []ModelApiTokenResponse
-func (a *UserApiService) ResetApiTokensExecute(r ApiResetApiTokensRequest) ([]ModelApiTokenResponse, *http.Response, error) {
+func (a *UserAPIService) ResetApiTokensExecute(r ApiResetApiTokensRequest) ([]ModelApiTokenResponse, *http.Response, error) {
 	var (
 		localVarHTTPMethod   = http.MethodPost
 		localVarPostBody     interface{}
@@ -1247,7 +1247,7 @@ func (a *UserApiService) ResetApiTokensExecute(r ApiResetApiTokensRequest) ([]Mo
 		localVarReturnValue  []ModelApiTokenResponse
 	)
 
-	localBasePath, err := a.client.cfg.ServerURLWithContext(r.ctx, "UserApiService.ResetApiTokens")
+	localBasePath, err := a.client.cfg.ServerURLWithContext(r.ctx, "UserAPIService.ResetApiTokens")
 	if err != nil {
 		return localVarReturnValue, nil, &GenericOpenAPIError{error: err.Error()}
 	}
@@ -1346,7 +1346,7 @@ func (a *UserApiService) ResetApiTokensExecute(r ApiResetApiTokensRequest) ([]Mo
 
 type ApiResetPasswordRequestRequest struct {
 	ctx context.Context
-	ApiService *UserApiService
+	ApiService *UserAPIService
 	modelPasswordResetRequest *ModelPasswordResetRequest
 }
 
@@ -1367,7 +1367,7 @@ Request for resetting the password
  @param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
  @return ApiResetPasswordRequestRequest
 */
-func (a *UserApiService) ResetPasswordRequest(ctx context.Context) ApiResetPasswordRequestRequest {
+func (a *UserAPIService) ResetPasswordRequest(ctx context.Context) ApiResetPasswordRequestRequest {
 	return ApiResetPasswordRequestRequest{
 		ApiService: a,
 		ctx: ctx,
@@ -1376,7 +1376,7 @@ func (a *UserApiService) ResetPasswordRequest(ctx context.Context) ApiResetPassw
 
 // Execute executes the request
 //  @return ModelMessageResponse
-func (a *UserApiService) ResetPasswordRequestExecute(r ApiResetPasswordRequestRequest) (*ModelMessageResponse, *http.Response, error) {
+func (a *UserAPIService) ResetPasswordRequestExecute(r ApiResetPasswordRequestRequest) (*ModelMessageResponse, *http.Response, error) {
 	var (
 		localVarHTTPMethod   = http.MethodPost
 		localVarPostBody     interface{}
@@ -1384,7 +1384,7 @@ func (a *UserApiService) ResetPasswordRequestExecute(r ApiResetPasswordRequestRe
 		localVarReturnValue  *ModelMessageResponse
 	)
 
-	localBasePath, err := a.client.cfg.ServerURLWithContext(r.ctx, "UserApiService.ResetPasswordRequest")
+	localBasePath, err := a.client.cfg.ServerURLWithContext(r.ctx, "UserAPIService.ResetPasswordRequest")
 	if err != nil {
 		return localVarReturnValue, nil, &GenericOpenAPIError{error: err.Error()}
 	}
@@ -1485,7 +1485,7 @@ func (a *UserApiService) ResetPasswordRequestExecute(r ApiResetPasswordRequestRe
 
 type ApiUpdateCurrentUserRequest struct {
 	ctx context.Context
-	ApiService *UserApiService
+	ApiService *UserAPIService
 	modelUpdateUserRequest *ModelUpdateUserRequest
 }
 
@@ -1506,7 +1506,7 @@ Update logged in user information
  @param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
  @return ApiUpdateCurrentUserRequest
 */
-func (a *UserApiService) UpdateCurrentUser(ctx context.Context) ApiUpdateCurrentUserRequest {
+func (a *UserAPIService) UpdateCurrentUser(ctx context.Context) ApiUpdateCurrentUserRequest {
 	return ApiUpdateCurrentUserRequest{
 		ApiService: a,
 		ctx: ctx,
@@ -1515,7 +1515,7 @@ func (a *UserApiService) UpdateCurrentUser(ctx context.Context) ApiUpdateCurrent
 
 // Execute executes the request
 //  @return ModelUser
-func (a *UserApiService) UpdateCurrentUserExecute(r ApiUpdateCurrentUserRequest) (*ModelUser, *http.Response, error) {
+func (a *UserAPIService) UpdateCurrentUserExecute(r ApiUpdateCurrentUserRequest) (*ModelUser, *http.Response, error) {
 	var (
 		localVarHTTPMethod   = http.MethodPut
 		localVarPostBody     interface{}
@@ -1523,7 +1523,7 @@ func (a *UserApiService) UpdateCurrentUserExecute(r ApiUpdateCurrentUserRequest)
 		localVarReturnValue  *ModelUser
 	)
 
-	localBasePath, err := a.client.cfg.ServerURLWithContext(r.ctx, "UserApiService.UpdateCurrentUser")
+	localBasePath, err := a.client.cfg.ServerURLWithContext(r.ctx, "UserAPIService.UpdateCurrentUser")
 	if err != nil {
 		return localVarReturnValue, nil, &GenericOpenAPIError{error: err.Error()}
 	}
@@ -1624,7 +1624,7 @@ func (a *UserApiService) UpdateCurrentUserExecute(r ApiUpdateCurrentUserRequest)
 
 type ApiUpdatePasswordRequest struct {
 	ctx context.Context
-	ApiService *UserApiService
+	ApiService *UserAPIService
 	modelUpdateUserPasswordRequest *ModelUpdateUserPasswordRequest
 }
 
@@ -1645,7 +1645,7 @@ Update current user's password
  @param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
  @return ApiUpdatePasswordRequest
 */
-func (a *UserApiService) UpdatePassword(ctx context.Context) ApiUpdatePasswordRequest {
+func (a *UserAPIService) UpdatePassword(ctx context.Context) ApiUpdatePasswordRequest {
 	return ApiUpdatePasswordRequest{
 		ApiService: a,
 		ctx: ctx,
@@ -1653,14 +1653,14 @@ func (a *UserApiService) UpdatePassword(ctx context.Context) ApiUpdatePasswordRe
 }
 
 // Execute executes the request
-func (a *UserApiService) UpdatePasswordExecute(r ApiUpdatePasswordRequest) (*http.Response, error) {
+func (a *UserAPIService) UpdatePasswordExecute(r ApiUpdatePasswordRequest) (*http.Response, error) {
 	var (
 		localVarHTTPMethod   = http.MethodPut
 		localVarPostBody     interface{}
 		formFiles            []formFile
 	)
 
-	localBasePath, err := a.client.cfg.ServerURLWithContext(r.ctx, "UserApiService.UpdatePassword")
+	localBasePath, err := a.client.cfg.ServerURLWithContext(r.ctx, "UserAPIService.UpdatePassword")
 	if err != nil {
 		return nil, &GenericOpenAPIError{error: err.Error()}
 	}
@@ -1752,7 +1752,7 @@ func (a *UserApiService) UpdatePasswordExecute(r ApiUpdatePasswordRequest) (*htt
 
 type ApiUpdateUserRequest struct {
 	ctx context.Context
-	ApiService *UserApiService
+	ApiService *UserAPIService
 	id int32
 	modelUpdateUserIdRequest *ModelUpdateUserIdRequest
 }
@@ -1775,7 +1775,7 @@ Update User by User ID
  @param id
  @return ApiUpdateUserRequest
 */
-func (a *UserApiService) UpdateUser(ctx context.Context, id int32) ApiUpdateUserRequest {
+func (a *UserAPIService) UpdateUser(ctx context.Context, id int32) ApiUpdateUserRequest {
 	return ApiUpdateUserRequest{
 		ApiService: a,
 		ctx: ctx,
@@ -1785,7 +1785,7 @@ func (a *UserApiService) UpdateUser(ctx context.Context, id int32) ApiUpdateUser
 
 // Execute executes the request
 //  @return ModelUser
-func (a *UserApiService) UpdateUserExecute(r ApiUpdateUserRequest) (*ModelUser, *http.Response, error) {
+func (a *UserAPIService) UpdateUserExecute(r ApiUpdateUserRequest) (*ModelUser, *http.Response, error) {
 	var (
 		localVarHTTPMethod   = http.MethodPut
 		localVarPostBody     interface{}
@@ -1793,7 +1793,7 @@ func (a *UserApiService) UpdateUserExecute(r ApiUpdateUserRequest) (*ModelUser, 
 		localVarReturnValue  *ModelUser
 	)
 
-	localBasePath, err := a.client.cfg.ServerURLWithContext(r.ctx, "UserApiService.UpdateUser")
+	localBasePath, err := a.client.cfg.ServerURLWithContext(r.ctx, "UserAPIService.UpdateUser")
 	if err != nil {
 		return localVarReturnValue, nil, &GenericOpenAPIError{error: err.Error()}
 	}
@@ -1895,7 +1895,7 @@ func (a *UserApiService) UpdateUserExecute(r ApiUpdateUserRequest) (*ModelUser, 
 
 type ApiVerifyResetPasswordRequestRequest struct {
 	ctx context.Context
-	ApiService *UserApiService
+	ApiService *UserAPIService
 	modelPasswordResetVerifyRequest *ModelPasswordResetVerifyRequest
 }
 
@@ -1916,7 +1916,7 @@ Verify code and reset the password
  @param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
  @return ApiVerifyResetPasswordRequestRequest
 */
-func (a *UserApiService) VerifyResetPasswordRequest(ctx context.Context) ApiVerifyResetPasswordRequestRequest {
+func (a *UserAPIService) VerifyResetPasswordRequest(ctx context.Context) ApiVerifyResetPasswordRequestRequest {
 	return ApiVerifyResetPasswordRequestRequest{
 		ApiService: a,
 		ctx: ctx,
@@ -1924,14 +1924,14 @@ func (a *UserApiService) VerifyResetPasswordRequest(ctx context.Context) ApiVeri
 }
 
 // Execute executes the request
-func (a *UserApiService) VerifyResetPasswordRequestExecute(r ApiVerifyResetPasswordRequestRequest) (*http.Response, error) {
+func (a *UserAPIService) VerifyResetPasswordRequestExecute(r ApiVerifyResetPasswordRequestRequest) (*http.Response, error) {
 	var (
 		localVarHTTPMethod   = http.MethodPost
 		localVarPostBody     interface{}
 		formFiles            []formFile
 	)
 
-	localBasePath, err := a.client.cfg.ServerURLWithContext(r.ctx, "UserApiService.VerifyResetPasswordRequest")
+	localBasePath, err := a.client.cfg.ServerURLWithContext(r.ctx, "UserAPIService.VerifyResetPasswordRequest")
 	if err != nil {
 		return nil, &GenericOpenAPIError{error: err.Error()}
 	}

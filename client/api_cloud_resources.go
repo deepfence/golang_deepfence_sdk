@@ -20,12 +20,12 @@ import (
 )
 
 
-// CloudResourcesApiService CloudResourcesApi service
-type CloudResourcesApiService service
+// CloudResourcesAPIService CloudResourcesAPI service
+type CloudResourcesAPIService service
 
 type ApiIngestCloudResourcesRequest struct {
 	ctx context.Context
-	ApiService *CloudResourcesApiService
+	ApiService *CloudResourcesAPIService
 	ingestersCloudResource *[]IngestersCloudResource
 }
 
@@ -46,7 +46,7 @@ Ingest Clouds Resources found while scanning cloud provider
  @param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
  @return ApiIngestCloudResourcesRequest
 */
-func (a *CloudResourcesApiService) IngestCloudResources(ctx context.Context) ApiIngestCloudResourcesRequest {
+func (a *CloudResourcesAPIService) IngestCloudResources(ctx context.Context) ApiIngestCloudResourcesRequest {
 	return ApiIngestCloudResourcesRequest{
 		ApiService: a,
 		ctx: ctx,
@@ -54,14 +54,14 @@ func (a *CloudResourcesApiService) IngestCloudResources(ctx context.Context) Api
 }
 
 // Execute executes the request
-func (a *CloudResourcesApiService) IngestCloudResourcesExecute(r ApiIngestCloudResourcesRequest) (*http.Response, error) {
+func (a *CloudResourcesAPIService) IngestCloudResourcesExecute(r ApiIngestCloudResourcesRequest) (*http.Response, error) {
 	var (
 		localVarHTTPMethod   = http.MethodPost
 		localVarPostBody     interface{}
 		formFiles            []formFile
 	)
 
-	localBasePath, err := a.client.cfg.ServerURLWithContext(r.ctx, "CloudResourcesApiService.IngestCloudResources")
+	localBasePath, err := a.client.cfg.ServerURLWithContext(r.ctx, "CloudResourcesAPIService.IngestCloudResources")
 	if err != nil {
 		return nil, &GenericOpenAPIError{error: err.Error()}
 	}

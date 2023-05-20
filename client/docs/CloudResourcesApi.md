@@ -1,10 +1,10 @@
-# \CloudResourcesApi
+# \CloudResourcesAPI
 
 All URIs are relative to *http://localhost*
 
 Method | HTTP request | Description
 ------------- | ------------- | -------------
-[**IngestCloudResources**](CloudResourcesApi.md#IngestCloudResources) | **Post** /deepfence/ingest/cloud-resources | Ingest Cloud resources
+[**IngestCloudResources**](CloudResourcesAPI.md#IngestCloudResources) | **Post** /deepfence/ingest/cloud-resources | Ingest Cloud resources
 
 
 
@@ -33,9 +33,9 @@ func main() {
 
     configuration := openapiclient.NewConfiguration()
     apiClient := openapiclient.NewAPIClient(configuration)
-    r, err := apiClient.CloudResourcesApi.IngestCloudResources(context.Background()).IngestersCloudResource(ingestersCloudResource).Execute()
+    r, err := apiClient.CloudResourcesAPI.IngestCloudResources(context.Background()).IngestersCloudResource(ingestersCloudResource).Execute()
     if err != nil {
-        fmt.Fprintf(os.Stderr, "Error when calling `CloudResourcesApi.IngestCloudResources``: %v\n", err)
+        fmt.Fprintf(os.Stderr, "Error when calling `CloudResourcesAPI.IngestCloudResources``: %v\n", err)
         fmt.Fprintf(os.Stderr, "Full HTTP response: %v\n", r)
     }
 }

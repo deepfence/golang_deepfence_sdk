@@ -1,11 +1,11 @@
-# \ThreatApi
+# \ThreatAPI
 
 All URIs are relative to *http://localhost*
 
 Method | HTTP request | Description
 ------------- | ------------- | -------------
-[**GetThreatGraph**](ThreatApi.md#GetThreatGraph) | **Post** /deepfence/graph/threat | Get Threat Graph
-[**GetVulnerabilityThreatGraph**](ThreatApi.md#GetVulnerabilityThreatGraph) | **Post** /deepfence/graph/threat/vulnerability | Get Vulnerability Threat Graph
+[**GetThreatGraph**](ThreatAPI.md#GetThreatGraph) | **Post** /deepfence/graph/threat | Get Threat Graph
+[**GetVulnerabilityThreatGraph**](ThreatAPI.md#GetVulnerabilityThreatGraph) | **Post** /deepfence/graph/threat/vulnerability | Get Vulnerability Threat Graph
 
 
 
@@ -34,13 +34,13 @@ func main() {
 
     configuration := openapiclient.NewConfiguration()
     apiClient := openapiclient.NewAPIClient(configuration)
-    resp, r, err := apiClient.ThreatApi.GetThreatGraph(context.Background()).GraphThreatFilters(graphThreatFilters).Execute()
+    resp, r, err := apiClient.ThreatAPI.GetThreatGraph(context.Background()).GraphThreatFilters(graphThreatFilters).Execute()
     if err != nil {
-        fmt.Fprintf(os.Stderr, "Error when calling `ThreatApi.GetThreatGraph``: %v\n", err)
+        fmt.Fprintf(os.Stderr, "Error when calling `ThreatAPI.GetThreatGraph``: %v\n", err)
         fmt.Fprintf(os.Stderr, "Full HTTP response: %v\n", r)
     }
     // response from `GetThreatGraph`: map[string]GraphProviderThreatGraph
-    fmt.Fprintf(os.Stdout, "Response from `ThreatApi.GetThreatGraph`: %v\n", resp)
+    fmt.Fprintf(os.Stdout, "Response from `ThreatAPI.GetThreatGraph`: %v\n", resp)
 }
 ```
 
@@ -100,13 +100,13 @@ func main() {
 
     configuration := openapiclient.NewConfiguration()
     apiClient := openapiclient.NewAPIClient(configuration)
-    resp, r, err := apiClient.ThreatApi.GetVulnerabilityThreatGraph(context.Background()).GraphVulnerabilityThreatGraphRequest(graphVulnerabilityThreatGraphRequest).Execute()
+    resp, r, err := apiClient.ThreatAPI.GetVulnerabilityThreatGraph(context.Background()).GraphVulnerabilityThreatGraphRequest(graphVulnerabilityThreatGraphRequest).Execute()
     if err != nil {
-        fmt.Fprintf(os.Stderr, "Error when calling `ThreatApi.GetVulnerabilityThreatGraph``: %v\n", err)
+        fmt.Fprintf(os.Stderr, "Error when calling `ThreatAPI.GetVulnerabilityThreatGraph``: %v\n", err)
         fmt.Fprintf(os.Stderr, "Full HTTP response: %v\n", r)
     }
     // response from `GetVulnerabilityThreatGraph`: []GraphVulnerabilityThreatGraph
-    fmt.Fprintf(os.Stdout, "Response from `ThreatApi.GetVulnerabilityThreatGraph`: %v\n", resp)
+    fmt.Fprintf(os.Stdout, "Response from `ThreatAPI.GetVulnerabilityThreatGraph`: %v\n", resp)
 }
 ```
 

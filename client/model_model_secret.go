@@ -29,6 +29,7 @@ type ModelSecret struct {
 	Part string `json:"part"`
 	RelativeEndingIndex int32 `json:"relative_ending_index"`
 	RelativeStartingIndex int32 `json:"relative_starting_index"`
+	Resources []string `json:"resources,omitempty"`
 	RuleId int32 `json:"rule_id"`
 	Score float32 `json:"score"`
 	SignatureToMatch string `json:"signature_to_match"`
@@ -283,6 +284,39 @@ func (o *ModelSecret) SetRelativeStartingIndex(v int32) {
 	o.RelativeStartingIndex = v
 }
 
+// GetResources returns the Resources field value if set, zero value otherwise (both if not set or set to explicit null).
+func (o *ModelSecret) GetResources() []string {
+	if o == nil {
+		var ret []string
+		return ret
+	}
+	return o.Resources
+}
+
+// GetResourcesOk returns a tuple with the Resources field value if set, nil otherwise
+// and a boolean to check if the value has been set.
+// NOTE: If the value is an explicit nil, `nil, true` will be returned
+func (o *ModelSecret) GetResourcesOk() ([]string, bool) {
+	if o == nil || IsNil(o.Resources) {
+		return nil, false
+	}
+	return o.Resources, true
+}
+
+// HasResources returns a boolean if a field has been set.
+func (o *ModelSecret) HasResources() bool {
+	if o != nil && IsNil(o.Resources) {
+		return true
+	}
+
+	return false
+}
+
+// SetResources gets a reference to the given []string and assigns it to the Resources field.
+func (o *ModelSecret) SetResources(v []string) {
+	o.Resources = v
+}
+
 // GetRuleId returns the RuleId field value
 func (o *ModelSecret) GetRuleId() int32 {
 	if o == nil {
@@ -422,6 +456,9 @@ func (o ModelSecret) ToMap() (map[string]interface{}, error) {
 	toSerialize["part"] = o.Part
 	toSerialize["relative_ending_index"] = o.RelativeEndingIndex
 	toSerialize["relative_starting_index"] = o.RelativeStartingIndex
+	if o.Resources != nil {
+		toSerialize["resources"] = o.Resources
+	}
 	toSerialize["rule_id"] = o.RuleId
 	toSerialize["score"] = o.Score
 	toSerialize["signature_to_match"] = o.SignatureToMatch

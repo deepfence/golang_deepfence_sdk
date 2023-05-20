@@ -20,12 +20,12 @@ import (
 )
 
 
-// InternalApiService InternalApi service
-type InternalApiService service
+// InternalAPIService InternalAPI service
+type InternalAPIService service
 
 type ApiGetConsoleApiTokenRequest struct {
 	ctx context.Context
-	ApiService *InternalApiService
+	ApiService *InternalAPIService
 }
 
 func (r ApiGetConsoleApiTokenRequest) Execute() (*ModelApiAuthRequest, *http.Response, error) {
@@ -40,7 +40,7 @@ Get api-token for console agent
  @param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
  @return ApiGetConsoleApiTokenRequest
 */
-func (a *InternalApiService) GetConsoleApiToken(ctx context.Context) ApiGetConsoleApiTokenRequest {
+func (a *InternalAPIService) GetConsoleApiToken(ctx context.Context) ApiGetConsoleApiTokenRequest {
 	return ApiGetConsoleApiTokenRequest{
 		ApiService: a,
 		ctx: ctx,
@@ -49,7 +49,7 @@ func (a *InternalApiService) GetConsoleApiToken(ctx context.Context) ApiGetConso
 
 // Execute executes the request
 //  @return ModelApiAuthRequest
-func (a *InternalApiService) GetConsoleApiTokenExecute(r ApiGetConsoleApiTokenRequest) (*ModelApiAuthRequest, *http.Response, error) {
+func (a *InternalAPIService) GetConsoleApiTokenExecute(r ApiGetConsoleApiTokenRequest) (*ModelApiAuthRequest, *http.Response, error) {
 	var (
 		localVarHTTPMethod   = http.MethodGet
 		localVarPostBody     interface{}
@@ -57,7 +57,7 @@ func (a *InternalApiService) GetConsoleApiTokenExecute(r ApiGetConsoleApiTokenRe
 		localVarReturnValue  *ModelApiAuthRequest
 	)
 
-	localBasePath, err := a.client.cfg.ServerURLWithContext(r.ctx, "InternalApiService.GetConsoleApiToken")
+	localBasePath, err := a.client.cfg.ServerURLWithContext(r.ctx, "InternalAPIService.GetConsoleApiToken")
 	if err != nil {
 		return localVarReturnValue, nil, &GenericOpenAPIError{error: err.Error()}
 	}

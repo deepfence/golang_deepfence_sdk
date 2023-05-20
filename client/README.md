@@ -79,170 +79,174 @@ All URIs are relative to *http://localhost*
 
 Class | Method | HTTP request | Description
 ------------ | ------------- | ------------- | -------------
-*AuthenticationApi* | [**AuthToken**](docs/AuthenticationApi.md#authtoken) | **Post** /deepfence/auth/token | Get Access Token for API Token
-*AuthenticationApi* | [**AuthTokenRefresh**](docs/AuthenticationApi.md#authtokenrefresh) | **Post** /deepfence/auth/token/refresh | Refresh access token
-*AuthenticationApi* | [**Login**](docs/AuthenticationApi.md#login) | **Post** /deepfence/user/login | Login API
-*AuthenticationApi* | [**Logout**](docs/AuthenticationApi.md#logout) | **Post** /deepfence/user/logout | Logout API
-*CloudNodesApi* | [**ListCloudNodeAccount**](docs/CloudNodesApi.md#listcloudnodeaccount) | **Post** /deepfence/cloud-node/list/accounts | List Cloud Node Accounts
-*CloudNodesApi* | [**ListCloudProviders**](docs/CloudNodesApi.md#listcloudproviders) | **Get** /deepfence/cloud-node/list/providers | List Cloud Node Providers
-*CloudNodesApi* | [**RegisterCloudNodeAccount**](docs/CloudNodesApi.md#registercloudnodeaccount) | **Post** /deepfence/cloud-node/account | Register Cloud Node Account
-*CloudResourcesApi* | [**IngestCloudResources**](docs/CloudResourcesApi.md#ingestcloudresources) | **Post** /deepfence/ingest/cloud-resources | Ingest Cloud resources
-*CloudScannerApi* | [**CountResultsCloudComplianceScan**](docs/CloudScannerApi.md#countresultscloudcompliancescan) | **Post** /deepfence/scan/results/count/cloud-compliance | Get Cloud Compliance Scan Results
-*CloudScannerApi* | [**IngestCloudComplianceScanStatus**](docs/CloudScannerApi.md#ingestcloudcompliancescanstatus) | **Post** /deepfence/ingest/cloud-compliance-scan-status | Ingest Cloud Compliances
-*CloudScannerApi* | [**IngestCloudCompliances**](docs/CloudScannerApi.md#ingestcloudcompliances) | **Post** /deepfence/ingest/cloud-compliance | Ingest Cloud Compliances
-*CloudScannerApi* | [**ListCloudComplianceScan**](docs/CloudScannerApi.md#listcloudcompliancescan) | **Post** /deepfence/scan/list/cloud-compliance | Get Cloud Compliance Scans List
-*CloudScannerApi* | [**ResultsCloudComplianceScan**](docs/CloudScannerApi.md#resultscloudcompliancescan) | **Post** /deepfence/scan/results/cloud-compliance | Get Cloud Compliance Scan Results
-*CloudScannerApi* | [**StatusCloudComplianceScan**](docs/CloudScannerApi.md#statuscloudcompliancescan) | **Post** /deepfence/scan/status/cloud-compliance | Get Cloud Compliance Scan Status
-*ComplianceApi* | [**CountResultsComplianceScan**](docs/ComplianceApi.md#countresultscompliancescan) | **Post** /deepfence/scan/results/count/compliance | Get Compliance Scans Results
-*ComplianceApi* | [**IngestCompliances**](docs/ComplianceApi.md#ingestcompliances) | **Post** /deepfence/ingest/compliance | Ingest Compliances
-*ComplianceApi* | [**ListComplianceScan**](docs/ComplianceApi.md#listcompliancescan) | **Post** /deepfence/scan/list/compliance | Get Compliance Scans List
-*ComplianceApi* | [**ResultsComplianceScan**](docs/ComplianceApi.md#resultscompliancescan) | **Post** /deepfence/scan/results/compliance | Get Compliance Scans Results
-*ComplianceApi* | [**StartComplianceScan**](docs/ComplianceApi.md#startcompliancescan) | **Post** /deepfence/scan/start/compliance | Start Compliance Scan
-*ComplianceApi* | [**StatusComplianceScan**](docs/ComplianceApi.md#statuscompliancescan) | **Post** /deepfence/scan/status/compliance | Get Compliance Scan Status
-*ComplianceApi* | [**StopComplianceScan**](docs/ComplianceApi.md#stopcompliancescan) | **Post** /deepfence/scan/stop/compliance | Stop Compliance Scan
-*ControlsApi* | [**DisableCloudNodeControls**](docs/ControlsApi.md#disablecloudnodecontrols) | **Post** /deepfence/controls/cloud-node/disable | Disable Cloud Node Controls
-*ControlsApi* | [**EnableCloudNodeControls**](docs/ControlsApi.md#enablecloudnodecontrols) | **Post** /deepfence/controls/cloud-node/enable | Enable Cloud Node Controls
-*ControlsApi* | [**GetAgentControls**](docs/ControlsApi.md#getagentcontrols) | **Post** /deepfence/controls/agent | Fetch Agent Actions
-*ControlsApi* | [**GetAgentInitControls**](docs/ControlsApi.md#getagentinitcontrols) | **Post** /deepfence/controls/agent-init | Fetch Agent Init Actions
-*ControlsApi* | [**GetCloudNodeControls**](docs/ControlsApi.md#getcloudnodecontrols) | **Post** /deepfence/controls/cloud-node | Fetch Cloud Node Controls
-*ControlsApi* | [**GetKubernetesClusterControls**](docs/ControlsApi.md#getkubernetesclustercontrols) | **Post** /deepfence/controls/kubernetes-cluster | Fetch Kubernetes Cluster Actions
-*ControlsApi* | [**UpgradeAgentVersion**](docs/ControlsApi.md#upgradeagentversion) | **Post** /deepfence/controls/agent-upgrade | Schedule new agent version upgrade
-*DiagnosisApi* | [**DiagnosticNotification**](docs/DiagnosisApi.md#diagnosticnotification) | **Get** /deepfence/diagnosis/notification | Get Diagnostic Notification
-*DiagnosisApi* | [**GenerateAgentDiagnosticLogs**](docs/DiagnosisApi.md#generateagentdiagnosticlogs) | **Post** /deepfence/diagnosis/agent-logs | Generate Agent Diagnostic Logs
-*DiagnosisApi* | [**GenerateConsoleDiagnosticLogs**](docs/DiagnosisApi.md#generateconsolediagnosticlogs) | **Post** /deepfence/diagnosis/console-logs | Generate Console Diagnostic Logs
-*DiagnosisApi* | [**GetDiagnosticLogs**](docs/DiagnosisApi.md#getdiagnosticlogs) | **Get** /deepfence/diagnosis/diagnostic-logs | Get Diagnostic Logs
-*DiagnosisApi* | [**UpdateAgentDiagnosticLogsStatus**](docs/DiagnosisApi.md#updateagentdiagnosticlogsstatus) | **Put** /deepfence/diagnosis/agent-logs/status/{node_id} | Update Agent Diagnostic Logs Status
-*IntegrationApi* | [**AddIntegration**](docs/IntegrationApi.md#addintegration) | **Post** /deepfence/integration | Add Integration
-*IntegrationApi* | [**DeleteIntegration**](docs/IntegrationApi.md#deleteintegration) | **Delete** /deepfence/integration/{integration_id} | Delete Integration
-*IntegrationApi* | [**ListIntegration**](docs/IntegrationApi.md#listintegration) | **Get** /deepfence/integration | List Integrations
-*InternalApi* | [**GetConsoleApiToken**](docs/InternalApi.md#getconsoleapitoken) | **Get** /deepfence/internal/console-api-token | Get api-token for console agent
-*LookupApi* | [**GetCloudResources**](docs/LookupApi.md#getcloudresources) | **Post** /deepfence/lookup/cloud-resources | Get Cloud Resources
-*LookupApi* | [**GetContainerImages**](docs/LookupApi.md#getcontainerimages) | **Post** /deepfence/lookup/containerimages | Retrieve Container Images data
-*LookupApi* | [**GetContainers**](docs/LookupApi.md#getcontainers) | **Post** /deepfence/lookup/containers | Retrieve Containers data
-*LookupApi* | [**GetHosts**](docs/LookupApi.md#gethosts) | **Post** /deepfence/lookup/hosts | Retrieve Hosts data
-*LookupApi* | [**GetKubernetesClusters**](docs/LookupApi.md#getkubernetesclusters) | **Post** /deepfence/lookup/kubernetesclusters | Retrieve K8s data
-*LookupApi* | [**GetPods**](docs/LookupApi.md#getpods) | **Post** /deepfence/lookup/pods | Retrieve Pods data
-*LookupApi* | [**GetProcesses**](docs/LookupApi.md#getprocesses) | **Post** /deepfence/lookup/processes | Retrieve Processes data
-*LookupApi* | [**GetRegistryAccount**](docs/LookupApi.md#getregistryaccount) | **Post** /deepfence/lookup/registryaccount | Get Images in Registry
-*MalwareScanApi* | [**CountResultsMalwareScan**](docs/MalwareScanApi.md#countresultsmalwarescan) | **Post** /deepfence/scan/results/count/malware | Get Malware Scans Results
-*MalwareScanApi* | [**IngestMalware**](docs/MalwareScanApi.md#ingestmalware) | **Post** /deepfence/ingest/malware | Ingest Malware
-*MalwareScanApi* | [**IngestMalwareScanStatus**](docs/MalwareScanApi.md#ingestmalwarescanstatus) | **Post** /deepfence/ingest/malware-scan-logs | Ingest Malware Scan Status
-*MalwareScanApi* | [**ListMalwareScan**](docs/MalwareScanApi.md#listmalwarescan) | **Post** /deepfence/scan/list/malware | Get Malware Scans List
-*MalwareScanApi* | [**ResultsMalwareScan**](docs/MalwareScanApi.md#resultsmalwarescan) | **Post** /deepfence/scan/results/malware | Get Malware Scans Results
-*MalwareScanApi* | [**StartMalwareScan**](docs/MalwareScanApi.md#startmalwarescan) | **Post** /deepfence/scan/start/malware | Start Malware Scan
-*MalwareScanApi* | [**StatusMalwareScan**](docs/MalwareScanApi.md#statusmalwarescan) | **Post** /deepfence/scan/status/malware | Get Malware Scan Status
-*MalwareScanApi* | [**StopMalwareScan**](docs/MalwareScanApi.md#stopmalwarescan) | **Post** /deepfence/scan/stop/malware | Stop Malware Scan
-*RegistryApi* | [**AddRegistry**](docs/RegistryApi.md#addregistry) | **Post** /deepfence/registryaccount | Add Registry
-*RegistryApi* | [**AddRegistryGCR**](docs/RegistryApi.md#addregistrygcr) | **Post** /deepfence/registryaccount/gcr | Add Google Container Registry
-*RegistryApi* | [**CountImageStubs**](docs/RegistryApi.md#countimagestubs) | **Post** /deepfence/registryaccount/count/stubs | Count Image Stubs
-*RegistryApi* | [**CountImages**](docs/RegistryApi.md#countimages) | **Post** /deepfence/registryaccount/count/images | Count Registry Images
-*RegistryApi* | [**DeleteRegistry**](docs/RegistryApi.md#deleteregistry) | **Delete** /deepfence/registryaccount/{registry_id} | Delete Registry
-*RegistryApi* | [**GetRegistrySummary**](docs/RegistryApi.md#getregistrysummary) | **Get** /deepfence/registryaccount/{registry_id}/summary | Get Registry Summary
-*RegistryApi* | [**GetSummaryAll**](docs/RegistryApi.md#getsummaryall) | **Get** /deepfence/registryaccount/summary | Get All Registries Summary By Type
-*RegistryApi* | [**GetSummaryByType**](docs/RegistryApi.md#getsummarybytype) | **Get** /deepfence/registryaccount/{registry_type}/summary-by-type | Get Registry Summary By Type
-*RegistryApi* | [**ListImageStubs**](docs/RegistryApi.md#listimagestubs) | **Post** /deepfence/registryaccount/stubs | List Image Stubs
-*RegistryApi* | [**ListImages**](docs/RegistryApi.md#listimages) | **Post** /deepfence/registryaccount/images | List Registry Images
-*RegistryApi* | [**ListRegistry**](docs/RegistryApi.md#listregistry) | **Get** /deepfence/registryaccount | List Registries
-*RegistryApi* | [**UpdateRegistry**](docs/RegistryApi.md#updateregistry) | **Put** /deepfence/registryaccount/{registry_id} | Update Registry
-*ReportsApi* | [**DeleteReport**](docs/ReportsApi.md#deletereport) | **Delete** /deepfence/reports/{report_id} | Delete Report
-*ReportsApi* | [**GenerateReport**](docs/ReportsApi.md#generatereport) | **Post** /deepfence/reports | Generate Report
-*ReportsApi* | [**GetReport**](docs/ReportsApi.md#getreport) | **Get** /deepfence/reports/{report_id} | Get Report
-*ReportsApi* | [**ListReports**](docs/ReportsApi.md#listreports) | **Get** /deepfence/reports | List Reports
-*ScanResultsApi* | [**BulkDeleteScans**](docs/ScanResultsApi.md#bulkdeletescans) | **Post** /deepfence/scans/bulk/delete | Bulk Delete Scans
-*ScanResultsApi* | [**DeleteScanResult**](docs/ScanResultsApi.md#deletescanresult) | **Patch** /deepfence/scan/results/action/delete | Delete selected scan results
-*ScanResultsApi* | [**DeleteScanResultsForScanID**](docs/ScanResultsApi.md#deletescanresultsforscanid) | **Delete** /deepfence/scan/{scan_type}/{scan_id} | Delete all scan results for a scan id
-*ScanResultsApi* | [**DownloadScanResults**](docs/ScanResultsApi.md#downloadscanresults) | **Get** /deepfence/scan/{scan_type}/{scan_id}/download | Download Scans Results
-*ScanResultsApi* | [**GetAllNodesInScanResults**](docs/ScanResultsApi.md#getallnodesinscanresults) | **Post** /deepfence/scan/nodes-in-result | Get all nodes in given scan result ids
-*ScanResultsApi* | [**MaskScanResult**](docs/ScanResultsApi.md#maskscanresult) | **Post** /deepfence/scan/results/action/mask | Mask Scans Results
-*ScanResultsApi* | [**NotifyScanResult**](docs/ScanResultsApi.md#notifyscanresult) | **Post** /deepfence/scan/results/action/notify | Notify Scans Results
-*ScanResultsApi* | [**UnmaskScanResult**](docs/ScanResultsApi.md#unmaskscanresult) | **Post** /deepfence/scan/results/action/unmask | Unmask Scans Results
-*SearchApi* | [**CountCloudComplianceScans**](docs/SearchApi.md#countcloudcompliancescans) | **Post** /deepfence/search/count/cloud-compliance/scans | Count Cloud Compliance Scan results
-*SearchApi* | [**CountCloudCompliances**](docs/SearchApi.md#countcloudcompliances) | **Post** /deepfence/search/count/cloud-compliances | Count Cloud compliances
-*SearchApi* | [**CountCloudResources**](docs/SearchApi.md#countcloudresources) | **Post** /deepfence/search/count/cloud-resources | Count Cloud resources
-*SearchApi* | [**CountComplianceScans**](docs/SearchApi.md#countcompliancescans) | **Post** /deepfence/search/count/compliance/scans | Count Compliance Scan results
-*SearchApi* | [**CountCompliances**](docs/SearchApi.md#countcompliances) | **Post** /deepfence/search/count/compliances | Count Compliances
-*SearchApi* | [**CountContainerImages**](docs/SearchApi.md#countcontainerimages) | **Post** /deepfence/search/count/images | Count Container images
-*SearchApi* | [**CountContainers**](docs/SearchApi.md#countcontainers) | **Post** /deepfence/search/count/containers | Count Containers data
-*SearchApi* | [**CountHosts**](docs/SearchApi.md#counthosts) | **Post** /deepfence/search/count/hosts | Count hosts
-*SearchApi* | [**CountKubernetesClusters**](docs/SearchApi.md#countkubernetesclusters) | **Post** /deepfence/search/count/kubernetes-clusters | Count Kubernetes clusters
-*SearchApi* | [**CountMalwareScans**](docs/SearchApi.md#countmalwarescans) | **Post** /deepfence/search/count/malware/scans | Count Malware Scan results
-*SearchApi* | [**CountMalwares**](docs/SearchApi.md#countmalwares) | **Post** /deepfence/search/count/malwares | Count Malwares
-*SearchApi* | [**CountNodes**](docs/SearchApi.md#countnodes) | **Get** /deepfence/search/count/nodes | Count nodes
-*SearchApi* | [**CountPods**](docs/SearchApi.md#countpods) | **Post** /deepfence/search/count/pods | Count Pods
-*SearchApi* | [**CountSecrets**](docs/SearchApi.md#countsecrets) | **Post** /deepfence/search/count/secrets | Count Secrets
-*SearchApi* | [**CountSecretsScans**](docs/SearchApi.md#countsecretsscans) | **Post** /deepfence/search/count/secret/scans | Count Secret Scan results
-*SearchApi* | [**CountVulnerabilities**](docs/SearchApi.md#countvulnerabilities) | **Post** /deepfence/search/count/vulnerabilities | Count Vulnerabilities
-*SearchApi* | [**CountVulnerabilityScans**](docs/SearchApi.md#countvulnerabilityscans) | **Post** /deepfence/search/count/vulnerability/scans | Count Vulnerability Scan results
-*SearchApi* | [**GetCloudComplianceFilters**](docs/SearchApi.md#getcloudcompliancefilters) | **Post** /deepfence/filters/cloud-compliance | Get Cloud Compliance Filters
-*SearchApi* | [**GetComplianceFilters**](docs/SearchApi.md#getcompliancefilters) | **Post** /deepfence/filters/compliance | Get Compliance Filters
-*SearchApi* | [**SearchCloudComplianceScans**](docs/SearchApi.md#searchcloudcompliancescans) | **Post** /deepfence/search/cloud-compliance/scans | Search Cloud Compliance Scan results
-*SearchApi* | [**SearchCloudCompliances**](docs/SearchApi.md#searchcloudcompliances) | **Post** /deepfence/search/cloud-compliances | Search Cloud compliances
-*SearchApi* | [**SearchCloudResources**](docs/SearchApi.md#searchcloudresources) | **Post** /deepfence/search/cloud-resources | Search Cloud Resources
-*SearchApi* | [**SearchComplianceScans**](docs/SearchApi.md#searchcompliancescans) | **Post** /deepfence/search/compliance/scans | Search Compliance Scan results
-*SearchApi* | [**SearchCompliances**](docs/SearchApi.md#searchcompliances) | **Post** /deepfence/search/compliances | Search Compliances
-*SearchApi* | [**SearchContainerImages**](docs/SearchApi.md#searchcontainerimages) | **Post** /deepfence/search/images | Search Container images
-*SearchApi* | [**SearchContainers**](docs/SearchApi.md#searchcontainers) | **Post** /deepfence/search/containers | Search Containers data
-*SearchApi* | [**SearchHosts**](docs/SearchApi.md#searchhosts) | **Post** /deepfence/search/hosts | Search hosts
-*SearchApi* | [**SearchKubernetesClusters**](docs/SearchApi.md#searchkubernetesclusters) | **Post** /deepfence/search/kubernetes-clusters | Search Kuberenetes Clusters
-*SearchApi* | [**SearchMalwareScans**](docs/SearchApi.md#searchmalwarescans) | **Post** /deepfence/search/malware/scans | Search Malware Scan results
-*SearchApi* | [**SearchMalwares**](docs/SearchApi.md#searchmalwares) | **Post** /deepfence/search/malwares | Search Malwares
-*SearchApi* | [**SearchPods**](docs/SearchApi.md#searchpods) | **Post** /deepfence/search/pods | Search Pods
-*SearchApi* | [**SearchSecrets**](docs/SearchApi.md#searchsecrets) | **Post** /deepfence/search/secrets | Search Secrets
-*SearchApi* | [**SearchSecretsScans**](docs/SearchApi.md#searchsecretsscans) | **Post** /deepfence/search/secret/scans | Search Secrets Scan results
-*SearchApi* | [**SearchVulnerabilities**](docs/SearchApi.md#searchvulnerabilities) | **Post** /deepfence/search/vulnerabilities | Search Vulnerabilities
-*SearchApi* | [**SearchVulnerabilityScans**](docs/SearchApi.md#searchvulnerabilityscans) | **Post** /deepfence/search/vulnerability/scans | Search Vulnerability Scan results
-*SecretScanApi* | [**CountResultsSecretScan**](docs/SecretScanApi.md#countresultssecretscan) | **Post** /deepfence/scan/results/count/secret | Get Secret Scans Results
-*SecretScanApi* | [**IngestSecretScanStatus**](docs/SecretScanApi.md#ingestsecretscanstatus) | **Post** /deepfence/ingest/secret-scan-logs | Ingest Secrets Scan Status
-*SecretScanApi* | [**IngestSecrets**](docs/SecretScanApi.md#ingestsecrets) | **Post** /deepfence/ingest/secrets | Ingest Secrets
-*SecretScanApi* | [**ListSecretScan**](docs/SecretScanApi.md#listsecretscan) | **Post** /deepfence/scan/list/secret | Get Secret Scans List
-*SecretScanApi* | [**ResultsSecretScan**](docs/SecretScanApi.md#resultssecretscan) | **Post** /deepfence/scan/results/secret | Get Secret Scans Results
-*SecretScanApi* | [**StartSecretScan**](docs/SecretScanApi.md#startsecretscan) | **Post** /deepfence/scan/start/secret | Start Secret Scan
-*SecretScanApi* | [**StatusSecretScan**](docs/SecretScanApi.md#statussecretscan) | **Post** /deepfence/scan/status/secret | Get Secret Scan Status
-*SecretScanApi* | [**StopSecretScan**](docs/SecretScanApi.md#stopsecretscan) | **Post** /deepfence/scan/stop/secret | Stop Secret Scan
-*SettingsApi* | [**AddEmailConfiguration**](docs/SettingsApi.md#addemailconfiguration) | **Post** /deepfence/settings/email | Add Email Configuration
-*SettingsApi* | [**DeleteEmailConfiguration**](docs/SettingsApi.md#deleteemailconfiguration) | **Delete** /deepfence/settings/email/{config_id} | Delete Email Configurations
-*SettingsApi* | [**GetEmailConfiguration**](docs/SettingsApi.md#getemailconfiguration) | **Get** /deepfence/settings/email | Get Email Configurations
-*SettingsApi* | [**GetScheduledTasks**](docs/SettingsApi.md#getscheduledtasks) | **Get** /deepfence/scheduled-task | Get scheduled tasks
-*SettingsApi* | [**GetSettings**](docs/SettingsApi.md#getsettings) | **Get** /deepfence/settings/global-settings | Get settings
-*SettingsApi* | [**GetUserActivityLogs**](docs/SettingsApi.md#getuseractivitylogs) | **Get** /deepfence/settings/user-activity-log | Get activity logs
-*SettingsApi* | [**UpdateScheduledTask**](docs/SettingsApi.md#updatescheduledtask) | **Patch** /deepfence/scheduled-task/{id} | Update scheduled task
-*SettingsApi* | [**UpdateSetting**](docs/SettingsApi.md#updatesetting) | **Patch** /deepfence/settings/global-settings/{id} | Update setting
-*SettingsApi* | [**UploadVulnerabilityDatabase**](docs/SettingsApi.md#uploadvulnerabilitydatabase) | **Put** /deepfence/database/vulnerability | Upload Vulnerability Database
-*ThreatApi* | [**GetThreatGraph**](docs/ThreatApi.md#getthreatgraph) | **Post** /deepfence/graph/threat | Get Threat Graph
-*ThreatApi* | [**GetVulnerabilityThreatGraph**](docs/ThreatApi.md#getvulnerabilitythreatgraph) | **Post** /deepfence/graph/threat/vulnerability | Get Vulnerability Threat Graph
-*TopologyApi* | [**GetContainersTopologyGraph**](docs/TopologyApi.md#getcontainerstopologygraph) | **Post** /deepfence/graph/topology/containers | Get Containers Topology Graph
-*TopologyApi* | [**GetHostsTopologyGraph**](docs/TopologyApi.md#gethoststopologygraph) | **Post** /deepfence/graph/topology/hosts | Get Hosts Topology Graph
-*TopologyApi* | [**GetKubernetesTopologyGraph**](docs/TopologyApi.md#getkubernetestopologygraph) | **Post** /deepfence/graph/topology/kubernetes | Get Kubernetes Topology Graph
-*TopologyApi* | [**GetPodsTopologyGraph**](docs/TopologyApi.md#getpodstopologygraph) | **Post** /deepfence/graph/topology/pods | Get Pods Topology Graph
-*TopologyApi* | [**GetTopologyGraph**](docs/TopologyApi.md#gettopologygraph) | **Post** /deepfence/graph/topology/ | Get Topology Graph
-*TopologyApi* | [**IngestAgentReport**](docs/TopologyApi.md#ingestagentreport) | **Post** /deepfence/ingest/report | Ingest Topology Data
-*TopologyApi* | [**IngestSyncAgentReport**](docs/TopologyApi.md#ingestsyncagentreport) | **Post** /deepfence/ingest/sync-report | Ingest Topology Data
-*UserApi* | [**DeleteCurrentUser**](docs/UserApi.md#deletecurrentuser) | **Delete** /deepfence/user | Delete Current User
-*UserApi* | [**DeleteUser**](docs/UserApi.md#deleteuser) | **Delete** /deepfence/users/{id} | Delete User by User ID
-*UserApi* | [**GetApiTokens**](docs/UserApi.md#getapitokens) | **Get** /deepfence/api-token | Get User&#39;s API Tokens
-*UserApi* | [**GetCurrentUser**](docs/UserApi.md#getcurrentuser) | **Get** /deepfence/user | Get Current User
-*UserApi* | [**GetUser**](docs/UserApi.md#getuser) | **Get** /deepfence/users/{id} | Get User by User ID
-*UserApi* | [**GetUsers**](docs/UserApi.md#getusers) | **Get** /deepfence/users | Get all users
-*UserApi* | [**InviteUser**](docs/UserApi.md#inviteuser) | **Post** /deepfence/user/invite | Invite User
-*UserApi* | [**RegisterInvitedUser**](docs/UserApi.md#registerinviteduser) | **Post** /deepfence/user/invite/register | Register Invited User
-*UserApi* | [**RegisterUser**](docs/UserApi.md#registeruser) | **Post** /deepfence/user/register | Register User
-*UserApi* | [**ResetApiTokens**](docs/UserApi.md#resetapitokens) | **Post** /deepfence/api-token/reset | Reset User&#39;s API Tokens
-*UserApi* | [**ResetPasswordRequest**](docs/UserApi.md#resetpasswordrequest) | **Post** /deepfence/user/reset-password/request | Reset Password Request
-*UserApi* | [**UpdateCurrentUser**](docs/UserApi.md#updatecurrentuser) | **Put** /deepfence/user | Update Current User
-*UserApi* | [**UpdatePassword**](docs/UserApi.md#updatepassword) | **Put** /deepfence/user/password | Update Password
-*UserApi* | [**UpdateUser**](docs/UserApi.md#updateuser) | **Put** /deepfence/users/{id} | Update User by User ID
-*UserApi* | [**VerifyResetPasswordRequest**](docs/UserApi.md#verifyresetpasswordrequest) | **Post** /deepfence/user/reset-password/verify | Verify and Reset Password
-*VulnerabilityApi* | [**CountResultsVulnerabilityScans**](docs/VulnerabilityApi.md#countresultsvulnerabilityscans) | **Post** /deepfence/scan/results/count/vulnerability | Get Vulnerability Scans Results
-*VulnerabilityApi* | [**DownloadSBOM**](docs/VulnerabilityApi.md#downloadsbom) | **Post** /deepfence/scan/sbom/download | Download SBOM for a node or scan id
-*VulnerabilityApi* | [**GetSBOM**](docs/VulnerabilityApi.md#getsbom) | **Post** /deepfence/scan/sbom | Get SBOM for a node or scan id
-*VulnerabilityApi* | [**IngestSbom**](docs/VulnerabilityApi.md#ingestsbom) | **Post** /deepfence/ingest/sbom | Ingest SBOM from Scan
-*VulnerabilityApi* | [**IngestVulnerabilities**](docs/VulnerabilityApi.md#ingestvulnerabilities) | **Post** /deepfence/ingest/vulnerabilities | Ingest Vulnerabilities
-*VulnerabilityApi* | [**IngestVulnerabilitiesScanStatus**](docs/VulnerabilityApi.md#ingestvulnerabilitiesscanstatus) | **Post** /deepfence/ingest/vulnerabilities-scan-logs | Ingest Vulnerabilities Scan Status
-*VulnerabilityApi* | [**ListVulnerabilityScans**](docs/VulnerabilityApi.md#listvulnerabilityscans) | **Post** /deepfence/scan/list/vulnerability | Get Vulnerability Scans List
-*VulnerabilityApi* | [**ResultsVulnerabilityScans**](docs/VulnerabilityApi.md#resultsvulnerabilityscans) | **Post** /deepfence/scan/results/vulnerability | Get Vulnerability Scans Results
-*VulnerabilityApi* | [**StartVulnerabilityScan**](docs/VulnerabilityApi.md#startvulnerabilityscan) | **Post** /deepfence/scan/start/vulnerability | Start Vulnerability Scan
-*VulnerabilityApi* | [**StatusVulnerabilityScan**](docs/VulnerabilityApi.md#statusvulnerabilityscan) | **Post** /deepfence/scan/status/vulnerability | Get Vulnerability Scan Status
-*VulnerabilityApi* | [**StopVulnerabilityScan**](docs/VulnerabilityApi.md#stopvulnerabilityscan) | **Post** /deepfence/scan/stop/vulnerability | Stop Vulnerability Scan
+*AuthenticationAPI* | [**AuthToken**](docs/AuthenticationAPI.md#authtoken) | **Post** /deepfence/auth/token | Get Access Token for API Token
+*AuthenticationAPI* | [**AuthTokenRefresh**](docs/AuthenticationAPI.md#authtokenrefresh) | **Post** /deepfence/auth/token/refresh | Refresh access token
+*AuthenticationAPI* | [**Login**](docs/AuthenticationAPI.md#login) | **Post** /deepfence/user/login | Login API
+*AuthenticationAPI* | [**Logout**](docs/AuthenticationAPI.md#logout) | **Post** /deepfence/user/logout | Logout API
+*CloudNodesAPI* | [**ListCloudNodeAccount**](docs/CloudNodesAPI.md#listcloudnodeaccount) | **Post** /deepfence/cloud-node/list/accounts | List Cloud Node Accounts
+*CloudNodesAPI* | [**ListCloudProviders**](docs/CloudNodesAPI.md#listcloudproviders) | **Get** /deepfence/cloud-node/list/providers | List Cloud Node Providers
+*CloudNodesAPI* | [**RegisterCloudNodeAccount**](docs/CloudNodesAPI.md#registercloudnodeaccount) | **Post** /deepfence/cloud-node/account | Register Cloud Node Account
+*CloudResourcesAPI* | [**IngestCloudResources**](docs/CloudResourcesAPI.md#ingestcloudresources) | **Post** /deepfence/ingest/cloud-resources | Ingest Cloud resources
+*CloudScannerAPI* | [**CountResultsCloudComplianceScan**](docs/CloudScannerAPI.md#countresultscloudcompliancescan) | **Post** /deepfence/scan/results/count/cloud-compliance | Get Cloud Compliance Scan Results
+*CloudScannerAPI* | [**IngestCloudComplianceScanStatus**](docs/CloudScannerAPI.md#ingestcloudcompliancescanstatus) | **Post** /deepfence/ingest/cloud-compliance-scan-status | Ingest Cloud Compliances
+*CloudScannerAPI* | [**IngestCloudCompliances**](docs/CloudScannerAPI.md#ingestcloudcompliances) | **Post** /deepfence/ingest/cloud-compliance | Ingest Cloud Compliances
+*CloudScannerAPI* | [**ListCloudComplianceScan**](docs/CloudScannerAPI.md#listcloudcompliancescan) | **Post** /deepfence/scan/list/cloud-compliance | Get Cloud Compliance Scans List
+*CloudScannerAPI* | [**ResultsCloudComplianceScan**](docs/CloudScannerAPI.md#resultscloudcompliancescan) | **Post** /deepfence/scan/results/cloud-compliance | Get Cloud Compliance Scan Results
+*CloudScannerAPI* | [**StatusCloudComplianceScan**](docs/CloudScannerAPI.md#statuscloudcompliancescan) | **Post** /deepfence/scan/status/cloud-compliance | Get Cloud Compliance Scan Status
+*ComplianceAPI* | [**CountResultsComplianceScan**](docs/ComplianceAPI.md#countresultscompliancescan) | **Post** /deepfence/scan/results/count/compliance | Get Compliance Scans Results
+*ComplianceAPI* | [**IngestCompliances**](docs/ComplianceAPI.md#ingestcompliances) | **Post** /deepfence/ingest/compliance | Ingest Compliances
+*ComplianceAPI* | [**ListComplianceScan**](docs/ComplianceAPI.md#listcompliancescan) | **Post** /deepfence/scan/list/compliance | Get Compliance Scans List
+*ComplianceAPI* | [**ResultsComplianceScan**](docs/ComplianceAPI.md#resultscompliancescan) | **Post** /deepfence/scan/results/compliance | Get Compliance Scans Results
+*ComplianceAPI* | [**StartComplianceScan**](docs/ComplianceAPI.md#startcompliancescan) | **Post** /deepfence/scan/start/compliance | Start Compliance Scan
+*ComplianceAPI* | [**StatusComplianceScan**](docs/ComplianceAPI.md#statuscompliancescan) | **Post** /deepfence/scan/status/compliance | Get Compliance Scan Status
+*ComplianceAPI* | [**StopComplianceScan**](docs/ComplianceAPI.md#stopcompliancescan) | **Post** /deepfence/scan/stop/compliance | Stop Compliance Scan
+*ControlsAPI* | [**DisableCloudNodeControls**](docs/ControlsAPI.md#disablecloudnodecontrols) | **Post** /deepfence/controls/cloud-node/disable | Disable Cloud Node Controls
+*ControlsAPI* | [**EnableCloudNodeControls**](docs/ControlsAPI.md#enablecloudnodecontrols) | **Post** /deepfence/controls/cloud-node/enable | Enable Cloud Node Controls
+*ControlsAPI* | [**GetAgentControls**](docs/ControlsAPI.md#getagentcontrols) | **Post** /deepfence/controls/agent | Fetch Agent Actions
+*ControlsAPI* | [**GetAgentInitControls**](docs/ControlsAPI.md#getagentinitcontrols) | **Post** /deepfence/controls/agent-init | Fetch Agent Init Actions
+*ControlsAPI* | [**GetCloudNodeControls**](docs/ControlsAPI.md#getcloudnodecontrols) | **Post** /deepfence/controls/cloud-node | Fetch Cloud Node Controls
+*ControlsAPI* | [**GetKubernetesClusterControls**](docs/ControlsAPI.md#getkubernetesclustercontrols) | **Post** /deepfence/controls/kubernetes-cluster | Fetch Kubernetes Cluster Actions
+*ControlsAPI* | [**UpgradeAgentVersion**](docs/ControlsAPI.md#upgradeagentversion) | **Post** /deepfence/controls/agent-upgrade | Schedule new agent version upgrade
+*DiagnosisAPI* | [**DiagnosticNotification**](docs/DiagnosisAPI.md#diagnosticnotification) | **Get** /deepfence/diagnosis/notification | Get Diagnostic Notification
+*DiagnosisAPI* | [**GenerateAgentDiagnosticLogs**](docs/DiagnosisAPI.md#generateagentdiagnosticlogs) | **Post** /deepfence/diagnosis/agent-logs | Generate Agent Diagnostic Logs
+*DiagnosisAPI* | [**GenerateConsoleDiagnosticLogs**](docs/DiagnosisAPI.md#generateconsolediagnosticlogs) | **Post** /deepfence/diagnosis/console-logs | Generate Console Diagnostic Logs
+*DiagnosisAPI* | [**GetDiagnosticLogs**](docs/DiagnosisAPI.md#getdiagnosticlogs) | **Get** /deepfence/diagnosis/diagnostic-logs | Get Diagnostic Logs
+*DiagnosisAPI* | [**UpdateAgentDiagnosticLogsStatus**](docs/DiagnosisAPI.md#updateagentdiagnosticlogsstatus) | **Put** /deepfence/diagnosis/agent-logs/status/{node_id} | Update Agent Diagnostic Logs Status
+*IntegrationAPI* | [**AddIntegration**](docs/IntegrationAPI.md#addintegration) | **Post** /deepfence/integration | Add Integration
+*IntegrationAPI* | [**DeleteIntegration**](docs/IntegrationAPI.md#deleteintegration) | **Delete** /deepfence/integration/{integration_id} | Delete Integration
+*IntegrationAPI* | [**ListIntegration**](docs/IntegrationAPI.md#listintegration) | **Get** /deepfence/integration | List Integrations
+*InternalAPI* | [**GetConsoleApiToken**](docs/InternalAPI.md#getconsoleapitoken) | **Get** /deepfence/internal/console-api-token | Get api-token for console agent
+*LookupAPI* | [**GetCloudResources**](docs/LookupAPI.md#getcloudresources) | **Post** /deepfence/lookup/cloud-resources | Get Cloud Resources
+*LookupAPI* | [**GetContainerImages**](docs/LookupAPI.md#getcontainerimages) | **Post** /deepfence/lookup/containerimages | Retrieve Container Images data
+*LookupAPI* | [**GetContainers**](docs/LookupAPI.md#getcontainers) | **Post** /deepfence/lookup/containers | Retrieve Containers data
+*LookupAPI* | [**GetHosts**](docs/LookupAPI.md#gethosts) | **Post** /deepfence/lookup/hosts | Retrieve Hosts data
+*LookupAPI* | [**GetKubernetesClusters**](docs/LookupAPI.md#getkubernetesclusters) | **Post** /deepfence/lookup/kubernetesclusters | Retrieve K8s data
+*LookupAPI* | [**GetPods**](docs/LookupAPI.md#getpods) | **Post** /deepfence/lookup/pods | Retrieve Pods data
+*LookupAPI* | [**GetProcesses**](docs/LookupAPI.md#getprocesses) | **Post** /deepfence/lookup/processes | Retrieve Processes data
+*LookupAPI* | [**GetRegistryAccount**](docs/LookupAPI.md#getregistryaccount) | **Post** /deepfence/lookup/registryaccount | Get Images in Registry
+*MalwareScanAPI* | [**CountResultsMalwareScan**](docs/MalwareScanAPI.md#countresultsmalwarescan) | **Post** /deepfence/scan/results/count/malware | Get Malware Scans Results
+*MalwareScanAPI* | [**GroupResultsMalwares**](docs/MalwareScanAPI.md#groupresultsmalwares) | **Get** /deepfence/scan/results/count/group/malware | Group Malware Results
+*MalwareScanAPI* | [**GroupResultsMalwaresClass**](docs/MalwareScanAPI.md#groupresultsmalwaresclass) | **Get** /deepfence/scan/results/count/group/malware/class | Group Malware Results By Class
+*MalwareScanAPI* | [**IngestMalware**](docs/MalwareScanAPI.md#ingestmalware) | **Post** /deepfence/ingest/malware | Ingest Malware
+*MalwareScanAPI* | [**IngestMalwareScanStatus**](docs/MalwareScanAPI.md#ingestmalwarescanstatus) | **Post** /deepfence/ingest/malware-scan-logs | Ingest Malware Scan Status
+*MalwareScanAPI* | [**ListMalwareScan**](docs/MalwareScanAPI.md#listmalwarescan) | **Post** /deepfence/scan/list/malware | Get Malware Scans List
+*MalwareScanAPI* | [**ResultsMalwareScan**](docs/MalwareScanAPI.md#resultsmalwarescan) | **Post** /deepfence/scan/results/malware | Get Malware Scans Results
+*MalwareScanAPI* | [**StartMalwareScan**](docs/MalwareScanAPI.md#startmalwarescan) | **Post** /deepfence/scan/start/malware | Start Malware Scan
+*MalwareScanAPI* | [**StatusMalwareScan**](docs/MalwareScanAPI.md#statusmalwarescan) | **Post** /deepfence/scan/status/malware | Get Malware Scan Status
+*MalwareScanAPI* | [**StopMalwareScan**](docs/MalwareScanAPI.md#stopmalwarescan) | **Post** /deepfence/scan/stop/malware | Stop Malware Scan
+*RegistryAPI* | [**AddRegistry**](docs/RegistryAPI.md#addregistry) | **Post** /deepfence/registryaccount | Add Registry
+*RegistryAPI* | [**AddRegistryGCR**](docs/RegistryAPI.md#addregistrygcr) | **Post** /deepfence/registryaccount/gcr | Add Google Container Registry
+*RegistryAPI* | [**CountImageStubs**](docs/RegistryAPI.md#countimagestubs) | **Post** /deepfence/registryaccount/count/stubs | Count Image Stubs
+*RegistryAPI* | [**CountImages**](docs/RegistryAPI.md#countimages) | **Post** /deepfence/registryaccount/count/images | Count Registry Images
+*RegistryAPI* | [**DeleteRegistry**](docs/RegistryAPI.md#deleteregistry) | **Delete** /deepfence/registryaccount/{registry_id} | Delete Registry
+*RegistryAPI* | [**GetRegistrySummary**](docs/RegistryAPI.md#getregistrysummary) | **Get** /deepfence/registryaccount/{registry_id}/summary | Get Registry Summary
+*RegistryAPI* | [**GetSummaryAll**](docs/RegistryAPI.md#getsummaryall) | **Get** /deepfence/registryaccount/summary | Get All Registries Summary By Type
+*RegistryAPI* | [**GetSummaryByType**](docs/RegistryAPI.md#getsummarybytype) | **Get** /deepfence/registryaccount/{registry_type}/summary-by-type | Get Registry Summary By Type
+*RegistryAPI* | [**ListImageStubs**](docs/RegistryAPI.md#listimagestubs) | **Post** /deepfence/registryaccount/stubs | List Image Stubs
+*RegistryAPI* | [**ListImages**](docs/RegistryAPI.md#listimages) | **Post** /deepfence/registryaccount/images | List Registry Images
+*RegistryAPI* | [**ListRegistry**](docs/RegistryAPI.md#listregistry) | **Get** /deepfence/registryaccount | List Registries
+*RegistryAPI* | [**UpdateRegistry**](docs/RegistryAPI.md#updateregistry) | **Put** /deepfence/registryaccount/{registry_id} | Update Registry
+*ReportsAPI* | [**DeleteReport**](docs/ReportsAPI.md#deletereport) | **Delete** /deepfence/reports/{report_id} | Delete Report
+*ReportsAPI* | [**GenerateReport**](docs/ReportsAPI.md#generatereport) | **Post** /deepfence/reports | Generate Report
+*ReportsAPI* | [**GetReport**](docs/ReportsAPI.md#getreport) | **Get** /deepfence/reports/{report_id} | Get Report
+*ReportsAPI* | [**ListReports**](docs/ReportsAPI.md#listreports) | **Get** /deepfence/reports | List Reports
+*ScanResultsAPI* | [**BulkDeleteScans**](docs/ScanResultsAPI.md#bulkdeletescans) | **Post** /deepfence/scans/bulk/delete | Bulk Delete Scans
+*ScanResultsAPI* | [**DeleteScanResult**](docs/ScanResultsAPI.md#deletescanresult) | **Patch** /deepfence/scan/results/action/delete | Delete selected scan results
+*ScanResultsAPI* | [**DeleteScanResultsForScanID**](docs/ScanResultsAPI.md#deletescanresultsforscanid) | **Delete** /deepfence/scan/{scan_type}/{scan_id} | Delete all scan results for a scan id
+*ScanResultsAPI* | [**DownloadScanResults**](docs/ScanResultsAPI.md#downloadscanresults) | **Get** /deepfence/scan/{scan_type}/{scan_id}/download | Download Scans Results
+*ScanResultsAPI* | [**GetAllNodesInScanResults**](docs/ScanResultsAPI.md#getallnodesinscanresults) | **Post** /deepfence/scan/nodes-in-result | Get all nodes in given scan result ids
+*ScanResultsAPI* | [**MaskScanResult**](docs/ScanResultsAPI.md#maskscanresult) | **Post** /deepfence/scan/results/action/mask | Mask Scans Results
+*ScanResultsAPI* | [**NotifyScanResult**](docs/ScanResultsAPI.md#notifyscanresult) | **Post** /deepfence/scan/results/action/notify | Notify Scans Results
+*ScanResultsAPI* | [**UnmaskScanResult**](docs/ScanResultsAPI.md#unmaskscanresult) | **Post** /deepfence/scan/results/action/unmask | Unmask Scans Results
+*SearchAPI* | [**CountCloudComplianceScans**](docs/SearchAPI.md#countcloudcompliancescans) | **Post** /deepfence/search/count/cloud-compliance/scans | Count Cloud Compliance Scan results
+*SearchAPI* | [**CountCloudCompliances**](docs/SearchAPI.md#countcloudcompliances) | **Post** /deepfence/search/count/cloud-compliances | Count Cloud compliances
+*SearchAPI* | [**CountCloudResources**](docs/SearchAPI.md#countcloudresources) | **Post** /deepfence/search/count/cloud-resources | Count Cloud resources
+*SearchAPI* | [**CountComplianceScans**](docs/SearchAPI.md#countcompliancescans) | **Post** /deepfence/search/count/compliance/scans | Count Compliance Scan results
+*SearchAPI* | [**CountCompliances**](docs/SearchAPI.md#countcompliances) | **Post** /deepfence/search/count/compliances | Count Compliances
+*SearchAPI* | [**CountContainerImages**](docs/SearchAPI.md#countcontainerimages) | **Post** /deepfence/search/count/images | Count Container images
+*SearchAPI* | [**CountContainers**](docs/SearchAPI.md#countcontainers) | **Post** /deepfence/search/count/containers | Count Containers data
+*SearchAPI* | [**CountHosts**](docs/SearchAPI.md#counthosts) | **Post** /deepfence/search/count/hosts | Count hosts
+*SearchAPI* | [**CountKubernetesClusters**](docs/SearchAPI.md#countkubernetesclusters) | **Post** /deepfence/search/count/kubernetes-clusters | Count Kubernetes clusters
+*SearchAPI* | [**CountMalwareScans**](docs/SearchAPI.md#countmalwarescans) | **Post** /deepfence/search/count/malware/scans | Count Malware Scan results
+*SearchAPI* | [**CountMalwares**](docs/SearchAPI.md#countmalwares) | **Post** /deepfence/search/count/malwares | Count Malwares
+*SearchAPI* | [**CountNodes**](docs/SearchAPI.md#countnodes) | **Get** /deepfence/search/count/nodes | Count nodes
+*SearchAPI* | [**CountPods**](docs/SearchAPI.md#countpods) | **Post** /deepfence/search/count/pods | Count Pods
+*SearchAPI* | [**CountSecrets**](docs/SearchAPI.md#countsecrets) | **Post** /deepfence/search/count/secrets | Count Secrets
+*SearchAPI* | [**CountSecretsScans**](docs/SearchAPI.md#countsecretsscans) | **Post** /deepfence/search/count/secret/scans | Count Secret Scan results
+*SearchAPI* | [**CountVulnerabilities**](docs/SearchAPI.md#countvulnerabilities) | **Post** /deepfence/search/count/vulnerabilities | Count Vulnerabilities
+*SearchAPI* | [**CountVulnerabilityScans**](docs/SearchAPI.md#countvulnerabilityscans) | **Post** /deepfence/search/count/vulnerability/scans | Count Vulnerability Scan results
+*SearchAPI* | [**GetCloudComplianceFilters**](docs/SearchAPI.md#getcloudcompliancefilters) | **Post** /deepfence/filters/cloud-compliance | Get Cloud Compliance Filters
+*SearchAPI* | [**GetComplianceFilters**](docs/SearchAPI.md#getcompliancefilters) | **Post** /deepfence/filters/compliance | Get Compliance Filters
+*SearchAPI* | [**SearchCloudComplianceScans**](docs/SearchAPI.md#searchcloudcompliancescans) | **Post** /deepfence/search/cloud-compliance/scans | Search Cloud Compliance Scan results
+*SearchAPI* | [**SearchCloudCompliances**](docs/SearchAPI.md#searchcloudcompliances) | **Post** /deepfence/search/cloud-compliances | Search Cloud compliances
+*SearchAPI* | [**SearchCloudNodes**](docs/SearchAPI.md#searchcloudnodes) | **Post** /deepfence/search/cloud-nodes | Search Cloud Nodes
+*SearchAPI* | [**SearchCloudResources**](docs/SearchAPI.md#searchcloudresources) | **Post** /deepfence/search/cloud-resources | Search Cloud Resources
+*SearchAPI* | [**SearchComplianceScans**](docs/SearchAPI.md#searchcompliancescans) | **Post** /deepfence/search/compliance/scans | Search Compliance Scan results
+*SearchAPI* | [**SearchCompliances**](docs/SearchAPI.md#searchcompliances) | **Post** /deepfence/search/compliances | Search Compliances
+*SearchAPI* | [**SearchContainerImages**](docs/SearchAPI.md#searchcontainerimages) | **Post** /deepfence/search/images | Search Container images
+*SearchAPI* | [**SearchContainers**](docs/SearchAPI.md#searchcontainers) | **Post** /deepfence/search/containers | Search Containers data
+*SearchAPI* | [**SearchHosts**](docs/SearchAPI.md#searchhosts) | **Post** /deepfence/search/hosts | Search hosts
+*SearchAPI* | [**SearchKubernetesClusters**](docs/SearchAPI.md#searchkubernetesclusters) | **Post** /deepfence/search/kubernetes-clusters | Search Kuberenetes Clusters
+*SearchAPI* | [**SearchMalwareScans**](docs/SearchAPI.md#searchmalwarescans) | **Post** /deepfence/search/malware/scans | Search Malware Scan results
+*SearchAPI* | [**SearchMalwares**](docs/SearchAPI.md#searchmalwares) | **Post** /deepfence/search/malwares | Search Malwares
+*SearchAPI* | [**SearchPods**](docs/SearchAPI.md#searchpods) | **Post** /deepfence/search/pods | Search Pods
+*SearchAPI* | [**SearchSecrets**](docs/SearchAPI.md#searchsecrets) | **Post** /deepfence/search/secrets | Search Secrets
+*SearchAPI* | [**SearchSecretsScans**](docs/SearchAPI.md#searchsecretsscans) | **Post** /deepfence/search/secret/scans | Search Secrets Scan results
+*SearchAPI* | [**SearchVulnerabilities**](docs/SearchAPI.md#searchvulnerabilities) | **Post** /deepfence/search/vulnerabilities | Search Vulnerabilities
+*SearchAPI* | [**SearchVulnerabilityScans**](docs/SearchAPI.md#searchvulnerabilityscans) | **Post** /deepfence/search/vulnerability/scans | Search Vulnerability Scan results
+*SecretScanAPI* | [**CountResultsSecretScan**](docs/SecretScanAPI.md#countresultssecretscan) | **Post** /deepfence/scan/results/count/secret | Get Secret Scans Results
+*SecretScanAPI* | [**GroupResultsSecrets**](docs/SecretScanAPI.md#groupresultssecrets) | **Get** /deepfence/scan/results/count/group/secret | Group Secret Results
+*SecretScanAPI* | [**IngestSecretScanStatus**](docs/SecretScanAPI.md#ingestsecretscanstatus) | **Post** /deepfence/ingest/secret-scan-logs | Ingest Secrets Scan Status
+*SecretScanAPI* | [**IngestSecrets**](docs/SecretScanAPI.md#ingestsecrets) | **Post** /deepfence/ingest/secrets | Ingest Secrets
+*SecretScanAPI* | [**ListSecretScan**](docs/SecretScanAPI.md#listsecretscan) | **Post** /deepfence/scan/list/secret | Get Secret Scans List
+*SecretScanAPI* | [**ResultsSecretScan**](docs/SecretScanAPI.md#resultssecretscan) | **Post** /deepfence/scan/results/secret | Get Secret Scans Results
+*SecretScanAPI* | [**StartSecretScan**](docs/SecretScanAPI.md#startsecretscan) | **Post** /deepfence/scan/start/secret | Start Secret Scan
+*SecretScanAPI* | [**StatusSecretScan**](docs/SecretScanAPI.md#statussecretscan) | **Post** /deepfence/scan/status/secret | Get Secret Scan Status
+*SecretScanAPI* | [**StopSecretScan**](docs/SecretScanAPI.md#stopsecretscan) | **Post** /deepfence/scan/stop/secret | Stop Secret Scan
+*SettingsAPI* | [**AddEmailConfiguration**](docs/SettingsAPI.md#addemailconfiguration) | **Post** /deepfence/settings/email | Add Email Configuration
+*SettingsAPI* | [**DeleteEmailConfiguration**](docs/SettingsAPI.md#deleteemailconfiguration) | **Delete** /deepfence/settings/email/{config_id} | Delete Email Configurations
+*SettingsAPI* | [**GetEmailConfiguration**](docs/SettingsAPI.md#getemailconfiguration) | **Get** /deepfence/settings/email | Get Email Configurations
+*SettingsAPI* | [**GetScheduledTasks**](docs/SettingsAPI.md#getscheduledtasks) | **Get** /deepfence/scheduled-task | Get scheduled tasks
+*SettingsAPI* | [**GetSettings**](docs/SettingsAPI.md#getsettings) | **Get** /deepfence/settings/global-settings | Get settings
+*SettingsAPI* | [**GetUserActivityLogs**](docs/SettingsAPI.md#getuseractivitylogs) | **Get** /deepfence/settings/user-activity-log | Get activity logs
+*SettingsAPI* | [**UpdateScheduledTask**](docs/SettingsAPI.md#updatescheduledtask) | **Patch** /deepfence/scheduled-task/{id} | Update scheduled task
+*SettingsAPI* | [**UpdateSetting**](docs/SettingsAPI.md#updatesetting) | **Patch** /deepfence/settings/global-settings/{id} | Update setting
+*SettingsAPI* | [**UploadVulnerabilityDatabase**](docs/SettingsAPI.md#uploadvulnerabilitydatabase) | **Put** /deepfence/database/vulnerability | Upload Vulnerability Database
+*ThreatAPI* | [**GetThreatGraph**](docs/ThreatAPI.md#getthreatgraph) | **Post** /deepfence/graph/threat | Get Threat Graph
+*ThreatAPI* | [**GetVulnerabilityThreatGraph**](docs/ThreatAPI.md#getvulnerabilitythreatgraph) | **Post** /deepfence/graph/threat/vulnerability | Get Vulnerability Threat Graph
+*TopologyAPI* | [**GetContainersTopologyGraph**](docs/TopologyAPI.md#getcontainerstopologygraph) | **Post** /deepfence/graph/topology/containers | Get Containers Topology Graph
+*TopologyAPI* | [**GetHostsTopologyGraph**](docs/TopologyAPI.md#gethoststopologygraph) | **Post** /deepfence/graph/topology/hosts | Get Hosts Topology Graph
+*TopologyAPI* | [**GetKubernetesTopologyGraph**](docs/TopologyAPI.md#getkubernetestopologygraph) | **Post** /deepfence/graph/topology/kubernetes | Get Kubernetes Topology Graph
+*TopologyAPI* | [**GetPodsTopologyGraph**](docs/TopologyAPI.md#getpodstopologygraph) | **Post** /deepfence/graph/topology/pods | Get Pods Topology Graph
+*TopologyAPI* | [**GetTopologyGraph**](docs/TopologyAPI.md#gettopologygraph) | **Post** /deepfence/graph/topology/ | Get Topology Graph
+*TopologyAPI* | [**IngestAgentReport**](docs/TopologyAPI.md#ingestagentreport) | **Post** /deepfence/ingest/report | Ingest Topology Data
+*TopologyAPI* | [**IngestSyncAgentReport**](docs/TopologyAPI.md#ingestsyncagentreport) | **Post** /deepfence/ingest/sync-report | Ingest Topology Data
+*UserAPI* | [**DeleteCurrentUser**](docs/UserAPI.md#deletecurrentuser) | **Delete** /deepfence/user | Delete Current User
+*UserAPI* | [**DeleteUser**](docs/UserAPI.md#deleteuser) | **Delete** /deepfence/users/{id} | Delete User by User ID
+*UserAPI* | [**GetApiTokens**](docs/UserAPI.md#getapitokens) | **Get** /deepfence/api-token | Get User&#39;s API Tokens
+*UserAPI* | [**GetCurrentUser**](docs/UserAPI.md#getcurrentuser) | **Get** /deepfence/user | Get Current User
+*UserAPI* | [**GetUser**](docs/UserAPI.md#getuser) | **Get** /deepfence/users/{id} | Get User by User ID
+*UserAPI* | [**GetUsers**](docs/UserAPI.md#getusers) | **Get** /deepfence/users | Get all users
+*UserAPI* | [**InviteUser**](docs/UserAPI.md#inviteuser) | **Post** /deepfence/user/invite | Invite User
+*UserAPI* | [**RegisterInvitedUser**](docs/UserAPI.md#registerinviteduser) | **Post** /deepfence/user/invite/register | Register Invited User
+*UserAPI* | [**RegisterUser**](docs/UserAPI.md#registeruser) | **Post** /deepfence/user/register | Register User
+*UserAPI* | [**ResetApiTokens**](docs/UserAPI.md#resetapitokens) | **Post** /deepfence/api-token/reset | Reset User&#39;s API Tokens
+*UserAPI* | [**ResetPasswordRequest**](docs/UserAPI.md#resetpasswordrequest) | **Post** /deepfence/user/reset-password/request | Reset Password Request
+*UserAPI* | [**UpdateCurrentUser**](docs/UserAPI.md#updatecurrentuser) | **Put** /deepfence/user | Update Current User
+*UserAPI* | [**UpdatePassword**](docs/UserAPI.md#updatepassword) | **Put** /deepfence/user/password | Update Password
+*UserAPI* | [**UpdateUser**](docs/UserAPI.md#updateuser) | **Put** /deepfence/users/{id} | Update User by User ID
+*UserAPI* | [**VerifyResetPasswordRequest**](docs/UserAPI.md#verifyresetpasswordrequest) | **Post** /deepfence/user/reset-password/verify | Verify and Reset Password
+*VulnerabilityAPI* | [**CountResultsVulnerabilityScans**](docs/VulnerabilityAPI.md#countresultsvulnerabilityscans) | **Post** /deepfence/scan/results/count/vulnerability | Get Vulnerability Scans Results
+*VulnerabilityAPI* | [**DownloadSBOM**](docs/VulnerabilityAPI.md#downloadsbom) | **Post** /deepfence/scan/sbom/download | Download SBOM for a node or scan id
+*VulnerabilityAPI* | [**GetSBOM**](docs/VulnerabilityAPI.md#getsbom) | **Post** /deepfence/scan/sbom | Get SBOM for a node or scan id
+*VulnerabilityAPI* | [**IngestSbom**](docs/VulnerabilityAPI.md#ingestsbom) | **Post** /deepfence/ingest/sbom | Ingest SBOM from Scan
+*VulnerabilityAPI* | [**IngestVulnerabilities**](docs/VulnerabilityAPI.md#ingestvulnerabilities) | **Post** /deepfence/ingest/vulnerabilities | Ingest Vulnerabilities
+*VulnerabilityAPI* | [**IngestVulnerabilitiesScanStatus**](docs/VulnerabilityAPI.md#ingestvulnerabilitiesscanstatus) | **Post** /deepfence/ingest/vulnerabilities-scan-logs | Ingest Vulnerabilities Scan Status
+*VulnerabilityAPI* | [**ListVulnerabilityScans**](docs/VulnerabilityAPI.md#listvulnerabilityscans) | **Post** /deepfence/scan/list/vulnerability | Get Vulnerability Scans List
+*VulnerabilityAPI* | [**ResultsVulnerabilityScans**](docs/VulnerabilityAPI.md#resultsvulnerabilityscans) | **Post** /deepfence/scan/results/vulnerability | Get Vulnerability Scans Results
+*VulnerabilityAPI* | [**StartVulnerabilityScan**](docs/VulnerabilityAPI.md#startvulnerabilityscan) | **Post** /deepfence/scan/start/vulnerability | Start Vulnerability Scan
+*VulnerabilityAPI* | [**StatusVulnerabilityScan**](docs/VulnerabilityAPI.md#statusvulnerabilityscan) | **Post** /deepfence/scan/status/vulnerability | Get Vulnerability Scan Status
+*VulnerabilityAPI* | [**StopVulnerabilityScan**](docs/VulnerabilityAPI.md#stopvulnerabilityscan) | **Post** /deepfence/scan/stop/vulnerability | Stop Vulnerability Scan
 
 
 ## Documentation For Models
@@ -397,6 +401,8 @@ Class | Method | HTTP request | Description
  - [ReportersOrderFilter](docs/ReportersOrderFilter.md)
  - [ReportersOrderSpec](docs/ReportersOrderSpec.md)
  - [SearchNodeCountResp](docs/SearchNodeCountResp.md)
+ - [SearchResultGroup](docs/SearchResultGroup.md)
+ - [SearchResultGroupResp](docs/SearchResultGroupResp.md)
  - [SearchSearchCountResp](docs/SearchSearchCountResp.md)
  - [SearchSearchFilter](docs/SearchSearchFilter.md)
  - [SearchSearchNodeReq](docs/SearchSearchNodeReq.md)
@@ -409,7 +415,7 @@ Class | Method | HTTP request | Description
 ## Documentation For Authorization
 
 
-
+Authentication schemes defined for the API:
 ### bearer_token
 
 - **Type**: HTTP Bearer token authentication

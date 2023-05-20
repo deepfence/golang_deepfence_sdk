@@ -562,11 +562,11 @@ func (q *Queries) DeleteIntegrationByUserID(ctx context.Context, createdByUserID
 const deletePasswordResetByExpiry = `-- name: DeletePasswordResetByExpiry :exec
 DELETE
 FROM password_reset
-WHERE expiry >= $1
+WHERE expiry < now()
 `
 
-func (q *Queries) DeletePasswordResetByExpiry(ctx context.Context, expiry time.Time) error {
-	_, err := q.db.ExecContext(ctx, deletePasswordResetByExpiry, expiry)
+func (q *Queries) DeletePasswordResetByExpiry(ctx context.Context) error {
+	_, err := q.db.ExecContext(ctx, deletePasswordResetByExpiry)
 	return err
 }
 
@@ -619,11 +619,11 @@ func (q *Queries) DeleteUser(ctx context.Context, id int64) error {
 const deleteUserInviteByExpiry = `-- name: DeleteUserInviteByExpiry :exec
 DELETE
 FROM user_invite
-WHERE expiry >= $1
+WHERE expiry < now()
 `
 
-func (q *Queries) DeleteUserInviteByExpiry(ctx context.Context, expiry time.Time) error {
-	_, err := q.db.ExecContext(ctx, deleteUserInviteByExpiry, expiry)
+func (q *Queries) DeleteUserInviteByExpiry(ctx context.Context) error {
+	_, err := q.db.ExecContext(ctx, deleteUserInviteByExpiry)
 	return err
 }
 

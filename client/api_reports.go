@@ -21,12 +21,12 @@ import (
 )
 
 
-// ReportsApiService ReportsApi service
-type ReportsApiService service
+// ReportsAPIService ReportsAPI service
+type ReportsAPIService service
 
 type ApiDeleteReportRequest struct {
 	ctx context.Context
-	ApiService *ReportsApiService
+	ApiService *ReportsAPIService
 	reportId string
 }
 
@@ -43,7 +43,7 @@ delete report for given report_id
  @param reportId
  @return ApiDeleteReportRequest
 */
-func (a *ReportsApiService) DeleteReport(ctx context.Context, reportId string) ApiDeleteReportRequest {
+func (a *ReportsAPIService) DeleteReport(ctx context.Context, reportId string) ApiDeleteReportRequest {
 	return ApiDeleteReportRequest{
 		ApiService: a,
 		ctx: ctx,
@@ -52,14 +52,14 @@ func (a *ReportsApiService) DeleteReport(ctx context.Context, reportId string) A
 }
 
 // Execute executes the request
-func (a *ReportsApiService) DeleteReportExecute(r ApiDeleteReportRequest) (*http.Response, error) {
+func (a *ReportsAPIService) DeleteReportExecute(r ApiDeleteReportRequest) (*http.Response, error) {
 	var (
 		localVarHTTPMethod   = http.MethodDelete
 		localVarPostBody     interface{}
 		formFiles            []formFile
 	)
 
-	localBasePath, err := a.client.cfg.ServerURLWithContext(r.ctx, "ReportsApiService.DeleteReport")
+	localBasePath, err := a.client.cfg.ServerURLWithContext(r.ctx, "ReportsAPIService.DeleteReport")
 	if err != nil {
 		return nil, &GenericOpenAPIError{error: err.Error()}
 	}
@@ -150,7 +150,7 @@ func (a *ReportsApiService) DeleteReportExecute(r ApiDeleteReportRequest) (*http
 
 type ApiGenerateReportRequest struct {
 	ctx context.Context
-	ApiService *ReportsApiService
+	ApiService *ReportsAPIService
 	modelGenerateReportReq *ModelGenerateReportReq
 }
 
@@ -171,7 +171,7 @@ generate report for given type and filters
  @param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
  @return ApiGenerateReportRequest
 */
-func (a *ReportsApiService) GenerateReport(ctx context.Context) ApiGenerateReportRequest {
+func (a *ReportsAPIService) GenerateReport(ctx context.Context) ApiGenerateReportRequest {
 	return ApiGenerateReportRequest{
 		ApiService: a,
 		ctx: ctx,
@@ -180,7 +180,7 @@ func (a *ReportsApiService) GenerateReport(ctx context.Context) ApiGenerateRepor
 
 // Execute executes the request
 //  @return ModelGenerateReportResp
-func (a *ReportsApiService) GenerateReportExecute(r ApiGenerateReportRequest) (*ModelGenerateReportResp, *http.Response, error) {
+func (a *ReportsAPIService) GenerateReportExecute(r ApiGenerateReportRequest) (*ModelGenerateReportResp, *http.Response, error) {
 	var (
 		localVarHTTPMethod   = http.MethodPost
 		localVarPostBody     interface{}
@@ -188,7 +188,7 @@ func (a *ReportsApiService) GenerateReportExecute(r ApiGenerateReportRequest) (*
 		localVarReturnValue  *ModelGenerateReportResp
 	)
 
-	localBasePath, err := a.client.cfg.ServerURLWithContext(r.ctx, "ReportsApiService.GenerateReport")
+	localBasePath, err := a.client.cfg.ServerURLWithContext(r.ctx, "ReportsAPIService.GenerateReport")
 	if err != nil {
 		return localVarReturnValue, nil, &GenericOpenAPIError{error: err.Error()}
 	}
@@ -289,7 +289,7 @@ func (a *ReportsApiService) GenerateReportExecute(r ApiGenerateReportRequest) (*
 
 type ApiGetReportRequest struct {
 	ctx context.Context
-	ApiService *ReportsApiService
+	ApiService *ReportsAPIService
 	reportId string
 }
 
@@ -306,7 +306,7 @@ get report by report_id
  @param reportId
  @return ApiGetReportRequest
 */
-func (a *ReportsApiService) GetReport(ctx context.Context, reportId string) ApiGetReportRequest {
+func (a *ReportsAPIService) GetReport(ctx context.Context, reportId string) ApiGetReportRequest {
 	return ApiGetReportRequest{
 		ApiService: a,
 		ctx: ctx,
@@ -316,7 +316,7 @@ func (a *ReportsApiService) GetReport(ctx context.Context, reportId string) ApiG
 
 // Execute executes the request
 //  @return ModelExportReport
-func (a *ReportsApiService) GetReportExecute(r ApiGetReportRequest) (*ModelExportReport, *http.Response, error) {
+func (a *ReportsAPIService) GetReportExecute(r ApiGetReportRequest) (*ModelExportReport, *http.Response, error) {
 	var (
 		localVarHTTPMethod   = http.MethodGet
 		localVarPostBody     interface{}
@@ -324,7 +324,7 @@ func (a *ReportsApiService) GetReportExecute(r ApiGetReportRequest) (*ModelExpor
 		localVarReturnValue  *ModelExportReport
 	)
 
-	localBasePath, err := a.client.cfg.ServerURLWithContext(r.ctx, "ReportsApiService.GetReport")
+	localBasePath, err := a.client.cfg.ServerURLWithContext(r.ctx, "ReportsAPIService.GetReport")
 	if err != nil {
 		return localVarReturnValue, nil, &GenericOpenAPIError{error: err.Error()}
 	}
@@ -424,7 +424,7 @@ func (a *ReportsApiService) GetReportExecute(r ApiGetReportRequest) (*ModelExpor
 
 type ApiListReportsRequest struct {
 	ctx context.Context
-	ApiService *ReportsApiService
+	ApiService *ReportsAPIService
 }
 
 func (r ApiListReportsRequest) Execute() ([]ModelExportReport, *http.Response, error) {
@@ -439,7 +439,7 @@ List all the available reports
  @param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
  @return ApiListReportsRequest
 */
-func (a *ReportsApiService) ListReports(ctx context.Context) ApiListReportsRequest {
+func (a *ReportsAPIService) ListReports(ctx context.Context) ApiListReportsRequest {
 	return ApiListReportsRequest{
 		ApiService: a,
 		ctx: ctx,
@@ -448,7 +448,7 @@ func (a *ReportsApiService) ListReports(ctx context.Context) ApiListReportsReque
 
 // Execute executes the request
 //  @return []ModelExportReport
-func (a *ReportsApiService) ListReportsExecute(r ApiListReportsRequest) ([]ModelExportReport, *http.Response, error) {
+func (a *ReportsAPIService) ListReportsExecute(r ApiListReportsRequest) ([]ModelExportReport, *http.Response, error) {
 	var (
 		localVarHTTPMethod   = http.MethodGet
 		localVarPostBody     interface{}
@@ -456,7 +456,7 @@ func (a *ReportsApiService) ListReportsExecute(r ApiListReportsRequest) ([]Model
 		localVarReturnValue  []ModelExportReport
 	)
 
-	localBasePath, err := a.client.cfg.ServerURLWithContext(r.ctx, "ReportsApiService.ListReports")
+	localBasePath, err := a.client.cfg.ServerURLWithContext(r.ctx, "ReportsAPIService.ListReports")
 	if err != nil {
 		return localVarReturnValue, nil, &GenericOpenAPIError{error: err.Error()}
 	}

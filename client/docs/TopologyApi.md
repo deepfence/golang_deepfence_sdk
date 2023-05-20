@@ -1,16 +1,16 @@
-# \TopologyApi
+# \TopologyAPI
 
 All URIs are relative to *http://localhost*
 
 Method | HTTP request | Description
 ------------- | ------------- | -------------
-[**GetContainersTopologyGraph**](TopologyApi.md#GetContainersTopologyGraph) | **Post** /deepfence/graph/topology/containers | Get Containers Topology Graph
-[**GetHostsTopologyGraph**](TopologyApi.md#GetHostsTopologyGraph) | **Post** /deepfence/graph/topology/hosts | Get Hosts Topology Graph
-[**GetKubernetesTopologyGraph**](TopologyApi.md#GetKubernetesTopologyGraph) | **Post** /deepfence/graph/topology/kubernetes | Get Kubernetes Topology Graph
-[**GetPodsTopologyGraph**](TopologyApi.md#GetPodsTopologyGraph) | **Post** /deepfence/graph/topology/pods | Get Pods Topology Graph
-[**GetTopologyGraph**](TopologyApi.md#GetTopologyGraph) | **Post** /deepfence/graph/topology/ | Get Topology Graph
-[**IngestAgentReport**](TopologyApi.md#IngestAgentReport) | **Post** /deepfence/ingest/report | Ingest Topology Data
-[**IngestSyncAgentReport**](TopologyApi.md#IngestSyncAgentReport) | **Post** /deepfence/ingest/sync-report | Ingest Topology Data
+[**GetContainersTopologyGraph**](TopologyAPI.md#GetContainersTopologyGraph) | **Post** /deepfence/graph/topology/containers | Get Containers Topology Graph
+[**GetHostsTopologyGraph**](TopologyAPI.md#GetHostsTopologyGraph) | **Post** /deepfence/graph/topology/hosts | Get Hosts Topology Graph
+[**GetKubernetesTopologyGraph**](TopologyAPI.md#GetKubernetesTopologyGraph) | **Post** /deepfence/graph/topology/kubernetes | Get Kubernetes Topology Graph
+[**GetPodsTopologyGraph**](TopologyAPI.md#GetPodsTopologyGraph) | **Post** /deepfence/graph/topology/pods | Get Pods Topology Graph
+[**GetTopologyGraph**](TopologyAPI.md#GetTopologyGraph) | **Post** /deepfence/graph/topology/ | Get Topology Graph
+[**IngestAgentReport**](TopologyAPI.md#IngestAgentReport) | **Post** /deepfence/ingest/report | Ingest Topology Data
+[**IngestSyncAgentReport**](TopologyAPI.md#IngestSyncAgentReport) | **Post** /deepfence/ingest/sync-report | Ingest Topology Data
 
 
 
@@ -39,13 +39,13 @@ func main() {
 
     configuration := openapiclient.NewConfiguration()
     apiClient := openapiclient.NewAPIClient(configuration)
-    resp, r, err := apiClient.TopologyApi.GetContainersTopologyGraph(context.Background()).GraphTopologyFilters(graphTopologyFilters).Execute()
+    resp, r, err := apiClient.TopologyAPI.GetContainersTopologyGraph(context.Background()).GraphTopologyFilters(graphTopologyFilters).Execute()
     if err != nil {
-        fmt.Fprintf(os.Stderr, "Error when calling `TopologyApi.GetContainersTopologyGraph``: %v\n", err)
+        fmt.Fprintf(os.Stderr, "Error when calling `TopologyAPI.GetContainersTopologyGraph``: %v\n", err)
         fmt.Fprintf(os.Stderr, "Full HTTP response: %v\n", r)
     }
     // response from `GetContainersTopologyGraph`: ApiDocsGraphResult
-    fmt.Fprintf(os.Stdout, "Response from `TopologyApi.GetContainersTopologyGraph`: %v\n", resp)
+    fmt.Fprintf(os.Stdout, "Response from `TopologyAPI.GetContainersTopologyGraph`: %v\n", resp)
 }
 ```
 
@@ -105,13 +105,13 @@ func main() {
 
     configuration := openapiclient.NewConfiguration()
     apiClient := openapiclient.NewAPIClient(configuration)
-    resp, r, err := apiClient.TopologyApi.GetHostsTopologyGraph(context.Background()).GraphTopologyFilters(graphTopologyFilters).Execute()
+    resp, r, err := apiClient.TopologyAPI.GetHostsTopologyGraph(context.Background()).GraphTopologyFilters(graphTopologyFilters).Execute()
     if err != nil {
-        fmt.Fprintf(os.Stderr, "Error when calling `TopologyApi.GetHostsTopologyGraph``: %v\n", err)
+        fmt.Fprintf(os.Stderr, "Error when calling `TopologyAPI.GetHostsTopologyGraph``: %v\n", err)
         fmt.Fprintf(os.Stderr, "Full HTTP response: %v\n", r)
     }
     // response from `GetHostsTopologyGraph`: ApiDocsGraphResult
-    fmt.Fprintf(os.Stdout, "Response from `TopologyApi.GetHostsTopologyGraph`: %v\n", resp)
+    fmt.Fprintf(os.Stdout, "Response from `TopologyAPI.GetHostsTopologyGraph`: %v\n", resp)
 }
 ```
 
@@ -171,13 +171,13 @@ func main() {
 
     configuration := openapiclient.NewConfiguration()
     apiClient := openapiclient.NewAPIClient(configuration)
-    resp, r, err := apiClient.TopologyApi.GetKubernetesTopologyGraph(context.Background()).GraphTopologyFilters(graphTopologyFilters).Execute()
+    resp, r, err := apiClient.TopologyAPI.GetKubernetesTopologyGraph(context.Background()).GraphTopologyFilters(graphTopologyFilters).Execute()
     if err != nil {
-        fmt.Fprintf(os.Stderr, "Error when calling `TopologyApi.GetKubernetesTopologyGraph``: %v\n", err)
+        fmt.Fprintf(os.Stderr, "Error when calling `TopologyAPI.GetKubernetesTopologyGraph``: %v\n", err)
         fmt.Fprintf(os.Stderr, "Full HTTP response: %v\n", r)
     }
     // response from `GetKubernetesTopologyGraph`: ApiDocsGraphResult
-    fmt.Fprintf(os.Stdout, "Response from `TopologyApi.GetKubernetesTopologyGraph`: %v\n", resp)
+    fmt.Fprintf(os.Stdout, "Response from `TopologyAPI.GetKubernetesTopologyGraph`: %v\n", resp)
 }
 ```
 
@@ -237,13 +237,13 @@ func main() {
 
     configuration := openapiclient.NewConfiguration()
     apiClient := openapiclient.NewAPIClient(configuration)
-    resp, r, err := apiClient.TopologyApi.GetPodsTopologyGraph(context.Background()).GraphTopologyFilters(graphTopologyFilters).Execute()
+    resp, r, err := apiClient.TopologyAPI.GetPodsTopologyGraph(context.Background()).GraphTopologyFilters(graphTopologyFilters).Execute()
     if err != nil {
-        fmt.Fprintf(os.Stderr, "Error when calling `TopologyApi.GetPodsTopologyGraph``: %v\n", err)
+        fmt.Fprintf(os.Stderr, "Error when calling `TopologyAPI.GetPodsTopologyGraph``: %v\n", err)
         fmt.Fprintf(os.Stderr, "Full HTTP response: %v\n", r)
     }
     // response from `GetPodsTopologyGraph`: ApiDocsGraphResult
-    fmt.Fprintf(os.Stdout, "Response from `TopologyApi.GetPodsTopologyGraph`: %v\n", resp)
+    fmt.Fprintf(os.Stdout, "Response from `TopologyAPI.GetPodsTopologyGraph`: %v\n", resp)
 }
 ```
 
@@ -303,13 +303,13 @@ func main() {
 
     configuration := openapiclient.NewConfiguration()
     apiClient := openapiclient.NewAPIClient(configuration)
-    resp, r, err := apiClient.TopologyApi.GetTopologyGraph(context.Background()).GraphTopologyFilters(graphTopologyFilters).Execute()
+    resp, r, err := apiClient.TopologyAPI.GetTopologyGraph(context.Background()).GraphTopologyFilters(graphTopologyFilters).Execute()
     if err != nil {
-        fmt.Fprintf(os.Stderr, "Error when calling `TopologyApi.GetTopologyGraph``: %v\n", err)
+        fmt.Fprintf(os.Stderr, "Error when calling `TopologyAPI.GetTopologyGraph``: %v\n", err)
         fmt.Fprintf(os.Stderr, "Full HTTP response: %v\n", r)
     }
     // response from `GetTopologyGraph`: ApiDocsGraphResult
-    fmt.Fprintf(os.Stdout, "Response from `TopologyApi.GetTopologyGraph`: %v\n", resp)
+    fmt.Fprintf(os.Stdout, "Response from `TopologyAPI.GetTopologyGraph`: %v\n", resp)
 }
 ```
 
@@ -369,9 +369,9 @@ func main() {
 
     configuration := openapiclient.NewConfiguration()
     apiClient := openapiclient.NewAPIClient(configuration)
-    r, err := apiClient.TopologyApi.IngestAgentReport(context.Background()).ReportRawReport(reportRawReport).Execute()
+    r, err := apiClient.TopologyAPI.IngestAgentReport(context.Background()).ReportRawReport(reportRawReport).Execute()
     if err != nil {
-        fmt.Fprintf(os.Stderr, "Error when calling `TopologyApi.IngestAgentReport``: %v\n", err)
+        fmt.Fprintf(os.Stderr, "Error when calling `TopologyAPI.IngestAgentReport``: %v\n", err)
         fmt.Fprintf(os.Stderr, "Full HTTP response: %v\n", r)
     }
 }
@@ -433,9 +433,9 @@ func main() {
 
     configuration := openapiclient.NewConfiguration()
     apiClient := openapiclient.NewAPIClient(configuration)
-    r, err := apiClient.TopologyApi.IngestSyncAgentReport(context.Background()).IngestersReportIngestionData(ingestersReportIngestionData).Execute()
+    r, err := apiClient.TopologyAPI.IngestSyncAgentReport(context.Background()).IngestersReportIngestionData(ingestersReportIngestionData).Execute()
     if err != nil {
-        fmt.Fprintf(os.Stderr, "Error when calling `TopologyApi.IngestSyncAgentReport``: %v\n", err)
+        fmt.Fprintf(os.Stderr, "Error when calling `TopologyAPI.IngestSyncAgentReport``: %v\n", err)
         fmt.Fprintf(os.Stderr, "Full HTTP response: %v\n", r)
     }
 }

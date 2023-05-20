@@ -1,13 +1,13 @@
-# \AuthenticationApi
+# \AuthenticationAPI
 
 All URIs are relative to *http://localhost*
 
 Method | HTTP request | Description
 ------------- | ------------- | -------------
-[**AuthToken**](AuthenticationApi.md#AuthToken) | **Post** /deepfence/auth/token | Get Access Token for API Token
-[**AuthTokenRefresh**](AuthenticationApi.md#AuthTokenRefresh) | **Post** /deepfence/auth/token/refresh | Refresh access token
-[**Login**](AuthenticationApi.md#Login) | **Post** /deepfence/user/login | Login API
-[**Logout**](AuthenticationApi.md#Logout) | **Post** /deepfence/user/logout | Logout API
+[**AuthToken**](AuthenticationAPI.md#AuthToken) | **Post** /deepfence/auth/token | Get Access Token for API Token
+[**AuthTokenRefresh**](AuthenticationAPI.md#AuthTokenRefresh) | **Post** /deepfence/auth/token/refresh | Refresh access token
+[**Login**](AuthenticationAPI.md#Login) | **Post** /deepfence/user/login | Login API
+[**Logout**](AuthenticationAPI.md#Logout) | **Post** /deepfence/user/logout | Logout API
 
 
 
@@ -36,13 +36,13 @@ func main() {
 
     configuration := openapiclient.NewConfiguration()
     apiClient := openapiclient.NewAPIClient(configuration)
-    resp, r, err := apiClient.AuthenticationApi.AuthToken(context.Background()).ModelApiAuthRequest(modelApiAuthRequest).Execute()
+    resp, r, err := apiClient.AuthenticationAPI.AuthToken(context.Background()).ModelApiAuthRequest(modelApiAuthRequest).Execute()
     if err != nil {
-        fmt.Fprintf(os.Stderr, "Error when calling `AuthenticationApi.AuthToken``: %v\n", err)
+        fmt.Fprintf(os.Stderr, "Error when calling `AuthenticationAPI.AuthToken``: %v\n", err)
         fmt.Fprintf(os.Stderr, "Full HTTP response: %v\n", r)
     }
     // response from `AuthToken`: ModelResponseAccessToken
-    fmt.Fprintf(os.Stdout, "Response from `AuthenticationApi.AuthToken`: %v\n", resp)
+    fmt.Fprintf(os.Stdout, "Response from `AuthenticationAPI.AuthToken`: %v\n", resp)
 }
 ```
 
@@ -101,13 +101,13 @@ func main() {
 
     configuration := openapiclient.NewConfiguration()
     apiClient := openapiclient.NewAPIClient(configuration)
-    resp, r, err := apiClient.AuthenticationApi.AuthTokenRefresh(context.Background()).Execute()
+    resp, r, err := apiClient.AuthenticationAPI.AuthTokenRefresh(context.Background()).Execute()
     if err != nil {
-        fmt.Fprintf(os.Stderr, "Error when calling `AuthenticationApi.AuthTokenRefresh``: %v\n", err)
+        fmt.Fprintf(os.Stderr, "Error when calling `AuthenticationAPI.AuthTokenRefresh``: %v\n", err)
         fmt.Fprintf(os.Stderr, "Full HTTP response: %v\n", r)
     }
     // response from `AuthTokenRefresh`: ModelResponseAccessToken
-    fmt.Fprintf(os.Stdout, "Response from `AuthenticationApi.AuthTokenRefresh`: %v\n", resp)
+    fmt.Fprintf(os.Stdout, "Response from `AuthenticationAPI.AuthTokenRefresh`: %v\n", resp)
 }
 ```
 
@@ -163,13 +163,13 @@ func main() {
 
     configuration := openapiclient.NewConfiguration()
     apiClient := openapiclient.NewAPIClient(configuration)
-    resp, r, err := apiClient.AuthenticationApi.Login(context.Background()).ModelLoginRequest(modelLoginRequest).Execute()
+    resp, r, err := apiClient.AuthenticationAPI.Login(context.Background()).ModelLoginRequest(modelLoginRequest).Execute()
     if err != nil {
-        fmt.Fprintf(os.Stderr, "Error when calling `AuthenticationApi.Login``: %v\n", err)
+        fmt.Fprintf(os.Stderr, "Error when calling `AuthenticationAPI.Login``: %v\n", err)
         fmt.Fprintf(os.Stderr, "Full HTTP response: %v\n", r)
     }
     // response from `Login`: ModelLoginResponse
-    fmt.Fprintf(os.Stdout, "Response from `AuthenticationApi.Login`: %v\n", resp)
+    fmt.Fprintf(os.Stdout, "Response from `AuthenticationAPI.Login`: %v\n", resp)
 }
 ```
 
@@ -228,9 +228,9 @@ func main() {
 
     configuration := openapiclient.NewConfiguration()
     apiClient := openapiclient.NewAPIClient(configuration)
-    r, err := apiClient.AuthenticationApi.Logout(context.Background()).Execute()
+    r, err := apiClient.AuthenticationAPI.Logout(context.Background()).Execute()
     if err != nil {
-        fmt.Fprintf(os.Stderr, "Error when calling `AuthenticationApi.Logout``: %v\n", err)
+        fmt.Fprintf(os.Stderr, "Error when calling `AuthenticationAPI.Logout``: %v\n", err)
         fmt.Fprintf(os.Stderr, "Full HTTP response: %v\n", r)
     }
 }

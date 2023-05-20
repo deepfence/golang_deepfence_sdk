@@ -20,12 +20,12 @@ import (
 )
 
 
-// CloudScannerApiService CloudScannerApi service
-type CloudScannerApiService service
+// CloudScannerAPIService CloudScannerAPI service
+type CloudScannerAPIService service
 
 type ApiCountResultsCloudComplianceScanRequest struct {
 	ctx context.Context
-	ApiService *CloudScannerApiService
+	ApiService *CloudScannerAPIService
 	modelScanResultsReq *ModelScanResultsReq
 }
 
@@ -46,7 +46,7 @@ Get Cloud Compliance Scan results for cloud node
  @param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
  @return ApiCountResultsCloudComplianceScanRequest
 */
-func (a *CloudScannerApiService) CountResultsCloudComplianceScan(ctx context.Context) ApiCountResultsCloudComplianceScanRequest {
+func (a *CloudScannerAPIService) CountResultsCloudComplianceScan(ctx context.Context) ApiCountResultsCloudComplianceScanRequest {
 	return ApiCountResultsCloudComplianceScanRequest{
 		ApiService: a,
 		ctx: ctx,
@@ -55,7 +55,7 @@ func (a *CloudScannerApiService) CountResultsCloudComplianceScan(ctx context.Con
 
 // Execute executes the request
 //  @return SearchSearchCountResp
-func (a *CloudScannerApiService) CountResultsCloudComplianceScanExecute(r ApiCountResultsCloudComplianceScanRequest) (*SearchSearchCountResp, *http.Response, error) {
+func (a *CloudScannerAPIService) CountResultsCloudComplianceScanExecute(r ApiCountResultsCloudComplianceScanRequest) (*SearchSearchCountResp, *http.Response, error) {
 	var (
 		localVarHTTPMethod   = http.MethodPost
 		localVarPostBody     interface{}
@@ -63,7 +63,7 @@ func (a *CloudScannerApiService) CountResultsCloudComplianceScanExecute(r ApiCou
 		localVarReturnValue  *SearchSearchCountResp
 	)
 
-	localBasePath, err := a.client.cfg.ServerURLWithContext(r.ctx, "CloudScannerApiService.CountResultsCloudComplianceScan")
+	localBasePath, err := a.client.cfg.ServerURLWithContext(r.ctx, "CloudScannerAPIService.CountResultsCloudComplianceScan")
 	if err != nil {
 		return localVarReturnValue, nil, &GenericOpenAPIError{error: err.Error()}
 	}
@@ -164,7 +164,7 @@ func (a *CloudScannerApiService) CountResultsCloudComplianceScanExecute(r ApiCou
 
 type ApiIngestCloudComplianceScanStatusRequest struct {
 	ctx context.Context
-	ApiService *CloudScannerApiService
+	ApiService *CloudScannerAPIService
 	ingestersCloudCompliance *[]IngestersCloudCompliance
 }
 
@@ -185,7 +185,7 @@ Ingest Cloud compliances found while scanning cloud provider
  @param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
  @return ApiIngestCloudComplianceScanStatusRequest
 */
-func (a *CloudScannerApiService) IngestCloudComplianceScanStatus(ctx context.Context) ApiIngestCloudComplianceScanStatusRequest {
+func (a *CloudScannerAPIService) IngestCloudComplianceScanStatus(ctx context.Context) ApiIngestCloudComplianceScanStatusRequest {
 	return ApiIngestCloudComplianceScanStatusRequest{
 		ApiService: a,
 		ctx: ctx,
@@ -193,14 +193,14 @@ func (a *CloudScannerApiService) IngestCloudComplianceScanStatus(ctx context.Con
 }
 
 // Execute executes the request
-func (a *CloudScannerApiService) IngestCloudComplianceScanStatusExecute(r ApiIngestCloudComplianceScanStatusRequest) (*http.Response, error) {
+func (a *CloudScannerAPIService) IngestCloudComplianceScanStatusExecute(r ApiIngestCloudComplianceScanStatusRequest) (*http.Response, error) {
 	var (
 		localVarHTTPMethod   = http.MethodPost
 		localVarPostBody     interface{}
 		formFiles            []formFile
 	)
 
-	localBasePath, err := a.client.cfg.ServerURLWithContext(r.ctx, "CloudScannerApiService.IngestCloudComplianceScanStatus")
+	localBasePath, err := a.client.cfg.ServerURLWithContext(r.ctx, "CloudScannerAPIService.IngestCloudComplianceScanStatus")
 	if err != nil {
 		return nil, &GenericOpenAPIError{error: err.Error()}
 	}
@@ -292,7 +292,7 @@ func (a *CloudScannerApiService) IngestCloudComplianceScanStatusExecute(r ApiIng
 
 type ApiIngestCloudCompliancesRequest struct {
 	ctx context.Context
-	ApiService *CloudScannerApiService
+	ApiService *CloudScannerAPIService
 	ingestersCloudCompliance *[]IngestersCloudCompliance
 }
 
@@ -313,7 +313,7 @@ Ingest Cloud compliances found while scanning cloud provider
  @param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
  @return ApiIngestCloudCompliancesRequest
 */
-func (a *CloudScannerApiService) IngestCloudCompliances(ctx context.Context) ApiIngestCloudCompliancesRequest {
+func (a *CloudScannerAPIService) IngestCloudCompliances(ctx context.Context) ApiIngestCloudCompliancesRequest {
 	return ApiIngestCloudCompliancesRequest{
 		ApiService: a,
 		ctx: ctx,
@@ -321,14 +321,14 @@ func (a *CloudScannerApiService) IngestCloudCompliances(ctx context.Context) Api
 }
 
 // Execute executes the request
-func (a *CloudScannerApiService) IngestCloudCompliancesExecute(r ApiIngestCloudCompliancesRequest) (*http.Response, error) {
+func (a *CloudScannerAPIService) IngestCloudCompliancesExecute(r ApiIngestCloudCompliancesRequest) (*http.Response, error) {
 	var (
 		localVarHTTPMethod   = http.MethodPost
 		localVarPostBody     interface{}
 		formFiles            []formFile
 	)
 
-	localBasePath, err := a.client.cfg.ServerURLWithContext(r.ctx, "CloudScannerApiService.IngestCloudCompliances")
+	localBasePath, err := a.client.cfg.ServerURLWithContext(r.ctx, "CloudScannerAPIService.IngestCloudCompliances")
 	if err != nil {
 		return nil, &GenericOpenAPIError{error: err.Error()}
 	}
@@ -420,7 +420,7 @@ func (a *CloudScannerApiService) IngestCloudCompliancesExecute(r ApiIngestCloudC
 
 type ApiListCloudComplianceScanRequest struct {
 	ctx context.Context
-	ApiService *CloudScannerApiService
+	ApiService *CloudScannerAPIService
 	modelScanListReq *ModelScanListReq
 }
 
@@ -441,7 +441,7 @@ Get Cloud Compliance Scans list for cloud node
  @param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
  @return ApiListCloudComplianceScanRequest
 */
-func (a *CloudScannerApiService) ListCloudComplianceScan(ctx context.Context) ApiListCloudComplianceScanRequest {
+func (a *CloudScannerAPIService) ListCloudComplianceScan(ctx context.Context) ApiListCloudComplianceScanRequest {
 	return ApiListCloudComplianceScanRequest{
 		ApiService: a,
 		ctx: ctx,
@@ -450,7 +450,7 @@ func (a *CloudScannerApiService) ListCloudComplianceScan(ctx context.Context) Ap
 
 // Execute executes the request
 //  @return ModelScanListResp
-func (a *CloudScannerApiService) ListCloudComplianceScanExecute(r ApiListCloudComplianceScanRequest) (*ModelScanListResp, *http.Response, error) {
+func (a *CloudScannerAPIService) ListCloudComplianceScanExecute(r ApiListCloudComplianceScanRequest) (*ModelScanListResp, *http.Response, error) {
 	var (
 		localVarHTTPMethod   = http.MethodPost
 		localVarPostBody     interface{}
@@ -458,7 +458,7 @@ func (a *CloudScannerApiService) ListCloudComplianceScanExecute(r ApiListCloudCo
 		localVarReturnValue  *ModelScanListResp
 	)
 
-	localBasePath, err := a.client.cfg.ServerURLWithContext(r.ctx, "CloudScannerApiService.ListCloudComplianceScan")
+	localBasePath, err := a.client.cfg.ServerURLWithContext(r.ctx, "CloudScannerAPIService.ListCloudComplianceScan")
 	if err != nil {
 		return localVarReturnValue, nil, &GenericOpenAPIError{error: err.Error()}
 	}
@@ -559,7 +559,7 @@ func (a *CloudScannerApiService) ListCloudComplianceScanExecute(r ApiListCloudCo
 
 type ApiResultsCloudComplianceScanRequest struct {
 	ctx context.Context
-	ApiService *CloudScannerApiService
+	ApiService *CloudScannerAPIService
 	modelScanResultsReq *ModelScanResultsReq
 }
 
@@ -580,7 +580,7 @@ Get Cloud Compliance Scan results for cloud node
  @param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
  @return ApiResultsCloudComplianceScanRequest
 */
-func (a *CloudScannerApiService) ResultsCloudComplianceScan(ctx context.Context) ApiResultsCloudComplianceScanRequest {
+func (a *CloudScannerAPIService) ResultsCloudComplianceScan(ctx context.Context) ApiResultsCloudComplianceScanRequest {
 	return ApiResultsCloudComplianceScanRequest{
 		ApiService: a,
 		ctx: ctx,
@@ -589,7 +589,7 @@ func (a *CloudScannerApiService) ResultsCloudComplianceScan(ctx context.Context)
 
 // Execute executes the request
 //  @return ModelCloudComplianceScanResult
-func (a *CloudScannerApiService) ResultsCloudComplianceScanExecute(r ApiResultsCloudComplianceScanRequest) (*ModelCloudComplianceScanResult, *http.Response, error) {
+func (a *CloudScannerAPIService) ResultsCloudComplianceScanExecute(r ApiResultsCloudComplianceScanRequest) (*ModelCloudComplianceScanResult, *http.Response, error) {
 	var (
 		localVarHTTPMethod   = http.MethodPost
 		localVarPostBody     interface{}
@@ -597,7 +597,7 @@ func (a *CloudScannerApiService) ResultsCloudComplianceScanExecute(r ApiResultsC
 		localVarReturnValue  *ModelCloudComplianceScanResult
 	)
 
-	localBasePath, err := a.client.cfg.ServerURLWithContext(r.ctx, "CloudScannerApiService.ResultsCloudComplianceScan")
+	localBasePath, err := a.client.cfg.ServerURLWithContext(r.ctx, "CloudScannerAPIService.ResultsCloudComplianceScan")
 	if err != nil {
 		return localVarReturnValue, nil, &GenericOpenAPIError{error: err.Error()}
 	}
@@ -698,7 +698,7 @@ func (a *CloudScannerApiService) ResultsCloudComplianceScanExecute(r ApiResultsC
 
 type ApiStatusCloudComplianceScanRequest struct {
 	ctx context.Context
-	ApiService *CloudScannerApiService
+	ApiService *CloudScannerAPIService
 	modelScanStatusReq *ModelScanStatusReq
 }
 
@@ -719,7 +719,7 @@ Get Cloud Compliance Scan Status on cloud node
  @param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
  @return ApiStatusCloudComplianceScanRequest
 */
-func (a *CloudScannerApiService) StatusCloudComplianceScan(ctx context.Context) ApiStatusCloudComplianceScanRequest {
+func (a *CloudScannerAPIService) StatusCloudComplianceScan(ctx context.Context) ApiStatusCloudComplianceScanRequest {
 	return ApiStatusCloudComplianceScanRequest{
 		ApiService: a,
 		ctx: ctx,
@@ -728,7 +728,7 @@ func (a *CloudScannerApiService) StatusCloudComplianceScan(ctx context.Context) 
 
 // Execute executes the request
 //  @return ModelComplianceScanStatusResp
-func (a *CloudScannerApiService) StatusCloudComplianceScanExecute(r ApiStatusCloudComplianceScanRequest) (*ModelComplianceScanStatusResp, *http.Response, error) {
+func (a *CloudScannerAPIService) StatusCloudComplianceScanExecute(r ApiStatusCloudComplianceScanRequest) (*ModelComplianceScanStatusResp, *http.Response, error) {
 	var (
 		localVarHTTPMethod   = http.MethodPost
 		localVarPostBody     interface{}
@@ -736,7 +736,7 @@ func (a *CloudScannerApiService) StatusCloudComplianceScanExecute(r ApiStatusClo
 		localVarReturnValue  *ModelComplianceScanStatusResp
 	)
 
-	localBasePath, err := a.client.cfg.ServerURLWithContext(r.ctx, "CloudScannerApiService.StatusCloudComplianceScan")
+	localBasePath, err := a.client.cfg.ServerURLWithContext(r.ctx, "CloudScannerAPIService.StatusCloudComplianceScan")
 	if err != nil {
 		return localVarReturnValue, nil, &GenericOpenAPIError{error: err.Error()}
 	}

@@ -20,12 +20,12 @@ import (
 )
 
 
-// SecretScanApiService SecretScanApi service
-type SecretScanApiService service
+// SecretScanAPIService SecretScanAPI service
+type SecretScanAPIService service
 
 type ApiCountResultsSecretScanRequest struct {
 	ctx context.Context
-	ApiService *SecretScanApiService
+	ApiService *SecretScanAPIService
 	modelScanResultsReq *ModelScanResultsReq
 }
 
@@ -46,7 +46,7 @@ Get Secret Scans results on agent or registry
  @param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
  @return ApiCountResultsSecretScanRequest
 */
-func (a *SecretScanApiService) CountResultsSecretScan(ctx context.Context) ApiCountResultsSecretScanRequest {
+func (a *SecretScanAPIService) CountResultsSecretScan(ctx context.Context) ApiCountResultsSecretScanRequest {
 	return ApiCountResultsSecretScanRequest{
 		ApiService: a,
 		ctx: ctx,
@@ -55,7 +55,7 @@ func (a *SecretScanApiService) CountResultsSecretScan(ctx context.Context) ApiCo
 
 // Execute executes the request
 //  @return SearchSearchCountResp
-func (a *SecretScanApiService) CountResultsSecretScanExecute(r ApiCountResultsSecretScanRequest) (*SearchSearchCountResp, *http.Response, error) {
+func (a *SecretScanAPIService) CountResultsSecretScanExecute(r ApiCountResultsSecretScanRequest) (*SearchSearchCountResp, *http.Response, error) {
 	var (
 		localVarHTTPMethod   = http.MethodPost
 		localVarPostBody     interface{}
@@ -63,7 +63,7 @@ func (a *SecretScanApiService) CountResultsSecretScanExecute(r ApiCountResultsSe
 		localVarReturnValue  *SearchSearchCountResp
 	)
 
-	localBasePath, err := a.client.cfg.ServerURLWithContext(r.ctx, "SecretScanApiService.CountResultsSecretScan")
+	localBasePath, err := a.client.cfg.ServerURLWithContext(r.ctx, "SecretScanAPIService.CountResultsSecretScan")
 	if err != nil {
 		return localVarReturnValue, nil, &GenericOpenAPIError{error: err.Error()}
 	}
@@ -162,9 +162,140 @@ func (a *SecretScanApiService) CountResultsSecretScanExecute(r ApiCountResultsSe
 	return localVarReturnValue, localVarHTTPResponse, nil
 }
 
+type ApiGroupResultsSecretsRequest struct {
+	ctx context.Context
+	ApiService *SecretScanAPIService
+}
+
+func (r ApiGroupResultsSecretsRequest) Execute() (*SearchResultGroupResp, *http.Response, error) {
+	return r.ApiService.GroupResultsSecretsExecute(r)
+}
+
+/*
+GroupResultsSecrets Group Secret Results
+
+Group Secret Scans results by severity/rule
+
+ @param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
+ @return ApiGroupResultsSecretsRequest
+*/
+func (a *SecretScanAPIService) GroupResultsSecrets(ctx context.Context) ApiGroupResultsSecretsRequest {
+	return ApiGroupResultsSecretsRequest{
+		ApiService: a,
+		ctx: ctx,
+	}
+}
+
+// Execute executes the request
+//  @return SearchResultGroupResp
+func (a *SecretScanAPIService) GroupResultsSecretsExecute(r ApiGroupResultsSecretsRequest) (*SearchResultGroupResp, *http.Response, error) {
+	var (
+		localVarHTTPMethod   = http.MethodGet
+		localVarPostBody     interface{}
+		formFiles            []formFile
+		localVarReturnValue  *SearchResultGroupResp
+	)
+
+	localBasePath, err := a.client.cfg.ServerURLWithContext(r.ctx, "SecretScanAPIService.GroupResultsSecrets")
+	if err != nil {
+		return localVarReturnValue, nil, &GenericOpenAPIError{error: err.Error()}
+	}
+
+	localVarPath := localBasePath + "/deepfence/scan/results/count/group/secret"
+
+	localVarHeaderParams := make(map[string]string)
+	localVarQueryParams := url.Values{}
+	localVarFormParams := url.Values{}
+
+	// to determine the Content-Type header
+	localVarHTTPContentTypes := []string{}
+
+	// set Content-Type header
+	localVarHTTPContentType := selectHeaderContentType(localVarHTTPContentTypes)
+	if localVarHTTPContentType != "" {
+		localVarHeaderParams["Content-Type"] = localVarHTTPContentType
+	}
+
+	// to determine the Accept header
+	localVarHTTPHeaderAccepts := []string{"application/json"}
+
+	// set Accept header
+	localVarHTTPHeaderAccept := selectHeaderAccept(localVarHTTPHeaderAccepts)
+	if localVarHTTPHeaderAccept != "" {
+		localVarHeaderParams["Accept"] = localVarHTTPHeaderAccept
+	}
+	req, err := a.client.prepareRequest(r.ctx, localVarPath, localVarHTTPMethod, localVarPostBody, localVarHeaderParams, localVarQueryParams, localVarFormParams, formFiles)
+	if err != nil {
+		return localVarReturnValue, nil, err
+	}
+
+	localVarHTTPResponse, err := a.client.callAPI(req)
+	if err != nil || localVarHTTPResponse == nil {
+		return localVarReturnValue, localVarHTTPResponse, err
+	}
+
+	localVarBody, err := io.ReadAll(localVarHTTPResponse.Body)
+	localVarHTTPResponse.Body.Close()
+	localVarHTTPResponse.Body = io.NopCloser(bytes.NewBuffer(localVarBody))
+	if err != nil {
+		return localVarReturnValue, localVarHTTPResponse, err
+	}
+
+	if localVarHTTPResponse.StatusCode >= 300 {
+		newErr := &GenericOpenAPIError{
+			body:  localVarBody,
+			error: localVarHTTPResponse.Status,
+		}
+		if localVarHTTPResponse.StatusCode == 400 {
+			var v ApiDocsBadRequestResponse
+			err = a.client.decode(&v, localVarBody, localVarHTTPResponse.Header.Get("Content-Type"))
+			if err != nil {
+				newErr.error = err.Error()
+				return localVarReturnValue, localVarHTTPResponse, newErr
+			}
+					newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
+					newErr.model = v
+			return localVarReturnValue, localVarHTTPResponse, newErr
+		}
+		if localVarHTTPResponse.StatusCode == 404 {
+			var v ApiDocsFailureResponse
+			err = a.client.decode(&v, localVarBody, localVarHTTPResponse.Header.Get("Content-Type"))
+			if err != nil {
+				newErr.error = err.Error()
+				return localVarReturnValue, localVarHTTPResponse, newErr
+			}
+					newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
+					newErr.model = v
+			return localVarReturnValue, localVarHTTPResponse, newErr
+		}
+		if localVarHTTPResponse.StatusCode == 500 {
+			var v ApiDocsFailureResponse
+			err = a.client.decode(&v, localVarBody, localVarHTTPResponse.Header.Get("Content-Type"))
+			if err != nil {
+				newErr.error = err.Error()
+				return localVarReturnValue, localVarHTTPResponse, newErr
+			}
+					newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
+					newErr.model = v
+		}
+		return localVarReturnValue, localVarHTTPResponse, newErr
+	}
+
+	err = a.client.decode(&localVarReturnValue, localVarBody, localVarHTTPResponse.Header.Get("Content-Type"))
+	if err != nil {
+		newErr := &GenericOpenAPIError{
+			body:  localVarBody,
+			error: err.Error(),
+		}
+		return localVarReturnValue, localVarHTTPResponse, newErr
+	}
+
+	return localVarReturnValue, localVarHTTPResponse, nil
+}
+
 type ApiIngestSecretScanStatusRequest struct {
 	ctx context.Context
-	ApiService *SecretScanApiService
+	ApiService *SecretScanAPIService
 	ingestersSecretScanStatus *[]IngestersSecretScanStatus
 }
 
@@ -185,7 +316,7 @@ Ingest secrets scan status from the agent
  @param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
  @return ApiIngestSecretScanStatusRequest
 */
-func (a *SecretScanApiService) IngestSecretScanStatus(ctx context.Context) ApiIngestSecretScanStatusRequest {
+func (a *SecretScanAPIService) IngestSecretScanStatus(ctx context.Context) ApiIngestSecretScanStatusRequest {
 	return ApiIngestSecretScanStatusRequest{
 		ApiService: a,
 		ctx: ctx,
@@ -193,14 +324,14 @@ func (a *SecretScanApiService) IngestSecretScanStatus(ctx context.Context) ApiIn
 }
 
 // Execute executes the request
-func (a *SecretScanApiService) IngestSecretScanStatusExecute(r ApiIngestSecretScanStatusRequest) (*http.Response, error) {
+func (a *SecretScanAPIService) IngestSecretScanStatusExecute(r ApiIngestSecretScanStatusRequest) (*http.Response, error) {
 	var (
 		localVarHTTPMethod   = http.MethodPost
 		localVarPostBody     interface{}
 		formFiles            []formFile
 	)
 
-	localBasePath, err := a.client.cfg.ServerURLWithContext(r.ctx, "SecretScanApiService.IngestSecretScanStatus")
+	localBasePath, err := a.client.cfg.ServerURLWithContext(r.ctx, "SecretScanAPIService.IngestSecretScanStatus")
 	if err != nil {
 		return nil, &GenericOpenAPIError{error: err.Error()}
 	}
@@ -292,7 +423,7 @@ func (a *SecretScanApiService) IngestSecretScanStatusExecute(r ApiIngestSecretSc
 
 type ApiIngestSecretsRequest struct {
 	ctx context.Context
-	ApiService *SecretScanApiService
+	ApiService *SecretScanAPIService
 	ingestersSecret *[]IngestersSecret
 }
 
@@ -313,7 +444,7 @@ Ingest secrets found while scanning the agent
  @param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
  @return ApiIngestSecretsRequest
 */
-func (a *SecretScanApiService) IngestSecrets(ctx context.Context) ApiIngestSecretsRequest {
+func (a *SecretScanAPIService) IngestSecrets(ctx context.Context) ApiIngestSecretsRequest {
 	return ApiIngestSecretsRequest{
 		ApiService: a,
 		ctx: ctx,
@@ -321,14 +452,14 @@ func (a *SecretScanApiService) IngestSecrets(ctx context.Context) ApiIngestSecre
 }
 
 // Execute executes the request
-func (a *SecretScanApiService) IngestSecretsExecute(r ApiIngestSecretsRequest) (*http.Response, error) {
+func (a *SecretScanAPIService) IngestSecretsExecute(r ApiIngestSecretsRequest) (*http.Response, error) {
 	var (
 		localVarHTTPMethod   = http.MethodPost
 		localVarPostBody     interface{}
 		formFiles            []formFile
 	)
 
-	localBasePath, err := a.client.cfg.ServerURLWithContext(r.ctx, "SecretScanApiService.IngestSecrets")
+	localBasePath, err := a.client.cfg.ServerURLWithContext(r.ctx, "SecretScanAPIService.IngestSecrets")
 	if err != nil {
 		return nil, &GenericOpenAPIError{error: err.Error()}
 	}
@@ -420,7 +551,7 @@ func (a *SecretScanApiService) IngestSecretsExecute(r ApiIngestSecretsRequest) (
 
 type ApiListSecretScanRequest struct {
 	ctx context.Context
-	ApiService *SecretScanApiService
+	ApiService *SecretScanAPIService
 	modelScanListReq *ModelScanListReq
 }
 
@@ -441,7 +572,7 @@ Get Secret Scans list on agent or registry
  @param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
  @return ApiListSecretScanRequest
 */
-func (a *SecretScanApiService) ListSecretScan(ctx context.Context) ApiListSecretScanRequest {
+func (a *SecretScanAPIService) ListSecretScan(ctx context.Context) ApiListSecretScanRequest {
 	return ApiListSecretScanRequest{
 		ApiService: a,
 		ctx: ctx,
@@ -450,7 +581,7 @@ func (a *SecretScanApiService) ListSecretScan(ctx context.Context) ApiListSecret
 
 // Execute executes the request
 //  @return ModelScanListResp
-func (a *SecretScanApiService) ListSecretScanExecute(r ApiListSecretScanRequest) (*ModelScanListResp, *http.Response, error) {
+func (a *SecretScanAPIService) ListSecretScanExecute(r ApiListSecretScanRequest) (*ModelScanListResp, *http.Response, error) {
 	var (
 		localVarHTTPMethod   = http.MethodPost
 		localVarPostBody     interface{}
@@ -458,7 +589,7 @@ func (a *SecretScanApiService) ListSecretScanExecute(r ApiListSecretScanRequest)
 		localVarReturnValue  *ModelScanListResp
 	)
 
-	localBasePath, err := a.client.cfg.ServerURLWithContext(r.ctx, "SecretScanApiService.ListSecretScan")
+	localBasePath, err := a.client.cfg.ServerURLWithContext(r.ctx, "SecretScanAPIService.ListSecretScan")
 	if err != nil {
 		return localVarReturnValue, nil, &GenericOpenAPIError{error: err.Error()}
 	}
@@ -559,7 +690,7 @@ func (a *SecretScanApiService) ListSecretScanExecute(r ApiListSecretScanRequest)
 
 type ApiResultsSecretScanRequest struct {
 	ctx context.Context
-	ApiService *SecretScanApiService
+	ApiService *SecretScanAPIService
 	modelScanResultsReq *ModelScanResultsReq
 }
 
@@ -580,7 +711,7 @@ Get Secret Scans results on agent or registry
  @param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
  @return ApiResultsSecretScanRequest
 */
-func (a *SecretScanApiService) ResultsSecretScan(ctx context.Context) ApiResultsSecretScanRequest {
+func (a *SecretScanAPIService) ResultsSecretScan(ctx context.Context) ApiResultsSecretScanRequest {
 	return ApiResultsSecretScanRequest{
 		ApiService: a,
 		ctx: ctx,
@@ -589,7 +720,7 @@ func (a *SecretScanApiService) ResultsSecretScan(ctx context.Context) ApiResults
 
 // Execute executes the request
 //  @return ModelSecretScanResult
-func (a *SecretScanApiService) ResultsSecretScanExecute(r ApiResultsSecretScanRequest) (*ModelSecretScanResult, *http.Response, error) {
+func (a *SecretScanAPIService) ResultsSecretScanExecute(r ApiResultsSecretScanRequest) (*ModelSecretScanResult, *http.Response, error) {
 	var (
 		localVarHTTPMethod   = http.MethodPost
 		localVarPostBody     interface{}
@@ -597,7 +728,7 @@ func (a *SecretScanApiService) ResultsSecretScanExecute(r ApiResultsSecretScanRe
 		localVarReturnValue  *ModelSecretScanResult
 	)
 
-	localBasePath, err := a.client.cfg.ServerURLWithContext(r.ctx, "SecretScanApiService.ResultsSecretScan")
+	localBasePath, err := a.client.cfg.ServerURLWithContext(r.ctx, "SecretScanAPIService.ResultsSecretScan")
 	if err != nil {
 		return localVarReturnValue, nil, &GenericOpenAPIError{error: err.Error()}
 	}
@@ -698,7 +829,7 @@ func (a *SecretScanApiService) ResultsSecretScanExecute(r ApiResultsSecretScanRe
 
 type ApiStartSecretScanRequest struct {
 	ctx context.Context
-	ApiService *SecretScanApiService
+	ApiService *SecretScanAPIService
 	modelSecretScanTriggerReq *ModelSecretScanTriggerReq
 }
 
@@ -719,7 +850,7 @@ Start Secret Scan on agent or registry
  @param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
  @return ApiStartSecretScanRequest
 */
-func (a *SecretScanApiService) StartSecretScan(ctx context.Context) ApiStartSecretScanRequest {
+func (a *SecretScanAPIService) StartSecretScan(ctx context.Context) ApiStartSecretScanRequest {
 	return ApiStartSecretScanRequest{
 		ApiService: a,
 		ctx: ctx,
@@ -728,7 +859,7 @@ func (a *SecretScanApiService) StartSecretScan(ctx context.Context) ApiStartSecr
 
 // Execute executes the request
 //  @return ModelScanTriggerResp
-func (a *SecretScanApiService) StartSecretScanExecute(r ApiStartSecretScanRequest) (*ModelScanTriggerResp, *http.Response, error) {
+func (a *SecretScanAPIService) StartSecretScanExecute(r ApiStartSecretScanRequest) (*ModelScanTriggerResp, *http.Response, error) {
 	var (
 		localVarHTTPMethod   = http.MethodPost
 		localVarPostBody     interface{}
@@ -736,7 +867,7 @@ func (a *SecretScanApiService) StartSecretScanExecute(r ApiStartSecretScanReques
 		localVarReturnValue  *ModelScanTriggerResp
 	)
 
-	localBasePath, err := a.client.cfg.ServerURLWithContext(r.ctx, "SecretScanApiService.StartSecretScan")
+	localBasePath, err := a.client.cfg.ServerURLWithContext(r.ctx, "SecretScanAPIService.StartSecretScan")
 	if err != nil {
 		return localVarReturnValue, nil, &GenericOpenAPIError{error: err.Error()}
 	}
@@ -837,7 +968,7 @@ func (a *SecretScanApiService) StartSecretScanExecute(r ApiStartSecretScanReques
 
 type ApiStatusSecretScanRequest struct {
 	ctx context.Context
-	ApiService *SecretScanApiService
+	ApiService *SecretScanAPIService
 	modelScanStatusReq *ModelScanStatusReq
 }
 
@@ -858,7 +989,7 @@ Get Secret Scan Status on agent or registry
  @param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
  @return ApiStatusSecretScanRequest
 */
-func (a *SecretScanApiService) StatusSecretScan(ctx context.Context) ApiStatusSecretScanRequest {
+func (a *SecretScanAPIService) StatusSecretScan(ctx context.Context) ApiStatusSecretScanRequest {
 	return ApiStatusSecretScanRequest{
 		ApiService: a,
 		ctx: ctx,
@@ -867,7 +998,7 @@ func (a *SecretScanApiService) StatusSecretScan(ctx context.Context) ApiStatusSe
 
 // Execute executes the request
 //  @return ModelScanStatusResp
-func (a *SecretScanApiService) StatusSecretScanExecute(r ApiStatusSecretScanRequest) (*ModelScanStatusResp, *http.Response, error) {
+func (a *SecretScanAPIService) StatusSecretScanExecute(r ApiStatusSecretScanRequest) (*ModelScanStatusResp, *http.Response, error) {
 	var (
 		localVarHTTPMethod   = http.MethodPost
 		localVarPostBody     interface{}
@@ -875,7 +1006,7 @@ func (a *SecretScanApiService) StatusSecretScanExecute(r ApiStatusSecretScanRequ
 		localVarReturnValue  *ModelScanStatusResp
 	)
 
-	localBasePath, err := a.client.cfg.ServerURLWithContext(r.ctx, "SecretScanApiService.StatusSecretScan")
+	localBasePath, err := a.client.cfg.ServerURLWithContext(r.ctx, "SecretScanAPIService.StatusSecretScan")
 	if err != nil {
 		return localVarReturnValue, nil, &GenericOpenAPIError{error: err.Error()}
 	}
@@ -976,7 +1107,7 @@ func (a *SecretScanApiService) StatusSecretScanExecute(r ApiStatusSecretScanRequ
 
 type ApiStopSecretScanRequest struct {
 	ctx context.Context
-	ApiService *SecretScanApiService
+	ApiService *SecretScanAPIService
 	modelSecretScanTriggerReq *ModelSecretScanTriggerReq
 }
 
@@ -997,7 +1128,7 @@ Stop Secret Scan on agent or registry
  @param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
  @return ApiStopSecretScanRequest
 */
-func (a *SecretScanApiService) StopSecretScan(ctx context.Context) ApiStopSecretScanRequest {
+func (a *SecretScanAPIService) StopSecretScan(ctx context.Context) ApiStopSecretScanRequest {
 	return ApiStopSecretScanRequest{
 		ApiService: a,
 		ctx: ctx,
@@ -1005,14 +1136,14 @@ func (a *SecretScanApiService) StopSecretScan(ctx context.Context) ApiStopSecret
 }
 
 // Execute executes the request
-func (a *SecretScanApiService) StopSecretScanExecute(r ApiStopSecretScanRequest) (*http.Response, error) {
+func (a *SecretScanAPIService) StopSecretScanExecute(r ApiStopSecretScanRequest) (*http.Response, error) {
 	var (
 		localVarHTTPMethod   = http.MethodPost
 		localVarPostBody     interface{}
 		formFiles            []formFile
 	)
 
-	localBasePath, err := a.client.cfg.ServerURLWithContext(r.ctx, "SecretScanApiService.StopSecretScan")
+	localBasePath, err := a.client.cfg.ServerURLWithContext(r.ctx, "SecretScanAPIService.StopSecretScan")
 	if err != nil {
 		return nil, &GenericOpenAPIError{error: err.Error()}
 	}

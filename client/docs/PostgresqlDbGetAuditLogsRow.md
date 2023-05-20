@@ -11,7 +11,7 @@ Name | Type | Description | Notes
 **Resources** | Pointer to **string** |  | [optional] 
 **Role** | Pointer to **string** |  | [optional] 
 **Success** | Pointer to **bool** |  | [optional] 
-**UserId** | Pointer to **int32** |  | [optional] 
+**UserId** | Pointer to **map[string]interface{}** |  | [optional] 
 **UserRoleId** | Pointer to **int32** |  | [optional] 
 
 ## Methods
@@ -210,20 +210,20 @@ HasSuccess returns a boolean if a field has been set.
 
 ### GetUserId
 
-`func (o *PostgresqlDbGetAuditLogsRow) GetUserId() int32`
+`func (o *PostgresqlDbGetAuditLogsRow) GetUserId() map[string]interface{}`
 
 GetUserId returns the UserId field if non-nil, zero value otherwise.
 
 ### GetUserIdOk
 
-`func (o *PostgresqlDbGetAuditLogsRow) GetUserIdOk() (*int32, bool)`
+`func (o *PostgresqlDbGetAuditLogsRow) GetUserIdOk() (*map[string]interface{}, bool)`
 
 GetUserIdOk returns a tuple with the UserId field if it's non-nil, zero value otherwise
 and a boolean to check if the value has been set.
 
 ### SetUserId
 
-`func (o *PostgresqlDbGetAuditLogsRow) SetUserId(v int32)`
+`func (o *PostgresqlDbGetAuditLogsRow) SetUserId(v map[string]interface{})`
 
 SetUserId sets UserId field to given value.
 

@@ -20,12 +20,12 @@ import (
 )
 
 
-// SearchApiService SearchApi service
-type SearchApiService service
+// SearchAPIService SearchAPI service
+type SearchAPIService service
 
 type ApiCountCloudComplianceScansRequest struct {
 	ctx context.Context
-	ApiService *SearchApiService
+	ApiService *SearchAPIService
 	searchSearchScanReq *SearchSearchScanReq
 }
 
@@ -46,7 +46,7 @@ Count across all the data associated with cloud-compliance scans
  @param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
  @return ApiCountCloudComplianceScansRequest
 */
-func (a *SearchApiService) CountCloudComplianceScans(ctx context.Context) ApiCountCloudComplianceScansRequest {
+func (a *SearchAPIService) CountCloudComplianceScans(ctx context.Context) ApiCountCloudComplianceScansRequest {
 	return ApiCountCloudComplianceScansRequest{
 		ApiService: a,
 		ctx: ctx,
@@ -55,7 +55,7 @@ func (a *SearchApiService) CountCloudComplianceScans(ctx context.Context) ApiCou
 
 // Execute executes the request
 //  @return SearchSearchCountResp
-func (a *SearchApiService) CountCloudComplianceScansExecute(r ApiCountCloudComplianceScansRequest) (*SearchSearchCountResp, *http.Response, error) {
+func (a *SearchAPIService) CountCloudComplianceScansExecute(r ApiCountCloudComplianceScansRequest) (*SearchSearchCountResp, *http.Response, error) {
 	var (
 		localVarHTTPMethod   = http.MethodPost
 		localVarPostBody     interface{}
@@ -63,7 +63,7 @@ func (a *SearchApiService) CountCloudComplianceScansExecute(r ApiCountCloudCompl
 		localVarReturnValue  *SearchSearchCountResp
 	)
 
-	localBasePath, err := a.client.cfg.ServerURLWithContext(r.ctx, "SearchApiService.CountCloudComplianceScans")
+	localBasePath, err := a.client.cfg.ServerURLWithContext(r.ctx, "SearchAPIService.CountCloudComplianceScans")
 	if err != nil {
 		return localVarReturnValue, nil, &GenericOpenAPIError{error: err.Error()}
 	}
@@ -164,7 +164,7 @@ func (a *SearchApiService) CountCloudComplianceScansExecute(r ApiCountCloudCompl
 
 type ApiCountCloudCompliancesRequest struct {
 	ctx context.Context
-	ApiService *SearchApiService
+	ApiService *SearchAPIService
 	searchSearchNodeReq *SearchSearchNodeReq
 }
 
@@ -185,7 +185,7 @@ Count across all the data ssociated with cloud compliances
  @param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
  @return ApiCountCloudCompliancesRequest
 */
-func (a *SearchApiService) CountCloudCompliances(ctx context.Context) ApiCountCloudCompliancesRequest {
+func (a *SearchAPIService) CountCloudCompliances(ctx context.Context) ApiCountCloudCompliancesRequest {
 	return ApiCountCloudCompliancesRequest{
 		ApiService: a,
 		ctx: ctx,
@@ -194,7 +194,7 @@ func (a *SearchApiService) CountCloudCompliances(ctx context.Context) ApiCountCl
 
 // Execute executes the request
 //  @return SearchSearchCountResp
-func (a *SearchApiService) CountCloudCompliancesExecute(r ApiCountCloudCompliancesRequest) (*SearchSearchCountResp, *http.Response, error) {
+func (a *SearchAPIService) CountCloudCompliancesExecute(r ApiCountCloudCompliancesRequest) (*SearchSearchCountResp, *http.Response, error) {
 	var (
 		localVarHTTPMethod   = http.MethodPost
 		localVarPostBody     interface{}
@@ -202,7 +202,7 @@ func (a *SearchApiService) CountCloudCompliancesExecute(r ApiCountCloudComplianc
 		localVarReturnValue  *SearchSearchCountResp
 	)
 
-	localBasePath, err := a.client.cfg.ServerURLWithContext(r.ctx, "SearchApiService.CountCloudCompliances")
+	localBasePath, err := a.client.cfg.ServerURLWithContext(r.ctx, "SearchAPIService.CountCloudCompliances")
 	if err != nil {
 		return localVarReturnValue, nil, &GenericOpenAPIError{error: err.Error()}
 	}
@@ -303,7 +303,7 @@ func (a *SearchApiService) CountCloudCompliancesExecute(r ApiCountCloudComplianc
 
 type ApiCountCloudResourcesRequest struct {
 	ctx context.Context
-	ApiService *SearchApiService
+	ApiService *SearchAPIService
 	searchSearchNodeReq *SearchSearchNodeReq
 }
 
@@ -324,7 +324,7 @@ Count across all the data ssociated with cloud resources
  @param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
  @return ApiCountCloudResourcesRequest
 */
-func (a *SearchApiService) CountCloudResources(ctx context.Context) ApiCountCloudResourcesRequest {
+func (a *SearchAPIService) CountCloudResources(ctx context.Context) ApiCountCloudResourcesRequest {
 	return ApiCountCloudResourcesRequest{
 		ApiService: a,
 		ctx: ctx,
@@ -333,7 +333,7 @@ func (a *SearchApiService) CountCloudResources(ctx context.Context) ApiCountClou
 
 // Execute executes the request
 //  @return SearchSearchCountResp
-func (a *SearchApiService) CountCloudResourcesExecute(r ApiCountCloudResourcesRequest) (*SearchSearchCountResp, *http.Response, error) {
+func (a *SearchAPIService) CountCloudResourcesExecute(r ApiCountCloudResourcesRequest) (*SearchSearchCountResp, *http.Response, error) {
 	var (
 		localVarHTTPMethod   = http.MethodPost
 		localVarPostBody     interface{}
@@ -341,7 +341,7 @@ func (a *SearchApiService) CountCloudResourcesExecute(r ApiCountCloudResourcesRe
 		localVarReturnValue  *SearchSearchCountResp
 	)
 
-	localBasePath, err := a.client.cfg.ServerURLWithContext(r.ctx, "SearchApiService.CountCloudResources")
+	localBasePath, err := a.client.cfg.ServerURLWithContext(r.ctx, "SearchAPIService.CountCloudResources")
 	if err != nil {
 		return localVarReturnValue, nil, &GenericOpenAPIError{error: err.Error()}
 	}
@@ -442,7 +442,7 @@ func (a *SearchApiService) CountCloudResourcesExecute(r ApiCountCloudResourcesRe
 
 type ApiCountComplianceScansRequest struct {
 	ctx context.Context
-	ApiService *SearchApiService
+	ApiService *SearchAPIService
 	searchSearchScanReq *SearchSearchScanReq
 }
 
@@ -463,7 +463,7 @@ Count across all the data associated with compliance scans
  @param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
  @return ApiCountComplianceScansRequest
 */
-func (a *SearchApiService) CountComplianceScans(ctx context.Context) ApiCountComplianceScansRequest {
+func (a *SearchAPIService) CountComplianceScans(ctx context.Context) ApiCountComplianceScansRequest {
 	return ApiCountComplianceScansRequest{
 		ApiService: a,
 		ctx: ctx,
@@ -472,7 +472,7 @@ func (a *SearchApiService) CountComplianceScans(ctx context.Context) ApiCountCom
 
 // Execute executes the request
 //  @return SearchSearchCountResp
-func (a *SearchApiService) CountComplianceScansExecute(r ApiCountComplianceScansRequest) (*SearchSearchCountResp, *http.Response, error) {
+func (a *SearchAPIService) CountComplianceScansExecute(r ApiCountComplianceScansRequest) (*SearchSearchCountResp, *http.Response, error) {
 	var (
 		localVarHTTPMethod   = http.MethodPost
 		localVarPostBody     interface{}
@@ -480,7 +480,7 @@ func (a *SearchApiService) CountComplianceScansExecute(r ApiCountComplianceScans
 		localVarReturnValue  *SearchSearchCountResp
 	)
 
-	localBasePath, err := a.client.cfg.ServerURLWithContext(r.ctx, "SearchApiService.CountComplianceScans")
+	localBasePath, err := a.client.cfg.ServerURLWithContext(r.ctx, "SearchAPIService.CountComplianceScans")
 	if err != nil {
 		return localVarReturnValue, nil, &GenericOpenAPIError{error: err.Error()}
 	}
@@ -581,7 +581,7 @@ func (a *SearchApiService) CountComplianceScansExecute(r ApiCountComplianceScans
 
 type ApiCountCompliancesRequest struct {
 	ctx context.Context
-	ApiService *SearchApiService
+	ApiService *SearchAPIService
 	searchSearchNodeReq *SearchSearchNodeReq
 }
 
@@ -602,7 +602,7 @@ Count across all the data associated with compliances
  @param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
  @return ApiCountCompliancesRequest
 */
-func (a *SearchApiService) CountCompliances(ctx context.Context) ApiCountCompliancesRequest {
+func (a *SearchAPIService) CountCompliances(ctx context.Context) ApiCountCompliancesRequest {
 	return ApiCountCompliancesRequest{
 		ApiService: a,
 		ctx: ctx,
@@ -611,7 +611,7 @@ func (a *SearchApiService) CountCompliances(ctx context.Context) ApiCountComplia
 
 // Execute executes the request
 //  @return SearchSearchCountResp
-func (a *SearchApiService) CountCompliancesExecute(r ApiCountCompliancesRequest) (*SearchSearchCountResp, *http.Response, error) {
+func (a *SearchAPIService) CountCompliancesExecute(r ApiCountCompliancesRequest) (*SearchSearchCountResp, *http.Response, error) {
 	var (
 		localVarHTTPMethod   = http.MethodPost
 		localVarPostBody     interface{}
@@ -619,7 +619,7 @@ func (a *SearchApiService) CountCompliancesExecute(r ApiCountCompliancesRequest)
 		localVarReturnValue  *SearchSearchCountResp
 	)
 
-	localBasePath, err := a.client.cfg.ServerURLWithContext(r.ctx, "SearchApiService.CountCompliances")
+	localBasePath, err := a.client.cfg.ServerURLWithContext(r.ctx, "SearchAPIService.CountCompliances")
 	if err != nil {
 		return localVarReturnValue, nil, &GenericOpenAPIError{error: err.Error()}
 	}
@@ -720,7 +720,7 @@ func (a *SearchApiService) CountCompliancesExecute(r ApiCountCompliancesRequest)
 
 type ApiCountContainerImagesRequest struct {
 	ctx context.Context
-	ApiService *SearchApiService
+	ApiService *SearchAPIService
 	searchSearchNodeReq *SearchSearchNodeReq
 }
 
@@ -741,7 +741,7 @@ Count across all the data associated with container images
  @param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
  @return ApiCountContainerImagesRequest
 */
-func (a *SearchApiService) CountContainerImages(ctx context.Context) ApiCountContainerImagesRequest {
+func (a *SearchAPIService) CountContainerImages(ctx context.Context) ApiCountContainerImagesRequest {
 	return ApiCountContainerImagesRequest{
 		ApiService: a,
 		ctx: ctx,
@@ -750,7 +750,7 @@ func (a *SearchApiService) CountContainerImages(ctx context.Context) ApiCountCon
 
 // Execute executes the request
 //  @return SearchSearchCountResp
-func (a *SearchApiService) CountContainerImagesExecute(r ApiCountContainerImagesRequest) (*SearchSearchCountResp, *http.Response, error) {
+func (a *SearchAPIService) CountContainerImagesExecute(r ApiCountContainerImagesRequest) (*SearchSearchCountResp, *http.Response, error) {
 	var (
 		localVarHTTPMethod   = http.MethodPost
 		localVarPostBody     interface{}
@@ -758,7 +758,7 @@ func (a *SearchApiService) CountContainerImagesExecute(r ApiCountContainerImages
 		localVarReturnValue  *SearchSearchCountResp
 	)
 
-	localBasePath, err := a.client.cfg.ServerURLWithContext(r.ctx, "SearchApiService.CountContainerImages")
+	localBasePath, err := a.client.cfg.ServerURLWithContext(r.ctx, "SearchAPIService.CountContainerImages")
 	if err != nil {
 		return localVarReturnValue, nil, &GenericOpenAPIError{error: err.Error()}
 	}
@@ -859,7 +859,7 @@ func (a *SearchApiService) CountContainerImagesExecute(r ApiCountContainerImages
 
 type ApiCountContainersRequest struct {
 	ctx context.Context
-	ApiService *SearchApiService
+	ApiService *SearchAPIService
 	searchSearchNodeReq *SearchSearchNodeReq
 }
 
@@ -880,7 +880,7 @@ Count across all the data associated with containers
  @param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
  @return ApiCountContainersRequest
 */
-func (a *SearchApiService) CountContainers(ctx context.Context) ApiCountContainersRequest {
+func (a *SearchAPIService) CountContainers(ctx context.Context) ApiCountContainersRequest {
 	return ApiCountContainersRequest{
 		ApiService: a,
 		ctx: ctx,
@@ -889,7 +889,7 @@ func (a *SearchApiService) CountContainers(ctx context.Context) ApiCountContaine
 
 // Execute executes the request
 //  @return SearchSearchCountResp
-func (a *SearchApiService) CountContainersExecute(r ApiCountContainersRequest) (*SearchSearchCountResp, *http.Response, error) {
+func (a *SearchAPIService) CountContainersExecute(r ApiCountContainersRequest) (*SearchSearchCountResp, *http.Response, error) {
 	var (
 		localVarHTTPMethod   = http.MethodPost
 		localVarPostBody     interface{}
@@ -897,7 +897,7 @@ func (a *SearchApiService) CountContainersExecute(r ApiCountContainersRequest) (
 		localVarReturnValue  *SearchSearchCountResp
 	)
 
-	localBasePath, err := a.client.cfg.ServerURLWithContext(r.ctx, "SearchApiService.CountContainers")
+	localBasePath, err := a.client.cfg.ServerURLWithContext(r.ctx, "SearchAPIService.CountContainers")
 	if err != nil {
 		return localVarReturnValue, nil, &GenericOpenAPIError{error: err.Error()}
 	}
@@ -998,7 +998,7 @@ func (a *SearchApiService) CountContainersExecute(r ApiCountContainersRequest) (
 
 type ApiCountHostsRequest struct {
 	ctx context.Context
-	ApiService *SearchApiService
+	ApiService *SearchAPIService
 	searchSearchNodeReq *SearchSearchNodeReq
 }
 
@@ -1019,7 +1019,7 @@ Count across all the data associated with hosts
  @param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
  @return ApiCountHostsRequest
 */
-func (a *SearchApiService) CountHosts(ctx context.Context) ApiCountHostsRequest {
+func (a *SearchAPIService) CountHosts(ctx context.Context) ApiCountHostsRequest {
 	return ApiCountHostsRequest{
 		ApiService: a,
 		ctx: ctx,
@@ -1028,7 +1028,7 @@ func (a *SearchApiService) CountHosts(ctx context.Context) ApiCountHostsRequest 
 
 // Execute executes the request
 //  @return SearchSearchCountResp
-func (a *SearchApiService) CountHostsExecute(r ApiCountHostsRequest) (*SearchSearchCountResp, *http.Response, error) {
+func (a *SearchAPIService) CountHostsExecute(r ApiCountHostsRequest) (*SearchSearchCountResp, *http.Response, error) {
 	var (
 		localVarHTTPMethod   = http.MethodPost
 		localVarPostBody     interface{}
@@ -1036,7 +1036,7 @@ func (a *SearchApiService) CountHostsExecute(r ApiCountHostsRequest) (*SearchSea
 		localVarReturnValue  *SearchSearchCountResp
 	)
 
-	localBasePath, err := a.client.cfg.ServerURLWithContext(r.ctx, "SearchApiService.CountHosts")
+	localBasePath, err := a.client.cfg.ServerURLWithContext(r.ctx, "SearchAPIService.CountHosts")
 	if err != nil {
 		return localVarReturnValue, nil, &GenericOpenAPIError{error: err.Error()}
 	}
@@ -1137,7 +1137,7 @@ func (a *SearchApiService) CountHostsExecute(r ApiCountHostsRequest) (*SearchSea
 
 type ApiCountKubernetesClustersRequest struct {
 	ctx context.Context
-	ApiService *SearchApiService
+	ApiService *SearchAPIService
 	searchSearchNodeReq *SearchSearchNodeReq
 }
 
@@ -1158,7 +1158,7 @@ Count across all the data ssociated with kubernetes clusters
  @param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
  @return ApiCountKubernetesClustersRequest
 */
-func (a *SearchApiService) CountKubernetesClusters(ctx context.Context) ApiCountKubernetesClustersRequest {
+func (a *SearchAPIService) CountKubernetesClusters(ctx context.Context) ApiCountKubernetesClustersRequest {
 	return ApiCountKubernetesClustersRequest{
 		ApiService: a,
 		ctx: ctx,
@@ -1167,7 +1167,7 @@ func (a *SearchApiService) CountKubernetesClusters(ctx context.Context) ApiCount
 
 // Execute executes the request
 //  @return SearchSearchCountResp
-func (a *SearchApiService) CountKubernetesClustersExecute(r ApiCountKubernetesClustersRequest) (*SearchSearchCountResp, *http.Response, error) {
+func (a *SearchAPIService) CountKubernetesClustersExecute(r ApiCountKubernetesClustersRequest) (*SearchSearchCountResp, *http.Response, error) {
 	var (
 		localVarHTTPMethod   = http.MethodPost
 		localVarPostBody     interface{}
@@ -1175,7 +1175,7 @@ func (a *SearchApiService) CountKubernetesClustersExecute(r ApiCountKubernetesCl
 		localVarReturnValue  *SearchSearchCountResp
 	)
 
-	localBasePath, err := a.client.cfg.ServerURLWithContext(r.ctx, "SearchApiService.CountKubernetesClusters")
+	localBasePath, err := a.client.cfg.ServerURLWithContext(r.ctx, "SearchAPIService.CountKubernetesClusters")
 	if err != nil {
 		return localVarReturnValue, nil, &GenericOpenAPIError{error: err.Error()}
 	}
@@ -1276,7 +1276,7 @@ func (a *SearchApiService) CountKubernetesClustersExecute(r ApiCountKubernetesCl
 
 type ApiCountMalwareScansRequest struct {
 	ctx context.Context
-	ApiService *SearchApiService
+	ApiService *SearchAPIService
 	searchSearchScanReq *SearchSearchScanReq
 }
 
@@ -1297,7 +1297,7 @@ Count across all the data associated with malware scans
  @param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
  @return ApiCountMalwareScansRequest
 */
-func (a *SearchApiService) CountMalwareScans(ctx context.Context) ApiCountMalwareScansRequest {
+func (a *SearchAPIService) CountMalwareScans(ctx context.Context) ApiCountMalwareScansRequest {
 	return ApiCountMalwareScansRequest{
 		ApiService: a,
 		ctx: ctx,
@@ -1306,7 +1306,7 @@ func (a *SearchApiService) CountMalwareScans(ctx context.Context) ApiCountMalwar
 
 // Execute executes the request
 //  @return SearchSearchCountResp
-func (a *SearchApiService) CountMalwareScansExecute(r ApiCountMalwareScansRequest) (*SearchSearchCountResp, *http.Response, error) {
+func (a *SearchAPIService) CountMalwareScansExecute(r ApiCountMalwareScansRequest) (*SearchSearchCountResp, *http.Response, error) {
 	var (
 		localVarHTTPMethod   = http.MethodPost
 		localVarPostBody     interface{}
@@ -1314,7 +1314,7 @@ func (a *SearchApiService) CountMalwareScansExecute(r ApiCountMalwareScansReques
 		localVarReturnValue  *SearchSearchCountResp
 	)
 
-	localBasePath, err := a.client.cfg.ServerURLWithContext(r.ctx, "SearchApiService.CountMalwareScans")
+	localBasePath, err := a.client.cfg.ServerURLWithContext(r.ctx, "SearchAPIService.CountMalwareScans")
 	if err != nil {
 		return localVarReturnValue, nil, &GenericOpenAPIError{error: err.Error()}
 	}
@@ -1415,7 +1415,7 @@ func (a *SearchApiService) CountMalwareScansExecute(r ApiCountMalwareScansReques
 
 type ApiCountMalwaresRequest struct {
 	ctx context.Context
-	ApiService *SearchApiService
+	ApiService *SearchAPIService
 	searchSearchNodeReq *SearchSearchNodeReq
 }
 
@@ -1436,7 +1436,7 @@ Count across all the data associated with malwares
  @param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
  @return ApiCountMalwaresRequest
 */
-func (a *SearchApiService) CountMalwares(ctx context.Context) ApiCountMalwaresRequest {
+func (a *SearchAPIService) CountMalwares(ctx context.Context) ApiCountMalwaresRequest {
 	return ApiCountMalwaresRequest{
 		ApiService: a,
 		ctx: ctx,
@@ -1445,7 +1445,7 @@ func (a *SearchApiService) CountMalwares(ctx context.Context) ApiCountMalwaresRe
 
 // Execute executes the request
 //  @return SearchSearchCountResp
-func (a *SearchApiService) CountMalwaresExecute(r ApiCountMalwaresRequest) (*SearchSearchCountResp, *http.Response, error) {
+func (a *SearchAPIService) CountMalwaresExecute(r ApiCountMalwaresRequest) (*SearchSearchCountResp, *http.Response, error) {
 	var (
 		localVarHTTPMethod   = http.MethodPost
 		localVarPostBody     interface{}
@@ -1453,7 +1453,7 @@ func (a *SearchApiService) CountMalwaresExecute(r ApiCountMalwaresRequest) (*Sea
 		localVarReturnValue  *SearchSearchCountResp
 	)
 
-	localBasePath, err := a.client.cfg.ServerURLWithContext(r.ctx, "SearchApiService.CountMalwares")
+	localBasePath, err := a.client.cfg.ServerURLWithContext(r.ctx, "SearchAPIService.CountMalwares")
 	if err != nil {
 		return localVarReturnValue, nil, &GenericOpenAPIError{error: err.Error()}
 	}
@@ -1554,7 +1554,7 @@ func (a *SearchApiService) CountMalwaresExecute(r ApiCountMalwaresRequest) (*Sea
 
 type ApiCountNodesRequest struct {
 	ctx context.Context
-	ApiService *SearchApiService
+	ApiService *SearchAPIService
 }
 
 func (r ApiCountNodesRequest) Execute() (*SearchNodeCountResp, *http.Response, error) {
@@ -1569,7 +1569,7 @@ Count hosts, containers, pods, k8s clusters, images
  @param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
  @return ApiCountNodesRequest
 */
-func (a *SearchApiService) CountNodes(ctx context.Context) ApiCountNodesRequest {
+func (a *SearchAPIService) CountNodes(ctx context.Context) ApiCountNodesRequest {
 	return ApiCountNodesRequest{
 		ApiService: a,
 		ctx: ctx,
@@ -1578,7 +1578,7 @@ func (a *SearchApiService) CountNodes(ctx context.Context) ApiCountNodesRequest 
 
 // Execute executes the request
 //  @return SearchNodeCountResp
-func (a *SearchApiService) CountNodesExecute(r ApiCountNodesRequest) (*SearchNodeCountResp, *http.Response, error) {
+func (a *SearchAPIService) CountNodesExecute(r ApiCountNodesRequest) (*SearchNodeCountResp, *http.Response, error) {
 	var (
 		localVarHTTPMethod   = http.MethodGet
 		localVarPostBody     interface{}
@@ -1586,7 +1586,7 @@ func (a *SearchApiService) CountNodesExecute(r ApiCountNodesRequest) (*SearchNod
 		localVarReturnValue  *SearchNodeCountResp
 	)
 
-	localBasePath, err := a.client.cfg.ServerURLWithContext(r.ctx, "SearchApiService.CountNodes")
+	localBasePath, err := a.client.cfg.ServerURLWithContext(r.ctx, "SearchAPIService.CountNodes")
 	if err != nil {
 		return localVarReturnValue, nil, &GenericOpenAPIError{error: err.Error()}
 	}
@@ -1685,7 +1685,7 @@ func (a *SearchApiService) CountNodesExecute(r ApiCountNodesRequest) (*SearchNod
 
 type ApiCountPodsRequest struct {
 	ctx context.Context
-	ApiService *SearchApiService
+	ApiService *SearchAPIService
 	searchSearchNodeReq *SearchSearchNodeReq
 }
 
@@ -1706,7 +1706,7 @@ Count across all the data associated with pods
  @param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
  @return ApiCountPodsRequest
 */
-func (a *SearchApiService) CountPods(ctx context.Context) ApiCountPodsRequest {
+func (a *SearchAPIService) CountPods(ctx context.Context) ApiCountPodsRequest {
 	return ApiCountPodsRequest{
 		ApiService: a,
 		ctx: ctx,
@@ -1715,7 +1715,7 @@ func (a *SearchApiService) CountPods(ctx context.Context) ApiCountPodsRequest {
 
 // Execute executes the request
 //  @return SearchSearchCountResp
-func (a *SearchApiService) CountPodsExecute(r ApiCountPodsRequest) (*SearchSearchCountResp, *http.Response, error) {
+func (a *SearchAPIService) CountPodsExecute(r ApiCountPodsRequest) (*SearchSearchCountResp, *http.Response, error) {
 	var (
 		localVarHTTPMethod   = http.MethodPost
 		localVarPostBody     interface{}
@@ -1723,7 +1723,7 @@ func (a *SearchApiService) CountPodsExecute(r ApiCountPodsRequest) (*SearchSearc
 		localVarReturnValue  *SearchSearchCountResp
 	)
 
-	localBasePath, err := a.client.cfg.ServerURLWithContext(r.ctx, "SearchApiService.CountPods")
+	localBasePath, err := a.client.cfg.ServerURLWithContext(r.ctx, "SearchAPIService.CountPods")
 	if err != nil {
 		return localVarReturnValue, nil, &GenericOpenAPIError{error: err.Error()}
 	}
@@ -1824,7 +1824,7 @@ func (a *SearchApiService) CountPodsExecute(r ApiCountPodsRequest) (*SearchSearc
 
 type ApiCountSecretsRequest struct {
 	ctx context.Context
-	ApiService *SearchApiService
+	ApiService *SearchAPIService
 	searchSearchNodeReq *SearchSearchNodeReq
 }
 
@@ -1845,7 +1845,7 @@ Count across all the data associated with secrets
  @param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
  @return ApiCountSecretsRequest
 */
-func (a *SearchApiService) CountSecrets(ctx context.Context) ApiCountSecretsRequest {
+func (a *SearchAPIService) CountSecrets(ctx context.Context) ApiCountSecretsRequest {
 	return ApiCountSecretsRequest{
 		ApiService: a,
 		ctx: ctx,
@@ -1854,7 +1854,7 @@ func (a *SearchApiService) CountSecrets(ctx context.Context) ApiCountSecretsRequ
 
 // Execute executes the request
 //  @return SearchSearchCountResp
-func (a *SearchApiService) CountSecretsExecute(r ApiCountSecretsRequest) (*SearchSearchCountResp, *http.Response, error) {
+func (a *SearchAPIService) CountSecretsExecute(r ApiCountSecretsRequest) (*SearchSearchCountResp, *http.Response, error) {
 	var (
 		localVarHTTPMethod   = http.MethodPost
 		localVarPostBody     interface{}
@@ -1862,7 +1862,7 @@ func (a *SearchApiService) CountSecretsExecute(r ApiCountSecretsRequest) (*Searc
 		localVarReturnValue  *SearchSearchCountResp
 	)
 
-	localBasePath, err := a.client.cfg.ServerURLWithContext(r.ctx, "SearchApiService.CountSecrets")
+	localBasePath, err := a.client.cfg.ServerURLWithContext(r.ctx, "SearchAPIService.CountSecrets")
 	if err != nil {
 		return localVarReturnValue, nil, &GenericOpenAPIError{error: err.Error()}
 	}
@@ -1963,7 +1963,7 @@ func (a *SearchApiService) CountSecretsExecute(r ApiCountSecretsRequest) (*Searc
 
 type ApiCountSecretsScansRequest struct {
 	ctx context.Context
-	ApiService *SearchApiService
+	ApiService *SearchAPIService
 	searchSearchScanReq *SearchSearchScanReq
 }
 
@@ -1984,7 +1984,7 @@ Count across all the data associated with secret scans
  @param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
  @return ApiCountSecretsScansRequest
 */
-func (a *SearchApiService) CountSecretsScans(ctx context.Context) ApiCountSecretsScansRequest {
+func (a *SearchAPIService) CountSecretsScans(ctx context.Context) ApiCountSecretsScansRequest {
 	return ApiCountSecretsScansRequest{
 		ApiService: a,
 		ctx: ctx,
@@ -1993,7 +1993,7 @@ func (a *SearchApiService) CountSecretsScans(ctx context.Context) ApiCountSecret
 
 // Execute executes the request
 //  @return SearchSearchCountResp
-func (a *SearchApiService) CountSecretsScansExecute(r ApiCountSecretsScansRequest) (*SearchSearchCountResp, *http.Response, error) {
+func (a *SearchAPIService) CountSecretsScansExecute(r ApiCountSecretsScansRequest) (*SearchSearchCountResp, *http.Response, error) {
 	var (
 		localVarHTTPMethod   = http.MethodPost
 		localVarPostBody     interface{}
@@ -2001,7 +2001,7 @@ func (a *SearchApiService) CountSecretsScansExecute(r ApiCountSecretsScansReques
 		localVarReturnValue  *SearchSearchCountResp
 	)
 
-	localBasePath, err := a.client.cfg.ServerURLWithContext(r.ctx, "SearchApiService.CountSecretsScans")
+	localBasePath, err := a.client.cfg.ServerURLWithContext(r.ctx, "SearchAPIService.CountSecretsScans")
 	if err != nil {
 		return localVarReturnValue, nil, &GenericOpenAPIError{error: err.Error()}
 	}
@@ -2102,7 +2102,7 @@ func (a *SearchApiService) CountSecretsScansExecute(r ApiCountSecretsScansReques
 
 type ApiCountVulnerabilitiesRequest struct {
 	ctx context.Context
-	ApiService *SearchApiService
+	ApiService *SearchAPIService
 	searchSearchNodeReq *SearchSearchNodeReq
 }
 
@@ -2123,7 +2123,7 @@ Search across all the data associated with vulnerabilities
  @param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
  @return ApiCountVulnerabilitiesRequest
 */
-func (a *SearchApiService) CountVulnerabilities(ctx context.Context) ApiCountVulnerabilitiesRequest {
+func (a *SearchAPIService) CountVulnerabilities(ctx context.Context) ApiCountVulnerabilitiesRequest {
 	return ApiCountVulnerabilitiesRequest{
 		ApiService: a,
 		ctx: ctx,
@@ -2132,7 +2132,7 @@ func (a *SearchApiService) CountVulnerabilities(ctx context.Context) ApiCountVul
 
 // Execute executes the request
 //  @return SearchSearchCountResp
-func (a *SearchApiService) CountVulnerabilitiesExecute(r ApiCountVulnerabilitiesRequest) (*SearchSearchCountResp, *http.Response, error) {
+func (a *SearchAPIService) CountVulnerabilitiesExecute(r ApiCountVulnerabilitiesRequest) (*SearchSearchCountResp, *http.Response, error) {
 	var (
 		localVarHTTPMethod   = http.MethodPost
 		localVarPostBody     interface{}
@@ -2140,7 +2140,7 @@ func (a *SearchApiService) CountVulnerabilitiesExecute(r ApiCountVulnerabilities
 		localVarReturnValue  *SearchSearchCountResp
 	)
 
-	localBasePath, err := a.client.cfg.ServerURLWithContext(r.ctx, "SearchApiService.CountVulnerabilities")
+	localBasePath, err := a.client.cfg.ServerURLWithContext(r.ctx, "SearchAPIService.CountVulnerabilities")
 	if err != nil {
 		return localVarReturnValue, nil, &GenericOpenAPIError{error: err.Error()}
 	}
@@ -2241,7 +2241,7 @@ func (a *SearchApiService) CountVulnerabilitiesExecute(r ApiCountVulnerabilities
 
 type ApiCountVulnerabilityScansRequest struct {
 	ctx context.Context
-	ApiService *SearchApiService
+	ApiService *SearchAPIService
 	searchSearchScanReq *SearchSearchScanReq
 }
 
@@ -2262,7 +2262,7 @@ Count across all the data associated with vulnerability scans
  @param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
  @return ApiCountVulnerabilityScansRequest
 */
-func (a *SearchApiService) CountVulnerabilityScans(ctx context.Context) ApiCountVulnerabilityScansRequest {
+func (a *SearchAPIService) CountVulnerabilityScans(ctx context.Context) ApiCountVulnerabilityScansRequest {
 	return ApiCountVulnerabilityScansRequest{
 		ApiService: a,
 		ctx: ctx,
@@ -2271,7 +2271,7 @@ func (a *SearchApiService) CountVulnerabilityScans(ctx context.Context) ApiCount
 
 // Execute executes the request
 //  @return SearchSearchCountResp
-func (a *SearchApiService) CountVulnerabilityScansExecute(r ApiCountVulnerabilityScansRequest) (*SearchSearchCountResp, *http.Response, error) {
+func (a *SearchAPIService) CountVulnerabilityScansExecute(r ApiCountVulnerabilityScansRequest) (*SearchSearchCountResp, *http.Response, error) {
 	var (
 		localVarHTTPMethod   = http.MethodPost
 		localVarPostBody     interface{}
@@ -2279,7 +2279,7 @@ func (a *SearchApiService) CountVulnerabilityScansExecute(r ApiCountVulnerabilit
 		localVarReturnValue  *SearchSearchCountResp
 	)
 
-	localBasePath, err := a.client.cfg.ServerURLWithContext(r.ctx, "SearchApiService.CountVulnerabilityScans")
+	localBasePath, err := a.client.cfg.ServerURLWithContext(r.ctx, "SearchAPIService.CountVulnerabilityScans")
 	if err != nil {
 		return localVarReturnValue, nil, &GenericOpenAPIError{error: err.Error()}
 	}
@@ -2380,7 +2380,7 @@ func (a *SearchApiService) CountVulnerabilityScansExecute(r ApiCountVulnerabilit
 
 type ApiGetCloudComplianceFiltersRequest struct {
 	ctx context.Context
-	ApiService *SearchApiService
+	ApiService *SearchAPIService
 	modelFiltersReq *ModelFiltersReq
 }
 
@@ -2401,7 +2401,7 @@ Get all applicable filter values for cloud compliance
  @param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
  @return ApiGetCloudComplianceFiltersRequest
 */
-func (a *SearchApiService) GetCloudComplianceFilters(ctx context.Context) ApiGetCloudComplianceFiltersRequest {
+func (a *SearchAPIService) GetCloudComplianceFilters(ctx context.Context) ApiGetCloudComplianceFiltersRequest {
 	return ApiGetCloudComplianceFiltersRequest{
 		ApiService: a,
 		ctx: ctx,
@@ -2410,7 +2410,7 @@ func (a *SearchApiService) GetCloudComplianceFilters(ctx context.Context) ApiGet
 
 // Execute executes the request
 //  @return ModelFiltersResult
-func (a *SearchApiService) GetCloudComplianceFiltersExecute(r ApiGetCloudComplianceFiltersRequest) (*ModelFiltersResult, *http.Response, error) {
+func (a *SearchAPIService) GetCloudComplianceFiltersExecute(r ApiGetCloudComplianceFiltersRequest) (*ModelFiltersResult, *http.Response, error) {
 	var (
 		localVarHTTPMethod   = http.MethodPost
 		localVarPostBody     interface{}
@@ -2418,7 +2418,7 @@ func (a *SearchApiService) GetCloudComplianceFiltersExecute(r ApiGetCloudComplia
 		localVarReturnValue  *ModelFiltersResult
 	)
 
-	localBasePath, err := a.client.cfg.ServerURLWithContext(r.ctx, "SearchApiService.GetCloudComplianceFilters")
+	localBasePath, err := a.client.cfg.ServerURLWithContext(r.ctx, "SearchAPIService.GetCloudComplianceFilters")
 	if err != nil {
 		return localVarReturnValue, nil, &GenericOpenAPIError{error: err.Error()}
 	}
@@ -2519,7 +2519,7 @@ func (a *SearchApiService) GetCloudComplianceFiltersExecute(r ApiGetCloudComplia
 
 type ApiGetComplianceFiltersRequest struct {
 	ctx context.Context
-	ApiService *SearchApiService
+	ApiService *SearchAPIService
 	modelFiltersReq *ModelFiltersReq
 }
 
@@ -2540,7 +2540,7 @@ Get all applicable filter values for compliance
  @param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
  @return ApiGetComplianceFiltersRequest
 */
-func (a *SearchApiService) GetComplianceFilters(ctx context.Context) ApiGetComplianceFiltersRequest {
+func (a *SearchAPIService) GetComplianceFilters(ctx context.Context) ApiGetComplianceFiltersRequest {
 	return ApiGetComplianceFiltersRequest{
 		ApiService: a,
 		ctx: ctx,
@@ -2549,7 +2549,7 @@ func (a *SearchApiService) GetComplianceFilters(ctx context.Context) ApiGetCompl
 
 // Execute executes the request
 //  @return ModelFiltersResult
-func (a *SearchApiService) GetComplianceFiltersExecute(r ApiGetComplianceFiltersRequest) (*ModelFiltersResult, *http.Response, error) {
+func (a *SearchAPIService) GetComplianceFiltersExecute(r ApiGetComplianceFiltersRequest) (*ModelFiltersResult, *http.Response, error) {
 	var (
 		localVarHTTPMethod   = http.MethodPost
 		localVarPostBody     interface{}
@@ -2557,7 +2557,7 @@ func (a *SearchApiService) GetComplianceFiltersExecute(r ApiGetComplianceFilters
 		localVarReturnValue  *ModelFiltersResult
 	)
 
-	localBasePath, err := a.client.cfg.ServerURLWithContext(r.ctx, "SearchApiService.GetComplianceFilters")
+	localBasePath, err := a.client.cfg.ServerURLWithContext(r.ctx, "SearchAPIService.GetComplianceFilters")
 	if err != nil {
 		return localVarReturnValue, nil, &GenericOpenAPIError{error: err.Error()}
 	}
@@ -2658,7 +2658,7 @@ func (a *SearchApiService) GetComplianceFiltersExecute(r ApiGetComplianceFilters
 
 type ApiSearchCloudComplianceScansRequest struct {
 	ctx context.Context
-	ApiService *SearchApiService
+	ApiService *SearchAPIService
 	searchSearchScanReq *SearchSearchScanReq
 }
 
@@ -2679,7 +2679,7 @@ Search across all the data associated with cloud-compliance scan
  @param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
  @return ApiSearchCloudComplianceScansRequest
 */
-func (a *SearchApiService) SearchCloudComplianceScans(ctx context.Context) ApiSearchCloudComplianceScansRequest {
+func (a *SearchAPIService) SearchCloudComplianceScans(ctx context.Context) ApiSearchCloudComplianceScansRequest {
 	return ApiSearchCloudComplianceScansRequest{
 		ApiService: a,
 		ctx: ctx,
@@ -2688,7 +2688,7 @@ func (a *SearchApiService) SearchCloudComplianceScans(ctx context.Context) ApiSe
 
 // Execute executes the request
 //  @return []ModelScanInfo
-func (a *SearchApiService) SearchCloudComplianceScansExecute(r ApiSearchCloudComplianceScansRequest) ([]ModelScanInfo, *http.Response, error) {
+func (a *SearchAPIService) SearchCloudComplianceScansExecute(r ApiSearchCloudComplianceScansRequest) ([]ModelScanInfo, *http.Response, error) {
 	var (
 		localVarHTTPMethod   = http.MethodPost
 		localVarPostBody     interface{}
@@ -2696,7 +2696,7 @@ func (a *SearchApiService) SearchCloudComplianceScansExecute(r ApiSearchCloudCom
 		localVarReturnValue  []ModelScanInfo
 	)
 
-	localBasePath, err := a.client.cfg.ServerURLWithContext(r.ctx, "SearchApiService.SearchCloudComplianceScans")
+	localBasePath, err := a.client.cfg.ServerURLWithContext(r.ctx, "SearchAPIService.SearchCloudComplianceScans")
 	if err != nil {
 		return localVarReturnValue, nil, &GenericOpenAPIError{error: err.Error()}
 	}
@@ -2797,7 +2797,7 @@ func (a *SearchApiService) SearchCloudComplianceScansExecute(r ApiSearchCloudCom
 
 type ApiSearchCloudCompliancesRequest struct {
 	ctx context.Context
-	ApiService *SearchApiService
+	ApiService *SearchAPIService
 	searchSearchNodeReq *SearchSearchNodeReq
 }
 
@@ -2818,7 +2818,7 @@ Search across all the data associated with cloud-compliances
  @param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
  @return ApiSearchCloudCompliancesRequest
 */
-func (a *SearchApiService) SearchCloudCompliances(ctx context.Context) ApiSearchCloudCompliancesRequest {
+func (a *SearchAPIService) SearchCloudCompliances(ctx context.Context) ApiSearchCloudCompliancesRequest {
 	return ApiSearchCloudCompliancesRequest{
 		ApiService: a,
 		ctx: ctx,
@@ -2827,7 +2827,7 @@ func (a *SearchApiService) SearchCloudCompliances(ctx context.Context) ApiSearch
 
 // Execute executes the request
 //  @return []ModelCloudCompliance
-func (a *SearchApiService) SearchCloudCompliancesExecute(r ApiSearchCloudCompliancesRequest) ([]ModelCloudCompliance, *http.Response, error) {
+func (a *SearchAPIService) SearchCloudCompliancesExecute(r ApiSearchCloudCompliancesRequest) ([]ModelCloudCompliance, *http.Response, error) {
 	var (
 		localVarHTTPMethod   = http.MethodPost
 		localVarPostBody     interface{}
@@ -2835,7 +2835,7 @@ func (a *SearchApiService) SearchCloudCompliancesExecute(r ApiSearchCloudComplia
 		localVarReturnValue  []ModelCloudCompliance
 	)
 
-	localBasePath, err := a.client.cfg.ServerURLWithContext(r.ctx, "SearchApiService.SearchCloudCompliances")
+	localBasePath, err := a.client.cfg.ServerURLWithContext(r.ctx, "SearchAPIService.SearchCloudCompliances")
 	if err != nil {
 		return localVarReturnValue, nil, &GenericOpenAPIError{error: err.Error()}
 	}
@@ -2934,9 +2934,148 @@ func (a *SearchApiService) SearchCloudCompliancesExecute(r ApiSearchCloudComplia
 	return localVarReturnValue, localVarHTTPResponse, nil
 }
 
+type ApiSearchCloudNodesRequest struct {
+	ctx context.Context
+	ApiService *SearchAPIService
+	searchSearchNodeReq *SearchSearchNodeReq
+}
+
+func (r ApiSearchCloudNodesRequest) SearchSearchNodeReq(searchSearchNodeReq SearchSearchNodeReq) ApiSearchCloudNodesRequest {
+	r.searchSearchNodeReq = &searchSearchNodeReq
+	return r
+}
+
+func (r ApiSearchCloudNodesRequest) Execute() ([]ModelCloudNodeAccountInfo, *http.Response, error) {
+	return r.ApiService.SearchCloudNodesExecute(r)
+}
+
+/*
+SearchCloudNodes Search Cloud Nodes
+
+Search across all the data associated with cloud nodes
+
+ @param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
+ @return ApiSearchCloudNodesRequest
+*/
+func (a *SearchAPIService) SearchCloudNodes(ctx context.Context) ApiSearchCloudNodesRequest {
+	return ApiSearchCloudNodesRequest{
+		ApiService: a,
+		ctx: ctx,
+	}
+}
+
+// Execute executes the request
+//  @return []ModelCloudNodeAccountInfo
+func (a *SearchAPIService) SearchCloudNodesExecute(r ApiSearchCloudNodesRequest) ([]ModelCloudNodeAccountInfo, *http.Response, error) {
+	var (
+		localVarHTTPMethod   = http.MethodPost
+		localVarPostBody     interface{}
+		formFiles            []formFile
+		localVarReturnValue  []ModelCloudNodeAccountInfo
+	)
+
+	localBasePath, err := a.client.cfg.ServerURLWithContext(r.ctx, "SearchAPIService.SearchCloudNodes")
+	if err != nil {
+		return localVarReturnValue, nil, &GenericOpenAPIError{error: err.Error()}
+	}
+
+	localVarPath := localBasePath + "/deepfence/search/cloud-nodes"
+
+	localVarHeaderParams := make(map[string]string)
+	localVarQueryParams := url.Values{}
+	localVarFormParams := url.Values{}
+
+	// to determine the Content-Type header
+	localVarHTTPContentTypes := []string{"application/json"}
+
+	// set Content-Type header
+	localVarHTTPContentType := selectHeaderContentType(localVarHTTPContentTypes)
+	if localVarHTTPContentType != "" {
+		localVarHeaderParams["Content-Type"] = localVarHTTPContentType
+	}
+
+	// to determine the Accept header
+	localVarHTTPHeaderAccepts := []string{"application/json"}
+
+	// set Accept header
+	localVarHTTPHeaderAccept := selectHeaderAccept(localVarHTTPHeaderAccepts)
+	if localVarHTTPHeaderAccept != "" {
+		localVarHeaderParams["Accept"] = localVarHTTPHeaderAccept
+	}
+	// body params
+	localVarPostBody = r.searchSearchNodeReq
+	req, err := a.client.prepareRequest(r.ctx, localVarPath, localVarHTTPMethod, localVarPostBody, localVarHeaderParams, localVarQueryParams, localVarFormParams, formFiles)
+	if err != nil {
+		return localVarReturnValue, nil, err
+	}
+
+	localVarHTTPResponse, err := a.client.callAPI(req)
+	if err != nil || localVarHTTPResponse == nil {
+		return localVarReturnValue, localVarHTTPResponse, err
+	}
+
+	localVarBody, err := io.ReadAll(localVarHTTPResponse.Body)
+	localVarHTTPResponse.Body.Close()
+	localVarHTTPResponse.Body = io.NopCloser(bytes.NewBuffer(localVarBody))
+	if err != nil {
+		return localVarReturnValue, localVarHTTPResponse, err
+	}
+
+	if localVarHTTPResponse.StatusCode >= 300 {
+		newErr := &GenericOpenAPIError{
+			body:  localVarBody,
+			error: localVarHTTPResponse.Status,
+		}
+		if localVarHTTPResponse.StatusCode == 400 {
+			var v ApiDocsBadRequestResponse
+			err = a.client.decode(&v, localVarBody, localVarHTTPResponse.Header.Get("Content-Type"))
+			if err != nil {
+				newErr.error = err.Error()
+				return localVarReturnValue, localVarHTTPResponse, newErr
+			}
+					newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
+					newErr.model = v
+			return localVarReturnValue, localVarHTTPResponse, newErr
+		}
+		if localVarHTTPResponse.StatusCode == 404 {
+			var v ApiDocsFailureResponse
+			err = a.client.decode(&v, localVarBody, localVarHTTPResponse.Header.Get("Content-Type"))
+			if err != nil {
+				newErr.error = err.Error()
+				return localVarReturnValue, localVarHTTPResponse, newErr
+			}
+					newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
+					newErr.model = v
+			return localVarReturnValue, localVarHTTPResponse, newErr
+		}
+		if localVarHTTPResponse.StatusCode == 500 {
+			var v ApiDocsFailureResponse
+			err = a.client.decode(&v, localVarBody, localVarHTTPResponse.Header.Get("Content-Type"))
+			if err != nil {
+				newErr.error = err.Error()
+				return localVarReturnValue, localVarHTTPResponse, newErr
+			}
+					newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
+					newErr.model = v
+		}
+		return localVarReturnValue, localVarHTTPResponse, newErr
+	}
+
+	err = a.client.decode(&localVarReturnValue, localVarBody, localVarHTTPResponse.Header.Get("Content-Type"))
+	if err != nil {
+		newErr := &GenericOpenAPIError{
+			body:  localVarBody,
+			error: err.Error(),
+		}
+		return localVarReturnValue, localVarHTTPResponse, newErr
+	}
+
+	return localVarReturnValue, localVarHTTPResponse, nil
+}
+
 type ApiSearchCloudResourcesRequest struct {
 	ctx context.Context
-	ApiService *SearchApiService
+	ApiService *SearchAPIService
 	searchSearchNodeReq *SearchSearchNodeReq
 }
 
@@ -2957,7 +3096,7 @@ Search across all data associated with CloudResources
  @param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
  @return ApiSearchCloudResourcesRequest
 */
-func (a *SearchApiService) SearchCloudResources(ctx context.Context) ApiSearchCloudResourcesRequest {
+func (a *SearchAPIService) SearchCloudResources(ctx context.Context) ApiSearchCloudResourcesRequest {
 	return ApiSearchCloudResourcesRequest{
 		ApiService: a,
 		ctx: ctx,
@@ -2966,7 +3105,7 @@ func (a *SearchApiService) SearchCloudResources(ctx context.Context) ApiSearchCl
 
 // Execute executes the request
 //  @return []ModelCloudResource
-func (a *SearchApiService) SearchCloudResourcesExecute(r ApiSearchCloudResourcesRequest) ([]ModelCloudResource, *http.Response, error) {
+func (a *SearchAPIService) SearchCloudResourcesExecute(r ApiSearchCloudResourcesRequest) ([]ModelCloudResource, *http.Response, error) {
 	var (
 		localVarHTTPMethod   = http.MethodPost
 		localVarPostBody     interface{}
@@ -2974,7 +3113,7 @@ func (a *SearchApiService) SearchCloudResourcesExecute(r ApiSearchCloudResources
 		localVarReturnValue  []ModelCloudResource
 	)
 
-	localBasePath, err := a.client.cfg.ServerURLWithContext(r.ctx, "SearchApiService.SearchCloudResources")
+	localBasePath, err := a.client.cfg.ServerURLWithContext(r.ctx, "SearchAPIService.SearchCloudResources")
 	if err != nil {
 		return localVarReturnValue, nil, &GenericOpenAPIError{error: err.Error()}
 	}
@@ -3075,7 +3214,7 @@ func (a *SearchApiService) SearchCloudResourcesExecute(r ApiSearchCloudResources
 
 type ApiSearchComplianceScansRequest struct {
 	ctx context.Context
-	ApiService *SearchApiService
+	ApiService *SearchAPIService
 	searchSearchScanReq *SearchSearchScanReq
 }
 
@@ -3096,7 +3235,7 @@ Search across all the data associated with compliance scan
  @param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
  @return ApiSearchComplianceScansRequest
 */
-func (a *SearchApiService) SearchComplianceScans(ctx context.Context) ApiSearchComplianceScansRequest {
+func (a *SearchAPIService) SearchComplianceScans(ctx context.Context) ApiSearchComplianceScansRequest {
 	return ApiSearchComplianceScansRequest{
 		ApiService: a,
 		ctx: ctx,
@@ -3105,7 +3244,7 @@ func (a *SearchApiService) SearchComplianceScans(ctx context.Context) ApiSearchC
 
 // Execute executes the request
 //  @return []ModelScanInfo
-func (a *SearchApiService) SearchComplianceScansExecute(r ApiSearchComplianceScansRequest) ([]ModelScanInfo, *http.Response, error) {
+func (a *SearchAPIService) SearchComplianceScansExecute(r ApiSearchComplianceScansRequest) ([]ModelScanInfo, *http.Response, error) {
 	var (
 		localVarHTTPMethod   = http.MethodPost
 		localVarPostBody     interface{}
@@ -3113,7 +3252,7 @@ func (a *SearchApiService) SearchComplianceScansExecute(r ApiSearchComplianceSca
 		localVarReturnValue  []ModelScanInfo
 	)
 
-	localBasePath, err := a.client.cfg.ServerURLWithContext(r.ctx, "SearchApiService.SearchComplianceScans")
+	localBasePath, err := a.client.cfg.ServerURLWithContext(r.ctx, "SearchAPIService.SearchComplianceScans")
 	if err != nil {
 		return localVarReturnValue, nil, &GenericOpenAPIError{error: err.Error()}
 	}
@@ -3214,7 +3353,7 @@ func (a *SearchApiService) SearchComplianceScansExecute(r ApiSearchComplianceSca
 
 type ApiSearchCompliancesRequest struct {
 	ctx context.Context
-	ApiService *SearchApiService
+	ApiService *SearchAPIService
 	searchSearchNodeReq *SearchSearchNodeReq
 }
 
@@ -3235,7 +3374,7 @@ Search across all the data associated with compliances
  @param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
  @return ApiSearchCompliancesRequest
 */
-func (a *SearchApiService) SearchCompliances(ctx context.Context) ApiSearchCompliancesRequest {
+func (a *SearchAPIService) SearchCompliances(ctx context.Context) ApiSearchCompliancesRequest {
 	return ApiSearchCompliancesRequest{
 		ApiService: a,
 		ctx: ctx,
@@ -3244,7 +3383,7 @@ func (a *SearchApiService) SearchCompliances(ctx context.Context) ApiSearchCompl
 
 // Execute executes the request
 //  @return []ModelCompliance
-func (a *SearchApiService) SearchCompliancesExecute(r ApiSearchCompliancesRequest) ([]ModelCompliance, *http.Response, error) {
+func (a *SearchAPIService) SearchCompliancesExecute(r ApiSearchCompliancesRequest) ([]ModelCompliance, *http.Response, error) {
 	var (
 		localVarHTTPMethod   = http.MethodPost
 		localVarPostBody     interface{}
@@ -3252,7 +3391,7 @@ func (a *SearchApiService) SearchCompliancesExecute(r ApiSearchCompliancesReques
 		localVarReturnValue  []ModelCompliance
 	)
 
-	localBasePath, err := a.client.cfg.ServerURLWithContext(r.ctx, "SearchApiService.SearchCompliances")
+	localBasePath, err := a.client.cfg.ServerURLWithContext(r.ctx, "SearchAPIService.SearchCompliances")
 	if err != nil {
 		return localVarReturnValue, nil, &GenericOpenAPIError{error: err.Error()}
 	}
@@ -3353,7 +3492,7 @@ func (a *SearchApiService) SearchCompliancesExecute(r ApiSearchCompliancesReques
 
 type ApiSearchContainerImagesRequest struct {
 	ctx context.Context
-	ApiService *SearchApiService
+	ApiService *SearchAPIService
 	searchSearchNodeReq *SearchSearchNodeReq
 }
 
@@ -3374,7 +3513,7 @@ Search across all the data associated with container images
  @param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
  @return ApiSearchContainerImagesRequest
 */
-func (a *SearchApiService) SearchContainerImages(ctx context.Context) ApiSearchContainerImagesRequest {
+func (a *SearchAPIService) SearchContainerImages(ctx context.Context) ApiSearchContainerImagesRequest {
 	return ApiSearchContainerImagesRequest{
 		ApiService: a,
 		ctx: ctx,
@@ -3383,7 +3522,7 @@ func (a *SearchApiService) SearchContainerImages(ctx context.Context) ApiSearchC
 
 // Execute executes the request
 //  @return []ModelContainerImage
-func (a *SearchApiService) SearchContainerImagesExecute(r ApiSearchContainerImagesRequest) ([]ModelContainerImage, *http.Response, error) {
+func (a *SearchAPIService) SearchContainerImagesExecute(r ApiSearchContainerImagesRequest) ([]ModelContainerImage, *http.Response, error) {
 	var (
 		localVarHTTPMethod   = http.MethodPost
 		localVarPostBody     interface{}
@@ -3391,7 +3530,7 @@ func (a *SearchApiService) SearchContainerImagesExecute(r ApiSearchContainerImag
 		localVarReturnValue  []ModelContainerImage
 	)
 
-	localBasePath, err := a.client.cfg.ServerURLWithContext(r.ctx, "SearchApiService.SearchContainerImages")
+	localBasePath, err := a.client.cfg.ServerURLWithContext(r.ctx, "SearchAPIService.SearchContainerImages")
 	if err != nil {
 		return localVarReturnValue, nil, &GenericOpenAPIError{error: err.Error()}
 	}
@@ -3492,7 +3631,7 @@ func (a *SearchApiService) SearchContainerImagesExecute(r ApiSearchContainerImag
 
 type ApiSearchContainersRequest struct {
 	ctx context.Context
-	ApiService *SearchApiService
+	ApiService *SearchAPIService
 	searchSearchNodeReq *SearchSearchNodeReq
 }
 
@@ -3513,7 +3652,7 @@ Search across all data associated with containers
  @param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
  @return ApiSearchContainersRequest
 */
-func (a *SearchApiService) SearchContainers(ctx context.Context) ApiSearchContainersRequest {
+func (a *SearchAPIService) SearchContainers(ctx context.Context) ApiSearchContainersRequest {
 	return ApiSearchContainersRequest{
 		ApiService: a,
 		ctx: ctx,
@@ -3522,7 +3661,7 @@ func (a *SearchApiService) SearchContainers(ctx context.Context) ApiSearchContai
 
 // Execute executes the request
 //  @return []ModelContainer
-func (a *SearchApiService) SearchContainersExecute(r ApiSearchContainersRequest) ([]ModelContainer, *http.Response, error) {
+func (a *SearchAPIService) SearchContainersExecute(r ApiSearchContainersRequest) ([]ModelContainer, *http.Response, error) {
 	var (
 		localVarHTTPMethod   = http.MethodPost
 		localVarPostBody     interface{}
@@ -3530,7 +3669,7 @@ func (a *SearchApiService) SearchContainersExecute(r ApiSearchContainersRequest)
 		localVarReturnValue  []ModelContainer
 	)
 
-	localBasePath, err := a.client.cfg.ServerURLWithContext(r.ctx, "SearchApiService.SearchContainers")
+	localBasePath, err := a.client.cfg.ServerURLWithContext(r.ctx, "SearchAPIService.SearchContainers")
 	if err != nil {
 		return localVarReturnValue, nil, &GenericOpenAPIError{error: err.Error()}
 	}
@@ -3631,7 +3770,7 @@ func (a *SearchApiService) SearchContainersExecute(r ApiSearchContainersRequest)
 
 type ApiSearchHostsRequest struct {
 	ctx context.Context
-	ApiService *SearchApiService
+	ApiService *SearchAPIService
 	searchSearchNodeReq *SearchSearchNodeReq
 }
 
@@ -3652,7 +3791,7 @@ Search across all data associated with hosts
  @param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
  @return ApiSearchHostsRequest
 */
-func (a *SearchApiService) SearchHosts(ctx context.Context) ApiSearchHostsRequest {
+func (a *SearchAPIService) SearchHosts(ctx context.Context) ApiSearchHostsRequest {
 	return ApiSearchHostsRequest{
 		ApiService: a,
 		ctx: ctx,
@@ -3661,7 +3800,7 @@ func (a *SearchApiService) SearchHosts(ctx context.Context) ApiSearchHostsReques
 
 // Execute executes the request
 //  @return []ModelHost
-func (a *SearchApiService) SearchHostsExecute(r ApiSearchHostsRequest) ([]ModelHost, *http.Response, error) {
+func (a *SearchAPIService) SearchHostsExecute(r ApiSearchHostsRequest) ([]ModelHost, *http.Response, error) {
 	var (
 		localVarHTTPMethod   = http.MethodPost
 		localVarPostBody     interface{}
@@ -3669,7 +3808,7 @@ func (a *SearchApiService) SearchHostsExecute(r ApiSearchHostsRequest) ([]ModelH
 		localVarReturnValue  []ModelHost
 	)
 
-	localBasePath, err := a.client.cfg.ServerURLWithContext(r.ctx, "SearchApiService.SearchHosts")
+	localBasePath, err := a.client.cfg.ServerURLWithContext(r.ctx, "SearchAPIService.SearchHosts")
 	if err != nil {
 		return localVarReturnValue, nil, &GenericOpenAPIError{error: err.Error()}
 	}
@@ -3770,7 +3909,7 @@ func (a *SearchApiService) SearchHostsExecute(r ApiSearchHostsRequest) ([]ModelH
 
 type ApiSearchKubernetesClustersRequest struct {
 	ctx context.Context
-	ApiService *SearchApiService
+	ApiService *SearchAPIService
 	searchSearchNodeReq *SearchSearchNodeReq
 }
 
@@ -3791,7 +3930,7 @@ Search across all data associated with kuberentes clusters
  @param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
  @return ApiSearchKubernetesClustersRequest
 */
-func (a *SearchApiService) SearchKubernetesClusters(ctx context.Context) ApiSearchKubernetesClustersRequest {
+func (a *SearchAPIService) SearchKubernetesClusters(ctx context.Context) ApiSearchKubernetesClustersRequest {
 	return ApiSearchKubernetesClustersRequest{
 		ApiService: a,
 		ctx: ctx,
@@ -3800,7 +3939,7 @@ func (a *SearchApiService) SearchKubernetesClusters(ctx context.Context) ApiSear
 
 // Execute executes the request
 //  @return []ModelKubernetesCluster
-func (a *SearchApiService) SearchKubernetesClustersExecute(r ApiSearchKubernetesClustersRequest) ([]ModelKubernetesCluster, *http.Response, error) {
+func (a *SearchAPIService) SearchKubernetesClustersExecute(r ApiSearchKubernetesClustersRequest) ([]ModelKubernetesCluster, *http.Response, error) {
 	var (
 		localVarHTTPMethod   = http.MethodPost
 		localVarPostBody     interface{}
@@ -3808,7 +3947,7 @@ func (a *SearchApiService) SearchKubernetesClustersExecute(r ApiSearchKubernetes
 		localVarReturnValue  []ModelKubernetesCluster
 	)
 
-	localBasePath, err := a.client.cfg.ServerURLWithContext(r.ctx, "SearchApiService.SearchKubernetesClusters")
+	localBasePath, err := a.client.cfg.ServerURLWithContext(r.ctx, "SearchAPIService.SearchKubernetesClusters")
 	if err != nil {
 		return localVarReturnValue, nil, &GenericOpenAPIError{error: err.Error()}
 	}
@@ -3909,7 +4048,7 @@ func (a *SearchApiService) SearchKubernetesClustersExecute(r ApiSearchKubernetes
 
 type ApiSearchMalwareScansRequest struct {
 	ctx context.Context
-	ApiService *SearchApiService
+	ApiService *SearchAPIService
 	searchSearchScanReq *SearchSearchScanReq
 }
 
@@ -3930,7 +4069,7 @@ Search across all the data associated with malwares scan
  @param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
  @return ApiSearchMalwareScansRequest
 */
-func (a *SearchApiService) SearchMalwareScans(ctx context.Context) ApiSearchMalwareScansRequest {
+func (a *SearchAPIService) SearchMalwareScans(ctx context.Context) ApiSearchMalwareScansRequest {
 	return ApiSearchMalwareScansRequest{
 		ApiService: a,
 		ctx: ctx,
@@ -3939,7 +4078,7 @@ func (a *SearchApiService) SearchMalwareScans(ctx context.Context) ApiSearchMalw
 
 // Execute executes the request
 //  @return []ModelScanInfo
-func (a *SearchApiService) SearchMalwareScansExecute(r ApiSearchMalwareScansRequest) ([]ModelScanInfo, *http.Response, error) {
+func (a *SearchAPIService) SearchMalwareScansExecute(r ApiSearchMalwareScansRequest) ([]ModelScanInfo, *http.Response, error) {
 	var (
 		localVarHTTPMethod   = http.MethodPost
 		localVarPostBody     interface{}
@@ -3947,7 +4086,7 @@ func (a *SearchApiService) SearchMalwareScansExecute(r ApiSearchMalwareScansRequ
 		localVarReturnValue  []ModelScanInfo
 	)
 
-	localBasePath, err := a.client.cfg.ServerURLWithContext(r.ctx, "SearchApiService.SearchMalwareScans")
+	localBasePath, err := a.client.cfg.ServerURLWithContext(r.ctx, "SearchAPIService.SearchMalwareScans")
 	if err != nil {
 		return localVarReturnValue, nil, &GenericOpenAPIError{error: err.Error()}
 	}
@@ -4048,7 +4187,7 @@ func (a *SearchApiService) SearchMalwareScansExecute(r ApiSearchMalwareScansRequ
 
 type ApiSearchMalwaresRequest struct {
 	ctx context.Context
-	ApiService *SearchApiService
+	ApiService *SearchAPIService
 	searchSearchNodeReq *SearchSearchNodeReq
 }
 
@@ -4069,7 +4208,7 @@ Search across all the data associated with malwares
  @param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
  @return ApiSearchMalwaresRequest
 */
-func (a *SearchApiService) SearchMalwares(ctx context.Context) ApiSearchMalwaresRequest {
+func (a *SearchAPIService) SearchMalwares(ctx context.Context) ApiSearchMalwaresRequest {
 	return ApiSearchMalwaresRequest{
 		ApiService: a,
 		ctx: ctx,
@@ -4078,7 +4217,7 @@ func (a *SearchApiService) SearchMalwares(ctx context.Context) ApiSearchMalwares
 
 // Execute executes the request
 //  @return []ModelMalware
-func (a *SearchApiService) SearchMalwaresExecute(r ApiSearchMalwaresRequest) ([]ModelMalware, *http.Response, error) {
+func (a *SearchAPIService) SearchMalwaresExecute(r ApiSearchMalwaresRequest) ([]ModelMalware, *http.Response, error) {
 	var (
 		localVarHTTPMethod   = http.MethodPost
 		localVarPostBody     interface{}
@@ -4086,7 +4225,7 @@ func (a *SearchApiService) SearchMalwaresExecute(r ApiSearchMalwaresRequest) ([]
 		localVarReturnValue  []ModelMalware
 	)
 
-	localBasePath, err := a.client.cfg.ServerURLWithContext(r.ctx, "SearchApiService.SearchMalwares")
+	localBasePath, err := a.client.cfg.ServerURLWithContext(r.ctx, "SearchAPIService.SearchMalwares")
 	if err != nil {
 		return localVarReturnValue, nil, &GenericOpenAPIError{error: err.Error()}
 	}
@@ -4187,7 +4326,7 @@ func (a *SearchApiService) SearchMalwaresExecute(r ApiSearchMalwaresRequest) ([]
 
 type ApiSearchPodsRequest struct {
 	ctx context.Context
-	ApiService *SearchApiService
+	ApiService *SearchAPIService
 	searchSearchNodeReq *SearchSearchNodeReq
 }
 
@@ -4208,7 +4347,7 @@ Search across all the data associated with pods
  @param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
  @return ApiSearchPodsRequest
 */
-func (a *SearchApiService) SearchPods(ctx context.Context) ApiSearchPodsRequest {
+func (a *SearchAPIService) SearchPods(ctx context.Context) ApiSearchPodsRequest {
 	return ApiSearchPodsRequest{
 		ApiService: a,
 		ctx: ctx,
@@ -4217,7 +4356,7 @@ func (a *SearchApiService) SearchPods(ctx context.Context) ApiSearchPodsRequest 
 
 // Execute executes the request
 //  @return []ModelPod
-func (a *SearchApiService) SearchPodsExecute(r ApiSearchPodsRequest) ([]ModelPod, *http.Response, error) {
+func (a *SearchAPIService) SearchPodsExecute(r ApiSearchPodsRequest) ([]ModelPod, *http.Response, error) {
 	var (
 		localVarHTTPMethod   = http.MethodPost
 		localVarPostBody     interface{}
@@ -4225,7 +4364,7 @@ func (a *SearchApiService) SearchPodsExecute(r ApiSearchPodsRequest) ([]ModelPod
 		localVarReturnValue  []ModelPod
 	)
 
-	localBasePath, err := a.client.cfg.ServerURLWithContext(r.ctx, "SearchApiService.SearchPods")
+	localBasePath, err := a.client.cfg.ServerURLWithContext(r.ctx, "SearchAPIService.SearchPods")
 	if err != nil {
 		return localVarReturnValue, nil, &GenericOpenAPIError{error: err.Error()}
 	}
@@ -4326,7 +4465,7 @@ func (a *SearchApiService) SearchPodsExecute(r ApiSearchPodsRequest) ([]ModelPod
 
 type ApiSearchSecretsRequest struct {
 	ctx context.Context
-	ApiService *SearchApiService
+	ApiService *SearchAPIService
 	searchSearchNodeReq *SearchSearchNodeReq
 }
 
@@ -4347,7 +4486,7 @@ Search across all the data associated with secrets
  @param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
  @return ApiSearchSecretsRequest
 */
-func (a *SearchApiService) SearchSecrets(ctx context.Context) ApiSearchSecretsRequest {
+func (a *SearchAPIService) SearchSecrets(ctx context.Context) ApiSearchSecretsRequest {
 	return ApiSearchSecretsRequest{
 		ApiService: a,
 		ctx: ctx,
@@ -4356,7 +4495,7 @@ func (a *SearchApiService) SearchSecrets(ctx context.Context) ApiSearchSecretsRe
 
 // Execute executes the request
 //  @return []ModelSecret
-func (a *SearchApiService) SearchSecretsExecute(r ApiSearchSecretsRequest) ([]ModelSecret, *http.Response, error) {
+func (a *SearchAPIService) SearchSecretsExecute(r ApiSearchSecretsRequest) ([]ModelSecret, *http.Response, error) {
 	var (
 		localVarHTTPMethod   = http.MethodPost
 		localVarPostBody     interface{}
@@ -4364,7 +4503,7 @@ func (a *SearchApiService) SearchSecretsExecute(r ApiSearchSecretsRequest) ([]Mo
 		localVarReturnValue  []ModelSecret
 	)
 
-	localBasePath, err := a.client.cfg.ServerURLWithContext(r.ctx, "SearchApiService.SearchSecrets")
+	localBasePath, err := a.client.cfg.ServerURLWithContext(r.ctx, "SearchAPIService.SearchSecrets")
 	if err != nil {
 		return localVarReturnValue, nil, &GenericOpenAPIError{error: err.Error()}
 	}
@@ -4465,7 +4604,7 @@ func (a *SearchApiService) SearchSecretsExecute(r ApiSearchSecretsRequest) ([]Mo
 
 type ApiSearchSecretsScansRequest struct {
 	ctx context.Context
-	ApiService *SearchApiService
+	ApiService *SearchAPIService
 	searchSearchScanReq *SearchSearchScanReq
 }
 
@@ -4486,7 +4625,7 @@ Search across all the data associated with secrets scan
  @param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
  @return ApiSearchSecretsScansRequest
 */
-func (a *SearchApiService) SearchSecretsScans(ctx context.Context) ApiSearchSecretsScansRequest {
+func (a *SearchAPIService) SearchSecretsScans(ctx context.Context) ApiSearchSecretsScansRequest {
 	return ApiSearchSecretsScansRequest{
 		ApiService: a,
 		ctx: ctx,
@@ -4495,7 +4634,7 @@ func (a *SearchApiService) SearchSecretsScans(ctx context.Context) ApiSearchSecr
 
 // Execute executes the request
 //  @return []ModelScanInfo
-func (a *SearchApiService) SearchSecretsScansExecute(r ApiSearchSecretsScansRequest) ([]ModelScanInfo, *http.Response, error) {
+func (a *SearchAPIService) SearchSecretsScansExecute(r ApiSearchSecretsScansRequest) ([]ModelScanInfo, *http.Response, error) {
 	var (
 		localVarHTTPMethod   = http.MethodPost
 		localVarPostBody     interface{}
@@ -4503,7 +4642,7 @@ func (a *SearchApiService) SearchSecretsScansExecute(r ApiSearchSecretsScansRequ
 		localVarReturnValue  []ModelScanInfo
 	)
 
-	localBasePath, err := a.client.cfg.ServerURLWithContext(r.ctx, "SearchApiService.SearchSecretsScans")
+	localBasePath, err := a.client.cfg.ServerURLWithContext(r.ctx, "SearchAPIService.SearchSecretsScans")
 	if err != nil {
 		return localVarReturnValue, nil, &GenericOpenAPIError{error: err.Error()}
 	}
@@ -4604,7 +4743,7 @@ func (a *SearchApiService) SearchSecretsScansExecute(r ApiSearchSecretsScansRequ
 
 type ApiSearchVulnerabilitiesRequest struct {
 	ctx context.Context
-	ApiService *SearchApiService
+	ApiService *SearchAPIService
 	searchSearchNodeReq *SearchSearchNodeReq
 }
 
@@ -4625,7 +4764,7 @@ Search across all the data associated with vulnerabilities
  @param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
  @return ApiSearchVulnerabilitiesRequest
 */
-func (a *SearchApiService) SearchVulnerabilities(ctx context.Context) ApiSearchVulnerabilitiesRequest {
+func (a *SearchAPIService) SearchVulnerabilities(ctx context.Context) ApiSearchVulnerabilitiesRequest {
 	return ApiSearchVulnerabilitiesRequest{
 		ApiService: a,
 		ctx: ctx,
@@ -4634,7 +4773,7 @@ func (a *SearchApiService) SearchVulnerabilities(ctx context.Context) ApiSearchV
 
 // Execute executes the request
 //  @return []ModelVulnerability
-func (a *SearchApiService) SearchVulnerabilitiesExecute(r ApiSearchVulnerabilitiesRequest) ([]ModelVulnerability, *http.Response, error) {
+func (a *SearchAPIService) SearchVulnerabilitiesExecute(r ApiSearchVulnerabilitiesRequest) ([]ModelVulnerability, *http.Response, error) {
 	var (
 		localVarHTTPMethod   = http.MethodPost
 		localVarPostBody     interface{}
@@ -4642,7 +4781,7 @@ func (a *SearchApiService) SearchVulnerabilitiesExecute(r ApiSearchVulnerabiliti
 		localVarReturnValue  []ModelVulnerability
 	)
 
-	localBasePath, err := a.client.cfg.ServerURLWithContext(r.ctx, "SearchApiService.SearchVulnerabilities")
+	localBasePath, err := a.client.cfg.ServerURLWithContext(r.ctx, "SearchAPIService.SearchVulnerabilities")
 	if err != nil {
 		return localVarReturnValue, nil, &GenericOpenAPIError{error: err.Error()}
 	}
@@ -4743,7 +4882,7 @@ func (a *SearchApiService) SearchVulnerabilitiesExecute(r ApiSearchVulnerabiliti
 
 type ApiSearchVulnerabilityScansRequest struct {
 	ctx context.Context
-	ApiService *SearchApiService
+	ApiService *SearchAPIService
 	searchSearchScanReq *SearchSearchScanReq
 }
 
@@ -4764,7 +4903,7 @@ Search across all the data associated with vulnerability scan
  @param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
  @return ApiSearchVulnerabilityScansRequest
 */
-func (a *SearchApiService) SearchVulnerabilityScans(ctx context.Context) ApiSearchVulnerabilityScansRequest {
+func (a *SearchAPIService) SearchVulnerabilityScans(ctx context.Context) ApiSearchVulnerabilityScansRequest {
 	return ApiSearchVulnerabilityScansRequest{
 		ApiService: a,
 		ctx: ctx,
@@ -4773,7 +4912,7 @@ func (a *SearchApiService) SearchVulnerabilityScans(ctx context.Context) ApiSear
 
 // Execute executes the request
 //  @return []ModelScanInfo
-func (a *SearchApiService) SearchVulnerabilityScansExecute(r ApiSearchVulnerabilityScansRequest) ([]ModelScanInfo, *http.Response, error) {
+func (a *SearchAPIService) SearchVulnerabilityScansExecute(r ApiSearchVulnerabilityScansRequest) ([]ModelScanInfo, *http.Response, error) {
 	var (
 		localVarHTTPMethod   = http.MethodPost
 		localVarPostBody     interface{}
@@ -4781,7 +4920,7 @@ func (a *SearchApiService) SearchVulnerabilityScansExecute(r ApiSearchVulnerabil
 		localVarReturnValue  []ModelScanInfo
 	)
 
-	localBasePath, err := a.client.cfg.ServerURLWithContext(r.ctx, "SearchApiService.SearchVulnerabilityScans")
+	localBasePath, err := a.client.cfg.ServerURLWithContext(r.ctx, "SearchAPIService.SearchVulnerabilityScans")
 	if err != nil {
 		return localVarReturnValue, nil, &GenericOpenAPIError{error: err.Error()}
 	}

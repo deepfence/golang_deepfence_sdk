@@ -1,21 +1,21 @@
-# \RegistryApi
+# \RegistryAPI
 
 All URIs are relative to *http://localhost*
 
 Method | HTTP request | Description
 ------------- | ------------- | -------------
-[**AddRegistry**](RegistryApi.md#AddRegistry) | **Post** /deepfence/registryaccount | Add Registry
-[**AddRegistryGCR**](RegistryApi.md#AddRegistryGCR) | **Post** /deepfence/registryaccount/gcr | Add Google Container Registry
-[**CountImageStubs**](RegistryApi.md#CountImageStubs) | **Post** /deepfence/registryaccount/count/stubs | Count Image Stubs
-[**CountImages**](RegistryApi.md#CountImages) | **Post** /deepfence/registryaccount/count/images | Count Registry Images
-[**DeleteRegistry**](RegistryApi.md#DeleteRegistry) | **Delete** /deepfence/registryaccount/{registry_id} | Delete Registry
-[**GetRegistrySummary**](RegistryApi.md#GetRegistrySummary) | **Get** /deepfence/registryaccount/{registry_id}/summary | Get Registry Summary
-[**GetSummaryAll**](RegistryApi.md#GetSummaryAll) | **Get** /deepfence/registryaccount/summary | Get All Registries Summary By Type
-[**GetSummaryByType**](RegistryApi.md#GetSummaryByType) | **Get** /deepfence/registryaccount/{registry_type}/summary-by-type | Get Registry Summary By Type
-[**ListImageStubs**](RegistryApi.md#ListImageStubs) | **Post** /deepfence/registryaccount/stubs | List Image Stubs
-[**ListImages**](RegistryApi.md#ListImages) | **Post** /deepfence/registryaccount/images | List Registry Images
-[**ListRegistry**](RegistryApi.md#ListRegistry) | **Get** /deepfence/registryaccount | List Registries
-[**UpdateRegistry**](RegistryApi.md#UpdateRegistry) | **Put** /deepfence/registryaccount/{registry_id} | Update Registry
+[**AddRegistry**](RegistryAPI.md#AddRegistry) | **Post** /deepfence/registryaccount | Add Registry
+[**AddRegistryGCR**](RegistryAPI.md#AddRegistryGCR) | **Post** /deepfence/registryaccount/gcr | Add Google Container Registry
+[**CountImageStubs**](RegistryAPI.md#CountImageStubs) | **Post** /deepfence/registryaccount/count/stubs | Count Image Stubs
+[**CountImages**](RegistryAPI.md#CountImages) | **Post** /deepfence/registryaccount/count/images | Count Registry Images
+[**DeleteRegistry**](RegistryAPI.md#DeleteRegistry) | **Delete** /deepfence/registryaccount/{registry_id} | Delete Registry
+[**GetRegistrySummary**](RegistryAPI.md#GetRegistrySummary) | **Get** /deepfence/registryaccount/{registry_id}/summary | Get Registry Summary
+[**GetSummaryAll**](RegistryAPI.md#GetSummaryAll) | **Get** /deepfence/registryaccount/summary | Get All Registries Summary By Type
+[**GetSummaryByType**](RegistryAPI.md#GetSummaryByType) | **Get** /deepfence/registryaccount/{registry_type}/summary-by-type | Get Registry Summary By Type
+[**ListImageStubs**](RegistryAPI.md#ListImageStubs) | **Post** /deepfence/registryaccount/stubs | List Image Stubs
+[**ListImages**](RegistryAPI.md#ListImages) | **Post** /deepfence/registryaccount/images | List Registry Images
+[**ListRegistry**](RegistryAPI.md#ListRegistry) | **Get** /deepfence/registryaccount | List Registries
+[**UpdateRegistry**](RegistryAPI.md#UpdateRegistry) | **Put** /deepfence/registryaccount/{registry_id} | Update Registry
 
 
 
@@ -44,9 +44,9 @@ func main() {
 
     configuration := openapiclient.NewConfiguration()
     apiClient := openapiclient.NewAPIClient(configuration)
-    r, err := apiClient.RegistryApi.AddRegistry(context.Background()).ModelRegistryAddReq(modelRegistryAddReq).Execute()
+    r, err := apiClient.RegistryAPI.AddRegistry(context.Background()).ModelRegistryAddReq(modelRegistryAddReq).Execute()
     if err != nil {
-        fmt.Fprintf(os.Stderr, "Error when calling `RegistryApi.AddRegistry``: %v\n", err)
+        fmt.Fprintf(os.Stderr, "Error when calling `RegistryAPI.AddRegistry``: %v\n", err)
         fmt.Fprintf(os.Stderr, "Full HTTP response: %v\n", r)
     }
 }
@@ -110,9 +110,9 @@ func main() {
 
     configuration := openapiclient.NewConfiguration()
     apiClient := openapiclient.NewAPIClient(configuration)
-    r, err := apiClient.RegistryApi.AddRegistryGCR(context.Background()).Name(name).RegistryUrl(registryUrl).ServiceAccountJson(serviceAccountJson).Execute()
+    r, err := apiClient.RegistryAPI.AddRegistryGCR(context.Background()).Name(name).RegistryUrl(registryUrl).ServiceAccountJson(serviceAccountJson).Execute()
     if err != nil {
-        fmt.Fprintf(os.Stderr, "Error when calling `RegistryApi.AddRegistryGCR``: %v\n", err)
+        fmt.Fprintf(os.Stderr, "Error when calling `RegistryAPI.AddRegistryGCR``: %v\n", err)
         fmt.Fprintf(os.Stderr, "Full HTTP response: %v\n", r)
     }
 }
@@ -176,13 +176,13 @@ func main() {
 
     configuration := openapiclient.NewConfiguration()
     apiClient := openapiclient.NewAPIClient(configuration)
-    resp, r, err := apiClient.RegistryApi.CountImageStubs(context.Background()).ModelRegistryImageStubsReq(modelRegistryImageStubsReq).Execute()
+    resp, r, err := apiClient.RegistryAPI.CountImageStubs(context.Background()).ModelRegistryImageStubsReq(modelRegistryImageStubsReq).Execute()
     if err != nil {
-        fmt.Fprintf(os.Stderr, "Error when calling `RegistryApi.CountImageStubs``: %v\n", err)
+        fmt.Fprintf(os.Stderr, "Error when calling `RegistryAPI.CountImageStubs``: %v\n", err)
         fmt.Fprintf(os.Stderr, "Full HTTP response: %v\n", r)
     }
     // response from `CountImageStubs`: ModelRegistryCountResp
-    fmt.Fprintf(os.Stdout, "Response from `RegistryApi.CountImageStubs`: %v\n", resp)
+    fmt.Fprintf(os.Stdout, "Response from `RegistryAPI.CountImageStubs`: %v\n", resp)
 }
 ```
 
@@ -242,13 +242,13 @@ func main() {
 
     configuration := openapiclient.NewConfiguration()
     apiClient := openapiclient.NewAPIClient(configuration)
-    resp, r, err := apiClient.RegistryApi.CountImages(context.Background()).ModelRegistryImagesReq(modelRegistryImagesReq).Execute()
+    resp, r, err := apiClient.RegistryAPI.CountImages(context.Background()).ModelRegistryImagesReq(modelRegistryImagesReq).Execute()
     if err != nil {
-        fmt.Fprintf(os.Stderr, "Error when calling `RegistryApi.CountImages``: %v\n", err)
+        fmt.Fprintf(os.Stderr, "Error when calling `RegistryAPI.CountImages``: %v\n", err)
         fmt.Fprintf(os.Stderr, "Full HTTP response: %v\n", r)
     }
     // response from `CountImages`: ModelRegistryCountResp
-    fmt.Fprintf(os.Stdout, "Response from `RegistryApi.CountImages`: %v\n", resp)
+    fmt.Fprintf(os.Stdout, "Response from `RegistryAPI.CountImages`: %v\n", resp)
 }
 ```
 
@@ -308,9 +308,9 @@ func main() {
 
     configuration := openapiclient.NewConfiguration()
     apiClient := openapiclient.NewAPIClient(configuration)
-    r, err := apiClient.RegistryApi.DeleteRegistry(context.Background(), registryId).Execute()
+    r, err := apiClient.RegistryAPI.DeleteRegistry(context.Background(), registryId).Execute()
     if err != nil {
-        fmt.Fprintf(os.Stderr, "Error when calling `RegistryApi.DeleteRegistry``: %v\n", err)
+        fmt.Fprintf(os.Stderr, "Error when calling `RegistryAPI.DeleteRegistry``: %v\n", err)
         fmt.Fprintf(os.Stderr, "Full HTTP response: %v\n", r)
     }
 }
@@ -376,13 +376,13 @@ func main() {
 
     configuration := openapiclient.NewConfiguration()
     apiClient := openapiclient.NewAPIClient(configuration)
-    resp, r, err := apiClient.RegistryApi.GetRegistrySummary(context.Background(), registryId).Execute()
+    resp, r, err := apiClient.RegistryAPI.GetRegistrySummary(context.Background(), registryId).Execute()
     if err != nil {
-        fmt.Fprintf(os.Stderr, "Error when calling `RegistryApi.GetRegistrySummary``: %v\n", err)
+        fmt.Fprintf(os.Stderr, "Error when calling `RegistryAPI.GetRegistrySummary``: %v\n", err)
         fmt.Fprintf(os.Stderr, "Full HTTP response: %v\n", r)
     }
     // response from `GetRegistrySummary`: ModelSummary
-    fmt.Fprintf(os.Stdout, "Response from `RegistryApi.GetRegistrySummary`: %v\n", resp)
+    fmt.Fprintf(os.Stdout, "Response from `RegistryAPI.GetRegistrySummary`: %v\n", resp)
 }
 ```
 
@@ -445,13 +445,13 @@ func main() {
 
     configuration := openapiclient.NewConfiguration()
     apiClient := openapiclient.NewAPIClient(configuration)
-    resp, r, err := apiClient.RegistryApi.GetSummaryAll(context.Background()).Execute()
+    resp, r, err := apiClient.RegistryAPI.GetSummaryAll(context.Background()).Execute()
     if err != nil {
-        fmt.Fprintf(os.Stderr, "Error when calling `RegistryApi.GetSummaryAll``: %v\n", err)
+        fmt.Fprintf(os.Stderr, "Error when calling `RegistryAPI.GetSummaryAll``: %v\n", err)
         fmt.Fprintf(os.Stderr, "Full HTTP response: %v\n", r)
     }
     // response from `GetSummaryAll`: map[string]ModelSummary
-    fmt.Fprintf(os.Stdout, "Response from `RegistryApi.GetSummaryAll`: %v\n", resp)
+    fmt.Fprintf(os.Stdout, "Response from `RegistryAPI.GetSummaryAll`: %v\n", resp)
 }
 ```
 
@@ -507,13 +507,13 @@ func main() {
 
     configuration := openapiclient.NewConfiguration()
     apiClient := openapiclient.NewAPIClient(configuration)
-    resp, r, err := apiClient.RegistryApi.GetSummaryByType(context.Background(), registryType).Execute()
+    resp, r, err := apiClient.RegistryAPI.GetSummaryByType(context.Background(), registryType).Execute()
     if err != nil {
-        fmt.Fprintf(os.Stderr, "Error when calling `RegistryApi.GetSummaryByType``: %v\n", err)
+        fmt.Fprintf(os.Stderr, "Error when calling `RegistryAPI.GetSummaryByType``: %v\n", err)
         fmt.Fprintf(os.Stderr, "Full HTTP response: %v\n", r)
     }
     // response from `GetSummaryByType`: ModelSummary
-    fmt.Fprintf(os.Stdout, "Response from `RegistryApi.GetSummaryByType`: %v\n", resp)
+    fmt.Fprintf(os.Stdout, "Response from `RegistryAPI.GetSummaryByType`: %v\n", resp)
 }
 ```
 
@@ -577,13 +577,13 @@ func main() {
 
     configuration := openapiclient.NewConfiguration()
     apiClient := openapiclient.NewAPIClient(configuration)
-    resp, r, err := apiClient.RegistryApi.ListImageStubs(context.Background()).ModelRegistryImageStubsReq(modelRegistryImageStubsReq).Execute()
+    resp, r, err := apiClient.RegistryAPI.ListImageStubs(context.Background()).ModelRegistryImageStubsReq(modelRegistryImageStubsReq).Execute()
     if err != nil {
-        fmt.Fprintf(os.Stderr, "Error when calling `RegistryApi.ListImageStubs``: %v\n", err)
+        fmt.Fprintf(os.Stderr, "Error when calling `RegistryAPI.ListImageStubs``: %v\n", err)
         fmt.Fprintf(os.Stderr, "Full HTTP response: %v\n", r)
     }
     // response from `ListImageStubs`: []ModelImageStub
-    fmt.Fprintf(os.Stdout, "Response from `RegistryApi.ListImageStubs`: %v\n", resp)
+    fmt.Fprintf(os.Stdout, "Response from `RegistryAPI.ListImageStubs`: %v\n", resp)
 }
 ```
 
@@ -643,13 +643,13 @@ func main() {
 
     configuration := openapiclient.NewConfiguration()
     apiClient := openapiclient.NewAPIClient(configuration)
-    resp, r, err := apiClient.RegistryApi.ListImages(context.Background()).ModelRegistryImagesReq(modelRegistryImagesReq).Execute()
+    resp, r, err := apiClient.RegistryAPI.ListImages(context.Background()).ModelRegistryImagesReq(modelRegistryImagesReq).Execute()
     if err != nil {
-        fmt.Fprintf(os.Stderr, "Error when calling `RegistryApi.ListImages``: %v\n", err)
+        fmt.Fprintf(os.Stderr, "Error when calling `RegistryAPI.ListImages``: %v\n", err)
         fmt.Fprintf(os.Stderr, "Full HTTP response: %v\n", r)
     }
     // response from `ListImages`: []ModelContainerImage
-    fmt.Fprintf(os.Stdout, "Response from `RegistryApi.ListImages`: %v\n", resp)
+    fmt.Fprintf(os.Stdout, "Response from `RegistryAPI.ListImages`: %v\n", resp)
 }
 ```
 
@@ -708,13 +708,13 @@ func main() {
 
     configuration := openapiclient.NewConfiguration()
     apiClient := openapiclient.NewAPIClient(configuration)
-    resp, r, err := apiClient.RegistryApi.ListRegistry(context.Background()).Execute()
+    resp, r, err := apiClient.RegistryAPI.ListRegistry(context.Background()).Execute()
     if err != nil {
-        fmt.Fprintf(os.Stderr, "Error when calling `RegistryApi.ListRegistry``: %v\n", err)
+        fmt.Fprintf(os.Stderr, "Error when calling `RegistryAPI.ListRegistry``: %v\n", err)
         fmt.Fprintf(os.Stderr, "Full HTTP response: %v\n", r)
     }
     // response from `ListRegistry`: []ModelRegistryListResp
-    fmt.Fprintf(os.Stdout, "Response from `RegistryApi.ListRegistry`: %v\n", resp)
+    fmt.Fprintf(os.Stdout, "Response from `RegistryAPI.ListRegistry`: %v\n", resp)
 }
 ```
 
@@ -771,9 +771,9 @@ func main() {
 
     configuration := openapiclient.NewConfiguration()
     apiClient := openapiclient.NewAPIClient(configuration)
-    r, err := apiClient.RegistryApi.UpdateRegistry(context.Background(), registryId).ModelRegistryUpdateReq(modelRegistryUpdateReq).Execute()
+    r, err := apiClient.RegistryAPI.UpdateRegistry(context.Background(), registryId).ModelRegistryUpdateReq(modelRegistryUpdateReq).Execute()
     if err != nil {
-        fmt.Fprintf(os.Stderr, "Error when calling `RegistryApi.UpdateRegistry``: %v\n", err)
+        fmt.Fprintf(os.Stderr, "Error when calling `RegistryAPI.UpdateRegistry``: %v\n", err)
         fmt.Fprintf(os.Stderr, "Full HTTP response: %v\n", r)
     }
 }

@@ -1,10 +1,10 @@
-# \InternalApi
+# \InternalAPI
 
 All URIs are relative to *http://localhost*
 
 Method | HTTP request | Description
 ------------- | ------------- | -------------
-[**GetConsoleApiToken**](InternalApi.md#GetConsoleApiToken) | **Get** /deepfence/internal/console-api-token | Get api-token for console agent
+[**GetConsoleApiToken**](InternalAPI.md#GetConsoleApiToken) | **Get** /deepfence/internal/console-api-token | Get api-token for console agent
 
 
 
@@ -32,13 +32,13 @@ func main() {
 
     configuration := openapiclient.NewConfiguration()
     apiClient := openapiclient.NewAPIClient(configuration)
-    resp, r, err := apiClient.InternalApi.GetConsoleApiToken(context.Background()).Execute()
+    resp, r, err := apiClient.InternalAPI.GetConsoleApiToken(context.Background()).Execute()
     if err != nil {
-        fmt.Fprintf(os.Stderr, "Error when calling `InternalApi.GetConsoleApiToken``: %v\n", err)
+        fmt.Fprintf(os.Stderr, "Error when calling `InternalAPI.GetConsoleApiToken``: %v\n", err)
         fmt.Fprintf(os.Stderr, "Full HTTP response: %v\n", r)
     }
     // response from `GetConsoleApiToken`: ModelApiAuthRequest
-    fmt.Fprintf(os.Stdout, "Response from `InternalApi.GetConsoleApiToken`: %v\n", resp)
+    fmt.Fprintf(os.Stdout, "Response from `InternalAPI.GetConsoleApiToken`: %v\n", resp)
 }
 ```
 

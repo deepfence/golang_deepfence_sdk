@@ -1,17 +1,17 @@
-# \LookupApi
+# \LookupAPI
 
 All URIs are relative to *http://localhost*
 
 Method | HTTP request | Description
 ------------- | ------------- | -------------
-[**GetCloudResources**](LookupApi.md#GetCloudResources) | **Post** /deepfence/lookup/cloud-resources | Get Cloud Resources
-[**GetContainerImages**](LookupApi.md#GetContainerImages) | **Post** /deepfence/lookup/containerimages | Retrieve Container Images data
-[**GetContainers**](LookupApi.md#GetContainers) | **Post** /deepfence/lookup/containers | Retrieve Containers data
-[**GetHosts**](LookupApi.md#GetHosts) | **Post** /deepfence/lookup/hosts | Retrieve Hosts data
-[**GetKubernetesClusters**](LookupApi.md#GetKubernetesClusters) | **Post** /deepfence/lookup/kubernetesclusters | Retrieve K8s data
-[**GetPods**](LookupApi.md#GetPods) | **Post** /deepfence/lookup/pods | Retrieve Pods data
-[**GetProcesses**](LookupApi.md#GetProcesses) | **Post** /deepfence/lookup/processes | Retrieve Processes data
-[**GetRegistryAccount**](LookupApi.md#GetRegistryAccount) | **Post** /deepfence/lookup/registryaccount | Get Images in Registry
+[**GetCloudResources**](LookupAPI.md#GetCloudResources) | **Post** /deepfence/lookup/cloud-resources | Get Cloud Resources
+[**GetContainerImages**](LookupAPI.md#GetContainerImages) | **Post** /deepfence/lookup/containerimages | Retrieve Container Images data
+[**GetContainers**](LookupAPI.md#GetContainers) | **Post** /deepfence/lookup/containers | Retrieve Containers data
+[**GetHosts**](LookupAPI.md#GetHosts) | **Post** /deepfence/lookup/hosts | Retrieve Hosts data
+[**GetKubernetesClusters**](LookupAPI.md#GetKubernetesClusters) | **Post** /deepfence/lookup/kubernetesclusters | Retrieve K8s data
+[**GetPods**](LookupAPI.md#GetPods) | **Post** /deepfence/lookup/pods | Retrieve Pods data
+[**GetProcesses**](LookupAPI.md#GetProcesses) | **Post** /deepfence/lookup/processes | Retrieve Processes data
+[**GetRegistryAccount**](LookupAPI.md#GetRegistryAccount) | **Post** /deepfence/lookup/registryaccount | Get Images in Registry
 
 
 
@@ -40,13 +40,13 @@ func main() {
 
     configuration := openapiclient.NewConfiguration()
     apiClient := openapiclient.NewAPIClient(configuration)
-    resp, r, err := apiClient.LookupApi.GetCloudResources(context.Background()).LookupLookupFilter(lookupLookupFilter).Execute()
+    resp, r, err := apiClient.LookupAPI.GetCloudResources(context.Background()).LookupLookupFilter(lookupLookupFilter).Execute()
     if err != nil {
-        fmt.Fprintf(os.Stderr, "Error when calling `LookupApi.GetCloudResources``: %v\n", err)
+        fmt.Fprintf(os.Stderr, "Error when calling `LookupAPI.GetCloudResources``: %v\n", err)
         fmt.Fprintf(os.Stderr, "Full HTTP response: %v\n", r)
     }
     // response from `GetCloudResources`: []ModelCloudResource
-    fmt.Fprintf(os.Stdout, "Response from `LookupApi.GetCloudResources`: %v\n", resp)
+    fmt.Fprintf(os.Stdout, "Response from `LookupAPI.GetCloudResources`: %v\n", resp)
 }
 ```
 
@@ -106,13 +106,13 @@ func main() {
 
     configuration := openapiclient.NewConfiguration()
     apiClient := openapiclient.NewAPIClient(configuration)
-    resp, r, err := apiClient.LookupApi.GetContainerImages(context.Background()).LookupLookupFilter(lookupLookupFilter).Execute()
+    resp, r, err := apiClient.LookupAPI.GetContainerImages(context.Background()).LookupLookupFilter(lookupLookupFilter).Execute()
     if err != nil {
-        fmt.Fprintf(os.Stderr, "Error when calling `LookupApi.GetContainerImages``: %v\n", err)
+        fmt.Fprintf(os.Stderr, "Error when calling `LookupAPI.GetContainerImages``: %v\n", err)
         fmt.Fprintf(os.Stderr, "Full HTTP response: %v\n", r)
     }
     // response from `GetContainerImages`: []ModelContainerImage
-    fmt.Fprintf(os.Stdout, "Response from `LookupApi.GetContainerImages`: %v\n", resp)
+    fmt.Fprintf(os.Stdout, "Response from `LookupAPI.GetContainerImages`: %v\n", resp)
 }
 ```
 
@@ -172,13 +172,13 @@ func main() {
 
     configuration := openapiclient.NewConfiguration()
     apiClient := openapiclient.NewAPIClient(configuration)
-    resp, r, err := apiClient.LookupApi.GetContainers(context.Background()).LookupLookupFilter(lookupLookupFilter).Execute()
+    resp, r, err := apiClient.LookupAPI.GetContainers(context.Background()).LookupLookupFilter(lookupLookupFilter).Execute()
     if err != nil {
-        fmt.Fprintf(os.Stderr, "Error when calling `LookupApi.GetContainers``: %v\n", err)
+        fmt.Fprintf(os.Stderr, "Error when calling `LookupAPI.GetContainers``: %v\n", err)
         fmt.Fprintf(os.Stderr, "Full HTTP response: %v\n", r)
     }
     // response from `GetContainers`: []ModelContainer
-    fmt.Fprintf(os.Stdout, "Response from `LookupApi.GetContainers`: %v\n", resp)
+    fmt.Fprintf(os.Stdout, "Response from `LookupAPI.GetContainers`: %v\n", resp)
 }
 ```
 
@@ -238,13 +238,13 @@ func main() {
 
     configuration := openapiclient.NewConfiguration()
     apiClient := openapiclient.NewAPIClient(configuration)
-    resp, r, err := apiClient.LookupApi.GetHosts(context.Background()).LookupLookupFilter(lookupLookupFilter).Execute()
+    resp, r, err := apiClient.LookupAPI.GetHosts(context.Background()).LookupLookupFilter(lookupLookupFilter).Execute()
     if err != nil {
-        fmt.Fprintf(os.Stderr, "Error when calling `LookupApi.GetHosts``: %v\n", err)
+        fmt.Fprintf(os.Stderr, "Error when calling `LookupAPI.GetHosts``: %v\n", err)
         fmt.Fprintf(os.Stderr, "Full HTTP response: %v\n", r)
     }
     // response from `GetHosts`: []ModelHost
-    fmt.Fprintf(os.Stdout, "Response from `LookupApi.GetHosts`: %v\n", resp)
+    fmt.Fprintf(os.Stdout, "Response from `LookupAPI.GetHosts`: %v\n", resp)
 }
 ```
 
@@ -304,13 +304,13 @@ func main() {
 
     configuration := openapiclient.NewConfiguration()
     apiClient := openapiclient.NewAPIClient(configuration)
-    resp, r, err := apiClient.LookupApi.GetKubernetesClusters(context.Background()).LookupLookupFilter(lookupLookupFilter).Execute()
+    resp, r, err := apiClient.LookupAPI.GetKubernetesClusters(context.Background()).LookupLookupFilter(lookupLookupFilter).Execute()
     if err != nil {
-        fmt.Fprintf(os.Stderr, "Error when calling `LookupApi.GetKubernetesClusters``: %v\n", err)
+        fmt.Fprintf(os.Stderr, "Error when calling `LookupAPI.GetKubernetesClusters``: %v\n", err)
         fmt.Fprintf(os.Stderr, "Full HTTP response: %v\n", r)
     }
     // response from `GetKubernetesClusters`: []ModelKubernetesCluster
-    fmt.Fprintf(os.Stdout, "Response from `LookupApi.GetKubernetesClusters`: %v\n", resp)
+    fmt.Fprintf(os.Stdout, "Response from `LookupAPI.GetKubernetesClusters`: %v\n", resp)
 }
 ```
 
@@ -370,13 +370,13 @@ func main() {
 
     configuration := openapiclient.NewConfiguration()
     apiClient := openapiclient.NewAPIClient(configuration)
-    resp, r, err := apiClient.LookupApi.GetPods(context.Background()).LookupLookupFilter(lookupLookupFilter).Execute()
+    resp, r, err := apiClient.LookupAPI.GetPods(context.Background()).LookupLookupFilter(lookupLookupFilter).Execute()
     if err != nil {
-        fmt.Fprintf(os.Stderr, "Error when calling `LookupApi.GetPods``: %v\n", err)
+        fmt.Fprintf(os.Stderr, "Error when calling `LookupAPI.GetPods``: %v\n", err)
         fmt.Fprintf(os.Stderr, "Full HTTP response: %v\n", r)
     }
     // response from `GetPods`: []ModelPod
-    fmt.Fprintf(os.Stdout, "Response from `LookupApi.GetPods`: %v\n", resp)
+    fmt.Fprintf(os.Stdout, "Response from `LookupAPI.GetPods`: %v\n", resp)
 }
 ```
 
@@ -436,13 +436,13 @@ func main() {
 
     configuration := openapiclient.NewConfiguration()
     apiClient := openapiclient.NewAPIClient(configuration)
-    resp, r, err := apiClient.LookupApi.GetProcesses(context.Background()).LookupLookupFilter(lookupLookupFilter).Execute()
+    resp, r, err := apiClient.LookupAPI.GetProcesses(context.Background()).LookupLookupFilter(lookupLookupFilter).Execute()
     if err != nil {
-        fmt.Fprintf(os.Stderr, "Error when calling `LookupApi.GetProcesses``: %v\n", err)
+        fmt.Fprintf(os.Stderr, "Error when calling `LookupAPI.GetProcesses``: %v\n", err)
         fmt.Fprintf(os.Stderr, "Full HTTP response: %v\n", r)
     }
     // response from `GetProcesses`: []ModelProcess
-    fmt.Fprintf(os.Stdout, "Response from `LookupApi.GetProcesses`: %v\n", resp)
+    fmt.Fprintf(os.Stdout, "Response from `LookupAPI.GetProcesses`: %v\n", resp)
 }
 ```
 
@@ -502,13 +502,13 @@ func main() {
 
     configuration := openapiclient.NewConfiguration()
     apiClient := openapiclient.NewAPIClient(configuration)
-    resp, r, err := apiClient.LookupApi.GetRegistryAccount(context.Background()).LookupLookupFilter(lookupLookupFilter).Execute()
+    resp, r, err := apiClient.LookupAPI.GetRegistryAccount(context.Background()).LookupLookupFilter(lookupLookupFilter).Execute()
     if err != nil {
-        fmt.Fprintf(os.Stderr, "Error when calling `LookupApi.GetRegistryAccount``: %v\n", err)
+        fmt.Fprintf(os.Stderr, "Error when calling `LookupAPI.GetRegistryAccount``: %v\n", err)
         fmt.Fprintf(os.Stderr, "Full HTTP response: %v\n", r)
     }
     // response from `GetRegistryAccount`: []ModelRegistryAccount
-    fmt.Fprintf(os.Stdout, "Response from `LookupApi.GetRegistryAccount`: %v\n", resp)
+    fmt.Fprintf(os.Stdout, "Response from `LookupAPI.GetRegistryAccount`: %v\n", resp)
 }
 ```
 

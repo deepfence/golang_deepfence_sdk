@@ -50,47 +50,47 @@ type APIClient struct {
 
 	// API Services
 
-	AuthenticationApi *AuthenticationApiService
+	AuthenticationAPI *AuthenticationAPIService
 
-	CloudNodesApi *CloudNodesApiService
+	CloudNodesAPI *CloudNodesAPIService
 
-	CloudResourcesApi *CloudResourcesApiService
+	CloudResourcesAPI *CloudResourcesAPIService
 
-	CloudScannerApi *CloudScannerApiService
+	CloudScannerAPI *CloudScannerAPIService
 
-	ComplianceApi *ComplianceApiService
+	ComplianceAPI *ComplianceAPIService
 
-	ControlsApi *ControlsApiService
+	ControlsAPI *ControlsAPIService
 
-	DiagnosisApi *DiagnosisApiService
+	DiagnosisAPI *DiagnosisAPIService
 
-	IntegrationApi *IntegrationApiService
+	IntegrationAPI *IntegrationAPIService
 
-	InternalApi *InternalApiService
+	InternalAPI *InternalAPIService
 
-	LookupApi *LookupApiService
+	LookupAPI *LookupAPIService
 
-	MalwareScanApi *MalwareScanApiService
+	MalwareScanAPI *MalwareScanAPIService
 
-	RegistryApi *RegistryApiService
+	RegistryAPI *RegistryAPIService
 
-	ReportsApi *ReportsApiService
+	ReportsAPI *ReportsAPIService
 
-	ScanResultsApi *ScanResultsApiService
+	ScanResultsAPI *ScanResultsAPIService
 
-	SearchApi *SearchApiService
+	SearchAPI *SearchAPIService
 
-	SecretScanApi *SecretScanApiService
+	SecretScanAPI *SecretScanAPIService
 
-	SettingsApi *SettingsApiService
+	SettingsAPI *SettingsAPIService
 
-	ThreatApi *ThreatApiService
+	ThreatAPI *ThreatAPIService
 
-	TopologyApi *TopologyApiService
+	TopologyAPI *TopologyAPIService
 
-	UserApi *UserApiService
+	UserAPI *UserAPIService
 
-	VulnerabilityApi *VulnerabilityApiService
+	VulnerabilityAPI *VulnerabilityAPIService
 }
 
 type service struct {
@@ -109,27 +109,27 @@ func NewAPIClient(cfg *Configuration) *APIClient {
 	c.common.client = c
 
 	// API Services
-	c.AuthenticationApi = (*AuthenticationApiService)(&c.common)
-	c.CloudNodesApi = (*CloudNodesApiService)(&c.common)
-	c.CloudResourcesApi = (*CloudResourcesApiService)(&c.common)
-	c.CloudScannerApi = (*CloudScannerApiService)(&c.common)
-	c.ComplianceApi = (*ComplianceApiService)(&c.common)
-	c.ControlsApi = (*ControlsApiService)(&c.common)
-	c.DiagnosisApi = (*DiagnosisApiService)(&c.common)
-	c.IntegrationApi = (*IntegrationApiService)(&c.common)
-	c.InternalApi = (*InternalApiService)(&c.common)
-	c.LookupApi = (*LookupApiService)(&c.common)
-	c.MalwareScanApi = (*MalwareScanApiService)(&c.common)
-	c.RegistryApi = (*RegistryApiService)(&c.common)
-	c.ReportsApi = (*ReportsApiService)(&c.common)
-	c.ScanResultsApi = (*ScanResultsApiService)(&c.common)
-	c.SearchApi = (*SearchApiService)(&c.common)
-	c.SecretScanApi = (*SecretScanApiService)(&c.common)
-	c.SettingsApi = (*SettingsApiService)(&c.common)
-	c.ThreatApi = (*ThreatApiService)(&c.common)
-	c.TopologyApi = (*TopologyApiService)(&c.common)
-	c.UserApi = (*UserApiService)(&c.common)
-	c.VulnerabilityApi = (*VulnerabilityApiService)(&c.common)
+	c.AuthenticationAPI = (*AuthenticationAPIService)(&c.common)
+	c.CloudNodesAPI = (*CloudNodesAPIService)(&c.common)
+	c.CloudResourcesAPI = (*CloudResourcesAPIService)(&c.common)
+	c.CloudScannerAPI = (*CloudScannerAPIService)(&c.common)
+	c.ComplianceAPI = (*ComplianceAPIService)(&c.common)
+	c.ControlsAPI = (*ControlsAPIService)(&c.common)
+	c.DiagnosisAPI = (*DiagnosisAPIService)(&c.common)
+	c.IntegrationAPI = (*IntegrationAPIService)(&c.common)
+	c.InternalAPI = (*InternalAPIService)(&c.common)
+	c.LookupAPI = (*LookupAPIService)(&c.common)
+	c.MalwareScanAPI = (*MalwareScanAPIService)(&c.common)
+	c.RegistryAPI = (*RegistryAPIService)(&c.common)
+	c.ReportsAPI = (*ReportsAPIService)(&c.common)
+	c.ScanResultsAPI = (*ScanResultsAPIService)(&c.common)
+	c.SearchAPI = (*SearchAPIService)(&c.common)
+	c.SecretScanAPI = (*SecretScanAPIService)(&c.common)
+	c.SettingsAPI = (*SettingsAPIService)(&c.common)
+	c.ThreatAPI = (*ThreatAPIService)(&c.common)
+	c.TopologyAPI = (*TopologyAPIService)(&c.common)
+	c.UserAPI = (*UserAPIService)(&c.common)
+	c.VulnerabilityAPI = (*VulnerabilityAPIService)(&c.common)
 
 	return c
 }

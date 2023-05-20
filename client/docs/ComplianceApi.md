@@ -1,16 +1,16 @@
-# \ComplianceApi
+# \ComplianceAPI
 
 All URIs are relative to *http://localhost*
 
 Method | HTTP request | Description
 ------------- | ------------- | -------------
-[**CountResultsComplianceScan**](ComplianceApi.md#CountResultsComplianceScan) | **Post** /deepfence/scan/results/count/compliance | Get Compliance Scans Results
-[**IngestCompliances**](ComplianceApi.md#IngestCompliances) | **Post** /deepfence/ingest/compliance | Ingest Compliances
-[**ListComplianceScan**](ComplianceApi.md#ListComplianceScan) | **Post** /deepfence/scan/list/compliance | Get Compliance Scans List
-[**ResultsComplianceScan**](ComplianceApi.md#ResultsComplianceScan) | **Post** /deepfence/scan/results/compliance | Get Compliance Scans Results
-[**StartComplianceScan**](ComplianceApi.md#StartComplianceScan) | **Post** /deepfence/scan/start/compliance | Start Compliance Scan
-[**StatusComplianceScan**](ComplianceApi.md#StatusComplianceScan) | **Post** /deepfence/scan/status/compliance | Get Compliance Scan Status
-[**StopComplianceScan**](ComplianceApi.md#StopComplianceScan) | **Post** /deepfence/scan/stop/compliance | Stop Compliance Scan
+[**CountResultsComplianceScan**](ComplianceAPI.md#CountResultsComplianceScan) | **Post** /deepfence/scan/results/count/compliance | Get Compliance Scans Results
+[**IngestCompliances**](ComplianceAPI.md#IngestCompliances) | **Post** /deepfence/ingest/compliance | Ingest Compliances
+[**ListComplianceScan**](ComplianceAPI.md#ListComplianceScan) | **Post** /deepfence/scan/list/compliance | Get Compliance Scans List
+[**ResultsComplianceScan**](ComplianceAPI.md#ResultsComplianceScan) | **Post** /deepfence/scan/results/compliance | Get Compliance Scans Results
+[**StartComplianceScan**](ComplianceAPI.md#StartComplianceScan) | **Post** /deepfence/scan/start/compliance | Start Compliance Scan
+[**StatusComplianceScan**](ComplianceAPI.md#StatusComplianceScan) | **Post** /deepfence/scan/status/compliance | Get Compliance Scan Status
+[**StopComplianceScan**](ComplianceAPI.md#StopComplianceScan) | **Post** /deepfence/scan/stop/compliance | Stop Compliance Scan
 
 
 
@@ -39,13 +39,13 @@ func main() {
 
     configuration := openapiclient.NewConfiguration()
     apiClient := openapiclient.NewAPIClient(configuration)
-    resp, r, err := apiClient.ComplianceApi.CountResultsComplianceScan(context.Background()).ModelScanResultsReq(modelScanResultsReq).Execute()
+    resp, r, err := apiClient.ComplianceAPI.CountResultsComplianceScan(context.Background()).ModelScanResultsReq(modelScanResultsReq).Execute()
     if err != nil {
-        fmt.Fprintf(os.Stderr, "Error when calling `ComplianceApi.CountResultsComplianceScan``: %v\n", err)
+        fmt.Fprintf(os.Stderr, "Error when calling `ComplianceAPI.CountResultsComplianceScan``: %v\n", err)
         fmt.Fprintf(os.Stderr, "Full HTTP response: %v\n", r)
     }
     // response from `CountResultsComplianceScan`: SearchSearchCountResp
-    fmt.Fprintf(os.Stdout, "Response from `ComplianceApi.CountResultsComplianceScan`: %v\n", resp)
+    fmt.Fprintf(os.Stdout, "Response from `ComplianceAPI.CountResultsComplianceScan`: %v\n", resp)
 }
 ```
 
@@ -105,9 +105,9 @@ func main() {
 
     configuration := openapiclient.NewConfiguration()
     apiClient := openapiclient.NewAPIClient(configuration)
-    r, err := apiClient.ComplianceApi.IngestCompliances(context.Background()).IngestersCompliance(ingestersCompliance).Execute()
+    r, err := apiClient.ComplianceAPI.IngestCompliances(context.Background()).IngestersCompliance(ingestersCompliance).Execute()
     if err != nil {
-        fmt.Fprintf(os.Stderr, "Error when calling `ComplianceApi.IngestCompliances``: %v\n", err)
+        fmt.Fprintf(os.Stderr, "Error when calling `ComplianceAPI.IngestCompliances``: %v\n", err)
         fmt.Fprintf(os.Stderr, "Full HTTP response: %v\n", r)
     }
 }
@@ -169,13 +169,13 @@ func main() {
 
     configuration := openapiclient.NewConfiguration()
     apiClient := openapiclient.NewAPIClient(configuration)
-    resp, r, err := apiClient.ComplianceApi.ListComplianceScan(context.Background()).ModelScanListReq(modelScanListReq).Execute()
+    resp, r, err := apiClient.ComplianceAPI.ListComplianceScan(context.Background()).ModelScanListReq(modelScanListReq).Execute()
     if err != nil {
-        fmt.Fprintf(os.Stderr, "Error when calling `ComplianceApi.ListComplianceScan``: %v\n", err)
+        fmt.Fprintf(os.Stderr, "Error when calling `ComplianceAPI.ListComplianceScan``: %v\n", err)
         fmt.Fprintf(os.Stderr, "Full HTTP response: %v\n", r)
     }
     // response from `ListComplianceScan`: ModelScanListResp
-    fmt.Fprintf(os.Stdout, "Response from `ComplianceApi.ListComplianceScan`: %v\n", resp)
+    fmt.Fprintf(os.Stdout, "Response from `ComplianceAPI.ListComplianceScan`: %v\n", resp)
 }
 ```
 
@@ -235,13 +235,13 @@ func main() {
 
     configuration := openapiclient.NewConfiguration()
     apiClient := openapiclient.NewAPIClient(configuration)
-    resp, r, err := apiClient.ComplianceApi.ResultsComplianceScan(context.Background()).ModelScanResultsReq(modelScanResultsReq).Execute()
+    resp, r, err := apiClient.ComplianceAPI.ResultsComplianceScan(context.Background()).ModelScanResultsReq(modelScanResultsReq).Execute()
     if err != nil {
-        fmt.Fprintf(os.Stderr, "Error when calling `ComplianceApi.ResultsComplianceScan``: %v\n", err)
+        fmt.Fprintf(os.Stderr, "Error when calling `ComplianceAPI.ResultsComplianceScan``: %v\n", err)
         fmt.Fprintf(os.Stderr, "Full HTTP response: %v\n", r)
     }
     // response from `ResultsComplianceScan`: ModelComplianceScanResult
-    fmt.Fprintf(os.Stdout, "Response from `ComplianceApi.ResultsComplianceScan`: %v\n", resp)
+    fmt.Fprintf(os.Stdout, "Response from `ComplianceAPI.ResultsComplianceScan`: %v\n", resp)
 }
 ```
 
@@ -301,13 +301,13 @@ func main() {
 
     configuration := openapiclient.NewConfiguration()
     apiClient := openapiclient.NewAPIClient(configuration)
-    resp, r, err := apiClient.ComplianceApi.StartComplianceScan(context.Background()).ModelComplianceScanTriggerReq(modelComplianceScanTriggerReq).Execute()
+    resp, r, err := apiClient.ComplianceAPI.StartComplianceScan(context.Background()).ModelComplianceScanTriggerReq(modelComplianceScanTriggerReq).Execute()
     if err != nil {
-        fmt.Fprintf(os.Stderr, "Error when calling `ComplianceApi.StartComplianceScan``: %v\n", err)
+        fmt.Fprintf(os.Stderr, "Error when calling `ComplianceAPI.StartComplianceScan``: %v\n", err)
         fmt.Fprintf(os.Stderr, "Full HTTP response: %v\n", r)
     }
     // response from `StartComplianceScan`: ModelScanTriggerResp
-    fmt.Fprintf(os.Stdout, "Response from `ComplianceApi.StartComplianceScan`: %v\n", resp)
+    fmt.Fprintf(os.Stdout, "Response from `ComplianceAPI.StartComplianceScan`: %v\n", resp)
 }
 ```
 
@@ -367,13 +367,13 @@ func main() {
 
     configuration := openapiclient.NewConfiguration()
     apiClient := openapiclient.NewAPIClient(configuration)
-    resp, r, err := apiClient.ComplianceApi.StatusComplianceScan(context.Background()).ModelScanStatusReq(modelScanStatusReq).Execute()
+    resp, r, err := apiClient.ComplianceAPI.StatusComplianceScan(context.Background()).ModelScanStatusReq(modelScanStatusReq).Execute()
     if err != nil {
-        fmt.Fprintf(os.Stderr, "Error when calling `ComplianceApi.StatusComplianceScan``: %v\n", err)
+        fmt.Fprintf(os.Stderr, "Error when calling `ComplianceAPI.StatusComplianceScan``: %v\n", err)
         fmt.Fprintf(os.Stderr, "Full HTTP response: %v\n", r)
     }
     // response from `StatusComplianceScan`: ModelScanStatusResp
-    fmt.Fprintf(os.Stdout, "Response from `ComplianceApi.StatusComplianceScan`: %v\n", resp)
+    fmt.Fprintf(os.Stdout, "Response from `ComplianceAPI.StatusComplianceScan`: %v\n", resp)
 }
 ```
 
@@ -433,9 +433,9 @@ func main() {
 
     configuration := openapiclient.NewConfiguration()
     apiClient := openapiclient.NewAPIClient(configuration)
-    r, err := apiClient.ComplianceApi.StopComplianceScan(context.Background()).ModelComplianceScanTriggerReq(modelComplianceScanTriggerReq).Execute()
+    r, err := apiClient.ComplianceAPI.StopComplianceScan(context.Background()).ModelComplianceScanTriggerReq(modelComplianceScanTriggerReq).Execute()
     if err != nil {
-        fmt.Fprintf(os.Stderr, "Error when calling `ComplianceApi.StopComplianceScan``: %v\n", err)
+        fmt.Fprintf(os.Stderr, "Error when calling `ComplianceAPI.StopComplianceScan``: %v\n", err)
         fmt.Fprintf(os.Stderr, "Full HTTP response: %v\n", r)
     }
 }

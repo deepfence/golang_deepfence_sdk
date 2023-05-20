@@ -20,12 +20,12 @@ import (
 )
 
 
-// ControlsApiService ControlsApi service
-type ControlsApiService service
+// ControlsAPIService ControlsAPI service
+type ControlsAPIService service
 
 type ApiDisableCloudNodeControlsRequest struct {
 	ctx context.Context
-	ApiService *ControlsApiService
+	ApiService *ControlsAPIService
 	modelCloudNodeEnableDisableReq *ModelCloudNodeEnableDisableReq
 }
 
@@ -46,7 +46,7 @@ Disable controls for a cloud node
  @param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
  @return ApiDisableCloudNodeControlsRequest
 */
-func (a *ControlsApiService) DisableCloudNodeControls(ctx context.Context) ApiDisableCloudNodeControlsRequest {
+func (a *ControlsAPIService) DisableCloudNodeControls(ctx context.Context) ApiDisableCloudNodeControlsRequest {
 	return ApiDisableCloudNodeControlsRequest{
 		ApiService: a,
 		ctx: ctx,
@@ -54,14 +54,14 @@ func (a *ControlsApiService) DisableCloudNodeControls(ctx context.Context) ApiDi
 }
 
 // Execute executes the request
-func (a *ControlsApiService) DisableCloudNodeControlsExecute(r ApiDisableCloudNodeControlsRequest) (*http.Response, error) {
+func (a *ControlsAPIService) DisableCloudNodeControlsExecute(r ApiDisableCloudNodeControlsRequest) (*http.Response, error) {
 	var (
 		localVarHTTPMethod   = http.MethodPost
 		localVarPostBody     interface{}
 		formFiles            []formFile
 	)
 
-	localBasePath, err := a.client.cfg.ServerURLWithContext(r.ctx, "ControlsApiService.DisableCloudNodeControls")
+	localBasePath, err := a.client.cfg.ServerURLWithContext(r.ctx, "ControlsAPIService.DisableCloudNodeControls")
 	if err != nil {
 		return nil, &GenericOpenAPIError{error: err.Error()}
 	}
@@ -153,7 +153,7 @@ func (a *ControlsApiService) DisableCloudNodeControlsExecute(r ApiDisableCloudNo
 
 type ApiEnableCloudNodeControlsRequest struct {
 	ctx context.Context
-	ApiService *ControlsApiService
+	ApiService *ControlsAPIService
 	modelCloudNodeEnableDisableReq *ModelCloudNodeEnableDisableReq
 }
 
@@ -174,7 +174,7 @@ Enable controls for a cloud node
  @param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
  @return ApiEnableCloudNodeControlsRequest
 */
-func (a *ControlsApiService) EnableCloudNodeControls(ctx context.Context) ApiEnableCloudNodeControlsRequest {
+func (a *ControlsAPIService) EnableCloudNodeControls(ctx context.Context) ApiEnableCloudNodeControlsRequest {
 	return ApiEnableCloudNodeControlsRequest{
 		ApiService: a,
 		ctx: ctx,
@@ -182,14 +182,14 @@ func (a *ControlsApiService) EnableCloudNodeControls(ctx context.Context) ApiEna
 }
 
 // Execute executes the request
-func (a *ControlsApiService) EnableCloudNodeControlsExecute(r ApiEnableCloudNodeControlsRequest) (*http.Response, error) {
+func (a *ControlsAPIService) EnableCloudNodeControlsExecute(r ApiEnableCloudNodeControlsRequest) (*http.Response, error) {
 	var (
 		localVarHTTPMethod   = http.MethodPost
 		localVarPostBody     interface{}
 		formFiles            []formFile
 	)
 
-	localBasePath, err := a.client.cfg.ServerURLWithContext(r.ctx, "ControlsApiService.EnableCloudNodeControls")
+	localBasePath, err := a.client.cfg.ServerURLWithContext(r.ctx, "ControlsAPIService.EnableCloudNodeControls")
 	if err != nil {
 		return nil, &GenericOpenAPIError{error: err.Error()}
 	}
@@ -281,7 +281,7 @@ func (a *ControlsApiService) EnableCloudNodeControlsExecute(r ApiEnableCloudNode
 
 type ApiGetAgentControlsRequest struct {
 	ctx context.Context
-	ApiService *ControlsApiService
+	ApiService *ControlsAPIService
 	modelAgentId *ModelAgentId
 }
 
@@ -302,7 +302,7 @@ Fetch actions for a given agent
  @param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
  @return ApiGetAgentControlsRequest
 */
-func (a *ControlsApiService) GetAgentControls(ctx context.Context) ApiGetAgentControlsRequest {
+func (a *ControlsAPIService) GetAgentControls(ctx context.Context) ApiGetAgentControlsRequest {
 	return ApiGetAgentControlsRequest{
 		ApiService: a,
 		ctx: ctx,
@@ -311,7 +311,7 @@ func (a *ControlsApiService) GetAgentControls(ctx context.Context) ApiGetAgentCo
 
 // Execute executes the request
 //  @return ControlsAgentControls
-func (a *ControlsApiService) GetAgentControlsExecute(r ApiGetAgentControlsRequest) (*ControlsAgentControls, *http.Response, error) {
+func (a *ControlsAPIService) GetAgentControlsExecute(r ApiGetAgentControlsRequest) (*ControlsAgentControls, *http.Response, error) {
 	var (
 		localVarHTTPMethod   = http.MethodPost
 		localVarPostBody     interface{}
@@ -319,7 +319,7 @@ func (a *ControlsApiService) GetAgentControlsExecute(r ApiGetAgentControlsReques
 		localVarReturnValue  *ControlsAgentControls
 	)
 
-	localBasePath, err := a.client.cfg.ServerURLWithContext(r.ctx, "ControlsApiService.GetAgentControls")
+	localBasePath, err := a.client.cfg.ServerURLWithContext(r.ctx, "ControlsAPIService.GetAgentControls")
 	if err != nil {
 		return localVarReturnValue, nil, &GenericOpenAPIError{error: err.Error()}
 	}
@@ -420,7 +420,7 @@ func (a *ControlsApiService) GetAgentControlsExecute(r ApiGetAgentControlsReques
 
 type ApiGetAgentInitControlsRequest struct {
 	ctx context.Context
-	ApiService *ControlsApiService
+	ApiService *ControlsAPIService
 	modelInitAgentReq *ModelInitAgentReq
 }
 
@@ -441,7 +441,7 @@ Fetch initial actions for a given agent after it started
  @param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
  @return ApiGetAgentInitControlsRequest
 */
-func (a *ControlsApiService) GetAgentInitControls(ctx context.Context) ApiGetAgentInitControlsRequest {
+func (a *ControlsAPIService) GetAgentInitControls(ctx context.Context) ApiGetAgentInitControlsRequest {
 	return ApiGetAgentInitControlsRequest{
 		ApiService: a,
 		ctx: ctx,
@@ -450,7 +450,7 @@ func (a *ControlsApiService) GetAgentInitControls(ctx context.Context) ApiGetAge
 
 // Execute executes the request
 //  @return ControlsAgentControls
-func (a *ControlsApiService) GetAgentInitControlsExecute(r ApiGetAgentInitControlsRequest) (*ControlsAgentControls, *http.Response, error) {
+func (a *ControlsAPIService) GetAgentInitControlsExecute(r ApiGetAgentInitControlsRequest) (*ControlsAgentControls, *http.Response, error) {
 	var (
 		localVarHTTPMethod   = http.MethodPost
 		localVarPostBody     interface{}
@@ -458,7 +458,7 @@ func (a *ControlsApiService) GetAgentInitControlsExecute(r ApiGetAgentInitContro
 		localVarReturnValue  *ControlsAgentControls
 	)
 
-	localBasePath, err := a.client.cfg.ServerURLWithContext(r.ctx, "ControlsApiService.GetAgentInitControls")
+	localBasePath, err := a.client.cfg.ServerURLWithContext(r.ctx, "ControlsAPIService.GetAgentInitControls")
 	if err != nil {
 		return localVarReturnValue, nil, &GenericOpenAPIError{error: err.Error()}
 	}
@@ -559,7 +559,7 @@ func (a *ControlsApiService) GetAgentInitControlsExecute(r ApiGetAgentInitContro
 
 type ApiGetCloudNodeControlsRequest struct {
 	ctx context.Context
-	ApiService *ControlsApiService
+	ApiService *ControlsAPIService
 	modelCloudNodeControlReq *ModelCloudNodeControlReq
 }
 
@@ -580,7 +580,7 @@ Fetch controls for a cloud node
  @param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
  @return ApiGetCloudNodeControlsRequest
 */
-func (a *ControlsApiService) GetCloudNodeControls(ctx context.Context) ApiGetCloudNodeControlsRequest {
+func (a *ControlsAPIService) GetCloudNodeControls(ctx context.Context) ApiGetCloudNodeControlsRequest {
 	return ApiGetCloudNodeControlsRequest{
 		ApiService: a,
 		ctx: ctx,
@@ -589,7 +589,7 @@ func (a *ControlsApiService) GetCloudNodeControls(ctx context.Context) ApiGetClo
 
 // Execute executes the request
 //  @return ModelCloudNodeControlResp
-func (a *ControlsApiService) GetCloudNodeControlsExecute(r ApiGetCloudNodeControlsRequest) (*ModelCloudNodeControlResp, *http.Response, error) {
+func (a *ControlsAPIService) GetCloudNodeControlsExecute(r ApiGetCloudNodeControlsRequest) (*ModelCloudNodeControlResp, *http.Response, error) {
 	var (
 		localVarHTTPMethod   = http.MethodPost
 		localVarPostBody     interface{}
@@ -597,7 +597,7 @@ func (a *ControlsApiService) GetCloudNodeControlsExecute(r ApiGetCloudNodeContro
 		localVarReturnValue  *ModelCloudNodeControlResp
 	)
 
-	localBasePath, err := a.client.cfg.ServerURLWithContext(r.ctx, "ControlsApiService.GetCloudNodeControls")
+	localBasePath, err := a.client.cfg.ServerURLWithContext(r.ctx, "ControlsAPIService.GetCloudNodeControls")
 	if err != nil {
 		return localVarReturnValue, nil, &GenericOpenAPIError{error: err.Error()}
 	}
@@ -698,7 +698,7 @@ func (a *ControlsApiService) GetCloudNodeControlsExecute(r ApiGetCloudNodeContro
 
 type ApiGetKubernetesClusterControlsRequest struct {
 	ctx context.Context
-	ApiService *ControlsApiService
+	ApiService *ControlsAPIService
 	modelAgentId *ModelAgentId
 }
 
@@ -719,7 +719,7 @@ Fetch actions for a given Kubernetes Cluster
  @param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
  @return ApiGetKubernetesClusterControlsRequest
 */
-func (a *ControlsApiService) GetKubernetesClusterControls(ctx context.Context) ApiGetKubernetesClusterControlsRequest {
+func (a *ControlsAPIService) GetKubernetesClusterControls(ctx context.Context) ApiGetKubernetesClusterControlsRequest {
 	return ApiGetKubernetesClusterControlsRequest{
 		ApiService: a,
 		ctx: ctx,
@@ -728,7 +728,7 @@ func (a *ControlsApiService) GetKubernetesClusterControls(ctx context.Context) A
 
 // Execute executes the request
 //  @return ControlsAgentControls
-func (a *ControlsApiService) GetKubernetesClusterControlsExecute(r ApiGetKubernetesClusterControlsRequest) (*ControlsAgentControls, *http.Response, error) {
+func (a *ControlsAPIService) GetKubernetesClusterControlsExecute(r ApiGetKubernetesClusterControlsRequest) (*ControlsAgentControls, *http.Response, error) {
 	var (
 		localVarHTTPMethod   = http.MethodPost
 		localVarPostBody     interface{}
@@ -736,7 +736,7 @@ func (a *ControlsApiService) GetKubernetesClusterControlsExecute(r ApiGetKuberne
 		localVarReturnValue  *ControlsAgentControls
 	)
 
-	localBasePath, err := a.client.cfg.ServerURLWithContext(r.ctx, "ControlsApiService.GetKubernetesClusterControls")
+	localBasePath, err := a.client.cfg.ServerURLWithContext(r.ctx, "ControlsAPIService.GetKubernetesClusterControls")
 	if err != nil {
 		return localVarReturnValue, nil, &GenericOpenAPIError{error: err.Error()}
 	}
@@ -837,7 +837,7 @@ func (a *ControlsApiService) GetKubernetesClusterControlsExecute(r ApiGetKuberne
 
 type ApiUpgradeAgentVersionRequest struct {
 	ctx context.Context
-	ApiService *ControlsApiService
+	ApiService *ControlsAPIService
 	modelAgentUpgrade *ModelAgentUpgrade
 }
 
@@ -858,7 +858,7 @@ Schedule new agent version upgrade
  @param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
  @return ApiUpgradeAgentVersionRequest
 */
-func (a *ControlsApiService) UpgradeAgentVersion(ctx context.Context) ApiUpgradeAgentVersionRequest {
+func (a *ControlsAPIService) UpgradeAgentVersion(ctx context.Context) ApiUpgradeAgentVersionRequest {
 	return ApiUpgradeAgentVersionRequest{
 		ApiService: a,
 		ctx: ctx,
@@ -866,14 +866,14 @@ func (a *ControlsApiService) UpgradeAgentVersion(ctx context.Context) ApiUpgrade
 }
 
 // Execute executes the request
-func (a *ControlsApiService) UpgradeAgentVersionExecute(r ApiUpgradeAgentVersionRequest) (*http.Response, error) {
+func (a *ControlsAPIService) UpgradeAgentVersionExecute(r ApiUpgradeAgentVersionRequest) (*http.Response, error) {
 	var (
 		localVarHTTPMethod   = http.MethodPost
 		localVarPostBody     interface{}
 		formFiles            []formFile
 	)
 
-	localBasePath, err := a.client.cfg.ServerURLWithContext(r.ctx, "ControlsApiService.UpgradeAgentVersion")
+	localBasePath, err := a.client.cfg.ServerURLWithContext(r.ctx, "ControlsAPIService.UpgradeAgentVersion")
 	if err != nil {
 		return nil, &GenericOpenAPIError{error: err.Error()}
 	}

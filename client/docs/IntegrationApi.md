@@ -1,12 +1,12 @@
-# \IntegrationApi
+# \IntegrationAPI
 
 All URIs are relative to *http://localhost*
 
 Method | HTTP request | Description
 ------------- | ------------- | -------------
-[**AddIntegration**](IntegrationApi.md#AddIntegration) | **Post** /deepfence/integration | Add Integration
-[**DeleteIntegration**](IntegrationApi.md#DeleteIntegration) | **Delete** /deepfence/integration/{integration_id} | Delete Integration
-[**ListIntegration**](IntegrationApi.md#ListIntegration) | **Get** /deepfence/integration | List Integrations
+[**AddIntegration**](IntegrationAPI.md#AddIntegration) | **Post** /deepfence/integration | Add Integration
+[**DeleteIntegration**](IntegrationAPI.md#DeleteIntegration) | **Delete** /deepfence/integration/{integration_id} | Delete Integration
+[**ListIntegration**](IntegrationAPI.md#ListIntegration) | **Get** /deepfence/integration | List Integrations
 
 
 
@@ -35,13 +35,13 @@ func main() {
 
     configuration := openapiclient.NewConfiguration()
     apiClient := openapiclient.NewAPIClient(configuration)
-    resp, r, err := apiClient.IntegrationApi.AddIntegration(context.Background()).ModelIntegrationAddReq(modelIntegrationAddReq).Execute()
+    resp, r, err := apiClient.IntegrationAPI.AddIntegration(context.Background()).ModelIntegrationAddReq(modelIntegrationAddReq).Execute()
     if err != nil {
-        fmt.Fprintf(os.Stderr, "Error when calling `IntegrationApi.AddIntegration``: %v\n", err)
+        fmt.Fprintf(os.Stderr, "Error when calling `IntegrationAPI.AddIntegration``: %v\n", err)
         fmt.Fprintf(os.Stderr, "Full HTTP response: %v\n", r)
     }
     // response from `AddIntegration`: ModelMessageResponse
-    fmt.Fprintf(os.Stdout, "Response from `IntegrationApi.AddIntegration`: %v\n", resp)
+    fmt.Fprintf(os.Stdout, "Response from `IntegrationAPI.AddIntegration`: %v\n", resp)
 }
 ```
 
@@ -101,9 +101,9 @@ func main() {
 
     configuration := openapiclient.NewConfiguration()
     apiClient := openapiclient.NewAPIClient(configuration)
-    r, err := apiClient.IntegrationApi.DeleteIntegration(context.Background(), integrationId).Execute()
+    r, err := apiClient.IntegrationAPI.DeleteIntegration(context.Background(), integrationId).Execute()
     if err != nil {
-        fmt.Fprintf(os.Stderr, "Error when calling `IntegrationApi.DeleteIntegration``: %v\n", err)
+        fmt.Fprintf(os.Stderr, "Error when calling `IntegrationAPI.DeleteIntegration``: %v\n", err)
         fmt.Fprintf(os.Stderr, "Full HTTP response: %v\n", r)
     }
 }
@@ -168,13 +168,13 @@ func main() {
 
     configuration := openapiclient.NewConfiguration()
     apiClient := openapiclient.NewAPIClient(configuration)
-    resp, r, err := apiClient.IntegrationApi.ListIntegration(context.Background()).Execute()
+    resp, r, err := apiClient.IntegrationAPI.ListIntegration(context.Background()).Execute()
     if err != nil {
-        fmt.Fprintf(os.Stderr, "Error when calling `IntegrationApi.ListIntegration``: %v\n", err)
+        fmt.Fprintf(os.Stderr, "Error when calling `IntegrationAPI.ListIntegration``: %v\n", err)
         fmt.Fprintf(os.Stderr, "Full HTTP response: %v\n", r)
     }
     // response from `ListIntegration`: []ModelIntegrationListResp
-    fmt.Fprintf(os.Stdout, "Response from `IntegrationApi.ListIntegration`: %v\n", resp)
+    fmt.Fprintf(os.Stdout, "Response from `IntegrationAPI.ListIntegration`: %v\n", resp)
 }
 ```
 

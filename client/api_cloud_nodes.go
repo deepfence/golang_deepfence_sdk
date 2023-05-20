@@ -20,12 +20,12 @@ import (
 )
 
 
-// CloudNodesApiService CloudNodesApi service
-type CloudNodesApiService service
+// CloudNodesAPIService CloudNodesAPI service
+type CloudNodesAPIService service
 
 type ApiListCloudNodeAccountRequest struct {
 	ctx context.Context
-	ApiService *CloudNodesApiService
+	ApiService *CloudNodesAPIService
 	modelCloudNodeAccountsListReq *ModelCloudNodeAccountsListReq
 }
 
@@ -46,7 +46,7 @@ List Cloud Node Accounts registered with the console
  @param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
  @return ApiListCloudNodeAccountRequest
 */
-func (a *CloudNodesApiService) ListCloudNodeAccount(ctx context.Context) ApiListCloudNodeAccountRequest {
+func (a *CloudNodesAPIService) ListCloudNodeAccount(ctx context.Context) ApiListCloudNodeAccountRequest {
 	return ApiListCloudNodeAccountRequest{
 		ApiService: a,
 		ctx: ctx,
@@ -55,7 +55,7 @@ func (a *CloudNodesApiService) ListCloudNodeAccount(ctx context.Context) ApiList
 
 // Execute executes the request
 //  @return ModelCloudNodeAccountsListResp
-func (a *CloudNodesApiService) ListCloudNodeAccountExecute(r ApiListCloudNodeAccountRequest) (*ModelCloudNodeAccountsListResp, *http.Response, error) {
+func (a *CloudNodesAPIService) ListCloudNodeAccountExecute(r ApiListCloudNodeAccountRequest) (*ModelCloudNodeAccountsListResp, *http.Response, error) {
 	var (
 		localVarHTTPMethod   = http.MethodPost
 		localVarPostBody     interface{}
@@ -63,7 +63,7 @@ func (a *CloudNodesApiService) ListCloudNodeAccountExecute(r ApiListCloudNodeAcc
 		localVarReturnValue  *ModelCloudNodeAccountsListResp
 	)
 
-	localBasePath, err := a.client.cfg.ServerURLWithContext(r.ctx, "CloudNodesApiService.ListCloudNodeAccount")
+	localBasePath, err := a.client.cfg.ServerURLWithContext(r.ctx, "CloudNodesAPIService.ListCloudNodeAccount")
 	if err != nil {
 		return localVarReturnValue, nil, &GenericOpenAPIError{error: err.Error()}
 	}
@@ -164,7 +164,7 @@ func (a *CloudNodesApiService) ListCloudNodeAccountExecute(r ApiListCloudNodeAcc
 
 type ApiListCloudProvidersRequest struct {
 	ctx context.Context
-	ApiService *CloudNodesApiService
+	ApiService *CloudNodesAPIService
 }
 
 func (r ApiListCloudProvidersRequest) Execute() (*ModelCloudNodeProvidersListResp, *http.Response, error) {
@@ -179,7 +179,7 @@ List Cloud Node Providers registered with the console
  @param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
  @return ApiListCloudProvidersRequest
 */
-func (a *CloudNodesApiService) ListCloudProviders(ctx context.Context) ApiListCloudProvidersRequest {
+func (a *CloudNodesAPIService) ListCloudProviders(ctx context.Context) ApiListCloudProvidersRequest {
 	return ApiListCloudProvidersRequest{
 		ApiService: a,
 		ctx: ctx,
@@ -188,7 +188,7 @@ func (a *CloudNodesApiService) ListCloudProviders(ctx context.Context) ApiListCl
 
 // Execute executes the request
 //  @return ModelCloudNodeProvidersListResp
-func (a *CloudNodesApiService) ListCloudProvidersExecute(r ApiListCloudProvidersRequest) (*ModelCloudNodeProvidersListResp, *http.Response, error) {
+func (a *CloudNodesAPIService) ListCloudProvidersExecute(r ApiListCloudProvidersRequest) (*ModelCloudNodeProvidersListResp, *http.Response, error) {
 	var (
 		localVarHTTPMethod   = http.MethodGet
 		localVarPostBody     interface{}
@@ -196,7 +196,7 @@ func (a *CloudNodesApiService) ListCloudProvidersExecute(r ApiListCloudProviders
 		localVarReturnValue  *ModelCloudNodeProvidersListResp
 	)
 
-	localBasePath, err := a.client.cfg.ServerURLWithContext(r.ctx, "CloudNodesApiService.ListCloudProviders")
+	localBasePath, err := a.client.cfg.ServerURLWithContext(r.ctx, "CloudNodesAPIService.ListCloudProviders")
 	if err != nil {
 		return localVarReturnValue, nil, &GenericOpenAPIError{error: err.Error()}
 	}
@@ -295,7 +295,7 @@ func (a *CloudNodesApiService) ListCloudProvidersExecute(r ApiListCloudProviders
 
 type ApiRegisterCloudNodeAccountRequest struct {
 	ctx context.Context
-	ApiService *CloudNodesApiService
+	ApiService *CloudNodesAPIService
 	modelCloudNodeAccountRegisterReq *ModelCloudNodeAccountRegisterReq
 }
 
@@ -316,7 +316,7 @@ Register Cloud Node Account and return any pending compliance scans from console
  @param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
  @return ApiRegisterCloudNodeAccountRequest
 */
-func (a *CloudNodesApiService) RegisterCloudNodeAccount(ctx context.Context) ApiRegisterCloudNodeAccountRequest {
+func (a *CloudNodesAPIService) RegisterCloudNodeAccount(ctx context.Context) ApiRegisterCloudNodeAccountRequest {
 	return ApiRegisterCloudNodeAccountRequest{
 		ApiService: a,
 		ctx: ctx,
@@ -325,7 +325,7 @@ func (a *CloudNodesApiService) RegisterCloudNodeAccount(ctx context.Context) Api
 
 // Execute executes the request
 //  @return ModelCloudNodeAccountRegisterResp
-func (a *CloudNodesApiService) RegisterCloudNodeAccountExecute(r ApiRegisterCloudNodeAccountRequest) (*ModelCloudNodeAccountRegisterResp, *http.Response, error) {
+func (a *CloudNodesAPIService) RegisterCloudNodeAccountExecute(r ApiRegisterCloudNodeAccountRequest) (*ModelCloudNodeAccountRegisterResp, *http.Response, error) {
 	var (
 		localVarHTTPMethod   = http.MethodPost
 		localVarPostBody     interface{}
@@ -333,7 +333,7 @@ func (a *CloudNodesApiService) RegisterCloudNodeAccountExecute(r ApiRegisterClou
 		localVarReturnValue  *ModelCloudNodeAccountRegisterResp
 	)
 
-	localBasePath, err := a.client.cfg.ServerURLWithContext(r.ctx, "CloudNodesApiService.RegisterCloudNodeAccount")
+	localBasePath, err := a.client.cfg.ServerURLWithContext(r.ctx, "CloudNodesAPIService.RegisterCloudNodeAccount")
 	if err != nil {
 		return localVarReturnValue, nil, &GenericOpenAPIError{error: err.Error()}
 	}

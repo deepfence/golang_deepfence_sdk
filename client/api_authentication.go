@@ -20,12 +20,12 @@ import (
 )
 
 
-// AuthenticationApiService AuthenticationApi service
-type AuthenticationApiService service
+// AuthenticationAPIService AuthenticationAPI service
+type AuthenticationAPIService service
 
 type ApiAuthTokenRequest struct {
 	ctx context.Context
-	ApiService *AuthenticationApiService
+	ApiService *AuthenticationAPIService
 	modelApiAuthRequest *ModelApiAuthRequest
 }
 
@@ -46,7 +46,7 @@ Get access token for programmatic API access, by providing API Token
  @param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
  @return ApiAuthTokenRequest
 */
-func (a *AuthenticationApiService) AuthToken(ctx context.Context) ApiAuthTokenRequest {
+func (a *AuthenticationAPIService) AuthToken(ctx context.Context) ApiAuthTokenRequest {
 	return ApiAuthTokenRequest{
 		ApiService: a,
 		ctx: ctx,
@@ -55,7 +55,7 @@ func (a *AuthenticationApiService) AuthToken(ctx context.Context) ApiAuthTokenRe
 
 // Execute executes the request
 //  @return ModelResponseAccessToken
-func (a *AuthenticationApiService) AuthTokenExecute(r ApiAuthTokenRequest) (*ModelResponseAccessToken, *http.Response, error) {
+func (a *AuthenticationAPIService) AuthTokenExecute(r ApiAuthTokenRequest) (*ModelResponseAccessToken, *http.Response, error) {
 	var (
 		localVarHTTPMethod   = http.MethodPost
 		localVarPostBody     interface{}
@@ -63,7 +63,7 @@ func (a *AuthenticationApiService) AuthTokenExecute(r ApiAuthTokenRequest) (*Mod
 		localVarReturnValue  *ModelResponseAccessToken
 	)
 
-	localBasePath, err := a.client.cfg.ServerURLWithContext(r.ctx, "AuthenticationApiService.AuthToken")
+	localBasePath, err := a.client.cfg.ServerURLWithContext(r.ctx, "AuthenticationAPIService.AuthToken")
 	if err != nil {
 		return localVarReturnValue, nil, &GenericOpenAPIError{error: err.Error()}
 	}
@@ -164,7 +164,7 @@ func (a *AuthenticationApiService) AuthTokenExecute(r ApiAuthTokenRequest) (*Mod
 
 type ApiAuthTokenRefreshRequest struct {
 	ctx context.Context
-	ApiService *AuthenticationApiService
+	ApiService *AuthenticationAPIService
 }
 
 func (r ApiAuthTokenRefreshRequest) Execute() (*ModelResponseAccessToken, *http.Response, error) {
@@ -179,7 +179,7 @@ Reissue access token using refresh token
  @param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
  @return ApiAuthTokenRefreshRequest
 */
-func (a *AuthenticationApiService) AuthTokenRefresh(ctx context.Context) ApiAuthTokenRefreshRequest {
+func (a *AuthenticationAPIService) AuthTokenRefresh(ctx context.Context) ApiAuthTokenRefreshRequest {
 	return ApiAuthTokenRefreshRequest{
 		ApiService: a,
 		ctx: ctx,
@@ -188,7 +188,7 @@ func (a *AuthenticationApiService) AuthTokenRefresh(ctx context.Context) ApiAuth
 
 // Execute executes the request
 //  @return ModelResponseAccessToken
-func (a *AuthenticationApiService) AuthTokenRefreshExecute(r ApiAuthTokenRefreshRequest) (*ModelResponseAccessToken, *http.Response, error) {
+func (a *AuthenticationAPIService) AuthTokenRefreshExecute(r ApiAuthTokenRefreshRequest) (*ModelResponseAccessToken, *http.Response, error) {
 	var (
 		localVarHTTPMethod   = http.MethodPost
 		localVarPostBody     interface{}
@@ -196,7 +196,7 @@ func (a *AuthenticationApiService) AuthTokenRefreshExecute(r ApiAuthTokenRefresh
 		localVarReturnValue  *ModelResponseAccessToken
 	)
 
-	localBasePath, err := a.client.cfg.ServerURLWithContext(r.ctx, "AuthenticationApiService.AuthTokenRefresh")
+	localBasePath, err := a.client.cfg.ServerURLWithContext(r.ctx, "AuthenticationAPIService.AuthTokenRefresh")
 	if err != nil {
 		return localVarReturnValue, nil, &GenericOpenAPIError{error: err.Error()}
 	}
@@ -295,7 +295,7 @@ func (a *AuthenticationApiService) AuthTokenRefreshExecute(r ApiAuthTokenRefresh
 
 type ApiLoginRequest struct {
 	ctx context.Context
-	ApiService *AuthenticationApiService
+	ApiService *AuthenticationAPIService
 	modelLoginRequest *ModelLoginRequest
 }
 
@@ -316,7 +316,7 @@ Login API
  @param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
  @return ApiLoginRequest
 */
-func (a *AuthenticationApiService) Login(ctx context.Context) ApiLoginRequest {
+func (a *AuthenticationAPIService) Login(ctx context.Context) ApiLoginRequest {
 	return ApiLoginRequest{
 		ApiService: a,
 		ctx: ctx,
@@ -325,7 +325,7 @@ func (a *AuthenticationApiService) Login(ctx context.Context) ApiLoginRequest {
 
 // Execute executes the request
 //  @return ModelLoginResponse
-func (a *AuthenticationApiService) LoginExecute(r ApiLoginRequest) (*ModelLoginResponse, *http.Response, error) {
+func (a *AuthenticationAPIService) LoginExecute(r ApiLoginRequest) (*ModelLoginResponse, *http.Response, error) {
 	var (
 		localVarHTTPMethod   = http.MethodPost
 		localVarPostBody     interface{}
@@ -333,7 +333,7 @@ func (a *AuthenticationApiService) LoginExecute(r ApiLoginRequest) (*ModelLoginR
 		localVarReturnValue  *ModelLoginResponse
 	)
 
-	localBasePath, err := a.client.cfg.ServerURLWithContext(r.ctx, "AuthenticationApiService.Login")
+	localBasePath, err := a.client.cfg.ServerURLWithContext(r.ctx, "AuthenticationAPIService.Login")
 	if err != nil {
 		return localVarReturnValue, nil, &GenericOpenAPIError{error: err.Error()}
 	}
@@ -434,7 +434,7 @@ func (a *AuthenticationApiService) LoginExecute(r ApiLoginRequest) (*ModelLoginR
 
 type ApiLogoutRequest struct {
 	ctx context.Context
-	ApiService *AuthenticationApiService
+	ApiService *AuthenticationAPIService
 }
 
 func (r ApiLogoutRequest) Execute() (*http.Response, error) {
@@ -449,7 +449,7 @@ Logout API
  @param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
  @return ApiLogoutRequest
 */
-func (a *AuthenticationApiService) Logout(ctx context.Context) ApiLogoutRequest {
+func (a *AuthenticationAPIService) Logout(ctx context.Context) ApiLogoutRequest {
 	return ApiLogoutRequest{
 		ApiService: a,
 		ctx: ctx,
@@ -457,14 +457,14 @@ func (a *AuthenticationApiService) Logout(ctx context.Context) ApiLogoutRequest 
 }
 
 // Execute executes the request
-func (a *AuthenticationApiService) LogoutExecute(r ApiLogoutRequest) (*http.Response, error) {
+func (a *AuthenticationAPIService) LogoutExecute(r ApiLogoutRequest) (*http.Response, error) {
 	var (
 		localVarHTTPMethod   = http.MethodPost
 		localVarPostBody     interface{}
 		formFiles            []formFile
 	)
 
-	localBasePath, err := a.client.cfg.ServerURLWithContext(r.ctx, "AuthenticationApiService.Logout")
+	localBasePath, err := a.client.cfg.ServerURLWithContext(r.ctx, "AuthenticationAPIService.Logout")
 	if err != nil {
 		return nil, &GenericOpenAPIError{error: err.Error()}
 	}

@@ -386,7 +386,7 @@ WHERE pr.user_id = u.id
 -- name: DeletePasswordResetByExpiry :exec
 DELETE
 FROM password_reset
-WHERE expiry >= $1;
+WHERE expiry < now();
 
 -- name: CreateUserInvite :one
 INSERT INTO user_invite (email, code, created_by_user_id, role_id, company_id, accepted, expiry)
@@ -419,7 +419,7 @@ LIMIT 1;
 -- name: DeleteUserInviteByExpiry :exec
 DELETE
 FROM user_invite
-WHERE expiry >= $1;
+WHERE expiry < now();
 
 -- name: DeleteUserInviteByUserID :exec
 DELETE

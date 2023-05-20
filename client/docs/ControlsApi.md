@@ -1,16 +1,16 @@
-# \ControlsApi
+# \ControlsAPI
 
 All URIs are relative to *http://localhost*
 
 Method | HTTP request | Description
 ------------- | ------------- | -------------
-[**DisableCloudNodeControls**](ControlsApi.md#DisableCloudNodeControls) | **Post** /deepfence/controls/cloud-node/disable | Disable Cloud Node Controls
-[**EnableCloudNodeControls**](ControlsApi.md#EnableCloudNodeControls) | **Post** /deepfence/controls/cloud-node/enable | Enable Cloud Node Controls
-[**GetAgentControls**](ControlsApi.md#GetAgentControls) | **Post** /deepfence/controls/agent | Fetch Agent Actions
-[**GetAgentInitControls**](ControlsApi.md#GetAgentInitControls) | **Post** /deepfence/controls/agent-init | Fetch Agent Init Actions
-[**GetCloudNodeControls**](ControlsApi.md#GetCloudNodeControls) | **Post** /deepfence/controls/cloud-node | Fetch Cloud Node Controls
-[**GetKubernetesClusterControls**](ControlsApi.md#GetKubernetesClusterControls) | **Post** /deepfence/controls/kubernetes-cluster | Fetch Kubernetes Cluster Actions
-[**UpgradeAgentVersion**](ControlsApi.md#UpgradeAgentVersion) | **Post** /deepfence/controls/agent-upgrade | Schedule new agent version upgrade
+[**DisableCloudNodeControls**](ControlsAPI.md#DisableCloudNodeControls) | **Post** /deepfence/controls/cloud-node/disable | Disable Cloud Node Controls
+[**EnableCloudNodeControls**](ControlsAPI.md#EnableCloudNodeControls) | **Post** /deepfence/controls/cloud-node/enable | Enable Cloud Node Controls
+[**GetAgentControls**](ControlsAPI.md#GetAgentControls) | **Post** /deepfence/controls/agent | Fetch Agent Actions
+[**GetAgentInitControls**](ControlsAPI.md#GetAgentInitControls) | **Post** /deepfence/controls/agent-init | Fetch Agent Init Actions
+[**GetCloudNodeControls**](ControlsAPI.md#GetCloudNodeControls) | **Post** /deepfence/controls/cloud-node | Fetch Cloud Node Controls
+[**GetKubernetesClusterControls**](ControlsAPI.md#GetKubernetesClusterControls) | **Post** /deepfence/controls/kubernetes-cluster | Fetch Kubernetes Cluster Actions
+[**UpgradeAgentVersion**](ControlsAPI.md#UpgradeAgentVersion) | **Post** /deepfence/controls/agent-upgrade | Schedule new agent version upgrade
 
 
 
@@ -39,9 +39,9 @@ func main() {
 
     configuration := openapiclient.NewConfiguration()
     apiClient := openapiclient.NewAPIClient(configuration)
-    r, err := apiClient.ControlsApi.DisableCloudNodeControls(context.Background()).ModelCloudNodeEnableDisableReq(modelCloudNodeEnableDisableReq).Execute()
+    r, err := apiClient.ControlsAPI.DisableCloudNodeControls(context.Background()).ModelCloudNodeEnableDisableReq(modelCloudNodeEnableDisableReq).Execute()
     if err != nil {
-        fmt.Fprintf(os.Stderr, "Error when calling `ControlsApi.DisableCloudNodeControls``: %v\n", err)
+        fmt.Fprintf(os.Stderr, "Error when calling `ControlsAPI.DisableCloudNodeControls``: %v\n", err)
         fmt.Fprintf(os.Stderr, "Full HTTP response: %v\n", r)
     }
 }
@@ -103,9 +103,9 @@ func main() {
 
     configuration := openapiclient.NewConfiguration()
     apiClient := openapiclient.NewAPIClient(configuration)
-    r, err := apiClient.ControlsApi.EnableCloudNodeControls(context.Background()).ModelCloudNodeEnableDisableReq(modelCloudNodeEnableDisableReq).Execute()
+    r, err := apiClient.ControlsAPI.EnableCloudNodeControls(context.Background()).ModelCloudNodeEnableDisableReq(modelCloudNodeEnableDisableReq).Execute()
     if err != nil {
-        fmt.Fprintf(os.Stderr, "Error when calling `ControlsApi.EnableCloudNodeControls``: %v\n", err)
+        fmt.Fprintf(os.Stderr, "Error when calling `ControlsAPI.EnableCloudNodeControls``: %v\n", err)
         fmt.Fprintf(os.Stderr, "Full HTTP response: %v\n", r)
     }
 }
@@ -167,13 +167,13 @@ func main() {
 
     configuration := openapiclient.NewConfiguration()
     apiClient := openapiclient.NewAPIClient(configuration)
-    resp, r, err := apiClient.ControlsApi.GetAgentControls(context.Background()).ModelAgentId(modelAgentId).Execute()
+    resp, r, err := apiClient.ControlsAPI.GetAgentControls(context.Background()).ModelAgentId(modelAgentId).Execute()
     if err != nil {
-        fmt.Fprintf(os.Stderr, "Error when calling `ControlsApi.GetAgentControls``: %v\n", err)
+        fmt.Fprintf(os.Stderr, "Error when calling `ControlsAPI.GetAgentControls``: %v\n", err)
         fmt.Fprintf(os.Stderr, "Full HTTP response: %v\n", r)
     }
     // response from `GetAgentControls`: ControlsAgentControls
-    fmt.Fprintf(os.Stdout, "Response from `ControlsApi.GetAgentControls`: %v\n", resp)
+    fmt.Fprintf(os.Stdout, "Response from `ControlsAPI.GetAgentControls`: %v\n", resp)
 }
 ```
 
@@ -233,13 +233,13 @@ func main() {
 
     configuration := openapiclient.NewConfiguration()
     apiClient := openapiclient.NewAPIClient(configuration)
-    resp, r, err := apiClient.ControlsApi.GetAgentInitControls(context.Background()).ModelInitAgentReq(modelInitAgentReq).Execute()
+    resp, r, err := apiClient.ControlsAPI.GetAgentInitControls(context.Background()).ModelInitAgentReq(modelInitAgentReq).Execute()
     if err != nil {
-        fmt.Fprintf(os.Stderr, "Error when calling `ControlsApi.GetAgentInitControls``: %v\n", err)
+        fmt.Fprintf(os.Stderr, "Error when calling `ControlsAPI.GetAgentInitControls``: %v\n", err)
         fmt.Fprintf(os.Stderr, "Full HTTP response: %v\n", r)
     }
     // response from `GetAgentInitControls`: ControlsAgentControls
-    fmt.Fprintf(os.Stdout, "Response from `ControlsApi.GetAgentInitControls`: %v\n", resp)
+    fmt.Fprintf(os.Stdout, "Response from `ControlsAPI.GetAgentInitControls`: %v\n", resp)
 }
 ```
 
@@ -299,13 +299,13 @@ func main() {
 
     configuration := openapiclient.NewConfiguration()
     apiClient := openapiclient.NewAPIClient(configuration)
-    resp, r, err := apiClient.ControlsApi.GetCloudNodeControls(context.Background()).ModelCloudNodeControlReq(modelCloudNodeControlReq).Execute()
+    resp, r, err := apiClient.ControlsAPI.GetCloudNodeControls(context.Background()).ModelCloudNodeControlReq(modelCloudNodeControlReq).Execute()
     if err != nil {
-        fmt.Fprintf(os.Stderr, "Error when calling `ControlsApi.GetCloudNodeControls``: %v\n", err)
+        fmt.Fprintf(os.Stderr, "Error when calling `ControlsAPI.GetCloudNodeControls``: %v\n", err)
         fmt.Fprintf(os.Stderr, "Full HTTP response: %v\n", r)
     }
     // response from `GetCloudNodeControls`: ModelCloudNodeControlResp
-    fmt.Fprintf(os.Stdout, "Response from `ControlsApi.GetCloudNodeControls`: %v\n", resp)
+    fmt.Fprintf(os.Stdout, "Response from `ControlsAPI.GetCloudNodeControls`: %v\n", resp)
 }
 ```
 
@@ -365,13 +365,13 @@ func main() {
 
     configuration := openapiclient.NewConfiguration()
     apiClient := openapiclient.NewAPIClient(configuration)
-    resp, r, err := apiClient.ControlsApi.GetKubernetesClusterControls(context.Background()).ModelAgentId(modelAgentId).Execute()
+    resp, r, err := apiClient.ControlsAPI.GetKubernetesClusterControls(context.Background()).ModelAgentId(modelAgentId).Execute()
     if err != nil {
-        fmt.Fprintf(os.Stderr, "Error when calling `ControlsApi.GetKubernetesClusterControls``: %v\n", err)
+        fmt.Fprintf(os.Stderr, "Error when calling `ControlsAPI.GetKubernetesClusterControls``: %v\n", err)
         fmt.Fprintf(os.Stderr, "Full HTTP response: %v\n", r)
     }
     // response from `GetKubernetesClusterControls`: ControlsAgentControls
-    fmt.Fprintf(os.Stdout, "Response from `ControlsApi.GetKubernetesClusterControls`: %v\n", resp)
+    fmt.Fprintf(os.Stdout, "Response from `ControlsAPI.GetKubernetesClusterControls`: %v\n", resp)
 }
 ```
 
@@ -431,9 +431,9 @@ func main() {
 
     configuration := openapiclient.NewConfiguration()
     apiClient := openapiclient.NewAPIClient(configuration)
-    r, err := apiClient.ControlsApi.UpgradeAgentVersion(context.Background()).ModelAgentUpgrade(modelAgentUpgrade).Execute()
+    r, err := apiClient.ControlsAPI.UpgradeAgentVersion(context.Background()).ModelAgentUpgrade(modelAgentUpgrade).Execute()
     if err != nil {
-        fmt.Fprintf(os.Stderr, "Error when calling `ControlsApi.UpgradeAgentVersion``: %v\n", err)
+        fmt.Fprintf(os.Stderr, "Error when calling `ControlsAPI.UpgradeAgentVersion``: %v\n", err)
         fmt.Fprintf(os.Stderr, "Full HTTP response: %v\n", r)
     }
 }

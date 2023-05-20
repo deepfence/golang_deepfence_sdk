@@ -22,12 +22,12 @@ import (
 )
 
 
-// SettingsApiService SettingsApi service
-type SettingsApiService service
+// SettingsAPIService SettingsAPI service
+type SettingsAPIService service
 
 type ApiAddEmailConfigurationRequest struct {
 	ctx context.Context
-	ApiService *SettingsApiService
+	ApiService *SettingsAPIService
 	modelEmailConfigurationAdd *ModelEmailConfigurationAdd
 }
 
@@ -48,7 +48,7 @@ This email configuration is used to send email notifications
  @param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
  @return ApiAddEmailConfigurationRequest
 */
-func (a *SettingsApiService) AddEmailConfiguration(ctx context.Context) ApiAddEmailConfigurationRequest {
+func (a *SettingsAPIService) AddEmailConfiguration(ctx context.Context) ApiAddEmailConfigurationRequest {
 	return ApiAddEmailConfigurationRequest{
 		ApiService: a,
 		ctx: ctx,
@@ -57,7 +57,7 @@ func (a *SettingsApiService) AddEmailConfiguration(ctx context.Context) ApiAddEm
 
 // Execute executes the request
 //  @return ModelMessageResponse
-func (a *SettingsApiService) AddEmailConfigurationExecute(r ApiAddEmailConfigurationRequest) (*ModelMessageResponse, *http.Response, error) {
+func (a *SettingsAPIService) AddEmailConfigurationExecute(r ApiAddEmailConfigurationRequest) (*ModelMessageResponse, *http.Response, error) {
 	var (
 		localVarHTTPMethod   = http.MethodPost
 		localVarPostBody     interface{}
@@ -65,7 +65,7 @@ func (a *SettingsApiService) AddEmailConfigurationExecute(r ApiAddEmailConfigura
 		localVarReturnValue  *ModelMessageResponse
 	)
 
-	localBasePath, err := a.client.cfg.ServerURLWithContext(r.ctx, "SettingsApiService.AddEmailConfiguration")
+	localBasePath, err := a.client.cfg.ServerURLWithContext(r.ctx, "SettingsAPIService.AddEmailConfiguration")
 	if err != nil {
 		return localVarReturnValue, nil, &GenericOpenAPIError{error: err.Error()}
 	}
@@ -166,7 +166,7 @@ func (a *SettingsApiService) AddEmailConfigurationExecute(r ApiAddEmailConfigura
 
 type ApiDeleteEmailConfigurationRequest struct {
 	ctx context.Context
-	ApiService *SettingsApiService
+	ApiService *SettingsAPIService
 	configId string
 }
 
@@ -183,7 +183,7 @@ Delete Email Smtp / ses Configurations in system
  @param configId
  @return ApiDeleteEmailConfigurationRequest
 */
-func (a *SettingsApiService) DeleteEmailConfiguration(ctx context.Context, configId string) ApiDeleteEmailConfigurationRequest {
+func (a *SettingsAPIService) DeleteEmailConfiguration(ctx context.Context, configId string) ApiDeleteEmailConfigurationRequest {
 	return ApiDeleteEmailConfigurationRequest{
 		ApiService: a,
 		ctx: ctx,
@@ -192,14 +192,14 @@ func (a *SettingsApiService) DeleteEmailConfiguration(ctx context.Context, confi
 }
 
 // Execute executes the request
-func (a *SettingsApiService) DeleteEmailConfigurationExecute(r ApiDeleteEmailConfigurationRequest) (*http.Response, error) {
+func (a *SettingsAPIService) DeleteEmailConfigurationExecute(r ApiDeleteEmailConfigurationRequest) (*http.Response, error) {
 	var (
 		localVarHTTPMethod   = http.MethodDelete
 		localVarPostBody     interface{}
 		formFiles            []formFile
 	)
 
-	localBasePath, err := a.client.cfg.ServerURLWithContext(r.ctx, "SettingsApiService.DeleteEmailConfiguration")
+	localBasePath, err := a.client.cfg.ServerURLWithContext(r.ctx, "SettingsAPIService.DeleteEmailConfiguration")
 	if err != nil {
 		return nil, &GenericOpenAPIError{error: err.Error()}
 	}
@@ -290,7 +290,7 @@ func (a *SettingsApiService) DeleteEmailConfigurationExecute(r ApiDeleteEmailCon
 
 type ApiGetEmailConfigurationRequest struct {
 	ctx context.Context
-	ApiService *SettingsApiService
+	ApiService *SettingsAPIService
 }
 
 func (r ApiGetEmailConfigurationRequest) Execute() ([]ModelEmailConfigurationResp, *http.Response, error) {
@@ -305,7 +305,7 @@ Get Email Smtp / ses Configurations in system
  @param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
  @return ApiGetEmailConfigurationRequest
 */
-func (a *SettingsApiService) GetEmailConfiguration(ctx context.Context) ApiGetEmailConfigurationRequest {
+func (a *SettingsAPIService) GetEmailConfiguration(ctx context.Context) ApiGetEmailConfigurationRequest {
 	return ApiGetEmailConfigurationRequest{
 		ApiService: a,
 		ctx: ctx,
@@ -314,7 +314,7 @@ func (a *SettingsApiService) GetEmailConfiguration(ctx context.Context) ApiGetEm
 
 // Execute executes the request
 //  @return []ModelEmailConfigurationResp
-func (a *SettingsApiService) GetEmailConfigurationExecute(r ApiGetEmailConfigurationRequest) ([]ModelEmailConfigurationResp, *http.Response, error) {
+func (a *SettingsAPIService) GetEmailConfigurationExecute(r ApiGetEmailConfigurationRequest) ([]ModelEmailConfigurationResp, *http.Response, error) {
 	var (
 		localVarHTTPMethod   = http.MethodGet
 		localVarPostBody     interface{}
@@ -322,7 +322,7 @@ func (a *SettingsApiService) GetEmailConfigurationExecute(r ApiGetEmailConfigura
 		localVarReturnValue  []ModelEmailConfigurationResp
 	)
 
-	localBasePath, err := a.client.cfg.ServerURLWithContext(r.ctx, "SettingsApiService.GetEmailConfiguration")
+	localBasePath, err := a.client.cfg.ServerURLWithContext(r.ctx, "SettingsAPIService.GetEmailConfiguration")
 	if err != nil {
 		return localVarReturnValue, nil, &GenericOpenAPIError{error: err.Error()}
 	}
@@ -421,7 +421,7 @@ func (a *SettingsApiService) GetEmailConfigurationExecute(r ApiGetEmailConfigura
 
 type ApiGetScheduledTasksRequest struct {
 	ctx context.Context
-	ApiService *SettingsApiService
+	ApiService *SettingsAPIService
 }
 
 func (r ApiGetScheduledTasksRequest) Execute() ([]PostgresqlDbScheduler, *http.Response, error) {
@@ -436,7 +436,7 @@ Get scheduled tasks
  @param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
  @return ApiGetScheduledTasksRequest
 */
-func (a *SettingsApiService) GetScheduledTasks(ctx context.Context) ApiGetScheduledTasksRequest {
+func (a *SettingsAPIService) GetScheduledTasks(ctx context.Context) ApiGetScheduledTasksRequest {
 	return ApiGetScheduledTasksRequest{
 		ApiService: a,
 		ctx: ctx,
@@ -445,7 +445,7 @@ func (a *SettingsApiService) GetScheduledTasks(ctx context.Context) ApiGetSchedu
 
 // Execute executes the request
 //  @return []PostgresqlDbScheduler
-func (a *SettingsApiService) GetScheduledTasksExecute(r ApiGetScheduledTasksRequest) ([]PostgresqlDbScheduler, *http.Response, error) {
+func (a *SettingsAPIService) GetScheduledTasksExecute(r ApiGetScheduledTasksRequest) ([]PostgresqlDbScheduler, *http.Response, error) {
 	var (
 		localVarHTTPMethod   = http.MethodGet
 		localVarPostBody     interface{}
@@ -453,7 +453,7 @@ func (a *SettingsApiService) GetScheduledTasksExecute(r ApiGetScheduledTasksRequ
 		localVarReturnValue  []PostgresqlDbScheduler
 	)
 
-	localBasePath, err := a.client.cfg.ServerURLWithContext(r.ctx, "SettingsApiService.GetScheduledTasks")
+	localBasePath, err := a.client.cfg.ServerURLWithContext(r.ctx, "SettingsAPIService.GetScheduledTasks")
 	if err != nil {
 		return localVarReturnValue, nil, &GenericOpenAPIError{error: err.Error()}
 	}
@@ -552,7 +552,7 @@ func (a *SettingsApiService) GetScheduledTasksExecute(r ApiGetScheduledTasksRequ
 
 type ApiGetSettingsRequest struct {
 	ctx context.Context
-	ApiService *SettingsApiService
+	ApiService *SettingsAPIService
 }
 
 func (r ApiGetSettingsRequest) Execute() ([]ModelSettingsResponse, *http.Response, error) {
@@ -567,7 +567,7 @@ Get all settings
  @param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
  @return ApiGetSettingsRequest
 */
-func (a *SettingsApiService) GetSettings(ctx context.Context) ApiGetSettingsRequest {
+func (a *SettingsAPIService) GetSettings(ctx context.Context) ApiGetSettingsRequest {
 	return ApiGetSettingsRequest{
 		ApiService: a,
 		ctx: ctx,
@@ -576,7 +576,7 @@ func (a *SettingsApiService) GetSettings(ctx context.Context) ApiGetSettingsRequ
 
 // Execute executes the request
 //  @return []ModelSettingsResponse
-func (a *SettingsApiService) GetSettingsExecute(r ApiGetSettingsRequest) ([]ModelSettingsResponse, *http.Response, error) {
+func (a *SettingsAPIService) GetSettingsExecute(r ApiGetSettingsRequest) ([]ModelSettingsResponse, *http.Response, error) {
 	var (
 		localVarHTTPMethod   = http.MethodGet
 		localVarPostBody     interface{}
@@ -584,7 +584,7 @@ func (a *SettingsApiService) GetSettingsExecute(r ApiGetSettingsRequest) ([]Mode
 		localVarReturnValue  []ModelSettingsResponse
 	)
 
-	localBasePath, err := a.client.cfg.ServerURLWithContext(r.ctx, "SettingsApiService.GetSettings")
+	localBasePath, err := a.client.cfg.ServerURLWithContext(r.ctx, "SettingsAPIService.GetSettings")
 	if err != nil {
 		return localVarReturnValue, nil, &GenericOpenAPIError{error: err.Error()}
 	}
@@ -683,7 +683,7 @@ func (a *SettingsApiService) GetSettingsExecute(r ApiGetSettingsRequest) ([]Mode
 
 type ApiGetUserActivityLogsRequest struct {
 	ctx context.Context
-	ApiService *SettingsApiService
+	ApiService *SettingsAPIService
 }
 
 func (r ApiGetUserActivityLogsRequest) Execute() ([]PostgresqlDbGetAuditLogsRow, *http.Response, error) {
@@ -698,7 +698,7 @@ Get activity logs for all users
  @param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
  @return ApiGetUserActivityLogsRequest
 */
-func (a *SettingsApiService) GetUserActivityLogs(ctx context.Context) ApiGetUserActivityLogsRequest {
+func (a *SettingsAPIService) GetUserActivityLogs(ctx context.Context) ApiGetUserActivityLogsRequest {
 	return ApiGetUserActivityLogsRequest{
 		ApiService: a,
 		ctx: ctx,
@@ -707,7 +707,7 @@ func (a *SettingsApiService) GetUserActivityLogs(ctx context.Context) ApiGetUser
 
 // Execute executes the request
 //  @return []PostgresqlDbGetAuditLogsRow
-func (a *SettingsApiService) GetUserActivityLogsExecute(r ApiGetUserActivityLogsRequest) ([]PostgresqlDbGetAuditLogsRow, *http.Response, error) {
+func (a *SettingsAPIService) GetUserActivityLogsExecute(r ApiGetUserActivityLogsRequest) ([]PostgresqlDbGetAuditLogsRow, *http.Response, error) {
 	var (
 		localVarHTTPMethod   = http.MethodGet
 		localVarPostBody     interface{}
@@ -715,7 +715,7 @@ func (a *SettingsApiService) GetUserActivityLogsExecute(r ApiGetUserActivityLogs
 		localVarReturnValue  []PostgresqlDbGetAuditLogsRow
 	)
 
-	localBasePath, err := a.client.cfg.ServerURLWithContext(r.ctx, "SettingsApiService.GetUserActivityLogs")
+	localBasePath, err := a.client.cfg.ServerURLWithContext(r.ctx, "SettingsAPIService.GetUserActivityLogs")
 	if err != nil {
 		return localVarReturnValue, nil, &GenericOpenAPIError{error: err.Error()}
 	}
@@ -814,7 +814,7 @@ func (a *SettingsApiService) GetUserActivityLogsExecute(r ApiGetUserActivityLogs
 
 type ApiUpdateScheduledTaskRequest struct {
 	ctx context.Context
-	ApiService *SettingsApiService
+	ApiService *SettingsAPIService
 	id int32
 	modelUpdateScheduledTaskRequest *ModelUpdateScheduledTaskRequest
 }
@@ -837,7 +837,7 @@ Update scheduled task
  @param id
  @return ApiUpdateScheduledTaskRequest
 */
-func (a *SettingsApiService) UpdateScheduledTask(ctx context.Context, id int32) ApiUpdateScheduledTaskRequest {
+func (a *SettingsAPIService) UpdateScheduledTask(ctx context.Context, id int32) ApiUpdateScheduledTaskRequest {
 	return ApiUpdateScheduledTaskRequest{
 		ApiService: a,
 		ctx: ctx,
@@ -846,14 +846,14 @@ func (a *SettingsApiService) UpdateScheduledTask(ctx context.Context, id int32) 
 }
 
 // Execute executes the request
-func (a *SettingsApiService) UpdateScheduledTaskExecute(r ApiUpdateScheduledTaskRequest) (*http.Response, error) {
+func (a *SettingsAPIService) UpdateScheduledTaskExecute(r ApiUpdateScheduledTaskRequest) (*http.Response, error) {
 	var (
 		localVarHTTPMethod   = http.MethodPatch
 		localVarPostBody     interface{}
 		formFiles            []formFile
 	)
 
-	localBasePath, err := a.client.cfg.ServerURLWithContext(r.ctx, "SettingsApiService.UpdateScheduledTask")
+	localBasePath, err := a.client.cfg.ServerURLWithContext(r.ctx, "SettingsAPIService.UpdateScheduledTask")
 	if err != nil {
 		return nil, &GenericOpenAPIError{error: err.Error()}
 	}
@@ -946,7 +946,7 @@ func (a *SettingsApiService) UpdateScheduledTaskExecute(r ApiUpdateScheduledTask
 
 type ApiUpdateSettingRequest struct {
 	ctx context.Context
-	ApiService *SettingsApiService
+	ApiService *SettingsAPIService
 	id int32
 	modelSettingUpdateRequest *ModelSettingUpdateRequest
 }
@@ -969,7 +969,7 @@ Update setting
  @param id
  @return ApiUpdateSettingRequest
 */
-func (a *SettingsApiService) UpdateSetting(ctx context.Context, id int32) ApiUpdateSettingRequest {
+func (a *SettingsAPIService) UpdateSetting(ctx context.Context, id int32) ApiUpdateSettingRequest {
 	return ApiUpdateSettingRequest{
 		ApiService: a,
 		ctx: ctx,
@@ -978,14 +978,14 @@ func (a *SettingsApiService) UpdateSetting(ctx context.Context, id int32) ApiUpd
 }
 
 // Execute executes the request
-func (a *SettingsApiService) UpdateSettingExecute(r ApiUpdateSettingRequest) (*http.Response, error) {
+func (a *SettingsAPIService) UpdateSettingExecute(r ApiUpdateSettingRequest) (*http.Response, error) {
 	var (
 		localVarHTTPMethod   = http.MethodPatch
 		localVarPostBody     interface{}
 		formFiles            []formFile
 	)
 
-	localBasePath, err := a.client.cfg.ServerURLWithContext(r.ctx, "SettingsApiService.UpdateSetting")
+	localBasePath, err := a.client.cfg.ServerURLWithContext(r.ctx, "SettingsAPIService.UpdateSetting")
 	if err != nil {
 		return nil, &GenericOpenAPIError{error: err.Error()}
 	}
@@ -1078,7 +1078,7 @@ func (a *SettingsApiService) UpdateSettingExecute(r ApiUpdateSettingRequest) (*h
 
 type ApiUploadVulnerabilityDatabaseRequest struct {
 	ctx context.Context
-	ApiService *SettingsApiService
+	ApiService *SettingsAPIService
 	database *os.File
 }
 
@@ -1099,7 +1099,7 @@ Upload Vulnerability Database for use in vulnerability scans
  @param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
  @return ApiUploadVulnerabilityDatabaseRequest
 */
-func (a *SettingsApiService) UploadVulnerabilityDatabase(ctx context.Context) ApiUploadVulnerabilityDatabaseRequest {
+func (a *SettingsAPIService) UploadVulnerabilityDatabase(ctx context.Context) ApiUploadVulnerabilityDatabaseRequest {
 	return ApiUploadVulnerabilityDatabaseRequest{
 		ApiService: a,
 		ctx: ctx,
@@ -1108,7 +1108,7 @@ func (a *SettingsApiService) UploadVulnerabilityDatabase(ctx context.Context) Ap
 
 // Execute executes the request
 //  @return ModelMessageResponse
-func (a *SettingsApiService) UploadVulnerabilityDatabaseExecute(r ApiUploadVulnerabilityDatabaseRequest) (*ModelMessageResponse, *http.Response, error) {
+func (a *SettingsAPIService) UploadVulnerabilityDatabaseExecute(r ApiUploadVulnerabilityDatabaseRequest) (*ModelMessageResponse, *http.Response, error) {
 	var (
 		localVarHTTPMethod   = http.MethodPut
 		localVarPostBody     interface{}
@@ -1116,7 +1116,7 @@ func (a *SettingsApiService) UploadVulnerabilityDatabaseExecute(r ApiUploadVulne
 		localVarReturnValue  *ModelMessageResponse
 	)
 
-	localBasePath, err := a.client.cfg.ServerURLWithContext(r.ctx, "SettingsApiService.UploadVulnerabilityDatabase")
+	localBasePath, err := a.client.cfg.ServerURLWithContext(r.ctx, "SettingsAPIService.UploadVulnerabilityDatabase")
 	if err != nil {
 		return localVarReturnValue, nil, &GenericOpenAPIError{error: err.Error()}
 	}

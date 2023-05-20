@@ -1,18 +1,18 @@
-# \SettingsApi
+# \SettingsAPI
 
 All URIs are relative to *http://localhost*
 
 Method | HTTP request | Description
 ------------- | ------------- | -------------
-[**AddEmailConfiguration**](SettingsApi.md#AddEmailConfiguration) | **Post** /deepfence/settings/email | Add Email Configuration
-[**DeleteEmailConfiguration**](SettingsApi.md#DeleteEmailConfiguration) | **Delete** /deepfence/settings/email/{config_id} | Delete Email Configurations
-[**GetEmailConfiguration**](SettingsApi.md#GetEmailConfiguration) | **Get** /deepfence/settings/email | Get Email Configurations
-[**GetScheduledTasks**](SettingsApi.md#GetScheduledTasks) | **Get** /deepfence/scheduled-task | Get scheduled tasks
-[**GetSettings**](SettingsApi.md#GetSettings) | **Get** /deepfence/settings/global-settings | Get settings
-[**GetUserActivityLogs**](SettingsApi.md#GetUserActivityLogs) | **Get** /deepfence/settings/user-activity-log | Get activity logs
-[**UpdateScheduledTask**](SettingsApi.md#UpdateScheduledTask) | **Patch** /deepfence/scheduled-task/{id} | Update scheduled task
-[**UpdateSetting**](SettingsApi.md#UpdateSetting) | **Patch** /deepfence/settings/global-settings/{id} | Update setting
-[**UploadVulnerabilityDatabase**](SettingsApi.md#UploadVulnerabilityDatabase) | **Put** /deepfence/database/vulnerability | Upload Vulnerability Database
+[**AddEmailConfiguration**](SettingsAPI.md#AddEmailConfiguration) | **Post** /deepfence/settings/email | Add Email Configuration
+[**DeleteEmailConfiguration**](SettingsAPI.md#DeleteEmailConfiguration) | **Delete** /deepfence/settings/email/{config_id} | Delete Email Configurations
+[**GetEmailConfiguration**](SettingsAPI.md#GetEmailConfiguration) | **Get** /deepfence/settings/email | Get Email Configurations
+[**GetScheduledTasks**](SettingsAPI.md#GetScheduledTasks) | **Get** /deepfence/scheduled-task | Get scheduled tasks
+[**GetSettings**](SettingsAPI.md#GetSettings) | **Get** /deepfence/settings/global-settings | Get settings
+[**GetUserActivityLogs**](SettingsAPI.md#GetUserActivityLogs) | **Get** /deepfence/settings/user-activity-log | Get activity logs
+[**UpdateScheduledTask**](SettingsAPI.md#UpdateScheduledTask) | **Patch** /deepfence/scheduled-task/{id} | Update scheduled task
+[**UpdateSetting**](SettingsAPI.md#UpdateSetting) | **Patch** /deepfence/settings/global-settings/{id} | Update setting
+[**UploadVulnerabilityDatabase**](SettingsAPI.md#UploadVulnerabilityDatabase) | **Put** /deepfence/database/vulnerability | Upload Vulnerability Database
 
 
 
@@ -41,13 +41,13 @@ func main() {
 
     configuration := openapiclient.NewConfiguration()
     apiClient := openapiclient.NewAPIClient(configuration)
-    resp, r, err := apiClient.SettingsApi.AddEmailConfiguration(context.Background()).ModelEmailConfigurationAdd(modelEmailConfigurationAdd).Execute()
+    resp, r, err := apiClient.SettingsAPI.AddEmailConfiguration(context.Background()).ModelEmailConfigurationAdd(modelEmailConfigurationAdd).Execute()
     if err != nil {
-        fmt.Fprintf(os.Stderr, "Error when calling `SettingsApi.AddEmailConfiguration``: %v\n", err)
+        fmt.Fprintf(os.Stderr, "Error when calling `SettingsAPI.AddEmailConfiguration``: %v\n", err)
         fmt.Fprintf(os.Stderr, "Full HTTP response: %v\n", r)
     }
     // response from `AddEmailConfiguration`: ModelMessageResponse
-    fmt.Fprintf(os.Stdout, "Response from `SettingsApi.AddEmailConfiguration`: %v\n", resp)
+    fmt.Fprintf(os.Stdout, "Response from `SettingsAPI.AddEmailConfiguration`: %v\n", resp)
 }
 ```
 
@@ -107,9 +107,9 @@ func main() {
 
     configuration := openapiclient.NewConfiguration()
     apiClient := openapiclient.NewAPIClient(configuration)
-    r, err := apiClient.SettingsApi.DeleteEmailConfiguration(context.Background(), configId).Execute()
+    r, err := apiClient.SettingsAPI.DeleteEmailConfiguration(context.Background(), configId).Execute()
     if err != nil {
-        fmt.Fprintf(os.Stderr, "Error when calling `SettingsApi.DeleteEmailConfiguration``: %v\n", err)
+        fmt.Fprintf(os.Stderr, "Error when calling `SettingsAPI.DeleteEmailConfiguration``: %v\n", err)
         fmt.Fprintf(os.Stderr, "Full HTTP response: %v\n", r)
     }
 }
@@ -174,13 +174,13 @@ func main() {
 
     configuration := openapiclient.NewConfiguration()
     apiClient := openapiclient.NewAPIClient(configuration)
-    resp, r, err := apiClient.SettingsApi.GetEmailConfiguration(context.Background()).Execute()
+    resp, r, err := apiClient.SettingsAPI.GetEmailConfiguration(context.Background()).Execute()
     if err != nil {
-        fmt.Fprintf(os.Stderr, "Error when calling `SettingsApi.GetEmailConfiguration``: %v\n", err)
+        fmt.Fprintf(os.Stderr, "Error when calling `SettingsAPI.GetEmailConfiguration``: %v\n", err)
         fmt.Fprintf(os.Stderr, "Full HTTP response: %v\n", r)
     }
     // response from `GetEmailConfiguration`: []ModelEmailConfigurationResp
-    fmt.Fprintf(os.Stdout, "Response from `SettingsApi.GetEmailConfiguration`: %v\n", resp)
+    fmt.Fprintf(os.Stdout, "Response from `SettingsAPI.GetEmailConfiguration`: %v\n", resp)
 }
 ```
 
@@ -235,13 +235,13 @@ func main() {
 
     configuration := openapiclient.NewConfiguration()
     apiClient := openapiclient.NewAPIClient(configuration)
-    resp, r, err := apiClient.SettingsApi.GetScheduledTasks(context.Background()).Execute()
+    resp, r, err := apiClient.SettingsAPI.GetScheduledTasks(context.Background()).Execute()
     if err != nil {
-        fmt.Fprintf(os.Stderr, "Error when calling `SettingsApi.GetScheduledTasks``: %v\n", err)
+        fmt.Fprintf(os.Stderr, "Error when calling `SettingsAPI.GetScheduledTasks``: %v\n", err)
         fmt.Fprintf(os.Stderr, "Full HTTP response: %v\n", r)
     }
     // response from `GetScheduledTasks`: []PostgresqlDbScheduler
-    fmt.Fprintf(os.Stdout, "Response from `SettingsApi.GetScheduledTasks`: %v\n", resp)
+    fmt.Fprintf(os.Stdout, "Response from `SettingsAPI.GetScheduledTasks`: %v\n", resp)
 }
 ```
 
@@ -296,13 +296,13 @@ func main() {
 
     configuration := openapiclient.NewConfiguration()
     apiClient := openapiclient.NewAPIClient(configuration)
-    resp, r, err := apiClient.SettingsApi.GetSettings(context.Background()).Execute()
+    resp, r, err := apiClient.SettingsAPI.GetSettings(context.Background()).Execute()
     if err != nil {
-        fmt.Fprintf(os.Stderr, "Error when calling `SettingsApi.GetSettings``: %v\n", err)
+        fmt.Fprintf(os.Stderr, "Error when calling `SettingsAPI.GetSettings``: %v\n", err)
         fmt.Fprintf(os.Stderr, "Full HTTP response: %v\n", r)
     }
     // response from `GetSettings`: []ModelSettingsResponse
-    fmt.Fprintf(os.Stdout, "Response from `SettingsApi.GetSettings`: %v\n", resp)
+    fmt.Fprintf(os.Stdout, "Response from `SettingsAPI.GetSettings`: %v\n", resp)
 }
 ```
 
@@ -357,13 +357,13 @@ func main() {
 
     configuration := openapiclient.NewConfiguration()
     apiClient := openapiclient.NewAPIClient(configuration)
-    resp, r, err := apiClient.SettingsApi.GetUserActivityLogs(context.Background()).Execute()
+    resp, r, err := apiClient.SettingsAPI.GetUserActivityLogs(context.Background()).Execute()
     if err != nil {
-        fmt.Fprintf(os.Stderr, "Error when calling `SettingsApi.GetUserActivityLogs``: %v\n", err)
+        fmt.Fprintf(os.Stderr, "Error when calling `SettingsAPI.GetUserActivityLogs``: %v\n", err)
         fmt.Fprintf(os.Stderr, "Full HTTP response: %v\n", r)
     }
     // response from `GetUserActivityLogs`: []PostgresqlDbGetAuditLogsRow
-    fmt.Fprintf(os.Stdout, "Response from `SettingsApi.GetUserActivityLogs`: %v\n", resp)
+    fmt.Fprintf(os.Stdout, "Response from `SettingsAPI.GetUserActivityLogs`: %v\n", resp)
 }
 ```
 
@@ -420,9 +420,9 @@ func main() {
 
     configuration := openapiclient.NewConfiguration()
     apiClient := openapiclient.NewAPIClient(configuration)
-    r, err := apiClient.SettingsApi.UpdateScheduledTask(context.Background(), id).ModelUpdateScheduledTaskRequest(modelUpdateScheduledTaskRequest).Execute()
+    r, err := apiClient.SettingsAPI.UpdateScheduledTask(context.Background(), id).ModelUpdateScheduledTaskRequest(modelUpdateScheduledTaskRequest).Execute()
     if err != nil {
-        fmt.Fprintf(os.Stderr, "Error when calling `SettingsApi.UpdateScheduledTask``: %v\n", err)
+        fmt.Fprintf(os.Stderr, "Error when calling `SettingsAPI.UpdateScheduledTask``: %v\n", err)
         fmt.Fprintf(os.Stderr, "Full HTTP response: %v\n", r)
     }
 }
@@ -490,9 +490,9 @@ func main() {
 
     configuration := openapiclient.NewConfiguration()
     apiClient := openapiclient.NewAPIClient(configuration)
-    r, err := apiClient.SettingsApi.UpdateSetting(context.Background(), id).ModelSettingUpdateRequest(modelSettingUpdateRequest).Execute()
+    r, err := apiClient.SettingsAPI.UpdateSetting(context.Background(), id).ModelSettingUpdateRequest(modelSettingUpdateRequest).Execute()
     if err != nil {
-        fmt.Fprintf(os.Stderr, "Error when calling `SettingsApi.UpdateSetting``: %v\n", err)
+        fmt.Fprintf(os.Stderr, "Error when calling `SettingsAPI.UpdateSetting``: %v\n", err)
         fmt.Fprintf(os.Stderr, "Full HTTP response: %v\n", r)
     }
 }
@@ -559,13 +559,13 @@ func main() {
 
     configuration := openapiclient.NewConfiguration()
     apiClient := openapiclient.NewAPIClient(configuration)
-    resp, r, err := apiClient.SettingsApi.UploadVulnerabilityDatabase(context.Background()).Database(database).Execute()
+    resp, r, err := apiClient.SettingsAPI.UploadVulnerabilityDatabase(context.Background()).Database(database).Execute()
     if err != nil {
-        fmt.Fprintf(os.Stderr, "Error when calling `SettingsApi.UploadVulnerabilityDatabase``: %v\n", err)
+        fmt.Fprintf(os.Stderr, "Error when calling `SettingsAPI.UploadVulnerabilityDatabase``: %v\n", err)
         fmt.Fprintf(os.Stderr, "Full HTTP response: %v\n", r)
     }
     // response from `UploadVulnerabilityDatabase`: ModelMessageResponse
-    fmt.Fprintf(os.Stdout, "Response from `SettingsApi.UploadVulnerabilityDatabase`: %v\n", resp)
+    fmt.Fprintf(os.Stdout, "Response from `SettingsAPI.UploadVulnerabilityDatabase`: %v\n", resp)
 }
 ```
 

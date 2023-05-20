@@ -20,12 +20,12 @@ import (
 )
 
 
-// LookupApiService LookupApi service
-type LookupApiService service
+// LookupAPIService LookupAPI service
+type LookupAPIService service
 
 type ApiGetCloudResourcesRequest struct {
 	ctx context.Context
-	ApiService *LookupApiService
+	ApiService *LookupAPIService
 	lookupLookupFilter *LookupLookupFilter
 }
 
@@ -46,7 +46,7 @@ Retrieve the cloud resources
  @param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
  @return ApiGetCloudResourcesRequest
 */
-func (a *LookupApiService) GetCloudResources(ctx context.Context) ApiGetCloudResourcesRequest {
+func (a *LookupAPIService) GetCloudResources(ctx context.Context) ApiGetCloudResourcesRequest {
 	return ApiGetCloudResourcesRequest{
 		ApiService: a,
 		ctx: ctx,
@@ -55,7 +55,7 @@ func (a *LookupApiService) GetCloudResources(ctx context.Context) ApiGetCloudRes
 
 // Execute executes the request
 //  @return []ModelCloudResource
-func (a *LookupApiService) GetCloudResourcesExecute(r ApiGetCloudResourcesRequest) ([]ModelCloudResource, *http.Response, error) {
+func (a *LookupAPIService) GetCloudResourcesExecute(r ApiGetCloudResourcesRequest) ([]ModelCloudResource, *http.Response, error) {
 	var (
 		localVarHTTPMethod   = http.MethodPost
 		localVarPostBody     interface{}
@@ -63,7 +63,7 @@ func (a *LookupApiService) GetCloudResourcesExecute(r ApiGetCloudResourcesReques
 		localVarReturnValue  []ModelCloudResource
 	)
 
-	localBasePath, err := a.client.cfg.ServerURLWithContext(r.ctx, "LookupApiService.GetCloudResources")
+	localBasePath, err := a.client.cfg.ServerURLWithContext(r.ctx, "LookupAPIService.GetCloudResources")
 	if err != nil {
 		return localVarReturnValue, nil, &GenericOpenAPIError{error: err.Error()}
 	}
@@ -164,7 +164,7 @@ func (a *LookupApiService) GetCloudResourcesExecute(r ApiGetCloudResourcesReques
 
 type ApiGetContainerImagesRequest struct {
 	ctx context.Context
-	ApiService *LookupApiService
+	ApiService *LookupAPIService
 	lookupLookupFilter *LookupLookupFilter
 }
 
@@ -185,7 +185,7 @@ Retrieve all the data associated with images
  @param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
  @return ApiGetContainerImagesRequest
 */
-func (a *LookupApiService) GetContainerImages(ctx context.Context) ApiGetContainerImagesRequest {
+func (a *LookupAPIService) GetContainerImages(ctx context.Context) ApiGetContainerImagesRequest {
 	return ApiGetContainerImagesRequest{
 		ApiService: a,
 		ctx: ctx,
@@ -194,7 +194,7 @@ func (a *LookupApiService) GetContainerImages(ctx context.Context) ApiGetContain
 
 // Execute executes the request
 //  @return []ModelContainerImage
-func (a *LookupApiService) GetContainerImagesExecute(r ApiGetContainerImagesRequest) ([]ModelContainerImage, *http.Response, error) {
+func (a *LookupAPIService) GetContainerImagesExecute(r ApiGetContainerImagesRequest) ([]ModelContainerImage, *http.Response, error) {
 	var (
 		localVarHTTPMethod   = http.MethodPost
 		localVarPostBody     interface{}
@@ -202,7 +202,7 @@ func (a *LookupApiService) GetContainerImagesExecute(r ApiGetContainerImagesRequ
 		localVarReturnValue  []ModelContainerImage
 	)
 
-	localBasePath, err := a.client.cfg.ServerURLWithContext(r.ctx, "LookupApiService.GetContainerImages")
+	localBasePath, err := a.client.cfg.ServerURLWithContext(r.ctx, "LookupAPIService.GetContainerImages")
 	if err != nil {
 		return localVarReturnValue, nil, &GenericOpenAPIError{error: err.Error()}
 	}
@@ -303,7 +303,7 @@ func (a *LookupApiService) GetContainerImagesExecute(r ApiGetContainerImagesRequ
 
 type ApiGetContainersRequest struct {
 	ctx context.Context
-	ApiService *LookupApiService
+	ApiService *LookupAPIService
 	lookupLookupFilter *LookupLookupFilter
 }
 
@@ -324,7 +324,7 @@ Retrieve all the data associated with containers
  @param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
  @return ApiGetContainersRequest
 */
-func (a *LookupApiService) GetContainers(ctx context.Context) ApiGetContainersRequest {
+func (a *LookupAPIService) GetContainers(ctx context.Context) ApiGetContainersRequest {
 	return ApiGetContainersRequest{
 		ApiService: a,
 		ctx: ctx,
@@ -333,7 +333,7 @@ func (a *LookupApiService) GetContainers(ctx context.Context) ApiGetContainersRe
 
 // Execute executes the request
 //  @return []ModelContainer
-func (a *LookupApiService) GetContainersExecute(r ApiGetContainersRequest) ([]ModelContainer, *http.Response, error) {
+func (a *LookupAPIService) GetContainersExecute(r ApiGetContainersRequest) ([]ModelContainer, *http.Response, error) {
 	var (
 		localVarHTTPMethod   = http.MethodPost
 		localVarPostBody     interface{}
@@ -341,7 +341,7 @@ func (a *LookupApiService) GetContainersExecute(r ApiGetContainersRequest) ([]Mo
 		localVarReturnValue  []ModelContainer
 	)
 
-	localBasePath, err := a.client.cfg.ServerURLWithContext(r.ctx, "LookupApiService.GetContainers")
+	localBasePath, err := a.client.cfg.ServerURLWithContext(r.ctx, "LookupAPIService.GetContainers")
 	if err != nil {
 		return localVarReturnValue, nil, &GenericOpenAPIError{error: err.Error()}
 	}
@@ -442,7 +442,7 @@ func (a *LookupApiService) GetContainersExecute(r ApiGetContainersRequest) ([]Mo
 
 type ApiGetHostsRequest struct {
 	ctx context.Context
-	ApiService *LookupApiService
+	ApiService *LookupAPIService
 	lookupLookupFilter *LookupLookupFilter
 }
 
@@ -463,7 +463,7 @@ Retrieve all the data associated with hosts
  @param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
  @return ApiGetHostsRequest
 */
-func (a *LookupApiService) GetHosts(ctx context.Context) ApiGetHostsRequest {
+func (a *LookupAPIService) GetHosts(ctx context.Context) ApiGetHostsRequest {
 	return ApiGetHostsRequest{
 		ApiService: a,
 		ctx: ctx,
@@ -472,7 +472,7 @@ func (a *LookupApiService) GetHosts(ctx context.Context) ApiGetHostsRequest {
 
 // Execute executes the request
 //  @return []ModelHost
-func (a *LookupApiService) GetHostsExecute(r ApiGetHostsRequest) ([]ModelHost, *http.Response, error) {
+func (a *LookupAPIService) GetHostsExecute(r ApiGetHostsRequest) ([]ModelHost, *http.Response, error) {
 	var (
 		localVarHTTPMethod   = http.MethodPost
 		localVarPostBody     interface{}
@@ -480,7 +480,7 @@ func (a *LookupApiService) GetHostsExecute(r ApiGetHostsRequest) ([]ModelHost, *
 		localVarReturnValue  []ModelHost
 	)
 
-	localBasePath, err := a.client.cfg.ServerURLWithContext(r.ctx, "LookupApiService.GetHosts")
+	localBasePath, err := a.client.cfg.ServerURLWithContext(r.ctx, "LookupAPIService.GetHosts")
 	if err != nil {
 		return localVarReturnValue, nil, &GenericOpenAPIError{error: err.Error()}
 	}
@@ -581,7 +581,7 @@ func (a *LookupApiService) GetHostsExecute(r ApiGetHostsRequest) ([]ModelHost, *
 
 type ApiGetKubernetesClustersRequest struct {
 	ctx context.Context
-	ApiService *LookupApiService
+	ApiService *LookupAPIService
 	lookupLookupFilter *LookupLookupFilter
 }
 
@@ -602,7 +602,7 @@ Retrieve all the data associated with k8s clusters
  @param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
  @return ApiGetKubernetesClustersRequest
 */
-func (a *LookupApiService) GetKubernetesClusters(ctx context.Context) ApiGetKubernetesClustersRequest {
+func (a *LookupAPIService) GetKubernetesClusters(ctx context.Context) ApiGetKubernetesClustersRequest {
 	return ApiGetKubernetesClustersRequest{
 		ApiService: a,
 		ctx: ctx,
@@ -611,7 +611,7 @@ func (a *LookupApiService) GetKubernetesClusters(ctx context.Context) ApiGetKube
 
 // Execute executes the request
 //  @return []ModelKubernetesCluster
-func (a *LookupApiService) GetKubernetesClustersExecute(r ApiGetKubernetesClustersRequest) ([]ModelKubernetesCluster, *http.Response, error) {
+func (a *LookupAPIService) GetKubernetesClustersExecute(r ApiGetKubernetesClustersRequest) ([]ModelKubernetesCluster, *http.Response, error) {
 	var (
 		localVarHTTPMethod   = http.MethodPost
 		localVarPostBody     interface{}
@@ -619,7 +619,7 @@ func (a *LookupApiService) GetKubernetesClustersExecute(r ApiGetKubernetesCluste
 		localVarReturnValue  []ModelKubernetesCluster
 	)
 
-	localBasePath, err := a.client.cfg.ServerURLWithContext(r.ctx, "LookupApiService.GetKubernetesClusters")
+	localBasePath, err := a.client.cfg.ServerURLWithContext(r.ctx, "LookupAPIService.GetKubernetesClusters")
 	if err != nil {
 		return localVarReturnValue, nil, &GenericOpenAPIError{error: err.Error()}
 	}
@@ -720,7 +720,7 @@ func (a *LookupApiService) GetKubernetesClustersExecute(r ApiGetKubernetesCluste
 
 type ApiGetPodsRequest struct {
 	ctx context.Context
-	ApiService *LookupApiService
+	ApiService *LookupAPIService
 	lookupLookupFilter *LookupLookupFilter
 }
 
@@ -741,7 +741,7 @@ Retrieve all the data associated with pods
  @param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
  @return ApiGetPodsRequest
 */
-func (a *LookupApiService) GetPods(ctx context.Context) ApiGetPodsRequest {
+func (a *LookupAPIService) GetPods(ctx context.Context) ApiGetPodsRequest {
 	return ApiGetPodsRequest{
 		ApiService: a,
 		ctx: ctx,
@@ -750,7 +750,7 @@ func (a *LookupApiService) GetPods(ctx context.Context) ApiGetPodsRequest {
 
 // Execute executes the request
 //  @return []ModelPod
-func (a *LookupApiService) GetPodsExecute(r ApiGetPodsRequest) ([]ModelPod, *http.Response, error) {
+func (a *LookupAPIService) GetPodsExecute(r ApiGetPodsRequest) ([]ModelPod, *http.Response, error) {
 	var (
 		localVarHTTPMethod   = http.MethodPost
 		localVarPostBody     interface{}
@@ -758,7 +758,7 @@ func (a *LookupApiService) GetPodsExecute(r ApiGetPodsRequest) ([]ModelPod, *htt
 		localVarReturnValue  []ModelPod
 	)
 
-	localBasePath, err := a.client.cfg.ServerURLWithContext(r.ctx, "LookupApiService.GetPods")
+	localBasePath, err := a.client.cfg.ServerURLWithContext(r.ctx, "LookupAPIService.GetPods")
 	if err != nil {
 		return localVarReturnValue, nil, &GenericOpenAPIError{error: err.Error()}
 	}
@@ -859,7 +859,7 @@ func (a *LookupApiService) GetPodsExecute(r ApiGetPodsRequest) ([]ModelPod, *htt
 
 type ApiGetProcessesRequest struct {
 	ctx context.Context
-	ApiService *LookupApiService
+	ApiService *LookupAPIService
 	lookupLookupFilter *LookupLookupFilter
 }
 
@@ -880,7 +880,7 @@ Retrieve all the data associated with processes
  @param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
  @return ApiGetProcessesRequest
 */
-func (a *LookupApiService) GetProcesses(ctx context.Context) ApiGetProcessesRequest {
+func (a *LookupAPIService) GetProcesses(ctx context.Context) ApiGetProcessesRequest {
 	return ApiGetProcessesRequest{
 		ApiService: a,
 		ctx: ctx,
@@ -889,7 +889,7 @@ func (a *LookupApiService) GetProcesses(ctx context.Context) ApiGetProcessesRequ
 
 // Execute executes the request
 //  @return []ModelProcess
-func (a *LookupApiService) GetProcessesExecute(r ApiGetProcessesRequest) ([]ModelProcess, *http.Response, error) {
+func (a *LookupAPIService) GetProcessesExecute(r ApiGetProcessesRequest) ([]ModelProcess, *http.Response, error) {
 	var (
 		localVarHTTPMethod   = http.MethodPost
 		localVarPostBody     interface{}
@@ -897,7 +897,7 @@ func (a *LookupApiService) GetProcessesExecute(r ApiGetProcessesRequest) ([]Mode
 		localVarReturnValue  []ModelProcess
 	)
 
-	localBasePath, err := a.client.cfg.ServerURLWithContext(r.ctx, "LookupApiService.GetProcesses")
+	localBasePath, err := a.client.cfg.ServerURLWithContext(r.ctx, "LookupAPIService.GetProcesses")
 	if err != nil {
 		return localVarReturnValue, nil, &GenericOpenAPIError{error: err.Error()}
 	}
@@ -998,7 +998,7 @@ func (a *LookupApiService) GetProcessesExecute(r ApiGetProcessesRequest) ([]Mode
 
 type ApiGetRegistryAccountRequest struct {
 	ctx context.Context
-	ApiService *LookupApiService
+	ApiService *LookupAPIService
 	lookupLookupFilter *LookupLookupFilter
 }
 
@@ -1019,7 +1019,7 @@ List all the images present in the given registry
  @param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
  @return ApiGetRegistryAccountRequest
 */
-func (a *LookupApiService) GetRegistryAccount(ctx context.Context) ApiGetRegistryAccountRequest {
+func (a *LookupAPIService) GetRegistryAccount(ctx context.Context) ApiGetRegistryAccountRequest {
 	return ApiGetRegistryAccountRequest{
 		ApiService: a,
 		ctx: ctx,
@@ -1028,7 +1028,7 @@ func (a *LookupApiService) GetRegistryAccount(ctx context.Context) ApiGetRegistr
 
 // Execute executes the request
 //  @return []ModelRegistryAccount
-func (a *LookupApiService) GetRegistryAccountExecute(r ApiGetRegistryAccountRequest) ([]ModelRegistryAccount, *http.Response, error) {
+func (a *LookupAPIService) GetRegistryAccountExecute(r ApiGetRegistryAccountRequest) ([]ModelRegistryAccount, *http.Response, error) {
 	var (
 		localVarHTTPMethod   = http.MethodPost
 		localVarPostBody     interface{}
@@ -1036,7 +1036,7 @@ func (a *LookupApiService) GetRegistryAccountExecute(r ApiGetRegistryAccountRequ
 		localVarReturnValue  []ModelRegistryAccount
 	)
 
-	localBasePath, err := a.client.cfg.ServerURLWithContext(r.ctx, "LookupApiService.GetRegistryAccount")
+	localBasePath, err := a.client.cfg.ServerURLWithContext(r.ctx, "LookupAPIService.GetRegistryAccount")
 	if err != nil {
 		return localVarReturnValue, nil, &GenericOpenAPIError{error: err.Error()}
 	}

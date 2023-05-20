@@ -1,17 +1,18 @@
-# \SecretScanApi
+# \SecretScanAPI
 
 All URIs are relative to *http://localhost*
 
 Method | HTTP request | Description
 ------------- | ------------- | -------------
-[**CountResultsSecretScan**](SecretScanApi.md#CountResultsSecretScan) | **Post** /deepfence/scan/results/count/secret | Get Secret Scans Results
-[**IngestSecretScanStatus**](SecretScanApi.md#IngestSecretScanStatus) | **Post** /deepfence/ingest/secret-scan-logs | Ingest Secrets Scan Status
-[**IngestSecrets**](SecretScanApi.md#IngestSecrets) | **Post** /deepfence/ingest/secrets | Ingest Secrets
-[**ListSecretScan**](SecretScanApi.md#ListSecretScan) | **Post** /deepfence/scan/list/secret | Get Secret Scans List
-[**ResultsSecretScan**](SecretScanApi.md#ResultsSecretScan) | **Post** /deepfence/scan/results/secret | Get Secret Scans Results
-[**StartSecretScan**](SecretScanApi.md#StartSecretScan) | **Post** /deepfence/scan/start/secret | Start Secret Scan
-[**StatusSecretScan**](SecretScanApi.md#StatusSecretScan) | **Post** /deepfence/scan/status/secret | Get Secret Scan Status
-[**StopSecretScan**](SecretScanApi.md#StopSecretScan) | **Post** /deepfence/scan/stop/secret | Stop Secret Scan
+[**CountResultsSecretScan**](SecretScanAPI.md#CountResultsSecretScan) | **Post** /deepfence/scan/results/count/secret | Get Secret Scans Results
+[**GroupResultsSecrets**](SecretScanAPI.md#GroupResultsSecrets) | **Get** /deepfence/scan/results/count/group/secret | Group Secret Results
+[**IngestSecretScanStatus**](SecretScanAPI.md#IngestSecretScanStatus) | **Post** /deepfence/ingest/secret-scan-logs | Ingest Secrets Scan Status
+[**IngestSecrets**](SecretScanAPI.md#IngestSecrets) | **Post** /deepfence/ingest/secrets | Ingest Secrets
+[**ListSecretScan**](SecretScanAPI.md#ListSecretScan) | **Post** /deepfence/scan/list/secret | Get Secret Scans List
+[**ResultsSecretScan**](SecretScanAPI.md#ResultsSecretScan) | **Post** /deepfence/scan/results/secret | Get Secret Scans Results
+[**StartSecretScan**](SecretScanAPI.md#StartSecretScan) | **Post** /deepfence/scan/start/secret | Start Secret Scan
+[**StatusSecretScan**](SecretScanAPI.md#StatusSecretScan) | **Post** /deepfence/scan/status/secret | Get Secret Scan Status
+[**StopSecretScan**](SecretScanAPI.md#StopSecretScan) | **Post** /deepfence/scan/stop/secret | Stop Secret Scan
 
 
 
@@ -40,13 +41,13 @@ func main() {
 
     configuration := openapiclient.NewConfiguration()
     apiClient := openapiclient.NewAPIClient(configuration)
-    resp, r, err := apiClient.SecretScanApi.CountResultsSecretScan(context.Background()).ModelScanResultsReq(modelScanResultsReq).Execute()
+    resp, r, err := apiClient.SecretScanAPI.CountResultsSecretScan(context.Background()).ModelScanResultsReq(modelScanResultsReq).Execute()
     if err != nil {
-        fmt.Fprintf(os.Stderr, "Error when calling `SecretScanApi.CountResultsSecretScan``: %v\n", err)
+        fmt.Fprintf(os.Stderr, "Error when calling `SecretScanAPI.CountResultsSecretScan``: %v\n", err)
         fmt.Fprintf(os.Stderr, "Full HTTP response: %v\n", r)
     }
     // response from `CountResultsSecretScan`: SearchSearchCountResp
-    fmt.Fprintf(os.Stdout, "Response from `SecretScanApi.CountResultsSecretScan`: %v\n", resp)
+    fmt.Fprintf(os.Stdout, "Response from `SecretScanAPI.CountResultsSecretScan`: %v\n", resp)
 }
 ```
 
@@ -81,6 +82,67 @@ Name | Type | Description  | Notes
 [[Back to README]](../README.md)
 
 
+## GroupResultsSecrets
+
+> SearchResultGroupResp GroupResultsSecrets(ctx).Execute()
+
+Group Secret Results
+
+
+
+### Example
+
+```go
+package main
+
+import (
+    "context"
+    "fmt"
+    "os"
+    openapiclient "github.com/deepfence/golang_deepfence_sdk/client"
+)
+
+func main() {
+
+    configuration := openapiclient.NewConfiguration()
+    apiClient := openapiclient.NewAPIClient(configuration)
+    resp, r, err := apiClient.SecretScanAPI.GroupResultsSecrets(context.Background()).Execute()
+    if err != nil {
+        fmt.Fprintf(os.Stderr, "Error when calling `SecretScanAPI.GroupResultsSecrets``: %v\n", err)
+        fmt.Fprintf(os.Stderr, "Full HTTP response: %v\n", r)
+    }
+    // response from `GroupResultsSecrets`: SearchResultGroupResp
+    fmt.Fprintf(os.Stdout, "Response from `SecretScanAPI.GroupResultsSecrets`: %v\n", resp)
+}
+```
+
+### Path Parameters
+
+This endpoint does not need any parameter.
+
+### Other Parameters
+
+Other parameters are passed through a pointer to a apiGroupResultsSecretsRequest struct via the builder pattern
+
+
+### Return type
+
+[**SearchResultGroupResp**](SearchResultGroupResp.md)
+
+### Authorization
+
+[bearer_token](../README.md#bearer_token)
+
+### HTTP request headers
+
+- **Content-Type**: Not defined
+- **Accept**: application/json
+
+[[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints)
+[[Back to Model list]](../README.md#documentation-for-models)
+[[Back to README]](../README.md)
+
+
 ## IngestSecretScanStatus
 
 > IngestSecretScanStatus(ctx).IngestersSecretScanStatus(ingestersSecretScanStatus).Execute()
@@ -106,9 +168,9 @@ func main() {
 
     configuration := openapiclient.NewConfiguration()
     apiClient := openapiclient.NewAPIClient(configuration)
-    r, err := apiClient.SecretScanApi.IngestSecretScanStatus(context.Background()).IngestersSecretScanStatus(ingestersSecretScanStatus).Execute()
+    r, err := apiClient.SecretScanAPI.IngestSecretScanStatus(context.Background()).IngestersSecretScanStatus(ingestersSecretScanStatus).Execute()
     if err != nil {
-        fmt.Fprintf(os.Stderr, "Error when calling `SecretScanApi.IngestSecretScanStatus``: %v\n", err)
+        fmt.Fprintf(os.Stderr, "Error when calling `SecretScanAPI.IngestSecretScanStatus``: %v\n", err)
         fmt.Fprintf(os.Stderr, "Full HTTP response: %v\n", r)
     }
 }
@@ -170,9 +232,9 @@ func main() {
 
     configuration := openapiclient.NewConfiguration()
     apiClient := openapiclient.NewAPIClient(configuration)
-    r, err := apiClient.SecretScanApi.IngestSecrets(context.Background()).IngestersSecret(ingestersSecret).Execute()
+    r, err := apiClient.SecretScanAPI.IngestSecrets(context.Background()).IngestersSecret(ingestersSecret).Execute()
     if err != nil {
-        fmt.Fprintf(os.Stderr, "Error when calling `SecretScanApi.IngestSecrets``: %v\n", err)
+        fmt.Fprintf(os.Stderr, "Error when calling `SecretScanAPI.IngestSecrets``: %v\n", err)
         fmt.Fprintf(os.Stderr, "Full HTTP response: %v\n", r)
     }
 }
@@ -234,13 +296,13 @@ func main() {
 
     configuration := openapiclient.NewConfiguration()
     apiClient := openapiclient.NewAPIClient(configuration)
-    resp, r, err := apiClient.SecretScanApi.ListSecretScan(context.Background()).ModelScanListReq(modelScanListReq).Execute()
+    resp, r, err := apiClient.SecretScanAPI.ListSecretScan(context.Background()).ModelScanListReq(modelScanListReq).Execute()
     if err != nil {
-        fmt.Fprintf(os.Stderr, "Error when calling `SecretScanApi.ListSecretScan``: %v\n", err)
+        fmt.Fprintf(os.Stderr, "Error when calling `SecretScanAPI.ListSecretScan``: %v\n", err)
         fmt.Fprintf(os.Stderr, "Full HTTP response: %v\n", r)
     }
     // response from `ListSecretScan`: ModelScanListResp
-    fmt.Fprintf(os.Stdout, "Response from `SecretScanApi.ListSecretScan`: %v\n", resp)
+    fmt.Fprintf(os.Stdout, "Response from `SecretScanAPI.ListSecretScan`: %v\n", resp)
 }
 ```
 
@@ -300,13 +362,13 @@ func main() {
 
     configuration := openapiclient.NewConfiguration()
     apiClient := openapiclient.NewAPIClient(configuration)
-    resp, r, err := apiClient.SecretScanApi.ResultsSecretScan(context.Background()).ModelScanResultsReq(modelScanResultsReq).Execute()
+    resp, r, err := apiClient.SecretScanAPI.ResultsSecretScan(context.Background()).ModelScanResultsReq(modelScanResultsReq).Execute()
     if err != nil {
-        fmt.Fprintf(os.Stderr, "Error when calling `SecretScanApi.ResultsSecretScan``: %v\n", err)
+        fmt.Fprintf(os.Stderr, "Error when calling `SecretScanAPI.ResultsSecretScan``: %v\n", err)
         fmt.Fprintf(os.Stderr, "Full HTTP response: %v\n", r)
     }
     // response from `ResultsSecretScan`: ModelSecretScanResult
-    fmt.Fprintf(os.Stdout, "Response from `SecretScanApi.ResultsSecretScan`: %v\n", resp)
+    fmt.Fprintf(os.Stdout, "Response from `SecretScanAPI.ResultsSecretScan`: %v\n", resp)
 }
 ```
 
@@ -366,13 +428,13 @@ func main() {
 
     configuration := openapiclient.NewConfiguration()
     apiClient := openapiclient.NewAPIClient(configuration)
-    resp, r, err := apiClient.SecretScanApi.StartSecretScan(context.Background()).ModelSecretScanTriggerReq(modelSecretScanTriggerReq).Execute()
+    resp, r, err := apiClient.SecretScanAPI.StartSecretScan(context.Background()).ModelSecretScanTriggerReq(modelSecretScanTriggerReq).Execute()
     if err != nil {
-        fmt.Fprintf(os.Stderr, "Error when calling `SecretScanApi.StartSecretScan``: %v\n", err)
+        fmt.Fprintf(os.Stderr, "Error when calling `SecretScanAPI.StartSecretScan``: %v\n", err)
         fmt.Fprintf(os.Stderr, "Full HTTP response: %v\n", r)
     }
     // response from `StartSecretScan`: ModelScanTriggerResp
-    fmt.Fprintf(os.Stdout, "Response from `SecretScanApi.StartSecretScan`: %v\n", resp)
+    fmt.Fprintf(os.Stdout, "Response from `SecretScanAPI.StartSecretScan`: %v\n", resp)
 }
 ```
 
@@ -432,13 +494,13 @@ func main() {
 
     configuration := openapiclient.NewConfiguration()
     apiClient := openapiclient.NewAPIClient(configuration)
-    resp, r, err := apiClient.SecretScanApi.StatusSecretScan(context.Background()).ModelScanStatusReq(modelScanStatusReq).Execute()
+    resp, r, err := apiClient.SecretScanAPI.StatusSecretScan(context.Background()).ModelScanStatusReq(modelScanStatusReq).Execute()
     if err != nil {
-        fmt.Fprintf(os.Stderr, "Error when calling `SecretScanApi.StatusSecretScan``: %v\n", err)
+        fmt.Fprintf(os.Stderr, "Error when calling `SecretScanAPI.StatusSecretScan``: %v\n", err)
         fmt.Fprintf(os.Stderr, "Full HTTP response: %v\n", r)
     }
     // response from `StatusSecretScan`: ModelScanStatusResp
-    fmt.Fprintf(os.Stdout, "Response from `SecretScanApi.StatusSecretScan`: %v\n", resp)
+    fmt.Fprintf(os.Stdout, "Response from `SecretScanAPI.StatusSecretScan`: %v\n", resp)
 }
 ```
 
@@ -498,9 +560,9 @@ func main() {
 
     configuration := openapiclient.NewConfiguration()
     apiClient := openapiclient.NewAPIClient(configuration)
-    r, err := apiClient.SecretScanApi.StopSecretScan(context.Background()).ModelSecretScanTriggerReq(modelSecretScanTriggerReq).Execute()
+    r, err := apiClient.SecretScanAPI.StopSecretScan(context.Background()).ModelSecretScanTriggerReq(modelSecretScanTriggerReq).Execute()
     if err != nil {
-        fmt.Fprintf(os.Stderr, "Error when calling `SecretScanApi.StopSecretScan``: %v\n", err)
+        fmt.Fprintf(os.Stderr, "Error when calling `SecretScanAPI.StopSecretScan``: %v\n", err)
         fmt.Fprintf(os.Stderr, "Full HTTP response: %v\n", r)
     }
 }

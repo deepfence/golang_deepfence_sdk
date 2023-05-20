@@ -22,12 +22,12 @@ import (
 )
 
 
-// RegistryApiService RegistryApi service
-type RegistryApiService service
+// RegistryAPIService RegistryAPI service
+type RegistryAPIService service
 
 type ApiAddRegistryRequest struct {
 	ctx context.Context
-	ApiService *RegistryApiService
+	ApiService *RegistryAPIService
 	modelRegistryAddReq *ModelRegistryAddReq
 }
 
@@ -48,7 +48,7 @@ Add a new supported registry
  @param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
  @return ApiAddRegistryRequest
 */
-func (a *RegistryApiService) AddRegistry(ctx context.Context) ApiAddRegistryRequest {
+func (a *RegistryAPIService) AddRegistry(ctx context.Context) ApiAddRegistryRequest {
 	return ApiAddRegistryRequest{
 		ApiService: a,
 		ctx: ctx,
@@ -56,14 +56,14 @@ func (a *RegistryApiService) AddRegistry(ctx context.Context) ApiAddRegistryRequ
 }
 
 // Execute executes the request
-func (a *RegistryApiService) AddRegistryExecute(r ApiAddRegistryRequest) (*http.Response, error) {
+func (a *RegistryAPIService) AddRegistryExecute(r ApiAddRegistryRequest) (*http.Response, error) {
 	var (
 		localVarHTTPMethod   = http.MethodPost
 		localVarPostBody     interface{}
 		formFiles            []formFile
 	)
 
-	localBasePath, err := a.client.cfg.ServerURLWithContext(r.ctx, "RegistryApiService.AddRegistry")
+	localBasePath, err := a.client.cfg.ServerURLWithContext(r.ctx, "RegistryAPIService.AddRegistry")
 	if err != nil {
 		return nil, &GenericOpenAPIError{error: err.Error()}
 	}
@@ -155,7 +155,7 @@ func (a *RegistryApiService) AddRegistryExecute(r ApiAddRegistryRequest) (*http.
 
 type ApiAddRegistryGCRRequest struct {
 	ctx context.Context
-	ApiService *RegistryApiService
+	ApiService *RegistryAPIService
 	name *string
 	registryUrl *string
 	serviceAccountJson *os.File
@@ -188,7 +188,7 @@ Add a Google Container registry
  @param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
  @return ApiAddRegistryGCRRequest
 */
-func (a *RegistryApiService) AddRegistryGCR(ctx context.Context) ApiAddRegistryGCRRequest {
+func (a *RegistryAPIService) AddRegistryGCR(ctx context.Context) ApiAddRegistryGCRRequest {
 	return ApiAddRegistryGCRRequest{
 		ApiService: a,
 		ctx: ctx,
@@ -196,14 +196,14 @@ func (a *RegistryApiService) AddRegistryGCR(ctx context.Context) ApiAddRegistryG
 }
 
 // Execute executes the request
-func (a *RegistryApiService) AddRegistryGCRExecute(r ApiAddRegistryGCRRequest) (*http.Response, error) {
+func (a *RegistryAPIService) AddRegistryGCRExecute(r ApiAddRegistryGCRRequest) (*http.Response, error) {
 	var (
 		localVarHTTPMethod   = http.MethodPost
 		localVarPostBody     interface{}
 		formFiles            []formFile
 	)
 
-	localBasePath, err := a.client.cfg.ServerURLWithContext(r.ctx, "RegistryApiService.AddRegistryGCR")
+	localBasePath, err := a.client.cfg.ServerURLWithContext(r.ctx, "RegistryAPIService.AddRegistryGCR")
 	if err != nil {
 		return nil, &GenericOpenAPIError{error: err.Error()}
 	}
@@ -321,7 +321,7 @@ func (a *RegistryApiService) AddRegistryGCRExecute(r ApiAddRegistryGCRRequest) (
 
 type ApiCountImageStubsRequest struct {
 	ctx context.Context
-	ApiService *RegistryApiService
+	ApiService *RegistryAPIService
 	modelRegistryImageStubsReq *ModelRegistryImageStubsReq
 }
 
@@ -342,7 +342,7 @@ count of image tags for a given image and registry
  @param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
  @return ApiCountImageStubsRequest
 */
-func (a *RegistryApiService) CountImageStubs(ctx context.Context) ApiCountImageStubsRequest {
+func (a *RegistryAPIService) CountImageStubs(ctx context.Context) ApiCountImageStubsRequest {
 	return ApiCountImageStubsRequest{
 		ApiService: a,
 		ctx: ctx,
@@ -351,7 +351,7 @@ func (a *RegistryApiService) CountImageStubs(ctx context.Context) ApiCountImageS
 
 // Execute executes the request
 //  @return ModelRegistryCountResp
-func (a *RegistryApiService) CountImageStubsExecute(r ApiCountImageStubsRequest) (*ModelRegistryCountResp, *http.Response, error) {
+func (a *RegistryAPIService) CountImageStubsExecute(r ApiCountImageStubsRequest) (*ModelRegistryCountResp, *http.Response, error) {
 	var (
 		localVarHTTPMethod   = http.MethodPost
 		localVarPostBody     interface{}
@@ -359,7 +359,7 @@ func (a *RegistryApiService) CountImageStubsExecute(r ApiCountImageStubsRequest)
 		localVarReturnValue  *ModelRegistryCountResp
 	)
 
-	localBasePath, err := a.client.cfg.ServerURLWithContext(r.ctx, "RegistryApiService.CountImageStubs")
+	localBasePath, err := a.client.cfg.ServerURLWithContext(r.ctx, "RegistryAPIService.CountImageStubs")
 	if err != nil {
 		return localVarReturnValue, nil, &GenericOpenAPIError{error: err.Error()}
 	}
@@ -460,7 +460,7 @@ func (a *RegistryApiService) CountImageStubsExecute(r ApiCountImageStubsRequest)
 
 type ApiCountImagesRequest struct {
 	ctx context.Context
-	ApiService *RegistryApiService
+	ApiService *RegistryAPIService
 	modelRegistryImagesReq *ModelRegistryImagesReq
 }
 
@@ -481,7 +481,7 @@ count of images from a given registry
  @param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
  @return ApiCountImagesRequest
 */
-func (a *RegistryApiService) CountImages(ctx context.Context) ApiCountImagesRequest {
+func (a *RegistryAPIService) CountImages(ctx context.Context) ApiCountImagesRequest {
 	return ApiCountImagesRequest{
 		ApiService: a,
 		ctx: ctx,
@@ -490,7 +490,7 @@ func (a *RegistryApiService) CountImages(ctx context.Context) ApiCountImagesRequ
 
 // Execute executes the request
 //  @return ModelRegistryCountResp
-func (a *RegistryApiService) CountImagesExecute(r ApiCountImagesRequest) (*ModelRegistryCountResp, *http.Response, error) {
+func (a *RegistryAPIService) CountImagesExecute(r ApiCountImagesRequest) (*ModelRegistryCountResp, *http.Response, error) {
 	var (
 		localVarHTTPMethod   = http.MethodPost
 		localVarPostBody     interface{}
@@ -498,7 +498,7 @@ func (a *RegistryApiService) CountImagesExecute(r ApiCountImagesRequest) (*Model
 		localVarReturnValue  *ModelRegistryCountResp
 	)
 
-	localBasePath, err := a.client.cfg.ServerURLWithContext(r.ctx, "RegistryApiService.CountImages")
+	localBasePath, err := a.client.cfg.ServerURLWithContext(r.ctx, "RegistryAPIService.CountImages")
 	if err != nil {
 		return localVarReturnValue, nil, &GenericOpenAPIError{error: err.Error()}
 	}
@@ -599,7 +599,7 @@ func (a *RegistryApiService) CountImagesExecute(r ApiCountImagesRequest) (*Model
 
 type ApiDeleteRegistryRequest struct {
 	ctx context.Context
-	ApiService *RegistryApiService
+	ApiService *RegistryAPIService
 	registryId string
 }
 
@@ -616,7 +616,7 @@ Delete registry
  @param registryId
  @return ApiDeleteRegistryRequest
 */
-func (a *RegistryApiService) DeleteRegistry(ctx context.Context, registryId string) ApiDeleteRegistryRequest {
+func (a *RegistryAPIService) DeleteRegistry(ctx context.Context, registryId string) ApiDeleteRegistryRequest {
 	return ApiDeleteRegistryRequest{
 		ApiService: a,
 		ctx: ctx,
@@ -625,14 +625,14 @@ func (a *RegistryApiService) DeleteRegistry(ctx context.Context, registryId stri
 }
 
 // Execute executes the request
-func (a *RegistryApiService) DeleteRegistryExecute(r ApiDeleteRegistryRequest) (*http.Response, error) {
+func (a *RegistryAPIService) DeleteRegistryExecute(r ApiDeleteRegistryRequest) (*http.Response, error) {
 	var (
 		localVarHTTPMethod   = http.MethodDelete
 		localVarPostBody     interface{}
 		formFiles            []formFile
 	)
 
-	localBasePath, err := a.client.cfg.ServerURLWithContext(r.ctx, "RegistryApiService.DeleteRegistry")
+	localBasePath, err := a.client.cfg.ServerURLWithContext(r.ctx, "RegistryAPIService.DeleteRegistry")
 	if err != nil {
 		return nil, &GenericOpenAPIError{error: err.Error()}
 	}
@@ -723,7 +723,7 @@ func (a *RegistryApiService) DeleteRegistryExecute(r ApiDeleteRegistryRequest) (
 
 type ApiGetRegistrySummaryRequest struct {
 	ctx context.Context
-	ApiService *RegistryApiService
+	ApiService *RegistryAPIService
 	registryId string
 }
 
@@ -740,7 +740,7 @@ get summary of registry scans, images and tags
  @param registryId
  @return ApiGetRegistrySummaryRequest
 */
-func (a *RegistryApiService) GetRegistrySummary(ctx context.Context, registryId string) ApiGetRegistrySummaryRequest {
+func (a *RegistryAPIService) GetRegistrySummary(ctx context.Context, registryId string) ApiGetRegistrySummaryRequest {
 	return ApiGetRegistrySummaryRequest{
 		ApiService: a,
 		ctx: ctx,
@@ -750,7 +750,7 @@ func (a *RegistryApiService) GetRegistrySummary(ctx context.Context, registryId 
 
 // Execute executes the request
 //  @return ModelSummary
-func (a *RegistryApiService) GetRegistrySummaryExecute(r ApiGetRegistrySummaryRequest) (*ModelSummary, *http.Response, error) {
+func (a *RegistryAPIService) GetRegistrySummaryExecute(r ApiGetRegistrySummaryRequest) (*ModelSummary, *http.Response, error) {
 	var (
 		localVarHTTPMethod   = http.MethodGet
 		localVarPostBody     interface{}
@@ -758,7 +758,7 @@ func (a *RegistryApiService) GetRegistrySummaryExecute(r ApiGetRegistrySummaryRe
 		localVarReturnValue  *ModelSummary
 	)
 
-	localBasePath, err := a.client.cfg.ServerURLWithContext(r.ctx, "RegistryApiService.GetRegistrySummary")
+	localBasePath, err := a.client.cfg.ServerURLWithContext(r.ctx, "RegistryAPIService.GetRegistrySummary")
 	if err != nil {
 		return localVarReturnValue, nil, &GenericOpenAPIError{error: err.Error()}
 	}
@@ -858,7 +858,7 @@ func (a *RegistryApiService) GetRegistrySummaryExecute(r ApiGetRegistrySummaryRe
 
 type ApiGetSummaryAllRequest struct {
 	ctx context.Context
-	ApiService *RegistryApiService
+	ApiService *RegistryAPIService
 }
 
 func (r ApiGetSummaryAllRequest) Execute() (*map[string]ModelSummary, *http.Response, error) {
@@ -873,7 +873,7 @@ get summary of all registries scans, images and tags by registry type
  @param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
  @return ApiGetSummaryAllRequest
 */
-func (a *RegistryApiService) GetSummaryAll(ctx context.Context) ApiGetSummaryAllRequest {
+func (a *RegistryAPIService) GetSummaryAll(ctx context.Context) ApiGetSummaryAllRequest {
 	return ApiGetSummaryAllRequest{
 		ApiService: a,
 		ctx: ctx,
@@ -882,7 +882,7 @@ func (a *RegistryApiService) GetSummaryAll(ctx context.Context) ApiGetSummaryAll
 
 // Execute executes the request
 //  @return map[string]ModelSummary
-func (a *RegistryApiService) GetSummaryAllExecute(r ApiGetSummaryAllRequest) (*map[string]ModelSummary, *http.Response, error) {
+func (a *RegistryAPIService) GetSummaryAllExecute(r ApiGetSummaryAllRequest) (*map[string]ModelSummary, *http.Response, error) {
 	var (
 		localVarHTTPMethod   = http.MethodGet
 		localVarPostBody     interface{}
@@ -890,7 +890,7 @@ func (a *RegistryApiService) GetSummaryAllExecute(r ApiGetSummaryAllRequest) (*m
 		localVarReturnValue  *map[string]ModelSummary
 	)
 
-	localBasePath, err := a.client.cfg.ServerURLWithContext(r.ctx, "RegistryApiService.GetSummaryAll")
+	localBasePath, err := a.client.cfg.ServerURLWithContext(r.ctx, "RegistryAPIService.GetSummaryAll")
 	if err != nil {
 		return localVarReturnValue, nil, &GenericOpenAPIError{error: err.Error()}
 	}
@@ -989,7 +989,7 @@ func (a *RegistryApiService) GetSummaryAllExecute(r ApiGetSummaryAllRequest) (*m
 
 type ApiGetSummaryByTypeRequest struct {
 	ctx context.Context
-	ApiService *RegistryApiService
+	ApiService *RegistryAPIService
 	registryType string
 }
 
@@ -1006,7 +1006,7 @@ get summary of registries scans, images and tags by registry type
  @param registryType
  @return ApiGetSummaryByTypeRequest
 */
-func (a *RegistryApiService) GetSummaryByType(ctx context.Context, registryType string) ApiGetSummaryByTypeRequest {
+func (a *RegistryAPIService) GetSummaryByType(ctx context.Context, registryType string) ApiGetSummaryByTypeRequest {
 	return ApiGetSummaryByTypeRequest{
 		ApiService: a,
 		ctx: ctx,
@@ -1016,7 +1016,7 @@ func (a *RegistryApiService) GetSummaryByType(ctx context.Context, registryType 
 
 // Execute executes the request
 //  @return ModelSummary
-func (a *RegistryApiService) GetSummaryByTypeExecute(r ApiGetSummaryByTypeRequest) (*ModelSummary, *http.Response, error) {
+func (a *RegistryAPIService) GetSummaryByTypeExecute(r ApiGetSummaryByTypeRequest) (*ModelSummary, *http.Response, error) {
 	var (
 		localVarHTTPMethod   = http.MethodGet
 		localVarPostBody     interface{}
@@ -1024,7 +1024,7 @@ func (a *RegistryApiService) GetSummaryByTypeExecute(r ApiGetSummaryByTypeReques
 		localVarReturnValue  *ModelSummary
 	)
 
-	localBasePath, err := a.client.cfg.ServerURLWithContext(r.ctx, "RegistryApiService.GetSummaryByType")
+	localBasePath, err := a.client.cfg.ServerURLWithContext(r.ctx, "RegistryAPIService.GetSummaryByType")
 	if err != nil {
 		return localVarReturnValue, nil, &GenericOpenAPIError{error: err.Error()}
 	}
@@ -1124,7 +1124,7 @@ func (a *RegistryApiService) GetSummaryByTypeExecute(r ApiGetSummaryByTypeReques
 
 type ApiListImageStubsRequest struct {
 	ctx context.Context
-	ApiService *RegistryApiService
+	ApiService *RegistryAPIService
 	modelRegistryImageStubsReq *ModelRegistryImageStubsReq
 }
 
@@ -1145,7 +1145,7 @@ list image tags for a given image and registry
  @param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
  @return ApiListImageStubsRequest
 */
-func (a *RegistryApiService) ListImageStubs(ctx context.Context) ApiListImageStubsRequest {
+func (a *RegistryAPIService) ListImageStubs(ctx context.Context) ApiListImageStubsRequest {
 	return ApiListImageStubsRequest{
 		ApiService: a,
 		ctx: ctx,
@@ -1154,7 +1154,7 @@ func (a *RegistryApiService) ListImageStubs(ctx context.Context) ApiListImageStu
 
 // Execute executes the request
 //  @return []ModelImageStub
-func (a *RegistryApiService) ListImageStubsExecute(r ApiListImageStubsRequest) ([]ModelImageStub, *http.Response, error) {
+func (a *RegistryAPIService) ListImageStubsExecute(r ApiListImageStubsRequest) ([]ModelImageStub, *http.Response, error) {
 	var (
 		localVarHTTPMethod   = http.MethodPost
 		localVarPostBody     interface{}
@@ -1162,7 +1162,7 @@ func (a *RegistryApiService) ListImageStubsExecute(r ApiListImageStubsRequest) (
 		localVarReturnValue  []ModelImageStub
 	)
 
-	localBasePath, err := a.client.cfg.ServerURLWithContext(r.ctx, "RegistryApiService.ListImageStubs")
+	localBasePath, err := a.client.cfg.ServerURLWithContext(r.ctx, "RegistryAPIService.ListImageStubs")
 	if err != nil {
 		return localVarReturnValue, nil, &GenericOpenAPIError{error: err.Error()}
 	}
@@ -1263,7 +1263,7 @@ func (a *RegistryApiService) ListImageStubsExecute(r ApiListImageStubsRequest) (
 
 type ApiListImagesRequest struct {
 	ctx context.Context
-	ApiService *RegistryApiService
+	ApiService *RegistryAPIService
 	modelRegistryImagesReq *ModelRegistryImagesReq
 }
 
@@ -1284,7 +1284,7 @@ list images from a given registry
  @param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
  @return ApiListImagesRequest
 */
-func (a *RegistryApiService) ListImages(ctx context.Context) ApiListImagesRequest {
+func (a *RegistryAPIService) ListImages(ctx context.Context) ApiListImagesRequest {
 	return ApiListImagesRequest{
 		ApiService: a,
 		ctx: ctx,
@@ -1293,7 +1293,7 @@ func (a *RegistryApiService) ListImages(ctx context.Context) ApiListImagesReques
 
 // Execute executes the request
 //  @return []ModelContainerImage
-func (a *RegistryApiService) ListImagesExecute(r ApiListImagesRequest) ([]ModelContainerImage, *http.Response, error) {
+func (a *RegistryAPIService) ListImagesExecute(r ApiListImagesRequest) ([]ModelContainerImage, *http.Response, error) {
 	var (
 		localVarHTTPMethod   = http.MethodPost
 		localVarPostBody     interface{}
@@ -1301,7 +1301,7 @@ func (a *RegistryApiService) ListImagesExecute(r ApiListImagesRequest) ([]ModelC
 		localVarReturnValue  []ModelContainerImage
 	)
 
-	localBasePath, err := a.client.cfg.ServerURLWithContext(r.ctx, "RegistryApiService.ListImages")
+	localBasePath, err := a.client.cfg.ServerURLWithContext(r.ctx, "RegistryAPIService.ListImages")
 	if err != nil {
 		return localVarReturnValue, nil, &GenericOpenAPIError{error: err.Error()}
 	}
@@ -1402,7 +1402,7 @@ func (a *RegistryApiService) ListImagesExecute(r ApiListImagesRequest) ([]ModelC
 
 type ApiListRegistryRequest struct {
 	ctx context.Context
-	ApiService *RegistryApiService
+	ApiService *RegistryAPIService
 }
 
 func (r ApiListRegistryRequest) Execute() ([]ModelRegistryListResp, *http.Response, error) {
@@ -1417,7 +1417,7 @@ List all the added Registries
  @param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
  @return ApiListRegistryRequest
 */
-func (a *RegistryApiService) ListRegistry(ctx context.Context) ApiListRegistryRequest {
+func (a *RegistryAPIService) ListRegistry(ctx context.Context) ApiListRegistryRequest {
 	return ApiListRegistryRequest{
 		ApiService: a,
 		ctx: ctx,
@@ -1426,7 +1426,7 @@ func (a *RegistryApiService) ListRegistry(ctx context.Context) ApiListRegistryRe
 
 // Execute executes the request
 //  @return []ModelRegistryListResp
-func (a *RegistryApiService) ListRegistryExecute(r ApiListRegistryRequest) ([]ModelRegistryListResp, *http.Response, error) {
+func (a *RegistryAPIService) ListRegistryExecute(r ApiListRegistryRequest) ([]ModelRegistryListResp, *http.Response, error) {
 	var (
 		localVarHTTPMethod   = http.MethodGet
 		localVarPostBody     interface{}
@@ -1434,7 +1434,7 @@ func (a *RegistryApiService) ListRegistryExecute(r ApiListRegistryRequest) ([]Mo
 		localVarReturnValue  []ModelRegistryListResp
 	)
 
-	localBasePath, err := a.client.cfg.ServerURLWithContext(r.ctx, "RegistryApiService.ListRegistry")
+	localBasePath, err := a.client.cfg.ServerURLWithContext(r.ctx, "RegistryAPIService.ListRegistry")
 	if err != nil {
 		return localVarReturnValue, nil, &GenericOpenAPIError{error: err.Error()}
 	}
@@ -1533,7 +1533,7 @@ func (a *RegistryApiService) ListRegistryExecute(r ApiListRegistryRequest) ([]Mo
 
 type ApiUpdateRegistryRequest struct {
 	ctx context.Context
-	ApiService *RegistryApiService
+	ApiService *RegistryAPIService
 	registryId string
 	modelRegistryUpdateReq *ModelRegistryUpdateReq
 }
@@ -1556,7 +1556,7 @@ Update registry
  @param registryId
  @return ApiUpdateRegistryRequest
 */
-func (a *RegistryApiService) UpdateRegistry(ctx context.Context, registryId string) ApiUpdateRegistryRequest {
+func (a *RegistryAPIService) UpdateRegistry(ctx context.Context, registryId string) ApiUpdateRegistryRequest {
 	return ApiUpdateRegistryRequest{
 		ApiService: a,
 		ctx: ctx,
@@ -1565,14 +1565,14 @@ func (a *RegistryApiService) UpdateRegistry(ctx context.Context, registryId stri
 }
 
 // Execute executes the request
-func (a *RegistryApiService) UpdateRegistryExecute(r ApiUpdateRegistryRequest) (*http.Response, error) {
+func (a *RegistryAPIService) UpdateRegistryExecute(r ApiUpdateRegistryRequest) (*http.Response, error) {
 	var (
 		localVarHTTPMethod   = http.MethodPut
 		localVarPostBody     interface{}
 		formFiles            []formFile
 	)
 
-	localBasePath, err := a.client.cfg.ServerURLWithContext(r.ctx, "RegistryApiService.UpdateRegistry")
+	localBasePath, err := a.client.cfg.ServerURLWithContext(r.ctx, "RegistryAPIService.UpdateRegistry")
 	if err != nil {
 		return nil, &GenericOpenAPIError{error: err.Error()}
 	}
