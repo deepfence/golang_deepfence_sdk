@@ -39,6 +39,7 @@ type FileManager interface {
 	UploadFile(ctx context.Context, filename string, data []byte, extra interface{}) (UploadResult, error)
 	DeleteFile(ctx context.Context, filename string, addFilePathPrefix bool, extra interface{}) error
 	DownloadFile(ctx context.Context, remoteFile string, localFile string, extra interface{}) error
+	DownloadFileTo(ctx context.Context, remoteFile string, localFile io.WriteCloser, extra interface{}) error
 	DownloadFileContexts(ctx context.Context, remoteFile string, extra interface{}) ([]byte, error)
 	ExposeFile(ctx context.Context, filePath string, addFilePathPrefix bool, expires time.Duration, reqParams url.Values) (string, error)
 	CreatePublicUploadURL(ctx context.Context, filePath string, addFilePathPrefix bool, expires time.Duration, reqParams url.Values) (string, error)
@@ -189,6 +190,18 @@ func (mfm *MinioFileManager) DeleteFile(ctx context.Context, filePath string, ad
 
 func (mfm *MinioFileManager) DownloadFile(ctx context.Context, remoteFile string, localFile string, extra interface{}) error {
 	return mfm.client.FGetObject(ctx, mfm.namespace, mfm.addNamespacePrefix(remoteFile), localFile, extra.(minio.GetObjectOptions))
+}
+
+func (mfm *MinioFileManager) DownloadFileTo(ctx context.Context, remoteFile string, writer io.WriteCloser, extra interface{}) error {
+	obj, err := mfm.client.GetObject(ctx, mfm.namespace, mfm.addNamespacePrefix(remoteFile), extra.(minio.GetObjectOptions))
+	if err != nil {
+		return err
+	}
+	_, err = io.Copy(writer, obj)
+	if err != nil {
+		return err
+	}
+	return writer.Close()
 }
 
 func (mfm *MinioFileManager) DownloadFileContexts(ctx context.Context, remoteFile string, extra interface{}) ([]byte, error) {
