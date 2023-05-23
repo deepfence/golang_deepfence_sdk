@@ -21,14 +21,14 @@ var _ MappedNullable = &ModelSettingUpdateRequest{}
 // ModelSettingUpdateRequest struct for ModelSettingUpdateRequest
 type ModelSettingUpdateRequest struct {
 	Key string `json:"key"`
-	Value interface{} `json:"value"`
+	Value string `json:"value"`
 }
 
 // NewModelSettingUpdateRequest instantiates a new ModelSettingUpdateRequest object
 // This constructor will assign default values to properties that have it defined,
 // and makes sure properties required by API are set, but the set of arguments
 // will change when the set of required properties is changed
-func NewModelSettingUpdateRequest(key string, value interface{}) *ModelSettingUpdateRequest {
+func NewModelSettingUpdateRequest(key string, value string) *ModelSettingUpdateRequest {
 	this := ModelSettingUpdateRequest{}
 	this.Key = key
 	this.Value = value
@@ -68,10 +68,9 @@ func (o *ModelSettingUpdateRequest) SetKey(v string) {
 }
 
 // GetValue returns the Value field value
-// If the value is explicit nil, the zero value for interface{} will be returned
-func (o *ModelSettingUpdateRequest) GetValue() interface{} {
+func (o *ModelSettingUpdateRequest) GetValue() string {
 	if o == nil {
-		var ret interface{}
+		var ret string
 		return ret
 	}
 
@@ -80,16 +79,15 @@ func (o *ModelSettingUpdateRequest) GetValue() interface{} {
 
 // GetValueOk returns a tuple with the Value field value
 // and a boolean to check if the value has been set.
-// NOTE: If the value is an explicit nil, `nil, true` will be returned
-func (o *ModelSettingUpdateRequest) GetValueOk() (*interface{}, bool) {
-	if o == nil || IsNil(o.Value) {
+func (o *ModelSettingUpdateRequest) GetValueOk() (*string, bool) {
+	if o == nil {
 		return nil, false
 	}
 	return &o.Value, true
 }
 
 // SetValue sets field value
-func (o *ModelSettingUpdateRequest) SetValue(v interface{}) {
+func (o *ModelSettingUpdateRequest) SetValue(v string) {
 	o.Value = v
 }
 
@@ -104,9 +102,7 @@ func (o ModelSettingUpdateRequest) MarshalJSON() ([]byte, error) {
 func (o ModelSettingUpdateRequest) ToMap() (map[string]interface{}, error) {
 	toSerialize := map[string]interface{}{}
 	toSerialize["key"] = o.Key
-	if o.Value != nil {
-		toSerialize["value"] = o.Value
-	}
+	toSerialize["value"] = o.Value
 	return toSerialize, nil
 }
 

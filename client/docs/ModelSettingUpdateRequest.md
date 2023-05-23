@@ -5,13 +5,13 @@
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
 **Key** | **string** |  | 
-**Value** | **interface{}** |  | 
+**Value** | **string** |  | 
 
 ## Methods
 
 ### NewModelSettingUpdateRequest
 
-`func NewModelSettingUpdateRequest(key string, value interface{}, ) *ModelSettingUpdateRequest`
+`func NewModelSettingUpdateRequest(key string, value string, ) *ModelSettingUpdateRequest`
 
 NewModelSettingUpdateRequest instantiates a new ModelSettingUpdateRequest object
 This constructor will assign default values to properties that have it defined,
@@ -48,34 +48,24 @@ SetKey sets Key field to given value.
 
 ### GetValue
 
-`func (o *ModelSettingUpdateRequest) GetValue() interface{}`
+`func (o *ModelSettingUpdateRequest) GetValue() string`
 
 GetValue returns the Value field if non-nil, zero value otherwise.
 
 ### GetValueOk
 
-`func (o *ModelSettingUpdateRequest) GetValueOk() (*interface{}, bool)`
+`func (o *ModelSettingUpdateRequest) GetValueOk() (*string, bool)`
 
 GetValueOk returns a tuple with the Value field if it's non-nil, zero value otherwise
 and a boolean to check if the value has been set.
 
 ### SetValue
 
-`func (o *ModelSettingUpdateRequest) SetValue(v interface{})`
+`func (o *ModelSettingUpdateRequest) SetValue(v string)`
 
 SetValue sets Value field to given value.
 
 
-### SetValueNil
-
-`func (o *ModelSettingUpdateRequest) SetValueNil(b bool)`
-
- SetValueNil sets the value for Value to be an explicit nil
-
-### UnsetValue
-`func (o *ModelSettingUpdateRequest) UnsetValue()`
-
-UnsetValue ensures that no value is present for Value, not even an explicit nil
 
 [[Back to Model list]](../README.md#documentation-for-models) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to README]](../README.md)
 

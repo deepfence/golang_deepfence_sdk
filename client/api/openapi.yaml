@@ -14623,7 +14623,7 @@ components:
       type: object
     ModelSettingUpdateRequest:
       example:
-        value: ""
+        value: value
         key: console_url
       properties:
         key:
@@ -14631,7 +14631,8 @@ components:
           - console_url
           - inactive_delete_scan_results
           type: string
-        value: {}
+        value:
+          type: string
       required:
       - key
       - value

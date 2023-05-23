@@ -486,7 +486,7 @@ import (
 
 func main() {
     id := int32(56) // int32 | 
-    modelSettingUpdateRequest := *openapiclient.NewModelSettingUpdateRequest("Key_example", interface{}(123)) // ModelSettingUpdateRequest |  (optional)
+    modelSettingUpdateRequest := *openapiclient.NewModelSettingUpdateRequest("Key_example", "Value_example") // ModelSettingUpdateRequest |  (optional)
 
     configuration := openapiclient.NewConfiguration()
     apiClient := openapiclient.NewAPIClient(configuration)
