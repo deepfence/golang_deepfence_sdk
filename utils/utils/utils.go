@@ -454,6 +454,14 @@ func StringArrayToInterfaceArray(a []string) []interface{} {
 	return l
 }
 
+func BoolArrayToInterfaceArray(a []bool) []interface{} {
+	l := make([]interface{}, 0)
+	for _, i := range a {
+		l = append(l, i)
+	}
+	return l
+}
+
 func GetScheduledJobHash(schedule postgresqlDb.Scheduler) string {
 	var payload map[string]string
 	json.Unmarshal(schedule.Payload, &payload)
