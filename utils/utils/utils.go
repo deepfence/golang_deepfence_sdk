@@ -178,7 +178,18 @@ func StructToMap[T any](c T) map[string]interface{} {
 	t := reflect.TypeOf(c)
 	v := reflect.ValueOf(c)
 
-	bb := make(map[string]interface{}, t.NumField())
+	num_fields := 0
+	for i := 0; i < t.NumField(); i++ {
+		key := t.Field(i).Tag.Get("json")
+		if strings.HasSuffix(key, ",omitempty") {
+			if v.Field(i).IsZero() {
+				continue
+			}
+		}
+		num_fields += 1
+	}
+
+	bb := make(map[string]interface{}, num_fields)
 
 	for i := 0; i < t.NumField(); i++ {
 		key := t.Field(i).Tag.Get("json")
