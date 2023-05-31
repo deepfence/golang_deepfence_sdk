@@ -200,7 +200,7 @@ func StructToMap[T any](c T) map[string]interface{} {
 			}
 			key = strings.TrimSuffix(key, ",omitempty")
 		}
-		bb[key] = v.Field(i).Interface()
+		bb[key] = v.Field(i).Addr().Interface()
 	}
 
 	return bb
