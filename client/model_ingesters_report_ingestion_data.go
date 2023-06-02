@@ -30,6 +30,7 @@ type IngestersReportIngestionData struct {
 	Hosts []map[string]interface{} `json:"hosts"`
 	KubernetesClusterBatch []map[string]interface{} `json:"kubernetes_cluster_batch"`
 	KubernetesClusterEdgeBatch []map[string]interface{} `json:"kubernetes_cluster_edge_batch"`
+	NumMerged int32 `json:"num_merged"`
 	PodBatch []map[string]interface{} `json:"pod_batch"`
 	PodEdgesBatch []map[string]interface{} `json:"pod_edges_batch"`
 	PodHostEdgesBatch []map[string]interface{} `json:"pod_host_edges_batch"`
@@ -41,7 +42,7 @@ type IngestersReportIngestionData struct {
 // This constructor will assign default values to properties that have it defined,
 // and makes sure properties required by API are set, but the set of arguments
 // will change when the set of required properties is changed
-func NewIngestersReportIngestionData(containerBatch []map[string]interface{}, containerEdgesBatch []map[string]interface{}, containerImageBatch []map[string]interface{}, containerImageEdgeBatch []map[string]interface{}, containerProcessEdgeBatch []map[string]interface{}, endpointEdgesBatch []map[string]interface{}, hostBatch []map[string]interface{}, hosts []map[string]interface{}, kubernetesClusterBatch []map[string]interface{}, kubernetesClusterEdgeBatch []map[string]interface{}, podBatch []map[string]interface{}, podEdgesBatch []map[string]interface{}, podHostEdgesBatch []map[string]interface{}, processBatch []map[string]interface{}, processEdgesBatch []map[string]interface{}) *IngestersReportIngestionData {
+func NewIngestersReportIngestionData(containerBatch []map[string]interface{}, containerEdgesBatch []map[string]interface{}, containerImageBatch []map[string]interface{}, containerImageEdgeBatch []map[string]interface{}, containerProcessEdgeBatch []map[string]interface{}, endpointEdgesBatch []map[string]interface{}, hostBatch []map[string]interface{}, hosts []map[string]interface{}, kubernetesClusterBatch []map[string]interface{}, kubernetesClusterEdgeBatch []map[string]interface{}, numMerged int32, podBatch []map[string]interface{}, podEdgesBatch []map[string]interface{}, podHostEdgesBatch []map[string]interface{}, processBatch []map[string]interface{}, processEdgesBatch []map[string]interface{}) *IngestersReportIngestionData {
 	this := IngestersReportIngestionData{}
 	this.ContainerBatch = containerBatch
 	this.ContainerEdgesBatch = containerEdgesBatch
@@ -53,6 +54,7 @@ func NewIngestersReportIngestionData(containerBatch []map[string]interface{}, co
 	this.Hosts = hosts
 	this.KubernetesClusterBatch = kubernetesClusterBatch
 	this.KubernetesClusterEdgeBatch = kubernetesClusterEdgeBatch
+	this.NumMerged = numMerged
 	this.PodBatch = podBatch
 	this.PodEdgesBatch = podEdgesBatch
 	this.PodHostEdgesBatch = podHostEdgesBatch
@@ -329,6 +331,30 @@ func (o *IngestersReportIngestionData) SetKubernetesClusterEdgeBatch(v []map[str
 	o.KubernetesClusterEdgeBatch = v
 }
 
+// GetNumMerged returns the NumMerged field value
+func (o *IngestersReportIngestionData) GetNumMerged() int32 {
+	if o == nil {
+		var ret int32
+		return ret
+	}
+
+	return o.NumMerged
+}
+
+// GetNumMergedOk returns a tuple with the NumMerged field value
+// and a boolean to check if the value has been set.
+func (o *IngestersReportIngestionData) GetNumMergedOk() (*int32, bool) {
+	if o == nil {
+		return nil, false
+	}
+	return &o.NumMerged, true
+}
+
+// SetNumMerged sets field value
+func (o *IngestersReportIngestionData) SetNumMerged(v int32) {
+	o.NumMerged = v
+}
+
 // GetPodBatch returns the PodBatch field value
 // If the value is explicit nil, the zero value for []map[string]interface{} will be returned
 func (o *IngestersReportIngestionData) GetPodBatch() []map[string]interface{} {
@@ -499,6 +525,7 @@ func (o IngestersReportIngestionData) ToMap() (map[string]interface{}, error) {
 	if o.KubernetesClusterEdgeBatch != nil {
 		toSerialize["kubernetes_cluster_edge_batch"] = o.KubernetesClusterEdgeBatch
 	}
+	toSerialize["num_merged"] = o.NumMerged
 	if o.PodBatch != nil {
 		toSerialize["pod_batch"] = o.PodBatch
 	}

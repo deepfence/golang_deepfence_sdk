@@ -88,11 +88,12 @@ Class | Method | HTTP request | Description
 *CloudNodesAPI* | [**RegisterCloudNodeAccount**](docs/CloudNodesAPI.md#registercloudnodeaccount) | **Post** /deepfence/cloud-node/account | Register Cloud Node Account
 *CloudResourcesAPI* | [**IngestCloudResources**](docs/CloudResourcesAPI.md#ingestcloudresources) | **Post** /deepfence/ingest/cloud-resources | Ingest Cloud resources
 *CloudScannerAPI* | [**CountResultsCloudComplianceScan**](docs/CloudScannerAPI.md#countresultscloudcompliancescan) | **Post** /deepfence/scan/results/count/cloud-compliance | Get Cloud Compliance Scan Results
-*CloudScannerAPI* | [**IngestCloudComplianceScanStatus**](docs/CloudScannerAPI.md#ingestcloudcompliancescanstatus) | **Post** /deepfence/ingest/cloud-compliance-scan-status | Ingest Cloud Compliances
+*CloudScannerAPI* | [**IngestCloudComplianceScanStatus**](docs/CloudScannerAPI.md#ingestcloudcompliancescanstatus) | **Post** /deepfence/ingest/cloud-compliance-scan-status | Ingest Cloud Compliances scan status
 *CloudScannerAPI* | [**IngestCloudCompliances**](docs/CloudScannerAPI.md#ingestcloudcompliances) | **Post** /deepfence/ingest/cloud-compliance | Ingest Cloud Compliances
 *CloudScannerAPI* | [**ListCloudComplianceScan**](docs/CloudScannerAPI.md#listcloudcompliancescan) | **Post** /deepfence/scan/list/cloud-compliance | Get Cloud Compliance Scans List
 *CloudScannerAPI* | [**ResultsCloudComplianceScan**](docs/CloudScannerAPI.md#resultscloudcompliancescan) | **Post** /deepfence/scan/results/cloud-compliance | Get Cloud Compliance Scan Results
 *CloudScannerAPI* | [**StatusCloudComplianceScan**](docs/CloudScannerAPI.md#statuscloudcompliancescan) | **Post** /deepfence/scan/status/cloud-compliance | Get Cloud Compliance Scan Status
+*CommonAPI* | [**Eula**](docs/CommonAPI.md#eula) | **Get** /deepfence/end-user-license-agreement | Get End User License Agreement
 *ComplianceAPI* | [**CountResultsComplianceScan**](docs/ComplianceAPI.md#countresultscompliancescan) | **Post** /deepfence/scan/results/count/compliance | Get Compliance Scans Results
 *ComplianceAPI* | [**IngestCompliances**](docs/ComplianceAPI.md#ingestcompliances) | **Post** /deepfence/ingest/compliance | Ingest Compliances
 *ComplianceAPI* | [**ListComplianceScan**](docs/ComplianceAPI.md#listcompliancescan) | **Post** /deepfence/scan/list/compliance | Get Compliance Scans List
@@ -130,7 +131,9 @@ Class | Method | HTTP request | Description
 *MalwareScanAPI* | [**IngestMalware**](docs/MalwareScanAPI.md#ingestmalware) | **Post** /deepfence/ingest/malware | Ingest Malware
 *MalwareScanAPI* | [**IngestMalwareScanStatus**](docs/MalwareScanAPI.md#ingestmalwarescanstatus) | **Post** /deepfence/ingest/malware-scan-logs | Ingest Malware Scan Status
 *MalwareScanAPI* | [**ListMalwareScan**](docs/MalwareScanAPI.md#listmalwarescan) | **Post** /deepfence/scan/list/malware | Get Malware Scans List
+*MalwareScanAPI* | [**ResultsClassMalwareScan**](docs/MalwareScanAPI.md#resultsclassmalwarescan) | **Post** /deepfence/scan/results/malware/class | Get Malware Scans Results
 *MalwareScanAPI* | [**ResultsMalwareScan**](docs/MalwareScanAPI.md#resultsmalwarescan) | **Post** /deepfence/scan/results/malware | Get Malware Scans Results
+*MalwareScanAPI* | [**ResultsRulesMalwareScan**](docs/MalwareScanAPI.md#resultsrulesmalwarescan) | **Post** /deepfence/scan/results/malware/rules | Get Malware Scans Result Rules
 *MalwareScanAPI* | [**StartMalwareScan**](docs/MalwareScanAPI.md#startmalwarescan) | **Post** /deepfence/scan/start/malware | Start Malware Scan
 *MalwareScanAPI* | [**StatusMalwareScan**](docs/MalwareScanAPI.md#statusmalwarescan) | **Post** /deepfence/scan/status/malware | Get Malware Scan Status
 *MalwareScanAPI* | [**StopMalwareScan**](docs/MalwareScanAPI.md#stopmalwarescan) | **Post** /deepfence/scan/stop/malware | Stop Malware Scan
@@ -158,6 +161,7 @@ Class | Method | HTTP request | Description
 *ScanResultsAPI* | [**MaskScanResult**](docs/ScanResultsAPI.md#maskscanresult) | **Post** /deepfence/scan/results/action/mask | Mask Scans Results
 *ScanResultsAPI* | [**NotifyScanResult**](docs/ScanResultsAPI.md#notifyscanresult) | **Post** /deepfence/scan/results/action/notify | Notify Scans Results
 *ScanResultsAPI* | [**UnmaskScanResult**](docs/ScanResultsAPI.md#unmaskscanresult) | **Post** /deepfence/scan/results/action/unmask | Unmask Scans Results
+*SearchAPI* | [**CountCloudAccounts**](docs/SearchAPI.md#countcloudaccounts) | **Post** /deepfence/search/count/cloud-accounts | Count Cloud Nodes
 *SearchAPI* | [**CountCloudComplianceScans**](docs/SearchAPI.md#countcloudcompliancescans) | **Post** /deepfence/search/count/cloud-compliance/scans | Count Cloud Compliance Scan results
 *SearchAPI* | [**CountCloudCompliances**](docs/SearchAPI.md#countcloudcompliances) | **Post** /deepfence/search/count/cloud-compliances | Count Cloud compliances
 *SearchAPI* | [**CountCloudResources**](docs/SearchAPI.md#countcloudresources) | **Post** /deepfence/search/count/cloud-resources | Count Cloud resources
@@ -177,9 +181,9 @@ Class | Method | HTTP request | Description
 *SearchAPI* | [**CountVulnerabilityScans**](docs/SearchAPI.md#countvulnerabilityscans) | **Post** /deepfence/search/count/vulnerability/scans | Count Vulnerability Scan results
 *SearchAPI* | [**GetCloudComplianceFilters**](docs/SearchAPI.md#getcloudcompliancefilters) | **Post** /deepfence/filters/cloud-compliance | Get Cloud Compliance Filters
 *SearchAPI* | [**GetComplianceFilters**](docs/SearchAPI.md#getcompliancefilters) | **Post** /deepfence/filters/compliance | Get Compliance Filters
+*SearchAPI* | [**SearchCloudAccounts**](docs/SearchAPI.md#searchcloudaccounts) | **Post** /deepfence/search/cloud-accounts | Search Cloud Nodes
 *SearchAPI* | [**SearchCloudComplianceScans**](docs/SearchAPI.md#searchcloudcompliancescans) | **Post** /deepfence/search/cloud-compliance/scans | Search Cloud Compliance Scan results
 *SearchAPI* | [**SearchCloudCompliances**](docs/SearchAPI.md#searchcloudcompliances) | **Post** /deepfence/search/cloud-compliances | Search Cloud compliances
-*SearchAPI* | [**SearchCloudNodes**](docs/SearchAPI.md#searchcloudnodes) | **Post** /deepfence/search/cloud-nodes | Search Cloud Nodes
 *SearchAPI* | [**SearchCloudResources**](docs/SearchAPI.md#searchcloudresources) | **Post** /deepfence/search/cloud-resources | Search Cloud Resources
 *SearchAPI* | [**SearchComplianceScans**](docs/SearchAPI.md#searchcompliancescans) | **Post** /deepfence/search/compliance/scans | Search Compliance Scan results
 *SearchAPI* | [**SearchCompliances**](docs/SearchAPI.md#searchcompliances) | **Post** /deepfence/search/compliances | Search Compliances
@@ -199,6 +203,7 @@ Class | Method | HTTP request | Description
 *SecretScanAPI* | [**IngestSecretScanStatus**](docs/SecretScanAPI.md#ingestsecretscanstatus) | **Post** /deepfence/ingest/secret-scan-logs | Ingest Secrets Scan Status
 *SecretScanAPI* | [**IngestSecrets**](docs/SecretScanAPI.md#ingestsecrets) | **Post** /deepfence/ingest/secrets | Ingest Secrets
 *SecretScanAPI* | [**ListSecretScan**](docs/SecretScanAPI.md#listsecretscan) | **Post** /deepfence/scan/list/secret | Get Secret Scans List
+*SecretScanAPI* | [**ResultsRulesSecretScan**](docs/SecretScanAPI.md#resultsrulessecretscan) | **Post** /deepfence/scan/results/secret/rules | Get Secret Scans Result Rules
 *SecretScanAPI* | [**ResultsSecretScan**](docs/SecretScanAPI.md#resultssecretscan) | **Post** /deepfence/scan/results/secret | Get Secret Scans Results
 *SecretScanAPI* | [**StartSecretScan**](docs/SecretScanAPI.md#startsecretscan) | **Post** /deepfence/scan/start/secret | Start Secret Scan
 *SecretScanAPI* | [**StatusSecretScan**](docs/SecretScanAPI.md#statussecretscan) | **Post** /deepfence/scan/status/secret | Get Secret Scan Status
@@ -274,8 +279,10 @@ Class | Method | HTTP request | Description
  - [GraphVulnerabilityThreatGraph](docs/GraphVulnerabilityThreatGraph.md)
  - [GraphVulnerabilityThreatGraphRequest](docs/GraphVulnerabilityThreatGraphRequest.md)
  - [IngestersCloudCompliance](docs/IngestersCloudCompliance.md)
+ - [IngestersCloudComplianceScanStatus](docs/IngestersCloudComplianceScanStatus.md)
  - [IngestersCloudResource](docs/IngestersCloudResource.md)
  - [IngestersCompliance](docs/IngestersCompliance.md)
+ - [IngestersComplianceStats](docs/IngestersComplianceStats.md)
  - [IngestersMalware](docs/IngestersMalware.md)
  - [IngestersMalwareScanStatus](docs/IngestersMalwareScanStatus.md)
  - [IngestersMetaRules](docs/IngestersMetaRules.md)
@@ -342,6 +349,8 @@ Class | Method | HTTP request | Description
  - [ModelLoginResponse](docs/ModelLoginResponse.md)
  - [ModelMalware](docs/ModelMalware.md)
  - [ModelMalwareScanResult](docs/ModelMalwareScanResult.md)
+ - [ModelMalwareScanResultClass](docs/ModelMalwareScanResultClass.md)
+ - [ModelMalwareScanResultRules](docs/ModelMalwareScanResultRules.md)
  - [ModelMalwareScanTriggerReq](docs/ModelMalwareScanTriggerReq.md)
  - [ModelMessageResponse](docs/ModelMessageResponse.md)
  - [ModelNodeIdentifier](docs/ModelNodeIdentifier.md)
@@ -376,6 +385,7 @@ Class | Method | HTTP request | Description
  - [ModelScanTriggerResp](docs/ModelScanTriggerResp.md)
  - [ModelSecret](docs/ModelSecret.md)
  - [ModelSecretScanResult](docs/ModelSecretScanResult.md)
+ - [ModelSecretScanResultRules](docs/ModelSecretScanResultRules.md)
  - [ModelSecretScanTriggerReq](docs/ModelSecretScanTriggerReq.md)
  - [ModelSettingUpdateRequest](docs/ModelSettingUpdateRequest.md)
  - [ModelSettingsResponse](docs/ModelSettingsResponse.md)

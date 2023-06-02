@@ -22,6 +22,7 @@ var _ MappedNullable = &ReportersOrderSpec{}
 type ReportersOrderSpec struct {
 	Descending bool `json:"descending"`
 	FieldName string `json:"field_name"`
+	Size *int32 `json:"size,omitempty"`
 }
 
 // NewReportersOrderSpec instantiates a new ReportersOrderSpec object
@@ -91,6 +92,38 @@ func (o *ReportersOrderSpec) SetFieldName(v string) {
 	o.FieldName = v
 }
 
+// GetSize returns the Size field value if set, zero value otherwise.
+func (o *ReportersOrderSpec) GetSize() int32 {
+	if o == nil || IsNil(o.Size) {
+		var ret int32
+		return ret
+	}
+	return *o.Size
+}
+
+// GetSizeOk returns a tuple with the Size field value if set, nil otherwise
+// and a boolean to check if the value has been set.
+func (o *ReportersOrderSpec) GetSizeOk() (*int32, bool) {
+	if o == nil || IsNil(o.Size) {
+		return nil, false
+	}
+	return o.Size, true
+}
+
+// HasSize returns a boolean if a field has been set.
+func (o *ReportersOrderSpec) HasSize() bool {
+	if o != nil && !IsNil(o.Size) {
+		return true
+	}
+
+	return false
+}
+
+// SetSize gets a reference to the given int32 and assigns it to the Size field.
+func (o *ReportersOrderSpec) SetSize(v int32) {
+	o.Size = &v
+}
+
 func (o ReportersOrderSpec) MarshalJSON() ([]byte, error) {
 	toSerialize,err := o.ToMap()
 	if err != nil {
@@ -103,6 +136,9 @@ func (o ReportersOrderSpec) ToMap() (map[string]interface{}, error) {
 	toSerialize := map[string]interface{}{}
 	toSerialize["descending"] = o.Descending
 	toSerialize["field_name"] = o.FieldName
+	if !IsNil(o.Size) {
+		toSerialize["size"] = o.Size
+	}
 	return toSerialize, nil
 }
 

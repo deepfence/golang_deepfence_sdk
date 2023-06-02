@@ -5,16 +5,16 @@
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
 **Extras** | Pointer to **map[string]interface{}** |  | [optional] 
-**Name** | Pointer to **string** |  | [optional] 
+**Name** | **string** |  | 
 **NonSecret** | Pointer to **map[string]interface{}** |  | [optional] 
-**RegistryType** | Pointer to **string** |  | [optional] 
+**RegistryType** | **string** |  | 
 **Secret** | Pointer to **map[string]interface{}** |  | [optional] 
 
 ## Methods
 
 ### NewModelRegistryUpdateReq
 
-`func NewModelRegistryUpdateReq() *ModelRegistryUpdateReq`
+`func NewModelRegistryUpdateReq(name string, registryType string, ) *ModelRegistryUpdateReq`
 
 NewModelRegistryUpdateReq instantiates a new ModelRegistryUpdateReq object
 This constructor will assign default values to properties that have it defined,
@@ -83,11 +83,6 @@ and a boolean to check if the value has been set.
 
 SetName sets Name field to given value.
 
-### HasName
-
-`func (o *ModelRegistryUpdateReq) HasName() bool`
-
-HasName returns a boolean if a field has been set.
 
 ### GetNonSecret
 
@@ -143,11 +138,6 @@ and a boolean to check if the value has been set.
 
 SetRegistryType sets RegistryType field to given value.
 
-### HasRegistryType
-
-`func (o *ModelRegistryUpdateReq) HasRegistryType() bool`
-
-HasRegistryType returns a boolean if a field has been set.
 
 ### GetSecret
 

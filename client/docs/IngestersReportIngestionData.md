@@ -14,6 +14,7 @@ Name | Type | Description | Notes
 **Hosts** | **[]map[string]interface{}** |  | 
 **KubernetesClusterBatch** | **[]map[string]interface{}** |  | 
 **KubernetesClusterEdgeBatch** | **[]map[string]interface{}** |  | 
+**NumMerged** | **int32** |  | 
 **PodBatch** | **[]map[string]interface{}** |  | 
 **PodEdgesBatch** | **[]map[string]interface{}** |  | 
 **PodHostEdgesBatch** | **[]map[string]interface{}** |  | 
@@ -24,7 +25,7 @@ Name | Type | Description | Notes
 
 ### NewIngestersReportIngestionData
 
-`func NewIngestersReportIngestionData(containerBatch []map[string]interface{}, containerEdgesBatch []map[string]interface{}, containerImageBatch []map[string]interface{}, containerImageEdgeBatch []map[string]interface{}, containerProcessEdgeBatch []map[string]interface{}, endpointEdgesBatch []map[string]interface{}, hostBatch []map[string]interface{}, hosts []map[string]interface{}, kubernetesClusterBatch []map[string]interface{}, kubernetesClusterEdgeBatch []map[string]interface{}, podBatch []map[string]interface{}, podEdgesBatch []map[string]interface{}, podHostEdgesBatch []map[string]interface{}, processBatch []map[string]interface{}, processEdgesBatch []map[string]interface{}, ) *IngestersReportIngestionData`
+`func NewIngestersReportIngestionData(containerBatch []map[string]interface{}, containerEdgesBatch []map[string]interface{}, containerImageBatch []map[string]interface{}, containerImageEdgeBatch []map[string]interface{}, containerProcessEdgeBatch []map[string]interface{}, endpointEdgesBatch []map[string]interface{}, hostBatch []map[string]interface{}, hosts []map[string]interface{}, kubernetesClusterBatch []map[string]interface{}, kubernetesClusterEdgeBatch []map[string]interface{}, numMerged int32, podBatch []map[string]interface{}, podEdgesBatch []map[string]interface{}, podHostEdgesBatch []map[string]interface{}, processBatch []map[string]interface{}, processEdgesBatch []map[string]interface{}, ) *IngestersReportIngestionData`
 
 NewIngestersReportIngestionData instantiates a new IngestersReportIngestionData object
 This constructor will assign default values to properties that have it defined,
@@ -339,6 +340,26 @@ SetKubernetesClusterEdgeBatch sets KubernetesClusterEdgeBatch field to given val
 `func (o *IngestersReportIngestionData) UnsetKubernetesClusterEdgeBatch()`
 
 UnsetKubernetesClusterEdgeBatch ensures that no value is present for KubernetesClusterEdgeBatch, not even an explicit nil
+### GetNumMerged
+
+`func (o *IngestersReportIngestionData) GetNumMerged() int32`
+
+GetNumMerged returns the NumMerged field if non-nil, zero value otherwise.
+
+### GetNumMergedOk
+
+`func (o *IngestersReportIngestionData) GetNumMergedOk() (*int32, bool)`
+
+GetNumMergedOk returns a tuple with the NumMerged field if it's non-nil, zero value otherwise
+and a boolean to check if the value has been set.
+
+### SetNumMerged
+
+`func (o *IngestersReportIngestionData) SetNumMerged(v int32)`
+
+SetNumMerged sets NumMerged field to given value.
+
+
 ### GetPodBatch
 
 `func (o *IngestersReportIngestionData) GetPodBatch() []map[string]interface{}`

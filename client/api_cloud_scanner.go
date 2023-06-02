@@ -165,11 +165,11 @@ func (a *CloudScannerAPIService) CountResultsCloudComplianceScanExecute(r ApiCou
 type ApiIngestCloudComplianceScanStatusRequest struct {
 	ctx context.Context
 	ApiService *CloudScannerAPIService
-	ingestersCloudCompliance *[]IngestersCloudCompliance
+	ingestersCloudComplianceScanStatus *[]IngestersCloudComplianceScanStatus
 }
 
-func (r ApiIngestCloudComplianceScanStatusRequest) IngestersCloudCompliance(ingestersCloudCompliance []IngestersCloudCompliance) ApiIngestCloudComplianceScanStatusRequest {
-	r.ingestersCloudCompliance = &ingestersCloudCompliance
+func (r ApiIngestCloudComplianceScanStatusRequest) IngestersCloudComplianceScanStatus(ingestersCloudComplianceScanStatus []IngestersCloudComplianceScanStatus) ApiIngestCloudComplianceScanStatusRequest {
+	r.ingestersCloudComplianceScanStatus = &ingestersCloudComplianceScanStatus
 	return r
 }
 
@@ -178,7 +178,7 @@ func (r ApiIngestCloudComplianceScanStatusRequest) Execute() (*http.Response, er
 }
 
 /*
-IngestCloudComplianceScanStatus Ingest Cloud Compliances
+IngestCloudComplianceScanStatus Ingest Cloud Compliances scan status
 
 Ingest Cloud compliances found while scanning cloud provider
 
@@ -229,7 +229,7 @@ func (a *CloudScannerAPIService) IngestCloudComplianceScanStatusExecute(r ApiIng
 		localVarHeaderParams["Accept"] = localVarHTTPHeaderAccept
 	}
 	// body params
-	localVarPostBody = r.ingestersCloudCompliance
+	localVarPostBody = r.ingestersCloudComplianceScanStatus
 	req, err := a.client.prepareRequest(r.ctx, localVarPath, localVarHTTPMethod, localVarPostBody, localVarHeaderParams, localVarQueryParams, localVarFormParams, formFiles)
 	if err != nil {
 		return nil, err

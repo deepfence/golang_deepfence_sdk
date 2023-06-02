@@ -21,9 +21,9 @@ var _ MappedNullable = &ModelRegistryUpdateReq{}
 // ModelRegistryUpdateReq struct for ModelRegistryUpdateReq
 type ModelRegistryUpdateReq struct {
 	Extras map[string]interface{} `json:"extras,omitempty"`
-	Name *string `json:"name,omitempty"`
+	Name string `json:"name"`
 	NonSecret map[string]interface{} `json:"non_secret,omitempty"`
-	RegistryType *string `json:"registry_type,omitempty"`
+	RegistryType string `json:"registry_type"`
 	Secret map[string]interface{} `json:"secret,omitempty"`
 }
 
@@ -31,8 +31,10 @@ type ModelRegistryUpdateReq struct {
 // This constructor will assign default values to properties that have it defined,
 // and makes sure properties required by API are set, but the set of arguments
 // will change when the set of required properties is changed
-func NewModelRegistryUpdateReq() *ModelRegistryUpdateReq {
+func NewModelRegistryUpdateReq(name string, registryType string) *ModelRegistryUpdateReq {
 	this := ModelRegistryUpdateReq{}
+	this.Name = name
+	this.RegistryType = registryType
 	return &this
 }
 
@@ -77,36 +79,28 @@ func (o *ModelRegistryUpdateReq) SetExtras(v map[string]interface{}) {
 	o.Extras = v
 }
 
-// GetName returns the Name field value if set, zero value otherwise.
+// GetName returns the Name field value
 func (o *ModelRegistryUpdateReq) GetName() string {
-	if o == nil || IsNil(o.Name) {
+	if o == nil {
 		var ret string
 		return ret
 	}
-	return *o.Name
+
+	return o.Name
 }
 
-// GetNameOk returns a tuple with the Name field value if set, nil otherwise
+// GetNameOk returns a tuple with the Name field value
 // and a boolean to check if the value has been set.
 func (o *ModelRegistryUpdateReq) GetNameOk() (*string, bool) {
-	if o == nil || IsNil(o.Name) {
+	if o == nil {
 		return nil, false
 	}
-	return o.Name, true
+	return &o.Name, true
 }
 
-// HasName returns a boolean if a field has been set.
-func (o *ModelRegistryUpdateReq) HasName() bool {
-	if o != nil && !IsNil(o.Name) {
-		return true
-	}
-
-	return false
-}
-
-// SetName gets a reference to the given string and assigns it to the Name field.
+// SetName sets field value
 func (o *ModelRegistryUpdateReq) SetName(v string) {
-	o.Name = &v
+	o.Name = v
 }
 
 // GetNonSecret returns the NonSecret field value if set, zero value otherwise (both if not set or set to explicit null).
@@ -142,36 +136,28 @@ func (o *ModelRegistryUpdateReq) SetNonSecret(v map[string]interface{}) {
 	o.NonSecret = v
 }
 
-// GetRegistryType returns the RegistryType field value if set, zero value otherwise.
+// GetRegistryType returns the RegistryType field value
 func (o *ModelRegistryUpdateReq) GetRegistryType() string {
-	if o == nil || IsNil(o.RegistryType) {
+	if o == nil {
 		var ret string
 		return ret
 	}
-	return *o.RegistryType
+
+	return o.RegistryType
 }
 
-// GetRegistryTypeOk returns a tuple with the RegistryType field value if set, nil otherwise
+// GetRegistryTypeOk returns a tuple with the RegistryType field value
 // and a boolean to check if the value has been set.
 func (o *ModelRegistryUpdateReq) GetRegistryTypeOk() (*string, bool) {
-	if o == nil || IsNil(o.RegistryType) {
+	if o == nil {
 		return nil, false
 	}
-	return o.RegistryType, true
+	return &o.RegistryType, true
 }
 
-// HasRegistryType returns a boolean if a field has been set.
-func (o *ModelRegistryUpdateReq) HasRegistryType() bool {
-	if o != nil && !IsNil(o.RegistryType) {
-		return true
-	}
-
-	return false
-}
-
-// SetRegistryType gets a reference to the given string and assigns it to the RegistryType field.
+// SetRegistryType sets field value
 func (o *ModelRegistryUpdateReq) SetRegistryType(v string) {
-	o.RegistryType = &v
+	o.RegistryType = v
 }
 
 // GetSecret returns the Secret field value if set, zero value otherwise (both if not set or set to explicit null).
@@ -220,15 +206,11 @@ func (o ModelRegistryUpdateReq) ToMap() (map[string]interface{}, error) {
 	if o.Extras != nil {
 		toSerialize["extras"] = o.Extras
 	}
-	if !IsNil(o.Name) {
-		toSerialize["name"] = o.Name
-	}
+	toSerialize["name"] = o.Name
 	if o.NonSecret != nil {
 		toSerialize["non_secret"] = o.NonSecret
 	}
-	if !IsNil(o.RegistryType) {
-		toSerialize["registry_type"] = o.RegistryType
-	}
+	toSerialize["registry_type"] = o.RegistryType
 	if o.Secret != nil {
 		toSerialize["secret"] = o.Secret
 	}

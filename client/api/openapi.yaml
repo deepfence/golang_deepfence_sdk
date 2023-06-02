@@ -851,6 +851,42 @@ paths:
       summary: Get Diagnostic Notification
       tags:
       - Diagnosis
+  /deepfence/end-user-license-agreement:
+    get:
+      description: Get End User License Agreement
+      operationId: eula
+      responses:
+        "200":
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ModelMessageResponse'
+          description: OK
+        "400":
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ApiDocsBadRequestResponse'
+          description: Bad Request
+        "401":
+          description: Unauthorized
+        "403":
+          description: Forbidden
+        "404":
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ApiDocsFailureResponse'
+          description: Not Found
+        "500":
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ApiDocsFailureResponse'
+          description: Internal Server Error
+      summary: Get End User License Agreement
+      tags:
+      - Common
   /deepfence/filters/cloud-compliance:
     post:
       description: Get all applicable filter values for cloud compliance
@@ -1295,7 +1331,7 @@ paths:
           application/json:
             schema:
               items:
-                $ref: '#/components/schemas/IngestersCloudCompliance'
+                $ref: '#/components/schemas/IngestersCloudComplianceScanStatus'
               nullable: true
               type: array
       responses:
@@ -1325,7 +1361,7 @@ paths:
           description: Internal Server Error
       security:
       - bearer_token: []
-      summary: Ingest Cloud Compliances
+      summary: Ingest Cloud Compliances scan status
       tags:
       - Cloud Scanner
   /deepfence/ingest/cloud-resources:
@@ -3970,6 +4006,92 @@ paths:
       summary: Get Malware Scans Results
       tags:
       - Malware Scan
+  /deepfence/scan/results/malware/class:
+    post:
+      description: Get Malware Scans detected class names
+      operationId: resultsClassMalwareScan
+      requestBody:
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/ModelScanResultsReq'
+      responses:
+        "200":
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ModelMalwareScanResultClass'
+          description: OK
+        "400":
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ApiDocsBadRequestResponse'
+          description: Bad Request
+        "401":
+          description: Unauthorized
+        "403":
+          description: Forbidden
+        "404":
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ApiDocsFailureResponse'
+          description: Not Found
+        "500":
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ApiDocsFailureResponse'
+          description: Internal Server Error
+      security:
+      - bearer_token: []
+      summary: Get Malware Scans Results
+      tags:
+      - Malware Scan
+  /deepfence/scan/results/malware/rules:
+    post:
+      description: Get Malware Scans detected rules names
+      operationId: resultsRulesMalwareScan
+      requestBody:
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/ModelScanResultsReq'
+      responses:
+        "200":
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ModelMalwareScanResultRules'
+          description: OK
+        "400":
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ApiDocsBadRequestResponse'
+          description: Bad Request
+        "401":
+          description: Unauthorized
+        "403":
+          description: Forbidden
+        "404":
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ApiDocsFailureResponse'
+          description: Not Found
+        "500":
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ApiDocsFailureResponse'
+          description: Internal Server Error
+      security:
+      - bearer_token: []
+      summary: Get Malware Scans Result Rules
+      tags:
+      - Malware Scan
   /deepfence/scan/results/secret:
     post:
       description: Get Secret Scans results on agent or registry
@@ -4011,6 +4133,49 @@ paths:
       security:
       - bearer_token: []
       summary: Get Secret Scans Results
+      tags:
+      - Secret Scan
+  /deepfence/scan/results/secret/rules:
+    post:
+      description: Get Secret Scans detected rules names
+      operationId: resultsRulesSecretScan
+      requestBody:
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/ModelScanResultsReq'
+      responses:
+        "200":
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ModelSecretScanResultRules'
+          description: OK
+        "400":
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ApiDocsBadRequestResponse'
+          description: Bad Request
+        "401":
+          description: Unauthorized
+        "403":
+          description: Forbidden
+        "404":
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ApiDocsFailureResponse'
+          description: Not Found
+        "500":
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ApiDocsFailureResponse'
+          description: Internal Server Error
+      security:
+      - bearer_token: []
+      summary: Get Secret Scans Result Rules
       tags:
       - Secret Scan
   /deepfence/scan/results/vulnerability:
@@ -4814,6 +4979,51 @@ paths:
       summary: Update scheduled task
       tags:
       - Settings
+  /deepfence/search/cloud-accounts:
+    post:
+      description: Search across all the data associated with cloud nodes
+      operationId: searchCloudAccounts
+      requestBody:
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/SearchSearchNodeReq'
+      responses:
+        "200":
+          content:
+            application/json:
+              schema:
+                items:
+                  $ref: '#/components/schemas/ModelCloudNodeAccountInfo'
+                type: array
+          description: OK
+        "400":
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ApiDocsBadRequestResponse'
+          description: Bad Request
+        "401":
+          description: Unauthorized
+        "403":
+          description: Forbidden
+        "404":
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ApiDocsFailureResponse'
+          description: Not Found
+        "500":
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ApiDocsFailureResponse'
+          description: Internal Server Error
+      security:
+      - bearer_token: []
+      summary: Search Cloud Nodes
+      tags:
+      - Search
   /deepfence/search/cloud-compliance/scans:
     post:
       description: Search across all the data associated with cloud-compliance scan
@@ -4902,51 +5112,6 @@ paths:
       security:
       - bearer_token: []
       summary: Search Cloud compliances
-      tags:
-      - Search
-  /deepfence/search/cloud-nodes:
-    post:
-      description: Search across all the data associated with cloud nodes
-      operationId: searchCloudNodes
-      requestBody:
-        content:
-          application/json:
-            schema:
-              $ref: '#/components/schemas/SearchSearchNodeReq'
-      responses:
-        "200":
-          content:
-            application/json:
-              schema:
-                items:
-                  $ref: '#/components/schemas/ModelCloudNodeAccountInfo'
-                type: array
-          description: OK
-        "400":
-          content:
-            application/json:
-              schema:
-                $ref: '#/components/schemas/ApiDocsBadRequestResponse'
-          description: Bad Request
-        "401":
-          description: Unauthorized
-        "403":
-          description: Forbidden
-        "404":
-          content:
-            application/json:
-              schema:
-                $ref: '#/components/schemas/ApiDocsFailureResponse'
-          description: Not Found
-        "500":
-          content:
-            application/json:
-              schema:
-                $ref: '#/components/schemas/ApiDocsFailureResponse'
-          description: Internal Server Error
-      security:
-      - bearer_token: []
-      summary: Search Cloud Nodes
       tags:
       - Search
   /deepfence/search/cloud-resources:
@@ -5127,6 +5292,49 @@ paths:
       security:
       - bearer_token: []
       summary: Search Containers data
+      tags:
+      - Search
+  /deepfence/search/count/cloud-accounts:
+    post:
+      description: Search across all the data associated with cloud nodes
+      operationId: countCloudAccounts
+      requestBody:
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/SearchSearchNodeReq'
+      responses:
+        "200":
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/SearchSearchCountResp'
+          description: OK
+        "400":
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ApiDocsBadRequestResponse'
+          description: Bad Request
+        "401":
+          description: Unauthorized
+        "403":
+          description: Forbidden
+        "404":
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ApiDocsFailureResponse'
+          description: Not Found
+        "500":
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ApiDocsFailureResponse'
+          description: Internal Server Error
+      security:
+      - bearer_token: []
+      summary: Count Cloud Nodes
       tags:
       - Search
   /deepfence/search/count/cloud-compliance/scans:
@@ -7800,9 +8008,11 @@ components:
               - ""
           order_filter:
             order_fields:
-            - descending: true
+            - size: 0
+              descending: true
               field_name: field_name
-            - descending: true
+            - size: 0
+              descending: true
               field_name: field_name
           contains_filter:
             filter_in:
@@ -7976,6 +8186,46 @@ components:
           type: string
         title:
           type: string
+        type:
+          type: string
+      type: object
+    IngestersCloudComplianceScanStatus:
+      example:
+        result:
+          compliance_percentage: 6.027456183070403
+          alarm: 0
+          skip: 2
+          error: 1
+          ok: 5
+          info: 5
+        scan_message: scan_message
+        '@timestamp': 2000-01-23T04:56:07.000+00:00
+        total_checks: 7
+        scan_status: scan_status
+        scan_id: scan_id
+        type: type
+        compliance_check_types:
+        - compliance_check_types
+        - compliance_check_types
+      properties:
+        '@timestamp':
+          format: date-time
+          type: string
+        compliance_check_types:
+          items:
+            type: string
+          nullable: true
+          type: array
+        result:
+          $ref: '#/components/schemas/IngestersComplianceStats'
+        scan_id:
+          type: string
+        scan_message:
+          type: string
+        scan_status:
+          type: string
+        total_checks:
+          type: integer
         type:
           type: string
       type: object
@@ -8217,6 +8467,28 @@ components:
         type:
           type: string
       type: object
+    IngestersComplianceStats:
+      example:
+        compliance_percentage: 6.027456183070403
+        alarm: 0
+        skip: 2
+        error: 1
+        ok: 5
+        info: 5
+      properties:
+        alarm:
+          type: integer
+        compliance_percentage:
+          type: number
+        error:
+          type: integer
+        info:
+          type: integer
+        ok:
+          type: integer
+        skip:
+          type: integer
+      type: object
     IngestersMalware:
       example:
         summary: summary
@@ -8348,6 +8620,7 @@ components:
         container_image_edge_batch:
         - key: ""
         - key: ""
+        num_merged: 0
         container_process_edge_batch:
         - key: ""
         - key: ""
@@ -8439,6 +8712,8 @@ components:
             type: object
           nullable: true
           type: array
+        num_merged:
+          type: integer
         pod_batch:
           items:
             additionalProperties: {}
@@ -8480,6 +8755,7 @@ components:
       - hosts
       - kubernetes_cluster_batch
       - kubernetes_cluster_edge_batch
+      - num_merged
       - pod_batch
       - pod_edges_batch
       - pod_host_edges_batch
@@ -8749,9 +9025,11 @@ components:
               - ""
           order_filter:
             order_fields:
-            - descending: true
+            - size: 0
+              descending: true
               field_name: field_name
-            - descending: true
+            - size: 0
+              descending: true
               field_name: field_name
           contains_filter:
             filter_in:
@@ -11224,9 +11502,11 @@ components:
                 - ""
             order_filter:
               order_fields:
-              - descending: true
+              - size: 0
+                descending: true
                 field_name: field_name
-              - descending: true
+              - size: 0
+                descending: true
                 field_name: field_name
             contains_filter:
               filter_in:
@@ -11275,9 +11555,11 @@ components:
               - ""
           order_filter:
             order_fields:
-            - descending: true
+            - size: 0
+              descending: true
               field_name: field_name
-            - descending: true
+            - size: 0
+              descending: true
               field_name: field_name
           contains_filter:
             filter_in:
@@ -11323,9 +11605,11 @@ components:
               - ""
           order_filter:
             order_fields:
-            - descending: true
+            - size: 0
+              descending: true
               field_name: field_name
-            - descending: true
+            - size: 0
+              descending: true
               field_name: field_name
           contains_filter:
             filter_in:
@@ -13110,6 +13394,34 @@ components:
       - severity_counts
       - updated_at
       type: object
+    ModelMalwareScanResultClass:
+      example:
+        class:
+        - class
+        - class
+      properties:
+        class:
+          items:
+            type: string
+          nullable: true
+          type: array
+      required:
+      - class
+      type: object
+    ModelMalwareScanResultRules:
+      example:
+        rules:
+        - rules
+        - rules
+      properties:
+        rules:
+          items:
+            type: string
+          nullable: true
+          type: array
+      required:
+      - rules
+      type: object
     ModelMalwareScanTriggerReq:
       example:
         filters:
@@ -13944,6 +14256,9 @@ components:
           additionalProperties: {}
           nullable: true
           type: object
+      required:
+      - name
+      - registry_type
       type: object
     ModelResponseAccessToken:
       example:
@@ -14109,9 +14424,11 @@ components:
               - ""
           order_filter:
             order_fields:
-            - descending: true
+            - size: 0
+              descending: true
               field_name: field_name
-            - descending: true
+            - size: 0
+              descending: true
               field_name: field_name
           contains_filter:
             filter_in:
@@ -14326,9 +14643,11 @@ components:
               - ""
           order_filter:
             order_fields:
-            - descending: true
+            - size: 0
+              descending: true
               field_name: field_name
-            - descending: true
+            - size: 0
+              descending: true
               field_name: field_name
           contains_filter:
             filter_in:
@@ -14575,6 +14894,20 @@ components:
       - secrets
       - severity_counts
       - updated_at
+      type: object
+    ModelSecretScanResultRules:
+      example:
+        rules:
+        - rules
+        - rules
+      properties:
+        rules:
+          items:
+            type: string
+          nullable: true
+          type: array
+      required:
+      - rules
       type: object
     ModelSecretScanTriggerReq:
       example:
@@ -15497,9 +15830,11 @@ components:
             - ""
         order_filter:
           order_fields:
-          - descending: true
+          - size: 0
+            descending: true
             field_name: field_name
-          - descending: true
+          - size: 0
+            descending: true
             field_name: field_name
         contains_filter:
           filter_in:
@@ -15550,9 +15885,11 @@ components:
     ReportersOrderFilter:
       example:
         order_fields:
-        - descending: true
+        - size: 0
+          descending: true
           field_name: field_name
-        - descending: true
+        - size: 0
+          descending: true
           field_name: field_name
       properties:
         order_fields:
@@ -15565,6 +15902,7 @@ components:
       type: object
     ReportersOrderSpec:
       example:
+        size: 0
         descending: true
         field_name: field_name
       properties:
@@ -15572,6 +15910,8 @@ components:
           type: boolean
         field_name:
           type: string
+        size:
+          type: integer
       required:
       - descending
       - field_name
@@ -15675,9 +16015,11 @@ components:
               - ""
           order_filter:
             order_fields:
-            - descending: true
+            - size: 0
+              descending: true
               field_name: field_name
-            - descending: true
+            - size: 0
+              descending: true
               field_name: field_name
           contains_filter:
             filter_in:
@@ -15728,9 +16070,11 @@ components:
                 - ""
             order_filter:
               order_fields:
-              - descending: true
+              - size: 0
+                descending: true
                 field_name: field_name
-              - descending: true
+              - size: 0
+                descending: true
                 field_name: field_name
             contains_filter:
               filter_in:
@@ -15778,9 +16122,11 @@ components:
                 - ""
             order_filter:
               order_fields:
-              - descending: true
+              - size: 0
+                descending: true
                 field_name: field_name
-              - descending: true
+              - size: 0
+                descending: true
                 field_name: field_name
             contains_filter:
               filter_in:
@@ -15814,9 +16160,11 @@ components:
                 - ""
             order_filter:
               order_fields:
-              - descending: true
+              - size: 0
+                descending: true
                 field_name: field_name
-              - descending: true
+              - size: 0
+                descending: true
                 field_name: field_name
             contains_filter:
               filter_in:
@@ -15955,6 +16303,7 @@ components:
           - container
           - container_image
           - linux
+          - cluster
           - aws
           - gcp
           - azure

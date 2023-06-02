@@ -6,6 +6,7 @@ api_authentication.go
 api_cloud_nodes.go
 api_cloud_resources.go
 api_cloud_scanner.go
+api_common.go
 api_compliance.go
 api_controls.go
 api_diagnosis.go
@@ -32,6 +33,7 @@ docs/AuthenticationAPI.md
 docs/CloudNodesAPI.md
 docs/CloudResourcesAPI.md
 docs/CloudScannerAPI.md
+docs/CommonAPI.md
 docs/ComplianceAPI.md
 docs/ControlsAPI.md
 docs/ControlsAction.md
@@ -55,8 +57,10 @@ docs/GraphTopologyFilters.md
 docs/GraphVulnerabilityThreatGraph.md
 docs/GraphVulnerabilityThreatGraphRequest.md
 docs/IngestersCloudCompliance.md
+docs/IngestersCloudComplianceScanStatus.md
 docs/IngestersCloudResource.md
 docs/IngestersCompliance.md
+docs/IngestersComplianceStats.md
 docs/IngestersMalware.md
 docs/IngestersMalwareScanStatus.md
 docs/IngestersMetaRules.md
@@ -127,6 +131,8 @@ docs/ModelLoginRequest.md
 docs/ModelLoginResponse.md
 docs/ModelMalware.md
 docs/ModelMalwareScanResult.md
+docs/ModelMalwareScanResultClass.md
+docs/ModelMalwareScanResultRules.md
 docs/ModelMalwareScanTriggerReq.md
 docs/ModelMessageResponse.md
 docs/ModelNodeIdentifier.md
@@ -161,6 +167,7 @@ docs/ModelScanStatusResp.md
 docs/ModelScanTriggerResp.md
 docs/ModelSecret.md
 docs/ModelSecretScanResult.md
+docs/ModelSecretScanResultRules.md
 docs/ModelSecretScanTriggerReq.md
 docs/ModelSettingUpdateRequest.md
 docs/ModelSettingsResponse.md
@@ -231,8 +238,10 @@ model_graph_topology_filters.go
 model_graph_vulnerability_threat_graph.go
 model_graph_vulnerability_threat_graph_request.go
 model_ingesters_cloud_compliance.go
+model_ingesters_cloud_compliance_scan_status.go
 model_ingesters_cloud_resource.go
 model_ingesters_compliance.go
+model_ingesters_compliance_stats.go
 model_ingesters_malware.go
 model_ingesters_malware_scan_status.go
 model_ingesters_meta_rules.go
@@ -299,6 +308,8 @@ model_model_login_request.go
 model_model_login_response.go
 model_model_malware.go
 model_model_malware_scan_result.go
+model_model_malware_scan_result_class.go
+model_model_malware_scan_result_rules.go
 model_model_malware_scan_trigger_req.go
 model_model_message_response.go
 model_model_node_identifier.go
@@ -333,6 +344,7 @@ model_model_scan_status_resp.go
 model_model_scan_trigger_resp.go
 model_model_secret.go
 model_model_secret_scan_result.go
+model_model_secret_scan_result_rules.go
 model_model_secret_scan_trigger_req.go
 model_model_setting_update_request.go
 model_model_settings_response.go
@@ -372,6 +384,7 @@ test/api_authentication_test.go
 test/api_cloud_nodes_test.go
 test/api_cloud_resources_test.go
 test/api_cloud_scanner_test.go
+test/api_common_test.go
 test/api_compliance_test.go
 test/api_controls_test.go
 test/api_diagnosis_test.go
