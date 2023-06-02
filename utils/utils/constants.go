@@ -20,6 +20,7 @@ const (
 	COMPLIANCE_SCAN              = "compliance-scan"
 	COMPLIANCE_SCAN_STATUS       = "compliance-scan-status"
 	CLOUD_TRAIL_ALERTS           = "cloudtrail-alert"
+	CLOUD_RESOURCE               = "cloud-resource"
 )
 
 // task names
@@ -163,6 +164,7 @@ var Topics = []string{
 	COMPLIANCE_SCAN, COMPLIANCE_SCAN_STATUS,
 	CLOUD_TRAIL_ALERTS,
 	AUDIT_LOGS,
+	CLOUD_RESOURCE,
 }
 
 // list of task names to create topics
