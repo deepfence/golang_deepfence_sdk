@@ -88,7 +88,7 @@ Class | Method | HTTP request | Description
 *CloudNodesAPI* | [**RegisterCloudNodeAccount**](docs/CloudNodesAPI.md#registercloudnodeaccount) | **Post** /deepfence/cloud-node/account | Register Cloud Node Account
 *CloudResourcesAPI* | [**IngestCloudResources**](docs/CloudResourcesAPI.md#ingestcloudresources) | **Post** /deepfence/ingest/cloud-resources | Ingest Cloud resources
 *CloudScannerAPI* | [**CountResultsCloudComplianceScan**](docs/CloudScannerAPI.md#countresultscloudcompliancescan) | **Post** /deepfence/scan/results/count/cloud-compliance | Get Cloud Compliance Scan Results
-*CloudScannerAPI* | [**IngestCloudComplianceScanStatus**](docs/CloudScannerAPI.md#ingestcloudcompliancescanstatus) | **Post** /deepfence/ingest/cloud-compliance-scan-status | Ingest Cloud Compliances scan status
+*CloudScannerAPI* | [**IngestCloudComplianceScanStatus**](docs/CloudScannerAPI.md#ingestcloudcompliancescanstatus) | **Post** /deepfence/ingest/cloud-compliance-status | Ingest Cloud Compliances scan status
 *CloudScannerAPI* | [**IngestCloudCompliances**](docs/CloudScannerAPI.md#ingestcloudcompliances) | **Post** /deepfence/ingest/cloud-compliance | Ingest Cloud Compliances
 *CloudScannerAPI* | [**ListCloudComplianceScan**](docs/CloudScannerAPI.md#listcloudcompliancescan) | **Post** /deepfence/scan/list/cloud-compliance | Get Cloud Compliance Scans List
 *CloudScannerAPI* | [**ResultsCloudComplianceScan**](docs/CloudScannerAPI.md#resultscloudcompliancescan) | **Post** /deepfence/scan/results/cloud-compliance | Get Cloud Compliance Scan Results

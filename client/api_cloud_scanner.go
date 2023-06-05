@@ -205,7 +205,7 @@ func (a *CloudScannerAPIService) IngestCloudComplianceScanStatusExecute(r ApiIng
 		return nil, &GenericOpenAPIError{error: err.Error()}
 	}
 
-	localVarPath := localBasePath + "/deepfence/ingest/cloud-compliance-scan-status"
+	localVarPath := localBasePath + "/deepfence/ingest/cloud-compliance-status"
 
 	localVarHeaderParams := make(map[string]string)
 	localVarQueryParams := url.Values{}

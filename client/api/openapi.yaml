@@ -1322,7 +1322,7 @@ paths:
       summary: Ingest Cloud Compliances
       tags:
       - Cloud Scanner
-  /deepfence/ingest/cloud-compliance-scan-status:
+  /deepfence/ingest/cloud-compliance-status:
     post:
       description: Ingest Cloud compliances found while scanning cloud provider
       operationId: ingestCloudComplianceScanStatus
