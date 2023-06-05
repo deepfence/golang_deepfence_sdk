@@ -43,6 +43,7 @@ const (
 	ComputeThreatTask         = "compute_threat"
 	SendNotificationTask      = "tasks_send_notification"
 	CloudComplianceTask       = "cloud_compliance"
+	CachePostureProviders     = "cache_posture_providers"
 	ReportCleanUpTask         = "tasks_cleanup_reports"
 )
 
@@ -186,6 +187,7 @@ var Tasks = []string{
 	ComputeThreatTask,
 	SendNotificationTask,
 	CloudComplianceTask,
+	CachePostureProviders,
 	ReportCleanUpTask,
 }
 
