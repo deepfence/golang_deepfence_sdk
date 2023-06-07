@@ -27,13 +27,14 @@ type GraphTopologyFilters struct {
 	KubernetesFilter []string `json:"kubernetes_filter"`
 	PodFilter []string `json:"pod_filter"`
 	RegionFilter []string `json:"region_filter"`
+	SkipConnections bool `json:"skip_connections"`
 }
 
 // NewGraphTopologyFilters instantiates a new GraphTopologyFilters object
 // This constructor will assign default values to properties that have it defined,
 // and makes sure properties required by API are set, but the set of arguments
 // will change when the set of required properties is changed
-func NewGraphTopologyFilters(cloudFilter []string, containerFilter []string, fieldFilters ReportersFieldsFilters, hostFilter []string, kubernetesFilter []string, podFilter []string, regionFilter []string) *GraphTopologyFilters {
+func NewGraphTopologyFilters(cloudFilter []string, containerFilter []string, fieldFilters ReportersFieldsFilters, hostFilter []string, kubernetesFilter []string, podFilter []string, regionFilter []string, skipConnections bool) *GraphTopologyFilters {
 	this := GraphTopologyFilters{}
 	this.CloudFilter = cloudFilter
 	this.ContainerFilter = containerFilter
@@ -42,6 +43,7 @@ func NewGraphTopologyFilters(cloudFilter []string, containerFilter []string, fie
 	this.KubernetesFilter = kubernetesFilter
 	this.PodFilter = podFilter
 	this.RegionFilter = regionFilter
+	this.SkipConnections = skipConnections
 	return &this
 }
 
@@ -233,6 +235,30 @@ func (o *GraphTopologyFilters) SetRegionFilter(v []string) {
 	o.RegionFilter = v
 }
 
+// GetSkipConnections returns the SkipConnections field value
+func (o *GraphTopologyFilters) GetSkipConnections() bool {
+	if o == nil {
+		var ret bool
+		return ret
+	}
+
+	return o.SkipConnections
+}
+
+// GetSkipConnectionsOk returns a tuple with the SkipConnections field value
+// and a boolean to check if the value has been set.
+func (o *GraphTopologyFilters) GetSkipConnectionsOk() (*bool, bool) {
+	if o == nil {
+		return nil, false
+	}
+	return &o.SkipConnections, true
+}
+
+// SetSkipConnections sets field value
+func (o *GraphTopologyFilters) SetSkipConnections(v bool) {
+	o.SkipConnections = v
+}
+
 func (o GraphTopologyFilters) MarshalJSON() ([]byte, error) {
 	toSerialize,err := o.ToMap()
 	if err != nil {
@@ -262,6 +288,7 @@ func (o GraphTopologyFilters) ToMap() (map[string]interface{}, error) {
 	if o.RegionFilter != nil {
 		toSerialize["region_filter"] = o.RegionFilter
 	}
+	toSerialize["skip_connections"] = o.SkipConnections
 	return toSerialize, nil
 }
 

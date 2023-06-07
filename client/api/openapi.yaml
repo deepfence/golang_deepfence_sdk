@@ -8039,6 +8039,7 @@ components:
         region_filter:
         - region_filter
         - region_filter
+        skip_connections: true
       properties:
         cloud_filter:
           items:
@@ -8072,6 +8073,8 @@ components:
             type: string
           nullable: true
           type: array
+        skip_connections:
+          type: boolean
       required:
       - cloud_filter
       - container_filter
@@ -8080,6 +8083,7 @@ components:
       - kubernetes_filter
       - pod_filter
       - region_filter
+      - skip_connections
       type: object
     GraphVulnerabilityThreatGraph:
       example:
