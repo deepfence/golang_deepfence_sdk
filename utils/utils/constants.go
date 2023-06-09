@@ -45,6 +45,7 @@ const (
 	CloudComplianceTask       = "cloud_compliance"
 	CachePostureProviders     = "cache_posture_providers"
 	ReportCleanUpTask         = "tasks_cleanup_reports"
+	LinkCloudResourceTask     = "link_cloud_resource"
 )
 
 const (
@@ -189,6 +190,7 @@ var Tasks = []string{
 	CloudComplianceTask,
 	CachePostureProviders,
 	ReportCleanUpTask,
+	LinkCloudResourceTask,
 }
 
 type ReportType string
