@@ -1,6 +1,21 @@
 package utils
 
-import "encoding/json"
+import (
+	"encoding/json"
+	"encoding/xml"
+)
+
+type MinioError struct {
+	XMLName    xml.Name `xml:"Error"`
+	Text       string   `xml:",chardata"`
+	Code       string   `xml:"Code"`
+	Message    string   `xml:"Message"`
+	Key        string   `xml:"Key"`
+	BucketName string   `xml:"BucketName"`
+	Resource   string   `xml:"Resource"`
+	RequestId  string   `xml:"RequestId"`
+	HostId     string   `xml:"HostId"`
+}
 
 type ScanSbomRequest struct {
 	SbomParameters
