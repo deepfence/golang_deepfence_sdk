@@ -1322,7 +1322,7 @@ paths:
       summary: Ingest Cloud Compliances
       tags:
       - Cloud Scanner
-  /deepfence/ingest/cloud-compliance-status:
+  /deepfence/ingest/cloud-compliance-scan-status:
     post:
       description: Ingest Cloud compliances found while scanning cloud provider
       operationId: ingestCloudComplianceScanStatus
@@ -8039,7 +8039,6 @@ components:
         region_filter:
         - region_filter
         - region_filter
-        skip_connections: true
       properties:
         cloud_filter:
           items:
@@ -8073,8 +8072,6 @@ components:
             type: string
           nullable: true
           type: array
-        skip_connections:
-          type: boolean
       required:
       - cloud_filter
       - container_filter
@@ -8083,7 +8080,6 @@ components:
       - kubernetes_filter
       - pod_filter
       - region_filter
-      - skip_connections
       type: object
     GraphVulnerabilityThreatGraph:
       example:

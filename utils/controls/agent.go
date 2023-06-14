@@ -124,6 +124,10 @@ type Action struct {
 	RequestPayload string   `json:"request_payload" required:"true"`
 }
 
+type AgentBeat struct {
+	BeatRateSec int32 `json:"beatrate" required:"true"`
+}
+
 type AgentControls struct {
 	BeatRateSec int32    `json:"beatrate" required:"true"`
 	Commands    []Action `json:"commands" required:"true"`
