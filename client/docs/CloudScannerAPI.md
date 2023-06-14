@@ -5,7 +5,7 @@ All URIs are relative to *http://localhost*
 Method | HTTP request | Description
 ------------- | ------------- | -------------
 [**CountResultsCloudComplianceScan**](CloudScannerAPI.md#CountResultsCloudComplianceScan) | **Post** /deepfence/scan/results/count/cloud-compliance | Get Cloud Compliance Scan Results
-[**IngestCloudComplianceScanStatus**](CloudScannerAPI.md#IngestCloudComplianceScanStatus) | **Post** /deepfence/ingest/cloud-compliance-status | Ingest Cloud Compliances scan status
+[**IngestCloudComplianceScanStatus**](CloudScannerAPI.md#IngestCloudComplianceScanStatus) | **Post** /deepfence/ingest/cloud-compliance-scan-status | Ingest Cloud Compliances scan status
 [**IngestCloudCompliances**](CloudScannerAPI.md#IngestCloudCompliances) | **Post** /deepfence/ingest/cloud-compliance | Ingest Cloud Compliances
 [**ListCloudComplianceScan**](CloudScannerAPI.md#ListCloudComplianceScan) | **Post** /deepfence/scan/list/cloud-compliance | Get Cloud Compliance Scans List
 [**ResultsCloudComplianceScan**](CloudScannerAPI.md#ResultsCloudComplianceScan) | **Post** /deepfence/scan/results/cloud-compliance | Get Cloud Compliance Scan Results
