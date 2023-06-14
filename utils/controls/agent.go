@@ -13,6 +13,9 @@ const (
 	StartMalwareScan
 	StartAgentUpgrade
 	SendAgentDiagnosticLogs
+	StartAgentPlugin
+	StopAgentPlugin
+	UpgradeAgentPlugin
 )
 
 type ScanResource int
@@ -117,6 +120,19 @@ type SendAgentDiagnosticLogsRequest struct {
 type StartAgentUpgradeRequest struct {
 	HomeDirectoryUrl string `json:"home_directory_url" required:"true"`
 	Version          string `json:"version" required:"true"`
+}
+
+type UpgradeAgentPluginRequest struct {
+	PluginName string `json:"plugin_name" required:"true"`
+	BinUrl     string `json:"bin_url" required:"true"`
+}
+
+type StartAgentPluginRequest struct {
+	PluginName string `json:"plugin_name" required:"true"`
+}
+
+type StopAgentPluginRequest struct {
+	PluginName string `json:"plugin_name" required:"true"`
 }
 
 type Action struct {
