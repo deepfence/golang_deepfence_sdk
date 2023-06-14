@@ -260,6 +260,7 @@ Class | Method | HTTP request | Description
  - [ApiDocsFailureResponse](docs/ApiDocsFailureResponse.md)
  - [ApiDocsGraphResult](docs/ApiDocsGraphResult.md)
  - [ControlsAction](docs/ControlsAction.md)
+ - [ControlsAgentBeat](docs/ControlsAgentBeat.md)
  - [ControlsAgentControls](docs/ControlsAgentControls.md)
  - [DetailedConnectionSummary](docs/DetailedConnectionSummary.md)
  - [DetailedNodeSummary](docs/DetailedNodeSummary.md)

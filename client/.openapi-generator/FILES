@@ -37,6 +37,7 @@ docs/CommonAPI.md
 docs/ComplianceAPI.md
 docs/ControlsAPI.md
 docs/ControlsAction.md
+docs/ControlsAgentBeat.md
 docs/ControlsAgentControls.md
 docs/DetailedConnectionSummary.md
 docs/DetailedNodeSummary.md
@@ -219,6 +220,7 @@ model_api_docs_bad_request_response.go
 model_api_docs_failure_response.go
 model_api_docs_graph_result.go
 model_controls_action.go
+model_controls_agent_beat.go
 model_controls_agent_controls.go
 model_detailed_connection_summary.go
 model_detailed_node_summary.go

@@ -11,12 +11,13 @@ Name | Type | Description | Notes
 **KubernetesFilter** | **[]string** |  | 
 **PodFilter** | **[]string** |  | 
 **RegionFilter** | **[]string** |  | 
+**SkipConnections** | **bool** |  | 
 
 ## Methods
 
 ### NewGraphTopologyFilters
 
-`func NewGraphTopologyFilters(cloudFilter []string, containerFilter []string, fieldFilters ReportersFieldsFilters, hostFilter []string, kubernetesFilter []string, podFilter []string, regionFilter []string, ) *GraphTopologyFilters`
+`func NewGraphTopologyFilters(cloudFilter []string, containerFilter []string, fieldFilters ReportersFieldsFilters, hostFilter []string, kubernetesFilter []string, podFilter []string, regionFilter []string, skipConnections bool, ) *GraphTopologyFilters`
 
 NewGraphTopologyFilters instantiates a new GraphTopologyFilters object
 This constructor will assign default values to properties that have it defined,
@@ -231,6 +232,26 @@ SetRegionFilter sets RegionFilter field to given value.
 `func (o *GraphTopologyFilters) UnsetRegionFilter()`
 
 UnsetRegionFilter ensures that no value is present for RegionFilter, not even an explicit nil
+### GetSkipConnections
+
+`func (o *GraphTopologyFilters) GetSkipConnections() bool`
+
+GetSkipConnections returns the SkipConnections field if non-nil, zero value otherwise.
+
+### GetSkipConnectionsOk
+
+`func (o *GraphTopologyFilters) GetSkipConnectionsOk() (*bool, bool)`
+
+GetSkipConnectionsOk returns a tuple with the SkipConnections field if it's non-nil, zero value otherwise
+and a boolean to check if the value has been set.
+
+### SetSkipConnections
+
+`func (o *GraphTopologyFilters) SetSkipConnections(v bool)`
+
+SetSkipConnections sets SkipConnections field to given value.
+
+
 
 [[Back to Model list]](../README.md#documentation-for-models) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to README]](../README.md)
 

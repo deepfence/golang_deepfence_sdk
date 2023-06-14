@@ -1322,7 +1322,7 @@ paths:
       summary: Ingest Cloud Compliances
       tags:
       - Cloud Scanner
-  /deepfence/ingest/cloud-compliance-scan-status:
+  /deepfence/ingest/cloud-compliance-status:
     post:
       description: Ingest Cloud compliances found while scanning cloud provider
       operationId: ingestCloudComplianceScanStatus
@@ -1543,6 +1543,10 @@ paths:
               $ref: '#/components/schemas/ReportRawReport'
       responses:
         "200":
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ControlsAgentBeat'
           description: OK
         "400":
           content:
@@ -4863,8 +4867,8 @@ paths:
             schema:
               $ref: '#/components/schemas/ModelBulkDeleteScansRequest'
       responses:
-        "200":
-          description: OK
+        "204":
+          description: No Content
         "400":
           content:
             application/json:
@@ -7533,6 +7537,15 @@ components:
       type: object
     ControlsActionID:
       type: integer
+    ControlsAgentBeat:
+      example:
+        beatrate: 0
+      properties:
+        beatrate:
+          type: integer
+      required:
+      - beatrate
+      type: object
     ControlsAgentControls:
       example:
         beatrate: 0
@@ -8039,6 +8052,7 @@ components:
         region_filter:
         - region_filter
         - region_filter
+        skip_connections: true
       properties:
         cloud_filter:
           items:
@@ -8072,6 +8086,8 @@ components:
             type: string
           nullable: true
           type: array
+        skip_connections:
+          type: boolean
       required:
       - cloud_filter
       - container_filter
@@ -8080,6 +8096,7 @@ components:
       - kubernetes_filter
       - pod_filter
       - region_filter
+      - skip_connections
       type: object
     GraphVulnerabilityThreatGraph:
       example:
@@ -9574,18 +9591,20 @@ components:
     ModelCloudNodeProvidersListResp:
       example:
         providers:
-        - compliance_percentage: 0.8008281904610115
+        - node_count_inactive: 1
+          compliance_percentage: 0.8008281904610115
           node_label: node_label
           name: name
           scan_count: 5
           node_count: 6
-          resource_count: 1
-        - compliance_percentage: 0.8008281904610115
+          resource_count: 5
+        - node_count_inactive: 1
+          compliance_percentage: 0.8008281904610115
           node_label: node_label
           name: name
           scan_count: 5
           node_count: 6
-          resource_count: 1
+          resource_count: 5
       properties:
         providers:
           items:
@@ -13747,18 +13766,21 @@ components:
       type: object
     ModelPostureProvider:
       example:
+        node_count_inactive: 1
         compliance_percentage: 0.8008281904610115
         node_label: node_label
         name: name
         scan_count: 5
         node_count: 6
-        resource_count: 1
+        resource_count: 5
       properties:
         compliance_percentage:
           type: number
         name:
           type: string
         node_count:
+          type: integer
+        node_count_inactive:
           type: integer
         node_label:
           type: string

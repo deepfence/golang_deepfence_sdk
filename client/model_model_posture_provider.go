@@ -23,6 +23,7 @@ type ModelPostureProvider struct {
 	CompliancePercentage *float32 `json:"compliance_percentage,omitempty"`
 	Name *string `json:"name,omitempty"`
 	NodeCount *int32 `json:"node_count,omitempty"`
+	NodeCountInactive *int32 `json:"node_count_inactive,omitempty"`
 	NodeLabel *string `json:"node_label,omitempty"`
 	ResourceCount *int32 `json:"resource_count,omitempty"`
 	ScanCount *int32 `json:"scan_count,omitempty"`
@@ -141,6 +142,38 @@ func (o *ModelPostureProvider) SetNodeCount(v int32) {
 	o.NodeCount = &v
 }
 
+// GetNodeCountInactive returns the NodeCountInactive field value if set, zero value otherwise.
+func (o *ModelPostureProvider) GetNodeCountInactive() int32 {
+	if o == nil || IsNil(o.NodeCountInactive) {
+		var ret int32
+		return ret
+	}
+	return *o.NodeCountInactive
+}
+
+// GetNodeCountInactiveOk returns a tuple with the NodeCountInactive field value if set, nil otherwise
+// and a boolean to check if the value has been set.
+func (o *ModelPostureProvider) GetNodeCountInactiveOk() (*int32, bool) {
+	if o == nil || IsNil(o.NodeCountInactive) {
+		return nil, false
+	}
+	return o.NodeCountInactive, true
+}
+
+// HasNodeCountInactive returns a boolean if a field has been set.
+func (o *ModelPostureProvider) HasNodeCountInactive() bool {
+	if o != nil && !IsNil(o.NodeCountInactive) {
+		return true
+	}
+
+	return false
+}
+
+// SetNodeCountInactive gets a reference to the given int32 and assigns it to the NodeCountInactive field.
+func (o *ModelPostureProvider) SetNodeCountInactive(v int32) {
+	o.NodeCountInactive = &v
+}
+
 // GetNodeLabel returns the NodeLabel field value if set, zero value otherwise.
 func (o *ModelPostureProvider) GetNodeLabel() string {
 	if o == nil || IsNil(o.NodeLabel) {
@@ -255,6 +288,9 @@ func (o ModelPostureProvider) ToMap() (map[string]interface{}, error) {
 	}
 	if !IsNil(o.NodeCount) {
 		toSerialize["node_count"] = o.NodeCount
+	}
+	if !IsNil(o.NodeCountInactive) {
+		toSerialize["node_count_inactive"] = o.NodeCountInactive
 	}
 	if !IsNil(o.NodeLabel) {
 		toSerialize["node_label"] = o.NodeLabel
