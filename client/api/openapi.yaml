@@ -1543,6 +1543,10 @@ paths:
               $ref: '#/components/schemas/ReportRawReport'
       responses:
         "200":
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ControlsAgentBeat'
           description: OK
         "400":
           content:
@@ -7797,6 +7801,15 @@ components:
       type: object
     ControlsActionID:
       type: integer
+    ControlsAgentBeat:
+      example:
+        beatrate: 0
+      properties:
+        beatrate:
+          type: integer
+      required:
+      - beatrate
+      type: object
     ControlsAgentControls:
       example:
         beatrate: 0
