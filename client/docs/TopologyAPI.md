@@ -35,7 +35,7 @@ import (
 )
 
 func main() {
-    graphTopologyFilters := *openapiclient.NewGraphTopologyFilters([]string{"CloudFilter_example"}, []string{"ContainerFilter_example"}, *openapiclient.NewReportersFieldsFilters([]openapiclient.ReportersCompareFilter{*openapiclient.NewReportersCompareFilter("FieldName_example", interface{}(123), false)}, *openapiclient.NewReportersContainsFilter(map[string][]interface{}{"key": []interface{}{nil}}), *openapiclient.NewReportersMatchFilter(map[string][]interface{}{"key": []interface{}{nil}}), *openapiclient.NewReportersOrderFilter([]openapiclient.ReportersOrderSpec{*openapiclient.NewReportersOrderSpec(false, "FieldName_example")})), []string{"HostFilter_example"}, []string{"KubernetesFilter_example"}, []string{"PodFilter_example"}, []string{"RegionFilter_example"}) // GraphTopologyFilters |  (optional)
+    graphTopologyFilters := *openapiclient.NewGraphTopologyFilters([]string{"CloudFilter_example"}, []string{"ContainerFilter_example"}, *openapiclient.NewReportersFieldsFilters([]openapiclient.ReportersCompareFilter{*openapiclient.NewReportersCompareFilter("FieldName_example", interface{}(123), false)}, *openapiclient.NewReportersContainsFilter(map[string][]interface{}{"key": []interface{}{nil}}), *openapiclient.NewReportersMatchFilter(map[string][]interface{}{"key": []interface{}{nil}}), *openapiclient.NewReportersOrderFilter([]openapiclient.ReportersOrderSpec{*openapiclient.NewReportersOrderSpec(false, "FieldName_example")})), []string{"HostFilter_example"}, []string{"KubernetesFilter_example"}, []string{"PodFilter_example"}, []string{"RegionFilter_example"}, false) // GraphTopologyFilters |  (optional)
 
     configuration := openapiclient.NewConfiguration()
     apiClient := openapiclient.NewAPIClient(configuration)
@@ -101,7 +101,7 @@ import (
 )
 
 func main() {
-    graphTopologyFilters := *openapiclient.NewGraphTopologyFilters([]string{"CloudFilter_example"}, []string{"ContainerFilter_example"}, *openapiclient.NewReportersFieldsFilters([]openapiclient.ReportersCompareFilter{*openapiclient.NewReportersCompareFilter("FieldName_example", interface{}(123), false)}, *openapiclient.NewReportersContainsFilter(map[string][]interface{}{"key": []interface{}{nil}}), *openapiclient.NewReportersMatchFilter(map[string][]interface{}{"key": []interface{}{nil}}), *openapiclient.NewReportersOrderFilter([]openapiclient.ReportersOrderSpec{*openapiclient.NewReportersOrderSpec(false, "FieldName_example")})), []string{"HostFilter_example"}, []string{"KubernetesFilter_example"}, []string{"PodFilter_example"}, []string{"RegionFilter_example"}) // GraphTopologyFilters |  (optional)
+    graphTopologyFilters := *openapiclient.NewGraphTopologyFilters([]string{"CloudFilter_example"}, []string{"ContainerFilter_example"}, *openapiclient.NewReportersFieldsFilters([]openapiclient.ReportersCompareFilter{*openapiclient.NewReportersCompareFilter("FieldName_example", interface{}(123), false)}, *openapiclient.NewReportersContainsFilter(map[string][]interface{}{"key": []interface{}{nil}}), *openapiclient.NewReportersMatchFilter(map[string][]interface{}{"key": []interface{}{nil}}), *openapiclient.NewReportersOrderFilter([]openapiclient.ReportersOrderSpec{*openapiclient.NewReportersOrderSpec(false, "FieldName_example")})), []string{"HostFilter_example"}, []string{"KubernetesFilter_example"}, []string{"PodFilter_example"}, []string{"RegionFilter_example"}, false) // GraphTopologyFilters |  (optional)
 
     configuration := openapiclient.NewConfiguration()
     apiClient := openapiclient.NewAPIClient(configuration)
@@ -167,7 +167,7 @@ import (
 )
 
 func main() {
-    graphTopologyFilters := *openapiclient.NewGraphTopologyFilters([]string{"CloudFilter_example"}, []string{"ContainerFilter_example"}, *openapiclient.NewReportersFieldsFilters([]openapiclient.ReportersCompareFilter{*openapiclient.NewReportersCompareFilter("FieldName_example", interface{}(123), false)}, *openapiclient.NewReportersContainsFilter(map[string][]interface{}{"key": []interface{}{nil}}), *openapiclient.NewReportersMatchFilter(map[string][]interface{}{"key": []interface{}{nil}}), *openapiclient.NewReportersOrderFilter([]openapiclient.ReportersOrderSpec{*openapiclient.NewReportersOrderSpec(false, "FieldName_example")})), []string{"HostFilter_example"}, []string{"KubernetesFilter_example"}, []string{"PodFilter_example"}, []string{"RegionFilter_example"}) // GraphTopologyFilters |  (optional)
+    graphTopologyFilters := *openapiclient.NewGraphTopologyFilters([]string{"CloudFilter_example"}, []string{"ContainerFilter_example"}, *openapiclient.NewReportersFieldsFilters([]openapiclient.ReportersCompareFilter{*openapiclient.NewReportersCompareFilter("FieldName_example", interface{}(123), false)}, *openapiclient.NewReportersContainsFilter(map[string][]interface{}{"key": []interface{}{nil}}), *openapiclient.NewReportersMatchFilter(map[string][]interface{}{"key": []interface{}{nil}}), *openapiclient.NewReportersOrderFilter([]openapiclient.ReportersOrderSpec{*openapiclient.NewReportersOrderSpec(false, "FieldName_example")})), []string{"HostFilter_example"}, []string{"KubernetesFilter_example"}, []string{"PodFilter_example"}, []string{"RegionFilter_example"}, false) // GraphTopologyFilters |  (optional)
 
     configuration := openapiclient.NewConfiguration()
     apiClient := openapiclient.NewAPIClient(configuration)
@@ -233,7 +233,7 @@ import (
 )
 
 func main() {
-    graphTopologyFilters := *openapiclient.NewGraphTopologyFilters([]string{"CloudFilter_example"}, []string{"ContainerFilter_example"}, *openapiclient.NewReportersFieldsFilters([]openapiclient.ReportersCompareFilter{*openapiclient.NewReportersCompareFilter("FieldName_example", interface{}(123), false)}, *openapiclient.NewReportersContainsFilter(map[string][]interface{}{"key": []interface{}{nil}}), *openapiclient.NewReportersMatchFilter(map[string][]interface{}{"key": []interface{}{nil}}), *openapiclient.NewReportersOrderFilter([]openapiclient.ReportersOrderSpec{*openapiclient.NewReportersOrderSpec(false, "FieldName_example")})), []string{"HostFilter_example"}, []string{"KubernetesFilter_example"}, []string{"PodFilter_example"}, []string{"RegionFilter_example"}) // GraphTopologyFilters |  (optional)
+    graphTopologyFilters := *openapiclient.NewGraphTopologyFilters([]string{"CloudFilter_example"}, []string{"ContainerFilter_example"}, *openapiclient.NewReportersFieldsFilters([]openapiclient.ReportersCompareFilter{*openapiclient.NewReportersCompareFilter("FieldName_example", interface{}(123), false)}, *openapiclient.NewReportersContainsFilter(map[string][]interface{}{"key": []interface{}{nil}}), *openapiclient.NewReportersMatchFilter(map[string][]interface{}{"key": []interface{}{nil}}), *openapiclient.NewReportersOrderFilter([]openapiclient.ReportersOrderSpec{*openapiclient.NewReportersOrderSpec(false, "FieldName_example")})), []string{"HostFilter_example"}, []string{"KubernetesFilter_example"}, []string{"PodFilter_example"}, []string{"RegionFilter_example"}, false) // GraphTopologyFilters |  (optional)
 
     configuration := openapiclient.NewConfiguration()
     apiClient := openapiclient.NewAPIClient(configuration)
@@ -299,7 +299,7 @@ import (
 )
 
 func main() {
-    graphTopologyFilters := *openapiclient.NewGraphTopologyFilters([]string{"CloudFilter_example"}, []string{"ContainerFilter_example"}, *openapiclient.NewReportersFieldsFilters([]openapiclient.ReportersCompareFilter{*openapiclient.NewReportersCompareFilter("FieldName_example", interface{}(123), false)}, *openapiclient.NewReportersContainsFilter(map[string][]interface{}{"key": []interface{}{nil}}), *openapiclient.NewReportersMatchFilter(map[string][]interface{}{"key": []interface{}{nil}}), *openapiclient.NewReportersOrderFilter([]openapiclient.ReportersOrderSpec{*openapiclient.NewReportersOrderSpec(false, "FieldName_example")})), []string{"HostFilter_example"}, []string{"KubernetesFilter_example"}, []string{"PodFilter_example"}, []string{"RegionFilter_example"}) // GraphTopologyFilters |  (optional)
+    graphTopologyFilters := *openapiclient.NewGraphTopologyFilters([]string{"CloudFilter_example"}, []string{"ContainerFilter_example"}, *openapiclient.NewReportersFieldsFilters([]openapiclient.ReportersCompareFilter{*openapiclient.NewReportersCompareFilter("FieldName_example", interface{}(123), false)}, *openapiclient.NewReportersContainsFilter(map[string][]interface{}{"key": []interface{}{nil}}), *openapiclient.NewReportersMatchFilter(map[string][]interface{}{"key": []interface{}{nil}}), *openapiclient.NewReportersOrderFilter([]openapiclient.ReportersOrderSpec{*openapiclient.NewReportersOrderSpec(false, "FieldName_example")})), []string{"HostFilter_example"}, []string{"KubernetesFilter_example"}, []string{"PodFilter_example"}, []string{"RegionFilter_example"}, false) // GraphTopologyFilters |  (optional)
 
     configuration := openapiclient.NewConfiguration()
     apiClient := openapiclient.NewAPIClient(configuration)
@@ -346,7 +346,7 @@ Name | Type | Description  | Notes
 
 ## IngestAgentReport
 
-> IngestAgentReport(ctx).ReportRawReport(reportRawReport).Execute()
+> ControlsAgentBeat IngestAgentReport(ctx).ReportRawReport(reportRawReport).Execute()
 
 Ingest Topology Data
 
@@ -369,11 +369,13 @@ func main() {
 
     configuration := openapiclient.NewConfiguration()
     apiClient := openapiclient.NewAPIClient(configuration)
-    r, err := apiClient.TopologyAPI.IngestAgentReport(context.Background()).ReportRawReport(reportRawReport).Execute()
+    resp, r, err := apiClient.TopologyAPI.IngestAgentReport(context.Background()).ReportRawReport(reportRawReport).Execute()
     if err != nil {
         fmt.Fprintf(os.Stderr, "Error when calling `TopologyAPI.IngestAgentReport``: %v\n", err)
         fmt.Fprintf(os.Stderr, "Full HTTP response: %v\n", r)
     }
+    // response from `IngestAgentReport`: ControlsAgentBeat
+    fmt.Fprintf(os.Stdout, "Response from `TopologyAPI.IngestAgentReport`: %v\n", resp)
 }
 ```
 
@@ -392,7 +394,7 @@ Name | Type | Description  | Notes
 
 ### Return type
 
- (empty response body)
+[**ControlsAgentBeat**](ControlsAgentBeat.md)
 
 ### Authorization
 

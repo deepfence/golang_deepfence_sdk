@@ -101,7 +101,9 @@ Class | Method | HTTP request | Description
 *ComplianceAPI* | [**StartComplianceScan**](docs/ComplianceAPI.md#startcompliancescan) | **Post** /deepfence/scan/start/compliance | Start Compliance Scan
 *ComplianceAPI* | [**StatusComplianceScan**](docs/ComplianceAPI.md#statuscompliancescan) | **Post** /deepfence/scan/status/compliance | Get Compliance Scan Status
 *ComplianceAPI* | [**StopComplianceScan**](docs/ComplianceAPI.md#stopcompliancescan) | **Post** /deepfence/scan/stop/compliance | Stop Compliance Scan
+*ControlsAPI* | [**DisableAgentPlugin**](docs/ControlsAPI.md#disableagentplugin) | **Post** /deepfence/controls/agent-plugins/disable | Schedule new agent plugin version disabling
 *ControlsAPI* | [**DisableCloudNodeControls**](docs/ControlsAPI.md#disablecloudnodecontrols) | **Post** /deepfence/controls/cloud-node/disable | Disable Cloud Node Controls
+*ControlsAPI* | [**EnableAgentPlugin**](docs/ControlsAPI.md#enableagentplugin) | **Post** /deepfence/controls/agent-plugins/enable | Schedule new agent plugin version enabling
 *ControlsAPI* | [**EnableCloudNodeControls**](docs/ControlsAPI.md#enablecloudnodecontrols) | **Post** /deepfence/controls/cloud-node/enable | Enable Cloud Node Controls
 *ControlsAPI* | [**GetAgentControls**](docs/ControlsAPI.md#getagentcontrols) | **Post** /deepfence/controls/agent | Fetch Agent Actions
 *ControlsAPI* | [**GetAgentInitControls**](docs/ControlsAPI.md#getagentinitcontrols) | **Post** /deepfence/controls/agent-init | Fetch Agent Init Actions
@@ -297,6 +299,8 @@ Class | Method | HTTP request | Description
  - [IngestersVulnerabilityScanStatus](docs/IngestersVulnerabilityScanStatus.md)
  - [LookupLookupFilter](docs/LookupLookupFilter.md)
  - [ModelAgentId](docs/ModelAgentId.md)
+ - [ModelAgentPluginDisable](docs/ModelAgentPluginDisable.md)
+ - [ModelAgentPluginEnable](docs/ModelAgentPluginEnable.md)
  - [ModelAgentUpgrade](docs/ModelAgentUpgrade.md)
  - [ModelApiAuthRequest](docs/ModelApiAuthRequest.md)
  - [ModelApiTokenResponse](docs/ModelApiTokenResponse.md)
