@@ -79,6 +79,8 @@ docs/LookupAPI.md
 docs/LookupLookupFilter.md
 docs/MalwareScanAPI.md
 docs/ModelAgentId.md
+docs/ModelAgentPluginDisable.md
+docs/ModelAgentPluginEnable.md
 docs/ModelAgentUpgrade.md
 docs/ModelApiAuthRequest.md
 docs/ModelApiTokenResponse.md
@@ -260,6 +262,8 @@ model_ingesters_vulnerability.go
 model_ingesters_vulnerability_scan_status.go
 model_lookup_lookup_filter.go
 model_model_agent_id.go
+model_model_agent_plugin_disable.go
+model_model_agent_plugin_enable.go
 model_model_agent_upgrade.go
 model_model_api_auth_request.go
 model_model_api_token_response.go

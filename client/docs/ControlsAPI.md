@@ -4,7 +4,9 @@ All URIs are relative to *http://localhost*
 
 Method | HTTP request | Description
 ------------- | ------------- | -------------
+[**DisableAgentPlugin**](ControlsAPI.md#DisableAgentPlugin) | **Post** /deepfence/controls/agent-plugins/disable | Schedule new agent plugin version disabling
 [**DisableCloudNodeControls**](ControlsAPI.md#DisableCloudNodeControls) | **Post** /deepfence/controls/cloud-node/disable | Disable Cloud Node Controls
+[**EnableAgentPlugin**](ControlsAPI.md#EnableAgentPlugin) | **Post** /deepfence/controls/agent-plugins/enable | Schedule new agent plugin version enabling
 [**EnableCloudNodeControls**](ControlsAPI.md#EnableCloudNodeControls) | **Post** /deepfence/controls/cloud-node/enable | Enable Cloud Node Controls
 [**GetAgentControls**](ControlsAPI.md#GetAgentControls) | **Post** /deepfence/controls/agent | Fetch Agent Actions
 [**GetAgentInitControls**](ControlsAPI.md#GetAgentInitControls) | **Post** /deepfence/controls/agent-init | Fetch Agent Init Actions
@@ -12,6 +14,70 @@ Method | HTTP request | Description
 [**GetKubernetesClusterControls**](ControlsAPI.md#GetKubernetesClusterControls) | **Post** /deepfence/controls/kubernetes-cluster | Fetch Kubernetes Cluster Actions
 [**UpgradeAgentVersion**](ControlsAPI.md#UpgradeAgentVersion) | **Post** /deepfence/controls/agent-upgrade | Schedule new agent version upgrade
 
+
+
+## DisableAgentPlugin
+
+> DisableAgentPlugin(ctx).ModelAgentPluginDisable(modelAgentPluginDisable).Execute()
+
+Schedule new agent plugin version disabling
+
+
+
+### Example
+
+```go
+package main
+
+import (
+    "context"
+    "fmt"
+    "os"
+    openapiclient "github.com/deepfence/golang_deepfence_sdk/client"
+)
+
+func main() {
+    modelAgentPluginDisable := *openapiclient.NewModelAgentPluginDisable("NodeId_example", "PluginName_example") // ModelAgentPluginDisable |  (optional)
+
+    configuration := openapiclient.NewConfiguration()
+    apiClient := openapiclient.NewAPIClient(configuration)
+    r, err := apiClient.ControlsAPI.DisableAgentPlugin(context.Background()).ModelAgentPluginDisable(modelAgentPluginDisable).Execute()
+    if err != nil {
+        fmt.Fprintf(os.Stderr, "Error when calling `ControlsAPI.DisableAgentPlugin``: %v\n", err)
+        fmt.Fprintf(os.Stderr, "Full HTTP response: %v\n", r)
+    }
+}
+```
+
+### Path Parameters
+
+
+
+### Other Parameters
+
+Other parameters are passed through a pointer to a apiDisableAgentPluginRequest struct via the builder pattern
+
+
+Name | Type | Description  | Notes
+------------- | ------------- | ------------- | -------------
+ **modelAgentPluginDisable** | [**ModelAgentPluginDisable**](ModelAgentPluginDisable.md) |  | 
+
+### Return type
+
+ (empty response body)
+
+### Authorization
+
+[bearer_token](../README.md#bearer_token)
+
+### HTTP request headers
+
+- **Content-Type**: application/json
+- **Accept**: application/json
+
+[[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints)
+[[Back to Model list]](../README.md#documentation-for-models)
+[[Back to README]](../README.md)
 
 
 ## DisableCloudNodeControls
@@ -59,6 +125,70 @@ Other parameters are passed through a pointer to a apiDisableCloudNodeControlsRe
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
  **modelCloudNodeEnableDisableReq** | [**ModelCloudNodeEnableDisableReq**](ModelCloudNodeEnableDisableReq.md) |  | 
+
+### Return type
+
+ (empty response body)
+
+### Authorization
+
+[bearer_token](../README.md#bearer_token)
+
+### HTTP request headers
+
+- **Content-Type**: application/json
+- **Accept**: application/json
+
+[[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints)
+[[Back to Model list]](../README.md#documentation-for-models)
+[[Back to README]](../README.md)
+
+
+## EnableAgentPlugin
+
+> EnableAgentPlugin(ctx).ModelAgentPluginEnable(modelAgentPluginEnable).Execute()
+
+Schedule new agent plugin version enabling
+
+
+
+### Example
+
+```go
+package main
+
+import (
+    "context"
+    "fmt"
+    "os"
+    openapiclient "github.com/deepfence/golang_deepfence_sdk/client"
+)
+
+func main() {
+    modelAgentPluginEnable := *openapiclient.NewModelAgentPluginEnable("NodeId_example", "PluginName_example", "Version_example") // ModelAgentPluginEnable |  (optional)
+
+    configuration := openapiclient.NewConfiguration()
+    apiClient := openapiclient.NewAPIClient(configuration)
+    r, err := apiClient.ControlsAPI.EnableAgentPlugin(context.Background()).ModelAgentPluginEnable(modelAgentPluginEnable).Execute()
+    if err != nil {
+        fmt.Fprintf(os.Stderr, "Error when calling `ControlsAPI.EnableAgentPlugin``: %v\n", err)
+        fmt.Fprintf(os.Stderr, "Full HTTP response: %v\n", r)
+    }
+}
+```
+
+### Path Parameters
+
+
+
+### Other Parameters
+
+Other parameters are passed through a pointer to a apiEnableAgentPluginRequest struct via the builder pattern
+
+
+Name | Type | Description  | Notes
+------------- | ------------- | ------------- | -------------
+ **modelAgentPluginEnable** | [**ModelAgentPluginEnable**](ModelAgentPluginEnable.md) |  | 
 
 ### Return type
 
