@@ -122,16 +122,13 @@ type StartAgentUpgradeRequest struct {
 	Version          string `json:"version" required:"true"`
 }
 
-type UpgradeAgentPluginRequest struct {
+type EnableAgentPluginRequest struct {
 	PluginName string `json:"plugin_name" required:"true"`
+	Version    string `json:"version" required:"true"`
 	BinUrl     string `json:"bin_url" required:"true"`
 }
 
-type StartAgentPluginRequest struct {
-	PluginName string `json:"plugin_name" required:"true"`
-}
-
-type StopAgentPluginRequest struct {
+type DisableAgentPluginRequest struct {
 	PluginName string `json:"plugin_name" required:"true"`
 }
 
