@@ -49,6 +49,7 @@ type IngestersCloudResource struct {
 	InlinePolicies interface{} `json:"inline_policies,omitempty"`
 	InstanceId *string `json:"instance_id,omitempty"`
 	InstanceProfileArns interface{} `json:"instance_profile_arns,omitempty"`
+	InstanceType *string `json:"instance_type,omitempty"`
 	Instances interface{} `json:"instances,omitempty"`
 	IpConfiguration interface{} `json:"ip_configuration,omitempty"`
 	IsEgress *bool `json:"is_egress,omitempty"`
@@ -62,6 +63,8 @@ type IngestersCloudResource struct {
 	Path *string `json:"path,omitempty"`
 	Policy interface{} `json:"policy,omitempty"`
 	PolicyStd interface{} `json:"policy_std,omitempty"`
+	PrivateDnsName *string `json:"private_dns_name,omitempty"`
+	PrivateIpAddress *string `json:"private_ip_address,omitempty"`
 	Privilege *string `json:"privilege,omitempty"`
 	PublicAccess *string `json:"public_access,omitempty"`
 	PublicIpAddress *string `json:"public_ip_address,omitempty"`
@@ -76,6 +79,7 @@ type IngestersCloudResource struct {
 	SecurityGroups interface{} `json:"security_groups,omitempty"`
 	ServiceName *string `json:"service_name,omitempty"`
 	StorageAccountName *string `json:"storage_account_name,omitempty"`
+	Tags interface{} `json:"tags,omitempty"`
 	TargetGroupArn *string `json:"target_group_arn,omitempty"`
 	TargetHealthDescriptions interface{} `json:"target_health_descriptions,omitempty"`
 	TaskDefinition interface{} `json:"task_definition,omitempty"`
@@ -1042,6 +1046,38 @@ func (o *IngestersCloudResource) SetInstanceProfileArns(v interface{}) {
 	o.InstanceProfileArns = v
 }
 
+// GetInstanceType returns the InstanceType field value if set, zero value otherwise.
+func (o *IngestersCloudResource) GetInstanceType() string {
+	if o == nil || IsNil(o.InstanceType) {
+		var ret string
+		return ret
+	}
+	return *o.InstanceType
+}
+
+// GetInstanceTypeOk returns a tuple with the InstanceType field value if set, nil otherwise
+// and a boolean to check if the value has been set.
+func (o *IngestersCloudResource) GetInstanceTypeOk() (*string, bool) {
+	if o == nil || IsNil(o.InstanceType) {
+		return nil, false
+	}
+	return o.InstanceType, true
+}
+
+// HasInstanceType returns a boolean if a field has been set.
+func (o *IngestersCloudResource) HasInstanceType() bool {
+	if o != nil && !IsNil(o.InstanceType) {
+		return true
+	}
+
+	return false
+}
+
+// SetInstanceType gets a reference to the given string and assigns it to the InstanceType field.
+func (o *IngestersCloudResource) SetInstanceType(v string) {
+	o.InstanceType = &v
+}
+
 // GetInstances returns the Instances field value if set, zero value otherwise (both if not set or set to explicit null).
 func (o *IngestersCloudResource) GetInstances() interface{} {
 	if o == nil {
@@ -1462,6 +1498,70 @@ func (o *IngestersCloudResource) HasPolicyStd() bool {
 // SetPolicyStd gets a reference to the given interface{} and assigns it to the PolicyStd field.
 func (o *IngestersCloudResource) SetPolicyStd(v interface{}) {
 	o.PolicyStd = v
+}
+
+// GetPrivateDnsName returns the PrivateDnsName field value if set, zero value otherwise.
+func (o *IngestersCloudResource) GetPrivateDnsName() string {
+	if o == nil || IsNil(o.PrivateDnsName) {
+		var ret string
+		return ret
+	}
+	return *o.PrivateDnsName
+}
+
+// GetPrivateDnsNameOk returns a tuple with the PrivateDnsName field value if set, nil otherwise
+// and a boolean to check if the value has been set.
+func (o *IngestersCloudResource) GetPrivateDnsNameOk() (*string, bool) {
+	if o == nil || IsNil(o.PrivateDnsName) {
+		return nil, false
+	}
+	return o.PrivateDnsName, true
+}
+
+// HasPrivateDnsName returns a boolean if a field has been set.
+func (o *IngestersCloudResource) HasPrivateDnsName() bool {
+	if o != nil && !IsNil(o.PrivateDnsName) {
+		return true
+	}
+
+	return false
+}
+
+// SetPrivateDnsName gets a reference to the given string and assigns it to the PrivateDnsName field.
+func (o *IngestersCloudResource) SetPrivateDnsName(v string) {
+	o.PrivateDnsName = &v
+}
+
+// GetPrivateIpAddress returns the PrivateIpAddress field value if set, zero value otherwise.
+func (o *IngestersCloudResource) GetPrivateIpAddress() string {
+	if o == nil || IsNil(o.PrivateIpAddress) {
+		var ret string
+		return ret
+	}
+	return *o.PrivateIpAddress
+}
+
+// GetPrivateIpAddressOk returns a tuple with the PrivateIpAddress field value if set, nil otherwise
+// and a boolean to check if the value has been set.
+func (o *IngestersCloudResource) GetPrivateIpAddressOk() (*string, bool) {
+	if o == nil || IsNil(o.PrivateIpAddress) {
+		return nil, false
+	}
+	return o.PrivateIpAddress, true
+}
+
+// HasPrivateIpAddress returns a boolean if a field has been set.
+func (o *IngestersCloudResource) HasPrivateIpAddress() bool {
+	if o != nil && !IsNil(o.PrivateIpAddress) {
+		return true
+	}
+
+	return false
+}
+
+// SetPrivateIpAddress gets a reference to the given string and assigns it to the PrivateIpAddress field.
+func (o *IngestersCloudResource) SetPrivateIpAddress(v string) {
+	o.PrivateIpAddress = &v
 }
 
 // GetPrivilege returns the Privilege field value if set, zero value otherwise.
@@ -1914,6 +2014,39 @@ func (o *IngestersCloudResource) HasStorageAccountName() bool {
 // SetStorageAccountName gets a reference to the given string and assigns it to the StorageAccountName field.
 func (o *IngestersCloudResource) SetStorageAccountName(v string) {
 	o.StorageAccountName = &v
+}
+
+// GetTags returns the Tags field value if set, zero value otherwise (both if not set or set to explicit null).
+func (o *IngestersCloudResource) GetTags() interface{} {
+	if o == nil {
+		var ret interface{}
+		return ret
+	}
+	return o.Tags
+}
+
+// GetTagsOk returns a tuple with the Tags field value if set, nil otherwise
+// and a boolean to check if the value has been set.
+// NOTE: If the value is an explicit nil, `nil, true` will be returned
+func (o *IngestersCloudResource) GetTagsOk() (*interface{}, bool) {
+	if o == nil || IsNil(o.Tags) {
+		return nil, false
+	}
+	return &o.Tags, true
+}
+
+// HasTags returns a boolean if a field has been set.
+func (o *IngestersCloudResource) HasTags() bool {
+	if o != nil && IsNil(o.Tags) {
+		return true
+	}
+
+	return false
+}
+
+// SetTags gets a reference to the given interface{} and assigns it to the Tags field.
+func (o *IngestersCloudResource) SetTags(v interface{}) {
+	o.Tags = v
 }
 
 // GetTargetGroupArn returns the TargetGroupArn field value if set, zero value otherwise.
@@ -2372,6 +2505,9 @@ func (o IngestersCloudResource) ToMap() (map[string]interface{}, error) {
 	if o.InstanceProfileArns != nil {
 		toSerialize["instance_profile_arns"] = o.InstanceProfileArns
 	}
+	if !IsNil(o.InstanceType) {
+		toSerialize["instance_type"] = o.InstanceType
+	}
 	if o.Instances != nil {
 		toSerialize["instances"] = o.Instances
 	}
@@ -2410,6 +2546,12 @@ func (o IngestersCloudResource) ToMap() (map[string]interface{}, error) {
 	}
 	if o.PolicyStd != nil {
 		toSerialize["policy_std"] = o.PolicyStd
+	}
+	if !IsNil(o.PrivateDnsName) {
+		toSerialize["private_dns_name"] = o.PrivateDnsName
+	}
+	if !IsNil(o.PrivateIpAddress) {
+		toSerialize["private_ip_address"] = o.PrivateIpAddress
 	}
 	if !IsNil(o.Privilege) {
 		toSerialize["privilege"] = o.Privilege
@@ -2452,6 +2594,9 @@ func (o IngestersCloudResource) ToMap() (map[string]interface{}, error) {
 	}
 	if !IsNil(o.StorageAccountName) {
 		toSerialize["storage_account_name"] = o.StorageAccountName
+	}
+	if o.Tags != nil {
+		toSerialize["tags"] = o.Tags
 	}
 	if !IsNil(o.TargetGroupArn) {
 		toSerialize["target_group_arn"] = o.TargetGroupArn

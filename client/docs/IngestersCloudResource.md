@@ -33,6 +33,7 @@ Name | Type | Description | Notes
 **InlinePolicies** | Pointer to **interface{}** |  | [optional] 
 **InstanceId** | Pointer to **string** |  | [optional] 
 **InstanceProfileArns** | Pointer to **interface{}** |  | [optional] 
+**InstanceType** | Pointer to **string** |  | [optional] 
 **Instances** | Pointer to **interface{}** |  | [optional] 
 **IpConfiguration** | Pointer to **interface{}** |  | [optional] 
 **IsEgress** | Pointer to **bool** |  | [optional] 
@@ -46,6 +47,8 @@ Name | Type | Description | Notes
 **Path** | Pointer to **string** |  | [optional] 
 **Policy** | Pointer to **interface{}** |  | [optional] 
 **PolicyStd** | Pointer to **interface{}** |  | [optional] 
+**PrivateDnsName** | Pointer to **string** |  | [optional] 
+**PrivateIpAddress** | Pointer to **string** |  | [optional] 
 **Privilege** | Pointer to **string** |  | [optional] 
 **PublicAccess** | Pointer to **string** |  | [optional] 
 **PublicIpAddress** | Pointer to **string** |  | [optional] 
@@ -60,6 +63,7 @@ Name | Type | Description | Notes
 **SecurityGroups** | Pointer to **interface{}** |  | [optional] 
 **ServiceName** | Pointer to **string** |  | [optional] 
 **StorageAccountName** | Pointer to **string** |  | [optional] 
+**Tags** | Pointer to **interface{}** |  | [optional] 
 **TargetGroupArn** | Pointer to **string** |  | [optional] 
 **TargetHealthDescriptions** | Pointer to **interface{}** |  | [optional] 
 **TaskDefinition** | Pointer to **interface{}** |  | [optional] 
@@ -896,6 +900,31 @@ HasInstanceProfileArns returns a boolean if a field has been set.
 `func (o *IngestersCloudResource) UnsetInstanceProfileArns()`
 
 UnsetInstanceProfileArns ensures that no value is present for InstanceProfileArns, not even an explicit nil
+### GetInstanceType
+
+`func (o *IngestersCloudResource) GetInstanceType() string`
+
+GetInstanceType returns the InstanceType field if non-nil, zero value otherwise.
+
+### GetInstanceTypeOk
+
+`func (o *IngestersCloudResource) GetInstanceTypeOk() (*string, bool)`
+
+GetInstanceTypeOk returns a tuple with the InstanceType field if it's non-nil, zero value otherwise
+and a boolean to check if the value has been set.
+
+### SetInstanceType
+
+`func (o *IngestersCloudResource) SetInstanceType(v string)`
+
+SetInstanceType sets InstanceType field to given value.
+
+### HasInstanceType
+
+`func (o *IngestersCloudResource) HasInstanceType() bool`
+
+HasInstanceType returns a boolean if a field has been set.
+
 ### GetInstances
 
 `func (o *IngestersCloudResource) GetInstances() interface{}`
@@ -1281,6 +1310,56 @@ HasPolicyStd returns a boolean if a field has been set.
 `func (o *IngestersCloudResource) UnsetPolicyStd()`
 
 UnsetPolicyStd ensures that no value is present for PolicyStd, not even an explicit nil
+### GetPrivateDnsName
+
+`func (o *IngestersCloudResource) GetPrivateDnsName() string`
+
+GetPrivateDnsName returns the PrivateDnsName field if non-nil, zero value otherwise.
+
+### GetPrivateDnsNameOk
+
+`func (o *IngestersCloudResource) GetPrivateDnsNameOk() (*string, bool)`
+
+GetPrivateDnsNameOk returns a tuple with the PrivateDnsName field if it's non-nil, zero value otherwise
+and a boolean to check if the value has been set.
+
+### SetPrivateDnsName
+
+`func (o *IngestersCloudResource) SetPrivateDnsName(v string)`
+
+SetPrivateDnsName sets PrivateDnsName field to given value.
+
+### HasPrivateDnsName
+
+`func (o *IngestersCloudResource) HasPrivateDnsName() bool`
+
+HasPrivateDnsName returns a boolean if a field has been set.
+
+### GetPrivateIpAddress
+
+`func (o *IngestersCloudResource) GetPrivateIpAddress() string`
+
+GetPrivateIpAddress returns the PrivateIpAddress field if non-nil, zero value otherwise.
+
+### GetPrivateIpAddressOk
+
+`func (o *IngestersCloudResource) GetPrivateIpAddressOk() (*string, bool)`
+
+GetPrivateIpAddressOk returns a tuple with the PrivateIpAddress field if it's non-nil, zero value otherwise
+and a boolean to check if the value has been set.
+
+### SetPrivateIpAddress
+
+`func (o *IngestersCloudResource) SetPrivateIpAddress(v string)`
+
+SetPrivateIpAddress sets PrivateIpAddress field to given value.
+
+### HasPrivateIpAddress
+
+`func (o *IngestersCloudResource) HasPrivateIpAddress() bool`
+
+HasPrivateIpAddress returns a boolean if a field has been set.
+
 ### GetPrivilege
 
 `func (o *IngestersCloudResource) GetPrivilege() string`
@@ -1671,6 +1750,41 @@ SetStorageAccountName sets StorageAccountName field to given value.
 
 HasStorageAccountName returns a boolean if a field has been set.
 
+### GetTags
+
+`func (o *IngestersCloudResource) GetTags() interface{}`
+
+GetTags returns the Tags field if non-nil, zero value otherwise.
+
+### GetTagsOk
+
+`func (o *IngestersCloudResource) GetTagsOk() (*interface{}, bool)`
+
+GetTagsOk returns a tuple with the Tags field if it's non-nil, zero value otherwise
+and a boolean to check if the value has been set.
+
+### SetTags
+
+`func (o *IngestersCloudResource) SetTags(v interface{})`
+
+SetTags sets Tags field to given value.
+
+### HasTags
+
+`func (o *IngestersCloudResource) HasTags() bool`
+
+HasTags returns a boolean if a field has been set.
+
+### SetTagsNil
+
+`func (o *IngestersCloudResource) SetTagsNil(b bool)`
+
+ SetTagsNil sets the value for Tags to be an explicit nil
+
+### UnsetTags
+`func (o *IngestersCloudResource) UnsetTags()`
+
+UnsetTags ensures that no value is present for Tags, not even an explicit nil
 ### GetTargetGroupArn
 
 `func (o *IngestersCloudResource) GetTargetGroupArn() string`

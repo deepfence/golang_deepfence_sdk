@@ -7,6 +7,7 @@ Name | Type | Description | Notes
 **CompliancePercentage** | Pointer to **float32** |  | [optional] 
 **Name** | Pointer to **string** |  | [optional] 
 **NodeCount** | Pointer to **int32** |  | [optional] 
+**NodeCountInactive** | Pointer to **int32** |  | [optional] 
 **NodeLabel** | Pointer to **string** |  | [optional] 
 **ResourceCount** | Pointer to **int32** |  | [optional] 
 **ScanCount** | Pointer to **int32** |  | [optional] 
@@ -104,6 +105,31 @@ SetNodeCount sets NodeCount field to given value.
 `func (o *ModelPostureProvider) HasNodeCount() bool`
 
 HasNodeCount returns a boolean if a field has been set.
+
+### GetNodeCountInactive
+
+`func (o *ModelPostureProvider) GetNodeCountInactive() int32`
+
+GetNodeCountInactive returns the NodeCountInactive field if non-nil, zero value otherwise.
+
+### GetNodeCountInactiveOk
+
+`func (o *ModelPostureProvider) GetNodeCountInactiveOk() (*int32, bool)`
+
+GetNodeCountInactiveOk returns a tuple with the NodeCountInactive field if it's non-nil, zero value otherwise
+and a boolean to check if the value has been set.
+
+### SetNodeCountInactive
+
+`func (o *ModelPostureProvider) SetNodeCountInactive(v int32)`
+
+SetNodeCountInactive sets NodeCountInactive field to given value.
+
+### HasNodeCountInactive
+
+`func (o *ModelPostureProvider) HasNodeCountInactive() bool`
+
+HasNodeCountInactive returns a boolean if a field has been set.
 
 ### GetNodeLabel
 

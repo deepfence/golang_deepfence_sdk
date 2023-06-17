@@ -1322,7 +1322,7 @@ paths:
       summary: Ingest Cloud Compliances
       tags:
       - Cloud Scanner
-  /deepfence/ingest/cloud-compliance-scan-status:
+  /deepfence/ingest/cloud-compliance-status:
     post:
       description: Ingest Cloud compliances found while scanning cloud provider
       operationId: ingestCloudComplianceScanStatus
@@ -4863,8 +4863,8 @@ paths:
             schema:
               $ref: '#/components/schemas/ModelBulkDeleteScansRequest'
       responses:
-        "200":
-          description: OK
+        "204":
+          description: No Content
         "400":
           content:
             application/json:
@@ -8039,6 +8039,7 @@ components:
         region_filter:
         - region_filter
         - region_filter
+        skip_connections: true
       properties:
         cloud_filter:
           items:
@@ -8072,6 +8073,8 @@ components:
             type: string
           nullable: true
           type: array
+        skip_connections:
+          type: boolean
       required:
       - cloud_filter
       - container_filter
@@ -8080,6 +8083,7 @@ components:
       - kubernetes_filter
       - pod_filter
       - region_filter
+      - skip_connections
       type: object
     GraphVulnerabilityThreatGraph:
       example:
@@ -8243,6 +8247,7 @@ components:
         target_health_descriptions: ""
         iam_policy: ""
         action: action
+        private_ip_address: private_ip_address
         id: id
         create_date: create_date
         resource_vpc_config: ""
@@ -8256,6 +8261,7 @@ components:
         instance_profile_arns: ""
         users: ""
         network_interfaces: ""
+        tags: ""
         security_groups: ""
         block_public_acls: true
         organization_master_account_email: organization_master_account_email
@@ -8271,6 +8277,7 @@ components:
         containers: ""
         region: region
         container_definitions: ""
+        instance_type: instance_type
         scheme: scheme
         instances: ""
         network_mode: network_mode
@@ -8282,6 +8289,7 @@ components:
         vpc_options: ""
         vpc_security_group_ids: ""
         arn: arn
+        private_dns_name: private_dns_name
         policy: ""
         public_ips: ""
         public_ip_address: public_ip_address
@@ -8349,6 +8357,8 @@ components:
         instance_id:
           type: string
         instance_profile_arns: {}
+        instance_type:
+          type: string
         instances: {}
         ip_configuration: {}
         is_egress:
@@ -8369,6 +8379,10 @@ components:
           type: string
         policy: {}
         policy_std: {}
+        private_dns_name:
+          type: string
+        private_ip_address:
+          type: string
         privilege:
           type: string
         public_access:
@@ -8393,6 +8407,7 @@ components:
           type: string
         storage_account_name:
           type: string
+        tags: {}
         target_group_arn:
           type: string
         target_health_descriptions: {}
@@ -9574,18 +9589,20 @@ components:
     ModelCloudNodeProvidersListResp:
       example:
         providers:
-        - compliance_percentage: 0.8008281904610115
+        - node_count_inactive: 1
+          compliance_percentage: 0.8008281904610115
           node_label: node_label
           name: name
           scan_count: 5
           node_count: 6
-          resource_count: 1
-        - compliance_percentage: 0.8008281904610115
+          resource_count: 5
+        - node_count_inactive: 1
+          compliance_percentage: 0.8008281904610115
           node_label: node_label
           name: name
           scan_count: 5
           node_count: 6
-          resource_count: 1
+          resource_count: 5
       properties:
         providers:
           items:
@@ -13747,18 +13764,21 @@ components:
       type: object
     ModelPostureProvider:
       example:
+        node_count_inactive: 1
         compliance_percentage: 0.8008281904610115
         node_label: node_label
         name: name
         scan_count: 5
         node_count: 6
-        resource_count: 1
+        resource_count: 5
       properties:
         compliance_percentage:
           type: number
         name:
           type: string
         node_count:
+          type: integer
+        node_count_inactive:
           type: integer
         node_label:
           type: string
