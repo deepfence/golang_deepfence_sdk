@@ -20,7 +20,6 @@ var _ MappedNullable = &IngestersCompliance{}
 
 // IngestersCompliance struct for IngestersCompliance
 type IngestersCompliance struct {
-	Timestamp *string `json:"@timestamp,omitempty"`
 	ComplianceCheckType *string `json:"compliance_check_type,omitempty"`
 	Description *string `json:"description,omitempty"`
 	Masked *bool `json:"masked,omitempty"`
@@ -55,38 +54,6 @@ func NewIngestersCompliance() *IngestersCompliance {
 func NewIngestersComplianceWithDefaults() *IngestersCompliance {
 	this := IngestersCompliance{}
 	return &this
-}
-
-// GetTimestamp returns the Timestamp field value if set, zero value otherwise.
-func (o *IngestersCompliance) GetTimestamp() string {
-	if o == nil || IsNil(o.Timestamp) {
-		var ret string
-		return ret
-	}
-	return *o.Timestamp
-}
-
-// GetTimestampOk returns a tuple with the Timestamp field value if set, nil otherwise
-// and a boolean to check if the value has been set.
-func (o *IngestersCompliance) GetTimestampOk() (*string, bool) {
-	if o == nil || IsNil(o.Timestamp) {
-		return nil, false
-	}
-	return o.Timestamp, true
-}
-
-// HasTimestamp returns a boolean if a field has been set.
-func (o *IngestersCompliance) HasTimestamp() bool {
-	if o != nil && !IsNil(o.Timestamp) {
-		return true
-	}
-
-	return false
-}
-
-// SetTimestamp gets a reference to the given string and assigns it to the Timestamp field.
-func (o *IngestersCompliance) SetTimestamp(v string) {
-	o.Timestamp = &v
 }
 
 // GetComplianceCheckType returns the ComplianceCheckType field value if set, zero value otherwise.
@@ -643,9 +610,6 @@ func (o IngestersCompliance) MarshalJSON() ([]byte, error) {
 
 func (o IngestersCompliance) ToMap() (map[string]interface{}, error) {
 	toSerialize := map[string]interface{}{}
-	if !IsNil(o.Timestamp) {
-		toSerialize["@timestamp"] = o.Timestamp
-	}
 	if !IsNil(o.ComplianceCheckType) {
 		toSerialize["compliance_check_type"] = o.ComplianceCheckType
 	}

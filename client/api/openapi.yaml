@@ -5159,6 +5159,51 @@ paths:
       summary: Search Cloud Resources
       tags:
       - Search
+  /deepfence/search/compliance-rules:
+    post:
+      description: Search across all the data associated with compliance rules
+      operationId: searchComplianceRules
+      requestBody:
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/SearchSearchNodeReq'
+      responses:
+        "200":
+          content:
+            application/json:
+              schema:
+                items:
+                  $ref: '#/components/schemas/ModelComplianceRule'
+                type: array
+          description: OK
+        "400":
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ApiDocsBadRequestResponse'
+          description: Bad Request
+        "401":
+          description: Unauthorized
+        "403":
+          description: Forbidden
+        "404":
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ApiDocsFailureResponse'
+          description: Not Found
+        "500":
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ApiDocsFailureResponse'
+          description: Internal Server Error
+      security:
+      - bearer_token: []
+      summary: Search Compliance Rules
+      tags:
+      - Search
   /deepfence/search/compliance/scans:
     post:
       description: Search across all the data associated with compliance scan
@@ -5466,6 +5511,49 @@ paths:
       summary: Count Cloud resources
       tags:
       - Search
+  /deepfence/search/count/compliance-rules:
+    post:
+      description: Count across all the data associated with compliance rules
+      operationId: countComplianceRules
+      requestBody:
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/SearchSearchNodeReq'
+      responses:
+        "200":
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/SearchSearchCountResp'
+          description: OK
+        "400":
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ApiDocsBadRequestResponse'
+          description: Bad Request
+        "401":
+          description: Unauthorized
+        "403":
+          description: Forbidden
+        "404":
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ApiDocsFailureResponse'
+          description: Not Found
+        "500":
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ApiDocsFailureResponse'
+          description: Internal Server Error
+      security:
+      - bearer_token: []
+      summary: Count Compliance Rules
+      tags:
+      - Search
   /deepfence/search/count/compliance/scans:
     post:
       description: Count across all the data associated with compliance scans
@@ -5724,6 +5812,49 @@ paths:
       summary: Count Kubernetes clusters
       tags:
       - Search
+  /deepfence/search/count/malware-rules:
+    post:
+      description: Count across all the data associated with malware rules
+      operationId: countMalwareRules
+      requestBody:
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/SearchSearchNodeReq'
+      responses:
+        "200":
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/SearchSearchCountResp'
+          description: OK
+        "400":
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ApiDocsBadRequestResponse'
+          description: Bad Request
+        "401":
+          description: Unauthorized
+        "403":
+          description: Forbidden
+        "404":
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ApiDocsFailureResponse'
+          description: Not Found
+        "500":
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ApiDocsFailureResponse'
+          description: Internal Server Error
+      security:
+      - bearer_token: []
+      summary: Count Malware Rules
+      tags:
+      - Search
   /deepfence/search/count/malware/scans:
     post:
       description: Count across all the data associated with malware scans
@@ -5889,6 +6020,49 @@ paths:
       security:
       - bearer_token: []
       summary: Count Pods
+      tags:
+      - Search
+  /deepfence/search/count/secret-rules:
+    post:
+      description: Count across all the data associated with secret rules
+      operationId: countSecretRules
+      requestBody:
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/SearchSearchNodeReq'
+      responses:
+        "200":
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/SearchSearchCountResp'
+          description: OK
+        "400":
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ApiDocsBadRequestResponse'
+          description: Bad Request
+        "401":
+          description: Unauthorized
+        "403":
+          description: Forbidden
+        "404":
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ApiDocsFailureResponse'
+          description: Not Found
+        "500":
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ApiDocsFailureResponse'
+          description: Internal Server Error
+      security:
+      - bearer_token: []
+      summary: Count Secret Rules
       tags:
       - Search
   /deepfence/search/count/secret/scans:
@@ -6198,6 +6372,51 @@ paths:
       summary: Search Kuberenetes Clusters
       tags:
       - Search
+  /deepfence/search/malware-rules:
+    post:
+      description: Search across all the data associated with malware rules
+      operationId: searchMalwareRules
+      requestBody:
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/SearchSearchNodeReq'
+      responses:
+        "200":
+          content:
+            application/json:
+              schema:
+                items:
+                  $ref: '#/components/schemas/ModelMalwareRule'
+                type: array
+          description: OK
+        "400":
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ApiDocsBadRequestResponse'
+          description: Bad Request
+        "401":
+          description: Unauthorized
+        "403":
+          description: Forbidden
+        "404":
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ApiDocsFailureResponse'
+          description: Not Found
+        "500":
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ApiDocsFailureResponse'
+          description: Internal Server Error
+      security:
+      - bearer_token: []
+      summary: Search Malware Rules
+      tags:
+      - Search
   /deepfence/search/malware/scans:
     post:
       description: Search across all the data associated with malwares scan
@@ -6331,6 +6550,51 @@ paths:
       security:
       - bearer_token: []
       summary: Search Pods
+      tags:
+      - Search
+  /deepfence/search/secret-rules:
+    post:
+      description: Search across all the data associated with secret ruless
+      operationId: searchSecretRules
+      requestBody:
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/SearchSearchNodeReq'
+      responses:
+        "200":
+          content:
+            application/json:
+              schema:
+                items:
+                  $ref: '#/components/schemas/ModelSecretRule'
+                type: array
+          description: OK
+        "400":
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ApiDocsBadRequestResponse'
+          description: Bad Request
+        "401":
+          description: Unauthorized
+        "403":
+          description: Forbidden
+        "404":
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ApiDocsFailureResponse'
+          description: Not Found
+        "500":
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ApiDocsFailureResponse'
+          description: Internal Server Error
+      security:
+      - bearer_token: []
+      summary: Search Secret Rules
       tags:
       - Search
   /deepfence/search/secret/scans:
@@ -8435,7 +8699,6 @@ components:
         compliance_check_type: compliance_check_type
         test_rationale: test_rationale
         test_severity: test_severity
-        '@timestamp': '@timestamp'
         node_type: node_type
         remediation_puppet: remediation_puppet
         scan_id: scan_id
@@ -8445,8 +8708,6 @@ components:
         test_desc: test_desc
         test_number: test_number
       properties:
-        '@timestamp':
-          type: string
         compliance_check_type:
           type: string
         description:
@@ -8528,6 +8789,7 @@ components:
           filetype: filetype
           rule_name: rule_name
           author: author
+          file_severity: file_severity
           description: description
           version: version
           info: info
@@ -8595,6 +8857,7 @@ components:
         filetype: filetype
         rule_name: rule_name
         author: author
+        file_severity: file_severity
         description: description
         version: version
         info: info
@@ -8604,6 +8867,8 @@ components:
         date:
           type: string
         description:
+          type: string
+        file_severity:
           type: string
         filetype:
           type: string
@@ -8833,6 +9098,7 @@ components:
       type: object
     IngestersVulnerability:
       example:
+        parsed_attack_vector: parsed_attack_vector
         cve_container_layer: cve_container_layer
         masked: true
         cve_description: cve_description
@@ -8851,9 +9117,11 @@ components:
         cve_id: cve_id
         exploit_poc: exploit_poc
         cve_type: cve_type
+        has_live_connection: true
         cve_fixed_in: cve_fixed_in
         scan_id: scan_id
         cve_link: cve_link
+        exploitability_score: 5
       properties:
         '@timestamp':
           type: string
@@ -8885,8 +9153,14 @@ components:
           type: string
         exploit_poc:
           type: string
+        exploitability_score:
+          type: integer
+        has_live_connection:
+          type: boolean
         masked:
           type: boolean
+        parsed_attack_vector:
+          type: string
         scan_id:
           type: string
         type:
@@ -9715,6 +9989,43 @@ components:
       - remediation_script
       - resource
       - status
+      - test_category
+      - test_desc
+      - test_number
+      - test_rationale
+      - test_severity
+      - updated_at
+      type: object
+    ModelComplianceRule:
+      example:
+        test_rationale: test_rationale
+        test_severity: test_severity
+        updated_at: 0
+        masked: true
+        description: description
+        test_category: test_category
+        test_desc: test_desc
+        test_number: test_number
+      properties:
+        description:
+          type: string
+        masked:
+          type: boolean
+        test_category:
+          type: string
+        test_desc:
+          type: string
+        test_number:
+          type: string
+        test_rationale:
+          type: string
+        test_severity:
+          type: string
+        updated_at:
+          type: integer
+      required:
+      - description
+      - masked
       - test_category
       - test_desc
       - test_number
@@ -13303,6 +13614,49 @@ components:
       - rule_id
       - rule_name
       type: object
+    ModelMalwareRule:
+      example:
+        date: date
+        reference: reference
+        rule_id: rule_id
+        filetype: filetype
+        updated_at: 0
+        rule_name: rule_name
+        author: author
+        masked: true
+        file_severity: file_severity
+        description: description
+        version: version
+        info: info
+      properties:
+        author:
+          type: string
+        date:
+          type: string
+        description:
+          type: string
+        file_severity:
+          type: string
+        filetype:
+          type: string
+        info:
+          type: string
+        masked:
+          type: boolean
+        reference:
+          type: string
+        rule_id:
+          type: string
+        rule_name:
+          type: string
+        updated_at:
+          type: integer
+        version:
+          type: string
+      required:
+      - masked
+      - updated_at
+      type: object
     ModelMalwareScanResult:
       example:
         severity_counts:
@@ -14817,6 +15171,35 @@ components:
       - score
       - signature_to_match
       - starting_index
+      - updated_at
+      type: object
+    ModelSecretRule:
+      example:
+        updated_at: 6
+        level: level
+        masked: true
+        part: part
+        name: name
+        signature_to_match: signature_to_match
+        id: 0
+      properties:
+        id:
+          type: integer
+        level:
+          type: string
+        masked:
+          type: boolean
+        name:
+          type: string
+        part:
+          type: string
+        signature_to_match:
+          type: string
+        updated_at:
+          type: integer
+      required:
+      - level
+      - masked
       - updated_at
       type: object
     ModelSecretScanResult:

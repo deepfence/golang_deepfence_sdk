@@ -165,16 +165,19 @@ Class | Method | HTTP request | Description
 *SearchAPI* | [**CountCloudComplianceScans**](docs/SearchAPI.md#countcloudcompliancescans) | **Post** /deepfence/search/count/cloud-compliance/scans | Count Cloud Compliance Scan results
 *SearchAPI* | [**CountCloudCompliances**](docs/SearchAPI.md#countcloudcompliances) | **Post** /deepfence/search/count/cloud-compliances | Count Cloud compliances
 *SearchAPI* | [**CountCloudResources**](docs/SearchAPI.md#countcloudresources) | **Post** /deepfence/search/count/cloud-resources | Count Cloud resources
+*SearchAPI* | [**CountComplianceRules**](docs/SearchAPI.md#countcompliancerules) | **Post** /deepfence/search/count/compliance-rules | Count Compliance Rules
 *SearchAPI* | [**CountComplianceScans**](docs/SearchAPI.md#countcompliancescans) | **Post** /deepfence/search/count/compliance/scans | Count Compliance Scan results
 *SearchAPI* | [**CountCompliances**](docs/SearchAPI.md#countcompliances) | **Post** /deepfence/search/count/compliances | Count Compliances
 *SearchAPI* | [**CountContainerImages**](docs/SearchAPI.md#countcontainerimages) | **Post** /deepfence/search/count/images | Count Container images
 *SearchAPI* | [**CountContainers**](docs/SearchAPI.md#countcontainers) | **Post** /deepfence/search/count/containers | Count Containers data
 *SearchAPI* | [**CountHosts**](docs/SearchAPI.md#counthosts) | **Post** /deepfence/search/count/hosts | Count hosts
 *SearchAPI* | [**CountKubernetesClusters**](docs/SearchAPI.md#countkubernetesclusters) | **Post** /deepfence/search/count/kubernetes-clusters | Count Kubernetes clusters
+*SearchAPI* | [**CountMalwareRules**](docs/SearchAPI.md#countmalwarerules) | **Post** /deepfence/search/count/malware-rules | Count Malware Rules
 *SearchAPI* | [**CountMalwareScans**](docs/SearchAPI.md#countmalwarescans) | **Post** /deepfence/search/count/malware/scans | Count Malware Scan results
 *SearchAPI* | [**CountMalwares**](docs/SearchAPI.md#countmalwares) | **Post** /deepfence/search/count/malwares | Count Malwares
 *SearchAPI* | [**CountNodes**](docs/SearchAPI.md#countnodes) | **Get** /deepfence/search/count/nodes | Count nodes
 *SearchAPI* | [**CountPods**](docs/SearchAPI.md#countpods) | **Post** /deepfence/search/count/pods | Count Pods
+*SearchAPI* | [**CountSecretRules**](docs/SearchAPI.md#countsecretrules) | **Post** /deepfence/search/count/secret-rules | Count Secret Rules
 *SearchAPI* | [**CountSecrets**](docs/SearchAPI.md#countsecrets) | **Post** /deepfence/search/count/secrets | Count Secrets
 *SearchAPI* | [**CountSecretsScans**](docs/SearchAPI.md#countsecretsscans) | **Post** /deepfence/search/count/secret/scans | Count Secret Scan results
 *SearchAPI* | [**CountVulnerabilities**](docs/SearchAPI.md#countvulnerabilities) | **Post** /deepfence/search/count/vulnerabilities | Count Vulnerabilities
@@ -185,15 +188,18 @@ Class | Method | HTTP request | Description
 *SearchAPI* | [**SearchCloudComplianceScans**](docs/SearchAPI.md#searchcloudcompliancescans) | **Post** /deepfence/search/cloud-compliance/scans | Search Cloud Compliance Scan results
 *SearchAPI* | [**SearchCloudCompliances**](docs/SearchAPI.md#searchcloudcompliances) | **Post** /deepfence/search/cloud-compliances | Search Cloud compliances
 *SearchAPI* | [**SearchCloudResources**](docs/SearchAPI.md#searchcloudresources) | **Post** /deepfence/search/cloud-resources | Search Cloud Resources
+*SearchAPI* | [**SearchComplianceRules**](docs/SearchAPI.md#searchcompliancerules) | **Post** /deepfence/search/compliance-rules | Search Compliance Rules
 *SearchAPI* | [**SearchComplianceScans**](docs/SearchAPI.md#searchcompliancescans) | **Post** /deepfence/search/compliance/scans | Search Compliance Scan results
 *SearchAPI* | [**SearchCompliances**](docs/SearchAPI.md#searchcompliances) | **Post** /deepfence/search/compliances | Search Compliances
 *SearchAPI* | [**SearchContainerImages**](docs/SearchAPI.md#searchcontainerimages) | **Post** /deepfence/search/images | Search Container images
 *SearchAPI* | [**SearchContainers**](docs/SearchAPI.md#searchcontainers) | **Post** /deepfence/search/containers | Search Containers data
 *SearchAPI* | [**SearchHosts**](docs/SearchAPI.md#searchhosts) | **Post** /deepfence/search/hosts | Search hosts
 *SearchAPI* | [**SearchKubernetesClusters**](docs/SearchAPI.md#searchkubernetesclusters) | **Post** /deepfence/search/kubernetes-clusters | Search Kuberenetes Clusters
+*SearchAPI* | [**SearchMalwareRules**](docs/SearchAPI.md#searchmalwarerules) | **Post** /deepfence/search/malware-rules | Search Malware Rules
 *SearchAPI* | [**SearchMalwareScans**](docs/SearchAPI.md#searchmalwarescans) | **Post** /deepfence/search/malware/scans | Search Malware Scan results
 *SearchAPI* | [**SearchMalwares**](docs/SearchAPI.md#searchmalwares) | **Post** /deepfence/search/malwares | Search Malwares
 *SearchAPI* | [**SearchPods**](docs/SearchAPI.md#searchpods) | **Post** /deepfence/search/pods | Search Pods
+*SearchAPI* | [**SearchSecretRules**](docs/SearchAPI.md#searchsecretrules) | **Post** /deepfence/search/secret-rules | Search Secret Rules
 *SearchAPI* | [**SearchSecrets**](docs/SearchAPI.md#searchsecrets) | **Post** /deepfence/search/secrets | Search Secrets
 *SearchAPI* | [**SearchSecretsScans**](docs/SearchAPI.md#searchsecretsscans) | **Post** /deepfence/search/secret/scans | Search Secrets Scan results
 *SearchAPI* | [**SearchVulnerabilities**](docs/SearchAPI.md#searchvulnerabilities) | **Post** /deepfence/search/vulnerabilities | Search Vulnerabilities
@@ -319,6 +325,7 @@ Class | Method | HTTP request | Description
  - [ModelCloudNodeProvidersListResp](docs/ModelCloudNodeProvidersListResp.md)
  - [ModelCloudResource](docs/ModelCloudResource.md)
  - [ModelCompliance](docs/ModelCompliance.md)
+ - [ModelComplianceRule](docs/ModelComplianceRule.md)
  - [ModelComplianceScanInfo](docs/ModelComplianceScanInfo.md)
  - [ModelComplianceScanResult](docs/ModelComplianceScanResult.md)
  - [ModelComplianceScanStatusResp](docs/ModelComplianceScanStatusResp.md)
@@ -348,6 +355,7 @@ Class | Method | HTTP request | Description
  - [ModelLoginRequest](docs/ModelLoginRequest.md)
  - [ModelLoginResponse](docs/ModelLoginResponse.md)
  - [ModelMalware](docs/ModelMalware.md)
+ - [ModelMalwareRule](docs/ModelMalwareRule.md)
  - [ModelMalwareScanResult](docs/ModelMalwareScanResult.md)
  - [ModelMalwareScanResultClass](docs/ModelMalwareScanResultClass.md)
  - [ModelMalwareScanResultRules](docs/ModelMalwareScanResultRules.md)
@@ -384,6 +392,7 @@ Class | Method | HTTP request | Description
  - [ModelScanStatusResp](docs/ModelScanStatusResp.md)
  - [ModelScanTriggerResp](docs/ModelScanTriggerResp.md)
  - [ModelSecret](docs/ModelSecret.md)
+ - [ModelSecretRule](docs/ModelSecretRule.md)
  - [ModelSecretScanResult](docs/ModelSecretScanResult.md)
  - [ModelSecretScanResultRules](docs/ModelSecretScanResultRules.md)
  - [ModelSecretScanTriggerReq](docs/ModelSecretScanTriggerReq.md)

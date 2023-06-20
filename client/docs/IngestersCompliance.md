@@ -4,7 +4,6 @@
 
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
-**Timestamp** | Pointer to **string** |  | [optional] 
 **ComplianceCheckType** | Pointer to **string** |  | [optional] 
 **Description** | Pointer to **string** |  | [optional] 
 **Masked** | Pointer to **bool** |  | [optional] 
@@ -41,31 +40,6 @@ will change when the set of required properties is changed
 NewIngestersComplianceWithDefaults instantiates a new IngestersCompliance object
 This constructor will only assign default values to properties that have it defined,
 but it doesn't guarantee that properties required by API are set
-
-### GetTimestamp
-
-`func (o *IngestersCompliance) GetTimestamp() string`
-
-GetTimestamp returns the Timestamp field if non-nil, zero value otherwise.
-
-### GetTimestampOk
-
-`func (o *IngestersCompliance) GetTimestampOk() (*string, bool)`
-
-GetTimestampOk returns a tuple with the Timestamp field if it's non-nil, zero value otherwise
-and a boolean to check if the value has been set.
-
-### SetTimestamp
-
-`func (o *IngestersCompliance) SetTimestamp(v string)`
-
-SetTimestamp sets Timestamp field to given value.
-
-### HasTimestamp
-
-`func (o *IngestersCompliance) HasTimestamp() bool`
-
-HasTimestamp returns a boolean if a field has been set.
 
 ### GetComplianceCheckType
 

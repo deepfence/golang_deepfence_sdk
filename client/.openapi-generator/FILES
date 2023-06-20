@@ -101,6 +101,7 @@ docs/ModelCloudNodeEnableDisableReq.md
 docs/ModelCloudNodeProvidersListResp.md
 docs/ModelCloudResource.md
 docs/ModelCompliance.md
+docs/ModelComplianceRule.md
 docs/ModelComplianceScanInfo.md
 docs/ModelComplianceScanResult.md
 docs/ModelComplianceScanStatusResp.md
@@ -130,6 +131,7 @@ docs/ModelKubernetesCluster.md
 docs/ModelLoginRequest.md
 docs/ModelLoginResponse.md
 docs/ModelMalware.md
+docs/ModelMalwareRule.md
 docs/ModelMalwareScanResult.md
 docs/ModelMalwareScanResultClass.md
 docs/ModelMalwareScanResultRules.md
@@ -166,6 +168,7 @@ docs/ModelScanStatusReq.md
 docs/ModelScanStatusResp.md
 docs/ModelScanTriggerResp.md
 docs/ModelSecret.md
+docs/ModelSecretRule.md
 docs/ModelSecretScanResult.md
 docs/ModelSecretScanResultRules.md
 docs/ModelSecretScanTriggerReq.md
@@ -278,6 +281,7 @@ model_model_cloud_node_enable_disable_req.go
 model_model_cloud_node_providers_list_resp.go
 model_model_cloud_resource.go
 model_model_compliance.go
+model_model_compliance_rule.go
 model_model_compliance_scan_info.go
 model_model_compliance_scan_result.go
 model_model_compliance_scan_status_resp.go
@@ -307,6 +311,7 @@ model_model_kubernetes_cluster.go
 model_model_login_request.go
 model_model_login_response.go
 model_model_malware.go
+model_model_malware_rule.go
 model_model_malware_scan_result.go
 model_model_malware_scan_result_class.go
 model_model_malware_scan_result_rules.go
@@ -343,6 +348,7 @@ model_model_scan_status_req.go
 model_model_scan_status_resp.go
 model_model_scan_trigger_resp.go
 model_model_secret.go
+model_model_secret_rule.go
 model_model_secret_scan_result.go
 model_model_secret_scan_result_rules.go
 model_model_secret_scan_trigger_req.go
