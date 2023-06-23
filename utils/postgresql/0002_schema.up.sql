@@ -100,21 +100,14 @@ EXECUTE PROCEDURE update_modified_column();
 
 CREATE TABLE public.audit_log
 (
-    id           BIGSERIAL PRIMARY KEY,
-    event        character varying(100)                             NOT NULL,
-    action       character varying(100)                             NOT NULL,
-    resources    text                                               NOT NULL,
-    success      boolean                                            NOT NULL,
-    user_id      integer                  DEFAULT NULL              NULL,
-    user_role_id integer                                            NOT NULL,
-    created_at   timestamp with time zone DEFAULT CURRENT_TIMESTAMP NOT NULL,
-    CONSTRAINT fk_user_id
-        FOREIGN KEY (user_id)
-            REFERENCES users (id)
-            ON DELETE SET NULL,
-    CONSTRAINT fk_role
-        FOREIGN KEY (user_role_id)
-            REFERENCES role (id)
+    id         BIGSERIAL PRIMARY KEY,
+    event      character varying(100)                             NOT NULL,
+    action     character varying(100)                             NOT NULL,
+    resources  text                                               NOT NULL,
+    success    boolean                                            NOT NULL,
+    user_email character varying(64)                              NOT NULL,
+    user_role  character varying(32)                              NOT NULL,
+    created_at timestamp with time zone DEFAULT CURRENT_TIMESTAMP NOT NULL
 );
 
 COMMIT;

@@ -25,14 +25,14 @@ type ApiToken struct {
 }
 
 type AuditLog struct {
-	ID         int64         `json:"id"`
-	Event      string        `json:"event"`
-	Action     string        `json:"action"`
-	Resources  string        `json:"resources"`
-	Success    bool          `json:"success"`
-	UserID     sql.NullInt32 `json:"user_id"`
-	UserRoleID int32         `json:"user_role_id"`
-	CreatedAt  time.Time     `json:"created_at"`
+	ID        int64     `json:"id"`
+	Event     string    `json:"event"`
+	Action    string    `json:"action"`
+	Resources string    `json:"resources"`
+	Success   bool      `json:"success"`
+	UserEmail string    `json:"user_email"`
+	UserRole  string    `json:"user_role"`
+	CreatedAt time.Time `json:"created_at"`
 }
 
 type Company struct {

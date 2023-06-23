@@ -521,7 +521,7 @@ FROM container_registry
 WHERE id = $1;
 
 -- name: CreateAuditLog :exec
-INSERT INTO audit_log (event, action, resources, success, user_id, user_role_id, created_at)
+INSERT INTO audit_log (event, action, resources, success, user_email, user_role, created_at)
 VALUES ($1, $2, $3, $4, $5, $6, $7);
 
 -- name: GetAuditLogs :many
@@ -529,14 +529,10 @@ SELECT l.event,
        l.action,
        l.resources,
        l.success,
-       l.user_id,
-       l.user_role_id,
-       l.created_at,
-       r.name  as role,
-       u.email as email
+       l.user_email as email,
+       l.user_role as role,
+       l.created_at
 FROM audit_log l
-         INNER JOIN role r ON r.id = l.user_role_id
-         INNER JOIN users u ON u.id = l.user_id
 ORDER BY l.created_at;
 
 -- name: GetAuditLogsLast5Minutes :many
@@ -544,14 +540,10 @@ SELECT l.event,
        l.action,
        l.resources,
        l.success,
-       l.user_id,
-       l.user_role_id,
-       l.created_at,
-       r.name  as role,
-       u.email as email
+       l.user_email as email,
+       l.user_role as role,
+       l.created_at
 FROM audit_log l
-         INNER JOIN role r ON r.id = l.user_role_id
-         INNER JOIN users u ON u.id = l.user_id
 WHERE l.created_at < (now() - interval '5 minutes')
 ORDER BY l.created_at;
 

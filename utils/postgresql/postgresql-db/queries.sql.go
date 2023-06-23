@@ -7,7 +7,6 @@ package postgresql_db
 
 import (
 	"context"
-	"database/sql"
 	"encoding/json"
 	"time"
 
@@ -118,18 +117,18 @@ func (q *Queries) CreateApiToken(ctx context.Context, arg CreateApiTokenParams) 
 }
 
 const createAuditLog = `-- name: CreateAuditLog :exec
-INSERT INTO audit_log (event, action, resources, success, user_id, user_role_id, created_at)
+INSERT INTO audit_log (event, action, resources, success, user_email, user_role, created_at)
 VALUES ($1, $2, $3, $4, $5, $6, $7)
 `
 
 type CreateAuditLogParams struct {
-	Event      string        `json:"event"`
-	Action     string        `json:"action"`
-	Resources  string        `json:"resources"`
-	Success    bool          `json:"success"`
-	UserID     sql.NullInt32 `json:"user_id"`
-	UserRoleID int32         `json:"user_role_id"`
-	CreatedAt  time.Time     `json:"created_at"`
+	Event     string    `json:"event"`
+	Action    string    `json:"action"`
+	Resources string    `json:"resources"`
+	Success   bool      `json:"success"`
+	UserEmail string    `json:"user_email"`
+	UserRole  string    `json:"user_role"`
+	CreatedAt time.Time `json:"created_at"`
 }
 
 func (q *Queries) CreateAuditLog(ctx context.Context, arg CreateAuditLogParams) error {
@@ -138,8 +137,8 @@ func (q *Queries) CreateAuditLog(ctx context.Context, arg CreateAuditLogParams) 
 		arg.Action,
 		arg.Resources,
 		arg.Success,
-		arg.UserID,
-		arg.UserRoleID,
+		arg.UserEmail,
+		arg.UserRole,
 		arg.CreatedAt,
 	)
 	return err
@@ -503,7 +502,7 @@ WITH deleted AS (
     DELETE
         FROM audit_log
             WHERE created_at < (now() - interval '30 days')
-            RETURNING id, event, action, resources, success, user_id, user_role_id, created_at)
+            RETURNING id, event, action, resources, success, user_email, user_role, created_at)
 SELECT count(*)
 FROM deleted
 `
@@ -1026,27 +1025,21 @@ SELECT l.event,
        l.action,
        l.resources,
        l.success,
-       l.user_id,
-       l.user_role_id,
-       l.created_at,
-       r.name  as role,
-       u.email as email
+       l.user_email as email,
+       l.user_role as role,
+       l.created_at
 FROM audit_log l
-         INNER JOIN role r ON r.id = l.user_role_id
-         INNER JOIN users u ON u.id = l.user_id
 ORDER BY l.created_at
 `
 
 type GetAuditLogsRow struct {
-	Event      string        `json:"event"`
-	Action     string        `json:"action"`
-	Resources  string        `json:"resources"`
-	Success    bool          `json:"success"`
-	UserID     sql.NullInt32 `json:"user_id"`
-	UserRoleID int32         `json:"user_role_id"`
-	CreatedAt  time.Time     `json:"created_at"`
-	Role       string        `json:"role"`
-	Email      string        `json:"email"`
+	Event     string    `json:"event"`
+	Action    string    `json:"action"`
+	Resources string    `json:"resources"`
+	Success   bool      `json:"success"`
+	Email     string    `json:"email"`
+	Role      string    `json:"role"`
+	CreatedAt time.Time `json:"created_at"`
 }
 
 func (q *Queries) GetAuditLogs(ctx context.Context) ([]GetAuditLogsRow, error) {
@@ -1063,11 +1056,9 @@ func (q *Queries) GetAuditLogs(ctx context.Context) ([]GetAuditLogsRow, error) {
 			&i.Action,
 			&i.Resources,
 			&i.Success,
-			&i.UserID,
-			&i.UserRoleID,
-			&i.CreatedAt,
-			&i.Role,
 			&i.Email,
+			&i.Role,
+			&i.CreatedAt,
 		); err != nil {
 			return nil, err
 		}
@@ -1087,28 +1078,22 @@ SELECT l.event,
        l.action,
        l.resources,
        l.success,
-       l.user_id,
-       l.user_role_id,
-       l.created_at,
-       r.name  as role,
-       u.email as email
+       l.user_email as email,
+       l.user_role as role,
+       l.created_at
 FROM audit_log l
-         INNER JOIN role r ON r.id = l.user_role_id
-         INNER JOIN users u ON u.id = l.user_id
 WHERE l.created_at < (now() - interval '5 minutes')
 ORDER BY l.created_at
 `
 
 type GetAuditLogsLast5MinutesRow struct {
-	Event      string        `json:"event"`
-	Action     string        `json:"action"`
-	Resources  string        `json:"resources"`
-	Success    bool          `json:"success"`
-	UserID     sql.NullInt32 `json:"user_id"`
-	UserRoleID int32         `json:"user_role_id"`
-	CreatedAt  time.Time     `json:"created_at"`
-	Role       string        `json:"role"`
-	Email      string        `json:"email"`
+	Event     string    `json:"event"`
+	Action    string    `json:"action"`
+	Resources string    `json:"resources"`
+	Success   bool      `json:"success"`
+	Email     string    `json:"email"`
+	Role      string    `json:"role"`
+	CreatedAt time.Time `json:"created_at"`
 }
 
 func (q *Queries) GetAuditLogsLast5Minutes(ctx context.Context) ([]GetAuditLogsLast5MinutesRow, error) {
@@ -1125,11 +1110,9 @@ func (q *Queries) GetAuditLogsLast5Minutes(ctx context.Context) ([]GetAuditLogsL
 			&i.Action,
 			&i.Resources,
 			&i.Success,
-			&i.UserID,
-			&i.UserRoleID,
-			&i.CreatedAt,
-			&i.Role,
 			&i.Email,
+			&i.Role,
+			&i.CreatedAt,
 		); err != nil {
 			return nil, err
 		}
