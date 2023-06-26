@@ -11,11 +11,8 @@ import (
 	"sync"
 	"time"
 
-	"github.com/deepfence/golang_deepfence_sdk/utils/log"
-	rhttp "github.com/hashicorp/go-retryablehttp"
-	"github.com/rs/zerolog"
-
 	openapi "github.com/deepfence/golang_deepfence_sdk/client"
+	rhttp "github.com/hashicorp/go-retryablehttp"
 )
 
 const (
@@ -146,7 +143,7 @@ func NewHttpsConsoleClient(url, port string) *OpenapiHttpClient {
 	rhc.RetryMax = 3
 	rhc.RetryWaitMin = 1 * time.Second
 	rhc.RetryWaitMax = 10 * time.Second
-	rhc.Logger = log.NewStdLoggerWithLevel(zerolog.DebugLevel)
+	//rhc.Logger = log.NewStdLoggerWithLevel(zerolog.DebugLevel)
 	rhc.HTTPClient = &http.Client{
 		Transport: NewInjectorTransport[AccessInjectorTransport](auth_tokens, transport),
 	}
