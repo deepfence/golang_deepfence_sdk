@@ -20,6 +20,7 @@ var _ MappedNullable = &SearchSearchNodeReq{}
 
 // SearchSearchNodeReq struct for SearchSearchNodeReq
 type SearchSearchNodeReq struct {
+	ExtendedNodeFilter *SearchSearchFilter `json:"extended_node_filter,omitempty"`
 	NodeFilter SearchSearchFilter `json:"node_filter"`
 	Window ModelFetchWindow `json:"window"`
 }
@@ -41,6 +42,38 @@ func NewSearchSearchNodeReq(nodeFilter SearchSearchFilter, window ModelFetchWind
 func NewSearchSearchNodeReqWithDefaults() *SearchSearchNodeReq {
 	this := SearchSearchNodeReq{}
 	return &this
+}
+
+// GetExtendedNodeFilter returns the ExtendedNodeFilter field value if set, zero value otherwise.
+func (o *SearchSearchNodeReq) GetExtendedNodeFilter() SearchSearchFilter {
+	if o == nil || IsNil(o.ExtendedNodeFilter) {
+		var ret SearchSearchFilter
+		return ret
+	}
+	return *o.ExtendedNodeFilter
+}
+
+// GetExtendedNodeFilterOk returns a tuple with the ExtendedNodeFilter field value if set, nil otherwise
+// and a boolean to check if the value has been set.
+func (o *SearchSearchNodeReq) GetExtendedNodeFilterOk() (*SearchSearchFilter, bool) {
+	if o == nil || IsNil(o.ExtendedNodeFilter) {
+		return nil, false
+	}
+	return o.ExtendedNodeFilter, true
+}
+
+// HasExtendedNodeFilter returns a boolean if a field has been set.
+func (o *SearchSearchNodeReq) HasExtendedNodeFilter() bool {
+	if o != nil && !IsNil(o.ExtendedNodeFilter) {
+		return true
+	}
+
+	return false
+}
+
+// SetExtendedNodeFilter gets a reference to the given SearchSearchFilter and assigns it to the ExtendedNodeFilter field.
+func (o *SearchSearchNodeReq) SetExtendedNodeFilter(v SearchSearchFilter) {
+	o.ExtendedNodeFilter = &v
 }
 
 // GetNodeFilter returns the NodeFilter field value
@@ -101,6 +134,9 @@ func (o SearchSearchNodeReq) MarshalJSON() ([]byte, error) {
 
 func (o SearchSearchNodeReq) ToMap() (map[string]interface{}, error) {
 	toSerialize := map[string]interface{}{}
+	if !IsNil(o.ExtendedNodeFilter) {
+		toSerialize["extended_node_filter"] = o.ExtendedNodeFilter
+	}
 	toSerialize["node_filter"] = o.NodeFilter
 	toSerialize["window"] = o.Window
 	return toSerialize, nil

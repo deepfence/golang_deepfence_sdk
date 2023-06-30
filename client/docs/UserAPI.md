@@ -489,7 +489,7 @@ import (
 )
 
 func main() {
-    modelRegisterInvitedUserRequest := *openapiclient.NewModelRegisterInvitedUserRequest("Code_example", "FirstName_example", "LastName_example", "Password_example") // ModelRegisterInvitedUserRequest |  (optional)
+    modelRegisterInvitedUserRequest := *openapiclient.NewModelRegisterInvitedUserRequest("Code_example", "FirstName_example", "LastName_example", "Namespace_example", "Password_example") // ModelRegisterInvitedUserRequest |  (optional)
 
     configuration := openapiclient.NewConfiguration()
     apiClient := openapiclient.NewAPIClient(configuration)
@@ -950,7 +950,7 @@ import (
 )
 
 func main() {
-    modelPasswordResetVerifyRequest := *openapiclient.NewModelPasswordResetVerifyRequest("Code_example", "Password_example") // ModelPasswordResetVerifyRequest |  (optional)
+    modelPasswordResetVerifyRequest := *openapiclient.NewModelPasswordResetVerifyRequest("Code_example", "Namespace_example", "Password_example") // ModelPasswordResetVerifyRequest |  (optional)
 
     configuration := openapiclient.NewConfiguration()
     apiClient := openapiclient.NewAPIClient(configuration)

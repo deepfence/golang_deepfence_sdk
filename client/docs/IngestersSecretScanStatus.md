@@ -4,7 +4,6 @@
 
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
-**Timestamp** | Pointer to **time.Time** |  | [optional] 
 **ScanId** | Pointer to **string** |  | [optional] 
 **ScanMessage** | Pointer to **string** |  | [optional] 
 **ScanStatus** | Pointer to **string** |  | [optional] 
@@ -27,31 +26,6 @@ will change when the set of required properties is changed
 NewIngestersSecretScanStatusWithDefaults instantiates a new IngestersSecretScanStatus object
 This constructor will only assign default values to properties that have it defined,
 but it doesn't guarantee that properties required by API are set
-
-### GetTimestamp
-
-`func (o *IngestersSecretScanStatus) GetTimestamp() time.Time`
-
-GetTimestamp returns the Timestamp field if non-nil, zero value otherwise.
-
-### GetTimestampOk
-
-`func (o *IngestersSecretScanStatus) GetTimestampOk() (*time.Time, bool)`
-
-GetTimestampOk returns a tuple with the Timestamp field if it's non-nil, zero value otherwise
-and a boolean to check if the value has been set.
-
-### SetTimestamp
-
-`func (o *IngestersSecretScanStatus) SetTimestamp(v time.Time)`
-
-SetTimestamp sets Timestamp field to given value.
-
-### HasTimestamp
-
-`func (o *IngestersSecretScanStatus) HasTimestamp() bool`
-
-HasTimestamp returns a boolean if a field has been set.
 
 ### GetScanId
 

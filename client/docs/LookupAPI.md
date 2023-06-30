@@ -4,15 +4,86 @@ All URIs are relative to *http://localhost*
 
 Method | HTTP request | Description
 ------------- | ------------- | -------------
+[**GetCloudCompliances**](LookupAPI.md#GetCloudCompliances) | **Post** /deepfence/lookup/cloud-compliances | Retrieve Cloud Compliances data
 [**GetCloudResources**](LookupAPI.md#GetCloudResources) | **Post** /deepfence/lookup/cloud-resources | Get Cloud Resources
+[**GetCompliances**](LookupAPI.md#GetCompliances) | **Post** /deepfence/lookup/compliances | Retrieve Compliances data
 [**GetContainerImages**](LookupAPI.md#GetContainerImages) | **Post** /deepfence/lookup/containerimages | Retrieve Container Images data
 [**GetContainers**](LookupAPI.md#GetContainers) | **Post** /deepfence/lookup/containers | Retrieve Containers data
 [**GetHosts**](LookupAPI.md#GetHosts) | **Post** /deepfence/lookup/hosts | Retrieve Hosts data
 [**GetKubernetesClusters**](LookupAPI.md#GetKubernetesClusters) | **Post** /deepfence/lookup/kubernetesclusters | Retrieve K8s data
+[**GetMalwares**](LookupAPI.md#GetMalwares) | **Post** /deepfence/lookup/malwares | Retrieve Malwares data
 [**GetPods**](LookupAPI.md#GetPods) | **Post** /deepfence/lookup/pods | Retrieve Pods data
 [**GetProcesses**](LookupAPI.md#GetProcesses) | **Post** /deepfence/lookup/processes | Retrieve Processes data
 [**GetRegistryAccount**](LookupAPI.md#GetRegistryAccount) | **Post** /deepfence/lookup/registryaccount | Get Images in Registry
+[**GetSecrets**](LookupAPI.md#GetSecrets) | **Post** /deepfence/lookup/secrets | Retrieve Secrets data
+[**GetVulnerabilities**](LookupAPI.md#GetVulnerabilities) | **Post** /deepfence/lookup/vulnerabilities | Retrieve Vulnerabilities data
 
+
+
+## GetCloudCompliances
+
+> []ModelCloudCompliance GetCloudCompliances(ctx).LookupLookupFilter(lookupLookupFilter).Execute()
+
+Retrieve Cloud Compliances data
+
+
+
+### Example
+
+```go
+package main
+
+import (
+    "context"
+    "fmt"
+    "os"
+    openapiclient "github.com/deepfence/golang_deepfence_sdk/client"
+)
+
+func main() {
+    lookupLookupFilter := *openapiclient.NewLookupLookupFilter([]string{"InFieldFilter_example"}, []string{"NodeIds_example"}, *openapiclient.NewModelFetchWindow(int32(123), int32(123))) // LookupLookupFilter |  (optional)
+
+    configuration := openapiclient.NewConfiguration()
+    apiClient := openapiclient.NewAPIClient(configuration)
+    resp, r, err := apiClient.LookupAPI.GetCloudCompliances(context.Background()).LookupLookupFilter(lookupLookupFilter).Execute()
+    if err != nil {
+        fmt.Fprintf(os.Stderr, "Error when calling `LookupAPI.GetCloudCompliances``: %v\n", err)
+        fmt.Fprintf(os.Stderr, "Full HTTP response: %v\n", r)
+    }
+    // response from `GetCloudCompliances`: []ModelCloudCompliance
+    fmt.Fprintf(os.Stdout, "Response from `LookupAPI.GetCloudCompliances`: %v\n", resp)
+}
+```
+
+### Path Parameters
+
+
+
+### Other Parameters
+
+Other parameters are passed through a pointer to a apiGetCloudCompliancesRequest struct via the builder pattern
+
+
+Name | Type | Description  | Notes
+------------- | ------------- | ------------- | -------------
+ **lookupLookupFilter** | [**LookupLookupFilter**](LookupLookupFilter.md) |  | 
+
+### Return type
+
+[**[]ModelCloudCompliance**](ModelCloudCompliance.md)
+
+### Authorization
+
+[bearer_token](../README.md#bearer_token)
+
+### HTTP request headers
+
+- **Content-Type**: application/json
+- **Accept**: application/json
+
+[[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints)
+[[Back to Model list]](../README.md#documentation-for-models)
+[[Back to README]](../README.md)
 
 
 ## GetCloudResources
@@ -66,6 +137,72 @@ Name | Type | Description  | Notes
 ### Return type
 
 [**[]ModelCloudResource**](ModelCloudResource.md)
+
+### Authorization
+
+[bearer_token](../README.md#bearer_token)
+
+### HTTP request headers
+
+- **Content-Type**: application/json
+- **Accept**: application/json
+
+[[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints)
+[[Back to Model list]](../README.md#documentation-for-models)
+[[Back to README]](../README.md)
+
+
+## GetCompliances
+
+> []ModelCompliance GetCompliances(ctx).LookupLookupFilter(lookupLookupFilter).Execute()
+
+Retrieve Compliances data
+
+
+
+### Example
+
+```go
+package main
+
+import (
+    "context"
+    "fmt"
+    "os"
+    openapiclient "github.com/deepfence/golang_deepfence_sdk/client"
+)
+
+func main() {
+    lookupLookupFilter := *openapiclient.NewLookupLookupFilter([]string{"InFieldFilter_example"}, []string{"NodeIds_example"}, *openapiclient.NewModelFetchWindow(int32(123), int32(123))) // LookupLookupFilter |  (optional)
+
+    configuration := openapiclient.NewConfiguration()
+    apiClient := openapiclient.NewAPIClient(configuration)
+    resp, r, err := apiClient.LookupAPI.GetCompliances(context.Background()).LookupLookupFilter(lookupLookupFilter).Execute()
+    if err != nil {
+        fmt.Fprintf(os.Stderr, "Error when calling `LookupAPI.GetCompliances``: %v\n", err)
+        fmt.Fprintf(os.Stderr, "Full HTTP response: %v\n", r)
+    }
+    // response from `GetCompliances`: []ModelCompliance
+    fmt.Fprintf(os.Stdout, "Response from `LookupAPI.GetCompliances`: %v\n", resp)
+}
+```
+
+### Path Parameters
+
+
+
+### Other Parameters
+
+Other parameters are passed through a pointer to a apiGetCompliancesRequest struct via the builder pattern
+
+
+Name | Type | Description  | Notes
+------------- | ------------- | ------------- | -------------
+ **lookupLookupFilter** | [**LookupLookupFilter**](LookupLookupFilter.md) |  | 
+
+### Return type
+
+[**[]ModelCompliance**](ModelCompliance.md)
 
 ### Authorization
 
@@ -345,6 +482,72 @@ Name | Type | Description  | Notes
 [[Back to README]](../README.md)
 
 
+## GetMalwares
+
+> []ModelMalware GetMalwares(ctx).LookupLookupFilter(lookupLookupFilter).Execute()
+
+Retrieve Malwares data
+
+
+
+### Example
+
+```go
+package main
+
+import (
+    "context"
+    "fmt"
+    "os"
+    openapiclient "github.com/deepfence/golang_deepfence_sdk/client"
+)
+
+func main() {
+    lookupLookupFilter := *openapiclient.NewLookupLookupFilter([]string{"InFieldFilter_example"}, []string{"NodeIds_example"}, *openapiclient.NewModelFetchWindow(int32(123), int32(123))) // LookupLookupFilter |  (optional)
+
+    configuration := openapiclient.NewConfiguration()
+    apiClient := openapiclient.NewAPIClient(configuration)
+    resp, r, err := apiClient.LookupAPI.GetMalwares(context.Background()).LookupLookupFilter(lookupLookupFilter).Execute()
+    if err != nil {
+        fmt.Fprintf(os.Stderr, "Error when calling `LookupAPI.GetMalwares``: %v\n", err)
+        fmt.Fprintf(os.Stderr, "Full HTTP response: %v\n", r)
+    }
+    // response from `GetMalwares`: []ModelMalware
+    fmt.Fprintf(os.Stdout, "Response from `LookupAPI.GetMalwares`: %v\n", resp)
+}
+```
+
+### Path Parameters
+
+
+
+### Other Parameters
+
+Other parameters are passed through a pointer to a apiGetMalwaresRequest struct via the builder pattern
+
+
+Name | Type | Description  | Notes
+------------- | ------------- | ------------- | -------------
+ **lookupLookupFilter** | [**LookupLookupFilter**](LookupLookupFilter.md) |  | 
+
+### Return type
+
+[**[]ModelMalware**](ModelMalware.md)
+
+### Authorization
+
+[bearer_token](../README.md#bearer_token)
+
+### HTTP request headers
+
+- **Content-Type**: application/json
+- **Accept**: application/json
+
+[[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints)
+[[Back to Model list]](../README.md#documentation-for-models)
+[[Back to README]](../README.md)
+
+
 ## GetPods
 
 > []ModelPod GetPods(ctx).LookupLookupFilter(lookupLookupFilter).Execute()
@@ -528,6 +731,138 @@ Name | Type | Description  | Notes
 ### Return type
 
 [**[]ModelRegistryAccount**](ModelRegistryAccount.md)
+
+### Authorization
+
+[bearer_token](../README.md#bearer_token)
+
+### HTTP request headers
+
+- **Content-Type**: application/json
+- **Accept**: application/json
+
+[[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints)
+[[Back to Model list]](../README.md#documentation-for-models)
+[[Back to README]](../README.md)
+
+
+## GetSecrets
+
+> []ModelSecret GetSecrets(ctx).LookupLookupFilter(lookupLookupFilter).Execute()
+
+Retrieve Secrets data
+
+
+
+### Example
+
+```go
+package main
+
+import (
+    "context"
+    "fmt"
+    "os"
+    openapiclient "github.com/deepfence/golang_deepfence_sdk/client"
+)
+
+func main() {
+    lookupLookupFilter := *openapiclient.NewLookupLookupFilter([]string{"InFieldFilter_example"}, []string{"NodeIds_example"}, *openapiclient.NewModelFetchWindow(int32(123), int32(123))) // LookupLookupFilter |  (optional)
+
+    configuration := openapiclient.NewConfiguration()
+    apiClient := openapiclient.NewAPIClient(configuration)
+    resp, r, err := apiClient.LookupAPI.GetSecrets(context.Background()).LookupLookupFilter(lookupLookupFilter).Execute()
+    if err != nil {
+        fmt.Fprintf(os.Stderr, "Error when calling `LookupAPI.GetSecrets``: %v\n", err)
+        fmt.Fprintf(os.Stderr, "Full HTTP response: %v\n", r)
+    }
+    // response from `GetSecrets`: []ModelSecret
+    fmt.Fprintf(os.Stdout, "Response from `LookupAPI.GetSecrets`: %v\n", resp)
+}
+```
+
+### Path Parameters
+
+
+
+### Other Parameters
+
+Other parameters are passed through a pointer to a apiGetSecretsRequest struct via the builder pattern
+
+
+Name | Type | Description  | Notes
+------------- | ------------- | ------------- | -------------
+ **lookupLookupFilter** | [**LookupLookupFilter**](LookupLookupFilter.md) |  | 
+
+### Return type
+
+[**[]ModelSecret**](ModelSecret.md)
+
+### Authorization
+
+[bearer_token](../README.md#bearer_token)
+
+### HTTP request headers
+
+- **Content-Type**: application/json
+- **Accept**: application/json
+
+[[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints)
+[[Back to Model list]](../README.md#documentation-for-models)
+[[Back to README]](../README.md)
+
+
+## GetVulnerabilities
+
+> []ModelVulnerability GetVulnerabilities(ctx).LookupLookupFilter(lookupLookupFilter).Execute()
+
+Retrieve Vulnerabilities data
+
+
+
+### Example
+
+```go
+package main
+
+import (
+    "context"
+    "fmt"
+    "os"
+    openapiclient "github.com/deepfence/golang_deepfence_sdk/client"
+)
+
+func main() {
+    lookupLookupFilter := *openapiclient.NewLookupLookupFilter([]string{"InFieldFilter_example"}, []string{"NodeIds_example"}, *openapiclient.NewModelFetchWindow(int32(123), int32(123))) // LookupLookupFilter |  (optional)
+
+    configuration := openapiclient.NewConfiguration()
+    apiClient := openapiclient.NewAPIClient(configuration)
+    resp, r, err := apiClient.LookupAPI.GetVulnerabilities(context.Background()).LookupLookupFilter(lookupLookupFilter).Execute()
+    if err != nil {
+        fmt.Fprintf(os.Stderr, "Error when calling `LookupAPI.GetVulnerabilities``: %v\n", err)
+        fmt.Fprintf(os.Stderr, "Full HTTP response: %v\n", r)
+    }
+    // response from `GetVulnerabilities`: []ModelVulnerability
+    fmt.Fprintf(os.Stdout, "Response from `LookupAPI.GetVulnerabilities`: %v\n", resp)
+}
+```
+
+### Path Parameters
+
+
+
+### Other Parameters
+
+Other parameters are passed through a pointer to a apiGetVulnerabilitiesRequest struct via the builder pattern
+
+
+Name | Type | Description  | Notes
+------------- | ------------- | ------------- | -------------
+ **lookupLookupFilter** | [**LookupLookupFilter**](LookupLookupFilter.md) |  | 
+
+### Return type
+
+[**[]ModelVulnerability**](ModelVulnerability.md)
 
 ### Authorization
 

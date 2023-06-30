@@ -13,7 +13,6 @@ package client
 
 import (
 	"encoding/json"
-	"time"
 )
 
 // checks if the IngestersSecret type satisfies the MappedNullable interface at compile time
@@ -21,7 +20,6 @@ var _ MappedNullable = &IngestersSecret{}
 
 // IngestersSecret struct for IngestersSecret
 type IngestersSecret struct {
-	Timestamp *time.Time `json:"@timestamp,omitempty"`
 	ImageLayerId *string `json:"ImageLayerId,omitempty"`
 	Match *IngestersSecretMatch `json:"Match,omitempty"`
 	Rule *IngestersSecretRule `json:"Rule,omitempty"`
@@ -45,38 +43,6 @@ func NewIngestersSecret() *IngestersSecret {
 func NewIngestersSecretWithDefaults() *IngestersSecret {
 	this := IngestersSecret{}
 	return &this
-}
-
-// GetTimestamp returns the Timestamp field value if set, zero value otherwise.
-func (o *IngestersSecret) GetTimestamp() time.Time {
-	if o == nil || IsNil(o.Timestamp) {
-		var ret time.Time
-		return ret
-	}
-	return *o.Timestamp
-}
-
-// GetTimestampOk returns a tuple with the Timestamp field value if set, nil otherwise
-// and a boolean to check if the value has been set.
-func (o *IngestersSecret) GetTimestampOk() (*time.Time, bool) {
-	if o == nil || IsNil(o.Timestamp) {
-		return nil, false
-	}
-	return o.Timestamp, true
-}
-
-// HasTimestamp returns a boolean if a field has been set.
-func (o *IngestersSecret) HasTimestamp() bool {
-	if o != nil && !IsNil(o.Timestamp) {
-		return true
-	}
-
-	return false
-}
-
-// SetTimestamp gets a reference to the given time.Time and assigns it to the Timestamp field.
-func (o *IngestersSecret) SetTimestamp(v time.Time) {
-	o.Timestamp = &v
 }
 
 // GetImageLayerId returns the ImageLayerId field value if set, zero value otherwise.
@@ -281,9 +247,6 @@ func (o IngestersSecret) MarshalJSON() ([]byte, error) {
 
 func (o IngestersSecret) ToMap() (map[string]interface{}, error) {
 	toSerialize := map[string]interface{}{}
-	if !IsNil(o.Timestamp) {
-		toSerialize["@timestamp"] = o.Timestamp
-	}
 	if !IsNil(o.ImageLayerId) {
 		toSerialize["ImageLayerId"] = o.ImageLayerId
 	}

@@ -4,7 +4,6 @@
 
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
-**Timestamp** | Pointer to **time.Time** |  | [optional] 
 **ImageLayerId** | Pointer to **string** |  | [optional] 
 **Match** | Pointer to [**IngestersSecretMatch**](IngestersSecretMatch.md) |  | [optional] 
 **Rule** | Pointer to [**IngestersSecretRule**](IngestersSecretRule.md) |  | [optional] 
@@ -30,31 +29,6 @@ will change when the set of required properties is changed
 NewIngestersSecretWithDefaults instantiates a new IngestersSecret object
 This constructor will only assign default values to properties that have it defined,
 but it doesn't guarantee that properties required by API are set
-
-### GetTimestamp
-
-`func (o *IngestersSecret) GetTimestamp() time.Time`
-
-GetTimestamp returns the Timestamp field if non-nil, zero value otherwise.
-
-### GetTimestampOk
-
-`func (o *IngestersSecret) GetTimestampOk() (*time.Time, bool)`
-
-GetTimestampOk returns a tuple with the Timestamp field if it's non-nil, zero value otherwise
-and a boolean to check if the value has been set.
-
-### SetTimestamp
-
-`func (o *IngestersSecret) SetTimestamp(v time.Time)`
-
-SetTimestamp sets Timestamp field to given value.
-
-### HasTimestamp
-
-`func (o *IngestersSecret) HasTimestamp() bool`
-
-HasTimestamp returns a boolean if a field has been set.
 
 ### GetImageLayerId
 

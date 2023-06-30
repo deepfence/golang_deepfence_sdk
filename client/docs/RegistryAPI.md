@@ -15,6 +15,7 @@ Method | HTTP request | Description
 [**ListImageStubs**](RegistryAPI.md#ListImageStubs) | **Post** /deepfence/registryaccount/stubs | List Image Stubs
 [**ListImages**](RegistryAPI.md#ListImages) | **Post** /deepfence/registryaccount/images | List Registry Images
 [**ListRegistry**](RegistryAPI.md#ListRegistry) | **Get** /deepfence/registryaccount | List Registries
+[**SyncRegistry**](RegistryAPI.md#SyncRegistry) | **Post** /deepfence/registryaccount/{registry_id}/sync | Sync Registry
 [**UpdateRegistry**](RegistryAPI.md#UpdateRegistry) | **Put** /deepfence/registryaccount/{registry_id} | Update Registry
 
 
@@ -730,6 +731,76 @@ Other parameters are passed through a pointer to a apiListRegistryRequest struct
 ### Return type
 
 [**[]ModelRegistryListResp**](ModelRegistryListResp.md)
+
+### Authorization
+
+[bearer_token](../README.md#bearer_token)
+
+### HTTP request headers
+
+- **Content-Type**: Not defined
+- **Accept**: application/json
+
+[[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints)
+[[Back to Model list]](../README.md#documentation-for-models)
+[[Back to README]](../README.md)
+
+
+## SyncRegistry
+
+> ModelMessageResponse SyncRegistry(ctx, registryId).Execute()
+
+Sync Registry
+
+
+
+### Example
+
+```go
+package main
+
+import (
+    "context"
+    "fmt"
+    "os"
+    openapiclient "github.com/deepfence/golang_deepfence_sdk/client"
+)
+
+func main() {
+    registryId := "registryId_example" // string | 
+
+    configuration := openapiclient.NewConfiguration()
+    apiClient := openapiclient.NewAPIClient(configuration)
+    resp, r, err := apiClient.RegistryAPI.SyncRegistry(context.Background(), registryId).Execute()
+    if err != nil {
+        fmt.Fprintf(os.Stderr, "Error when calling `RegistryAPI.SyncRegistry``: %v\n", err)
+        fmt.Fprintf(os.Stderr, "Full HTTP response: %v\n", r)
+    }
+    // response from `SyncRegistry`: ModelMessageResponse
+    fmt.Fprintf(os.Stdout, "Response from `RegistryAPI.SyncRegistry`: %v\n", resp)
+}
+```
+
+### Path Parameters
+
+
+Name | Type | Description  | Notes
+------------- | ------------- | ------------- | -------------
+**ctx** | **context.Context** | context for authentication, logging, cancellation, deadlines, tracing, etc.
+**registryId** | **string** |  | 
+
+### Other Parameters
+
+Other parameters are passed through a pointer to a apiSyncRegistryRequest struct via the builder pattern
+
+
+Name | Type | Description  | Notes
+------------- | ------------- | ------------- | -------------
+
+
+### Return type
+
+[**ModelMessageResponse**](ModelMessageResponse.md)
 
 ### Authorization
 

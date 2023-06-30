@@ -29,6 +29,7 @@ type ModelCompliance struct {
 	RemediationPuppet string `json:"remediation_puppet"`
 	RemediationScript string `json:"remediation_script"`
 	Resource string `json:"resource"`
+	Resources []string `json:"resources,omitempty"`
 	Status string `json:"status"`
 	TestCategory string `json:"test_category"`
 	TestDesc string `json:"test_desc"`
@@ -287,6 +288,39 @@ func (o *ModelCompliance) SetResource(v string) {
 	o.Resource = v
 }
 
+// GetResources returns the Resources field value if set, zero value otherwise (both if not set or set to explicit null).
+func (o *ModelCompliance) GetResources() []string {
+	if o == nil {
+		var ret []string
+		return ret
+	}
+	return o.Resources
+}
+
+// GetResourcesOk returns a tuple with the Resources field value if set, nil otherwise
+// and a boolean to check if the value has been set.
+// NOTE: If the value is an explicit nil, `nil, true` will be returned
+func (o *ModelCompliance) GetResourcesOk() ([]string, bool) {
+	if o == nil || IsNil(o.Resources) {
+		return nil, false
+	}
+	return o.Resources, true
+}
+
+// HasResources returns a boolean if a field has been set.
+func (o *ModelCompliance) HasResources() bool {
+	if o != nil && IsNil(o.Resources) {
+		return true
+	}
+
+	return false
+}
+
+// SetResources gets a reference to the given []string and assigns it to the Resources field.
+func (o *ModelCompliance) SetResources(v []string) {
+	o.Resources = v
+}
+
 // GetStatus returns the Status field value
 func (o *ModelCompliance) GetStatus() string {
 	if o == nil {
@@ -474,6 +508,9 @@ func (o ModelCompliance) ToMap() (map[string]interface{}, error) {
 	toSerialize["remediation_puppet"] = o.RemediationPuppet
 	toSerialize["remediation_script"] = o.RemediationScript
 	toSerialize["resource"] = o.Resource
+	if o.Resources != nil {
+		toSerialize["resources"] = o.Resources
+	}
 	toSerialize["status"] = o.Status
 	toSerialize["test_category"] = o.TestCategory
 	toSerialize["test_desc"] = o.TestDesc

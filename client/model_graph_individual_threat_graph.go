@@ -15,36 +15,36 @@ import (
 	"encoding/json"
 )
 
-// checks if the GraphVulnerabilityThreatGraph type satisfies the MappedNullable interface at compile time
-var _ MappedNullable = &GraphVulnerabilityThreatGraph{}
+// checks if the GraphIndividualThreatGraph type satisfies the MappedNullable interface at compile time
+var _ MappedNullable = &GraphIndividualThreatGraph{}
 
-// GraphVulnerabilityThreatGraph struct for GraphVulnerabilityThreatGraph
-type GraphVulnerabilityThreatGraph struct {
+// GraphIndividualThreatGraph struct for GraphIndividualThreatGraph
+type GraphIndividualThreatGraph struct {
 	AttackPath [][]string `json:"attack_path,omitempty"`
 	CveAttackVector *string `json:"cve_attack_vector,omitempty"`
 	CveId []string `json:"cve_id,omitempty"`
 	Ports []interface{} `json:"ports,omitempty"`
 }
 
-// NewGraphVulnerabilityThreatGraph instantiates a new GraphVulnerabilityThreatGraph object
+// NewGraphIndividualThreatGraph instantiates a new GraphIndividualThreatGraph object
 // This constructor will assign default values to properties that have it defined,
 // and makes sure properties required by API are set, but the set of arguments
 // will change when the set of required properties is changed
-func NewGraphVulnerabilityThreatGraph() *GraphVulnerabilityThreatGraph {
-	this := GraphVulnerabilityThreatGraph{}
+func NewGraphIndividualThreatGraph() *GraphIndividualThreatGraph {
+	this := GraphIndividualThreatGraph{}
 	return &this
 }
 
-// NewGraphVulnerabilityThreatGraphWithDefaults instantiates a new GraphVulnerabilityThreatGraph object
+// NewGraphIndividualThreatGraphWithDefaults instantiates a new GraphIndividualThreatGraph object
 // This constructor will only assign default values to properties that have it defined,
 // but it doesn't guarantee that properties required by API are set
-func NewGraphVulnerabilityThreatGraphWithDefaults() *GraphVulnerabilityThreatGraph {
-	this := GraphVulnerabilityThreatGraph{}
+func NewGraphIndividualThreatGraphWithDefaults() *GraphIndividualThreatGraph {
+	this := GraphIndividualThreatGraph{}
 	return &this
 }
 
 // GetAttackPath returns the AttackPath field value if set, zero value otherwise (both if not set or set to explicit null).
-func (o *GraphVulnerabilityThreatGraph) GetAttackPath() [][]string {
+func (o *GraphIndividualThreatGraph) GetAttackPath() [][]string {
 	if o == nil {
 		var ret [][]string
 		return ret
@@ -55,7 +55,7 @@ func (o *GraphVulnerabilityThreatGraph) GetAttackPath() [][]string {
 // GetAttackPathOk returns a tuple with the AttackPath field value if set, nil otherwise
 // and a boolean to check if the value has been set.
 // NOTE: If the value is an explicit nil, `nil, true` will be returned
-func (o *GraphVulnerabilityThreatGraph) GetAttackPathOk() ([][]string, bool) {
+func (o *GraphIndividualThreatGraph) GetAttackPathOk() ([][]string, bool) {
 	if o == nil || IsNil(o.AttackPath) {
 		return nil, false
 	}
@@ -63,7 +63,7 @@ func (o *GraphVulnerabilityThreatGraph) GetAttackPathOk() ([][]string, bool) {
 }
 
 // HasAttackPath returns a boolean if a field has been set.
-func (o *GraphVulnerabilityThreatGraph) HasAttackPath() bool {
+func (o *GraphIndividualThreatGraph) HasAttackPath() bool {
 	if o != nil && IsNil(o.AttackPath) {
 		return true
 	}
@@ -72,12 +72,12 @@ func (o *GraphVulnerabilityThreatGraph) HasAttackPath() bool {
 }
 
 // SetAttackPath gets a reference to the given [][]string and assigns it to the AttackPath field.
-func (o *GraphVulnerabilityThreatGraph) SetAttackPath(v [][]string) {
+func (o *GraphIndividualThreatGraph) SetAttackPath(v [][]string) {
 	o.AttackPath = v
 }
 
 // GetCveAttackVector returns the CveAttackVector field value if set, zero value otherwise.
-func (o *GraphVulnerabilityThreatGraph) GetCveAttackVector() string {
+func (o *GraphIndividualThreatGraph) GetCveAttackVector() string {
 	if o == nil || IsNil(o.CveAttackVector) {
 		var ret string
 		return ret
@@ -87,7 +87,7 @@ func (o *GraphVulnerabilityThreatGraph) GetCveAttackVector() string {
 
 // GetCveAttackVectorOk returns a tuple with the CveAttackVector field value if set, nil otherwise
 // and a boolean to check if the value has been set.
-func (o *GraphVulnerabilityThreatGraph) GetCveAttackVectorOk() (*string, bool) {
+func (o *GraphIndividualThreatGraph) GetCveAttackVectorOk() (*string, bool) {
 	if o == nil || IsNil(o.CveAttackVector) {
 		return nil, false
 	}
@@ -95,7 +95,7 @@ func (o *GraphVulnerabilityThreatGraph) GetCveAttackVectorOk() (*string, bool) {
 }
 
 // HasCveAttackVector returns a boolean if a field has been set.
-func (o *GraphVulnerabilityThreatGraph) HasCveAttackVector() bool {
+func (o *GraphIndividualThreatGraph) HasCveAttackVector() bool {
 	if o != nil && !IsNil(o.CveAttackVector) {
 		return true
 	}
@@ -104,12 +104,12 @@ func (o *GraphVulnerabilityThreatGraph) HasCveAttackVector() bool {
 }
 
 // SetCveAttackVector gets a reference to the given string and assigns it to the CveAttackVector field.
-func (o *GraphVulnerabilityThreatGraph) SetCveAttackVector(v string) {
+func (o *GraphIndividualThreatGraph) SetCveAttackVector(v string) {
 	o.CveAttackVector = &v
 }
 
 // GetCveId returns the CveId field value if set, zero value otherwise (both if not set or set to explicit null).
-func (o *GraphVulnerabilityThreatGraph) GetCveId() []string {
+func (o *GraphIndividualThreatGraph) GetCveId() []string {
 	if o == nil {
 		var ret []string
 		return ret
@@ -120,7 +120,7 @@ func (o *GraphVulnerabilityThreatGraph) GetCveId() []string {
 // GetCveIdOk returns a tuple with the CveId field value if set, nil otherwise
 // and a boolean to check if the value has been set.
 // NOTE: If the value is an explicit nil, `nil, true` will be returned
-func (o *GraphVulnerabilityThreatGraph) GetCveIdOk() ([]string, bool) {
+func (o *GraphIndividualThreatGraph) GetCveIdOk() ([]string, bool) {
 	if o == nil || IsNil(o.CveId) {
 		return nil, false
 	}
@@ -128,7 +128,7 @@ func (o *GraphVulnerabilityThreatGraph) GetCveIdOk() ([]string, bool) {
 }
 
 // HasCveId returns a boolean if a field has been set.
-func (o *GraphVulnerabilityThreatGraph) HasCveId() bool {
+func (o *GraphIndividualThreatGraph) HasCveId() bool {
 	if o != nil && IsNil(o.CveId) {
 		return true
 	}
@@ -137,12 +137,12 @@ func (o *GraphVulnerabilityThreatGraph) HasCveId() bool {
 }
 
 // SetCveId gets a reference to the given []string and assigns it to the CveId field.
-func (o *GraphVulnerabilityThreatGraph) SetCveId(v []string) {
+func (o *GraphIndividualThreatGraph) SetCveId(v []string) {
 	o.CveId = v
 }
 
 // GetPorts returns the Ports field value if set, zero value otherwise (both if not set or set to explicit null).
-func (o *GraphVulnerabilityThreatGraph) GetPorts() []interface{} {
+func (o *GraphIndividualThreatGraph) GetPorts() []interface{} {
 	if o == nil {
 		var ret []interface{}
 		return ret
@@ -153,7 +153,7 @@ func (o *GraphVulnerabilityThreatGraph) GetPorts() []interface{} {
 // GetPortsOk returns a tuple with the Ports field value if set, nil otherwise
 // and a boolean to check if the value has been set.
 // NOTE: If the value is an explicit nil, `nil, true` will be returned
-func (o *GraphVulnerabilityThreatGraph) GetPortsOk() ([]interface{}, bool) {
+func (o *GraphIndividualThreatGraph) GetPortsOk() ([]interface{}, bool) {
 	if o == nil || IsNil(o.Ports) {
 		return nil, false
 	}
@@ -161,7 +161,7 @@ func (o *GraphVulnerabilityThreatGraph) GetPortsOk() ([]interface{}, bool) {
 }
 
 // HasPorts returns a boolean if a field has been set.
-func (o *GraphVulnerabilityThreatGraph) HasPorts() bool {
+func (o *GraphIndividualThreatGraph) HasPorts() bool {
 	if o != nil && IsNil(o.Ports) {
 		return true
 	}
@@ -170,11 +170,11 @@ func (o *GraphVulnerabilityThreatGraph) HasPorts() bool {
 }
 
 // SetPorts gets a reference to the given []interface{} and assigns it to the Ports field.
-func (o *GraphVulnerabilityThreatGraph) SetPorts(v []interface{}) {
+func (o *GraphIndividualThreatGraph) SetPorts(v []interface{}) {
 	o.Ports = v
 }
 
-func (o GraphVulnerabilityThreatGraph) MarshalJSON() ([]byte, error) {
+func (o GraphIndividualThreatGraph) MarshalJSON() ([]byte, error) {
 	toSerialize,err := o.ToMap()
 	if err != nil {
 		return []byte{}, err
@@ -182,7 +182,7 @@ func (o GraphVulnerabilityThreatGraph) MarshalJSON() ([]byte, error) {
 	return json.Marshal(toSerialize)
 }
 
-func (o GraphVulnerabilityThreatGraph) ToMap() (map[string]interface{}, error) {
+func (o GraphIndividualThreatGraph) ToMap() (map[string]interface{}, error) {
 	toSerialize := map[string]interface{}{}
 	if o.AttackPath != nil {
 		toSerialize["attack_path"] = o.AttackPath
@@ -199,38 +199,38 @@ func (o GraphVulnerabilityThreatGraph) ToMap() (map[string]interface{}, error) {
 	return toSerialize, nil
 }
 
-type NullableGraphVulnerabilityThreatGraph struct {
-	value *GraphVulnerabilityThreatGraph
+type NullableGraphIndividualThreatGraph struct {
+	value *GraphIndividualThreatGraph
 	isSet bool
 }
 
-func (v NullableGraphVulnerabilityThreatGraph) Get() *GraphVulnerabilityThreatGraph {
+func (v NullableGraphIndividualThreatGraph) Get() *GraphIndividualThreatGraph {
 	return v.value
 }
 
-func (v *NullableGraphVulnerabilityThreatGraph) Set(val *GraphVulnerabilityThreatGraph) {
+func (v *NullableGraphIndividualThreatGraph) Set(val *GraphIndividualThreatGraph) {
 	v.value = val
 	v.isSet = true
 }
 
-func (v NullableGraphVulnerabilityThreatGraph) IsSet() bool {
+func (v NullableGraphIndividualThreatGraph) IsSet() bool {
 	return v.isSet
 }
 
-func (v *NullableGraphVulnerabilityThreatGraph) Unset() {
+func (v *NullableGraphIndividualThreatGraph) Unset() {
 	v.value = nil
 	v.isSet = false
 }
 
-func NewNullableGraphVulnerabilityThreatGraph(val *GraphVulnerabilityThreatGraph) *NullableGraphVulnerabilityThreatGraph {
-	return &NullableGraphVulnerabilityThreatGraph{value: val, isSet: true}
+func NewNullableGraphIndividualThreatGraph(val *GraphIndividualThreatGraph) *NullableGraphIndividualThreatGraph {
+	return &NullableGraphIndividualThreatGraph{value: val, isSet: true}
 }
 
-func (v NullableGraphVulnerabilityThreatGraph) MarshalJSON() ([]byte, error) {
+func (v NullableGraphIndividualThreatGraph) MarshalJSON() ([]byte, error) {
 	return json.Marshal(v.value)
 }
 
-func (v *NullableGraphVulnerabilityThreatGraph) UnmarshalJSON(src []byte) error {
+func (v *NullableGraphIndividualThreatGraph) UnmarshalJSON(src []byte) error {
 	v.isSet = true
 	return json.Unmarshal(src, &v.value)
 }

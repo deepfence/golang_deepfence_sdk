@@ -6,7 +6,6 @@ Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
 **ComplianceCheckType** | Pointer to **string** |  | [optional] 
 **Description** | Pointer to **string** |  | [optional] 
-**Masked** | Pointer to **bool** |  | [optional] 
 **NodeId** | Pointer to **string** |  | [optional] 
 **NodeType** | Pointer to **string** |  | [optional] 
 **RemediationAnsible** | Pointer to **string** |  | [optional] 
@@ -90,31 +89,6 @@ SetDescription sets Description field to given value.
 `func (o *IngestersCompliance) HasDescription() bool`
 
 HasDescription returns a boolean if a field has been set.
-
-### GetMasked
-
-`func (o *IngestersCompliance) GetMasked() bool`
-
-GetMasked returns the Masked field if non-nil, zero value otherwise.
-
-### GetMaskedOk
-
-`func (o *IngestersCompliance) GetMaskedOk() (*bool, bool)`
-
-GetMaskedOk returns a tuple with the Masked field if it's non-nil, zero value otherwise
-and a boolean to check if the value has been set.
-
-### SetMasked
-
-`func (o *IngestersCompliance) SetMasked(v bool)`
-
-SetMasked sets Masked field to given value.
-
-### HasMasked
-
-`func (o *IngestersCompliance) HasMasked() bool`
-
-HasMasked returns a boolean if a field has been set.
 
 ### GetNodeId
 

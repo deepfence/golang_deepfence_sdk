@@ -5,13 +5,14 @@
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
 **Code** | **string** |  | 
+**Namespace** | **string** |  | 
 **Password** | **string** |  | 
 
 ## Methods
 
 ### NewModelPasswordResetVerifyRequest
 
-`func NewModelPasswordResetVerifyRequest(code string, password string, ) *ModelPasswordResetVerifyRequest`
+`func NewModelPasswordResetVerifyRequest(code string, namespace string, password string, ) *ModelPasswordResetVerifyRequest`
 
 NewModelPasswordResetVerifyRequest instantiates a new ModelPasswordResetVerifyRequest object
 This constructor will assign default values to properties that have it defined,
@@ -44,6 +45,26 @@ and a boolean to check if the value has been set.
 `func (o *ModelPasswordResetVerifyRequest) SetCode(v string)`
 
 SetCode sets Code field to given value.
+
+
+### GetNamespace
+
+`func (o *ModelPasswordResetVerifyRequest) GetNamespace() string`
+
+GetNamespace returns the Namespace field if non-nil, zero value otherwise.
+
+### GetNamespaceOk
+
+`func (o *ModelPasswordResetVerifyRequest) GetNamespaceOk() (*string, bool)`
+
+GetNamespaceOk returns a tuple with the Namespace field if it's non-nil, zero value otherwise
+and a boolean to check if the value has been set.
+
+### SetNamespace
+
+`func (o *ModelPasswordResetVerifyRequest) SetNamespace(v string)`
+
+SetNamespace sets Namespace field to given value.
 
 
 ### GetPassword

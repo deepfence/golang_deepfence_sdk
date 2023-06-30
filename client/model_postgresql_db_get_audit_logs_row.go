@@ -28,8 +28,6 @@ type PostgresqlDbGetAuditLogsRow struct {
 	Resources *string `json:"resources,omitempty"`
 	Role *string `json:"role,omitempty"`
 	Success *bool `json:"success,omitempty"`
-	UserId map[string]interface{} `json:"user_id,omitempty"`
-	UserRoleId *int32 `json:"user_role_id,omitempty"`
 }
 
 // NewPostgresqlDbGetAuditLogsRow instantiates a new PostgresqlDbGetAuditLogsRow object
@@ -273,70 +271,6 @@ func (o *PostgresqlDbGetAuditLogsRow) SetSuccess(v bool) {
 	o.Success = &v
 }
 
-// GetUserId returns the UserId field value if set, zero value otherwise.
-func (o *PostgresqlDbGetAuditLogsRow) GetUserId() map[string]interface{} {
-	if o == nil || IsNil(o.UserId) {
-		var ret map[string]interface{}
-		return ret
-	}
-	return o.UserId
-}
-
-// GetUserIdOk returns a tuple with the UserId field value if set, nil otherwise
-// and a boolean to check if the value has been set.
-func (o *PostgresqlDbGetAuditLogsRow) GetUserIdOk() (map[string]interface{}, bool) {
-	if o == nil || IsNil(o.UserId) {
-		return map[string]interface{}{}, false
-	}
-	return o.UserId, true
-}
-
-// HasUserId returns a boolean if a field has been set.
-func (o *PostgresqlDbGetAuditLogsRow) HasUserId() bool {
-	if o != nil && !IsNil(o.UserId) {
-		return true
-	}
-
-	return false
-}
-
-// SetUserId gets a reference to the given map[string]interface{} and assigns it to the UserId field.
-func (o *PostgresqlDbGetAuditLogsRow) SetUserId(v map[string]interface{}) {
-	o.UserId = v
-}
-
-// GetUserRoleId returns the UserRoleId field value if set, zero value otherwise.
-func (o *PostgresqlDbGetAuditLogsRow) GetUserRoleId() int32 {
-	if o == nil || IsNil(o.UserRoleId) {
-		var ret int32
-		return ret
-	}
-	return *o.UserRoleId
-}
-
-// GetUserRoleIdOk returns a tuple with the UserRoleId field value if set, nil otherwise
-// and a boolean to check if the value has been set.
-func (o *PostgresqlDbGetAuditLogsRow) GetUserRoleIdOk() (*int32, bool) {
-	if o == nil || IsNil(o.UserRoleId) {
-		return nil, false
-	}
-	return o.UserRoleId, true
-}
-
-// HasUserRoleId returns a boolean if a field has been set.
-func (o *PostgresqlDbGetAuditLogsRow) HasUserRoleId() bool {
-	if o != nil && !IsNil(o.UserRoleId) {
-		return true
-	}
-
-	return false
-}
-
-// SetUserRoleId gets a reference to the given int32 and assigns it to the UserRoleId field.
-func (o *PostgresqlDbGetAuditLogsRow) SetUserRoleId(v int32) {
-	o.UserRoleId = &v
-}
-
 func (o PostgresqlDbGetAuditLogsRow) MarshalJSON() ([]byte, error) {
 	toSerialize,err := o.ToMap()
 	if err != nil {
@@ -367,12 +301,6 @@ func (o PostgresqlDbGetAuditLogsRow) ToMap() (map[string]interface{}, error) {
 	}
 	if !IsNil(o.Success) {
 		toSerialize["success"] = o.Success
-	}
-	if !IsNil(o.UserId) {
-		toSerialize["user_id"] = o.UserId
-	}
-	if !IsNil(o.UserRoleId) {
-		toSerialize["user_role_id"] = o.UserRoleId
 	}
 	return toSerialize, nil
 }

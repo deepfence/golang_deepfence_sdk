@@ -119,14 +119,19 @@ Class | Method | HTTP request | Description
 *IntegrationAPI* | [**DeleteIntegration**](docs/IntegrationAPI.md#deleteintegration) | **Delete** /deepfence/integration/{integration_id} | Delete Integration
 *IntegrationAPI* | [**ListIntegration**](docs/IntegrationAPI.md#listintegration) | **Get** /deepfence/integration | List Integrations
 *InternalAPI* | [**GetConsoleApiToken**](docs/InternalAPI.md#getconsoleapitoken) | **Get** /deepfence/internal/console-api-token | Get api-token for console agent
+*LookupAPI* | [**GetCloudCompliances**](docs/LookupAPI.md#getcloudcompliances) | **Post** /deepfence/lookup/cloud-compliances | Retrieve Cloud Compliances data
 *LookupAPI* | [**GetCloudResources**](docs/LookupAPI.md#getcloudresources) | **Post** /deepfence/lookup/cloud-resources | Get Cloud Resources
+*LookupAPI* | [**GetCompliances**](docs/LookupAPI.md#getcompliances) | **Post** /deepfence/lookup/compliances | Retrieve Compliances data
 *LookupAPI* | [**GetContainerImages**](docs/LookupAPI.md#getcontainerimages) | **Post** /deepfence/lookup/containerimages | Retrieve Container Images data
 *LookupAPI* | [**GetContainers**](docs/LookupAPI.md#getcontainers) | **Post** /deepfence/lookup/containers | Retrieve Containers data
 *LookupAPI* | [**GetHosts**](docs/LookupAPI.md#gethosts) | **Post** /deepfence/lookup/hosts | Retrieve Hosts data
 *LookupAPI* | [**GetKubernetesClusters**](docs/LookupAPI.md#getkubernetesclusters) | **Post** /deepfence/lookup/kubernetesclusters | Retrieve K8s data
+*LookupAPI* | [**GetMalwares**](docs/LookupAPI.md#getmalwares) | **Post** /deepfence/lookup/malwares | Retrieve Malwares data
 *LookupAPI* | [**GetPods**](docs/LookupAPI.md#getpods) | **Post** /deepfence/lookup/pods | Retrieve Pods data
 *LookupAPI* | [**GetProcesses**](docs/LookupAPI.md#getprocesses) | **Post** /deepfence/lookup/processes | Retrieve Processes data
 *LookupAPI* | [**GetRegistryAccount**](docs/LookupAPI.md#getregistryaccount) | **Post** /deepfence/lookup/registryaccount | Get Images in Registry
+*LookupAPI* | [**GetSecrets**](docs/LookupAPI.md#getsecrets) | **Post** /deepfence/lookup/secrets | Retrieve Secrets data
+*LookupAPI* | [**GetVulnerabilities**](docs/LookupAPI.md#getvulnerabilities) | **Post** /deepfence/lookup/vulnerabilities | Retrieve Vulnerabilities data
 *MalwareScanAPI* | [**CountResultsMalwareScan**](docs/MalwareScanAPI.md#countresultsmalwarescan) | **Post** /deepfence/scan/results/count/malware | Get Malware Scans Results
 *MalwareScanAPI* | [**GroupResultsMalwares**](docs/MalwareScanAPI.md#groupresultsmalwares) | **Get** /deepfence/scan/results/count/group/malware | Group Malware Results
 *MalwareScanAPI* | [**GroupResultsMalwaresClass**](docs/MalwareScanAPI.md#groupresultsmalwaresclass) | **Get** /deepfence/scan/results/count/group/malware/class | Group Malware Results By Class
@@ -150,6 +155,7 @@ Class | Method | HTTP request | Description
 *RegistryAPI* | [**ListImageStubs**](docs/RegistryAPI.md#listimagestubs) | **Post** /deepfence/registryaccount/stubs | List Image Stubs
 *RegistryAPI* | [**ListImages**](docs/RegistryAPI.md#listimages) | **Post** /deepfence/registryaccount/images | List Registry Images
 *RegistryAPI* | [**ListRegistry**](docs/RegistryAPI.md#listregistry) | **Get** /deepfence/registryaccount | List Registries
+*RegistryAPI* | [**SyncRegistry**](docs/RegistryAPI.md#syncregistry) | **Post** /deepfence/registryaccount/{registry_id}/sync | Sync Registry
 *RegistryAPI* | [**UpdateRegistry**](docs/RegistryAPI.md#updateregistry) | **Put** /deepfence/registryaccount/{registry_id} | Update Registry
 *ReportsAPI* | [**DeleteReport**](docs/ReportsAPI.md#deletereport) | **Delete** /deepfence/reports/{report_id} | Delete Report
 *ReportsAPI* | [**GenerateReport**](docs/ReportsAPI.md#generatereport) | **Post** /deepfence/reports | Generate Report
@@ -183,6 +189,7 @@ Class | Method | HTTP request | Description
 *SearchAPI* | [**CountSecrets**](docs/SearchAPI.md#countsecrets) | **Post** /deepfence/search/count/secrets | Count Secrets
 *SearchAPI* | [**CountSecretsScans**](docs/SearchAPI.md#countsecretsscans) | **Post** /deepfence/search/count/secret/scans | Count Secret Scan results
 *SearchAPI* | [**CountVulnerabilities**](docs/SearchAPI.md#countvulnerabilities) | **Post** /deepfence/search/count/vulnerabilities | Count Vulnerabilities
+*SearchAPI* | [**CountVulnerabilityRules**](docs/SearchAPI.md#countvulnerabilityrules) | **Post** /deepfence/search/count/vulnerability-rules | Count Vulnerability Rules
 *SearchAPI* | [**CountVulnerabilityScans**](docs/SearchAPI.md#countvulnerabilityscans) | **Post** /deepfence/search/count/vulnerability/scans | Count Vulnerability Scan results
 *SearchAPI* | [**GetCloudComplianceFilters**](docs/SearchAPI.md#getcloudcompliancefilters) | **Post** /deepfence/filters/cloud-compliance | Get Cloud Compliance Filters
 *SearchAPI* | [**GetComplianceFilters**](docs/SearchAPI.md#getcompliancefilters) | **Post** /deepfence/filters/compliance | Get Compliance Filters
@@ -204,6 +211,7 @@ Class | Method | HTTP request | Description
 *SearchAPI* | [**SearchSecretRules**](docs/SearchAPI.md#searchsecretrules) | **Post** /deepfence/search/secret-rules | Search Secret Rules
 *SearchAPI* | [**SearchSecrets**](docs/SearchAPI.md#searchsecrets) | **Post** /deepfence/search/secrets | Search Secrets
 *SearchAPI* | [**SearchSecretsScans**](docs/SearchAPI.md#searchsecretsscans) | **Post** /deepfence/search/secret/scans | Search Secrets Scan results
+*SearchAPI* | [**SearchVulerabilityRules**](docs/SearchAPI.md#searchvulerabilityrules) | **Post** /deepfence/search/vulnerability-rules | Search Vulnerability Rules
 *SearchAPI* | [**SearchVulnerabilities**](docs/SearchAPI.md#searchvulnerabilities) | **Post** /deepfence/search/vulnerabilities | Search Vulnerabilities
 *SearchAPI* | [**SearchVulnerabilityScans**](docs/SearchAPI.md#searchvulnerabilityscans) | **Post** /deepfence/search/vulnerability/scans | Search Vulnerability Scan results
 *SecretScanAPI* | [**CountResultsSecretScan**](docs/SecretScanAPI.md#countresultssecretscan) | **Post** /deepfence/scan/results/count/secret | Get Secret Scans Results
@@ -225,8 +233,8 @@ Class | Method | HTTP request | Description
 *SettingsAPI* | [**UpdateScheduledTask**](docs/SettingsAPI.md#updatescheduledtask) | **Patch** /deepfence/scheduled-task/{id} | Update scheduled task
 *SettingsAPI* | [**UpdateSetting**](docs/SettingsAPI.md#updatesetting) | **Patch** /deepfence/settings/global-settings/{id} | Update setting
 *SettingsAPI* | [**UploadVulnerabilityDatabase**](docs/SettingsAPI.md#uploadvulnerabilitydatabase) | **Put** /deepfence/database/vulnerability | Upload Vulnerability Database
+*ThreatAPI* | [**GetIndividualThreatGraph**](docs/ThreatAPI.md#getindividualthreatgraph) | **Post** /deepfence/graph/threat/individual | Get Vulnerability Threat Graph
 *ThreatAPI* | [**GetThreatGraph**](docs/ThreatAPI.md#getthreatgraph) | **Post** /deepfence/graph/threat | Get Threat Graph
-*ThreatAPI* | [**GetVulnerabilityThreatGraph**](docs/ThreatAPI.md#getvulnerabilitythreatgraph) | **Post** /deepfence/graph/threat/vulnerability | Get Vulnerability Threat Graph
 *TopologyAPI* | [**GetContainersTopologyGraph**](docs/TopologyAPI.md#getcontainerstopologygraph) | **Post** /deepfence/graph/topology/containers | Get Containers Topology Graph
 *TopologyAPI* | [**GetHostsTopologyGraph**](docs/TopologyAPI.md#gethoststopologygraph) | **Post** /deepfence/graph/topology/hosts | Get Hosts Topology Graph
 *TopologyAPI* | [**GetKubernetesTopologyGraph**](docs/TopologyAPI.md#getkubernetestopologygraph) | **Post** /deepfence/graph/topology/kubernetes | Get Kubernetes Topology Graph
@@ -280,13 +288,13 @@ Class | Method | HTTP request | Description
  - [DiagnosisGetDiagnosticLogsResponse](docs/DiagnosisGetDiagnosticLogsResponse.md)
  - [DiagnosisNodeIdentifier](docs/DiagnosisNodeIdentifier.md)
  - [GraphCloudProviderFilter](docs/GraphCloudProviderFilter.md)
+ - [GraphIndividualThreatGraph](docs/GraphIndividualThreatGraph.md)
+ - [GraphIndividualThreatGraphRequest](docs/GraphIndividualThreatGraphRequest.md)
  - [GraphNodeInfo](docs/GraphNodeInfo.md)
  - [GraphProviderThreatGraph](docs/GraphProviderThreatGraph.md)
  - [GraphThreatFilters](docs/GraphThreatFilters.md)
  - [GraphThreatNodeInfo](docs/GraphThreatNodeInfo.md)
  - [GraphTopologyFilters](docs/GraphTopologyFilters.md)
- - [GraphVulnerabilityThreatGraph](docs/GraphVulnerabilityThreatGraph.md)
- - [GraphVulnerabilityThreatGraphRequest](docs/GraphVulnerabilityThreatGraphRequest.md)
  - [IngestersCloudCompliance](docs/IngestersCloudCompliance.md)
  - [IngestersCloudComplianceScanStatus](docs/IngestersCloudComplianceScanStatus.md)
  - [IngestersCloudResource](docs/IngestersCloudResource.md)
@@ -411,6 +419,7 @@ Class | Method | HTTP request | Description
  - [ModelUser](docs/ModelUser.md)
  - [ModelUserRegisterRequest](docs/ModelUserRegisterRequest.md)
  - [ModelVulnerability](docs/ModelVulnerability.md)
+ - [ModelVulnerabilityRule](docs/ModelVulnerabilityRule.md)
  - [ModelVulnerabilityScanConfigLanguage](docs/ModelVulnerabilityScanConfigLanguage.md)
  - [ModelVulnerabilityScanResult](docs/ModelVulnerabilityScanResult.md)
  - [ModelVulnerabilityScanTriggerReq](docs/ModelVulnerabilityScanTriggerReq.md)

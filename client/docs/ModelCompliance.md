@@ -13,6 +13,7 @@ Name | Type | Description | Notes
 **RemediationPuppet** | **string** |  | 
 **RemediationScript** | **string** |  | 
 **Resource** | **string** |  | 
+**Resources** | Pointer to **[]string** |  | [optional] 
 **Status** | **string** |  | 
 **TestCategory** | **string** |  | 
 **TestDesc** | **string** |  | 
@@ -220,6 +221,41 @@ and a boolean to check if the value has been set.
 SetResource sets Resource field to given value.
 
 
+### GetResources
+
+`func (o *ModelCompliance) GetResources() []string`
+
+GetResources returns the Resources field if non-nil, zero value otherwise.
+
+### GetResourcesOk
+
+`func (o *ModelCompliance) GetResourcesOk() (*[]string, bool)`
+
+GetResourcesOk returns a tuple with the Resources field if it's non-nil, zero value otherwise
+and a boolean to check if the value has been set.
+
+### SetResources
+
+`func (o *ModelCompliance) SetResources(v []string)`
+
+SetResources sets Resources field to given value.
+
+### HasResources
+
+`func (o *ModelCompliance) HasResources() bool`
+
+HasResources returns a boolean if a field has been set.
+
+### SetResourcesNil
+
+`func (o *ModelCompliance) SetResourcesNil(b bool)`
+
+ SetResourcesNil sets the value for Resources to be an explicit nil
+
+### UnsetResources
+`func (o *ModelCompliance) UnsetResources()`
+
+UnsetResources ensures that no value is present for Resources, not even an explicit nil
 ### GetStatus
 
 `func (o *ModelCompliance) GetStatus() string`

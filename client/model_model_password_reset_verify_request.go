@@ -21,6 +21,7 @@ var _ MappedNullable = &ModelPasswordResetVerifyRequest{}
 // ModelPasswordResetVerifyRequest struct for ModelPasswordResetVerifyRequest
 type ModelPasswordResetVerifyRequest struct {
 	Code string `json:"code"`
+	Namespace string `json:"namespace"`
 	Password string `json:"password"`
 }
 
@@ -28,9 +29,10 @@ type ModelPasswordResetVerifyRequest struct {
 // This constructor will assign default values to properties that have it defined,
 // and makes sure properties required by API are set, but the set of arguments
 // will change when the set of required properties is changed
-func NewModelPasswordResetVerifyRequest(code string, password string) *ModelPasswordResetVerifyRequest {
+func NewModelPasswordResetVerifyRequest(code string, namespace string, password string) *ModelPasswordResetVerifyRequest {
 	this := ModelPasswordResetVerifyRequest{}
 	this.Code = code
+	this.Namespace = namespace
 	this.Password = password
 	return &this
 }
@@ -65,6 +67,30 @@ func (o *ModelPasswordResetVerifyRequest) GetCodeOk() (*string, bool) {
 // SetCode sets field value
 func (o *ModelPasswordResetVerifyRequest) SetCode(v string) {
 	o.Code = v
+}
+
+// GetNamespace returns the Namespace field value
+func (o *ModelPasswordResetVerifyRequest) GetNamespace() string {
+	if o == nil {
+		var ret string
+		return ret
+	}
+
+	return o.Namespace
+}
+
+// GetNamespaceOk returns a tuple with the Namespace field value
+// and a boolean to check if the value has been set.
+func (o *ModelPasswordResetVerifyRequest) GetNamespaceOk() (*string, bool) {
+	if o == nil {
+		return nil, false
+	}
+	return &o.Namespace, true
+}
+
+// SetNamespace sets field value
+func (o *ModelPasswordResetVerifyRequest) SetNamespace(v string) {
+	o.Namespace = v
 }
 
 // GetPassword returns the Password field value
@@ -102,6 +128,7 @@ func (o ModelPasswordResetVerifyRequest) MarshalJSON() ([]byte, error) {
 func (o ModelPasswordResetVerifyRequest) ToMap() (map[string]interface{}, error) {
 	toSerialize := map[string]interface{}{}
 	toSerialize["code"] = o.Code
+	toSerialize["namespace"] = o.Namespace
 	toSerialize["password"] = o.Password
 	return toSerialize, nil
 }

@@ -8,13 +8,14 @@ Name | Type | Description | Notes
 **FirstName** | **string** |  | 
 **IsTemporaryPassword** | Pointer to **bool** |  | [optional] 
 **LastName** | **string** |  | 
+**Namespace** | **string** |  | 
 **Password** | **string** |  | 
 
 ## Methods
 
 ### NewModelRegisterInvitedUserRequest
 
-`func NewModelRegisterInvitedUserRequest(code string, firstName string, lastName string, password string, ) *ModelRegisterInvitedUserRequest`
+`func NewModelRegisterInvitedUserRequest(code string, firstName string, lastName string, namespace string, password string, ) *ModelRegisterInvitedUserRequest`
 
 NewModelRegisterInvitedUserRequest instantiates a new ModelRegisterInvitedUserRequest object
 This constructor will assign default values to properties that have it defined,
@@ -112,6 +113,26 @@ and a boolean to check if the value has been set.
 `func (o *ModelRegisterInvitedUserRequest) SetLastName(v string)`
 
 SetLastName sets LastName field to given value.
+
+
+### GetNamespace
+
+`func (o *ModelRegisterInvitedUserRequest) GetNamespace() string`
+
+GetNamespace returns the Namespace field if non-nil, zero value otherwise.
+
+### GetNamespaceOk
+
+`func (o *ModelRegisterInvitedUserRequest) GetNamespaceOk() (*string, bool)`
+
+GetNamespaceOk returns a tuple with the Namespace field if it's non-nil, zero value otherwise
+and a boolean to check if the value has been set.
+
+### SetNamespace
+
+`func (o *ModelRegisterInvitedUserRequest) SetNamespace(v string)`
+
+SetNamespace sets Namespace field to given value.
 
 
 ### GetPassword

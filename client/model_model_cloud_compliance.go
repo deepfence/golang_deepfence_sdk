@@ -33,6 +33,7 @@ type ModelCloudCompliance struct {
 	Reason string `json:"reason"`
 	Region string `json:"region"`
 	Resource string `json:"resource"`
+	Resources []string `json:"resources,omitempty"`
 	Service string `json:"service"`
 	Severity string `json:"severity"`
 	Status string `json:"status"`
@@ -389,6 +390,39 @@ func (o *ModelCloudCompliance) SetResource(v string) {
 	o.Resource = v
 }
 
+// GetResources returns the Resources field value if set, zero value otherwise (both if not set or set to explicit null).
+func (o *ModelCloudCompliance) GetResources() []string {
+	if o == nil {
+		var ret []string
+		return ret
+	}
+	return o.Resources
+}
+
+// GetResourcesOk returns a tuple with the Resources field value if set, nil otherwise
+// and a boolean to check if the value has been set.
+// NOTE: If the value is an explicit nil, `nil, true` will be returned
+func (o *ModelCloudCompliance) GetResourcesOk() ([]string, bool) {
+	if o == nil || IsNil(o.Resources) {
+		return nil, false
+	}
+	return o.Resources, true
+}
+
+// HasResources returns a boolean if a field has been set.
+func (o *ModelCloudCompliance) HasResources() bool {
+	if o != nil && IsNil(o.Resources) {
+		return true
+	}
+
+	return false
+}
+
+// SetResources gets a reference to the given []string and assigns it to the Resources field.
+func (o *ModelCloudCompliance) SetResources(v []string) {
+	o.Resources = v
+}
+
 // GetService returns the Service field value
 func (o *ModelCloudCompliance) GetService() string {
 	if o == nil {
@@ -556,6 +590,9 @@ func (o ModelCloudCompliance) ToMap() (map[string]interface{}, error) {
 	toSerialize["reason"] = o.Reason
 	toSerialize["region"] = o.Region
 	toSerialize["resource"] = o.Resource
+	if o.Resources != nil {
+		toSerialize["resources"] = o.Resources
+	}
 	toSerialize["service"] = o.Service
 	toSerialize["severity"] = o.Severity
 	toSerialize["status"] = o.Status

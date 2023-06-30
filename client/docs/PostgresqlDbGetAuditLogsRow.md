@@ -11,8 +11,6 @@ Name | Type | Description | Notes
 **Resources** | Pointer to **string** |  | [optional] 
 **Role** | Pointer to **string** |  | [optional] 
 **Success** | Pointer to **bool** |  | [optional] 
-**UserId** | Pointer to **map[string]interface{}** |  | [optional] 
-**UserRoleId** | Pointer to **int32** |  | [optional] 
 
 ## Methods
 
@@ -207,56 +205,6 @@ SetSuccess sets Success field to given value.
 `func (o *PostgresqlDbGetAuditLogsRow) HasSuccess() bool`
 
 HasSuccess returns a boolean if a field has been set.
-
-### GetUserId
-
-`func (o *PostgresqlDbGetAuditLogsRow) GetUserId() map[string]interface{}`
-
-GetUserId returns the UserId field if non-nil, zero value otherwise.
-
-### GetUserIdOk
-
-`func (o *PostgresqlDbGetAuditLogsRow) GetUserIdOk() (*map[string]interface{}, bool)`
-
-GetUserIdOk returns a tuple with the UserId field if it's non-nil, zero value otherwise
-and a boolean to check if the value has been set.
-
-### SetUserId
-
-`func (o *PostgresqlDbGetAuditLogsRow) SetUserId(v map[string]interface{})`
-
-SetUserId sets UserId field to given value.
-
-### HasUserId
-
-`func (o *PostgresqlDbGetAuditLogsRow) HasUserId() bool`
-
-HasUserId returns a boolean if a field has been set.
-
-### GetUserRoleId
-
-`func (o *PostgresqlDbGetAuditLogsRow) GetUserRoleId() int32`
-
-GetUserRoleId returns the UserRoleId field if non-nil, zero value otherwise.
-
-### GetUserRoleIdOk
-
-`func (o *PostgresqlDbGetAuditLogsRow) GetUserRoleIdOk() (*int32, bool)`
-
-GetUserRoleIdOk returns a tuple with the UserRoleId field if it's non-nil, zero value otherwise
-and a boolean to check if the value has been set.
-
-### SetUserRoleId
-
-`func (o *PostgresqlDbGetAuditLogsRow) SetUserRoleId(v int32)`
-
-SetUserRoleId sets UserRoleId field to given value.
-
-### HasUserRoleId
-
-`func (o *PostgresqlDbGetAuditLogsRow) HasUserRoleId() bool`
-
-HasUserRoleId returns a boolean if a field has been set.
 
 
 [[Back to Model list]](../README.md#documentation-for-models) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to README]](../README.md)

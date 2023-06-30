@@ -24,6 +24,7 @@ Method | HTTP request | Description
 [**CountSecrets**](SearchAPI.md#CountSecrets) | **Post** /deepfence/search/count/secrets | Count Secrets
 [**CountSecretsScans**](SearchAPI.md#CountSecretsScans) | **Post** /deepfence/search/count/secret/scans | Count Secret Scan results
 [**CountVulnerabilities**](SearchAPI.md#CountVulnerabilities) | **Post** /deepfence/search/count/vulnerabilities | Count Vulnerabilities
+[**CountVulnerabilityRules**](SearchAPI.md#CountVulnerabilityRules) | **Post** /deepfence/search/count/vulnerability-rules | Count Vulnerability Rules
 [**CountVulnerabilityScans**](SearchAPI.md#CountVulnerabilityScans) | **Post** /deepfence/search/count/vulnerability/scans | Count Vulnerability Scan results
 [**GetCloudComplianceFilters**](SearchAPI.md#GetCloudComplianceFilters) | **Post** /deepfence/filters/cloud-compliance | Get Cloud Compliance Filters
 [**GetComplianceFilters**](SearchAPI.md#GetComplianceFilters) | **Post** /deepfence/filters/compliance | Get Compliance Filters
@@ -45,6 +46,7 @@ Method | HTTP request | Description
 [**SearchSecretRules**](SearchAPI.md#SearchSecretRules) | **Post** /deepfence/search/secret-rules | Search Secret Rules
 [**SearchSecrets**](SearchAPI.md#SearchSecrets) | **Post** /deepfence/search/secrets | Search Secrets
 [**SearchSecretsScans**](SearchAPI.md#SearchSecretsScans) | **Post** /deepfence/search/secret/scans | Search Secrets Scan results
+[**SearchVulerabilityRules**](SearchAPI.md#SearchVulerabilityRules) | **Post** /deepfence/search/vulnerability-rules | Search Vulnerability Rules
 [**SearchVulnerabilities**](SearchAPI.md#SearchVulnerabilities) | **Post** /deepfence/search/vulnerabilities | Search Vulnerabilities
 [**SearchVulnerabilityScans**](SearchAPI.md#SearchVulnerabilityScans) | **Post** /deepfence/search/vulnerability/scans | Search Vulnerability Scan results
 
@@ -1341,6 +1343,72 @@ func main() {
 ### Other Parameters
 
 Other parameters are passed through a pointer to a apiCountVulnerabilitiesRequest struct via the builder pattern
+
+
+Name | Type | Description  | Notes
+------------- | ------------- | ------------- | -------------
+ **searchSearchNodeReq** | [**SearchSearchNodeReq**](SearchSearchNodeReq.md) |  | 
+
+### Return type
+
+[**SearchSearchCountResp**](SearchSearchCountResp.md)
+
+### Authorization
+
+[bearer_token](../README.md#bearer_token)
+
+### HTTP request headers
+
+- **Content-Type**: application/json
+- **Accept**: application/json
+
+[[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints)
+[[Back to Model list]](../README.md#documentation-for-models)
+[[Back to README]](../README.md)
+
+
+## CountVulnerabilityRules
+
+> SearchSearchCountResp CountVulnerabilityRules(ctx).SearchSearchNodeReq(searchSearchNodeReq).Execute()
+
+Count Vulnerability Rules
+
+
+
+### Example
+
+```go
+package main
+
+import (
+    "context"
+    "fmt"
+    "os"
+    openapiclient "github.com/deepfence/golang_deepfence_sdk/client"
+)
+
+func main() {
+    searchSearchNodeReq := *openapiclient.NewSearchSearchNodeReq(*openapiclient.NewSearchSearchFilter(*openapiclient.NewReportersFieldsFilters([]openapiclient.ReportersCompareFilter{*openapiclient.NewReportersCompareFilter("FieldName_example", interface{}(123), false)}, *openapiclient.NewReportersContainsFilter(map[string][]interface{}{"key": []interface{}{nil}}), *openapiclient.NewReportersMatchFilter(map[string][]interface{}{"key": []interface{}{nil}}), *openapiclient.NewReportersOrderFilter([]openapiclient.ReportersOrderSpec{*openapiclient.NewReportersOrderSpec(false, "FieldName_example")})), []string{"InFieldFilter_example"}, *openapiclient.NewModelFetchWindow(int32(123), int32(123))), *openapiclient.NewModelFetchWindow(int32(123), int32(123))) // SearchSearchNodeReq |  (optional)
+
+    configuration := openapiclient.NewConfiguration()
+    apiClient := openapiclient.NewAPIClient(configuration)
+    resp, r, err := apiClient.SearchAPI.CountVulnerabilityRules(context.Background()).SearchSearchNodeReq(searchSearchNodeReq).Execute()
+    if err != nil {
+        fmt.Fprintf(os.Stderr, "Error when calling `SearchAPI.CountVulnerabilityRules``: %v\n", err)
+        fmt.Fprintf(os.Stderr, "Full HTTP response: %v\n", r)
+    }
+    // response from `CountVulnerabilityRules`: SearchSearchCountResp
+    fmt.Fprintf(os.Stdout, "Response from `SearchAPI.CountVulnerabilityRules`: %v\n", resp)
+}
+```
+
+### Path Parameters
+
+
+
+### Other Parameters
+
+Other parameters are passed through a pointer to a apiCountVulnerabilityRulesRequest struct via the builder pattern
 
 
 Name | Type | Description  | Notes
@@ -2736,6 +2804,72 @@ Name | Type | Description  | Notes
 ### Return type
 
 [**[]ModelScanInfo**](ModelScanInfo.md)
+
+### Authorization
+
+[bearer_token](../README.md#bearer_token)
+
+### HTTP request headers
+
+- **Content-Type**: application/json
+- **Accept**: application/json
+
+[[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints)
+[[Back to Model list]](../README.md#documentation-for-models)
+[[Back to README]](../README.md)
+
+
+## SearchVulerabilityRules
+
+> []ModelVulnerabilityRule SearchVulerabilityRules(ctx).SearchSearchNodeReq(searchSearchNodeReq).Execute()
+
+Search Vulnerability Rules
+
+
+
+### Example
+
+```go
+package main
+
+import (
+    "context"
+    "fmt"
+    "os"
+    openapiclient "github.com/deepfence/golang_deepfence_sdk/client"
+)
+
+func main() {
+    searchSearchNodeReq := *openapiclient.NewSearchSearchNodeReq(*openapiclient.NewSearchSearchFilter(*openapiclient.NewReportersFieldsFilters([]openapiclient.ReportersCompareFilter{*openapiclient.NewReportersCompareFilter("FieldName_example", interface{}(123), false)}, *openapiclient.NewReportersContainsFilter(map[string][]interface{}{"key": []interface{}{nil}}), *openapiclient.NewReportersMatchFilter(map[string][]interface{}{"key": []interface{}{nil}}), *openapiclient.NewReportersOrderFilter([]openapiclient.ReportersOrderSpec{*openapiclient.NewReportersOrderSpec(false, "FieldName_example")})), []string{"InFieldFilter_example"}, *openapiclient.NewModelFetchWindow(int32(123), int32(123))), *openapiclient.NewModelFetchWindow(int32(123), int32(123))) // SearchSearchNodeReq |  (optional)
+
+    configuration := openapiclient.NewConfiguration()
+    apiClient := openapiclient.NewAPIClient(configuration)
+    resp, r, err := apiClient.SearchAPI.SearchVulerabilityRules(context.Background()).SearchSearchNodeReq(searchSearchNodeReq).Execute()
+    if err != nil {
+        fmt.Fprintf(os.Stderr, "Error when calling `SearchAPI.SearchVulerabilityRules``: %v\n", err)
+        fmt.Fprintf(os.Stderr, "Full HTTP response: %v\n", r)
+    }
+    // response from `SearchVulerabilityRules`: []ModelVulnerabilityRule
+    fmt.Fprintf(os.Stdout, "Response from `SearchAPI.SearchVulerabilityRules`: %v\n", resp)
+}
+```
+
+### Path Parameters
+
+
+
+### Other Parameters
+
+Other parameters are passed through a pointer to a apiSearchVulerabilityRulesRequest struct via the builder pattern
+
+
+Name | Type | Description  | Notes
+------------- | ------------- | ------------- | -------------
+ **searchSearchNodeReq** | [**SearchSearchNodeReq**](SearchSearchNodeReq.md) |  | 
+
+### Return type
+
+[**[]ModelVulnerabilityRule**](ModelVulnerabilityRule.md)
 
 ### Authorization
 

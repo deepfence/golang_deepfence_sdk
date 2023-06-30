@@ -17,6 +17,7 @@ Name | Type | Description | Notes
 **Reason** | **string** |  | 
 **Region** | **string** |  | 
 **Resource** | **string** |  | 
+**Resources** | Pointer to **[]string** |  | [optional] 
 **Service** | **string** |  | 
 **Severity** | **string** |  | 
 **Status** | **string** |  | 
@@ -303,6 +304,41 @@ and a boolean to check if the value has been set.
 SetResource sets Resource field to given value.
 
 
+### GetResources
+
+`func (o *ModelCloudCompliance) GetResources() []string`
+
+GetResources returns the Resources field if non-nil, zero value otherwise.
+
+### GetResourcesOk
+
+`func (o *ModelCloudCompliance) GetResourcesOk() (*[]string, bool)`
+
+GetResourcesOk returns a tuple with the Resources field if it's non-nil, zero value otherwise
+and a boolean to check if the value has been set.
+
+### SetResources
+
+`func (o *ModelCloudCompliance) SetResources(v []string)`
+
+SetResources sets Resources field to given value.
+
+### HasResources
+
+`func (o *ModelCloudCompliance) HasResources() bool`
+
+HasResources returns a boolean if a field has been set.
+
+### SetResourcesNil
+
+`func (o *ModelCloudCompliance) SetResourcesNil(b bool)`
+
+ SetResourcesNil sets the value for Resources to be an explicit nil
+
+### UnsetResources
+`func (o *ModelCloudCompliance) UnsetResources()`
+
+UnsetResources ensures that no value is present for Resources, not even an explicit nil
 ### GetService
 
 `func (o *ModelCloudCompliance) GetService() string`

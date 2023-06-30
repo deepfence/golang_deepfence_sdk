@@ -24,6 +24,7 @@ type ModelRegisterInvitedUserRequest struct {
 	FirstName string `json:"first_name"`
 	IsTemporaryPassword *bool `json:"is_temporary_password,omitempty"`
 	LastName string `json:"last_name"`
+	Namespace string `json:"namespace"`
 	Password string `json:"password"`
 }
 
@@ -31,11 +32,12 @@ type ModelRegisterInvitedUserRequest struct {
 // This constructor will assign default values to properties that have it defined,
 // and makes sure properties required by API are set, but the set of arguments
 // will change when the set of required properties is changed
-func NewModelRegisterInvitedUserRequest(code string, firstName string, lastName string, password string) *ModelRegisterInvitedUserRequest {
+func NewModelRegisterInvitedUserRequest(code string, firstName string, lastName string, namespace string, password string) *ModelRegisterInvitedUserRequest {
 	this := ModelRegisterInvitedUserRequest{}
 	this.Code = code
 	this.FirstName = firstName
 	this.LastName = lastName
+	this.Namespace = namespace
 	this.Password = password
 	return &this
 }
@@ -152,6 +154,30 @@ func (o *ModelRegisterInvitedUserRequest) SetLastName(v string) {
 	o.LastName = v
 }
 
+// GetNamespace returns the Namespace field value
+func (o *ModelRegisterInvitedUserRequest) GetNamespace() string {
+	if o == nil {
+		var ret string
+		return ret
+	}
+
+	return o.Namespace
+}
+
+// GetNamespaceOk returns a tuple with the Namespace field value
+// and a boolean to check if the value has been set.
+func (o *ModelRegisterInvitedUserRequest) GetNamespaceOk() (*string, bool) {
+	if o == nil {
+		return nil, false
+	}
+	return &o.Namespace, true
+}
+
+// SetNamespace sets field value
+func (o *ModelRegisterInvitedUserRequest) SetNamespace(v string) {
+	o.Namespace = v
+}
+
 // GetPassword returns the Password field value
 func (o *ModelRegisterInvitedUserRequest) GetPassword() string {
 	if o == nil {
@@ -192,6 +218,7 @@ func (o ModelRegisterInvitedUserRequest) ToMap() (map[string]interface{}, error)
 		toSerialize["is_temporary_password"] = o.IsTemporaryPassword
 	}
 	toSerialize["last_name"] = o.LastName
+	toSerialize["namespace"] = o.Namespace
 	toSerialize["password"] = o.Password
 	return toSerialize, nil
 }

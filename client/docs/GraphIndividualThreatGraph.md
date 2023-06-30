@@ -1,4 +1,4 @@
-# GraphVulnerabilityThreatGraph
+# GraphIndividualThreatGraph
 
 ## Properties
 
@@ -11,151 +11,151 @@ Name | Type | Description | Notes
 
 ## Methods
 
-### NewGraphVulnerabilityThreatGraph
+### NewGraphIndividualThreatGraph
 
-`func NewGraphVulnerabilityThreatGraph() *GraphVulnerabilityThreatGraph`
+`func NewGraphIndividualThreatGraph() *GraphIndividualThreatGraph`
 
-NewGraphVulnerabilityThreatGraph instantiates a new GraphVulnerabilityThreatGraph object
+NewGraphIndividualThreatGraph instantiates a new GraphIndividualThreatGraph object
 This constructor will assign default values to properties that have it defined,
 and makes sure properties required by API are set, but the set of arguments
 will change when the set of required properties is changed
 
-### NewGraphVulnerabilityThreatGraphWithDefaults
+### NewGraphIndividualThreatGraphWithDefaults
 
-`func NewGraphVulnerabilityThreatGraphWithDefaults() *GraphVulnerabilityThreatGraph`
+`func NewGraphIndividualThreatGraphWithDefaults() *GraphIndividualThreatGraph`
 
-NewGraphVulnerabilityThreatGraphWithDefaults instantiates a new GraphVulnerabilityThreatGraph object
+NewGraphIndividualThreatGraphWithDefaults instantiates a new GraphIndividualThreatGraph object
 This constructor will only assign default values to properties that have it defined,
 but it doesn't guarantee that properties required by API are set
 
 ### GetAttackPath
 
-`func (o *GraphVulnerabilityThreatGraph) GetAttackPath() [][]string`
+`func (o *GraphIndividualThreatGraph) GetAttackPath() [][]string`
 
 GetAttackPath returns the AttackPath field if non-nil, zero value otherwise.
 
 ### GetAttackPathOk
 
-`func (o *GraphVulnerabilityThreatGraph) GetAttackPathOk() (*[][]string, bool)`
+`func (o *GraphIndividualThreatGraph) GetAttackPathOk() (*[][]string, bool)`
 
 GetAttackPathOk returns a tuple with the AttackPath field if it's non-nil, zero value otherwise
 and a boolean to check if the value has been set.
 
 ### SetAttackPath
 
-`func (o *GraphVulnerabilityThreatGraph) SetAttackPath(v [][]string)`
+`func (o *GraphIndividualThreatGraph) SetAttackPath(v [][]string)`
 
 SetAttackPath sets AttackPath field to given value.
 
 ### HasAttackPath
 
-`func (o *GraphVulnerabilityThreatGraph) HasAttackPath() bool`
+`func (o *GraphIndividualThreatGraph) HasAttackPath() bool`
 
 HasAttackPath returns a boolean if a field has been set.
 
 ### SetAttackPathNil
 
-`func (o *GraphVulnerabilityThreatGraph) SetAttackPathNil(b bool)`
+`func (o *GraphIndividualThreatGraph) SetAttackPathNil(b bool)`
 
  SetAttackPathNil sets the value for AttackPath to be an explicit nil
 
 ### UnsetAttackPath
-`func (o *GraphVulnerabilityThreatGraph) UnsetAttackPath()`
+`func (o *GraphIndividualThreatGraph) UnsetAttackPath()`
 
 UnsetAttackPath ensures that no value is present for AttackPath, not even an explicit nil
 ### GetCveAttackVector
 
-`func (o *GraphVulnerabilityThreatGraph) GetCveAttackVector() string`
+`func (o *GraphIndividualThreatGraph) GetCveAttackVector() string`
 
 GetCveAttackVector returns the CveAttackVector field if non-nil, zero value otherwise.
 
 ### GetCveAttackVectorOk
 
-`func (o *GraphVulnerabilityThreatGraph) GetCveAttackVectorOk() (*string, bool)`
+`func (o *GraphIndividualThreatGraph) GetCveAttackVectorOk() (*string, bool)`
 
 GetCveAttackVectorOk returns a tuple with the CveAttackVector field if it's non-nil, zero value otherwise
 and a boolean to check if the value has been set.
 
 ### SetCveAttackVector
 
-`func (o *GraphVulnerabilityThreatGraph) SetCveAttackVector(v string)`
+`func (o *GraphIndividualThreatGraph) SetCveAttackVector(v string)`
 
 SetCveAttackVector sets CveAttackVector field to given value.
 
 ### HasCveAttackVector
 
-`func (o *GraphVulnerabilityThreatGraph) HasCveAttackVector() bool`
+`func (o *GraphIndividualThreatGraph) HasCveAttackVector() bool`
 
 HasCveAttackVector returns a boolean if a field has been set.
 
 ### GetCveId
 
-`func (o *GraphVulnerabilityThreatGraph) GetCveId() []string`
+`func (o *GraphIndividualThreatGraph) GetCveId() []string`
 
 GetCveId returns the CveId field if non-nil, zero value otherwise.
 
 ### GetCveIdOk
 
-`func (o *GraphVulnerabilityThreatGraph) GetCveIdOk() (*[]string, bool)`
+`func (o *GraphIndividualThreatGraph) GetCveIdOk() (*[]string, bool)`
 
 GetCveIdOk returns a tuple with the CveId field if it's non-nil, zero value otherwise
 and a boolean to check if the value has been set.
 
 ### SetCveId
 
-`func (o *GraphVulnerabilityThreatGraph) SetCveId(v []string)`
+`func (o *GraphIndividualThreatGraph) SetCveId(v []string)`
 
 SetCveId sets CveId field to given value.
 
 ### HasCveId
 
-`func (o *GraphVulnerabilityThreatGraph) HasCveId() bool`
+`func (o *GraphIndividualThreatGraph) HasCveId() bool`
 
 HasCveId returns a boolean if a field has been set.
 
 ### SetCveIdNil
 
-`func (o *GraphVulnerabilityThreatGraph) SetCveIdNil(b bool)`
+`func (o *GraphIndividualThreatGraph) SetCveIdNil(b bool)`
 
  SetCveIdNil sets the value for CveId to be an explicit nil
 
 ### UnsetCveId
-`func (o *GraphVulnerabilityThreatGraph) UnsetCveId()`
+`func (o *GraphIndividualThreatGraph) UnsetCveId()`
 
 UnsetCveId ensures that no value is present for CveId, not even an explicit nil
 ### GetPorts
 
-`func (o *GraphVulnerabilityThreatGraph) GetPorts() []interface{}`
+`func (o *GraphIndividualThreatGraph) GetPorts() []interface{}`
 
 GetPorts returns the Ports field if non-nil, zero value otherwise.
 
 ### GetPortsOk
 
-`func (o *GraphVulnerabilityThreatGraph) GetPortsOk() (*[]interface{}, bool)`
+`func (o *GraphIndividualThreatGraph) GetPortsOk() (*[]interface{}, bool)`
 
 GetPortsOk returns a tuple with the Ports field if it's non-nil, zero value otherwise
 and a boolean to check if the value has been set.
 
 ### SetPorts
 
-`func (o *GraphVulnerabilityThreatGraph) SetPorts(v []interface{})`
+`func (o *GraphIndividualThreatGraph) SetPorts(v []interface{})`
 
 SetPorts sets Ports field to given value.
 
 ### HasPorts
 
-`func (o *GraphVulnerabilityThreatGraph) HasPorts() bool`
+`func (o *GraphIndividualThreatGraph) HasPorts() bool`
 
 HasPorts returns a boolean if a field has been set.
 
 ### SetPortsNil
 
-`func (o *GraphVulnerabilityThreatGraph) SetPortsNil(b bool)`
+`func (o *GraphIndividualThreatGraph) SetPortsNil(b bool)`
 
  SetPortsNil sets the value for Ports to be an explicit nil
 
 ### UnsetPorts
-`func (o *GraphVulnerabilityThreatGraph) UnsetPorts()`
+`func (o *GraphIndividualThreatGraph) UnsetPorts()`
 
 UnsetPorts ensures that no value is present for Ports, not even an explicit nil
 

@@ -4,6 +4,7 @@
 
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
+**ExtendedNodeFilter** | Pointer to [**SearchSearchFilter**](SearchSearchFilter.md) |  | [optional] 
 **NodeFilter** | [**SearchSearchFilter**](SearchSearchFilter.md) |  | 
 **Window** | [**ModelFetchWindow**](ModelFetchWindow.md) |  | 
 
@@ -25,6 +26,31 @@ will change when the set of required properties is changed
 NewSearchSearchNodeReqWithDefaults instantiates a new SearchSearchNodeReq object
 This constructor will only assign default values to properties that have it defined,
 but it doesn't guarantee that properties required by API are set
+
+### GetExtendedNodeFilter
+
+`func (o *SearchSearchNodeReq) GetExtendedNodeFilter() SearchSearchFilter`
+
+GetExtendedNodeFilter returns the ExtendedNodeFilter field if non-nil, zero value otherwise.
+
+### GetExtendedNodeFilterOk
+
+`func (o *SearchSearchNodeReq) GetExtendedNodeFilterOk() (*SearchSearchFilter, bool)`
+
+GetExtendedNodeFilterOk returns a tuple with the ExtendedNodeFilter field if it's non-nil, zero value otherwise
+and a boolean to check if the value has been set.
+
+### SetExtendedNodeFilter
+
+`func (o *SearchSearchNodeReq) SetExtendedNodeFilter(v SearchSearchFilter)`
+
+SetExtendedNodeFilter sets ExtendedNodeFilter field to given value.
+
+### HasExtendedNodeFilter
+
+`func (o *SearchSearchNodeReq) HasExtendedNodeFilter() bool`
+
+HasExtendedNodeFilter returns a boolean if a field has been set.
 
 ### GetNodeFilter
 
