@@ -4,6 +4,7 @@
 
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
+**AgentRunning** | **bool** |  | 
 **Hosts** | [**[]ModelHost**](ModelHost.md) |  | 
 **NodeId** | **string** |  | 
 **NodeName** | **string** |  | 
@@ -12,7 +13,7 @@ Name | Type | Description | Notes
 
 ### NewModelKubernetesCluster
 
-`func NewModelKubernetesCluster(hosts []ModelHost, nodeId string, nodeName string, ) *ModelKubernetesCluster`
+`func NewModelKubernetesCluster(agentRunning bool, hosts []ModelHost, nodeId string, nodeName string, ) *ModelKubernetesCluster`
 
 NewModelKubernetesCluster instantiates a new ModelKubernetesCluster object
 This constructor will assign default values to properties that have it defined,
@@ -26,6 +27,26 @@ will change when the set of required properties is changed
 NewModelKubernetesClusterWithDefaults instantiates a new ModelKubernetesCluster object
 This constructor will only assign default values to properties that have it defined,
 but it doesn't guarantee that properties required by API are set
+
+### GetAgentRunning
+
+`func (o *ModelKubernetesCluster) GetAgentRunning() bool`
+
+GetAgentRunning returns the AgentRunning field if non-nil, zero value otherwise.
+
+### GetAgentRunningOk
+
+`func (o *ModelKubernetesCluster) GetAgentRunningOk() (*bool, bool)`
+
+GetAgentRunningOk returns a tuple with the AgentRunning field if it's non-nil, zero value otherwise
+and a boolean to check if the value has been set.
+
+### SetAgentRunning
+
+`func (o *ModelKubernetesCluster) SetAgentRunning(v bool)`
+
+SetAgentRunning sets AgentRunning field to given value.
+
 
 ### GetHosts
 

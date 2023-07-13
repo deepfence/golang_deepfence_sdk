@@ -33,6 +33,7 @@ type UtilsScanSbomRequest struct {
 	SbomFilePath *string `json:"sbom_file_path,omitempty"`
 	ScanId string `json:"scan_id"`
 	ScanType *string `json:"scan_type,omitempty"`
+	SkipScan *bool `json:"skip_scan,omitempty"`
 }
 
 // NewUtilsScanSbomRequest instantiates a new UtilsScanSbomRequest object
@@ -454,6 +455,38 @@ func (o *UtilsScanSbomRequest) SetScanType(v string) {
 	o.ScanType = &v
 }
 
+// GetSkipScan returns the SkipScan field value if set, zero value otherwise.
+func (o *UtilsScanSbomRequest) GetSkipScan() bool {
+	if o == nil || IsNil(o.SkipScan) {
+		var ret bool
+		return ret
+	}
+	return *o.SkipScan
+}
+
+// GetSkipScanOk returns a tuple with the SkipScan field value if set, nil otherwise
+// and a boolean to check if the value has been set.
+func (o *UtilsScanSbomRequest) GetSkipScanOk() (*bool, bool) {
+	if o == nil || IsNil(o.SkipScan) {
+		return nil, false
+	}
+	return o.SkipScan, true
+}
+
+// HasSkipScan returns a boolean if a field has been set.
+func (o *UtilsScanSbomRequest) HasSkipScan() bool {
+	if o != nil && !IsNil(o.SkipScan) {
+		return true
+	}
+
+	return false
+}
+
+// SetSkipScan gets a reference to the given bool and assigns it to the SkipScan field.
+func (o *UtilsScanSbomRequest) SetSkipScan(v bool) {
+	o.SkipScan = &v
+}
+
 func (o UtilsScanSbomRequest) MarshalJSON() ([]byte, error) {
 	toSerialize,err := o.ToMap()
 	if err != nil {
@@ -498,6 +531,9 @@ func (o UtilsScanSbomRequest) ToMap() (map[string]interface{}, error) {
 	toSerialize["scan_id"] = o.ScanId
 	if !IsNil(o.ScanType) {
 		toSerialize["scan_type"] = o.ScanType
+	}
+	if !IsNil(o.SkipScan) {
+		toSerialize["skip_scan"] = o.SkipScan
 	}
 	return toSerialize, nil
 }

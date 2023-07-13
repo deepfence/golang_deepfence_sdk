@@ -20,6 +20,7 @@ var _ MappedNullable = &ModelKubernetesCluster{}
 
 // ModelKubernetesCluster struct for ModelKubernetesCluster
 type ModelKubernetesCluster struct {
+	AgentRunning bool `json:"agent_running"`
 	Hosts []ModelHost `json:"hosts"`
 	NodeId string `json:"node_id"`
 	NodeName string `json:"node_name"`
@@ -29,8 +30,9 @@ type ModelKubernetesCluster struct {
 // This constructor will assign default values to properties that have it defined,
 // and makes sure properties required by API are set, but the set of arguments
 // will change when the set of required properties is changed
-func NewModelKubernetesCluster(hosts []ModelHost, nodeId string, nodeName string) *ModelKubernetesCluster {
+func NewModelKubernetesCluster(agentRunning bool, hosts []ModelHost, nodeId string, nodeName string) *ModelKubernetesCluster {
 	this := ModelKubernetesCluster{}
+	this.AgentRunning = agentRunning
 	this.Hosts = hosts
 	this.NodeId = nodeId
 	this.NodeName = nodeName
@@ -43,6 +45,30 @@ func NewModelKubernetesCluster(hosts []ModelHost, nodeId string, nodeName string
 func NewModelKubernetesClusterWithDefaults() *ModelKubernetesCluster {
 	this := ModelKubernetesCluster{}
 	return &this
+}
+
+// GetAgentRunning returns the AgentRunning field value
+func (o *ModelKubernetesCluster) GetAgentRunning() bool {
+	if o == nil {
+		var ret bool
+		return ret
+	}
+
+	return o.AgentRunning
+}
+
+// GetAgentRunningOk returns a tuple with the AgentRunning field value
+// and a boolean to check if the value has been set.
+func (o *ModelKubernetesCluster) GetAgentRunningOk() (*bool, bool) {
+	if o == nil {
+		return nil, false
+	}
+	return &o.AgentRunning, true
+}
+
+// SetAgentRunning sets field value
+func (o *ModelKubernetesCluster) SetAgentRunning(v bool) {
+	o.AgentRunning = v
 }
 
 // GetHosts returns the Hosts field value
@@ -129,6 +155,7 @@ func (o ModelKubernetesCluster) MarshalJSON() ([]byte, error) {
 
 func (o ModelKubernetesCluster) ToMap() (map[string]interface{}, error) {
 	toSerialize := map[string]interface{}{}
+	toSerialize["agent_running"] = o.AgentRunning
 	if o.Hosts != nil {
 		toSerialize["hosts"] = o.Hosts
 	}

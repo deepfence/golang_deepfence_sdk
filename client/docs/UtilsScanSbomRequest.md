@@ -17,6 +17,7 @@ Name | Type | Description | Notes
 **SbomFilePath** | Pointer to **string** |  | [optional] 
 **ScanId** | **string** |  | 
 **ScanType** | Pointer to **string** |  | [optional] 
+**SkipScan** | Pointer to **bool** |  | [optional] 
 
 ## Methods
 
@@ -351,6 +352,31 @@ SetScanType sets ScanType field to given value.
 `func (o *UtilsScanSbomRequest) HasScanType() bool`
 
 HasScanType returns a boolean if a field has been set.
+
+### GetSkipScan
+
+`func (o *UtilsScanSbomRequest) GetSkipScan() bool`
+
+GetSkipScan returns the SkipScan field if non-nil, zero value otherwise.
+
+### GetSkipScanOk
+
+`func (o *UtilsScanSbomRequest) GetSkipScanOk() (*bool, bool)`
+
+GetSkipScanOk returns a tuple with the SkipScan field if it's non-nil, zero value otherwise
+and a boolean to check if the value has been set.
+
+### SetSkipScan
+
+`func (o *UtilsScanSbomRequest) SetSkipScan(v bool)`
+
+SetSkipScan sets SkipScan field to given value.
+
+### HasSkipScan
+
+`func (o *UtilsScanSbomRequest) HasSkipScan() bool`
+
+HasSkipScan returns a boolean if a field has been set.
 
 
 [[Back to Model list]](../README.md#documentation-for-models) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to README]](../README.md)
