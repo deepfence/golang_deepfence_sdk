@@ -173,7 +173,7 @@ import (
 )
 
 func main() {
-    modelRegistryImageStubsReq := *openapiclient.NewModelRegistryImageStubsReq(*openapiclient.NewReportersContainsFilter(map[string][]interface{}{"key": []interface{}{nil}}), "RegistryId_example", *openapiclient.NewModelFetchWindow(int32(123), int32(123))) // ModelRegistryImageStubsReq |  (optional)
+    modelRegistryImageStubsReq := *openapiclient.NewModelRegistryImageStubsReq(*openapiclient.NewReportersFieldsFilters([]openapiclient.ReportersCompareFilter{*openapiclient.NewReportersCompareFilter("FieldName_example", interface{}(123), false)}, *openapiclient.NewReportersContainsFilter(map[string][]interface{}{"key": []interface{}{nil}}), *openapiclient.NewReportersMatchFilter(map[string][]interface{}{"key": []interface{}{nil}}), *openapiclient.NewReportersOrderFilter([]openapiclient.ReportersOrderSpec{*openapiclient.NewReportersOrderSpec(false, "FieldName_example")})), "RegistryId_example", *openapiclient.NewModelFetchWindow(int32(123), int32(123))) // ModelRegistryImageStubsReq |  (optional)
 
     configuration := openapiclient.NewConfiguration()
     apiClient := openapiclient.NewAPIClient(configuration)
@@ -239,7 +239,7 @@ import (
 )
 
 func main() {
-    modelRegistryImagesReq := *openapiclient.NewModelRegistryImagesReq(*openapiclient.NewReportersContainsFilter(map[string][]interface{}{"key": []interface{}{nil}}), "RegistryId_example", *openapiclient.NewModelFetchWindow(int32(123), int32(123))) // ModelRegistryImagesReq |  (optional)
+    modelRegistryImagesReq := *openapiclient.NewModelRegistryImagesReq(*openapiclient.NewReportersFieldsFilters([]openapiclient.ReportersCompareFilter{*openapiclient.NewReportersCompareFilter("FieldName_example", interface{}(123), false)}, *openapiclient.NewReportersContainsFilter(map[string][]interface{}{"key": []interface{}{nil}}), *openapiclient.NewReportersMatchFilter(map[string][]interface{}{"key": []interface{}{nil}}), *openapiclient.NewReportersOrderFilter([]openapiclient.ReportersOrderSpec{*openapiclient.NewReportersOrderSpec(false, "FieldName_example")})), "RegistryId_example", *openapiclient.NewModelFetchWindow(int32(123), int32(123))) // ModelRegistryImagesReq |  (optional)
 
     configuration := openapiclient.NewConfiguration()
     apiClient := openapiclient.NewAPIClient(configuration)
@@ -574,7 +574,7 @@ import (
 )
 
 func main() {
-    modelRegistryImageStubsReq := *openapiclient.NewModelRegistryImageStubsReq(*openapiclient.NewReportersContainsFilter(map[string][]interface{}{"key": []interface{}{nil}}), "RegistryId_example", *openapiclient.NewModelFetchWindow(int32(123), int32(123))) // ModelRegistryImageStubsReq |  (optional)
+    modelRegistryImageStubsReq := *openapiclient.NewModelRegistryImageStubsReq(*openapiclient.NewReportersFieldsFilters([]openapiclient.ReportersCompareFilter{*openapiclient.NewReportersCompareFilter("FieldName_example", interface{}(123), false)}, *openapiclient.NewReportersContainsFilter(map[string][]interface{}{"key": []interface{}{nil}}), *openapiclient.NewReportersMatchFilter(map[string][]interface{}{"key": []interface{}{nil}}), *openapiclient.NewReportersOrderFilter([]openapiclient.ReportersOrderSpec{*openapiclient.NewReportersOrderSpec(false, "FieldName_example")})), "RegistryId_example", *openapiclient.NewModelFetchWindow(int32(123), int32(123))) // ModelRegistryImageStubsReq |  (optional)
 
     configuration := openapiclient.NewConfiguration()
     apiClient := openapiclient.NewAPIClient(configuration)
@@ -640,7 +640,7 @@ import (
 )
 
 func main() {
-    modelRegistryImagesReq := *openapiclient.NewModelRegistryImagesReq(*openapiclient.NewReportersContainsFilter(map[string][]interface{}{"key": []interface{}{nil}}), "RegistryId_example", *openapiclient.NewModelFetchWindow(int32(123), int32(123))) // ModelRegistryImagesReq |  (optional)
+    modelRegistryImagesReq := *openapiclient.NewModelRegistryImagesReq(*openapiclient.NewReportersFieldsFilters([]openapiclient.ReportersCompareFilter{*openapiclient.NewReportersCompareFilter("FieldName_example", interface{}(123), false)}, *openapiclient.NewReportersContainsFilter(map[string][]interface{}{"key": []interface{}{nil}}), *openapiclient.NewReportersMatchFilter(map[string][]interface{}{"key": []interface{}{nil}}), *openapiclient.NewReportersOrderFilter([]openapiclient.ReportersOrderSpec{*openapiclient.NewReportersOrderSpec(false, "FieldName_example")})), "RegistryId_example", *openapiclient.NewModelFetchWindow(int32(123), int32(123))) // ModelRegistryImagesReq |  (optional)
 
     configuration := openapiclient.NewConfiguration()
     apiClient := openapiclient.NewAPIClient(configuration)

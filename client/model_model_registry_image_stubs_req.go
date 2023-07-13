@@ -20,7 +20,7 @@ var _ MappedNullable = &ModelRegistryImageStubsReq{}
 
 // ModelRegistryImageStubsReq struct for ModelRegistryImageStubsReq
 type ModelRegistryImageStubsReq struct {
-	ImageFilter ReportersContainsFilter `json:"image_filter"`
+	ImageFilter ReportersFieldsFilters `json:"image_filter"`
 	RegistryId string `json:"registry_id"`
 	Window ModelFetchWindow `json:"window"`
 }
@@ -29,7 +29,7 @@ type ModelRegistryImageStubsReq struct {
 // This constructor will assign default values to properties that have it defined,
 // and makes sure properties required by API are set, but the set of arguments
 // will change when the set of required properties is changed
-func NewModelRegistryImageStubsReq(imageFilter ReportersContainsFilter, registryId string, window ModelFetchWindow) *ModelRegistryImageStubsReq {
+func NewModelRegistryImageStubsReq(imageFilter ReportersFieldsFilters, registryId string, window ModelFetchWindow) *ModelRegistryImageStubsReq {
 	this := ModelRegistryImageStubsReq{}
 	this.ImageFilter = imageFilter
 	this.RegistryId = registryId
@@ -46,9 +46,9 @@ func NewModelRegistryImageStubsReqWithDefaults() *ModelRegistryImageStubsReq {
 }
 
 // GetImageFilter returns the ImageFilter field value
-func (o *ModelRegistryImageStubsReq) GetImageFilter() ReportersContainsFilter {
+func (o *ModelRegistryImageStubsReq) GetImageFilter() ReportersFieldsFilters {
 	if o == nil {
-		var ret ReportersContainsFilter
+		var ret ReportersFieldsFilters
 		return ret
 	}
 
@@ -57,7 +57,7 @@ func (o *ModelRegistryImageStubsReq) GetImageFilter() ReportersContainsFilter {
 
 // GetImageFilterOk returns a tuple with the ImageFilter field value
 // and a boolean to check if the value has been set.
-func (o *ModelRegistryImageStubsReq) GetImageFilterOk() (*ReportersContainsFilter, bool) {
+func (o *ModelRegistryImageStubsReq) GetImageFilterOk() (*ReportersFieldsFilters, bool) {
 	if o == nil {
 		return nil, false
 	}
@@ -65,7 +65,7 @@ func (o *ModelRegistryImageStubsReq) GetImageFilterOk() (*ReportersContainsFilte
 }
 
 // SetImageFilter sets field value
-func (o *ModelRegistryImageStubsReq) SetImageFilter(v ReportersContainsFilter) {
+func (o *ModelRegistryImageStubsReq) SetImageFilter(v ReportersFieldsFilters) {
 	o.ImageFilter = v
 }
 

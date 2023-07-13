@@ -4,7 +4,7 @@
 
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
-**ImageFilter** | [**ReportersContainsFilter**](ReportersContainsFilter.md) |  | 
+**ImageFilter** | [**ReportersFieldsFilters**](ReportersFieldsFilters.md) |  | 
 **RegistryId** | **string** |  | 
 **Window** | [**ModelFetchWindow**](ModelFetchWindow.md) |  | 
 
@@ -12,7 +12,7 @@ Name | Type | Description | Notes
 
 ### NewModelRegistryImageStubsReq
 
-`func NewModelRegistryImageStubsReq(imageFilter ReportersContainsFilter, registryId string, window ModelFetchWindow, ) *ModelRegistryImageStubsReq`
+`func NewModelRegistryImageStubsReq(imageFilter ReportersFieldsFilters, registryId string, window ModelFetchWindow, ) *ModelRegistryImageStubsReq`
 
 NewModelRegistryImageStubsReq instantiates a new ModelRegistryImageStubsReq object
 This constructor will assign default values to properties that have it defined,
@@ -29,20 +29,20 @@ but it doesn't guarantee that properties required by API are set
 
 ### GetImageFilter
 
-`func (o *ModelRegistryImageStubsReq) GetImageFilter() ReportersContainsFilter`
+`func (o *ModelRegistryImageStubsReq) GetImageFilter() ReportersFieldsFilters`
 
 GetImageFilter returns the ImageFilter field if non-nil, zero value otherwise.
 
 ### GetImageFilterOk
 
-`func (o *ModelRegistryImageStubsReq) GetImageFilterOk() (*ReportersContainsFilter, bool)`
+`func (o *ModelRegistryImageStubsReq) GetImageFilterOk() (*ReportersFieldsFilters, bool)`
 
 GetImageFilterOk returns a tuple with the ImageFilter field if it's non-nil, zero value otherwise
 and a boolean to check if the value has been set.
 
 ### SetImageFilter
 
-`func (o *ModelRegistryImageStubsReq) SetImageFilter(v ReportersContainsFilter)`
+`func (o *ModelRegistryImageStubsReq) SetImageFilter(v ReportersFieldsFilters)`
 
 SetImageFilter sets ImageFilter field to given value.
 
