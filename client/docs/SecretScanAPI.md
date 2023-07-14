@@ -604,7 +604,7 @@ Name | Type | Description  | Notes
 
 ## StopSecretScan
 
-> StopSecretScan(ctx).ModelSecretScanTriggerReq(modelSecretScanTriggerReq).Execute()
+> StopSecretScan(ctx).ModelStopScanRequest(modelStopScanRequest).Execute()
 
 Stop Secret Scan
 
@@ -623,11 +623,11 @@ import (
 )
 
 func main() {
-    modelSecretScanTriggerReq := *openapiclient.NewModelSecretScanTriggerReq(*openapiclient.NewModelScanFilter(*openapiclient.NewReportersContainsFilter(map[string][]interface{}{"key": []interface{}{nil}}), *openapiclient.NewReportersContainsFilter(map[string][]interface{}{"key": []interface{}{nil}}), *openapiclient.NewReportersContainsFilter(map[string][]interface{}{"key": []interface{}{nil}}), *openapiclient.NewReportersContainsFilter(map[string][]interface{}{"key": []interface{}{nil}}), *openapiclient.NewReportersContainsFilter(map[string][]interface{}{"key": []interface{}{nil}})), []openapiclient.ModelNodeIdentifier{*openapiclient.NewModelNodeIdentifier("NodeId_example", "NodeType_example")}) // ModelSecretScanTriggerReq |  (optional)
+    modelStopScanRequest := *openapiclient.NewModelStopScanRequest("ScanId_example", "ScanType_example") // ModelStopScanRequest |  (optional)
 
     configuration := openapiclient.NewConfiguration()
     apiClient := openapiclient.NewAPIClient(configuration)
-    r, err := apiClient.SecretScanAPI.StopSecretScan(context.Background()).ModelSecretScanTriggerReq(modelSecretScanTriggerReq).Execute()
+    r, err := apiClient.SecretScanAPI.StopSecretScan(context.Background()).ModelStopScanRequest(modelStopScanRequest).Execute()
     if err != nil {
         fmt.Fprintf(os.Stderr, "Error when calling `SecretScanAPI.StopSecretScan``: %v\n", err)
         fmt.Fprintf(os.Stderr, "Full HTTP response: %v\n", r)
@@ -646,7 +646,7 @@ Other parameters are passed through a pointer to a apiStopSecretScanRequest stru
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **modelSecretScanTriggerReq** | [**ModelSecretScanTriggerReq**](ModelSecretScanTriggerReq.md) |  | 
+ **modelStopScanRequest** | [**ModelStopScanRequest**](ModelStopScanRequest.md) |  | 
 
 ### Return type
 

@@ -5096,10 +5096,10 @@ paths:
         content:
           application/json:
             schema:
-              $ref: '#/components/schemas/ModelMalwareScanTriggerReq'
+              $ref: '#/components/schemas/ModelStopScanRequest'
       responses:
-        "202":
-          description: Accepted
+        "200":
+          description: OK
         "400":
           content:
             application/json:
@@ -5135,10 +5135,10 @@ paths:
         content:
           application/json:
             schema:
-              $ref: '#/components/schemas/ModelSecretScanTriggerReq'
+              $ref: '#/components/schemas/ModelStopScanRequest'
       responses:
-        "202":
-          description: Accepted
+        "200":
+          description: OK
         "400":
           content:
             application/json:
@@ -15959,6 +15959,25 @@ components:
       - key
       - label
       - value
+      type: object
+    ModelStopScanRequest:
+      example:
+        scan_type: SecretScan
+        scan_id: scan_id
+      properties:
+        scan_id:
+          type: string
+        scan_type:
+          enum:
+          - SecretScan
+          - VulnerabilityScan
+          - MalwareScan
+          - ComplianceScan
+          - CloudComplianceScan
+          type: string
+      required:
+      - scan_id
+      - scan_type
       type: object
     ModelSummary:
       example:

@@ -411,6 +411,7 @@ Class | Method | HTTP request | Description
  - [ModelSecretScanTriggerReq](docs/ModelSecretScanTriggerReq.md)
  - [ModelSettingUpdateRequest](docs/ModelSettingUpdateRequest.md)
  - [ModelSettingsResponse](docs/ModelSettingsResponse.md)
+ - [ModelStopScanRequest](docs/ModelStopScanRequest.md)
  - [ModelSummary](docs/ModelSummary.md)
  - [ModelUpdateScheduledTaskRequest](docs/ModelUpdateScheduledTaskRequest.md)
  - [ModelUpdateUserIdRequest](docs/ModelUpdateUserIdRequest.md)

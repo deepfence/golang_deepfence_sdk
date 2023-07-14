@@ -177,6 +177,7 @@ docs/ModelSecretScanResultRules.md
 docs/ModelSecretScanTriggerReq.md
 docs/ModelSettingUpdateRequest.md
 docs/ModelSettingsResponse.md
+docs/ModelStopScanRequest.md
 docs/ModelSummary.md
 docs/ModelUpdateScheduledTaskRequest.md
 docs/ModelUpdateUserIdRequest.md
@@ -361,6 +362,7 @@ model_model_secret_scan_result_rules.go
 model_model_secret_scan_trigger_req.go
 model_model_setting_update_request.go
 model_model_settings_response.go
+model_model_stop_scan_request.go
 model_model_summary.go
 model_model_update_scheduled_task_request.go
 model_model_update_user_id_request.go

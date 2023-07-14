@@ -1247,11 +1247,11 @@ func (a *SecretScanAPIService) StatusSecretScanExecute(r ApiStatusSecretScanRequ
 type ApiStopSecretScanRequest struct {
 	ctx context.Context
 	ApiService *SecretScanAPIService
-	modelSecretScanTriggerReq *ModelSecretScanTriggerReq
+	modelStopScanRequest *ModelStopScanRequest
 }
 
-func (r ApiStopSecretScanRequest) ModelSecretScanTriggerReq(modelSecretScanTriggerReq ModelSecretScanTriggerReq) ApiStopSecretScanRequest {
-	r.modelSecretScanTriggerReq = &modelSecretScanTriggerReq
+func (r ApiStopSecretScanRequest) ModelStopScanRequest(modelStopScanRequest ModelStopScanRequest) ApiStopSecretScanRequest {
+	r.modelStopScanRequest = &modelStopScanRequest
 	return r
 }
 
@@ -1311,7 +1311,7 @@ func (a *SecretScanAPIService) StopSecretScanExecute(r ApiStopSecretScanRequest)
 		localVarHeaderParams["Accept"] = localVarHTTPHeaderAccept
 	}
 	// body params
-	localVarPostBody = r.modelSecretScanTriggerReq
+	localVarPostBody = r.modelStopScanRequest
 	req, err := a.client.prepareRequest(r.ctx, localVarPath, localVarHTTPMethod, localVarPostBody, localVarHeaderParams, localVarQueryParams, localVarFormParams, formFiles)
 	if err != nil {
 		return nil, err
