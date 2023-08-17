@@ -69,6 +69,7 @@ Name | Type | Description | Notes
 **Pseudo** | Pointer to **bool** |  | [optional] 
 **PublicIp** | Pointer to **[]string** |  | [optional] 
 **ResourceGroup** | Pointer to **string** |  | [optional] 
+**Tags** | Pointer to **[]string** |  | [optional] 
 **Threads** | Pointer to **int32** |  | [optional] 
 **Timestamp** | Pointer to **string** |  | [optional] 
 **Uptime** | Pointer to **int32** |  | [optional] 
@@ -1718,6 +1719,31 @@ SetResourceGroup sets ResourceGroup field to given value.
 `func (o *ReportMetadata) HasResourceGroup() bool`
 
 HasResourceGroup returns a boolean if a field has been set.
+
+### GetTags
+
+`func (o *ReportMetadata) GetTags() []string`
+
+GetTags returns the Tags field if non-nil, zero value otherwise.
+
+### GetTagsOk
+
+`func (o *ReportMetadata) GetTagsOk() (*[]string, bool)`
+
+GetTagsOk returns a tuple with the Tags field if it's non-nil, zero value otherwise
+and a boolean to check if the value has been set.
+
+### SetTags
+
+`func (o *ReportMetadata) SetTags(v []string)`
+
+SetTags sets Tags field to given value.
+
+### HasTags
+
+`func (o *ReportMetadata) HasTags() bool`
+
+HasTags returns a boolean if a field has been set.
 
 ### GetThreads
 

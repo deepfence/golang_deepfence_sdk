@@ -5,6 +5,7 @@ All URIs are relative to *http://localhost*
 Method | HTTP request | Description
 ------------- | ------------- | -------------
 [**CountResultsComplianceScan**](ComplianceAPI.md#CountResultsComplianceScan) | **Post** /deepfence/scan/results/count/compliance | Get Compliance Scans Results
+[**IngestComplianceScanStatus**](ComplianceAPI.md#IngestComplianceScanStatus) | **Post** /deepfence/ingest/compliance-scan-logs | Ingest Compliance Scan Status
 [**IngestCompliances**](ComplianceAPI.md#IngestCompliances) | **Post** /deepfence/ingest/compliance | Ingest Compliances
 [**ListComplianceScan**](ComplianceAPI.md#ListComplianceScan) | **Post** /deepfence/scan/list/compliance | Get Compliance Scans List
 [**ResultsComplianceScan**](ComplianceAPI.md#ResultsComplianceScan) | **Post** /deepfence/scan/results/compliance | Get Compliance Scans Results
@@ -65,6 +66,70 @@ Name | Type | Description  | Notes
 ### Return type
 
 [**SearchSearchCountResp**](SearchSearchCountResp.md)
+
+### Authorization
+
+[bearer_token](../README.md#bearer_token)
+
+### HTTP request headers
+
+- **Content-Type**: application/json
+- **Accept**: application/json
+
+[[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints)
+[[Back to Model list]](../README.md#documentation-for-models)
+[[Back to README]](../README.md)
+
+
+## IngestComplianceScanStatus
+
+> IngestComplianceScanStatus(ctx).IngestersComplianceScanStatus(ingestersComplianceScanStatus).Execute()
+
+Ingest Compliance Scan Status
+
+
+
+### Example
+
+```go
+package main
+
+import (
+    "context"
+    "fmt"
+    "os"
+    openapiclient "github.com/deepfence/golang_deepfence_sdk/client"
+)
+
+func main() {
+    ingestersComplianceScanStatus := []openapiclient.IngestersComplianceScanStatus{*openapiclient.NewIngestersComplianceScanStatus()} // []IngestersComplianceScanStatus |  (optional)
+
+    configuration := openapiclient.NewConfiguration()
+    apiClient := openapiclient.NewAPIClient(configuration)
+    r, err := apiClient.ComplianceAPI.IngestComplianceScanStatus(context.Background()).IngestersComplianceScanStatus(ingestersComplianceScanStatus).Execute()
+    if err != nil {
+        fmt.Fprintf(os.Stderr, "Error when calling `ComplianceAPI.IngestComplianceScanStatus``: %v\n", err)
+        fmt.Fprintf(os.Stderr, "Full HTTP response: %v\n", r)
+    }
+}
+```
+
+### Path Parameters
+
+
+
+### Other Parameters
+
+Other parameters are passed through a pointer to a apiIngestComplianceScanStatusRequest struct via the builder pattern
+
+
+Name | Type | Description  | Notes
+------------- | ------------- | ------------- | -------------
+ **ingestersComplianceScanStatus** | [**[]IngestersComplianceScanStatus**](IngestersComplianceScanStatus.md) |  | 
+
+### Return type
+
+ (empty response body)
 
 ### Authorization
 

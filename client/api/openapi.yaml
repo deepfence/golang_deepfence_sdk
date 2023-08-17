@@ -1526,6 +1526,48 @@ paths:
       summary: Ingest Compliances
       tags:
       - Compliance
+  /deepfence/ingest/compliance-scan-logs:
+    post:
+      description: Ingest compliance issues found while scanning the agent
+      operationId: ingestComplianceScanStatus
+      requestBody:
+        content:
+          application/json:
+            schema:
+              items:
+                $ref: '#/components/schemas/IngestersComplianceScanStatus'
+              nullable: true
+              type: array
+      responses:
+        "200":
+          description: OK
+        "400":
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ApiDocsBadRequestResponse'
+          description: Bad Request
+        "401":
+          description: Unauthorized
+        "403":
+          description: Forbidden
+        "404":
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ApiDocsFailureResponse'
+          description: Not Found
+        "500":
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ApiDocsFailureResponse'
+          description: Internal Server Error
+      security:
+      - bearer_token: []
+      summary: Ingest Compliance Scan Status
+      tags:
+      - Compliance
   /deepfence/ingest/malware:
     post:
       description: Ingest malware found while scanning the agent
@@ -5285,6 +5327,44 @@ paths:
       summary: Get scheduled tasks
       tags:
       - Settings
+    post:
+      description: Add scheduled task
+      operationId: addScheduledTask
+      requestBody:
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/ModelAddScheduledTaskRequest'
+      responses:
+        "204":
+          description: No Content
+        "400":
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ApiDocsBadRequestResponse'
+          description: Bad Request
+        "401":
+          description: Unauthorized
+        "403":
+          description: Forbidden
+        "404":
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ApiDocsFailureResponse'
+          description: Not Found
+        "500":
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ApiDocsFailureResponse'
+          description: Internal Server Error
+      security:
+      - bearer_token: []
+      summary: Add scheduled task
+      tags:
+      - Settings
   /deepfence/scheduled-task/{id}:
     patch:
       description: Update scheduled task
@@ -8085,6 +8165,13 @@ components:
             type: string
           nullable: true
           type: object
+        error_index:
+          additionalProperties:
+            items:
+              type: integer
+            type: array
+          nullable: true
+          type: object
         message:
           type: string
         success:
@@ -8130,6 +8217,9 @@ components:
               version: version
               pod_name: pod_name
               ppid: 9
+              tags:
+              - tags
+              - tags
               docker_container_ports: docker_container_ports
               kubernetes_is_in_host_network: true
               instance_id: instance_id
@@ -8236,8 +8326,6 @@ components:
       - id
       - request_payload
       type: object
-    ControlsActionID:
-      type: integer
     ControlsAgentBeat:
       example:
         beatrate: 0
@@ -8310,6 +8398,9 @@ components:
           version: version
           pod_name: pod_name
           ppid: 9
+          tags:
+          - tags
+          - tags
           docker_container_ports: docker_container_ports
           kubernetes_is_in_host_network: true
           instance_id: instance_id
@@ -8798,6 +8889,11 @@ components:
               key:
               - ""
               - ""
+          contains_in_array_filter:
+            filter_in:
+              key:
+              - ""
+              - ""
           match_filter:
             filter_in:
               key:
@@ -9206,6 +9302,19 @@ components:
         test_severity:
           type: string
         type:
+          type: string
+      type: object
+    IngestersComplianceScanStatus:
+      example:
+        scan_message: scan_message
+        scan_status: scan_status
+        scan_id: scan_id
+      properties:
+        scan_id:
+          type: string
+        scan_message:
+          type: string
+        scan_status:
           type: string
       type: object
     IngestersComplianceStats:
@@ -9658,6 +9767,25 @@ components:
       - node_ids
       - window
       type: object
+    ModelAddScheduledTaskRequest:
+      example:
+        node_type: node_type
+        cron_expr: cron_expr
+        action: action
+        description: description
+        filters: filters
+      properties:
+        action:
+          type: string
+        cron_expr:
+          type: string
+        description:
+          type: string
+        filters:
+          type: string
+        node_type:
+          type: string
+      type: object
     ModelAgentId:
       example:
         available_workload: 0
@@ -9792,6 +9920,11 @@ components:
               descending: true
               field_name: field_name
           contains_filter:
+            filter_in:
+              key:
+              - ""
+              - ""
+          contains_in_array_filter:
             filter_in:
               key:
               - ""
@@ -10084,6 +10217,7 @@ components:
         node_name: node_name
         active: true
         cloud_provider: cloud_provider
+        version: version
         node_id: node_id
       properties:
         active:
@@ -10100,6 +10234,8 @@ components:
           type: string
         node_name:
           type: string
+        version:
+          type: string
       type: object
     ModelCloudNodeAccountRegisterReq:
       example:
@@ -10108,6 +10244,7 @@ components:
           key: monitored_account_ids
         org_acc_id: org_acc_id
         cloud_provider: aws
+        version: version
         node_id: node_id
       properties:
         cloud_account:
@@ -10126,6 +10263,8 @@ components:
         node_id:
           type: string
         org_acc_id:
+          type: string
+        version:
           type: string
       required:
       - cloud_account
@@ -10227,6 +10366,7 @@ components:
           node_name: node_name
           active: true
           cloud_provider: cloud_provider
+          version: version
           node_id: node_id
         - last_scan_status: last_scan_status
           compliance_percentage: 0.8008281904610115
@@ -10234,6 +10374,7 @@ components:
           node_name: node_name
           active: true
           cloud_provider: cloud_provider
+          version: version
           node_id: node_id
       properties:
         cloud_node_accounts_info:
@@ -11082,6 +11223,9 @@ components:
         docker_image_id: docker_image_id
         vulnerability_scan_status: vulnerability_scan_status
         docker_image_name: docker_image_name
+        docker_image_tag_list:
+        - docker_image_tag_list
+        - docker_image_tag_list
         node_id: node_id
       properties:
         containers:
@@ -11099,6 +11243,11 @@ components:
           type: string
         docker_image_tag:
           type: string
+        docker_image_tag_list:
+          items:
+            type: string
+          nullable: true
+          type: array
         docker_image_virtual_size:
           type: string
         malware_latest_scan_id:
@@ -11133,6 +11282,7 @@ components:
       - docker_image_name
       - docker_image_size
       - docker_image_tag
+      - docker_image_tag_list
       - docker_image_virtual_size
       - malware_latest_scan_id
       - malware_scan_status
@@ -11516,6 +11666,9 @@ components:
           docker_image_id: docker_image_id
           vulnerability_scan_status: vulnerability_scan_status
           docker_image_name: docker_image_name
+          docker_image_tag_list:
+          - docker_image_tag_list
+          - docker_image_tag_list
           node_id: node_id
         - metadata:
             key: ""
@@ -11644,6 +11797,9 @@ components:
           docker_image_id: docker_image_id
           vulnerability_scan_status: vulnerability_scan_status
           docker_image_name: docker_image_name
+          docker_image_tag_list:
+          - docker_image_tag_list
+          - docker_image_tag_list
           node_id: node_id
         cpu_max: 6.027456183070403
         memory_usage: 7
@@ -12340,6 +12496,11 @@ components:
                 key:
                 - ""
                 - ""
+            contains_in_array_filter:
+              filter_in:
+                key:
+                - ""
+                - ""
             match_filter:
               filter_in:
                 key:
@@ -12393,6 +12554,11 @@ components:
               key:
               - ""
               - ""
+          contains_in_array_filter:
+            filter_in:
+              key:
+              - ""
+              - ""
           match_filter:
             filter_in:
               key:
@@ -12439,6 +12605,11 @@ components:
               descending: true
               field_name: field_name
           contains_filter:
+            filter_in:
+              key:
+              - ""
+              - ""
+          contains_in_array_filter:
             filter_in:
               key:
               - ""
@@ -12640,6 +12811,9 @@ components:
             docker_image_id: docker_image_id
             vulnerability_scan_status: vulnerability_scan_status
             docker_image_name: docker_image_name
+            docker_image_tag_list:
+            - docker_image_tag_list
+            - docker_image_tag_list
             node_id: node_id
           - metadata:
               key: ""
@@ -12768,6 +12942,9 @@ components:
             docker_image_id: docker_image_id
             vulnerability_scan_status: vulnerability_scan_status
             docker_image_name: docker_image_name
+            docker_image_tag_list:
+            - docker_image_tag_list
+            - docker_image_tag_list
             node_id: node_id
           cpu_max: 6.027456183070403
           memory_usage: 7
@@ -13378,6 +13555,9 @@ components:
             docker_image_id: docker_image_id
             vulnerability_scan_status: vulnerability_scan_status
             docker_image_name: docker_image_name
+            docker_image_tag_list:
+            - docker_image_tag_list
+            - docker_image_tag_list
             node_id: node_id
           - metadata:
               key: ""
@@ -13506,6 +13686,9 @@ components:
             docker_image_id: docker_image_id
             vulnerability_scan_status: vulnerability_scan_status
             docker_image_name: docker_image_name
+            docker_image_tag_list:
+            - docker_image_tag_list
+            - docker_image_tag_list
             node_id: node_id
           cpu_max: 6.027456183070403
           memory_usage: 7
@@ -14855,6 +15038,9 @@ components:
           docker_image_id: docker_image_id
           vulnerability_scan_status: vulnerability_scan_status
           docker_image_name: docker_image_name
+          docker_image_tag_list:
+          - docker_image_tag_list
+          - docker_image_tag_list
           node_id: node_id
         - metadata:
             key: ""
@@ -14983,6 +15169,9 @@ components:
           docker_image_id: docker_image_id
           vulnerability_scan_status: vulnerability_scan_status
           docker_image_name: docker_image_name
+          docker_image_tag_list:
+          - docker_image_tag_list
+          - docker_image_tag_list
           node_id: node_id
         host_name: host_name
         node_id: node_id
@@ -15067,6 +15256,11 @@ components:
               key:
               - ""
               - ""
+          contains_in_array_filter:
+            filter_in:
+              key:
+              - ""
+              - ""
           match_filter:
             filter_in:
               key:
@@ -15112,6 +15306,11 @@ components:
               descending: true
               field_name: field_name
           contains_filter:
+            filter_in:
+              key:
+              - ""
+              - ""
+          contains_in_array_filter:
             filter_in:
               key:
               - ""
@@ -15372,6 +15571,11 @@ components:
               key:
               - ""
               - ""
+          contains_in_array_filter:
+            filter_in:
+              key:
+              - ""
+              - ""
           match_filter:
             filter_in:
               key:
@@ -15587,6 +15791,11 @@ components:
               descending: true
               field_name: field_name
           contains_filter:
+            filter_in:
+              key:
+              - ""
+              - ""
+          contains_in_array_filter:
             filter_in:
               key:
               - ""
@@ -16598,6 +16807,9 @@ components:
         version: version
         pod_name: pod_name
         ppid: 9
+        tags:
+        - tags
+        - tags
         docker_container_ports: docker_container_ports
         kubernetes_is_in_host_network: true
         instance_id: instance_id
@@ -16816,6 +17028,10 @@ components:
           type: array
         resource_group:
           type: string
+        tags:
+          items:
+            type: string
+          type: array
         threads:
           type: integer
         timestamp:
@@ -16897,6 +17113,11 @@ components:
             key:
             - ""
             - ""
+        contains_in_array_filter:
+          filter_in:
+            key:
+            - ""
+            - ""
         match_filter:
           filter_in:
             key:
@@ -16909,6 +17130,8 @@ components:
           nullable: true
           type: array
         contains_filter:
+          $ref: '#/components/schemas/ReportersContainsFilter'
+        contains_in_array_filter:
           $ref: '#/components/schemas/ReportersContainsFilter'
         match_filter:
           $ref: '#/components/schemas/ReportersMatchFilter'
@@ -17082,6 +17305,11 @@ components:
               key:
               - ""
               - ""
+          contains_in_array_filter:
+            filter_in:
+              key:
+              - ""
+              - ""
           match_filter:
             filter_in:
               key:
@@ -17137,6 +17365,11 @@ components:
                 key:
                 - ""
                 - ""
+            contains_in_array_filter:
+              filter_in:
+                key:
+                - ""
+                - ""
             match_filter:
               filter_in:
                 key:
@@ -17171,6 +17404,11 @@ components:
                 descending: true
                 field_name: field_name
             contains_filter:
+              filter_in:
+                key:
+                - ""
+                - ""
+            contains_in_array_filter:
               filter_in:
                 key:
                 - ""
@@ -17229,6 +17467,11 @@ components:
                 key:
                 - ""
                 - ""
+            contains_in_array_filter:
+              filter_in:
+                key:
+                - ""
+                - ""
             match_filter:
               filter_in:
                 key:
@@ -17263,6 +17506,11 @@ components:
                 descending: true
                 field_name: field_name
             contains_filter:
+              filter_in:
+                key:
+                - ""
+                - ""
+            contains_in_array_filter:
               filter_in:
                 key:
                 - ""

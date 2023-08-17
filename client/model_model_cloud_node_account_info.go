@@ -27,6 +27,7 @@ type ModelCloudNodeAccountInfo struct {
 	LastScanStatus *string `json:"last_scan_status,omitempty"`
 	NodeId *string `json:"node_id,omitempty"`
 	NodeName *string `json:"node_name,omitempty"`
+	Version *string `json:"version,omitempty"`
 }
 
 // NewModelCloudNodeAccountInfo instantiates a new ModelCloudNodeAccountInfo object
@@ -270,6 +271,38 @@ func (o *ModelCloudNodeAccountInfo) SetNodeName(v string) {
 	o.NodeName = &v
 }
 
+// GetVersion returns the Version field value if set, zero value otherwise.
+func (o *ModelCloudNodeAccountInfo) GetVersion() string {
+	if o == nil || IsNil(o.Version) {
+		var ret string
+		return ret
+	}
+	return *o.Version
+}
+
+// GetVersionOk returns a tuple with the Version field value if set, nil otherwise
+// and a boolean to check if the value has been set.
+func (o *ModelCloudNodeAccountInfo) GetVersionOk() (*string, bool) {
+	if o == nil || IsNil(o.Version) {
+		return nil, false
+	}
+	return o.Version, true
+}
+
+// HasVersion returns a boolean if a field has been set.
+func (o *ModelCloudNodeAccountInfo) HasVersion() bool {
+	if o != nil && !IsNil(o.Version) {
+		return true
+	}
+
+	return false
+}
+
+// SetVersion gets a reference to the given string and assigns it to the Version field.
+func (o *ModelCloudNodeAccountInfo) SetVersion(v string) {
+	o.Version = &v
+}
+
 func (o ModelCloudNodeAccountInfo) MarshalJSON() ([]byte, error) {
 	toSerialize,err := o.ToMap()
 	if err != nil {
@@ -300,6 +333,9 @@ func (o ModelCloudNodeAccountInfo) ToMap() (map[string]interface{}, error) {
 	}
 	if !IsNil(o.NodeName) {
 		toSerialize["node_name"] = o.NodeName
+	}
+	if !IsNil(o.Version) {
+		toSerialize["version"] = o.Version
 	}
 	return toSerialize, nil
 }

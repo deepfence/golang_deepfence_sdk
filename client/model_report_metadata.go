@@ -85,6 +85,7 @@ type ReportMetadata struct {
 	Pseudo *bool `json:"pseudo,omitempty"`
 	PublicIp []string `json:"public_ip,omitempty"`
 	ResourceGroup *string `json:"resource_group,omitempty"`
+	Tags []string `json:"tags,omitempty"`
 	Threads *int32 `json:"threads,omitempty"`
 	Timestamp *string `json:"timestamp,omitempty"`
 	Uptime *int32 `json:"uptime,omitempty"`
@@ -2189,6 +2190,38 @@ func (o *ReportMetadata) SetResourceGroup(v string) {
 	o.ResourceGroup = &v
 }
 
+// GetTags returns the Tags field value if set, zero value otherwise.
+func (o *ReportMetadata) GetTags() []string {
+	if o == nil || IsNil(o.Tags) {
+		var ret []string
+		return ret
+	}
+	return o.Tags
+}
+
+// GetTagsOk returns a tuple with the Tags field value if set, nil otherwise
+// and a boolean to check if the value has been set.
+func (o *ReportMetadata) GetTagsOk() ([]string, bool) {
+	if o == nil || IsNil(o.Tags) {
+		return nil, false
+	}
+	return o.Tags, true
+}
+
+// HasTags returns a boolean if a field has been set.
+func (o *ReportMetadata) HasTags() bool {
+	if o != nil && !IsNil(o.Tags) {
+		return true
+	}
+
+	return false
+}
+
+// SetTags gets a reference to the given []string and assigns it to the Tags field.
+func (o *ReportMetadata) SetTags(v []string) {
+	o.Tags = v
+}
+
 // GetThreads returns the Threads field value if set, zero value otherwise.
 func (o *ReportMetadata) GetThreads() int32 {
 	if o == nil || IsNil(o.Threads) {
@@ -2553,6 +2586,9 @@ func (o ReportMetadata) ToMap() (map[string]interface{}, error) {
 	}
 	if !IsNil(o.ResourceGroup) {
 		toSerialize["resource_group"] = o.ResourceGroup
+	}
+	if !IsNil(o.Tags) {
+		toSerialize["tags"] = o.Tags
 	}
 	if !IsNil(o.Threads) {
 		toSerialize["threads"] = o.Threads

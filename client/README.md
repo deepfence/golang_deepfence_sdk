@@ -95,6 +95,7 @@ Class | Method | HTTP request | Description
 *CloudScannerAPI* | [**StatusCloudComplianceScan**](docs/CloudScannerAPI.md#statuscloudcompliancescan) | **Post** /deepfence/scan/status/cloud-compliance | Get Cloud Compliance Scan Status
 *CommonAPI* | [**Eula**](docs/CommonAPI.md#eula) | **Get** /deepfence/end-user-license-agreement | Get End User License Agreement
 *ComplianceAPI* | [**CountResultsComplianceScan**](docs/ComplianceAPI.md#countresultscompliancescan) | **Post** /deepfence/scan/results/count/compliance | Get Compliance Scans Results
+*ComplianceAPI* | [**IngestComplianceScanStatus**](docs/ComplianceAPI.md#ingestcompliancescanstatus) | **Post** /deepfence/ingest/compliance-scan-logs | Ingest Compliance Scan Status
 *ComplianceAPI* | [**IngestCompliances**](docs/ComplianceAPI.md#ingestcompliances) | **Post** /deepfence/ingest/compliance | Ingest Compliances
 *ComplianceAPI* | [**ListComplianceScan**](docs/ComplianceAPI.md#listcompliancescan) | **Post** /deepfence/scan/list/compliance | Get Compliance Scans List
 *ComplianceAPI* | [**ResultsComplianceScan**](docs/ComplianceAPI.md#resultscompliancescan) | **Post** /deepfence/scan/results/compliance | Get Compliance Scans Results
@@ -225,6 +226,7 @@ Class | Method | HTTP request | Description
 *SecretScanAPI* | [**StatusSecretScan**](docs/SecretScanAPI.md#statussecretscan) | **Post** /deepfence/scan/status/secret | Get Secret Scan Status
 *SecretScanAPI* | [**StopSecretScan**](docs/SecretScanAPI.md#stopsecretscan) | **Post** /deepfence/scan/stop/secret | Stop Secret Scan
 *SettingsAPI* | [**AddEmailConfiguration**](docs/SettingsAPI.md#addemailconfiguration) | **Post** /deepfence/settings/email | Add Email Configuration
+*SettingsAPI* | [**AddScheduledTask**](docs/SettingsAPI.md#addscheduledtask) | **Post** /deepfence/scheduled-task | Add scheduled task
 *SettingsAPI* | [**DeleteEmailConfiguration**](docs/SettingsAPI.md#deleteemailconfiguration) | **Delete** /deepfence/settings/email/{config_id} | Delete Email Configurations
 *SettingsAPI* | [**GetEmailConfiguration**](docs/SettingsAPI.md#getemailconfiguration) | **Get** /deepfence/settings/email | Get Email Configurations
 *SettingsAPI* | [**GetScheduledTasks**](docs/SettingsAPI.md#getscheduledtasks) | **Get** /deepfence/scheduled-task | Get scheduled tasks
@@ -299,6 +301,7 @@ Class | Method | HTTP request | Description
  - [IngestersCloudComplianceScanStatus](docs/IngestersCloudComplianceScanStatus.md)
  - [IngestersCloudResource](docs/IngestersCloudResource.md)
  - [IngestersCompliance](docs/IngestersCompliance.md)
+ - [IngestersComplianceScanStatus](docs/IngestersComplianceScanStatus.md)
  - [IngestersComplianceStats](docs/IngestersComplianceStats.md)
  - [IngestersMalware](docs/IngestersMalware.md)
  - [IngestersMalwareScanStatus](docs/IngestersMalwareScanStatus.md)
@@ -312,6 +315,7 @@ Class | Method | HTTP request | Description
  - [IngestersVulnerability](docs/IngestersVulnerability.md)
  - [IngestersVulnerabilityScanStatus](docs/IngestersVulnerabilityScanStatus.md)
  - [LookupLookupFilter](docs/LookupLookupFilter.md)
+ - [ModelAddScheduledTaskRequest](docs/ModelAddScheduledTaskRequest.md)
  - [ModelAgentId](docs/ModelAgentId.md)
  - [ModelAgentPluginDisable](docs/ModelAgentPluginDisable.md)
  - [ModelAgentPluginEnable](docs/ModelAgentPluginEnable.md)

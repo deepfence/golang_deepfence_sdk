@@ -25,6 +25,7 @@ type ModelCloudNodeAccountRegisterReq struct {
 	MonitoredAccountIds map[string]string `json:"monitored_account_ids,omitempty"`
 	NodeId string `json:"node_id"`
 	OrgAccId *string `json:"org_acc_id,omitempty"`
+	Version *string `json:"version,omitempty"`
 }
 
 // NewModelCloudNodeAccountRegisterReq instantiates a new ModelCloudNodeAccountRegisterReq object
@@ -184,6 +185,38 @@ func (o *ModelCloudNodeAccountRegisterReq) SetOrgAccId(v string) {
 	o.OrgAccId = &v
 }
 
+// GetVersion returns the Version field value if set, zero value otherwise.
+func (o *ModelCloudNodeAccountRegisterReq) GetVersion() string {
+	if o == nil || IsNil(o.Version) {
+		var ret string
+		return ret
+	}
+	return *o.Version
+}
+
+// GetVersionOk returns a tuple with the Version field value if set, nil otherwise
+// and a boolean to check if the value has been set.
+func (o *ModelCloudNodeAccountRegisterReq) GetVersionOk() (*string, bool) {
+	if o == nil || IsNil(o.Version) {
+		return nil, false
+	}
+	return o.Version, true
+}
+
+// HasVersion returns a boolean if a field has been set.
+func (o *ModelCloudNodeAccountRegisterReq) HasVersion() bool {
+	if o != nil && !IsNil(o.Version) {
+		return true
+	}
+
+	return false
+}
+
+// SetVersion gets a reference to the given string and assigns it to the Version field.
+func (o *ModelCloudNodeAccountRegisterReq) SetVersion(v string) {
+	o.Version = &v
+}
+
 func (o ModelCloudNodeAccountRegisterReq) MarshalJSON() ([]byte, error) {
 	toSerialize,err := o.ToMap()
 	if err != nil {
@@ -202,6 +235,9 @@ func (o ModelCloudNodeAccountRegisterReq) ToMap() (map[string]interface{}, error
 	toSerialize["node_id"] = o.NodeId
 	if !IsNil(o.OrgAccId) {
 		toSerialize["org_acc_id"] = o.OrgAccId
+	}
+	if !IsNil(o.Version) {
+		toSerialize["version"] = o.Version
 	}
 	return toSerialize, nil
 }

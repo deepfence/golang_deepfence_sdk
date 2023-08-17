@@ -9,6 +9,7 @@ Name | Type | Description | Notes
 **MonitoredAccountIds** | Pointer to **map[string]string** |  | [optional] 
 **NodeId** | **string** |  | 
 **OrgAccId** | Pointer to **string** |  | [optional] 
+**Version** | Pointer to **string** |  | [optional] 
 
 ## Methods
 
@@ -148,6 +149,31 @@ SetOrgAccId sets OrgAccId field to given value.
 `func (o *ModelCloudNodeAccountRegisterReq) HasOrgAccId() bool`
 
 HasOrgAccId returns a boolean if a field has been set.
+
+### GetVersion
+
+`func (o *ModelCloudNodeAccountRegisterReq) GetVersion() string`
+
+GetVersion returns the Version field if non-nil, zero value otherwise.
+
+### GetVersionOk
+
+`func (o *ModelCloudNodeAccountRegisterReq) GetVersionOk() (*string, bool)`
+
+GetVersionOk returns a tuple with the Version field if it's non-nil, zero value otherwise
+and a boolean to check if the value has been set.
+
+### SetVersion
+
+`func (o *ModelCloudNodeAccountRegisterReq) SetVersion(v string)`
+
+SetVersion sets Version field to given value.
+
+### HasVersion
+
+`func (o *ModelCloudNodeAccountRegisterReq) HasVersion() bool`
+
+HasVersion returns a boolean if a field has been set.
 
 
 [[Back to Model list]](../README.md#documentation-for-models) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to README]](../README.md)

@@ -22,6 +22,7 @@ var _ MappedNullable = &ReportersFieldsFilters{}
 type ReportersFieldsFilters struct {
 	CompareFilter []ReportersCompareFilter `json:"compare_filter"`
 	ContainsFilter ReportersContainsFilter `json:"contains_filter"`
+	ContainsInArrayFilter *ReportersContainsFilter `json:"contains_in_array_filter,omitempty"`
 	MatchFilter ReportersMatchFilter `json:"match_filter"`
 	NotContainsFilter *ReportersContainsFilter `json:"not_contains_filter,omitempty"`
 	OrderFilter ReportersOrderFilter `json:"order_filter"`
@@ -96,6 +97,38 @@ func (o *ReportersFieldsFilters) GetContainsFilterOk() (*ReportersContainsFilter
 // SetContainsFilter sets field value
 func (o *ReportersFieldsFilters) SetContainsFilter(v ReportersContainsFilter) {
 	o.ContainsFilter = v
+}
+
+// GetContainsInArrayFilter returns the ContainsInArrayFilter field value if set, zero value otherwise.
+func (o *ReportersFieldsFilters) GetContainsInArrayFilter() ReportersContainsFilter {
+	if o == nil || IsNil(o.ContainsInArrayFilter) {
+		var ret ReportersContainsFilter
+		return ret
+	}
+	return *o.ContainsInArrayFilter
+}
+
+// GetContainsInArrayFilterOk returns a tuple with the ContainsInArrayFilter field value if set, nil otherwise
+// and a boolean to check if the value has been set.
+func (o *ReportersFieldsFilters) GetContainsInArrayFilterOk() (*ReportersContainsFilter, bool) {
+	if o == nil || IsNil(o.ContainsInArrayFilter) {
+		return nil, false
+	}
+	return o.ContainsInArrayFilter, true
+}
+
+// HasContainsInArrayFilter returns a boolean if a field has been set.
+func (o *ReportersFieldsFilters) HasContainsInArrayFilter() bool {
+	if o != nil && !IsNil(o.ContainsInArrayFilter) {
+		return true
+	}
+
+	return false
+}
+
+// SetContainsInArrayFilter gets a reference to the given ReportersContainsFilter and assigns it to the ContainsInArrayFilter field.
+func (o *ReportersFieldsFilters) SetContainsInArrayFilter(v ReportersContainsFilter) {
+	o.ContainsInArrayFilter = &v
 }
 
 // GetMatchFilter returns the MatchFilter field value
@@ -192,6 +225,9 @@ func (o ReportersFieldsFilters) ToMap() (map[string]interface{}, error) {
 		toSerialize["compare_filter"] = o.CompareFilter
 	}
 	toSerialize["contains_filter"] = o.ContainsFilter
+	if !IsNil(o.ContainsInArrayFilter) {
+		toSerialize["contains_in_array_filter"] = o.ContainsInArrayFilter
+	}
 	toSerialize["match_filter"] = o.MatchFilter
 	if !IsNil(o.NotContainsFilter) {
 		toSerialize["not_contains_filter"] = o.NotContainsFilter

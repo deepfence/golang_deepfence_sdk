@@ -5,6 +5,7 @@
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
 **ErrorFields** | Pointer to **map[string]string** |  | [optional] 
+**ErrorIndex** | Pointer to **map[string][]int32** |  | [optional] 
 **Message** | Pointer to **string** |  | [optional] 
 **Success** | Pointer to **bool** |  | [optional] 
 
@@ -62,6 +63,41 @@ HasErrorFields returns a boolean if a field has been set.
 `func (o *ApiDocsBadRequestResponse) UnsetErrorFields()`
 
 UnsetErrorFields ensures that no value is present for ErrorFields, not even an explicit nil
+### GetErrorIndex
+
+`func (o *ApiDocsBadRequestResponse) GetErrorIndex() map[string][]int32`
+
+GetErrorIndex returns the ErrorIndex field if non-nil, zero value otherwise.
+
+### GetErrorIndexOk
+
+`func (o *ApiDocsBadRequestResponse) GetErrorIndexOk() (*map[string][]int32, bool)`
+
+GetErrorIndexOk returns a tuple with the ErrorIndex field if it's non-nil, zero value otherwise
+and a boolean to check if the value has been set.
+
+### SetErrorIndex
+
+`func (o *ApiDocsBadRequestResponse) SetErrorIndex(v map[string][]int32)`
+
+SetErrorIndex sets ErrorIndex field to given value.
+
+### HasErrorIndex
+
+`func (o *ApiDocsBadRequestResponse) HasErrorIndex() bool`
+
+HasErrorIndex returns a boolean if a field has been set.
+
+### SetErrorIndexNil
+
+`func (o *ApiDocsBadRequestResponse) SetErrorIndexNil(b bool)`
+
+ SetErrorIndexNil sets the value for ErrorIndex to be an explicit nil
+
+### UnsetErrorIndex
+`func (o *ApiDocsBadRequestResponse) UnsetErrorIndex()`
+
+UnsetErrorIndex ensures that no value is present for ErrorIndex, not even an explicit nil
 ### GetMessage
 
 `func (o *ApiDocsBadRequestResponse) GetMessage() string`

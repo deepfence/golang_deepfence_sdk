@@ -21,6 +21,7 @@ var _ MappedNullable = &ApiDocsBadRequestResponse{}
 // ApiDocsBadRequestResponse struct for ApiDocsBadRequestResponse
 type ApiDocsBadRequestResponse struct {
 	ErrorFields map[string]string `json:"error_fields,omitempty"`
+	ErrorIndex map[string][]int32 `json:"error_index,omitempty"`
 	Message *string `json:"message,omitempty"`
 	Success *bool `json:"success,omitempty"`
 }
@@ -73,6 +74,39 @@ func (o *ApiDocsBadRequestResponse) HasErrorFields() bool {
 // SetErrorFields gets a reference to the given map[string]string and assigns it to the ErrorFields field.
 func (o *ApiDocsBadRequestResponse) SetErrorFields(v map[string]string) {
 	o.ErrorFields = v
+}
+
+// GetErrorIndex returns the ErrorIndex field value if set, zero value otherwise (both if not set or set to explicit null).
+func (o *ApiDocsBadRequestResponse) GetErrorIndex() map[string][]int32 {
+	if o == nil {
+		var ret map[string][]int32
+		return ret
+	}
+	return o.ErrorIndex
+}
+
+// GetErrorIndexOk returns a tuple with the ErrorIndex field value if set, nil otherwise
+// and a boolean to check if the value has been set.
+// NOTE: If the value is an explicit nil, `nil, true` will be returned
+func (o *ApiDocsBadRequestResponse) GetErrorIndexOk() (*map[string][]int32, bool) {
+	if o == nil || IsNil(o.ErrorIndex) {
+		return nil, false
+	}
+	return &o.ErrorIndex, true
+}
+
+// HasErrorIndex returns a boolean if a field has been set.
+func (o *ApiDocsBadRequestResponse) HasErrorIndex() bool {
+	if o != nil && IsNil(o.ErrorIndex) {
+		return true
+	}
+
+	return false
+}
+
+// SetErrorIndex gets a reference to the given map[string][]int32 and assigns it to the ErrorIndex field.
+func (o *ApiDocsBadRequestResponse) SetErrorIndex(v map[string][]int32) {
+	o.ErrorIndex = v
 }
 
 // GetMessage returns the Message field value if set, zero value otherwise.
@@ -151,6 +185,9 @@ func (o ApiDocsBadRequestResponse) ToMap() (map[string]interface{}, error) {
 	toSerialize := map[string]interface{}{}
 	if o.ErrorFields != nil {
 		toSerialize["error_fields"] = o.ErrorFields
+	}
+	if o.ErrorIndex != nil {
+		toSerialize["error_index"] = o.ErrorIndex
 	}
 	if !IsNil(o.Message) {
 		toSerialize["message"] = o.Message

@@ -61,6 +61,7 @@ docs/IngestersCloudCompliance.md
 docs/IngestersCloudComplianceScanStatus.md
 docs/IngestersCloudResource.md
 docs/IngestersCompliance.md
+docs/IngestersComplianceScanStatus.md
 docs/IngestersComplianceStats.md
 docs/IngestersMalware.md
 docs/IngestersMalwareScanStatus.md
@@ -78,6 +79,7 @@ docs/InternalAPI.md
 docs/LookupAPI.md
 docs/LookupLookupFilter.md
 docs/MalwareScanAPI.md
+docs/ModelAddScheduledTaskRequest.md
 docs/ModelAgentId.md
 docs/ModelAgentPluginDisable.md
 docs/ModelAgentPluginEnable.md
@@ -250,6 +252,7 @@ model_ingesters_cloud_compliance.go
 model_ingesters_cloud_compliance_scan_status.go
 model_ingesters_cloud_resource.go
 model_ingesters_compliance.go
+model_ingesters_compliance_scan_status.go
 model_ingesters_compliance_stats.go
 model_ingesters_malware.go
 model_ingesters_malware_scan_status.go
@@ -263,6 +266,7 @@ model_ingesters_secret_severity.go
 model_ingesters_vulnerability.go
 model_ingesters_vulnerability_scan_status.go
 model_lookup_lookup_filter.go
+model_model_add_scheduled_task_request.go
 model_model_agent_id.go
 model_model_agent_plugin_disable.go
 model_model_agent_plugin_enable.go
