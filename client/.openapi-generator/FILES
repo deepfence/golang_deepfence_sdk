@@ -92,6 +92,7 @@ docs/ModelCloudCompliance.md
 docs/ModelCloudComplianceBenchmark.md
 docs/ModelCloudComplianceScanDetails.md
 docs/ModelCloudComplianceScanResult.md
+docs/ModelCloudInstanceDeployment.md
 docs/ModelCloudNodeAccountInfo.md
 docs/ModelCloudNodeAccountRegisterReq.md
 docs/ModelCloudNodeAccountRegisterResp.md
@@ -279,6 +280,7 @@ model_model_cloud_compliance.go
 model_model_cloud_compliance_benchmark.go
 model_model_cloud_compliance_scan_details.go
 model_model_cloud_compliance_scan_result.go
+model_model_cloud_instance_deployment.go
 model_model_cloud_node_account_info.go
 model_model_cloud_node_account_register_req.go
 model_model_cloud_node_account_register_resp.go

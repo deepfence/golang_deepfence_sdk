@@ -328,6 +328,7 @@ Class | Method | HTTP request | Description
  - [ModelCloudComplianceBenchmark](docs/ModelCloudComplianceBenchmark.md)
  - [ModelCloudComplianceScanDetails](docs/ModelCloudComplianceScanDetails.md)
  - [ModelCloudComplianceScanResult](docs/ModelCloudComplianceScanResult.md)
+ - [ModelCloudInstanceDeployment](docs/ModelCloudInstanceDeployment.md)
  - [ModelCloudNodeAccountInfo](docs/ModelCloudNodeAccountInfo.md)
  - [ModelCloudNodeAccountRegisterReq](docs/ModelCloudNodeAccountRegisterReq.md)
  - [ModelCloudNodeAccountRegisterResp](docs/ModelCloudNodeAccountRegisterResp.md)

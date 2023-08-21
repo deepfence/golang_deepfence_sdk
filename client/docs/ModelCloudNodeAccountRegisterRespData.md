@@ -5,6 +5,7 @@
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
 **CloudtrailTrails** | Pointer to [**[]ModelCloudNodeCloudtrailTrail**](ModelCloudNodeCloudtrailTrail.md) |  | [optional] 
+**DeployInstances** | Pointer to [**[]ModelCloudInstanceDeployment**](ModelCloudInstanceDeployment.md) |  | [optional] 
 **Refresh** | Pointer to **string** |  | [optional] 
 **Scans** | Pointer to [**map[string]ModelCloudComplianceScanDetails**](ModelCloudComplianceScanDetails.md) |  | [optional] 
 
@@ -62,6 +63,41 @@ HasCloudtrailTrails returns a boolean if a field has been set.
 `func (o *ModelCloudNodeAccountRegisterRespData) UnsetCloudtrailTrails()`
 
 UnsetCloudtrailTrails ensures that no value is present for CloudtrailTrails, not even an explicit nil
+### GetDeployInstances
+
+`func (o *ModelCloudNodeAccountRegisterRespData) GetDeployInstances() []ModelCloudInstanceDeployment`
+
+GetDeployInstances returns the DeployInstances field if non-nil, zero value otherwise.
+
+### GetDeployInstancesOk
+
+`func (o *ModelCloudNodeAccountRegisterRespData) GetDeployInstancesOk() (*[]ModelCloudInstanceDeployment, bool)`
+
+GetDeployInstancesOk returns a tuple with the DeployInstances field if it's non-nil, zero value otherwise
+and a boolean to check if the value has been set.
+
+### SetDeployInstances
+
+`func (o *ModelCloudNodeAccountRegisterRespData) SetDeployInstances(v []ModelCloudInstanceDeployment)`
+
+SetDeployInstances sets DeployInstances field to given value.
+
+### HasDeployInstances
+
+`func (o *ModelCloudNodeAccountRegisterRespData) HasDeployInstances() bool`
+
+HasDeployInstances returns a boolean if a field has been set.
+
+### SetDeployInstancesNil
+
+`func (o *ModelCloudNodeAccountRegisterRespData) SetDeployInstancesNil(b bool)`
+
+ SetDeployInstancesNil sets the value for DeployInstances to be an explicit nil
+
+### UnsetDeployInstances
+`func (o *ModelCloudNodeAccountRegisterRespData) UnsetDeployInstances()`
+
+UnsetDeployInstances ensures that no value is present for DeployInstances, not even an explicit nil
 ### GetRefresh
 
 `func (o *ModelCloudNodeAccountRegisterRespData) GetRefresh() string`

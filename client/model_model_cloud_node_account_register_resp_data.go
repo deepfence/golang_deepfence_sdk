@@ -21,6 +21,7 @@ var _ MappedNullable = &ModelCloudNodeAccountRegisterRespData{}
 // ModelCloudNodeAccountRegisterRespData struct for ModelCloudNodeAccountRegisterRespData
 type ModelCloudNodeAccountRegisterRespData struct {
 	CloudtrailTrails []ModelCloudNodeCloudtrailTrail `json:"cloudtrail_trails,omitempty"`
+	DeployInstances []ModelCloudInstanceDeployment `json:"deploy_instances,omitempty"`
 	Refresh *string `json:"refresh,omitempty"`
 	Scans map[string]ModelCloudComplianceScanDetails `json:"scans,omitempty"`
 }
@@ -73,6 +74,39 @@ func (o *ModelCloudNodeAccountRegisterRespData) HasCloudtrailTrails() bool {
 // SetCloudtrailTrails gets a reference to the given []ModelCloudNodeCloudtrailTrail and assigns it to the CloudtrailTrails field.
 func (o *ModelCloudNodeAccountRegisterRespData) SetCloudtrailTrails(v []ModelCloudNodeCloudtrailTrail) {
 	o.CloudtrailTrails = v
+}
+
+// GetDeployInstances returns the DeployInstances field value if set, zero value otherwise (both if not set or set to explicit null).
+func (o *ModelCloudNodeAccountRegisterRespData) GetDeployInstances() []ModelCloudInstanceDeployment {
+	if o == nil {
+		var ret []ModelCloudInstanceDeployment
+		return ret
+	}
+	return o.DeployInstances
+}
+
+// GetDeployInstancesOk returns a tuple with the DeployInstances field value if set, nil otherwise
+// and a boolean to check if the value has been set.
+// NOTE: If the value is an explicit nil, `nil, true` will be returned
+func (o *ModelCloudNodeAccountRegisterRespData) GetDeployInstancesOk() ([]ModelCloudInstanceDeployment, bool) {
+	if o == nil || IsNil(o.DeployInstances) {
+		return nil, false
+	}
+	return o.DeployInstances, true
+}
+
+// HasDeployInstances returns a boolean if a field has been set.
+func (o *ModelCloudNodeAccountRegisterRespData) HasDeployInstances() bool {
+	if o != nil && IsNil(o.DeployInstances) {
+		return true
+	}
+
+	return false
+}
+
+// SetDeployInstances gets a reference to the given []ModelCloudInstanceDeployment and assigns it to the DeployInstances field.
+func (o *ModelCloudNodeAccountRegisterRespData) SetDeployInstances(v []ModelCloudInstanceDeployment) {
+	o.DeployInstances = v
 }
 
 // GetRefresh returns the Refresh field value if set, zero value otherwise.
@@ -152,6 +186,9 @@ func (o ModelCloudNodeAccountRegisterRespData) ToMap() (map[string]interface{}, 
 	toSerialize := map[string]interface{}{}
 	if o.CloudtrailTrails != nil {
 		toSerialize["cloudtrail_trails"] = o.CloudtrailTrails
+	}
+	if o.DeployInstances != nil {
+		toSerialize["deploy_instances"] = o.DeployInstances
 	}
 	if !IsNil(o.Refresh) {
 		toSerialize["refresh"] = o.Refresh

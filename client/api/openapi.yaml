@@ -10209,6 +10209,19 @@ components:
       - status_counts
       - updated_at
       type: object
+    ModelCloudInstanceDeployment:
+      example:
+        account_id: account_id
+        instance_id: instance_id
+        region: region
+      properties:
+        account_id:
+          type: string
+        instance_id:
+          type: string
+        region:
+          type: string
+      type: object
     ModelCloudNodeAccountInfo:
       example:
         last_scan_status: last_scan_status
@@ -10274,6 +10287,13 @@ components:
     ModelCloudNodeAccountRegisterResp:
       example:
         data:
+          deploy_instances:
+          - account_id: account_id
+            instance_id: instance_id
+            region: region
+          - account_id: account_id
+            instance_id: instance_id
+            region: region
           cloudtrail_trails:
           - account_id: account_id
             trail_name: trail_name
@@ -10304,6 +10324,13 @@ components:
       type: object
     ModelCloudNodeAccountRegisterRespData:
       example:
+        deploy_instances:
+        - account_id: account_id
+          instance_id: instance_id
+          region: region
+        - account_id: account_id
+          instance_id: instance_id
+          region: region
         cloudtrail_trails:
         - account_id: account_id
           trail_name: trail_name
@@ -10332,6 +10359,11 @@ components:
         cloudtrail_trails:
           items:
             $ref: '#/components/schemas/ModelCloudNodeCloudtrailTrail'
+          nullable: true
+          type: array
+        deploy_instances:
+          items:
+            $ref: '#/components/schemas/ModelCloudInstanceDeployment'
           nullable: true
           type: array
         refresh:
