@@ -83,6 +83,7 @@ Class | Method | HTTP request | Description
 *AuthenticationAPI* | [**AuthTokenRefresh**](docs/AuthenticationAPI.md#authtokenrefresh) | **Post** /deepfence/auth/token/refresh | Refresh access token
 *AuthenticationAPI* | [**Login**](docs/AuthenticationAPI.md#login) | **Post** /deepfence/user/login | Login API
 *AuthenticationAPI* | [**Logout**](docs/AuthenticationAPI.md#logout) | **Post** /deepfence/user/logout | Logout API
+*CloudNodesAPI* | [**DeployCloudResourceAgent**](docs/CloudNodesAPI.md#deploycloudresourceagent) | **Post** /deepfence/cloud-resource/deploy-agent | Deploy Agent on Cloud Resource
 *CloudNodesAPI* | [**ListCloudNodeAccount**](docs/CloudNodesAPI.md#listcloudnodeaccount) | **Post** /deepfence/cloud-node/list/accounts | List Cloud Node Accounts
 *CloudNodesAPI* | [**ListCloudProviders**](docs/CloudNodesAPI.md#listcloudproviders) | **Get** /deepfence/cloud-node/list/providers | List Cloud Node Providers
 *CloudNodesAPI* | [**RegisterCloudNodeAccount**](docs/CloudNodesAPI.md#registercloudnodeaccount) | **Post** /deepfence/cloud-node/account | Register Cloud Node Account
@@ -342,6 +343,7 @@ Class | Method | HTTP request | Description
  - [ModelCloudNodeEnableDisableReq](docs/ModelCloudNodeEnableDisableReq.md)
  - [ModelCloudNodeProvidersListResp](docs/ModelCloudNodeProvidersListResp.md)
  - [ModelCloudResource](docs/ModelCloudResource.md)
+ - [ModelCloudResourceDeployAgentReq](docs/ModelCloudResourceDeployAgentReq.md)
  - [ModelCompliance](docs/ModelCompliance.md)
  - [ModelComplianceRule](docs/ModelComplianceRule.md)
  - [ModelComplianceScanInfo](docs/ModelComplianceScanInfo.md)

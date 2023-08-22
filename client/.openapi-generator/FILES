@@ -106,6 +106,7 @@ docs/ModelCloudNodeControlResp.md
 docs/ModelCloudNodeEnableDisableReq.md
 docs/ModelCloudNodeProvidersListResp.md
 docs/ModelCloudResource.md
+docs/ModelCloudResourceDeployAgentReq.md
 docs/ModelCompliance.md
 docs/ModelComplianceRule.md
 docs/ModelComplianceScanInfo.md
@@ -294,6 +295,7 @@ model_model_cloud_node_control_resp.go
 model_model_cloud_node_enable_disable_req.go
 model_model_cloud_node_providers_list_resp.go
 model_model_cloud_resource.go
+model_model_cloud_resource_deploy_agent_req.go
 model_model_compliance.go
 model_model_compliance_rule.go
 model_model_compliance_scan_info.go

@@ -21,6 +21,7 @@ var _ MappedNullable = &ModelCloudInstanceDeployment{}
 // ModelCloudInstanceDeployment struct for ModelCloudInstanceDeployment
 type ModelCloudInstanceDeployment struct {
 	AccountId *string `json:"account_id,omitempty"`
+	Hostname *string `json:"hostname,omitempty"`
 	InstanceId *string `json:"instance_id,omitempty"`
 	Region *string `json:"region,omitempty"`
 }
@@ -72,6 +73,38 @@ func (o *ModelCloudInstanceDeployment) HasAccountId() bool {
 // SetAccountId gets a reference to the given string and assigns it to the AccountId field.
 func (o *ModelCloudInstanceDeployment) SetAccountId(v string) {
 	o.AccountId = &v
+}
+
+// GetHostname returns the Hostname field value if set, zero value otherwise.
+func (o *ModelCloudInstanceDeployment) GetHostname() string {
+	if o == nil || IsNil(o.Hostname) {
+		var ret string
+		return ret
+	}
+	return *o.Hostname
+}
+
+// GetHostnameOk returns a tuple with the Hostname field value if set, nil otherwise
+// and a boolean to check if the value has been set.
+func (o *ModelCloudInstanceDeployment) GetHostnameOk() (*string, bool) {
+	if o == nil || IsNil(o.Hostname) {
+		return nil, false
+	}
+	return o.Hostname, true
+}
+
+// HasHostname returns a boolean if a field has been set.
+func (o *ModelCloudInstanceDeployment) HasHostname() bool {
+	if o != nil && !IsNil(o.Hostname) {
+		return true
+	}
+
+	return false
+}
+
+// SetHostname gets a reference to the given string and assigns it to the Hostname field.
+func (o *ModelCloudInstanceDeployment) SetHostname(v string) {
+	o.Hostname = &v
 }
 
 // GetInstanceId returns the InstanceId field value if set, zero value otherwise.
@@ -150,6 +183,9 @@ func (o ModelCloudInstanceDeployment) ToMap() (map[string]interface{}, error) {
 	toSerialize := map[string]interface{}{}
 	if !IsNil(o.AccountId) {
 		toSerialize["account_id"] = o.AccountId
+	}
+	if !IsNil(o.Hostname) {
+		toSerialize["hostname"] = o.Hostname
 	}
 	if !IsNil(o.InstanceId) {
 		toSerialize["instance_id"] = o.InstanceId
