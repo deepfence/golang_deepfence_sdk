@@ -22,6 +22,7 @@ var _ MappedNullable = &SearchSearchNodeReq{}
 type SearchSearchNodeReq struct {
 	ExtendedNodeFilter *SearchSearchFilter `json:"extended_node_filter,omitempty"`
 	NodeFilter SearchSearchFilter `json:"node_filter"`
+	RelatedNodeFilter *SearchChainedSearchFilter `json:"related_node_filter,omitempty"`
 	Window ModelFetchWindow `json:"window"`
 }
 
@@ -100,6 +101,38 @@ func (o *SearchSearchNodeReq) SetNodeFilter(v SearchSearchFilter) {
 	o.NodeFilter = v
 }
 
+// GetRelatedNodeFilter returns the RelatedNodeFilter field value if set, zero value otherwise.
+func (o *SearchSearchNodeReq) GetRelatedNodeFilter() SearchChainedSearchFilter {
+	if o == nil || IsNil(o.RelatedNodeFilter) {
+		var ret SearchChainedSearchFilter
+		return ret
+	}
+	return *o.RelatedNodeFilter
+}
+
+// GetRelatedNodeFilterOk returns a tuple with the RelatedNodeFilter field value if set, nil otherwise
+// and a boolean to check if the value has been set.
+func (o *SearchSearchNodeReq) GetRelatedNodeFilterOk() (*SearchChainedSearchFilter, bool) {
+	if o == nil || IsNil(o.RelatedNodeFilter) {
+		return nil, false
+	}
+	return o.RelatedNodeFilter, true
+}
+
+// HasRelatedNodeFilter returns a boolean if a field has been set.
+func (o *SearchSearchNodeReq) HasRelatedNodeFilter() bool {
+	if o != nil && !IsNil(o.RelatedNodeFilter) {
+		return true
+	}
+
+	return false
+}
+
+// SetRelatedNodeFilter gets a reference to the given SearchChainedSearchFilter and assigns it to the RelatedNodeFilter field.
+func (o *SearchSearchNodeReq) SetRelatedNodeFilter(v SearchChainedSearchFilter) {
+	o.RelatedNodeFilter = &v
+}
+
 // GetWindow returns the Window field value
 func (o *SearchSearchNodeReq) GetWindow() ModelFetchWindow {
 	if o == nil {
@@ -138,6 +171,9 @@ func (o SearchSearchNodeReq) ToMap() (map[string]interface{}, error) {
 		toSerialize["extended_node_filter"] = o.ExtendedNodeFilter
 	}
 	toSerialize["node_filter"] = o.NodeFilter
+	if !IsNil(o.RelatedNodeFilter) {
+		toSerialize["related_node_filter"] = o.RelatedNodeFilter
+	}
 	toSerialize["window"] = o.Window
 	return toSerialize, nil
 }

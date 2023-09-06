@@ -8,6 +8,7 @@ Name | Type | Description | Notes
 **CloudComplianceLatestScanId** | **string** |  | 
 **CloudComplianceScanStatus** | **string** |  | 
 **CloudCompliancesCount** | **int32** |  | 
+**CloudProvider** | **string** |  | 
 **CloudRegion** | **string** |  | 
 **NodeId** | **string** |  | 
 **NodeName** | **string** |  | 
@@ -18,7 +19,7 @@ Name | Type | Description | Notes
 
 ### NewModelCloudResource
 
-`func NewModelCloudResource(accountId string, cloudComplianceLatestScanId string, cloudComplianceScanStatus string, cloudCompliancesCount int32, cloudRegion string, nodeId string, nodeName string, nodeType string, typeLabel string, ) *ModelCloudResource`
+`func NewModelCloudResource(accountId string, cloudComplianceLatestScanId string, cloudComplianceScanStatus string, cloudCompliancesCount int32, cloudProvider string, cloudRegion string, nodeId string, nodeName string, nodeType string, typeLabel string, ) *ModelCloudResource`
 
 NewModelCloudResource instantiates a new ModelCloudResource object
 This constructor will assign default values to properties that have it defined,
@@ -111,6 +112,26 @@ and a boolean to check if the value has been set.
 `func (o *ModelCloudResource) SetCloudCompliancesCount(v int32)`
 
 SetCloudCompliancesCount sets CloudCompliancesCount field to given value.
+
+
+### GetCloudProvider
+
+`func (o *ModelCloudResource) GetCloudProvider() string`
+
+GetCloudProvider returns the CloudProvider field if non-nil, zero value otherwise.
+
+### GetCloudProviderOk
+
+`func (o *ModelCloudResource) GetCloudProviderOk() (*string, bool)`
+
+GetCloudProviderOk returns a tuple with the CloudProvider field if it's non-nil, zero value otherwise
+and a boolean to check if the value has been set.
+
+### SetCloudProvider
+
+`func (o *ModelCloudResource) SetCloudProvider(v string)`
+
+SetCloudProvider sets CloudProvider field to given value.
 
 
 ### GetCloudRegion

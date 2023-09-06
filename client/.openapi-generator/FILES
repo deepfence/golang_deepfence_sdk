@@ -206,6 +206,7 @@ docs/ReportersOrderSpec.md
 docs/ReportsAPI.md
 docs/ScanResultsAPI.md
 docs/SearchAPI.md
+docs/SearchChainedSearchFilter.md
 docs/SearchNodeCountResp.md
 docs/SearchResultGroup.md
 docs/SearchResultGroupResp.md
@@ -389,6 +390,7 @@ model_reporters_fields_filters.go
 model_reporters_match_filter.go
 model_reporters_order_filter.go
 model_reporters_order_spec.go
+model_search_chained_search_filter.go
 model_search_node_count_resp.go
 model_search_result_group.go
 model_search_result_group_resp.go

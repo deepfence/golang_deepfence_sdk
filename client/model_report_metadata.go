@@ -79,6 +79,7 @@ type ReportMetadata struct {
 	OpenFilesCount *int32 `json:"open_files_count,omitempty"`
 	Os *string `json:"os,omitempty"`
 	Pid *int32 `json:"pid,omitempty"`
+	PodId *string `json:"pod_id,omitempty"`
 	PodName *string `json:"pod_name,omitempty"`
 	Ppid *int32 `json:"ppid,omitempty"`
 	PrivateIp []string `json:"private_ip,omitempty"`
@@ -1998,6 +1999,38 @@ func (o *ReportMetadata) SetPid(v int32) {
 	o.Pid = &v
 }
 
+// GetPodId returns the PodId field value if set, zero value otherwise.
+func (o *ReportMetadata) GetPodId() string {
+	if o == nil || IsNil(o.PodId) {
+		var ret string
+		return ret
+	}
+	return *o.PodId
+}
+
+// GetPodIdOk returns a tuple with the PodId field value if set, nil otherwise
+// and a boolean to check if the value has been set.
+func (o *ReportMetadata) GetPodIdOk() (*string, bool) {
+	if o == nil || IsNil(o.PodId) {
+		return nil, false
+	}
+	return o.PodId, true
+}
+
+// HasPodId returns a boolean if a field has been set.
+func (o *ReportMetadata) HasPodId() bool {
+	if o != nil && !IsNil(o.PodId) {
+		return true
+	}
+
+	return false
+}
+
+// SetPodId gets a reference to the given string and assigns it to the PodId field.
+func (o *ReportMetadata) SetPodId(v string) {
+	o.PodId = &v
+}
+
 // GetPodName returns the PodName field value if set, zero value otherwise.
 func (o *ReportMetadata) GetPodName() string {
 	if o == nil || IsNil(o.PodName) {
@@ -2568,6 +2601,9 @@ func (o ReportMetadata) ToMap() (map[string]interface{}, error) {
 	}
 	if !IsNil(o.Pid) {
 		toSerialize["pid"] = o.Pid
+	}
+	if !IsNil(o.PodId) {
+		toSerialize["pod_id"] = o.PodId
 	}
 	if !IsNil(o.PodName) {
 		toSerialize["pod_name"] = o.PodName

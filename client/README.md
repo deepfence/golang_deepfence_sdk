@@ -438,6 +438,7 @@ Class | Method | HTTP request | Description
  - [ReportersMatchFilter](docs/ReportersMatchFilter.md)
  - [ReportersOrderFilter](docs/ReportersOrderFilter.md)
  - [ReportersOrderSpec](docs/ReportersOrderSpec.md)
+ - [SearchChainedSearchFilter](docs/SearchChainedSearchFilter.md)
  - [SearchNodeCountResp](docs/SearchNodeCountResp.md)
  - [SearchResultGroup](docs/SearchResultGroup.md)
  - [SearchResultGroupResp](docs/SearchResultGroupResp.md)

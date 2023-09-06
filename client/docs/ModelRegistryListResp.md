@@ -6,6 +6,7 @@ Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
 **CreatedAt** | Pointer to **int32** |  | [optional] 
 **Id** | Pointer to **int32** |  | [optional] 
+**IsSyncing** | Pointer to **bool** |  | [optional] 
 **Name** | Pointer to **string** |  | [optional] 
 **NodeId** | Pointer to **string** |  | [optional] 
 **NonSecret** | Pointer to **interface{}** |  | [optional] 
@@ -80,6 +81,31 @@ SetId sets Id field to given value.
 `func (o *ModelRegistryListResp) HasId() bool`
 
 HasId returns a boolean if a field has been set.
+
+### GetIsSyncing
+
+`func (o *ModelRegistryListResp) GetIsSyncing() bool`
+
+GetIsSyncing returns the IsSyncing field if non-nil, zero value otherwise.
+
+### GetIsSyncingOk
+
+`func (o *ModelRegistryListResp) GetIsSyncingOk() (*bool, bool)`
+
+GetIsSyncingOk returns a tuple with the IsSyncing field if it's non-nil, zero value otherwise
+and a boolean to check if the value has been set.
+
+### SetIsSyncing
+
+`func (o *ModelRegistryListResp) SetIsSyncing(v bool)`
+
+SetIsSyncing sets IsSyncing field to given value.
+
+### HasIsSyncing
+
+`func (o *ModelRegistryListResp) HasIsSyncing() bool`
+
+HasIsSyncing returns a boolean if a field has been set.
 
 ### GetName
 

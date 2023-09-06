@@ -24,6 +24,7 @@ type ReportersFieldsFilters struct {
 	ContainsFilter ReportersContainsFilter `json:"contains_filter"`
 	ContainsInArrayFilter *ReportersContainsFilter `json:"contains_in_array_filter,omitempty"`
 	MatchFilter ReportersMatchFilter `json:"match_filter"`
+	MatchInArrayFilter *ReportersMatchFilter `json:"match_in_array_filter,omitempty"`
 	NotContainsFilter *ReportersContainsFilter `json:"not_contains_filter,omitempty"`
 	OrderFilter ReportersOrderFilter `json:"order_filter"`
 }
@@ -155,6 +156,38 @@ func (o *ReportersFieldsFilters) SetMatchFilter(v ReportersMatchFilter) {
 	o.MatchFilter = v
 }
 
+// GetMatchInArrayFilter returns the MatchInArrayFilter field value if set, zero value otherwise.
+func (o *ReportersFieldsFilters) GetMatchInArrayFilter() ReportersMatchFilter {
+	if o == nil || IsNil(o.MatchInArrayFilter) {
+		var ret ReportersMatchFilter
+		return ret
+	}
+	return *o.MatchInArrayFilter
+}
+
+// GetMatchInArrayFilterOk returns a tuple with the MatchInArrayFilter field value if set, nil otherwise
+// and a boolean to check if the value has been set.
+func (o *ReportersFieldsFilters) GetMatchInArrayFilterOk() (*ReportersMatchFilter, bool) {
+	if o == nil || IsNil(o.MatchInArrayFilter) {
+		return nil, false
+	}
+	return o.MatchInArrayFilter, true
+}
+
+// HasMatchInArrayFilter returns a boolean if a field has been set.
+func (o *ReportersFieldsFilters) HasMatchInArrayFilter() bool {
+	if o != nil && !IsNil(o.MatchInArrayFilter) {
+		return true
+	}
+
+	return false
+}
+
+// SetMatchInArrayFilter gets a reference to the given ReportersMatchFilter and assigns it to the MatchInArrayFilter field.
+func (o *ReportersFieldsFilters) SetMatchInArrayFilter(v ReportersMatchFilter) {
+	o.MatchInArrayFilter = &v
+}
+
 // GetNotContainsFilter returns the NotContainsFilter field value if set, zero value otherwise.
 func (o *ReportersFieldsFilters) GetNotContainsFilter() ReportersContainsFilter {
 	if o == nil || IsNil(o.NotContainsFilter) {
@@ -229,6 +262,9 @@ func (o ReportersFieldsFilters) ToMap() (map[string]interface{}, error) {
 		toSerialize["contains_in_array_filter"] = o.ContainsInArrayFilter
 	}
 	toSerialize["match_filter"] = o.MatchFilter
+	if !IsNil(o.MatchInArrayFilter) {
+		toSerialize["match_in_array_filter"] = o.MatchInArrayFilter
+	}
 	if !IsNil(o.NotContainsFilter) {
 		toSerialize["not_contains_filter"] = o.NotContainsFilter
 	}

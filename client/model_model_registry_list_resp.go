@@ -22,6 +22,7 @@ var _ MappedNullable = &ModelRegistryListResp{}
 type ModelRegistryListResp struct {
 	CreatedAt *int32 `json:"created_at,omitempty"`
 	Id *int32 `json:"id,omitempty"`
+	IsSyncing *bool `json:"is_syncing,omitempty"`
 	Name *string `json:"name,omitempty"`
 	NodeId *string `json:"node_id,omitempty"`
 	NonSecret interface{} `json:"non_secret,omitempty"`
@@ -108,6 +109,38 @@ func (o *ModelRegistryListResp) HasId() bool {
 // SetId gets a reference to the given int32 and assigns it to the Id field.
 func (o *ModelRegistryListResp) SetId(v int32) {
 	o.Id = &v
+}
+
+// GetIsSyncing returns the IsSyncing field value if set, zero value otherwise.
+func (o *ModelRegistryListResp) GetIsSyncing() bool {
+	if o == nil || IsNil(o.IsSyncing) {
+		var ret bool
+		return ret
+	}
+	return *o.IsSyncing
+}
+
+// GetIsSyncingOk returns a tuple with the IsSyncing field value if set, nil otherwise
+// and a boolean to check if the value has been set.
+func (o *ModelRegistryListResp) GetIsSyncingOk() (*bool, bool) {
+	if o == nil || IsNil(o.IsSyncing) {
+		return nil, false
+	}
+	return o.IsSyncing, true
+}
+
+// HasIsSyncing returns a boolean if a field has been set.
+func (o *ModelRegistryListResp) HasIsSyncing() bool {
+	if o != nil && !IsNil(o.IsSyncing) {
+		return true
+	}
+
+	return false
+}
+
+// SetIsSyncing gets a reference to the given bool and assigns it to the IsSyncing field.
+func (o *ModelRegistryListResp) SetIsSyncing(v bool) {
+	o.IsSyncing = &v
 }
 
 // GetName returns the Name field value if set, zero value otherwise.
@@ -286,6 +319,9 @@ func (o ModelRegistryListResp) ToMap() (map[string]interface{}, error) {
 	}
 	if !IsNil(o.Id) {
 		toSerialize["id"] = o.Id
+	}
+	if !IsNil(o.IsSyncing) {
+		toSerialize["is_syncing"] = o.IsSyncing
 	}
 	if !IsNil(o.Name) {
 		toSerialize["name"] = o.Name

@@ -30,17 +30,20 @@ type ModelPod struct {
 	KubernetesLabels map[string]interface{} `json:"kubernetes_labels"`
 	KubernetesNamespace string `json:"kubernetes_namespace"`
 	KubernetesState string `json:"kubernetes_state"`
+	MalwareScanStatus string `json:"malware_scan_status"`
 	NodeId string `json:"node_id"`
 	NodeName string `json:"node_name"`
 	PodName string `json:"pod_name"`
 	Processes []ModelProcess `json:"processes"`
+	SecretScanStatus string `json:"secret_scan_status"`
+	VulnerabilityScanStatus string `json:"vulnerability_scan_status"`
 }
 
 // NewModelPod instantiates a new ModelPod object
 // This constructor will assign default values to properties that have it defined,
 // and makes sure properties required by API are set, but the set of arguments
 // will change when the set of required properties is changed
-func NewModelPod(containers []ModelContainer, hostName string, kubernetesClusterId string, kubernetesClusterName string, kubernetesCreated string, kubernetesIp string, kubernetesIsInHostNetwork bool, kubernetesLabels map[string]interface{}, kubernetesNamespace string, kubernetesState string, nodeId string, nodeName string, podName string, processes []ModelProcess) *ModelPod {
+func NewModelPod(containers []ModelContainer, hostName string, kubernetesClusterId string, kubernetesClusterName string, kubernetesCreated string, kubernetesIp string, kubernetesIsInHostNetwork bool, kubernetesLabels map[string]interface{}, kubernetesNamespace string, kubernetesState string, malwareScanStatus string, nodeId string, nodeName string, podName string, processes []ModelProcess, secretScanStatus string, vulnerabilityScanStatus string) *ModelPod {
 	this := ModelPod{}
 	this.Containers = containers
 	this.HostName = hostName
@@ -52,10 +55,13 @@ func NewModelPod(containers []ModelContainer, hostName string, kubernetesCluster
 	this.KubernetesLabels = kubernetesLabels
 	this.KubernetesNamespace = kubernetesNamespace
 	this.KubernetesState = kubernetesState
+	this.MalwareScanStatus = malwareScanStatus
 	this.NodeId = nodeId
 	this.NodeName = nodeName
 	this.PodName = podName
 	this.Processes = processes
+	this.SecretScanStatus = secretScanStatus
+	this.VulnerabilityScanStatus = vulnerabilityScanStatus
 	return &this
 }
 
@@ -311,6 +317,30 @@ func (o *ModelPod) SetKubernetesState(v string) {
 	o.KubernetesState = v
 }
 
+// GetMalwareScanStatus returns the MalwareScanStatus field value
+func (o *ModelPod) GetMalwareScanStatus() string {
+	if o == nil {
+		var ret string
+		return ret
+	}
+
+	return o.MalwareScanStatus
+}
+
+// GetMalwareScanStatusOk returns a tuple with the MalwareScanStatus field value
+// and a boolean to check if the value has been set.
+func (o *ModelPod) GetMalwareScanStatusOk() (*string, bool) {
+	if o == nil {
+		return nil, false
+	}
+	return &o.MalwareScanStatus, true
+}
+
+// SetMalwareScanStatus sets field value
+func (o *ModelPod) SetMalwareScanStatus(v string) {
+	o.MalwareScanStatus = v
+}
+
 // GetNodeId returns the NodeId field value
 func (o *ModelPod) GetNodeId() string {
 	if o == nil {
@@ -409,6 +439,54 @@ func (o *ModelPod) SetProcesses(v []ModelProcess) {
 	o.Processes = v
 }
 
+// GetSecretScanStatus returns the SecretScanStatus field value
+func (o *ModelPod) GetSecretScanStatus() string {
+	if o == nil {
+		var ret string
+		return ret
+	}
+
+	return o.SecretScanStatus
+}
+
+// GetSecretScanStatusOk returns a tuple with the SecretScanStatus field value
+// and a boolean to check if the value has been set.
+func (o *ModelPod) GetSecretScanStatusOk() (*string, bool) {
+	if o == nil {
+		return nil, false
+	}
+	return &o.SecretScanStatus, true
+}
+
+// SetSecretScanStatus sets field value
+func (o *ModelPod) SetSecretScanStatus(v string) {
+	o.SecretScanStatus = v
+}
+
+// GetVulnerabilityScanStatus returns the VulnerabilityScanStatus field value
+func (o *ModelPod) GetVulnerabilityScanStatus() string {
+	if o == nil {
+		var ret string
+		return ret
+	}
+
+	return o.VulnerabilityScanStatus
+}
+
+// GetVulnerabilityScanStatusOk returns a tuple with the VulnerabilityScanStatus field value
+// and a boolean to check if the value has been set.
+func (o *ModelPod) GetVulnerabilityScanStatusOk() (*string, bool) {
+	if o == nil {
+		return nil, false
+	}
+	return &o.VulnerabilityScanStatus, true
+}
+
+// SetVulnerabilityScanStatus sets field value
+func (o *ModelPod) SetVulnerabilityScanStatus(v string) {
+	o.VulnerabilityScanStatus = v
+}
+
 func (o ModelPod) MarshalJSON() ([]byte, error) {
 	toSerialize,err := o.ToMap()
 	if err != nil {
@@ -433,12 +511,15 @@ func (o ModelPod) ToMap() (map[string]interface{}, error) {
 	}
 	toSerialize["kubernetes_namespace"] = o.KubernetesNamespace
 	toSerialize["kubernetes_state"] = o.KubernetesState
+	toSerialize["malware_scan_status"] = o.MalwareScanStatus
 	toSerialize["node_id"] = o.NodeId
 	toSerialize["node_name"] = o.NodeName
 	toSerialize["pod_name"] = o.PodName
 	if o.Processes != nil {
 		toSerialize["processes"] = o.Processes
 	}
+	toSerialize["secret_scan_status"] = o.SecretScanStatus
+	toSerialize["vulnerability_scan_status"] = o.VulnerabilityScanStatus
 	return toSerialize, nil
 }
 

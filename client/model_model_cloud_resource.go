@@ -24,6 +24,7 @@ type ModelCloudResource struct {
 	CloudComplianceLatestScanId string `json:"cloud_compliance_latest_scan_id"`
 	CloudComplianceScanStatus string `json:"cloud_compliance_scan_status"`
 	CloudCompliancesCount int32 `json:"cloud_compliances_count"`
+	CloudProvider string `json:"cloud_provider"`
 	CloudRegion string `json:"cloud_region"`
 	NodeId string `json:"node_id"`
 	NodeName string `json:"node_name"`
@@ -35,12 +36,13 @@ type ModelCloudResource struct {
 // This constructor will assign default values to properties that have it defined,
 // and makes sure properties required by API are set, but the set of arguments
 // will change when the set of required properties is changed
-func NewModelCloudResource(accountId string, cloudComplianceLatestScanId string, cloudComplianceScanStatus string, cloudCompliancesCount int32, cloudRegion string, nodeId string, nodeName string, nodeType string, typeLabel string) *ModelCloudResource {
+func NewModelCloudResource(accountId string, cloudComplianceLatestScanId string, cloudComplianceScanStatus string, cloudCompliancesCount int32, cloudProvider string, cloudRegion string, nodeId string, nodeName string, nodeType string, typeLabel string) *ModelCloudResource {
 	this := ModelCloudResource{}
 	this.AccountId = accountId
 	this.CloudComplianceLatestScanId = cloudComplianceLatestScanId
 	this.CloudComplianceScanStatus = cloudComplianceScanStatus
 	this.CloudCompliancesCount = cloudCompliancesCount
+	this.CloudProvider = cloudProvider
 	this.CloudRegion = cloudRegion
 	this.NodeId = nodeId
 	this.NodeName = nodeName
@@ -151,6 +153,30 @@ func (o *ModelCloudResource) GetCloudCompliancesCountOk() (*int32, bool) {
 // SetCloudCompliancesCount sets field value
 func (o *ModelCloudResource) SetCloudCompliancesCount(v int32) {
 	o.CloudCompliancesCount = v
+}
+
+// GetCloudProvider returns the CloudProvider field value
+func (o *ModelCloudResource) GetCloudProvider() string {
+	if o == nil {
+		var ret string
+		return ret
+	}
+
+	return o.CloudProvider
+}
+
+// GetCloudProviderOk returns a tuple with the CloudProvider field value
+// and a boolean to check if the value has been set.
+func (o *ModelCloudResource) GetCloudProviderOk() (*string, bool) {
+	if o == nil {
+		return nil, false
+	}
+	return &o.CloudProvider, true
+}
+
+// SetCloudProvider sets field value
+func (o *ModelCloudResource) SetCloudProvider(v string) {
+	o.CloudProvider = v
 }
 
 // GetCloudRegion returns the CloudRegion field value
@@ -287,6 +313,7 @@ func (o ModelCloudResource) ToMap() (map[string]interface{}, error) {
 	toSerialize["cloud_compliance_latest_scan_id"] = o.CloudComplianceLatestScanId
 	toSerialize["cloud_compliance_scan_status"] = o.CloudComplianceScanStatus
 	toSerialize["cloud_compliances_count"] = o.CloudCompliancesCount
+	toSerialize["cloud_provider"] = o.CloudProvider
 	toSerialize["cloud_region"] = o.CloudRegion
 	toSerialize["node_id"] = o.NodeId
 	toSerialize["node_name"] = o.NodeName

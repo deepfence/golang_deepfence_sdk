@@ -8,6 +8,7 @@ Name | Type | Description | Notes
 **ContainsFilter** | [**ReportersContainsFilter**](ReportersContainsFilter.md) |  | 
 **ContainsInArrayFilter** | Pointer to [**ReportersContainsFilter**](ReportersContainsFilter.md) |  | [optional] 
 **MatchFilter** | [**ReportersMatchFilter**](ReportersMatchFilter.md) |  | 
+**MatchInArrayFilter** | Pointer to [**ReportersMatchFilter**](ReportersMatchFilter.md) |  | [optional] 
 **NotContainsFilter** | Pointer to [**ReportersContainsFilter**](ReportersContainsFilter.md) |  | [optional] 
 **OrderFilter** | [**ReportersOrderFilter**](ReportersOrderFilter.md) |  | 
 
@@ -124,6 +125,31 @@ and a boolean to check if the value has been set.
 
 SetMatchFilter sets MatchFilter field to given value.
 
+
+### GetMatchInArrayFilter
+
+`func (o *ReportersFieldsFilters) GetMatchInArrayFilter() ReportersMatchFilter`
+
+GetMatchInArrayFilter returns the MatchInArrayFilter field if non-nil, zero value otherwise.
+
+### GetMatchInArrayFilterOk
+
+`func (o *ReportersFieldsFilters) GetMatchInArrayFilterOk() (*ReportersMatchFilter, bool)`
+
+GetMatchInArrayFilterOk returns a tuple with the MatchInArrayFilter field if it's non-nil, zero value otherwise
+and a boolean to check if the value has been set.
+
+### SetMatchInArrayFilter
+
+`func (o *ReportersFieldsFilters) SetMatchInArrayFilter(v ReportersMatchFilter)`
+
+SetMatchInArrayFilter sets MatchInArrayFilter field to given value.
+
+### HasMatchInArrayFilter
+
+`func (o *ReportersFieldsFilters) HasMatchInArrayFilter() bool`
+
+HasMatchInArrayFilter returns a boolean if a field has been set.
 
 ### GetNotContainsFilter
 

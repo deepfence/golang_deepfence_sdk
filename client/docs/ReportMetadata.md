@@ -63,6 +63,7 @@ Name | Type | Description | Notes
 **OpenFilesCount** | Pointer to **int32** |  | [optional] 
 **Os** | Pointer to **string** |  | [optional] 
 **Pid** | Pointer to **int32** |  | [optional] 
+**PodId** | Pointer to **string** |  | [optional] 
 **PodName** | Pointer to **string** |  | [optional] 
 **Ppid** | Pointer to **int32** |  | [optional] 
 **PrivateIp** | Pointer to **[]string** |  | [optional] 
@@ -1569,6 +1570,31 @@ SetPid sets Pid field to given value.
 `func (o *ReportMetadata) HasPid() bool`
 
 HasPid returns a boolean if a field has been set.
+
+### GetPodId
+
+`func (o *ReportMetadata) GetPodId() string`
+
+GetPodId returns the PodId field if non-nil, zero value otherwise.
+
+### GetPodIdOk
+
+`func (o *ReportMetadata) GetPodIdOk() (*string, bool)`
+
+GetPodIdOk returns a tuple with the PodId field if it's non-nil, zero value otherwise
+and a boolean to check if the value has been set.
+
+### SetPodId
+
+`func (o *ReportMetadata) SetPodId(v string)`
+
+SetPodId sets PodId field to given value.
+
+### HasPodId
+
+`func (o *ReportMetadata) HasPodId() bool`
+
+HasPodId returns a boolean if a field has been set.
 
 ### GetPodName
 

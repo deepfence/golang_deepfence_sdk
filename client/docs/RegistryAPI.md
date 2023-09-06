@@ -22,7 +22,7 @@ Method | HTTP request | Description
 
 ## AddRegistry
 
-> AddRegistry(ctx).ModelRegistryAddReq(modelRegistryAddReq).Execute()
+> ModelMessageResponse AddRegistry(ctx).ModelRegistryAddReq(modelRegistryAddReq).Execute()
 
 Add Registry
 
@@ -45,11 +45,13 @@ func main() {
 
     configuration := openapiclient.NewConfiguration()
     apiClient := openapiclient.NewAPIClient(configuration)
-    r, err := apiClient.RegistryAPI.AddRegistry(context.Background()).ModelRegistryAddReq(modelRegistryAddReq).Execute()
+    resp, r, err := apiClient.RegistryAPI.AddRegistry(context.Background()).ModelRegistryAddReq(modelRegistryAddReq).Execute()
     if err != nil {
         fmt.Fprintf(os.Stderr, "Error when calling `RegistryAPI.AddRegistry``: %v\n", err)
         fmt.Fprintf(os.Stderr, "Full HTTP response: %v\n", r)
     }
+    // response from `AddRegistry`: ModelMessageResponse
+    fmt.Fprintf(os.Stdout, "Response from `RegistryAPI.AddRegistry`: %v\n", resp)
 }
 ```
 
@@ -68,7 +70,7 @@ Name | Type | Description  | Notes
 
 ### Return type
 
- (empty response body)
+[**ModelMessageResponse**](ModelMessageResponse.md)
 
 ### Authorization
 
@@ -86,7 +88,7 @@ Name | Type | Description  | Notes
 
 ## AddRegistryGCR
 
-> AddRegistryGCR(ctx).Name(name).RegistryUrl(registryUrl).ServiceAccountJson(serviceAccountJson).Execute()
+> ModelMessageResponse AddRegistryGCR(ctx).Name(name).RegistryUrl(registryUrl).ServiceAccountJson(serviceAccountJson).Execute()
 
 Add Google Container Registry
 
@@ -111,11 +113,13 @@ func main() {
 
     configuration := openapiclient.NewConfiguration()
     apiClient := openapiclient.NewAPIClient(configuration)
-    r, err := apiClient.RegistryAPI.AddRegistryGCR(context.Background()).Name(name).RegistryUrl(registryUrl).ServiceAccountJson(serviceAccountJson).Execute()
+    resp, r, err := apiClient.RegistryAPI.AddRegistryGCR(context.Background()).Name(name).RegistryUrl(registryUrl).ServiceAccountJson(serviceAccountJson).Execute()
     if err != nil {
         fmt.Fprintf(os.Stderr, "Error when calling `RegistryAPI.AddRegistryGCR``: %v\n", err)
         fmt.Fprintf(os.Stderr, "Full HTTP response: %v\n", r)
     }
+    // response from `AddRegistryGCR`: ModelMessageResponse
+    fmt.Fprintf(os.Stdout, "Response from `RegistryAPI.AddRegistryGCR`: %v\n", resp)
 }
 ```
 
@@ -136,7 +140,7 @@ Name | Type | Description  | Notes
 
 ### Return type
 
- (empty response body)
+[**ModelMessageResponse**](ModelMessageResponse.md)
 
 ### Authorization
 
@@ -818,7 +822,7 @@ Name | Type | Description  | Notes
 
 ## UpdateRegistry
 
-> UpdateRegistry(ctx, registryId).ModelRegistryUpdateReq(modelRegistryUpdateReq).Execute()
+> ModelMessageResponse UpdateRegistry(ctx, registryId).ModelRegistryUpdateReq(modelRegistryUpdateReq).Execute()
 
 Update Registry
 
@@ -842,11 +846,13 @@ func main() {
 
     configuration := openapiclient.NewConfiguration()
     apiClient := openapiclient.NewAPIClient(configuration)
-    r, err := apiClient.RegistryAPI.UpdateRegistry(context.Background(), registryId).ModelRegistryUpdateReq(modelRegistryUpdateReq).Execute()
+    resp, r, err := apiClient.RegistryAPI.UpdateRegistry(context.Background(), registryId).ModelRegistryUpdateReq(modelRegistryUpdateReq).Execute()
     if err != nil {
         fmt.Fprintf(os.Stderr, "Error when calling `RegistryAPI.UpdateRegistry``: %v\n", err)
         fmt.Fprintf(os.Stderr, "Full HTTP response: %v\n", r)
     }
+    // response from `UpdateRegistry`: ModelMessageResponse
+    fmt.Fprintf(os.Stdout, "Response from `RegistryAPI.UpdateRegistry`: %v\n", resp)
 }
 ```
 
@@ -870,7 +876,7 @@ Name | Type | Description  | Notes
 
 ### Return type
 
- (empty response body)
+[**ModelMessageResponse**](ModelMessageResponse.md)
 
 ### Authorization
 

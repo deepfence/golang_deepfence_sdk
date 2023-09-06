@@ -14,16 +14,19 @@ Name | Type | Description | Notes
 **KubernetesLabels** | **map[string]interface{}** |  | 
 **KubernetesNamespace** | **string** |  | 
 **KubernetesState** | **string** |  | 
+**MalwareScanStatus** | **string** |  | 
 **NodeId** | **string** |  | 
 **NodeName** | **string** |  | 
 **PodName** | **string** |  | 
 **Processes** | [**[]ModelProcess**](ModelProcess.md) |  | 
+**SecretScanStatus** | **string** |  | 
+**VulnerabilityScanStatus** | **string** |  | 
 
 ## Methods
 
 ### NewModelPod
 
-`func NewModelPod(containers []ModelContainer, hostName string, kubernetesClusterId string, kubernetesClusterName string, kubernetesCreated string, kubernetesIp string, kubernetesIsInHostNetwork bool, kubernetesLabels map[string]interface{}, kubernetesNamespace string, kubernetesState string, nodeId string, nodeName string, podName string, processes []ModelProcess, ) *ModelPod`
+`func NewModelPod(containers []ModelContainer, hostName string, kubernetesClusterId string, kubernetesClusterName string, kubernetesCreated string, kubernetesIp string, kubernetesIsInHostNetwork bool, kubernetesLabels map[string]interface{}, kubernetesNamespace string, kubernetesState string, malwareScanStatus string, nodeId string, nodeName string, podName string, processes []ModelProcess, secretScanStatus string, vulnerabilityScanStatus string, ) *ModelPod`
 
 NewModelPod instantiates a new ModelPod object
 This constructor will assign default values to properties that have it defined,
@@ -258,6 +261,26 @@ and a boolean to check if the value has been set.
 SetKubernetesState sets KubernetesState field to given value.
 
 
+### GetMalwareScanStatus
+
+`func (o *ModelPod) GetMalwareScanStatus() string`
+
+GetMalwareScanStatus returns the MalwareScanStatus field if non-nil, zero value otherwise.
+
+### GetMalwareScanStatusOk
+
+`func (o *ModelPod) GetMalwareScanStatusOk() (*string, bool)`
+
+GetMalwareScanStatusOk returns a tuple with the MalwareScanStatus field if it's non-nil, zero value otherwise
+and a boolean to check if the value has been set.
+
+### SetMalwareScanStatus
+
+`func (o *ModelPod) SetMalwareScanStatus(v string)`
+
+SetMalwareScanStatus sets MalwareScanStatus field to given value.
+
+
 ### GetNodeId
 
 `func (o *ModelPod) GetNodeId() string`
@@ -348,6 +371,46 @@ SetProcesses sets Processes field to given value.
 `func (o *ModelPod) UnsetProcesses()`
 
 UnsetProcesses ensures that no value is present for Processes, not even an explicit nil
+### GetSecretScanStatus
+
+`func (o *ModelPod) GetSecretScanStatus() string`
+
+GetSecretScanStatus returns the SecretScanStatus field if non-nil, zero value otherwise.
+
+### GetSecretScanStatusOk
+
+`func (o *ModelPod) GetSecretScanStatusOk() (*string, bool)`
+
+GetSecretScanStatusOk returns a tuple with the SecretScanStatus field if it's non-nil, zero value otherwise
+and a boolean to check if the value has been set.
+
+### SetSecretScanStatus
+
+`func (o *ModelPod) SetSecretScanStatus(v string)`
+
+SetSecretScanStatus sets SecretScanStatus field to given value.
+
+
+### GetVulnerabilityScanStatus
+
+`func (o *ModelPod) GetVulnerabilityScanStatus() string`
+
+GetVulnerabilityScanStatus returns the VulnerabilityScanStatus field if non-nil, zero value otherwise.
+
+### GetVulnerabilityScanStatusOk
+
+`func (o *ModelPod) GetVulnerabilityScanStatusOk() (*string, bool)`
+
+GetVulnerabilityScanStatusOk returns a tuple with the VulnerabilityScanStatus field if it's non-nil, zero value otherwise
+and a boolean to check if the value has been set.
+
+### SetVulnerabilityScanStatus
+
+`func (o *ModelPod) SetVulnerabilityScanStatus(v string)`
+
+SetVulnerabilityScanStatus sets VulnerabilityScanStatus field to given value.
+
+
 
 [[Back to Model list]](../README.md#documentation-for-models) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to README]](../README.md)
 

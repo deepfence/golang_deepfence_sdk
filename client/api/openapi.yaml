@@ -2736,6 +2736,10 @@ paths:
               $ref: '#/components/schemas/ModelRegistryAddReq'
       responses:
         "200":
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ModelMessageResponse'
           description: OK
         "400":
           content:
@@ -2824,6 +2828,10 @@ paths:
               $ref: '#/components/schemas/ModelRegistryUpdateReq'
       responses:
         "200":
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ModelMessageResponse'
           description: OK
         "400":
           content:
@@ -3087,6 +3095,10 @@ paths:
               $ref: '#/components/schemas/FormDataModelRegistryGCRAddReq'
       responses:
         "200":
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ModelMessageResponse'
           description: OK
         "400":
           content:
@@ -8232,6 +8244,7 @@ components:
               connection_count: 0
               docker_image_size: docker_image_size
               cpu_usage: 1.4658129805029452
+              pod_id: pod_id
               docker_label: docker_label
               instance_type: instance_type
               docker_image_name: docker_image_name
@@ -8413,6 +8426,7 @@ components:
           connection_count: 0
           docker_image_size: docker_image_size
           cpu_usage: 1.4658129805029452
+          pod_id: pod_id
           docker_label: docker_label
           instance_type: instance_type
           docker_image_name: docker_image_name
@@ -8895,6 +8909,11 @@ components:
               - ""
               - ""
           match_filter:
+            filter_in:
+              key:
+              - ""
+              - ""
+          match_in_array_filter:
             filter_in:
               key:
               - ""
@@ -9934,6 +9953,11 @@ components:
               key:
               - ""
               - ""
+          match_in_array_filter:
+            filter_in:
+              key:
+              - ""
+              - ""
       properties:
         filters:
           $ref: '#/components/schemas/ReportersFieldsFilters'
@@ -10436,6 +10460,8 @@ components:
           - aws
           - gcp
           - azure
+          - linux
+          - kubernetes
           type: string
         compliance_type:
           type: string
@@ -10521,6 +10547,7 @@ components:
         cloud_compliance_scan_status: cloud_compliance_scan_status
         cloud_region: cloud_region
         node_name: node_name
+        cloud_provider: cloud_provider
         type_label: type_label
         node_id: node_id
       properties:
@@ -10532,6 +10559,8 @@ components:
           type: string
         cloud_compliances_count:
           type: integer
+        cloud_provider:
+          type: string
         cloud_region:
           type: string
         node_id:
@@ -10547,6 +10576,7 @@ components:
       - cloud_compliance_latest_scan_id
       - cloud_compliance_scan_status
       - cloud_compliances_count
+      - cloud_provider
       - cloud_region
       - node_id
       - node_name
@@ -12002,6 +12032,7 @@ components:
             cpu_usage: 7.061401241503109
             node_id: node_id
             ppid: 7
+          secret_scan_status: secret_scan_status
           kubernetes_cluster_id: kubernetes_cluster_id
           kubernetes_cluster_name: kubernetes_cluster_name
           kubernetes_state: kubernetes_state
@@ -12010,6 +12041,7 @@ components:
           pod_name: pod_name
           kubernetes_namespace: kubernetes_namespace
           kubernetes_is_in_host_network: true
+          malware_scan_status: malware_scan_status
           kubernetes_labels:
             key: ""
           containers:
@@ -12121,6 +12153,7 @@ components:
             vulnerability_scan_status: vulnerability_scan_status
             host_name: host_name
             node_id: node_id
+          vulnerability_scan_status: vulnerability_scan_status
           host_name: host_name
           node_id: node_id
         - kubernetes_ip: kubernetes_ip
@@ -12147,6 +12180,7 @@ components:
             cpu_usage: 7.061401241503109
             node_id: node_id
             ppid: 7
+          secret_scan_status: secret_scan_status
           kubernetes_cluster_id: kubernetes_cluster_id
           kubernetes_cluster_name: kubernetes_cluster_name
           kubernetes_state: kubernetes_state
@@ -12155,6 +12189,7 @@ components:
           pod_name: pod_name
           kubernetes_namespace: kubernetes_namespace
           kubernetes_is_in_host_network: true
+          malware_scan_status: malware_scan_status
           kubernetes_labels:
             key: ""
           containers:
@@ -12266,6 +12301,7 @@ components:
             vulnerability_scan_status: vulnerability_scan_status
             host_name: host_name
             node_id: node_id
+          vulnerability_scan_status: vulnerability_scan_status
           host_name: host_name
           node_id: node_id
         cpu_usage: 1.4658129805029452
@@ -12506,6 +12542,11 @@ components:
                 key:
                 - ""
                 - ""
+            match_in_array_filter:
+              filter_in:
+                key:
+                - ""
+                - ""
           node_ids:
           - node_type: image
             node_id: node_id
@@ -12564,6 +12605,11 @@ components:
               key:
               - ""
               - ""
+          match_in_array_filter:
+            filter_in:
+              key:
+              - ""
+              - ""
         node_ids:
         - node_type: image
           node_id: node_id
@@ -12615,6 +12661,11 @@ components:
               - ""
               - ""
           match_filter:
+            filter_in:
+              key:
+              - ""
+              - ""
+          match_in_array_filter:
             filter_in:
               key:
               - ""
@@ -13147,6 +13198,7 @@ components:
               cpu_usage: 7.061401241503109
               node_id: node_id
               ppid: 7
+            secret_scan_status: secret_scan_status
             kubernetes_cluster_id: kubernetes_cluster_id
             kubernetes_cluster_name: kubernetes_cluster_name
             kubernetes_state: kubernetes_state
@@ -13155,6 +13207,7 @@ components:
             pod_name: pod_name
             kubernetes_namespace: kubernetes_namespace
             kubernetes_is_in_host_network: true
+            malware_scan_status: malware_scan_status
             kubernetes_labels:
               key: ""
             containers:
@@ -13266,6 +13319,7 @@ components:
               vulnerability_scan_status: vulnerability_scan_status
               host_name: host_name
               node_id: node_id
+            vulnerability_scan_status: vulnerability_scan_status
             host_name: host_name
             node_id: node_id
           - kubernetes_ip: kubernetes_ip
@@ -13292,6 +13346,7 @@ components:
               cpu_usage: 7.061401241503109
               node_id: node_id
               ppid: 7
+            secret_scan_status: secret_scan_status
             kubernetes_cluster_id: kubernetes_cluster_id
             kubernetes_cluster_name: kubernetes_cluster_name
             kubernetes_state: kubernetes_state
@@ -13300,6 +13355,7 @@ components:
             pod_name: pod_name
             kubernetes_namespace: kubernetes_namespace
             kubernetes_is_in_host_network: true
+            malware_scan_status: malware_scan_status
             kubernetes_labels:
               key: ""
             containers:
@@ -13411,6 +13467,7 @@ components:
               vulnerability_scan_status: vulnerability_scan_status
               host_name: host_name
               node_id: node_id
+            vulnerability_scan_status: vulnerability_scan_status
             host_name: host_name
             node_id: node_id
           cpu_usage: 1.4658129805029452
@@ -13891,6 +13948,7 @@ components:
               cpu_usage: 7.061401241503109
               node_id: node_id
               ppid: 7
+            secret_scan_status: secret_scan_status
             kubernetes_cluster_id: kubernetes_cluster_id
             kubernetes_cluster_name: kubernetes_cluster_name
             kubernetes_state: kubernetes_state
@@ -13899,6 +13957,7 @@ components:
             pod_name: pod_name
             kubernetes_namespace: kubernetes_namespace
             kubernetes_is_in_host_network: true
+            malware_scan_status: malware_scan_status
             kubernetes_labels:
               key: ""
             containers:
@@ -14010,6 +14069,7 @@ components:
               vulnerability_scan_status: vulnerability_scan_status
               host_name: host_name
               node_id: node_id
+            vulnerability_scan_status: vulnerability_scan_status
             host_name: host_name
             node_id: node_id
           - kubernetes_ip: kubernetes_ip
@@ -14036,6 +14096,7 @@ components:
               cpu_usage: 7.061401241503109
               node_id: node_id
               ppid: 7
+            secret_scan_status: secret_scan_status
             kubernetes_cluster_id: kubernetes_cluster_id
             kubernetes_cluster_name: kubernetes_cluster_name
             kubernetes_state: kubernetes_state
@@ -14044,6 +14105,7 @@ components:
             pod_name: pod_name
             kubernetes_namespace: kubernetes_namespace
             kubernetes_is_in_host_network: true
+            malware_scan_status: malware_scan_status
             kubernetes_labels:
               key: ""
             containers:
@@ -14155,6 +14217,7 @@ components:
               vulnerability_scan_status: vulnerability_scan_status
               host_name: host_name
               node_id: node_id
+            vulnerability_scan_status: vulnerability_scan_status
             host_name: host_name
             node_id: node_id
           cpu_usage: 1.4658129805029452
@@ -14551,6 +14614,7 @@ components:
           - cloud_account
           - cluster
           - registry
+          - pod
           type: string
       required:
       - node_id
@@ -14632,6 +14696,7 @@ components:
           cpu_usage: 7.061401241503109
           node_id: node_id
           ppid: 7
+        secret_scan_status: secret_scan_status
         kubernetes_cluster_id: kubernetes_cluster_id
         kubernetes_cluster_name: kubernetes_cluster_name
         kubernetes_state: kubernetes_state
@@ -14640,6 +14705,7 @@ components:
         pod_name: pod_name
         kubernetes_namespace: kubernetes_namespace
         kubernetes_is_in_host_network: true
+        malware_scan_status: malware_scan_status
         kubernetes_labels:
           key: ""
         containers:
@@ -14751,6 +14817,7 @@ components:
           vulnerability_scan_status: vulnerability_scan_status
           host_name: host_name
           node_id: node_id
+        vulnerability_scan_status: vulnerability_scan_status
         host_name: host_name
         node_id: node_id
       properties:
@@ -14779,6 +14846,8 @@ components:
           type: string
         kubernetes_state:
           type: string
+        malware_scan_status:
+          type: string
         node_id:
           type: string
         node_name:
@@ -14790,6 +14859,10 @@ components:
             $ref: '#/components/schemas/ModelProcess'
           nullable: true
           type: array
+        secret_scan_status:
+          type: string
+        vulnerability_scan_status:
+          type: string
       required:
       - containers
       - host_name
@@ -14801,10 +14874,13 @@ components:
       - kubernetes_labels
       - kubernetes_namespace
       - kubernetes_state
+      - malware_scan_status
       - node_id
       - node_name
       - pod_name
       - processes
+      - secret_scan_status
+      - vulnerability_scan_status
       type: object
     ModelPostureProvider:
       example:
@@ -15266,6 +15342,11 @@ components:
               key:
               - ""
               - ""
+          match_in_array_filter:
+            filter_in:
+              key:
+              - ""
+              - ""
         window:
           offset: 0
           size: 6
@@ -15320,6 +15401,11 @@ components:
               key:
               - ""
               - ""
+          match_in_array_filter:
+            filter_in:
+              key:
+              - ""
+              - ""
         window:
           offset: 0
           size: 6
@@ -15338,6 +15424,7 @@ components:
       type: object
     ModelRegistryListResp:
       example:
+        is_syncing: true
         updated_at: 1
         non_secret: ""
         registry_type: registry_type
@@ -15350,6 +15437,8 @@ components:
           type: integer
         id:
           type: integer
+        is_syncing:
+          type: boolean
         name:
           type: string
         node_id:
@@ -15581,6 +15670,11 @@ components:
               key:
               - ""
               - ""
+          match_in_array_filter:
+            filter_in:
+              key:
+              - ""
+              - ""
         node_ids:
         - node_type: image
           node_id: node_id
@@ -15801,6 +15895,11 @@ components:
               - ""
               - ""
           match_filter:
+            filter_in:
+              key:
+              - ""
+              - ""
+          match_in_array_filter:
             filter_in:
               key:
               - ""
@@ -16822,6 +16921,7 @@ components:
         connection_count: 0
         docker_image_size: docker_image_size
         cpu_usage: 1.4658129805029452
+        pod_id: pod_id
         docker_label: docker_label
         instance_type: instance_type
         docker_image_name: docker_image_name
@@ -17012,6 +17112,8 @@ components:
           type: string
         pid:
           type: integer
+        pod_id:
+          type: string
         pod_name:
           type: string
         ppid:
@@ -17123,6 +17225,11 @@ components:
             key:
             - ""
             - ""
+        match_in_array_filter:
+          filter_in:
+            key:
+            - ""
+            - ""
       properties:
         compare_filter:
           items:
@@ -17134,6 +17241,8 @@ components:
         contains_in_array_filter:
           $ref: '#/components/schemas/ReportersContainsFilter'
         match_filter:
+          $ref: '#/components/schemas/ReportersMatchFilter'
+        match_in_array_filter:
           $ref: '#/components/schemas/ReportersMatchFilter'
         not_contains_filter:
           $ref: '#/components/schemas/ReportersContainsFilter'
@@ -17194,6 +17303,69 @@ components:
       required:
       - descending
       - field_name
+      type: object
+    SearchChainedSearchFilter:
+      example:
+        node_filter:
+          in_field_filter:
+          - in_field_filter
+          - in_field_filter
+          filters:
+            compare_filter:
+            - greater_than: true
+              field_value: ""
+              field_name: field_name
+            - greater_than: true
+              field_value: ""
+              field_name: field_name
+            not_contains_filter:
+              filter_in:
+                key:
+                - ""
+                - ""
+            order_filter:
+              order_fields:
+              - size: 0
+                descending: true
+                field_name: field_name
+              - size: 0
+                descending: true
+                field_name: field_name
+            contains_filter:
+              filter_in:
+                key:
+                - ""
+                - ""
+            contains_in_array_filter:
+              filter_in:
+                key:
+                - ""
+                - ""
+            match_filter:
+              filter_in:
+                key:
+                - ""
+                - ""
+            match_in_array_filter:
+              filter_in:
+                key:
+                - ""
+                - ""
+          window:
+            offset: 0
+            size: 6
+        next_filter: ""
+        relation_ship: relation_ship
+      properties:
+        next_filter:
+          nullable: true
+        node_filter:
+          $ref: '#/components/schemas/SearchSearchFilter'
+        relation_ship:
+          type: string
+      required:
+      - node_filter
+      - relation_ship
       type: object
     SearchNodeCountResp:
       example:
@@ -17315,6 +17487,11 @@ components:
               key:
               - ""
               - ""
+          match_in_array_filter:
+            filter_in:
+              key:
+              - ""
+              - ""
         window:
           offset: 0
           size: 6
@@ -17375,6 +17552,11 @@ components:
                 key:
                 - ""
                 - ""
+            match_in_array_filter:
+              filter_in:
+                key:
+                - ""
+                - ""
           window:
             offset: 0
             size: 6
@@ -17418,9 +17600,65 @@ components:
                 key:
                 - ""
                 - ""
+            match_in_array_filter:
+              filter_in:
+                key:
+                - ""
+                - ""
           window:
             offset: 0
             size: 6
+        related_node_filter:
+          node_filter:
+            in_field_filter:
+            - in_field_filter
+            - in_field_filter
+            filters:
+              compare_filter:
+              - greater_than: true
+                field_value: ""
+                field_name: field_name
+              - greater_than: true
+                field_value: ""
+                field_name: field_name
+              not_contains_filter:
+                filter_in:
+                  key:
+                  - ""
+                  - ""
+              order_filter:
+                order_fields:
+                - size: 0
+                  descending: true
+                  field_name: field_name
+                - size: 0
+                  descending: true
+                  field_name: field_name
+              contains_filter:
+                filter_in:
+                  key:
+                  - ""
+                  - ""
+              contains_in_array_filter:
+                filter_in:
+                  key:
+                  - ""
+                  - ""
+              match_filter:
+                filter_in:
+                  key:
+                  - ""
+                  - ""
+              match_in_array_filter:
+                filter_in:
+                  key:
+                  - ""
+                  - ""
+            window:
+              offset: 0
+              size: 6
+          next_filter: ""
+          relation_ship: relation_ship
         window:
           offset: 0
           size: 6
@@ -17429,6 +17667,8 @@ components:
           $ref: '#/components/schemas/SearchSearchFilter'
         node_filter:
           $ref: '#/components/schemas/SearchSearchFilter'
+        related_node_filter:
+          $ref: '#/components/schemas/SearchChainedSearchFilter'
         window:
           $ref: '#/components/schemas/ModelFetchWindow'
       required:
@@ -17477,6 +17717,11 @@ components:
                 key:
                 - ""
                 - ""
+            match_in_array_filter:
+              filter_in:
+                key:
+                - ""
+                - ""
           window:
             offset: 0
             size: 6
@@ -17516,6 +17761,11 @@ components:
                 - ""
                 - ""
             match_filter:
+              filter_in:
+                key:
+                - ""
+                - ""
+            match_in_array_filter:
               filter_in:
                 key:
                 - ""
