@@ -66,6 +66,8 @@ type APIClient struct {
 
 	DiagnosisAPI *DiagnosisAPIService
 
+	DiffAddAPI *DiffAddAPIService
+
 	IntegrationAPI *IntegrationAPIService
 
 	InternalAPI *InternalAPIService
@@ -119,6 +121,7 @@ func NewAPIClient(cfg *Configuration) *APIClient {
 	c.ComplianceAPI = (*ComplianceAPIService)(&c.common)
 	c.ControlsAPI = (*ControlsAPIService)(&c.common)
 	c.DiagnosisAPI = (*DiagnosisAPIService)(&c.common)
+	c.DiffAddAPI = (*DiffAddAPIService)(&c.common)
 	c.IntegrationAPI = (*IntegrationAPIService)(&c.common)
 	c.InternalAPI = (*InternalAPIService)(&c.common)
 	c.LookupAPI = (*LookupAPIService)(&c.common)
