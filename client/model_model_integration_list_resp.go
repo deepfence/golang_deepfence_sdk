@@ -24,6 +24,7 @@ type ModelIntegrationListResp struct {
 	Filters *ReportersFieldsFilters `json:"filters,omitempty"`
 	Id *int32 `json:"id,omitempty"`
 	IntegrationType *string `json:"integration_type,omitempty"`
+	LastErrorMsg *string `json:"last_error_msg,omitempty"`
 	NotificationType *string `json:"notification_type,omitempty"`
 }
 
@@ -173,6 +174,38 @@ func (o *ModelIntegrationListResp) SetIntegrationType(v string) {
 	o.IntegrationType = &v
 }
 
+// GetLastErrorMsg returns the LastErrorMsg field value if set, zero value otherwise.
+func (o *ModelIntegrationListResp) GetLastErrorMsg() string {
+	if o == nil || IsNil(o.LastErrorMsg) {
+		var ret string
+		return ret
+	}
+	return *o.LastErrorMsg
+}
+
+// GetLastErrorMsgOk returns a tuple with the LastErrorMsg field value if set, nil otherwise
+// and a boolean to check if the value has been set.
+func (o *ModelIntegrationListResp) GetLastErrorMsgOk() (*string, bool) {
+	if o == nil || IsNil(o.LastErrorMsg) {
+		return nil, false
+	}
+	return o.LastErrorMsg, true
+}
+
+// HasLastErrorMsg returns a boolean if a field has been set.
+func (o *ModelIntegrationListResp) HasLastErrorMsg() bool {
+	if o != nil && !IsNil(o.LastErrorMsg) {
+		return true
+	}
+
+	return false
+}
+
+// SetLastErrorMsg gets a reference to the given string and assigns it to the LastErrorMsg field.
+func (o *ModelIntegrationListResp) SetLastErrorMsg(v string) {
+	o.LastErrorMsg = &v
+}
+
 // GetNotificationType returns the NotificationType field value if set, zero value otherwise.
 func (o *ModelIntegrationListResp) GetNotificationType() string {
 	if o == nil || IsNil(o.NotificationType) {
@@ -226,6 +259,9 @@ func (o ModelIntegrationListResp) ToMap() (map[string]interface{}, error) {
 	}
 	if !IsNil(o.IntegrationType) {
 		toSerialize["integration_type"] = o.IntegrationType
+	}
+	if !IsNil(o.LastErrorMsg) {
+		toSerialize["last_error_msg"] = o.LastErrorMsg
 	}
 	if !IsNil(o.NotificationType) {
 		toSerialize["notification_type"] = o.NotificationType

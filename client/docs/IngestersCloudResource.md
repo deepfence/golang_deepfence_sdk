@@ -15,12 +15,16 @@ Name | Type | Description | Notes
 **BucketPolicyIsPublic** | Pointer to **bool** |  | [optional] 
 **CidrIpv4** | Pointer to **string** |  | [optional] 
 **CloudProvider** | Pointer to **string** |  | [optional] 
+**ClusterArn** | Pointer to **string** |  | [optional] 
+**ClusterName** | Pointer to **string** |  | [optional] 
+**Connectivity** | Pointer to **string** |  | [optional] 
 **ContainerDefinitions** | Pointer to **interface{}** |  | [optional] 
 **Containers** | Pointer to **interface{}** |  | [optional] 
 **CreateDate** | Pointer to **string** |  | [optional] 
 **DbClusterIdentifier** | Pointer to **string** |  | [optional] 
 **Description** | Pointer to **string** |  | [optional] 
 **EventNotificationConfiguration** | Pointer to **interface{}** |  | [optional] 
+**Group** | Pointer to **string** |  | [optional] 
 **GroupId** | Pointer to **string** |  | [optional] 
 **Groups** | Pointer to **interface{}** |  | [optional] 
 **HostName** | Pointer to **string** |  | [optional] 
@@ -37,6 +41,7 @@ Name | Type | Description | Notes
 **Instances** | Pointer to **interface{}** |  | [optional] 
 **IpConfiguration** | Pointer to **interface{}** |  | [optional] 
 **IsEgress** | Pointer to **bool** |  | [optional] 
+**LastStatus** | Pointer to **string** |  | [optional] 
 **Name** | Pointer to **string** |  | [optional] 
 **NetworkConfiguration** | Pointer to **interface{}** |  | [optional] 
 **NetworkInterfaces** | Pointer to **interface{}** |  | [optional] 
@@ -66,6 +71,7 @@ Name | Type | Description | Notes
 **Tags** | Pointer to **interface{}** |  | [optional] 
 **TargetGroupArn** | Pointer to **string** |  | [optional] 
 **TargetHealthDescriptions** | Pointer to **interface{}** |  | [optional] 
+**TaskArn** | Pointer to **string** |  | [optional] 
 **TaskDefinition** | Pointer to **interface{}** |  | [optional] 
 **TaskDefinitionArn** | Pointer to **string** |  | [optional] 
 **UserGroups** | Pointer to **interface{}** |  | [optional] 
@@ -380,6 +386,81 @@ SetCloudProvider sets CloudProvider field to given value.
 
 HasCloudProvider returns a boolean if a field has been set.
 
+### GetClusterArn
+
+`func (o *IngestersCloudResource) GetClusterArn() string`
+
+GetClusterArn returns the ClusterArn field if non-nil, zero value otherwise.
+
+### GetClusterArnOk
+
+`func (o *IngestersCloudResource) GetClusterArnOk() (*string, bool)`
+
+GetClusterArnOk returns a tuple with the ClusterArn field if it's non-nil, zero value otherwise
+and a boolean to check if the value has been set.
+
+### SetClusterArn
+
+`func (o *IngestersCloudResource) SetClusterArn(v string)`
+
+SetClusterArn sets ClusterArn field to given value.
+
+### HasClusterArn
+
+`func (o *IngestersCloudResource) HasClusterArn() bool`
+
+HasClusterArn returns a boolean if a field has been set.
+
+### GetClusterName
+
+`func (o *IngestersCloudResource) GetClusterName() string`
+
+GetClusterName returns the ClusterName field if non-nil, zero value otherwise.
+
+### GetClusterNameOk
+
+`func (o *IngestersCloudResource) GetClusterNameOk() (*string, bool)`
+
+GetClusterNameOk returns a tuple with the ClusterName field if it's non-nil, zero value otherwise
+and a boolean to check if the value has been set.
+
+### SetClusterName
+
+`func (o *IngestersCloudResource) SetClusterName(v string)`
+
+SetClusterName sets ClusterName field to given value.
+
+### HasClusterName
+
+`func (o *IngestersCloudResource) HasClusterName() bool`
+
+HasClusterName returns a boolean if a field has been set.
+
+### GetConnectivity
+
+`func (o *IngestersCloudResource) GetConnectivity() string`
+
+GetConnectivity returns the Connectivity field if non-nil, zero value otherwise.
+
+### GetConnectivityOk
+
+`func (o *IngestersCloudResource) GetConnectivityOk() (*string, bool)`
+
+GetConnectivityOk returns a tuple with the Connectivity field if it's non-nil, zero value otherwise
+and a boolean to check if the value has been set.
+
+### SetConnectivity
+
+`func (o *IngestersCloudResource) SetConnectivity(v string)`
+
+SetConnectivity sets Connectivity field to given value.
+
+### HasConnectivity
+
+`func (o *IngestersCloudResource) HasConnectivity() bool`
+
+HasConnectivity returns a boolean if a field has been set.
+
 ### GetContainerDefinitions
 
 `func (o *IngestersCloudResource) GetContainerDefinitions() interface{}`
@@ -560,6 +641,31 @@ HasEventNotificationConfiguration returns a boolean if a field has been set.
 `func (o *IngestersCloudResource) UnsetEventNotificationConfiguration()`
 
 UnsetEventNotificationConfiguration ensures that no value is present for EventNotificationConfiguration, not even an explicit nil
+### GetGroup
+
+`func (o *IngestersCloudResource) GetGroup() string`
+
+GetGroup returns the Group field if non-nil, zero value otherwise.
+
+### GetGroupOk
+
+`func (o *IngestersCloudResource) GetGroupOk() (*string, bool)`
+
+GetGroupOk returns a tuple with the Group field if it's non-nil, zero value otherwise
+and a boolean to check if the value has been set.
+
+### SetGroup
+
+`func (o *IngestersCloudResource) SetGroup(v string)`
+
+SetGroup sets Group field to given value.
+
+### HasGroup
+
+`func (o *IngestersCloudResource) HasGroup() bool`
+
+HasGroup returns a boolean if a field has been set.
+
 ### GetGroupId
 
 `func (o *IngestersCloudResource) GetGroupId() string`
@@ -1019,6 +1125,31 @@ SetIsEgress sets IsEgress field to given value.
 `func (o *IngestersCloudResource) HasIsEgress() bool`
 
 HasIsEgress returns a boolean if a field has been set.
+
+### GetLastStatus
+
+`func (o *IngestersCloudResource) GetLastStatus() string`
+
+GetLastStatus returns the LastStatus field if non-nil, zero value otherwise.
+
+### GetLastStatusOk
+
+`func (o *IngestersCloudResource) GetLastStatusOk() (*string, bool)`
+
+GetLastStatusOk returns a tuple with the LastStatus field if it's non-nil, zero value otherwise
+and a boolean to check if the value has been set.
+
+### SetLastStatus
+
+`func (o *IngestersCloudResource) SetLastStatus(v string)`
+
+SetLastStatus sets LastStatus field to given value.
+
+### HasLastStatus
+
+`func (o *IngestersCloudResource) HasLastStatus() bool`
+
+HasLastStatus returns a boolean if a field has been set.
 
 ### GetName
 
@@ -1845,6 +1976,31 @@ HasTargetHealthDescriptions returns a boolean if a field has been set.
 `func (o *IngestersCloudResource) UnsetTargetHealthDescriptions()`
 
 UnsetTargetHealthDescriptions ensures that no value is present for TargetHealthDescriptions, not even an explicit nil
+### GetTaskArn
+
+`func (o *IngestersCloudResource) GetTaskArn() string`
+
+GetTaskArn returns the TaskArn field if non-nil, zero value otherwise.
+
+### GetTaskArnOk
+
+`func (o *IngestersCloudResource) GetTaskArnOk() (*string, bool)`
+
+GetTaskArnOk returns a tuple with the TaskArn field if it's non-nil, zero value otherwise
+and a boolean to check if the value has been set.
+
+### SetTaskArn
+
+`func (o *IngestersCloudResource) SetTaskArn(v string)`
+
+SetTaskArn sets TaskArn field to given value.
+
+### HasTaskArn
+
+`func (o *IngestersCloudResource) HasTaskArn() bool`
+
+HasTaskArn returns a boolean if a field has been set.
+
 ### GetTaskDefinition
 
 `func (o *IngestersCloudResource) GetTaskDefinition() interface{}`

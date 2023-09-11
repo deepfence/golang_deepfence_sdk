@@ -10,6 +10,7 @@ api_common.go
 api_compliance.go
 api_controls.go
 api_diagnosis.go
+api_diff_add.go
 api_integration.go
 api_internal.go
 api_lookup.go
@@ -49,6 +50,7 @@ docs/DiagnosisGenerateAgentDiagnosticLogsRequest.md
 docs/DiagnosisGenerateConsoleDiagnosticLogsRequest.md
 docs/DiagnosisGetDiagnosticLogsResponse.md
 docs/DiagnosisNodeIdentifier.md
+docs/DiffAddAPI.md
 docs/GraphCloudProviderFilter.md
 docs/GraphIndividualThreatGraph.md
 docs/GraphIndividualThreatGraphRequest.md
@@ -160,6 +162,12 @@ docs/ModelRegistryUpdateReq.md
 docs/ModelResponseAccessToken.md
 docs/ModelSbomRequest.md
 docs/ModelSbomResponse.md
+docs/ModelScanCompareReq.md
+docs/ModelScanCompareResGithubComDeepfenceThreatMapperDeepfenceServerModelCloudCompliance.md
+docs/ModelScanCompareResGithubComDeepfenceThreatMapperDeepfenceServerModelCompliance.md
+docs/ModelScanCompareResGithubComDeepfenceThreatMapperDeepfenceServerModelMalware.md
+docs/ModelScanCompareResGithubComDeepfenceThreatMapperDeepfenceServerModelSecret.md
+docs/ModelScanCompareResGithubComDeepfenceThreatMapperDeepfenceServerModelVulnerability.md
 docs/ModelScanFilter.md
 docs/ModelScanInfo.md
 docs/ModelScanListReq.md
@@ -348,6 +356,12 @@ model_model_registry_update_req.go
 model_model_response_access_token.go
 model_model_sbom_request.go
 model_model_sbom_response.go
+model_model_scan_compare_req.go
+model_model_scan_compare_res_github_com_deepfence_threat_mapper_deepfence_server_model_cloud_compliance.go
+model_model_scan_compare_res_github_com_deepfence_threat_mapper_deepfence_server_model_compliance.go
+model_model_scan_compare_res_github_com_deepfence_threat_mapper_deepfence_server_model_malware.go
+model_model_scan_compare_res_github_com_deepfence_threat_mapper_deepfence_server_model_secret.go
+model_model_scan_compare_res_github_com_deepfence_threat_mapper_deepfence_server_model_vulnerability.go
 model_model_scan_filter.go
 model_model_scan_info.go
 model_model_scan_list_req.go
@@ -410,6 +424,7 @@ test/api_common_test.go
 test/api_compliance_test.go
 test/api_controls_test.go
 test/api_diagnosis_test.go
+test/api_diff_add_test.go
 test/api_integration_test.go
 test/api_internal_test.go
 test/api_lookup_test.go

@@ -31,12 +31,16 @@ type IngestersCloudResource struct {
 	BucketPolicyIsPublic *bool `json:"bucket_policy_is_public,omitempty"`
 	CidrIpv4 *string `json:"cidr_ipv4,omitempty"`
 	CloudProvider *string `json:"cloud_provider,omitempty"`
+	ClusterArn *string `json:"cluster_arn,omitempty"`
+	ClusterName *string `json:"cluster_name,omitempty"`
+	Connectivity *string `json:"connectivity,omitempty"`
 	ContainerDefinitions interface{} `json:"container_definitions,omitempty"`
 	Containers interface{} `json:"containers,omitempty"`
 	CreateDate *string `json:"create_date,omitempty"`
 	DbClusterIdentifier *string `json:"db_cluster_identifier,omitempty"`
 	Description *string `json:"description,omitempty"`
 	EventNotificationConfiguration interface{} `json:"event_notification_configuration,omitempty"`
+	Group *string `json:"group,omitempty"`
 	GroupId *string `json:"group_id,omitempty"`
 	Groups interface{} `json:"groups,omitempty"`
 	HostName *string `json:"host_name,omitempty"`
@@ -53,6 +57,7 @@ type IngestersCloudResource struct {
 	Instances interface{} `json:"instances,omitempty"`
 	IpConfiguration interface{} `json:"ip_configuration,omitempty"`
 	IsEgress *bool `json:"is_egress,omitempty"`
+	LastStatus *string `json:"last_status,omitempty"`
 	Name *string `json:"name,omitempty"`
 	NetworkConfiguration interface{} `json:"network_configuration,omitempty"`
 	NetworkInterfaces interface{} `json:"network_interfaces,omitempty"`
@@ -82,6 +87,7 @@ type IngestersCloudResource struct {
 	Tags interface{} `json:"tags,omitempty"`
 	TargetGroupArn *string `json:"target_group_arn,omitempty"`
 	TargetHealthDescriptions interface{} `json:"target_health_descriptions,omitempty"`
+	TaskArn *string `json:"task_arn,omitempty"`
 	TaskDefinition interface{} `json:"task_definition,omitempty"`
 	TaskDefinitionArn *string `json:"task_definition_arn,omitempty"`
 	UserGroups interface{} `json:"user-groups,omitempty"`
@@ -463,6 +469,102 @@ func (o *IngestersCloudResource) SetCloudProvider(v string) {
 	o.CloudProvider = &v
 }
 
+// GetClusterArn returns the ClusterArn field value if set, zero value otherwise.
+func (o *IngestersCloudResource) GetClusterArn() string {
+	if o == nil || IsNil(o.ClusterArn) {
+		var ret string
+		return ret
+	}
+	return *o.ClusterArn
+}
+
+// GetClusterArnOk returns a tuple with the ClusterArn field value if set, nil otherwise
+// and a boolean to check if the value has been set.
+func (o *IngestersCloudResource) GetClusterArnOk() (*string, bool) {
+	if o == nil || IsNil(o.ClusterArn) {
+		return nil, false
+	}
+	return o.ClusterArn, true
+}
+
+// HasClusterArn returns a boolean if a field has been set.
+func (o *IngestersCloudResource) HasClusterArn() bool {
+	if o != nil && !IsNil(o.ClusterArn) {
+		return true
+	}
+
+	return false
+}
+
+// SetClusterArn gets a reference to the given string and assigns it to the ClusterArn field.
+func (o *IngestersCloudResource) SetClusterArn(v string) {
+	o.ClusterArn = &v
+}
+
+// GetClusterName returns the ClusterName field value if set, zero value otherwise.
+func (o *IngestersCloudResource) GetClusterName() string {
+	if o == nil || IsNil(o.ClusterName) {
+		var ret string
+		return ret
+	}
+	return *o.ClusterName
+}
+
+// GetClusterNameOk returns a tuple with the ClusterName field value if set, nil otherwise
+// and a boolean to check if the value has been set.
+func (o *IngestersCloudResource) GetClusterNameOk() (*string, bool) {
+	if o == nil || IsNil(o.ClusterName) {
+		return nil, false
+	}
+	return o.ClusterName, true
+}
+
+// HasClusterName returns a boolean if a field has been set.
+func (o *IngestersCloudResource) HasClusterName() bool {
+	if o != nil && !IsNil(o.ClusterName) {
+		return true
+	}
+
+	return false
+}
+
+// SetClusterName gets a reference to the given string and assigns it to the ClusterName field.
+func (o *IngestersCloudResource) SetClusterName(v string) {
+	o.ClusterName = &v
+}
+
+// GetConnectivity returns the Connectivity field value if set, zero value otherwise.
+func (o *IngestersCloudResource) GetConnectivity() string {
+	if o == nil || IsNil(o.Connectivity) {
+		var ret string
+		return ret
+	}
+	return *o.Connectivity
+}
+
+// GetConnectivityOk returns a tuple with the Connectivity field value if set, nil otherwise
+// and a boolean to check if the value has been set.
+func (o *IngestersCloudResource) GetConnectivityOk() (*string, bool) {
+	if o == nil || IsNil(o.Connectivity) {
+		return nil, false
+	}
+	return o.Connectivity, true
+}
+
+// HasConnectivity returns a boolean if a field has been set.
+func (o *IngestersCloudResource) HasConnectivity() bool {
+	if o != nil && !IsNil(o.Connectivity) {
+		return true
+	}
+
+	return false
+}
+
+// SetConnectivity gets a reference to the given string and assigns it to the Connectivity field.
+func (o *IngestersCloudResource) SetConnectivity(v string) {
+	o.Connectivity = &v
+}
+
 // GetContainerDefinitions returns the ContainerDefinitions field value if set, zero value otherwise (both if not set or set to explicit null).
 func (o *IngestersCloudResource) GetContainerDefinitions() interface{} {
 	if o == nil {
@@ -656,6 +758,38 @@ func (o *IngestersCloudResource) HasEventNotificationConfiguration() bool {
 // SetEventNotificationConfiguration gets a reference to the given interface{} and assigns it to the EventNotificationConfiguration field.
 func (o *IngestersCloudResource) SetEventNotificationConfiguration(v interface{}) {
 	o.EventNotificationConfiguration = v
+}
+
+// GetGroup returns the Group field value if set, zero value otherwise.
+func (o *IngestersCloudResource) GetGroup() string {
+	if o == nil || IsNil(o.Group) {
+		var ret string
+		return ret
+	}
+	return *o.Group
+}
+
+// GetGroupOk returns a tuple with the Group field value if set, nil otherwise
+// and a boolean to check if the value has been set.
+func (o *IngestersCloudResource) GetGroupOk() (*string, bool) {
+	if o == nil || IsNil(o.Group) {
+		return nil, false
+	}
+	return o.Group, true
+}
+
+// HasGroup returns a boolean if a field has been set.
+func (o *IngestersCloudResource) HasGroup() bool {
+	if o != nil && !IsNil(o.Group) {
+		return true
+	}
+
+	return false
+}
+
+// SetGroup gets a reference to the given string and assigns it to the Group field.
+func (o *IngestersCloudResource) SetGroup(v string) {
+	o.Group = &v
 }
 
 // GetGroupId returns the GroupId field value if set, zero value otherwise.
@@ -1174,6 +1308,38 @@ func (o *IngestersCloudResource) HasIsEgress() bool {
 // SetIsEgress gets a reference to the given bool and assigns it to the IsEgress field.
 func (o *IngestersCloudResource) SetIsEgress(v bool) {
 	o.IsEgress = &v
+}
+
+// GetLastStatus returns the LastStatus field value if set, zero value otherwise.
+func (o *IngestersCloudResource) GetLastStatus() string {
+	if o == nil || IsNil(o.LastStatus) {
+		var ret string
+		return ret
+	}
+	return *o.LastStatus
+}
+
+// GetLastStatusOk returns a tuple with the LastStatus field value if set, nil otherwise
+// and a boolean to check if the value has been set.
+func (o *IngestersCloudResource) GetLastStatusOk() (*string, bool) {
+	if o == nil || IsNil(o.LastStatus) {
+		return nil, false
+	}
+	return o.LastStatus, true
+}
+
+// HasLastStatus returns a boolean if a field has been set.
+func (o *IngestersCloudResource) HasLastStatus() bool {
+	if o != nil && !IsNil(o.LastStatus) {
+		return true
+	}
+
+	return false
+}
+
+// SetLastStatus gets a reference to the given string and assigns it to the LastStatus field.
+func (o *IngestersCloudResource) SetLastStatus(v string) {
+	o.LastStatus = &v
 }
 
 // GetName returns the Name field value if set, zero value otherwise.
@@ -2114,6 +2280,38 @@ func (o *IngestersCloudResource) SetTargetHealthDescriptions(v interface{}) {
 	o.TargetHealthDescriptions = v
 }
 
+// GetTaskArn returns the TaskArn field value if set, zero value otherwise.
+func (o *IngestersCloudResource) GetTaskArn() string {
+	if o == nil || IsNil(o.TaskArn) {
+		var ret string
+		return ret
+	}
+	return *o.TaskArn
+}
+
+// GetTaskArnOk returns a tuple with the TaskArn field value if set, nil otherwise
+// and a boolean to check if the value has been set.
+func (o *IngestersCloudResource) GetTaskArnOk() (*string, bool) {
+	if o == nil || IsNil(o.TaskArn) {
+		return nil, false
+	}
+	return o.TaskArn, true
+}
+
+// HasTaskArn returns a boolean if a field has been set.
+func (o *IngestersCloudResource) HasTaskArn() bool {
+	if o != nil && !IsNil(o.TaskArn) {
+		return true
+	}
+
+	return false
+}
+
+// SetTaskArn gets a reference to the given string and assigns it to the TaskArn field.
+func (o *IngestersCloudResource) SetTaskArn(v string) {
+	o.TaskArn = &v
+}
+
 // GetTaskDefinition returns the TaskDefinition field value if set, zero value otherwise (both if not set or set to explicit null).
 func (o *IngestersCloudResource) GetTaskDefinition() interface{} {
 	if o == nil {
@@ -2451,6 +2649,15 @@ func (o IngestersCloudResource) ToMap() (map[string]interface{}, error) {
 	if !IsNil(o.CloudProvider) {
 		toSerialize["cloud_provider"] = o.CloudProvider
 	}
+	if !IsNil(o.ClusterArn) {
+		toSerialize["cluster_arn"] = o.ClusterArn
+	}
+	if !IsNil(o.ClusterName) {
+		toSerialize["cluster_name"] = o.ClusterName
+	}
+	if !IsNil(o.Connectivity) {
+		toSerialize["connectivity"] = o.Connectivity
+	}
 	if o.ContainerDefinitions != nil {
 		toSerialize["container_definitions"] = o.ContainerDefinitions
 	}
@@ -2468,6 +2675,9 @@ func (o IngestersCloudResource) ToMap() (map[string]interface{}, error) {
 	}
 	if o.EventNotificationConfiguration != nil {
 		toSerialize["event_notification_configuration"] = o.EventNotificationConfiguration
+	}
+	if !IsNil(o.Group) {
+		toSerialize["group"] = o.Group
 	}
 	if !IsNil(o.GroupId) {
 		toSerialize["group_id"] = o.GroupId
@@ -2516,6 +2726,9 @@ func (o IngestersCloudResource) ToMap() (map[string]interface{}, error) {
 	}
 	if !IsNil(o.IsEgress) {
 		toSerialize["is_egress"] = o.IsEgress
+	}
+	if !IsNil(o.LastStatus) {
+		toSerialize["last_status"] = o.LastStatus
 	}
 	if !IsNil(o.Name) {
 		toSerialize["name"] = o.Name
@@ -2603,6 +2816,9 @@ func (o IngestersCloudResource) ToMap() (map[string]interface{}, error) {
 	}
 	if o.TargetHealthDescriptions != nil {
 		toSerialize["target_health_descriptions"] = o.TargetHealthDescriptions
+	}
+	if !IsNil(o.TaskArn) {
+		toSerialize["task_arn"] = o.TaskArn
 	}
 	if o.TaskDefinition != nil {
 		toSerialize["task_definition"] = o.TaskDefinition

@@ -929,6 +929,221 @@ paths:
       summary: Get Diagnostic Notification
       tags:
       - Diagnosis
+  /deepfence/diff-add/cloud-compliance:
+    post:
+      description: Get Cloud Compliance Diff between two scans
+      operationId: diffAddCloudCompliance
+      requestBody:
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/ModelScanCompareReq'
+      responses:
+        "200":
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ModelScanCompareResGithubComDeepfenceThreatMapperDeepfenceServerModelCloudCompliance'
+          description: OK
+        "400":
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ApiDocsBadRequestResponse'
+          description: Bad Request
+        "401":
+          description: Unauthorized
+        "403":
+          description: Forbidden
+        "404":
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ApiDocsFailureResponse'
+          description: Not Found
+        "500":
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ApiDocsFailureResponse'
+          description: Internal Server Error
+      security:
+      - bearer_token: []
+      summary: Get Cloud Compliance Diff
+      tags:
+      - Diff Add
+  /deepfence/diff-add/compliance:
+    post:
+      description: Get Compliance Diff between two scans
+      operationId: diffAddCompliance
+      requestBody:
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/ModelScanCompareReq'
+      responses:
+        "200":
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ModelScanCompareResGithubComDeepfenceThreatMapperDeepfenceServerModelCompliance'
+          description: OK
+        "400":
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ApiDocsBadRequestResponse'
+          description: Bad Request
+        "401":
+          description: Unauthorized
+        "403":
+          description: Forbidden
+        "404":
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ApiDocsFailureResponse'
+          description: Not Found
+        "500":
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ApiDocsFailureResponse'
+          description: Internal Server Error
+      security:
+      - bearer_token: []
+      summary: Get Compliance Diff
+      tags:
+      - Diff Add
+  /deepfence/diff-add/malware:
+    post:
+      description: Get Malware Diff between two scans
+      operationId: diffAddMalware
+      requestBody:
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/ModelScanCompareReq'
+      responses:
+        "200":
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ModelScanCompareResGithubComDeepfenceThreatMapperDeepfenceServerModelMalware'
+          description: OK
+        "400":
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ApiDocsBadRequestResponse'
+          description: Bad Request
+        "401":
+          description: Unauthorized
+        "403":
+          description: Forbidden
+        "404":
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ApiDocsFailureResponse'
+          description: Not Found
+        "500":
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ApiDocsFailureResponse'
+          description: Internal Server Error
+      security:
+      - bearer_token: []
+      summary: Get Malware Diff
+      tags:
+      - Diff Add
+  /deepfence/diff-add/secret:
+    post:
+      description: Get Secret Diff between two scans
+      operationId: diffAddSecret
+      requestBody:
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/ModelScanCompareReq'
+      responses:
+        "200":
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ModelScanCompareResGithubComDeepfenceThreatMapperDeepfenceServerModelSecret'
+          description: OK
+        "400":
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ApiDocsBadRequestResponse'
+          description: Bad Request
+        "401":
+          description: Unauthorized
+        "403":
+          description: Forbidden
+        "404":
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ApiDocsFailureResponse'
+          description: Not Found
+        "500":
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ApiDocsFailureResponse'
+          description: Internal Server Error
+      security:
+      - bearer_token: []
+      summary: Get Secret Diff
+      tags:
+      - Diff Add
+  /deepfence/diff-add/vulnerability:
+    post:
+      description: Get Vulnerability Diff between two scans
+      operationId: diffAddVulnerability
+      requestBody:
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/ModelScanCompareReq'
+      responses:
+        "200":
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ModelScanCompareResGithubComDeepfenceThreatMapperDeepfenceServerModelVulnerability'
+          description: OK
+        "400":
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ApiDocsBadRequestResponse'
+          description: Bad Request
+        "401":
+          description: Unauthorized
+        "403":
+          description: Forbidden
+        "404":
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ApiDocsFailureResponse'
+          description: Not Found
+        "500":
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ApiDocsFailureResponse'
+          description: Internal Server Error
+      security:
+      - bearer_token: []
+      summary: Get Vulnerability Diff
+      tags:
+      - Diff Add
   /deepfence/end-user-license-agreement:
     get:
       description: Get End User License Agreement
@@ -5152,8 +5367,8 @@ paths:
             schema:
               $ref: '#/components/schemas/ModelStopScanRequest'
       responses:
-        "200":
-          description: OK
+        "202":
+          description: Accepted
         "400":
           content:
             application/json:
@@ -5191,8 +5406,8 @@ paths:
             schema:
               $ref: '#/components/schemas/ModelStopScanRequest'
       responses:
-        "200":
-          description: OK
+        "202":
+          description: Accepted
         "400":
           content:
             application/json:
@@ -9090,6 +9305,7 @@ components:
         ip_configuration: ""
         access_level: access_level
         path: path
+        connectivity: connectivity
         policy_std: ""
         target_health_descriptions: ""
         iam_policy: ""
@@ -9101,6 +9317,7 @@ components:
         inline_policies: ""
         restrict_public_buckets: true
         db_cluster_identifier: db_cluster_identifier
+        group: group
         target_group_arn: target_group_arn
         ignore_public_acls: true
         storage_account_name: storage_account_name
@@ -9110,6 +9327,7 @@ components:
         network_interfaces: ""
         tags: ""
         security_groups: ""
+        task_arn: task_arn
         block_public_acls: true
         organization_master_account_email: organization_master_account_email
         instance_id: instance_id
@@ -9139,8 +9357,11 @@ components:
         private_dns_name: private_dns_name
         policy: ""
         public_ips: ""
+        cluster_name: cluster_name
+        cluster_arn: cluster_arn
         public_ip_address: public_ip_address
         cidr_ipv4: cidr_ipv4
+        last_status: last_status
         groups: ""
         user-groups: ""
         cloud_provider: cloud_provider
@@ -9175,6 +9396,12 @@ components:
           type: string
         cloud_provider:
           type: string
+        cluster_arn:
+          type: string
+        cluster_name:
+          type: string
+        connectivity:
+          type: string
         container_definitions: {}
         containers: {}
         create_date:
@@ -9184,6 +9411,8 @@ components:
         description:
           type: string
         event_notification_configuration: {}
+        group:
+          type: string
         group_id:
           type: string
         groups: {}
@@ -9210,6 +9439,8 @@ components:
         ip_configuration: {}
         is_egress:
           type: boolean
+        last_status:
+          type: string
         name:
           type: string
         network_configuration: {}
@@ -9258,6 +9489,8 @@ components:
         target_group_arn:
           type: string
         target_health_descriptions: {}
+        task_arn:
+          type: string
         task_definition: {}
         task_definition_arn:
           type: string
@@ -10241,6 +10474,8 @@ components:
         node_name: node_name
         active: true
         cloud_provider: cloud_provider
+        scan_status_map:
+          key: 6
         version: version
         node_id: node_id
       properties:
@@ -10258,6 +10493,11 @@ components:
           type: string
         node_name:
           type: string
+        scan_status_map:
+          additionalProperties:
+            type: integer
+          nullable: true
+          type: object
         version:
           type: string
       type: object
@@ -10382,7 +10622,7 @@ components:
       type: object
     ModelCloudNodeAccountsListResp:
       example:
-        total: 6
+        total: 1
         cloud_node_accounts_info:
         - last_scan_status: last_scan_status
           compliance_percentage: 0.8008281904610115
@@ -10390,6 +10630,8 @@ components:
           node_name: node_name
           active: true
           cloud_provider: cloud_provider
+          scan_status_map:
+            key: 6
           version: version
           node_id: node_id
         - last_scan_status: last_scan_status
@@ -10398,6 +10640,8 @@ components:
           node_name: node_name
           active: true
           cloud_provider: cloud_provider
+          scan_status_map:
+            key: 6
           version: version
           node_id: node_id
       properties:
@@ -11317,7 +11561,6 @@ components:
       - malware_latest_scan_id
       - malware_scan_status
       - malwares_count
-      - metadata
       - node_id
       - node_name
       - secret_latest_scan_id
@@ -12674,6 +12917,7 @@ components:
         integration_type: integration_type
         config:
           key: ""
+        last_error_msg: last_error_msg
       properties:
         config:
           additionalProperties: {}
@@ -12684,6 +12928,8 @@ components:
         id:
           type: integer
         integration_type:
+          type: string
+        last_error_msg:
           type: string
         notification_type:
           type: string
@@ -15537,6 +15783,339 @@ components:
         version:
           type: string
       type: object
+    ModelScanCompareReq:
+      example:
+        to_scan_id: to_scan_id
+        base_scan_id: base_scan_id
+        window:
+          offset: 0
+          size: 6
+        fields_filter:
+          compare_filter:
+          - greater_than: true
+            field_value: ""
+            field_name: field_name
+          - greater_than: true
+            field_value: ""
+            field_name: field_name
+          not_contains_filter:
+            filter_in:
+              key:
+              - ""
+              - ""
+          order_filter:
+            order_fields:
+            - size: 0
+              descending: true
+              field_name: field_name
+            - size: 0
+              descending: true
+              field_name: field_name
+          contains_filter:
+            filter_in:
+              key:
+              - ""
+              - ""
+          contains_in_array_filter:
+            filter_in:
+              key:
+              - ""
+              - ""
+          match_filter:
+            filter_in:
+              key:
+              - ""
+              - ""
+          match_in_array_filter:
+            filter_in:
+              key:
+              - ""
+              - ""
+      properties:
+        base_scan_id:
+          type: string
+        fields_filter:
+          $ref: '#/components/schemas/ReportersFieldsFilters'
+        to_scan_id:
+          type: string
+        window:
+          $ref: '#/components/schemas/ModelFetchWindow'
+      required:
+      - base_scan_id
+      - fields_filter
+      - to_scan_id
+      - window
+      type: object
+    ModelScanCompareResGithubComDeepfenceThreatMapperDeepfenceServerModelCloudCompliance:
+      example:
+        new:
+        - severity: severity
+          reason: reason
+          control_id: control_id
+          resource: resource
+          masked: true
+          count: 0
+          node_name: node_name
+          description: description
+          resources:
+          - resources
+          - resources
+          cloud_provider: cloud_provider
+          title: title
+          type: type
+          compliance_check_type: compliance_check_type
+          account_id: account_id
+          updated_at: 6
+          service: service
+          region: region
+          group: group
+          node_id: node_id
+          status: status
+        - severity: severity
+          reason: reason
+          control_id: control_id
+          resource: resource
+          masked: true
+          count: 0
+          node_name: node_name
+          description: description
+          resources:
+          - resources
+          - resources
+          cloud_provider: cloud_provider
+          title: title
+          type: type
+          compliance_check_type: compliance_check_type
+          account_id: account_id
+          updated_at: 6
+          service: service
+          region: region
+          group: group
+          node_id: node_id
+          status: status
+      properties:
+        new:
+          items:
+            $ref: '#/components/schemas/ModelCloudCompliance'
+          nullable: true
+          type: array
+      required:
+      - new
+      type: object
+    ModelScanCompareResGithubComDeepfenceThreatMapperDeepfenceServerModelCompliance:
+      example:
+        new:
+        - resource: resource
+          masked: true
+          description: description
+          resources:
+          - resources
+          - resources
+          test_category: test_category
+          remediation_ansible: remediation_ansible
+          compliance_check_type: compliance_check_type
+          test_rationale: test_rationale
+          test_severity: test_severity
+          node_type: node_type
+          updated_at: 0
+          remediation_puppet: remediation_puppet
+          remediation_script: remediation_script
+          node_id: node_id
+          status: status
+          test_desc: test_desc
+          test_number: test_number
+        - resource: resource
+          masked: true
+          description: description
+          resources:
+          - resources
+          - resources
+          test_category: test_category
+          remediation_ansible: remediation_ansible
+          compliance_check_type: compliance_check_type
+          test_rationale: test_rationale
+          test_severity: test_severity
+          node_type: node_type
+          updated_at: 0
+          remediation_puppet: remediation_puppet
+          remediation_script: remediation_script
+          node_id: node_id
+          status: status
+          test_desc: test_desc
+          test_number: test_number
+      properties:
+        new:
+          items:
+            $ref: '#/components/schemas/ModelCompliance'
+          nullable: true
+          type: array
+      required:
+      - new
+      type: object
+    ModelScanCompareResGithubComDeepfenceThreatMapperDeepfenceServerModelMalware:
+      example:
+        new:
+        - date: date
+          summary: summary
+          filetype: filetype
+          image_layer_id: image_layer_id
+          rule_name: rule_name
+          author: author
+          masked: true
+          file_sev_score: 0
+          file_severity: file_severity
+          strings_to_match:
+          - ""
+          - ""
+          description: description
+          resources:
+          - resources
+          - resources
+          version: version
+          rule_id: rule_id
+          complete_filename: complete_filename
+          class: class
+          info: info
+          node_id: node_id
+          severity_score: 6
+        - date: date
+          summary: summary
+          filetype: filetype
+          image_layer_id: image_layer_id
+          rule_name: rule_name
+          author: author
+          masked: true
+          file_sev_score: 0
+          file_severity: file_severity
+          strings_to_match:
+          - ""
+          - ""
+          description: description
+          resources:
+          - resources
+          - resources
+          version: version
+          rule_id: rule_id
+          complete_filename: complete_filename
+          class: class
+          info: info
+          node_id: node_id
+          severity_score: 6
+      properties:
+        new:
+          items:
+            $ref: '#/components/schemas/ModelMalware'
+          nullable: true
+          type: array
+      required:
+      - new
+      type: object
+    ModelScanCompareResGithubComDeepfenceThreatMapperDeepfenceServerModelSecret:
+      example:
+        new:
+        - full_filename: full_filename
+          level: level
+          masked: true
+          part: part
+          relative_ending_index: 0
+          starting_index: 5
+          resources:
+          - resources
+          - resources
+          signature_to_match: signature_to_match
+          rule_id: 1
+          score: 5.962133916683182
+          matched_content: matched_content
+          updated_at: 2
+          name: name
+          relative_starting_index: 6
+          node_id: node_id
+        - full_filename: full_filename
+          level: level
+          masked: true
+          part: part
+          relative_ending_index: 0
+          starting_index: 5
+          resources:
+          - resources
+          - resources
+          signature_to_match: signature_to_match
+          rule_id: 1
+          score: 5.962133916683182
+          matched_content: matched_content
+          updated_at: 2
+          name: name
+          relative_starting_index: 6
+          node_id: node_id
+      properties:
+        new:
+          items:
+            $ref: '#/components/schemas/ModelSecret'
+          nullable: true
+          type: array
+      required:
+      - new
+      type: object
+    ModelScanCompareResGithubComDeepfenceThreatMapperDeepfenceServerModelVulnerability:
+      example:
+        new:
+        - parsed_attack_vector: parsed_attack_vector
+          cve_container_layer: cve_container_layer
+          masked: true
+          cve_description: cve_description
+          cve_overall_score: 6.027456183070403
+          resources:
+          - resources
+          - resources
+          cve_caused_by_package: cve_caused_by_package
+          cve_attack_vector: cve_attack_vector
+          cve_cvss_score: 0.8008281904610115
+          urls:
+          - ""
+          - ""
+          cve_severity: cve_severity
+          cve_caused_by_package_path: cve_caused_by_package_path
+          updated_at: 1
+          cve_id: cve_id
+          exploit_poc: exploit_poc
+          cve_type: cve_type
+          has_live_connection: true
+          cve_fixed_in: cve_fixed_in
+          cve_link: cve_link
+          node_id: node_id
+        - parsed_attack_vector: parsed_attack_vector
+          cve_container_layer: cve_container_layer
+          masked: true
+          cve_description: cve_description
+          cve_overall_score: 6.027456183070403
+          resources:
+          - resources
+          - resources
+          cve_caused_by_package: cve_caused_by_package
+          cve_attack_vector: cve_attack_vector
+          cve_cvss_score: 0.8008281904610115
+          urls:
+          - ""
+          - ""
+          cve_severity: cve_severity
+          cve_caused_by_package_path: cve_caused_by_package_path
+          updated_at: 1
+          cve_id: cve_id
+          exploit_poc: exploit_poc
+          cve_type: cve_type
+          has_live_connection: true
+          cve_fixed_in: cve_fixed_in
+          cve_link: cve_link
+          node_id: node_id
+      properties:
+        new:
+          items:
+            $ref: '#/components/schemas/ModelVulnerability'
+          nullable: true
+          type: array
+      required:
+      - new
+      type: object
     ModelScanFilter:
       example:
         container_scan_filter:
@@ -16629,19 +17208,20 @@ components:
       type: object
     ModelVulnerabilityScanConfigLanguage:
       example:
-        language: all
+        language: base
       properties:
         language:
           enum:
-          - all
           - base
           - ruby
           - python
           - javascript
           - php
           - golang
+          - golang-binary
           - java
           - rust
+          - rust-binary
           - dotnet
           type: string
       required:
@@ -16760,8 +17340,8 @@ components:
     ModelVulnerabilityScanTriggerReq:
       example:
         scan_config:
-        - language: all
-        - language: all
+        - language: base
+        - language: base
         filters:
           container_scan_filter:
             filter_in:

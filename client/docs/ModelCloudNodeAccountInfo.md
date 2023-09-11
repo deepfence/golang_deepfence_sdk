@@ -11,6 +11,7 @@ Name | Type | Description | Notes
 **LastScanStatus** | Pointer to **string** |  | [optional] 
 **NodeId** | Pointer to **string** |  | [optional] 
 **NodeName** | Pointer to **string** |  | [optional] 
+**ScanStatusMap** | Pointer to **map[string]int32** |  | [optional] 
 **Version** | Pointer to **string** |  | [optional] 
 
 ## Methods
@@ -207,6 +208,41 @@ SetNodeName sets NodeName field to given value.
 
 HasNodeName returns a boolean if a field has been set.
 
+### GetScanStatusMap
+
+`func (o *ModelCloudNodeAccountInfo) GetScanStatusMap() map[string]int32`
+
+GetScanStatusMap returns the ScanStatusMap field if non-nil, zero value otherwise.
+
+### GetScanStatusMapOk
+
+`func (o *ModelCloudNodeAccountInfo) GetScanStatusMapOk() (*map[string]int32, bool)`
+
+GetScanStatusMapOk returns a tuple with the ScanStatusMap field if it's non-nil, zero value otherwise
+and a boolean to check if the value has been set.
+
+### SetScanStatusMap
+
+`func (o *ModelCloudNodeAccountInfo) SetScanStatusMap(v map[string]int32)`
+
+SetScanStatusMap sets ScanStatusMap field to given value.
+
+### HasScanStatusMap
+
+`func (o *ModelCloudNodeAccountInfo) HasScanStatusMap() bool`
+
+HasScanStatusMap returns a boolean if a field has been set.
+
+### SetScanStatusMapNil
+
+`func (o *ModelCloudNodeAccountInfo) SetScanStatusMapNil(b bool)`
+
+ SetScanStatusMapNil sets the value for ScanStatusMap to be an explicit nil
+
+### UnsetScanStatusMap
+`func (o *ModelCloudNodeAccountInfo) UnsetScanStatusMap()`
+
+UnsetScanStatusMap ensures that no value is present for ScanStatusMap, not even an explicit nil
 ### GetVersion
 
 `func (o *ModelCloudNodeAccountInfo) GetVersion() string`

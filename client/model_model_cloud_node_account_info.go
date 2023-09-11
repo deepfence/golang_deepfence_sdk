@@ -27,6 +27,7 @@ type ModelCloudNodeAccountInfo struct {
 	LastScanStatus *string `json:"last_scan_status,omitempty"`
 	NodeId *string `json:"node_id,omitempty"`
 	NodeName *string `json:"node_name,omitempty"`
+	ScanStatusMap map[string]int32 `json:"scan_status_map,omitempty"`
 	Version *string `json:"version,omitempty"`
 }
 
@@ -271,6 +272,39 @@ func (o *ModelCloudNodeAccountInfo) SetNodeName(v string) {
 	o.NodeName = &v
 }
 
+// GetScanStatusMap returns the ScanStatusMap field value if set, zero value otherwise (both if not set or set to explicit null).
+func (o *ModelCloudNodeAccountInfo) GetScanStatusMap() map[string]int32 {
+	if o == nil {
+		var ret map[string]int32
+		return ret
+	}
+	return o.ScanStatusMap
+}
+
+// GetScanStatusMapOk returns a tuple with the ScanStatusMap field value if set, nil otherwise
+// and a boolean to check if the value has been set.
+// NOTE: If the value is an explicit nil, `nil, true` will be returned
+func (o *ModelCloudNodeAccountInfo) GetScanStatusMapOk() (*map[string]int32, bool) {
+	if o == nil || IsNil(o.ScanStatusMap) {
+		return nil, false
+	}
+	return &o.ScanStatusMap, true
+}
+
+// HasScanStatusMap returns a boolean if a field has been set.
+func (o *ModelCloudNodeAccountInfo) HasScanStatusMap() bool {
+	if o != nil && IsNil(o.ScanStatusMap) {
+		return true
+	}
+
+	return false
+}
+
+// SetScanStatusMap gets a reference to the given map[string]int32 and assigns it to the ScanStatusMap field.
+func (o *ModelCloudNodeAccountInfo) SetScanStatusMap(v map[string]int32) {
+	o.ScanStatusMap = v
+}
+
 // GetVersion returns the Version field value if set, zero value otherwise.
 func (o *ModelCloudNodeAccountInfo) GetVersion() string {
 	if o == nil || IsNil(o.Version) {
@@ -333,6 +367,9 @@ func (o ModelCloudNodeAccountInfo) ToMap() (map[string]interface{}, error) {
 	}
 	if !IsNil(o.NodeName) {
 		toSerialize["node_name"] = o.NodeName
+	}
+	if o.ScanStatusMap != nil {
+		toSerialize["scan_status_map"] = o.ScanStatusMap
 	}
 	if !IsNil(o.Version) {
 		toSerialize["version"] = o.Version

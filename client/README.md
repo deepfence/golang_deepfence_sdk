@@ -116,6 +116,11 @@ Class | Method | HTTP request | Description
 *DiagnosisAPI* | [**GenerateConsoleDiagnosticLogs**](docs/DiagnosisAPI.md#generateconsolediagnosticlogs) | **Post** /deepfence/diagnosis/console-logs | Generate Console Diagnostic Logs
 *DiagnosisAPI* | [**GetDiagnosticLogs**](docs/DiagnosisAPI.md#getdiagnosticlogs) | **Get** /deepfence/diagnosis/diagnostic-logs | Get Diagnostic Logs
 *DiagnosisAPI* | [**UpdateAgentDiagnosticLogsStatus**](docs/DiagnosisAPI.md#updateagentdiagnosticlogsstatus) | **Put** /deepfence/diagnosis/agent-logs/status/{node_id} | Update Agent Diagnostic Logs Status
+*DiffAddAPI* | [**DiffAddCloudCompliance**](docs/DiffAddAPI.md#diffaddcloudcompliance) | **Post** /deepfence/diff-add/cloud-compliance | Get Cloud Compliance Diff
+*DiffAddAPI* | [**DiffAddCompliance**](docs/DiffAddAPI.md#diffaddcompliance) | **Post** /deepfence/diff-add/compliance | Get Compliance Diff
+*DiffAddAPI* | [**DiffAddMalware**](docs/DiffAddAPI.md#diffaddmalware) | **Post** /deepfence/diff-add/malware | Get Malware Diff
+*DiffAddAPI* | [**DiffAddSecret**](docs/DiffAddAPI.md#diffaddsecret) | **Post** /deepfence/diff-add/secret | Get Secret Diff
+*DiffAddAPI* | [**DiffAddVulnerability**](docs/DiffAddAPI.md#diffaddvulnerability) | **Post** /deepfence/diff-add/vulnerability | Get Vulnerability Diff
 *IntegrationAPI* | [**AddIntegration**](docs/IntegrationAPI.md#addintegration) | **Post** /deepfence/integration | Add Integration
 *IntegrationAPI* | [**DeleteIntegration**](docs/IntegrationAPI.md#deleteintegration) | **Delete** /deepfence/integration/{integration_id} | Delete Integration
 *IntegrationAPI* | [**ListIntegration**](docs/IntegrationAPI.md#listintegration) | **Get** /deepfence/integration | List Integrations
@@ -396,6 +401,12 @@ Class | Method | HTTP request | Description
  - [ModelResponseAccessToken](docs/ModelResponseAccessToken.md)
  - [ModelSbomRequest](docs/ModelSbomRequest.md)
  - [ModelSbomResponse](docs/ModelSbomResponse.md)
+ - [ModelScanCompareReq](docs/ModelScanCompareReq.md)
+ - [ModelScanCompareResGithubComDeepfenceThreatMapperDeepfenceServerModelCloudCompliance](docs/ModelScanCompareResGithubComDeepfenceThreatMapperDeepfenceServerModelCloudCompliance.md)
+ - [ModelScanCompareResGithubComDeepfenceThreatMapperDeepfenceServerModelCompliance](docs/ModelScanCompareResGithubComDeepfenceThreatMapperDeepfenceServerModelCompliance.md)
+ - [ModelScanCompareResGithubComDeepfenceThreatMapperDeepfenceServerModelMalware](docs/ModelScanCompareResGithubComDeepfenceThreatMapperDeepfenceServerModelMalware.md)
+ - [ModelScanCompareResGithubComDeepfenceThreatMapperDeepfenceServerModelSecret](docs/ModelScanCompareResGithubComDeepfenceThreatMapperDeepfenceServerModelSecret.md)
+ - [ModelScanCompareResGithubComDeepfenceThreatMapperDeepfenceServerModelVulnerability](docs/ModelScanCompareResGithubComDeepfenceThreatMapperDeepfenceServerModelVulnerability.md)
  - [ModelScanFilter](docs/ModelScanFilter.md)
  - [ModelScanInfo](docs/ModelScanInfo.md)
  - [ModelScanListReq](docs/ModelScanListReq.md)

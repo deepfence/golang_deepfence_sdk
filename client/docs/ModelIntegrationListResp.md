@@ -8,6 +8,7 @@ Name | Type | Description | Notes
 **Filters** | Pointer to [**ReportersFieldsFilters**](ReportersFieldsFilters.md) |  | [optional] 
 **Id** | Pointer to **int32** |  | [optional] 
 **IntegrationType** | Pointer to **string** |  | [optional] 
+**LastErrorMsg** | Pointer to **string** |  | [optional] 
 **NotificationType** | Pointer to **string** |  | [optional] 
 
 ## Methods
@@ -138,6 +139,31 @@ SetIntegrationType sets IntegrationType field to given value.
 `func (o *ModelIntegrationListResp) HasIntegrationType() bool`
 
 HasIntegrationType returns a boolean if a field has been set.
+
+### GetLastErrorMsg
+
+`func (o *ModelIntegrationListResp) GetLastErrorMsg() string`
+
+GetLastErrorMsg returns the LastErrorMsg field if non-nil, zero value otherwise.
+
+### GetLastErrorMsgOk
+
+`func (o *ModelIntegrationListResp) GetLastErrorMsgOk() (*string, bool)`
+
+GetLastErrorMsgOk returns a tuple with the LastErrorMsg field if it's non-nil, zero value otherwise
+and a boolean to check if the value has been set.
+
+### SetLastErrorMsg
+
+`func (o *ModelIntegrationListResp) SetLastErrorMsg(v string)`
+
+SetLastErrorMsg sets LastErrorMsg field to given value.
+
+### HasLastErrorMsg
+
+`func (o *ModelIntegrationListResp) HasLastErrorMsg() bool`
+
+HasLastErrorMsg returns a boolean if a field has been set.
 
 ### GetNotificationType
 
