@@ -28,6 +28,7 @@ type ModelContainerImage struct {
 	DockerImageTag string `json:"docker_image_tag"`
 	DockerImageTagList []string `json:"docker_image_tag_list"`
 	DockerImageVirtualSize string `json:"docker_image_virtual_size"`
+	ImageNodeId string `json:"image_node_id"`
 	MalwareLatestScanId string `json:"malware_latest_scan_id"`
 	MalwareScanStatus string `json:"malware_scan_status"`
 	MalwaresCount int32 `json:"malwares_count"`
@@ -46,7 +47,7 @@ type ModelContainerImage struct {
 // This constructor will assign default values to properties that have it defined,
 // and makes sure properties required by API are set, but the set of arguments
 // will change when the set of required properties is changed
-func NewModelContainerImage(containers []ModelContainer, dockerImageCreatedAt string, dockerImageId string, dockerImageName string, dockerImageSize string, dockerImageTag string, dockerImageTagList []string, dockerImageVirtualSize string, malwareLatestScanId string, malwareScanStatus string, malwaresCount int32, nodeId string, nodeName string, secretLatestScanId string, secretScanStatus string, secretsCount int32, vulnerabilitiesCount int32, vulnerabilityLatestScanId string, vulnerabilityScanStatus string) *ModelContainerImage {
+func NewModelContainerImage(containers []ModelContainer, dockerImageCreatedAt string, dockerImageId string, dockerImageName string, dockerImageSize string, dockerImageTag string, dockerImageTagList []string, dockerImageVirtualSize string, imageNodeId string, malwareLatestScanId string, malwareScanStatus string, malwaresCount int32, nodeId string, nodeName string, secretLatestScanId string, secretScanStatus string, secretsCount int32, vulnerabilitiesCount int32, vulnerabilityLatestScanId string, vulnerabilityScanStatus string) *ModelContainerImage {
 	this := ModelContainerImage{}
 	this.Containers = containers
 	this.DockerImageCreatedAt = dockerImageCreatedAt
@@ -56,6 +57,7 @@ func NewModelContainerImage(containers []ModelContainer, dockerImageCreatedAt st
 	this.DockerImageTag = dockerImageTag
 	this.DockerImageTagList = dockerImageTagList
 	this.DockerImageVirtualSize = dockerImageVirtualSize
+	this.ImageNodeId = imageNodeId
 	this.MalwareLatestScanId = malwareLatestScanId
 	this.MalwareScanStatus = malwareScanStatus
 	this.MalwaresCount = malwaresCount
@@ -272,6 +274,30 @@ func (o *ModelContainerImage) GetDockerImageVirtualSizeOk() (*string, bool) {
 // SetDockerImageVirtualSize sets field value
 func (o *ModelContainerImage) SetDockerImageVirtualSize(v string) {
 	o.DockerImageVirtualSize = v
+}
+
+// GetImageNodeId returns the ImageNodeId field value
+func (o *ModelContainerImage) GetImageNodeId() string {
+	if o == nil {
+		var ret string
+		return ret
+	}
+
+	return o.ImageNodeId
+}
+
+// GetImageNodeIdOk returns a tuple with the ImageNodeId field value
+// and a boolean to check if the value has been set.
+func (o *ModelContainerImage) GetImageNodeIdOk() (*string, bool) {
+	if o == nil {
+		return nil, false
+	}
+	return &o.ImageNodeId, true
+}
+
+// SetImageNodeId sets field value
+func (o *ModelContainerImage) SetImageNodeId(v string) {
+	o.ImageNodeId = v
 }
 
 // GetMalwareLatestScanId returns the MalwareLatestScanId field value
@@ -592,6 +618,7 @@ func (o ModelContainerImage) ToMap() (map[string]interface{}, error) {
 		toSerialize["docker_image_tag_list"] = o.DockerImageTagList
 	}
 	toSerialize["docker_image_virtual_size"] = o.DockerImageVirtualSize
+	toSerialize["image_node_id"] = o.ImageNodeId
 	toSerialize["malware_latest_scan_id"] = o.MalwareLatestScanId
 	toSerialize["malware_scan_status"] = o.MalwareScanStatus
 	toSerialize["malwares_count"] = o.MalwaresCount

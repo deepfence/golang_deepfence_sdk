@@ -12,6 +12,7 @@ Name | Type | Description | Notes
 **DockerImageTag** | **string** |  | 
 **DockerImageTagList** | **[]string** |  | 
 **DockerImageVirtualSize** | **string** |  | 
+**ImageNodeId** | **string** |  | 
 **MalwareLatestScanId** | **string** |  | 
 **MalwareScanStatus** | **string** |  | 
 **MalwaresCount** | **int32** |  | 
@@ -29,7 +30,7 @@ Name | Type | Description | Notes
 
 ### NewModelContainerImage
 
-`func NewModelContainerImage(containers []ModelContainer, dockerImageCreatedAt string, dockerImageId string, dockerImageName string, dockerImageSize string, dockerImageTag string, dockerImageTagList []string, dockerImageVirtualSize string, malwareLatestScanId string, malwareScanStatus string, malwaresCount int32, nodeId string, nodeName string, secretLatestScanId string, secretScanStatus string, secretsCount int32, vulnerabilitiesCount int32, vulnerabilityLatestScanId string, vulnerabilityScanStatus string, ) *ModelContainerImage`
+`func NewModelContainerImage(containers []ModelContainer, dockerImageCreatedAt string, dockerImageId string, dockerImageName string, dockerImageSize string, dockerImageTag string, dockerImageTagList []string, dockerImageVirtualSize string, imageNodeId string, malwareLatestScanId string, malwareScanStatus string, malwaresCount int32, nodeId string, nodeName string, secretLatestScanId string, secretScanStatus string, secretsCount int32, vulnerabilitiesCount int32, vulnerabilityLatestScanId string, vulnerabilityScanStatus string, ) *ModelContainerImage`
 
 NewModelContainerImage instantiates a new ModelContainerImage object
 This constructor will assign default values to properties that have it defined,
@@ -222,6 +223,26 @@ and a boolean to check if the value has been set.
 `func (o *ModelContainerImage) SetDockerImageVirtualSize(v string)`
 
 SetDockerImageVirtualSize sets DockerImageVirtualSize field to given value.
+
+
+### GetImageNodeId
+
+`func (o *ModelContainerImage) GetImageNodeId() string`
+
+GetImageNodeId returns the ImageNodeId field if non-nil, zero value otherwise.
+
+### GetImageNodeIdOk
+
+`func (o *ModelContainerImage) GetImageNodeIdOk() (*string, bool)`
+
+GetImageNodeIdOk returns a tuple with the ImageNodeId field if it's non-nil, zero value otherwise
+and a boolean to check if the value has been set.
+
+### SetImageNodeId
+
+`func (o *ModelContainerImage) SetImageNodeId(v string)`
+
+SetImageNodeId sets ImageNodeId field to given value.
 
 
 ### GetMalwareLatestScanId

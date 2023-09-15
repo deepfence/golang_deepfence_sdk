@@ -11384,6 +11384,7 @@ components:
         docker_image_tag: docker_image_tag
         malware_scan_status: malware_scan_status
         docker_image_size: docker_image_size
+        image_node_id: image_node_id
         docker_image_virtual_size: docker_image_virtual_size
         containers:
         - vulnerabilities_count: 6
@@ -11524,6 +11525,8 @@ components:
           type: array
         docker_image_virtual_size:
           type: string
+        image_node_id:
+          type: string
         malware_latest_scan_id:
           type: string
         malware_scan_status:
@@ -11558,6 +11561,7 @@ components:
       - docker_image_tag
       - docker_image_tag_list
       - docker_image_virtual_size
+      - image_node_id
       - malware_latest_scan_id
       - malware_scan_status
       - malwares_count
@@ -11826,6 +11830,7 @@ components:
           docker_image_tag: docker_image_tag
           malware_scan_status: malware_scan_status
           docker_image_size: docker_image_size
+          image_node_id: image_node_id
           docker_image_virtual_size: docker_image_virtual_size
           containers:
           - vulnerabilities_count: 6
@@ -11957,6 +11962,7 @@ components:
           docker_image_tag: docker_image_tag
           malware_scan_status: malware_scan_status
           docker_image_size: docker_image_size
+          image_node_id: image_node_id
           docker_image_virtual_size: docker_image_virtual_size
           containers:
           - vulnerabilities_count: 6
@@ -12995,6 +13001,7 @@ components:
             docker_image_tag: docker_image_tag
             malware_scan_status: malware_scan_status
             docker_image_size: docker_image_size
+            image_node_id: image_node_id
             docker_image_virtual_size: docker_image_virtual_size
             containers:
             - vulnerabilities_count: 6
@@ -13126,6 +13133,7 @@ components:
             docker_image_tag: docker_image_tag
             malware_scan_status: malware_scan_status
             docker_image_size: docker_image_size
+            image_node_id: image_node_id
             docker_image_virtual_size: docker_image_virtual_size
             containers:
             - vulnerabilities_count: 6
@@ -13745,6 +13753,7 @@ components:
             docker_image_tag: docker_image_tag
             malware_scan_status: malware_scan_status
             docker_image_size: docker_image_size
+            image_node_id: image_node_id
             docker_image_virtual_size: docker_image_virtual_size
             containers:
             - vulnerabilities_count: 6
@@ -13876,6 +13885,7 @@ components:
             docker_image_tag: docker_image_tag
             malware_scan_status: malware_scan_status
             docker_image_size: docker_image_size
+            image_node_id: image_node_id
             docker_image_virtual_size: docker_image_virtual_size
             containers:
             - vulnerabilities_count: 6
@@ -15247,6 +15257,7 @@ components:
           docker_image_tag: docker_image_tag
           malware_scan_status: malware_scan_status
           docker_image_size: docker_image_size
+          image_node_id: image_node_id
           docker_image_virtual_size: docker_image_virtual_size
           containers:
           - vulnerabilities_count: 6
@@ -15378,6 +15389,7 @@ components:
           docker_image_tag: docker_image_tag
           malware_scan_status: malware_scan_status
           docker_image_size: docker_image_size
+          image_node_id: image_node_id
           docker_image_virtual_size: docker_image_virtual_size
           containers:
           - vulnerabilities_count: 6
@@ -16332,12 +16344,15 @@ components:
       type: object
     ModelScanResultsActionRequest:
       example:
+        notify_individual: true
         result_ids:
         - result_ids
         - result_ids
         scan_type: SecretScan
         scan_id: scan_id
       properties:
+        notify_individual:
+          type: boolean
         result_ids:
           items:
             type: string

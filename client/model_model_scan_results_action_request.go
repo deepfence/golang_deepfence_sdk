@@ -20,6 +20,7 @@ var _ MappedNullable = &ModelScanResultsActionRequest{}
 
 // ModelScanResultsActionRequest struct for ModelScanResultsActionRequest
 type ModelScanResultsActionRequest struct {
+	NotifyIndividual *bool `json:"notify_individual,omitempty"`
 	ResultIds []string `json:"result_ids"`
 	ScanId string `json:"scan_id"`
 	ScanType string `json:"scan_type"`
@@ -43,6 +44,38 @@ func NewModelScanResultsActionRequest(resultIds []string, scanId string, scanTyp
 func NewModelScanResultsActionRequestWithDefaults() *ModelScanResultsActionRequest {
 	this := ModelScanResultsActionRequest{}
 	return &this
+}
+
+// GetNotifyIndividual returns the NotifyIndividual field value if set, zero value otherwise.
+func (o *ModelScanResultsActionRequest) GetNotifyIndividual() bool {
+	if o == nil || IsNil(o.NotifyIndividual) {
+		var ret bool
+		return ret
+	}
+	return *o.NotifyIndividual
+}
+
+// GetNotifyIndividualOk returns a tuple with the NotifyIndividual field value if set, nil otherwise
+// and a boolean to check if the value has been set.
+func (o *ModelScanResultsActionRequest) GetNotifyIndividualOk() (*bool, bool) {
+	if o == nil || IsNil(o.NotifyIndividual) {
+		return nil, false
+	}
+	return o.NotifyIndividual, true
+}
+
+// HasNotifyIndividual returns a boolean if a field has been set.
+func (o *ModelScanResultsActionRequest) HasNotifyIndividual() bool {
+	if o != nil && !IsNil(o.NotifyIndividual) {
+		return true
+	}
+
+	return false
+}
+
+// SetNotifyIndividual gets a reference to the given bool and assigns it to the NotifyIndividual field.
+func (o *ModelScanResultsActionRequest) SetNotifyIndividual(v bool) {
+	o.NotifyIndividual = &v
 }
 
 // GetResultIds returns the ResultIds field value
@@ -129,6 +162,9 @@ func (o ModelScanResultsActionRequest) MarshalJSON() ([]byte, error) {
 
 func (o ModelScanResultsActionRequest) ToMap() (map[string]interface{}, error) {
 	toSerialize := map[string]interface{}{}
+	if !IsNil(o.NotifyIndividual) {
+		toSerialize["notify_individual"] = o.NotifyIndividual
+	}
 	if o.ResultIds != nil {
 		toSerialize["result_ids"] = o.ResultIds
 	}

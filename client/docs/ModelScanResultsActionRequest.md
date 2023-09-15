@@ -4,6 +4,7 @@
 
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
+**NotifyIndividual** | Pointer to **bool** |  | [optional] 
 **ResultIds** | **[]string** |  | 
 **ScanId** | **string** |  | 
 **ScanType** | **string** |  | 
@@ -26,6 +27,31 @@ will change when the set of required properties is changed
 NewModelScanResultsActionRequestWithDefaults instantiates a new ModelScanResultsActionRequest object
 This constructor will only assign default values to properties that have it defined,
 but it doesn't guarantee that properties required by API are set
+
+### GetNotifyIndividual
+
+`func (o *ModelScanResultsActionRequest) GetNotifyIndividual() bool`
+
+GetNotifyIndividual returns the NotifyIndividual field if non-nil, zero value otherwise.
+
+### GetNotifyIndividualOk
+
+`func (o *ModelScanResultsActionRequest) GetNotifyIndividualOk() (*bool, bool)`
+
+GetNotifyIndividualOk returns a tuple with the NotifyIndividual field if it's non-nil, zero value otherwise
+and a boolean to check if the value has been set.
+
+### SetNotifyIndividual
+
+`func (o *ModelScanResultsActionRequest) SetNotifyIndividual(v bool)`
+
+SetNotifyIndividual sets NotifyIndividual field to given value.
+
+### HasNotifyIndividual
+
+`func (o *ModelScanResultsActionRequest) HasNotifyIndividual() bool`
+
+HasNotifyIndividual returns a boolean if a field has been set.
 
 ### GetResultIds
 
