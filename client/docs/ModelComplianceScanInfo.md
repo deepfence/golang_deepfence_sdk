@@ -13,6 +13,7 @@ Name | Type | Description | Notes
 **SeverityCounts** | **map[string]int32** |  | 
 **Status** | **string** |  | 
 **StatusMessage** | **string** |  | 
+**StopRequested** | Pointer to **bool** |  | [optional] 
 **UpdatedAt** | **int64** |  | 
 
 ## Methods
@@ -233,6 +234,31 @@ and a boolean to check if the value has been set.
 
 SetStatusMessage sets StatusMessage field to given value.
 
+
+### GetStopRequested
+
+`func (o *ModelComplianceScanInfo) GetStopRequested() bool`
+
+GetStopRequested returns the StopRequested field if non-nil, zero value otherwise.
+
+### GetStopRequestedOk
+
+`func (o *ModelComplianceScanInfo) GetStopRequestedOk() (*bool, bool)`
+
+GetStopRequestedOk returns a tuple with the StopRequested field if it's non-nil, zero value otherwise
+and a boolean to check if the value has been set.
+
+### SetStopRequested
+
+`func (o *ModelComplianceScanInfo) SetStopRequested(v bool)`
+
+SetStopRequested sets StopRequested field to given value.
+
+### HasStopRequested
+
+`func (o *ModelComplianceScanInfo) HasStopRequested() bool`
+
+HasStopRequested returns a boolean if a field has been set.
 
 ### GetUpdatedAt
 

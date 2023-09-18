@@ -8,6 +8,7 @@ Name | Type | Description | Notes
 **Benchmarks** | Pointer to [**[]ModelCloudComplianceBenchmark**](ModelCloudComplianceBenchmark.md) |  | [optional] 
 **ScanId** | Pointer to **string** |  | [optional] 
 **ScanTypes** | Pointer to **[]string** |  | [optional] 
+**StopRequested** | Pointer to **bool** |  | [optional] 
 
 ## Methods
 
@@ -148,6 +149,31 @@ HasScanTypes returns a boolean if a field has been set.
 `func (o *ModelCloudComplianceScanDetails) UnsetScanTypes()`
 
 UnsetScanTypes ensures that no value is present for ScanTypes, not even an explicit nil
+### GetStopRequested
+
+`func (o *ModelCloudComplianceScanDetails) GetStopRequested() bool`
+
+GetStopRequested returns the StopRequested field if non-nil, zero value otherwise.
+
+### GetStopRequestedOk
+
+`func (o *ModelCloudComplianceScanDetails) GetStopRequestedOk() (*bool, bool)`
+
+GetStopRequestedOk returns a tuple with the StopRequested field if it's non-nil, zero value otherwise
+and a boolean to check if the value has been set.
+
+### SetStopRequested
+
+`func (o *ModelCloudComplianceScanDetails) SetStopRequested(v bool)`
+
+SetStopRequested sets StopRequested field to given value.
+
+### HasStopRequested
+
+`func (o *ModelCloudComplianceScanDetails) HasStopRequested() bool`
+
+HasStopRequested returns a boolean if a field has been set.
+
 
 [[Back to Model list]](../README.md#documentation-for-models) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to README]](../README.md)
 

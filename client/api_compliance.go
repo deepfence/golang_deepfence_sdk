@@ -977,11 +977,11 @@ func (a *ComplianceAPIService) StatusComplianceScanExecute(r ApiStatusCompliance
 type ApiStopComplianceScanRequest struct {
 	ctx context.Context
 	ApiService *ComplianceAPIService
-	modelComplianceScanTriggerReq *ModelComplianceScanTriggerReq
+	modelStopScanRequest *ModelStopScanRequest
 }
 
-func (r ApiStopComplianceScanRequest) ModelComplianceScanTriggerReq(modelComplianceScanTriggerReq ModelComplianceScanTriggerReq) ApiStopComplianceScanRequest {
-	r.modelComplianceScanTriggerReq = &modelComplianceScanTriggerReq
+func (r ApiStopComplianceScanRequest) ModelStopScanRequest(modelStopScanRequest ModelStopScanRequest) ApiStopComplianceScanRequest {
+	r.modelStopScanRequest = &modelStopScanRequest
 	return r
 }
 
@@ -1041,7 +1041,7 @@ func (a *ComplianceAPIService) StopComplianceScanExecute(r ApiStopComplianceScan
 		localVarHeaderParams["Accept"] = localVarHTTPHeaderAccept
 	}
 	// body params
-	localVarPostBody = r.modelComplianceScanTriggerReq
+	localVarPostBody = r.modelStopScanRequest
 	req, err := a.client.prepareRequest(r.ctx, localVarPath, localVarHTTPMethod, localVarPostBody, localVarHeaderParams, localVarQueryParams, localVarFormParams, formFiles)
 	if err != nil {
 		return nil, err
