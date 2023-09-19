@@ -10952,7 +10952,6 @@ components:
           key: 6
         status_message: status_message
         node_type: node_type
-        stop_requested: true
         benchmark_types:
         - benchmark_types
         - benchmark_types
@@ -10988,8 +10987,6 @@ components:
           type: string
         status_message:
           type: string
-        stop_requested:
-          type: boolean
         updated_at:
           format: int64
           type: integer
@@ -11125,7 +11122,6 @@ components:
             key: 6
           status_message: status_message
           node_type: node_type
-          stop_requested: true
           benchmark_types:
           - benchmark_types
           - benchmark_types
@@ -11139,7 +11135,6 @@ components:
             key: 6
           status_message: status_message
           node_type: node_type
-          stop_requested: true
           benchmark_types:
           - benchmark_types
           - benchmark_types
@@ -16189,7 +16184,6 @@ components:
           key: 6
         status_message: status_message
         node_type: node_type
-        stop_requested: true
         updated_at: 1
         node_name: node_name
         created_at: 0
@@ -16217,8 +16211,6 @@ components:
           type: string
         status_message:
           type: string
-        stop_requested:
-          type: boolean
         updated_at:
           format: int64
           type: integer
@@ -16306,7 +16298,6 @@ components:
             key: 6
           status_message: status_message
           node_type: node_type
-          stop_requested: true
           updated_at: 1
           node_name: node_name
           created_at: 0
@@ -16317,7 +16308,6 @@ components:
             key: 6
           status_message: status_message
           node_type: node_type
-          stop_requested: true
           updated_at: 1
           node_name: node_name
           created_at: 0
@@ -16551,7 +16541,6 @@ components:
               key: 6
             status_message: status_message
             node_type: node_type
-            stop_requested: true
             updated_at: 1
             node_name: node_name
             created_at: 0
