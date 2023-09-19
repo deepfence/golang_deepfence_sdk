@@ -475,7 +475,7 @@ Name | Type | Description  | Notes
 
 ## StopComplianceScan
 
-> StopComplianceScan(ctx).ModelComplianceScanTriggerReq(modelComplianceScanTriggerReq).Execute()
+> StopComplianceScan(ctx).ModelStopScanRequest(modelStopScanRequest).Execute()
 
 Stop Compliance Scan
 
@@ -494,11 +494,11 @@ import (
 )
 
 func main() {
-    modelComplianceScanTriggerReq := *openapiclient.NewModelComplianceScanTriggerReq([]string{"BenchmarkTypes_example"}, *openapiclient.NewModelScanFilter(*openapiclient.NewReportersContainsFilter(map[string][]interface{}{"key": []interface{}{nil}}), *openapiclient.NewReportersContainsFilter(map[string][]interface{}{"key": []interface{}{nil}}), *openapiclient.NewReportersContainsFilter(map[string][]interface{}{"key": []interface{}{nil}}), *openapiclient.NewReportersContainsFilter(map[string][]interface{}{"key": []interface{}{nil}}), *openapiclient.NewReportersContainsFilter(map[string][]interface{}{"key": []interface{}{nil}})), []openapiclient.ModelNodeIdentifier{*openapiclient.NewModelNodeIdentifier("NodeId_example", "NodeType_example")}) // ModelComplianceScanTriggerReq |  (optional)
+    modelStopScanRequest := *openapiclient.NewModelStopScanRequest("ScanId_example", "ScanType_example") // ModelStopScanRequest |  (optional)
 
     configuration := openapiclient.NewConfiguration()
     apiClient := openapiclient.NewAPIClient(configuration)
-    r, err := apiClient.ComplianceAPI.StopComplianceScan(context.Background()).ModelComplianceScanTriggerReq(modelComplianceScanTriggerReq).Execute()
+    r, err := apiClient.ComplianceAPI.StopComplianceScan(context.Background()).ModelStopScanRequest(modelStopScanRequest).Execute()
     if err != nil {
         fmt.Fprintf(os.Stderr, "Error when calling `ComplianceAPI.StopComplianceScan``: %v\n", err)
         fmt.Fprintf(os.Stderr, "Full HTTP response: %v\n", r)
@@ -517,7 +517,7 @@ Other parameters are passed through a pointer to a apiStopComplianceScanRequest 
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **modelComplianceScanTriggerReq** | [**ModelComplianceScanTriggerReq**](ModelComplianceScanTriggerReq.md) |  | 
+ **modelStopScanRequest** | [**ModelStopScanRequest**](ModelStopScanRequest.md) |  | 
 
 ### Return type
 

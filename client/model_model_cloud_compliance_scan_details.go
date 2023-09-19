@@ -24,6 +24,7 @@ type ModelCloudComplianceScanDetails struct {
 	Benchmarks []ModelCloudComplianceBenchmark `json:"benchmarks,omitempty"`
 	ScanId *string `json:"scan_id,omitempty"`
 	ScanTypes []string `json:"scan_types,omitempty"`
+	StopRequested *bool `json:"stop_requested,omitempty"`
 }
 
 // NewModelCloudComplianceScanDetails instantiates a new ModelCloudComplianceScanDetails object
@@ -173,6 +174,38 @@ func (o *ModelCloudComplianceScanDetails) SetScanTypes(v []string) {
 	o.ScanTypes = v
 }
 
+// GetStopRequested returns the StopRequested field value if set, zero value otherwise.
+func (o *ModelCloudComplianceScanDetails) GetStopRequested() bool {
+	if o == nil || IsNil(o.StopRequested) {
+		var ret bool
+		return ret
+	}
+	return *o.StopRequested
+}
+
+// GetStopRequestedOk returns a tuple with the StopRequested field value if set, nil otherwise
+// and a boolean to check if the value has been set.
+func (o *ModelCloudComplianceScanDetails) GetStopRequestedOk() (*bool, bool) {
+	if o == nil || IsNil(o.StopRequested) {
+		return nil, false
+	}
+	return o.StopRequested, true
+}
+
+// HasStopRequested returns a boolean if a field has been set.
+func (o *ModelCloudComplianceScanDetails) HasStopRequested() bool {
+	if o != nil && !IsNil(o.StopRequested) {
+		return true
+	}
+
+	return false
+}
+
+// SetStopRequested gets a reference to the given bool and assigns it to the StopRequested field.
+func (o *ModelCloudComplianceScanDetails) SetStopRequested(v bool) {
+	o.StopRequested = &v
+}
+
 func (o ModelCloudComplianceScanDetails) MarshalJSON() ([]byte, error) {
 	toSerialize,err := o.ToMap()
 	if err != nil {
@@ -194,6 +227,9 @@ func (o ModelCloudComplianceScanDetails) ToMap() (map[string]interface{}, error)
 	}
 	if o.ScanTypes != nil {
 		toSerialize["scan_types"] = o.ScanTypes
+	}
+	if !IsNil(o.StopRequested) {
+		toSerialize["stop_requested"] = o.StopRequested
 	}
 	return toSerialize, nil
 }

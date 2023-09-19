@@ -28,6 +28,7 @@ type ModelScanInfo struct {
 	SeverityCounts map[string]int32 `json:"severity_counts"`
 	Status string `json:"status"`
 	StatusMessage string `json:"status_message"`
+	StopRequested *bool `json:"stop_requested,omitempty"`
 	UpdatedAt int64 `json:"updated_at"`
 }
 
@@ -251,6 +252,38 @@ func (o *ModelScanInfo) SetStatusMessage(v string) {
 	o.StatusMessage = v
 }
 
+// GetStopRequested returns the StopRequested field value if set, zero value otherwise.
+func (o *ModelScanInfo) GetStopRequested() bool {
+	if o == nil || IsNil(o.StopRequested) {
+		var ret bool
+		return ret
+	}
+	return *o.StopRequested
+}
+
+// GetStopRequestedOk returns a tuple with the StopRequested field value if set, nil otherwise
+// and a boolean to check if the value has been set.
+func (o *ModelScanInfo) GetStopRequestedOk() (*bool, bool) {
+	if o == nil || IsNil(o.StopRequested) {
+		return nil, false
+	}
+	return o.StopRequested, true
+}
+
+// HasStopRequested returns a boolean if a field has been set.
+func (o *ModelScanInfo) HasStopRequested() bool {
+	if o != nil && !IsNil(o.StopRequested) {
+		return true
+	}
+
+	return false
+}
+
+// SetStopRequested gets a reference to the given bool and assigns it to the StopRequested field.
+func (o *ModelScanInfo) SetStopRequested(v bool) {
+	o.StopRequested = &v
+}
+
 // GetUpdatedAt returns the UpdatedAt field value
 func (o *ModelScanInfo) GetUpdatedAt() int64 {
 	if o == nil {
@@ -295,6 +328,9 @@ func (o ModelScanInfo) ToMap() (map[string]interface{}, error) {
 	}
 	toSerialize["status"] = o.Status
 	toSerialize["status_message"] = o.StatusMessage
+	if !IsNil(o.StopRequested) {
+		toSerialize["stop_requested"] = o.StopRequested
+	}
 	toSerialize["updated_at"] = o.UpdatedAt
 	return toSerialize, nil
 }
