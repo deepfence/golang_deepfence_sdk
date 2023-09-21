@@ -494,7 +494,7 @@ import (
 )
 
 func main() {
-    modelStopScanRequest := *openapiclient.NewModelStopScanRequest("ScanId_example", "ScanType_example") // ModelStopScanRequest |  (optional)
+    modelStopScanRequest := *openapiclient.NewModelStopScanRequest([]openapiclient.ModelNodeIdentifier{*openapiclient.NewModelNodeIdentifier("NodeId_example", "NodeType_example")}, []string{"ScanIds_example"}, "ScanType_example") // ModelStopScanRequest |  (optional)
 
     configuration := openapiclient.NewConfiguration()
     apiClient := openapiclient.NewAPIClient(configuration)

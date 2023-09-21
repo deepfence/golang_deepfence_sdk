@@ -16869,11 +16869,26 @@ components:
       type: object
     ModelStopScanRequest:
       example:
+        scan_ids:
+        - scan_ids
+        - scan_ids
         scan_type: SecretScan
-        scan_id: scan_id
+        node_ids:
+        - node_type: image
+          node_id: node_id
+        - node_type: image
+          node_id: node_id
       properties:
-        scan_id:
-          type: string
+        node_ids:
+          items:
+            $ref: '#/components/schemas/ModelNodeIdentifier'
+          nullable: true
+          type: array
+        scan_ids:
+          items:
+            type: string
+          nullable: true
+          type: array
         scan_type:
           enum:
           - SecretScan
@@ -16883,7 +16898,8 @@ components:
           - CloudComplianceScan
           type: string
       required:
-      - scan_id
+      - node_ids
+      - scan_ids
       - scan_type
       type: object
     ModelSummary:
