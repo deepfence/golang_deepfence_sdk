@@ -4,14 +4,15 @@
 
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
-**ScanId** | **string** |  | 
+**NodeIds** | [**[]ModelNodeIdentifier**](ModelNodeIdentifier.md) |  | 
+**ScanIds** | **[]string** |  | 
 **ScanType** | **string** |  | 
 
 ## Methods
 
 ### NewModelStopScanRequest
 
-`func NewModelStopScanRequest(scanId string, scanType string, ) *ModelStopScanRequest`
+`func NewModelStopScanRequest(nodeIds []ModelNodeIdentifier, scanIds []string, scanType string, ) *ModelStopScanRequest`
 
 NewModelStopScanRequest instantiates a new ModelStopScanRequest object
 This constructor will assign default values to properties that have it defined,
@@ -26,26 +27,66 @@ NewModelStopScanRequestWithDefaults instantiates a new ModelStopScanRequest obje
 This constructor will only assign default values to properties that have it defined,
 but it doesn't guarantee that properties required by API are set
 
-### GetScanId
+### GetNodeIds
 
-`func (o *ModelStopScanRequest) GetScanId() string`
+`func (o *ModelStopScanRequest) GetNodeIds() []ModelNodeIdentifier`
 
-GetScanId returns the ScanId field if non-nil, zero value otherwise.
+GetNodeIds returns the NodeIds field if non-nil, zero value otherwise.
 
-### GetScanIdOk
+### GetNodeIdsOk
 
-`func (o *ModelStopScanRequest) GetScanIdOk() (*string, bool)`
+`func (o *ModelStopScanRequest) GetNodeIdsOk() (*[]ModelNodeIdentifier, bool)`
 
-GetScanIdOk returns a tuple with the ScanId field if it's non-nil, zero value otherwise
+GetNodeIdsOk returns a tuple with the NodeIds field if it's non-nil, zero value otherwise
 and a boolean to check if the value has been set.
 
-### SetScanId
+### SetNodeIds
 
-`func (o *ModelStopScanRequest) SetScanId(v string)`
+`func (o *ModelStopScanRequest) SetNodeIds(v []ModelNodeIdentifier)`
 
-SetScanId sets ScanId field to given value.
+SetNodeIds sets NodeIds field to given value.
 
 
+### SetNodeIdsNil
+
+`func (o *ModelStopScanRequest) SetNodeIdsNil(b bool)`
+
+ SetNodeIdsNil sets the value for NodeIds to be an explicit nil
+
+### UnsetNodeIds
+`func (o *ModelStopScanRequest) UnsetNodeIds()`
+
+UnsetNodeIds ensures that no value is present for NodeIds, not even an explicit nil
+### GetScanIds
+
+`func (o *ModelStopScanRequest) GetScanIds() []string`
+
+GetScanIds returns the ScanIds field if non-nil, zero value otherwise.
+
+### GetScanIdsOk
+
+`func (o *ModelStopScanRequest) GetScanIdsOk() (*[]string, bool)`
+
+GetScanIdsOk returns a tuple with the ScanIds field if it's non-nil, zero value otherwise
+and a boolean to check if the value has been set.
+
+### SetScanIds
+
+`func (o *ModelStopScanRequest) SetScanIds(v []string)`
+
+SetScanIds sets ScanIds field to given value.
+
+
+### SetScanIdsNil
+
+`func (o *ModelStopScanRequest) SetScanIdsNil(b bool)`
+
+ SetScanIdsNil sets the value for ScanIds to be an explicit nil
+
+### UnsetScanIds
+`func (o *ModelStopScanRequest) UnsetScanIds()`
+
+UnsetScanIds ensures that no value is present for ScanIds, not even an explicit nil
 ### GetScanType
 
 `func (o *ModelStopScanRequest) GetScanType() string`

@@ -20,7 +20,8 @@ var _ MappedNullable = &ModelStopScanRequest{}
 
 // ModelStopScanRequest struct for ModelStopScanRequest
 type ModelStopScanRequest struct {
-	ScanId string `json:"scan_id"`
+	NodeIds []ModelNodeIdentifier `json:"node_ids"`
+	ScanIds []string `json:"scan_ids"`
 	ScanType string `json:"scan_type"`
 }
 
@@ -28,9 +29,10 @@ type ModelStopScanRequest struct {
 // This constructor will assign default values to properties that have it defined,
 // and makes sure properties required by API are set, but the set of arguments
 // will change when the set of required properties is changed
-func NewModelStopScanRequest(scanId string, scanType string) *ModelStopScanRequest {
+func NewModelStopScanRequest(nodeIds []ModelNodeIdentifier, scanIds []string, scanType string) *ModelStopScanRequest {
 	this := ModelStopScanRequest{}
-	this.ScanId = scanId
+	this.NodeIds = nodeIds
+	this.ScanIds = scanIds
 	this.ScanType = scanType
 	return &this
 }
@@ -43,28 +45,56 @@ func NewModelStopScanRequestWithDefaults() *ModelStopScanRequest {
 	return &this
 }
 
-// GetScanId returns the ScanId field value
-func (o *ModelStopScanRequest) GetScanId() string {
+// GetNodeIds returns the NodeIds field value
+// If the value is explicit nil, the zero value for []ModelNodeIdentifier will be returned
+func (o *ModelStopScanRequest) GetNodeIds() []ModelNodeIdentifier {
 	if o == nil {
-		var ret string
+		var ret []ModelNodeIdentifier
 		return ret
 	}
 
-	return o.ScanId
+	return o.NodeIds
 }
 
-// GetScanIdOk returns a tuple with the ScanId field value
+// GetNodeIdsOk returns a tuple with the NodeIds field value
 // and a boolean to check if the value has been set.
-func (o *ModelStopScanRequest) GetScanIdOk() (*string, bool) {
-	if o == nil {
+// NOTE: If the value is an explicit nil, `nil, true` will be returned
+func (o *ModelStopScanRequest) GetNodeIdsOk() ([]ModelNodeIdentifier, bool) {
+	if o == nil || IsNil(o.NodeIds) {
 		return nil, false
 	}
-	return &o.ScanId, true
+	return o.NodeIds, true
 }
 
-// SetScanId sets field value
-func (o *ModelStopScanRequest) SetScanId(v string) {
-	o.ScanId = v
+// SetNodeIds sets field value
+func (o *ModelStopScanRequest) SetNodeIds(v []ModelNodeIdentifier) {
+	o.NodeIds = v
+}
+
+// GetScanIds returns the ScanIds field value
+// If the value is explicit nil, the zero value for []string will be returned
+func (o *ModelStopScanRequest) GetScanIds() []string {
+	if o == nil {
+		var ret []string
+		return ret
+	}
+
+	return o.ScanIds
+}
+
+// GetScanIdsOk returns a tuple with the ScanIds field value
+// and a boolean to check if the value has been set.
+// NOTE: If the value is an explicit nil, `nil, true` will be returned
+func (o *ModelStopScanRequest) GetScanIdsOk() ([]string, bool) {
+	if o == nil || IsNil(o.ScanIds) {
+		return nil, false
+	}
+	return o.ScanIds, true
+}
+
+// SetScanIds sets field value
+func (o *ModelStopScanRequest) SetScanIds(v []string) {
+	o.ScanIds = v
 }
 
 // GetScanType returns the ScanType field value
@@ -101,7 +131,12 @@ func (o ModelStopScanRequest) MarshalJSON() ([]byte, error) {
 
 func (o ModelStopScanRequest) ToMap() (map[string]interface{}, error) {
 	toSerialize := map[string]interface{}{}
-	toSerialize["scan_id"] = o.ScanId
+	if o.NodeIds != nil {
+		toSerialize["node_ids"] = o.NodeIds
+	}
+	if o.ScanIds != nil {
+		toSerialize["scan_ids"] = o.ScanIds
+	}
 	toSerialize["scan_type"] = o.ScanType
 	return toSerialize, nil
 }
