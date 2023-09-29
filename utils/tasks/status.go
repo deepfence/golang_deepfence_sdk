@@ -50,14 +50,12 @@ func newScanContext(scanID string, res chan error) *ScanContext {
 func StartStatusReporter(
 	scanId string,
 	sendScanStatus func(ScanStatus) error,
-	sv StatusValues) (chan error, *ScanContext) {
+	sv StatusValues,
+	threshold time.Duration) (chan error, *ScanContext) {
 
 	res := make(chan error)
 	scanCtx := newScanContext(scanId, res)
 
-	//If we don't get any active status back within threshold,
-	//we consider the scan job as dead
-	threshold := 20 * time.Minute
 	go func() {
 		ticker := time.NewTicker(30 * time.Second)
 		var err error
