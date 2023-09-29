@@ -2,6 +2,7 @@ package tasks
 
 import (
 	"context"
+	"fmt"
 	"time"
 
 	"sync/atomic"
@@ -21,7 +22,6 @@ type StatusValues struct {
 }
 
 type ScanContext struct {
-	ScanID        string
 	Res           chan error
 	StopTriggered atomic.Bool
 	IsAlive       atomic.Bool
@@ -29,16 +29,22 @@ type ScanContext struct {
 	Cancel        context.CancelFunc
 }
 
-func (sc *ScanContext) IamAlive() {
-	sc.IsAlive.Store(true)
+func (sc *ScanContext) Checkpoint(stage string) error {
+	if sc != nil {
+		err := sc.Context.Err()
+		if err != nil {
+			return fmt.Errorf("%v: %v", stage, err)
+		}
+		sc.IsAlive.Store(true)
+	}
+	return nil
 }
 
-func newScanContext(scanID string, res chan error) *ScanContext {
+func newScanContext(res chan error) *ScanContext {
 
 	ctx, cancel := context.WithCancel(context.Background())
 
 	obj := ScanContext{
-		ScanID:  scanID,
 		Res:     res,
 		IsAlive: atomic.Bool{},
 		Context: ctx,
@@ -54,7 +60,7 @@ func StartStatusReporter(
 	threshold time.Duration) (chan error, *ScanContext) {
 
 	res := make(chan error)
-	scanCtx := newScanContext(scanId, res)
+	scanCtx := newScanContext(res)
 
 	go func() {
 		ticker := time.NewTicker(30 * time.Second)
