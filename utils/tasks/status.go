@@ -2,19 +2,31 @@ package tasks
 
 import (
 	"context"
-	"errors"
-	"fmt"
 	"time"
 
 	"sync/atomic"
 )
 
+type ScanStatus struct {
+	ScanId      string `json:"scan_id,omitempty"`
+	ScanStatus  string `json:"scan_status,omitempty"`
+	ScanMessage string `json:"scan_message,omitempty"`
+}
+
+type StatusValues struct {
+	IN_PROGRESS string
+	CANCELLED   string
+	FAILED      string
+	SUCCESS     string
+}
+
 type ScanContext struct {
-	ScanID  string
-	Res     chan error
-	IsAlive atomic.Bool
-	Context context.Context
-	Cancel  context.CancelFunc
+	ScanID        string
+	Res           chan error
+	StopTriggered atomic.Bool
+	IsAlive       atomic.Bool
+	Context       context.Context
+	Cancel        context.CancelFunc
 }
 
 func (sc *ScanContext) IamAlive() {
@@ -33,23 +45,6 @@ func newScanContext(scanID string, res chan error) *ScanContext {
 		Cancel:  cancel,
 	}
 	return &obj
-}
-
-var (
-	StoppedError = errors.New("Job stopped")
-)
-
-type ScanStatus struct {
-	ScanId      string `json:"scan_id,omitempty"`
-	ScanStatus  string `json:"scan_status,omitempty"`
-	ScanMessage string `json:"scan_message,omitempty"`
-}
-
-type StatusValues struct {
-	IN_PROGRESS string
-	CANCELLED   string
-	FAILED      string
-	SUCCESS     string
 }
 
 func StartStatusReporter(
@@ -78,8 +73,10 @@ func StartStatusReporter(
 				}
 
 				if time.Now().After(ttl) {
-					err = fmt.Errorf("Scan aborted as inactive since %v", ttl.Add(-threshold))
-					break
+					scanCtx.Cancel()
+					ticker.Stop()
+					// Wait for the job to finish
+					continue
 				}
 
 				sendScanStatus(
@@ -93,7 +90,7 @@ func StartStatusReporter(
 		status := sv.SUCCESS
 		status_message := ""
 		if err != nil {
-			if errors.Is(err, StoppedError) {
+			if scanCtx.StopTriggered.Load() {
 				status = sv.CANCELLED
 			} else {
 				status = sv.FAILED
