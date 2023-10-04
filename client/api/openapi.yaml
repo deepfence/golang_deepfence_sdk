@@ -316,6 +316,49 @@ paths:
       summary: List Cloud Node Providers
       tags:
       - Cloud Nodes
+  /deepfence/complete/process:
+    post:
+      description: Complete process info
+      operationId: completeProcessInfo
+      requestBody:
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/CompletionCompletionNodeFieldReq'
+      responses:
+        "200":
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/CompletionCompletionNodeFieldRes'
+          description: OK
+        "400":
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ApiDocsBadRequestResponse'
+          description: Bad Request
+        "401":
+          description: Unauthorized
+        "403":
+          description: Forbidden
+        "404":
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ApiDocsFailureResponse'
+          description: Not Found
+        "500":
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ApiDocsFailureResponse'
+          description: Internal Server Error
+      security:
+      - bearer_token: []
+      summary: Get Completion for process fields
+      tags:
+      - Completion
   /deepfence/controls/agent:
     post:
       description: Fetch actions for a given agent
@@ -1368,7 +1411,7 @@ paths:
           content:
             application/json:
               schema:
-                $ref: '#/components/schemas/ApiDocsGraphResult'
+                $ref: '#/components/schemas/ModelGraphResult'
           description: OK
         "400":
           content:
@@ -1412,7 +1455,7 @@ paths:
           content:
             application/json:
               schema:
-                $ref: '#/components/schemas/ApiDocsGraphResult'
+                $ref: '#/components/schemas/ModelGraphResult'
           description: OK
         "400":
           content:
@@ -1441,6 +1484,49 @@ paths:
       summary: Get Containers Topology Graph
       tags:
       - Topology
+  /deepfence/graph/topology/delta:
+    post:
+      description: Retrieve addition or deletion toplogy deltas
+      operationId: getTopologyDelta
+      requestBody:
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/ModelTopologyDeltaReq'
+      responses:
+        "200":
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ModelTopologyDeltaResponse'
+          description: OK
+        "400":
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ApiDocsBadRequestResponse'
+          description: Bad Request
+        "401":
+          description: Unauthorized
+        "403":
+          description: Forbidden
+        "404":
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ApiDocsFailureResponse'
+          description: Not Found
+        "500":
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ApiDocsFailureResponse'
+          description: Internal Server Error
+      security:
+      - bearer_token: []
+      summary: Get Topology Delta
+      tags:
+      - Topology
   /deepfence/graph/topology/hosts:
     post:
       description: Retrieve the full topology graph associated with the account from
@@ -1456,7 +1542,7 @@ paths:
           content:
             application/json:
               schema:
-                $ref: '#/components/schemas/ApiDocsGraphResult'
+                $ref: '#/components/schemas/ModelGraphResult'
           description: OK
         "400":
           content:
@@ -1500,7 +1586,7 @@ paths:
           content:
             application/json:
               schema:
-                $ref: '#/components/schemas/ApiDocsGraphResult'
+                $ref: '#/components/schemas/ModelGraphResult'
           description: OK
         "400":
           content:
@@ -1544,7 +1630,7 @@ paths:
           content:
             application/json:
               schema:
-                $ref: '#/components/schemas/ApiDocsGraphResult'
+                $ref: '#/components/schemas/ModelGraphResult'
           description: OK
         "400":
           content:
@@ -4585,6 +4671,44 @@ paths:
       summary: Get Vulnerability Scans Results
       tags:
       - Vulnerability
+  /deepfence/scan/results/fields:
+    get:
+      description: Get all the fields available in all the scan reports
+      operationId: getScanReportFields
+      responses:
+        "200":
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ModelScanReportFieldsResponse'
+          description: OK
+        "400":
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ApiDocsBadRequestResponse'
+          description: Bad Request
+        "401":
+          description: Unauthorized
+        "403":
+          description: Forbidden
+        "404":
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ApiDocsFailureResponse'
+          description: Not Found
+        "500":
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ApiDocsFailureResponse'
+          description: Internal Server Error
+      security:
+      - bearer_token: []
+      summary: Get Scan Report Fields
+      tags:
+      - Common
   /deepfence/scan/results/malware:
     post:
       description: Get Malware Scans results on agent or registry
@@ -7736,10 +7860,15 @@ paths:
       summary: Update setting
       tags:
       - Settings
-  /deepfence/settings/user-activity-log:
-    get:
-      description: Get activity logs for all users
-      operationId: getUserActivityLogs
+  /deepfence/settings/user-audit-log:
+    post:
+      description: Get audit logs for all users
+      operationId: getUserAuditLogs
+      requestBody:
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/ModelGetAuditLogsRequest'
       responses:
         "200":
           content:
@@ -7773,7 +7902,45 @@ paths:
           description: Internal Server Error
       security:
       - bearer_token: []
-      summary: Get activity logs
+      summary: Get user audit logs
+      tags:
+      - Settings
+  /deepfence/settings/user-audit-log/count:
+    get:
+      description: Get user audit logs count
+      operationId: getUserAuditLogsCount
+      responses:
+        "200":
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/SearchSearchCountResp'
+          description: OK
+        "400":
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ApiDocsBadRequestResponse'
+          description: Bad Request
+        "401":
+          description: Unauthorized
+        "403":
+          description: Forbidden
+        "404":
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ApiDocsFailureResponse'
+          description: Not Found
+        "500":
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ApiDocsFailureResponse'
+          description: Internal Server Error
+      security:
+      - bearer_token: []
+      summary: Get user audit logs count
       tags:
       - Settings
   /deepfence/user:
@@ -8413,133 +8580,38 @@ components:
           example: false
           type: boolean
       type: object
-    ApiDocsGraphResult:
+    CompletionCompletionNodeFieldReq:
       example:
-        nodes:
-          key:
-            immediate_parent_id: immediate_parent_id
-            metadata:
-              docker_image_name_with_tag: docker_image_name_with_tag
-              kubernetes_ip: kubernetes_ip
-              public_ip:
-              - public_ip
-              - public_ip
-              kubernetes_cluster_name: kubernetes_cluster_name
-              docker_container_state: docker_container_state
-              cpu_max: 6.027456183070403
-              pid: 7
-              kubernetes_created: kubernetes_created
-              kubernetes_namespace: kubernetes_namespace
-              cmdline: cmdline
-              node_type: node_type
-              interface_ip_map: interface_ip_map
-              pseudo: true
-              docker_container_name: docker_container_name
-              docker_container_created: docker_container_created
-              kubernetes_cluster_id: kubernetes_cluster_id
-              docker_container_networks: docker_container_networks
-              kubernetes_ports:
-              - kubernetes_ports
-              - kubernetes_ports
-              version: version
-              pod_name: pod_name
-              ppid: 9
-              tags:
-              - tags
-              - tags
-              docker_container_ports: docker_container_ports
-              kubernetes_is_in_host_network: true
-              instance_id: instance_id
-              kernel_id: kernel_id
-              copy_of: copy_of
-              open_files:
-              - open_files
-              - open_files
-              docker_env: docker_env
-              connection_count: 0
-              docker_image_size: docker_image_size
-              cpu_usage: 1.4658129805029452
-              pod_id: pod_id
-              docker_label: docker_label
-              instance_type: instance_type
-              docker_image_name: docker_image_name
-              user_defined_tags:
-              - user_defined_tags
-              - user_defined_tags
-              local_networks:
-              - local_networks
-              - local_networks
-              cloud_region: cloud_region
-              kubernetes_state: kubernetes_state
-              interface_names:
-              - interface_names
-              - interface_names
-              memory_usage: 5
-              open_files_count: 2
-              kubernetes_public_ip: kubernetes_public_ip
-              private_ip:
-              - private_ip
-              - private_ip
-              docker_container_network_mode: docker_container_network_mode
-              kubernetes_type: kubernetes_type
-              resource_group: resource_group
-              docker_image_tag: docker_image_tag
-              kubernetes_labels: kubernetes_labels
-              docker_container_ips:
-              - docker_container_ips
-              - docker_container_ips
-              docker_image_id: docker_image_id
-              timestamp: timestamp
-              interface_ips:
-              - interface_ips
-              - interface_ips
-              availability_zone: availability_zone
-              is_console_vm: true
-              os: os
-              local_cidr:
-              - local_cidr
-              - local_cidr
-              node_name: node_name
-              threads: 3
-              cloud_provider: cloud_provider
-              docker_container_command: docker_container_command
-              agent_running: true
-              uptime: 2
-              memory_max: 5
-              docker_image_created_at: docker_image_created_at
-              kernel_version: kernel_version
-              docker_container_state_human: docker_container_state_human
-              docker_image_virtual_size: docker_image_virtual_size
-              kubernetes_ingress_ip:
-              - kubernetes_ingress_ip
-              - kubernetes_ingress_ip
-              host_name: host_name
-              node_id: node_id
-            adjacency:
-            - adjacency
-            - adjacency
-            ids:
-            - ids
-            - ids
-            id: id
-            label: label
-            type: type
-        edges:
-          key:
-            source: source
-            target: target
+        completion: completion
+        window:
+          offset: 0
+          size: 6
+        field_name: field_name
       properties:
-        edges:
-          additionalProperties:
-            $ref: '#/components/schemas/DetailedConnectionSummary'
-          type: object
-        nodes:
-          additionalProperties:
-            $ref: '#/components/schemas/DetailedNodeSummary'
-          type: object
+        completion:
+          type: string
+        field_name:
+          type: string
+        window:
+          $ref: '#/components/schemas/ModelFetchWindow'
       required:
-      - edges
-      - nodes
+      - completion
+      - field_name
+      - window
+      type: object
+    CompletionCompletionNodeFieldRes:
+      example:
+        possible_values:
+        - possible_values
+        - possible_values
+      properties:
+        possible_values:
+          items:
+            type: string
+          nullable: true
+          type: array
+      required:
+      - possible_values
       type: object
     ControlsAction:
       example:
@@ -9930,6 +10002,7 @@ components:
         cve_caused_by_package_path: cve_caused_by_package_path
         cve_id: cve_id
         exploit_poc: exploit_poc
+        cve_type: cve_type
         has_live_connection: true
         cve_fixed_in: cve_fixed_in
         init_exploitability_score: 5
@@ -9958,6 +10031,8 @@ components:
         cve_overall_score:
           type: number
         cve_severity:
+          type: string
+        cve_type:
           type: string
         exploit_poc:
           type: string
@@ -11811,6 +11886,145 @@ components:
       properties:
         report_id:
           type: string
+      type: object
+    ModelGetAuditLogsRequest:
+      example:
+        window:
+          offset: 0
+          size: 6
+      properties:
+        window:
+          $ref: '#/components/schemas/ModelFetchWindow'
+      required:
+      - window
+      type: object
+    ModelGraphResult:
+      example:
+        nodes:
+          key:
+            immediate_parent_id: immediate_parent_id
+            metadata:
+              docker_image_name_with_tag: docker_image_name_with_tag
+              kubernetes_ip: kubernetes_ip
+              public_ip:
+              - public_ip
+              - public_ip
+              kubernetes_cluster_name: kubernetes_cluster_name
+              docker_container_state: docker_container_state
+              cpu_max: 6.027456183070403
+              pid: 7
+              kubernetes_created: kubernetes_created
+              kubernetes_namespace: kubernetes_namespace
+              cmdline: cmdline
+              node_type: node_type
+              interface_ip_map: interface_ip_map
+              pseudo: true
+              docker_container_name: docker_container_name
+              docker_container_created: docker_container_created
+              kubernetes_cluster_id: kubernetes_cluster_id
+              docker_container_networks: docker_container_networks
+              kubernetes_ports:
+              - kubernetes_ports
+              - kubernetes_ports
+              version: version
+              pod_name: pod_name
+              ppid: 9
+              tags:
+              - tags
+              - tags
+              docker_container_ports: docker_container_ports
+              kubernetes_is_in_host_network: true
+              instance_id: instance_id
+              kernel_id: kernel_id
+              copy_of: copy_of
+              open_files:
+              - open_files
+              - open_files
+              docker_env: docker_env
+              connection_count: 0
+              docker_image_size: docker_image_size
+              cpu_usage: 1.4658129805029452
+              pod_id: pod_id
+              docker_label: docker_label
+              instance_type: instance_type
+              docker_image_name: docker_image_name
+              user_defined_tags:
+              - user_defined_tags
+              - user_defined_tags
+              local_networks:
+              - local_networks
+              - local_networks
+              cloud_region: cloud_region
+              kubernetes_state: kubernetes_state
+              interface_names:
+              - interface_names
+              - interface_names
+              memory_usage: 5
+              open_files_count: 2
+              kubernetes_public_ip: kubernetes_public_ip
+              private_ip:
+              - private_ip
+              - private_ip
+              docker_container_network_mode: docker_container_network_mode
+              kubernetes_type: kubernetes_type
+              resource_group: resource_group
+              docker_image_tag: docker_image_tag
+              kubernetes_labels: kubernetes_labels
+              docker_container_ips:
+              - docker_container_ips
+              - docker_container_ips
+              docker_image_id: docker_image_id
+              timestamp: timestamp
+              interface_ips:
+              - interface_ips
+              - interface_ips
+              availability_zone: availability_zone
+              is_console_vm: true
+              os: os
+              local_cidr:
+              - local_cidr
+              - local_cidr
+              node_name: node_name
+              threads: 3
+              cloud_provider: cloud_provider
+              docker_container_command: docker_container_command
+              agent_running: true
+              uptime: 2
+              memory_max: 5
+              docker_image_created_at: docker_image_created_at
+              kernel_version: kernel_version
+              docker_container_state_human: docker_container_state_human
+              docker_image_virtual_size: docker_image_virtual_size
+              kubernetes_ingress_ip:
+              - kubernetes_ingress_ip
+              - kubernetes_ingress_ip
+              host_name: host_name
+              node_id: node_id
+            adjacency:
+            - adjacency
+            - adjacency
+            ids:
+            - ids
+            - ids
+            id: id
+            label: label
+            type: type
+        edges:
+          key:
+            source: source
+            target: target
+      properties:
+        edges:
+          additionalProperties:
+            $ref: '#/components/schemas/DetailedConnectionSummary'
+          type: object
+        nodes:
+          additionalProperties:
+            $ref: '#/components/schemas/DetailedNodeSummary'
+          type: object
+      required:
+      - edges
+      - nodes
       type: object
     ModelHost:
       example:
@@ -16323,6 +16537,42 @@ components:
       required:
       - scans_info
       type: object
+    ModelScanReportFieldsResponse:
+      example:
+        malware:
+        - malware
+        - malware
+        compliance:
+        - compliance
+        - compliance
+        secret:
+        - secret
+        - secret
+        vulnerability:
+        - vulnerability
+        - vulnerability
+      properties:
+        compliance:
+          items:
+            type: string
+          nullable: true
+          type: array
+        malware:
+          items:
+            type: string
+          nullable: true
+          type: array
+        secret:
+          items:
+            type: string
+          nullable: true
+          type: array
+        vulnerability:
+          items:
+            type: string
+          nullable: true
+          type: array
+      type: object
     ModelScanResultBasicNode:
       example:
         basic_nodes:
@@ -16873,17 +17123,7 @@ components:
         - scan_ids
         - scan_ids
         scan_type: SecretScan
-        node_ids:
-        - node_type: image
-          node_id: node_id
-        - node_type: image
-          node_id: node_id
       properties:
-        node_ids:
-          items:
-            $ref: '#/components/schemas/ModelNodeIdentifier'
-          nullable: true
-          type: array
         scan_ids:
           items:
             type: string
@@ -16898,7 +17138,6 @@ components:
           - CloudComplianceScan
           type: string
       required:
-      - node_ids
       - scan_ids
       - scan_type
       type: object
@@ -16923,6 +17162,70 @@ components:
           type: integer
         tags:
           type: integer
+      type: object
+    ModelTopologyDeltaReq:
+      example:
+        deletion: true
+        entity_types:
+        - entity_types
+        - entity_types
+        deletion_timestamp: 6
+        addition_timestamp: 0
+        addition: true
+      properties:
+        addition:
+          type: boolean
+        addition_timestamp:
+          format: int64
+          type: integer
+        deletion:
+          type: boolean
+        deletion_timestamp:
+          format: int64
+          type: integer
+        entity_types:
+          items:
+            type: string
+          nullable: true
+          type: array
+      required:
+      - addition
+      - addition_timestamp
+      - deletion
+      - deletion_timestamp
+      - entity_types
+      type: object
+    ModelTopologyDeltaResponse:
+      example:
+        deletions:
+        - node_type: image
+          node_id: node_id
+        - node_type: image
+          node_id: node_id
+        additons:
+        - node_type: image
+          node_id: node_id
+        - node_type: image
+          node_id: node_id
+        deletion_timestamp: 6
+        addition_timestamp: 0
+      properties:
+        addition_timestamp:
+          format: int64
+          type: integer
+        additons:
+          items:
+            $ref: '#/components/schemas/ModelNodeIdentifier'
+          nullable: true
+          type: array
+        deletion_timestamp:
+          format: int64
+          type: integer
+        deletions:
+          items:
+            $ref: '#/components/schemas/ModelNodeIdentifier'
+          nullable: true
+          type: array
       type: object
     ModelUpdateScheduledTaskRequest:
       example:
