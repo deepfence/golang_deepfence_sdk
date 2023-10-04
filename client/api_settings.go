@@ -809,25 +809,31 @@ func (a *SettingsAPIService) GetSettingsExecute(r ApiGetSettingsRequest) ([]Mode
 	return localVarReturnValue, localVarHTTPResponse, nil
 }
 
-type ApiGetUserActivityLogsRequest struct {
+type ApiGetUserAuditLogsRequest struct {
 	ctx context.Context
 	ApiService *SettingsAPIService
+	modelGetAuditLogsRequest *ModelGetAuditLogsRequest
 }
 
-func (r ApiGetUserActivityLogsRequest) Execute() ([]PostgresqlDbGetAuditLogsRow, *http.Response, error) {
-	return r.ApiService.GetUserActivityLogsExecute(r)
+func (r ApiGetUserAuditLogsRequest) ModelGetAuditLogsRequest(modelGetAuditLogsRequest ModelGetAuditLogsRequest) ApiGetUserAuditLogsRequest {
+	r.modelGetAuditLogsRequest = &modelGetAuditLogsRequest
+	return r
+}
+
+func (r ApiGetUserAuditLogsRequest) Execute() ([]PostgresqlDbGetAuditLogsRow, *http.Response, error) {
+	return r.ApiService.GetUserAuditLogsExecute(r)
 }
 
 /*
-GetUserActivityLogs Get activity logs
+GetUserAuditLogs Get user audit logs
 
-Get activity logs for all users
+Get audit logs for all users
 
  @param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
- @return ApiGetUserActivityLogsRequest
+ @return ApiGetUserAuditLogsRequest
 */
-func (a *SettingsAPIService) GetUserActivityLogs(ctx context.Context) ApiGetUserActivityLogsRequest {
-	return ApiGetUserActivityLogsRequest{
+func (a *SettingsAPIService) GetUserAuditLogs(ctx context.Context) ApiGetUserAuditLogsRequest {
+	return ApiGetUserAuditLogsRequest{
 		ApiService: a,
 		ctx: ctx,
 	}
@@ -835,20 +841,153 @@ func (a *SettingsAPIService) GetUserActivityLogs(ctx context.Context) ApiGetUser
 
 // Execute executes the request
 //  @return []PostgresqlDbGetAuditLogsRow
-func (a *SettingsAPIService) GetUserActivityLogsExecute(r ApiGetUserActivityLogsRequest) ([]PostgresqlDbGetAuditLogsRow, *http.Response, error) {
+func (a *SettingsAPIService) GetUserAuditLogsExecute(r ApiGetUserAuditLogsRequest) ([]PostgresqlDbGetAuditLogsRow, *http.Response, error) {
 	var (
-		localVarHTTPMethod   = http.MethodGet
+		localVarHTTPMethod   = http.MethodPost
 		localVarPostBody     interface{}
 		formFiles            []formFile
 		localVarReturnValue  []PostgresqlDbGetAuditLogsRow
 	)
 
-	localBasePath, err := a.client.cfg.ServerURLWithContext(r.ctx, "SettingsAPIService.GetUserActivityLogs")
+	localBasePath, err := a.client.cfg.ServerURLWithContext(r.ctx, "SettingsAPIService.GetUserAuditLogs")
 	if err != nil {
 		return localVarReturnValue, nil, &GenericOpenAPIError{error: err.Error()}
 	}
 
-	localVarPath := localBasePath + "/deepfence/settings/user-activity-log"
+	localVarPath := localBasePath + "/deepfence/settings/user-audit-log"
+
+	localVarHeaderParams := make(map[string]string)
+	localVarQueryParams := url.Values{}
+	localVarFormParams := url.Values{}
+
+	// to determine the Content-Type header
+	localVarHTTPContentTypes := []string{"application/json"}
+
+	// set Content-Type header
+	localVarHTTPContentType := selectHeaderContentType(localVarHTTPContentTypes)
+	if localVarHTTPContentType != "" {
+		localVarHeaderParams["Content-Type"] = localVarHTTPContentType
+	}
+
+	// to determine the Accept header
+	localVarHTTPHeaderAccepts := []string{"application/json"}
+
+	// set Accept header
+	localVarHTTPHeaderAccept := selectHeaderAccept(localVarHTTPHeaderAccepts)
+	if localVarHTTPHeaderAccept != "" {
+		localVarHeaderParams["Accept"] = localVarHTTPHeaderAccept
+	}
+	// body params
+	localVarPostBody = r.modelGetAuditLogsRequest
+	req, err := a.client.prepareRequest(r.ctx, localVarPath, localVarHTTPMethod, localVarPostBody, localVarHeaderParams, localVarQueryParams, localVarFormParams, formFiles)
+	if err != nil {
+		return localVarReturnValue, nil, err
+	}
+
+	localVarHTTPResponse, err := a.client.callAPI(req)
+	if err != nil || localVarHTTPResponse == nil {
+		return localVarReturnValue, localVarHTTPResponse, err
+	}
+
+	localVarBody, err := io.ReadAll(localVarHTTPResponse.Body)
+	localVarHTTPResponse.Body.Close()
+	localVarHTTPResponse.Body = io.NopCloser(bytes.NewBuffer(localVarBody))
+	if err != nil {
+		return localVarReturnValue, localVarHTTPResponse, err
+	}
+
+	if localVarHTTPResponse.StatusCode >= 300 {
+		newErr := &GenericOpenAPIError{
+			body:  localVarBody,
+			error: localVarHTTPResponse.Status,
+		}
+		if localVarHTTPResponse.StatusCode == 400 {
+			var v ApiDocsBadRequestResponse
+			err = a.client.decode(&v, localVarBody, localVarHTTPResponse.Header.Get("Content-Type"))
+			if err != nil {
+				newErr.error = err.Error()
+				return localVarReturnValue, localVarHTTPResponse, newErr
+			}
+					newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
+					newErr.model = v
+			return localVarReturnValue, localVarHTTPResponse, newErr
+		}
+		if localVarHTTPResponse.StatusCode == 404 {
+			var v ApiDocsFailureResponse
+			err = a.client.decode(&v, localVarBody, localVarHTTPResponse.Header.Get("Content-Type"))
+			if err != nil {
+				newErr.error = err.Error()
+				return localVarReturnValue, localVarHTTPResponse, newErr
+			}
+					newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
+					newErr.model = v
+			return localVarReturnValue, localVarHTTPResponse, newErr
+		}
+		if localVarHTTPResponse.StatusCode == 500 {
+			var v ApiDocsFailureResponse
+			err = a.client.decode(&v, localVarBody, localVarHTTPResponse.Header.Get("Content-Type"))
+			if err != nil {
+				newErr.error = err.Error()
+				return localVarReturnValue, localVarHTTPResponse, newErr
+			}
+					newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
+					newErr.model = v
+		}
+		return localVarReturnValue, localVarHTTPResponse, newErr
+	}
+
+	err = a.client.decode(&localVarReturnValue, localVarBody, localVarHTTPResponse.Header.Get("Content-Type"))
+	if err != nil {
+		newErr := &GenericOpenAPIError{
+			body:  localVarBody,
+			error: err.Error(),
+		}
+		return localVarReturnValue, localVarHTTPResponse, newErr
+	}
+
+	return localVarReturnValue, localVarHTTPResponse, nil
+}
+
+type ApiGetUserAuditLogsCountRequest struct {
+	ctx context.Context
+	ApiService *SettingsAPIService
+}
+
+func (r ApiGetUserAuditLogsCountRequest) Execute() (*SearchSearchCountResp, *http.Response, error) {
+	return r.ApiService.GetUserAuditLogsCountExecute(r)
+}
+
+/*
+GetUserAuditLogsCount Get user audit logs count
+
+Get user audit logs count
+
+ @param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
+ @return ApiGetUserAuditLogsCountRequest
+*/
+func (a *SettingsAPIService) GetUserAuditLogsCount(ctx context.Context) ApiGetUserAuditLogsCountRequest {
+	return ApiGetUserAuditLogsCountRequest{
+		ApiService: a,
+		ctx: ctx,
+	}
+}
+
+// Execute executes the request
+//  @return SearchSearchCountResp
+func (a *SettingsAPIService) GetUserAuditLogsCountExecute(r ApiGetUserAuditLogsCountRequest) (*SearchSearchCountResp, *http.Response, error) {
+	var (
+		localVarHTTPMethod   = http.MethodGet
+		localVarPostBody     interface{}
+		formFiles            []formFile
+		localVarReturnValue  *SearchSearchCountResp
+	)
+
+	localBasePath, err := a.client.cfg.ServerURLWithContext(r.ctx, "SettingsAPIService.GetUserAuditLogsCount")
+	if err != nil {
+		return localVarReturnValue, nil, &GenericOpenAPIError{error: err.Error()}
+	}
+
+	localVarPath := localBasePath + "/deepfence/settings/user-audit-log/count"
 
 	localVarHeaderParams := make(map[string]string)
 	localVarQueryParams := url.Values{}

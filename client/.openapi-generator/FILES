@@ -7,6 +7,7 @@ api_cloud_nodes.go
 api_cloud_resources.go
 api_cloud_scanner.go
 api_common.go
+api_completion.go
 api_compliance.go
 api_controls.go
 api_diagnosis.go
@@ -29,12 +30,14 @@ client.go
 configuration.go
 docs/ApiDocsBadRequestResponse.md
 docs/ApiDocsFailureResponse.md
-docs/ApiDocsGraphResult.md
 docs/AuthenticationAPI.md
 docs/CloudNodesAPI.md
 docs/CloudResourcesAPI.md
 docs/CloudScannerAPI.md
 docs/CommonAPI.md
+docs/CompletionAPI.md
+docs/CompletionCompletionNodeFieldReq.md
+docs/CompletionCompletionNodeFieldRes.md
 docs/ComplianceAPI.md
 docs/ControlsAPI.md
 docs/ControlsAction.md
@@ -126,6 +129,8 @@ docs/ModelFiltersReq.md
 docs/ModelFiltersResult.md
 docs/ModelGenerateReportReq.md
 docs/ModelGenerateReportResp.md
+docs/ModelGetAuditLogsRequest.md
+docs/ModelGraphResult.md
 docs/ModelHost.md
 docs/ModelImageStub.md
 docs/ModelInitAgentReq.md
@@ -172,6 +177,7 @@ docs/ModelScanFilter.md
 docs/ModelScanInfo.md
 docs/ModelScanListReq.md
 docs/ModelScanListResp.md
+docs/ModelScanReportFieldsResponse.md
 docs/ModelScanResultBasicNode.md
 docs/ModelScanResultsActionRequest.md
 docs/ModelScanResultsCommon.md
@@ -189,6 +195,8 @@ docs/ModelSettingUpdateRequest.md
 docs/ModelSettingsResponse.md
 docs/ModelStopScanRequest.md
 docs/ModelSummary.md
+docs/ModelTopologyDeltaReq.md
+docs/ModelTopologyDeltaResponse.md
 docs/ModelUpdateScheduledTaskRequest.md
 docs/ModelUpdateUserIdRequest.md
 docs/ModelUpdateUserPasswordRequest.md
@@ -236,7 +244,8 @@ go.mod
 go.sum
 model_api_docs_bad_request_response.go
 model_api_docs_failure_response.go
-model_api_docs_graph_result.go
+model_completion_completion_node_field_req.go
+model_completion_completion_node_field_res.go
 model_controls_action.go
 model_controls_agent_beat.go
 model_controls_agent_controls.go
@@ -320,6 +329,8 @@ model_model_filters_req.go
 model_model_filters_result.go
 model_model_generate_report_req.go
 model_model_generate_report_resp.go
+model_model_get_audit_logs_request.go
+model_model_graph_result.go
 model_model_host.go
 model_model_image_stub.go
 model_model_init_agent_req.go
@@ -366,6 +377,7 @@ model_model_scan_filter.go
 model_model_scan_info.go
 model_model_scan_list_req.go
 model_model_scan_list_resp.go
+model_model_scan_report_fields_response.go
 model_model_scan_result_basic_node.go
 model_model_scan_results_action_request.go
 model_model_scan_results_common.go
@@ -383,6 +395,8 @@ model_model_setting_update_request.go
 model_model_settings_response.go
 model_model_stop_scan_request.go
 model_model_summary.go
+model_model_topology_delta_req.go
+model_model_topology_delta_response.go
 model_model_update_scheduled_task_request.go
 model_model_update_user_id_request.go
 model_model_update_user_password_request.go
@@ -421,6 +435,7 @@ test/api_cloud_nodes_test.go
 test/api_cloud_resources_test.go
 test/api_cloud_scanner_test.go
 test/api_common_test.go
+test/api_completion_test.go
 test/api_compliance_test.go
 test/api_controls_test.go
 test/api_diagnosis_test.go

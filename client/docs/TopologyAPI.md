@@ -8,6 +8,7 @@ Method | HTTP request | Description
 [**GetHostsTopologyGraph**](TopologyAPI.md#GetHostsTopologyGraph) | **Post** /deepfence/graph/topology/hosts | Get Hosts Topology Graph
 [**GetKubernetesTopologyGraph**](TopologyAPI.md#GetKubernetesTopologyGraph) | **Post** /deepfence/graph/topology/kubernetes | Get Kubernetes Topology Graph
 [**GetPodsTopologyGraph**](TopologyAPI.md#GetPodsTopologyGraph) | **Post** /deepfence/graph/topology/pods | Get Pods Topology Graph
+[**GetTopologyDelta**](TopologyAPI.md#GetTopologyDelta) | **Post** /deepfence/graph/topology/delta | Get Topology Delta
 [**GetTopologyGraph**](TopologyAPI.md#GetTopologyGraph) | **Post** /deepfence/graph/topology/ | Get Topology Graph
 [**IngestAgentReport**](TopologyAPI.md#IngestAgentReport) | **Post** /deepfence/ingest/report | Ingest Topology Data
 [**IngestSyncAgentReport**](TopologyAPI.md#IngestSyncAgentReport) | **Post** /deepfence/ingest/sync-report | Ingest Topology Data
@@ -16,7 +17,7 @@ Method | HTTP request | Description
 
 ## GetContainersTopologyGraph
 
-> ApiDocsGraphResult GetContainersTopologyGraph(ctx).GraphTopologyFilters(graphTopologyFilters).Execute()
+> ModelGraphResult GetContainersTopologyGraph(ctx).GraphTopologyFilters(graphTopologyFilters).Execute()
 
 Get Containers Topology Graph
 
@@ -44,7 +45,7 @@ func main() {
         fmt.Fprintf(os.Stderr, "Error when calling `TopologyAPI.GetContainersTopologyGraph``: %v\n", err)
         fmt.Fprintf(os.Stderr, "Full HTTP response: %v\n", r)
     }
-    // response from `GetContainersTopologyGraph`: ApiDocsGraphResult
+    // response from `GetContainersTopologyGraph`: ModelGraphResult
     fmt.Fprintf(os.Stdout, "Response from `TopologyAPI.GetContainersTopologyGraph`: %v\n", resp)
 }
 ```
@@ -64,7 +65,7 @@ Name | Type | Description  | Notes
 
 ### Return type
 
-[**ApiDocsGraphResult**](ApiDocsGraphResult.md)
+[**ModelGraphResult**](ModelGraphResult.md)
 
 ### Authorization
 
@@ -82,7 +83,7 @@ Name | Type | Description  | Notes
 
 ## GetHostsTopologyGraph
 
-> ApiDocsGraphResult GetHostsTopologyGraph(ctx).GraphTopologyFilters(graphTopologyFilters).Execute()
+> ModelGraphResult GetHostsTopologyGraph(ctx).GraphTopologyFilters(graphTopologyFilters).Execute()
 
 Get Hosts Topology Graph
 
@@ -110,7 +111,7 @@ func main() {
         fmt.Fprintf(os.Stderr, "Error when calling `TopologyAPI.GetHostsTopologyGraph``: %v\n", err)
         fmt.Fprintf(os.Stderr, "Full HTTP response: %v\n", r)
     }
-    // response from `GetHostsTopologyGraph`: ApiDocsGraphResult
+    // response from `GetHostsTopologyGraph`: ModelGraphResult
     fmt.Fprintf(os.Stdout, "Response from `TopologyAPI.GetHostsTopologyGraph`: %v\n", resp)
 }
 ```
@@ -130,7 +131,7 @@ Name | Type | Description  | Notes
 
 ### Return type
 
-[**ApiDocsGraphResult**](ApiDocsGraphResult.md)
+[**ModelGraphResult**](ModelGraphResult.md)
 
 ### Authorization
 
@@ -148,7 +149,7 @@ Name | Type | Description  | Notes
 
 ## GetKubernetesTopologyGraph
 
-> ApiDocsGraphResult GetKubernetesTopologyGraph(ctx).GraphTopologyFilters(graphTopologyFilters).Execute()
+> ModelGraphResult GetKubernetesTopologyGraph(ctx).GraphTopologyFilters(graphTopologyFilters).Execute()
 
 Get Kubernetes Topology Graph
 
@@ -176,7 +177,7 @@ func main() {
         fmt.Fprintf(os.Stderr, "Error when calling `TopologyAPI.GetKubernetesTopologyGraph``: %v\n", err)
         fmt.Fprintf(os.Stderr, "Full HTTP response: %v\n", r)
     }
-    // response from `GetKubernetesTopologyGraph`: ApiDocsGraphResult
+    // response from `GetKubernetesTopologyGraph`: ModelGraphResult
     fmt.Fprintf(os.Stdout, "Response from `TopologyAPI.GetKubernetesTopologyGraph`: %v\n", resp)
 }
 ```
@@ -196,7 +197,7 @@ Name | Type | Description  | Notes
 
 ### Return type
 
-[**ApiDocsGraphResult**](ApiDocsGraphResult.md)
+[**ModelGraphResult**](ModelGraphResult.md)
 
 ### Authorization
 
@@ -214,7 +215,7 @@ Name | Type | Description  | Notes
 
 ## GetPodsTopologyGraph
 
-> ApiDocsGraphResult GetPodsTopologyGraph(ctx).GraphTopologyFilters(graphTopologyFilters).Execute()
+> ModelGraphResult GetPodsTopologyGraph(ctx).GraphTopologyFilters(graphTopologyFilters).Execute()
 
 Get Pods Topology Graph
 
@@ -242,7 +243,7 @@ func main() {
         fmt.Fprintf(os.Stderr, "Error when calling `TopologyAPI.GetPodsTopologyGraph``: %v\n", err)
         fmt.Fprintf(os.Stderr, "Full HTTP response: %v\n", r)
     }
-    // response from `GetPodsTopologyGraph`: ApiDocsGraphResult
+    // response from `GetPodsTopologyGraph`: ModelGraphResult
     fmt.Fprintf(os.Stdout, "Response from `TopologyAPI.GetPodsTopologyGraph`: %v\n", resp)
 }
 ```
@@ -262,7 +263,73 @@ Name | Type | Description  | Notes
 
 ### Return type
 
-[**ApiDocsGraphResult**](ApiDocsGraphResult.md)
+[**ModelGraphResult**](ModelGraphResult.md)
+
+### Authorization
+
+[bearer_token](../README.md#bearer_token)
+
+### HTTP request headers
+
+- **Content-Type**: application/json
+- **Accept**: application/json
+
+[[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints)
+[[Back to Model list]](../README.md#documentation-for-models)
+[[Back to README]](../README.md)
+
+
+## GetTopologyDelta
+
+> ModelTopologyDeltaResponse GetTopologyDelta(ctx).ModelTopologyDeltaReq(modelTopologyDeltaReq).Execute()
+
+Get Topology Delta
+
+
+
+### Example
+
+```go
+package main
+
+import (
+    "context"
+    "fmt"
+    "os"
+    openapiclient "github.com/deepfence/golang_deepfence_sdk/client"
+)
+
+func main() {
+    modelTopologyDeltaReq := *openapiclient.NewModelTopologyDeltaReq(false, int64(123), false, int64(123), []string{"EntityTypes_example"}) // ModelTopologyDeltaReq |  (optional)
+
+    configuration := openapiclient.NewConfiguration()
+    apiClient := openapiclient.NewAPIClient(configuration)
+    resp, r, err := apiClient.TopologyAPI.GetTopologyDelta(context.Background()).ModelTopologyDeltaReq(modelTopologyDeltaReq).Execute()
+    if err != nil {
+        fmt.Fprintf(os.Stderr, "Error when calling `TopologyAPI.GetTopologyDelta``: %v\n", err)
+        fmt.Fprintf(os.Stderr, "Full HTTP response: %v\n", r)
+    }
+    // response from `GetTopologyDelta`: ModelTopologyDeltaResponse
+    fmt.Fprintf(os.Stdout, "Response from `TopologyAPI.GetTopologyDelta`: %v\n", resp)
+}
+```
+
+### Path Parameters
+
+
+
+### Other Parameters
+
+Other parameters are passed through a pointer to a apiGetTopologyDeltaRequest struct via the builder pattern
+
+
+Name | Type | Description  | Notes
+------------- | ------------- | ------------- | -------------
+ **modelTopologyDeltaReq** | [**ModelTopologyDeltaReq**](ModelTopologyDeltaReq.md) |  | 
+
+### Return type
+
+[**ModelTopologyDeltaResponse**](ModelTopologyDeltaResponse.md)
 
 ### Authorization
 
@@ -280,7 +347,7 @@ Name | Type | Description  | Notes
 
 ## GetTopologyGraph
 
-> ApiDocsGraphResult GetTopologyGraph(ctx).GraphTopologyFilters(graphTopologyFilters).Execute()
+> ModelGraphResult GetTopologyGraph(ctx).GraphTopologyFilters(graphTopologyFilters).Execute()
 
 Get Topology Graph
 
@@ -308,7 +375,7 @@ func main() {
         fmt.Fprintf(os.Stderr, "Error when calling `TopologyAPI.GetTopologyGraph``: %v\n", err)
         fmt.Fprintf(os.Stderr, "Full HTTP response: %v\n", r)
     }
-    // response from `GetTopologyGraph`: ApiDocsGraphResult
+    // response from `GetTopologyGraph`: ModelGraphResult
     fmt.Fprintf(os.Stdout, "Response from `TopologyAPI.GetTopologyGraph`: %v\n", resp)
 }
 ```
@@ -328,7 +395,7 @@ Name | Type | Description  | Notes
 
 ### Return type
 
-[**ApiDocsGraphResult**](ApiDocsGraphResult.md)
+[**ModelGraphResult**](ModelGraphResult.md)
 
 ### Authorization
 

@@ -94,6 +94,8 @@ Class | Method | HTTP request | Description
 *CloudScannerAPI* | [**ResultsCloudComplianceScan**](docs/CloudScannerAPI.md#resultscloudcompliancescan) | **Post** /deepfence/scan/results/cloud-compliance | Get Cloud Compliance Scan Results
 *CloudScannerAPI* | [**StatusCloudComplianceScan**](docs/CloudScannerAPI.md#statuscloudcompliancescan) | **Post** /deepfence/scan/status/cloud-compliance | Get Cloud Compliance Scan Status
 *CommonAPI* | [**Eula**](docs/CommonAPI.md#eula) | **Get** /deepfence/end-user-license-agreement | Get End User License Agreement
+*CommonAPI* | [**GetScanReportFields**](docs/CommonAPI.md#getscanreportfields) | **Get** /deepfence/scan/results/fields | Get Scan Report Fields
+*CompletionAPI* | [**CompleteProcessInfo**](docs/CompletionAPI.md#completeprocessinfo) | **Post** /deepfence/complete/process | Get Completion for process fields
 *ComplianceAPI* | [**CountResultsComplianceScan**](docs/ComplianceAPI.md#countresultscompliancescan) | **Post** /deepfence/scan/results/count/compliance | Get Compliance Scans Results
 *ComplianceAPI* | [**IngestComplianceScanStatus**](docs/ComplianceAPI.md#ingestcompliancescanstatus) | **Post** /deepfence/ingest/compliance-scan-logs | Ingest Compliance Scan Status
 *ComplianceAPI* | [**IngestCompliances**](docs/ComplianceAPI.md#ingestcompliances) | **Post** /deepfence/ingest/compliance | Ingest Compliances
@@ -236,7 +238,8 @@ Class | Method | HTTP request | Description
 *SettingsAPI* | [**GetEmailConfiguration**](docs/SettingsAPI.md#getemailconfiguration) | **Get** /deepfence/settings/email | Get Email Configurations
 *SettingsAPI* | [**GetScheduledTasks**](docs/SettingsAPI.md#getscheduledtasks) | **Get** /deepfence/scheduled-task | Get scheduled tasks
 *SettingsAPI* | [**GetSettings**](docs/SettingsAPI.md#getsettings) | **Get** /deepfence/settings/global-settings | Get settings
-*SettingsAPI* | [**GetUserActivityLogs**](docs/SettingsAPI.md#getuseractivitylogs) | **Get** /deepfence/settings/user-activity-log | Get activity logs
+*SettingsAPI* | [**GetUserAuditLogs**](docs/SettingsAPI.md#getuserauditlogs) | **Post** /deepfence/settings/user-audit-log | Get user audit logs
+*SettingsAPI* | [**GetUserAuditLogsCount**](docs/SettingsAPI.md#getuserauditlogscount) | **Get** /deepfence/settings/user-audit-log/count | Get user audit logs count
 *SettingsAPI* | [**UpdateScheduledTask**](docs/SettingsAPI.md#updatescheduledtask) | **Patch** /deepfence/scheduled-task/{id} | Update scheduled task
 *SettingsAPI* | [**UpdateSetting**](docs/SettingsAPI.md#updatesetting) | **Patch** /deepfence/settings/global-settings/{id} | Update setting
 *SettingsAPI* | [**UploadVulnerabilityDatabase**](docs/SettingsAPI.md#uploadvulnerabilitydatabase) | **Put** /deepfence/database/vulnerability | Upload Vulnerability Database
@@ -246,6 +249,7 @@ Class | Method | HTTP request | Description
 *TopologyAPI* | [**GetHostsTopologyGraph**](docs/TopologyAPI.md#gethoststopologygraph) | **Post** /deepfence/graph/topology/hosts | Get Hosts Topology Graph
 *TopologyAPI* | [**GetKubernetesTopologyGraph**](docs/TopologyAPI.md#getkubernetestopologygraph) | **Post** /deepfence/graph/topology/kubernetes | Get Kubernetes Topology Graph
 *TopologyAPI* | [**GetPodsTopologyGraph**](docs/TopologyAPI.md#getpodstopologygraph) | **Post** /deepfence/graph/topology/pods | Get Pods Topology Graph
+*TopologyAPI* | [**GetTopologyDelta**](docs/TopologyAPI.md#gettopologydelta) | **Post** /deepfence/graph/topology/delta | Get Topology Delta
 *TopologyAPI* | [**GetTopologyGraph**](docs/TopologyAPI.md#gettopologygraph) | **Post** /deepfence/graph/topology/ | Get Topology Graph
 *TopologyAPI* | [**IngestAgentReport**](docs/TopologyAPI.md#ingestagentreport) | **Post** /deepfence/ingest/report | Ingest Topology Data
 *TopologyAPI* | [**IngestSyncAgentReport**](docs/TopologyAPI.md#ingestsyncagentreport) | **Post** /deepfence/ingest/sync-report | Ingest Topology Data
@@ -281,7 +285,8 @@ Class | Method | HTTP request | Description
 
  - [ApiDocsBadRequestResponse](docs/ApiDocsBadRequestResponse.md)
  - [ApiDocsFailureResponse](docs/ApiDocsFailureResponse.md)
- - [ApiDocsGraphResult](docs/ApiDocsGraphResult.md)
+ - [CompletionCompletionNodeFieldReq](docs/CompletionCompletionNodeFieldReq.md)
+ - [CompletionCompletionNodeFieldRes](docs/CompletionCompletionNodeFieldRes.md)
  - [ControlsAction](docs/ControlsAction.md)
  - [ControlsAgentBeat](docs/ControlsAgentBeat.md)
  - [ControlsAgentControls](docs/ControlsAgentControls.md)
@@ -365,6 +370,8 @@ Class | Method | HTTP request | Description
  - [ModelFiltersResult](docs/ModelFiltersResult.md)
  - [ModelGenerateReportReq](docs/ModelGenerateReportReq.md)
  - [ModelGenerateReportResp](docs/ModelGenerateReportResp.md)
+ - [ModelGetAuditLogsRequest](docs/ModelGetAuditLogsRequest.md)
+ - [ModelGraphResult](docs/ModelGraphResult.md)
  - [ModelHost](docs/ModelHost.md)
  - [ModelImageStub](docs/ModelImageStub.md)
  - [ModelInitAgentReq](docs/ModelInitAgentReq.md)
@@ -411,6 +418,7 @@ Class | Method | HTTP request | Description
  - [ModelScanInfo](docs/ModelScanInfo.md)
  - [ModelScanListReq](docs/ModelScanListReq.md)
  - [ModelScanListResp](docs/ModelScanListResp.md)
+ - [ModelScanReportFieldsResponse](docs/ModelScanReportFieldsResponse.md)
  - [ModelScanResultBasicNode](docs/ModelScanResultBasicNode.md)
  - [ModelScanResultsActionRequest](docs/ModelScanResultsActionRequest.md)
  - [ModelScanResultsCommon](docs/ModelScanResultsCommon.md)
@@ -428,6 +436,8 @@ Class | Method | HTTP request | Description
  - [ModelSettingsResponse](docs/ModelSettingsResponse.md)
  - [ModelStopScanRequest](docs/ModelStopScanRequest.md)
  - [ModelSummary](docs/ModelSummary.md)
+ - [ModelTopologyDeltaReq](docs/ModelTopologyDeltaReq.md)
+ - [ModelTopologyDeltaResponse](docs/ModelTopologyDeltaResponse.md)
  - [ModelUpdateScheduledTaskRequest](docs/ModelUpdateScheduledTaskRequest.md)
  - [ModelUpdateUserIdRequest](docs/ModelUpdateUserIdRequest.md)
  - [ModelUpdateUserPasswordRequest](docs/ModelUpdateUserPasswordRequest.md)

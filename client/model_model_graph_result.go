@@ -15,36 +15,36 @@ import (
 	"encoding/json"
 )
 
-// checks if the ApiDocsGraphResult type satisfies the MappedNullable interface at compile time
-var _ MappedNullable = &ApiDocsGraphResult{}
+// checks if the ModelGraphResult type satisfies the MappedNullable interface at compile time
+var _ MappedNullable = &ModelGraphResult{}
 
-// ApiDocsGraphResult struct for ApiDocsGraphResult
-type ApiDocsGraphResult struct {
+// ModelGraphResult struct for ModelGraphResult
+type ModelGraphResult struct {
 	Edges map[string]DetailedConnectionSummary `json:"edges"`
 	Nodes map[string]DetailedNodeSummary `json:"nodes"`
 }
 
-// NewApiDocsGraphResult instantiates a new ApiDocsGraphResult object
+// NewModelGraphResult instantiates a new ModelGraphResult object
 // This constructor will assign default values to properties that have it defined,
 // and makes sure properties required by API are set, but the set of arguments
 // will change when the set of required properties is changed
-func NewApiDocsGraphResult(edges map[string]DetailedConnectionSummary, nodes map[string]DetailedNodeSummary) *ApiDocsGraphResult {
-	this := ApiDocsGraphResult{}
+func NewModelGraphResult(edges map[string]DetailedConnectionSummary, nodes map[string]DetailedNodeSummary) *ModelGraphResult {
+	this := ModelGraphResult{}
 	this.Edges = edges
 	this.Nodes = nodes
 	return &this
 }
 
-// NewApiDocsGraphResultWithDefaults instantiates a new ApiDocsGraphResult object
+// NewModelGraphResultWithDefaults instantiates a new ModelGraphResult object
 // This constructor will only assign default values to properties that have it defined,
 // but it doesn't guarantee that properties required by API are set
-func NewApiDocsGraphResultWithDefaults() *ApiDocsGraphResult {
-	this := ApiDocsGraphResult{}
+func NewModelGraphResultWithDefaults() *ModelGraphResult {
+	this := ModelGraphResult{}
 	return &this
 }
 
 // GetEdges returns the Edges field value
-func (o *ApiDocsGraphResult) GetEdges() map[string]DetailedConnectionSummary {
+func (o *ModelGraphResult) GetEdges() map[string]DetailedConnectionSummary {
 	if o == nil {
 		var ret map[string]DetailedConnectionSummary
 		return ret
@@ -55,7 +55,7 @@ func (o *ApiDocsGraphResult) GetEdges() map[string]DetailedConnectionSummary {
 
 // GetEdgesOk returns a tuple with the Edges field value
 // and a boolean to check if the value has been set.
-func (o *ApiDocsGraphResult) GetEdgesOk() (*map[string]DetailedConnectionSummary, bool) {
+func (o *ModelGraphResult) GetEdgesOk() (*map[string]DetailedConnectionSummary, bool) {
 	if o == nil {
 		return nil, false
 	}
@@ -63,12 +63,12 @@ func (o *ApiDocsGraphResult) GetEdgesOk() (*map[string]DetailedConnectionSummary
 }
 
 // SetEdges sets field value
-func (o *ApiDocsGraphResult) SetEdges(v map[string]DetailedConnectionSummary) {
+func (o *ModelGraphResult) SetEdges(v map[string]DetailedConnectionSummary) {
 	o.Edges = v
 }
 
 // GetNodes returns the Nodes field value
-func (o *ApiDocsGraphResult) GetNodes() map[string]DetailedNodeSummary {
+func (o *ModelGraphResult) GetNodes() map[string]DetailedNodeSummary {
 	if o == nil {
 		var ret map[string]DetailedNodeSummary
 		return ret
@@ -79,7 +79,7 @@ func (o *ApiDocsGraphResult) GetNodes() map[string]DetailedNodeSummary {
 
 // GetNodesOk returns a tuple with the Nodes field value
 // and a boolean to check if the value has been set.
-func (o *ApiDocsGraphResult) GetNodesOk() (*map[string]DetailedNodeSummary, bool) {
+func (o *ModelGraphResult) GetNodesOk() (*map[string]DetailedNodeSummary, bool) {
 	if o == nil {
 		return nil, false
 	}
@@ -87,11 +87,11 @@ func (o *ApiDocsGraphResult) GetNodesOk() (*map[string]DetailedNodeSummary, bool
 }
 
 // SetNodes sets field value
-func (o *ApiDocsGraphResult) SetNodes(v map[string]DetailedNodeSummary) {
+func (o *ModelGraphResult) SetNodes(v map[string]DetailedNodeSummary) {
 	o.Nodes = v
 }
 
-func (o ApiDocsGraphResult) MarshalJSON() ([]byte, error) {
+func (o ModelGraphResult) MarshalJSON() ([]byte, error) {
 	toSerialize,err := o.ToMap()
 	if err != nil {
 		return []byte{}, err
@@ -99,45 +99,45 @@ func (o ApiDocsGraphResult) MarshalJSON() ([]byte, error) {
 	return json.Marshal(toSerialize)
 }
 
-func (o ApiDocsGraphResult) ToMap() (map[string]interface{}, error) {
+func (o ModelGraphResult) ToMap() (map[string]interface{}, error) {
 	toSerialize := map[string]interface{}{}
 	toSerialize["edges"] = o.Edges
 	toSerialize["nodes"] = o.Nodes
 	return toSerialize, nil
 }
 
-type NullableApiDocsGraphResult struct {
-	value *ApiDocsGraphResult
+type NullableModelGraphResult struct {
+	value *ModelGraphResult
 	isSet bool
 }
 
-func (v NullableApiDocsGraphResult) Get() *ApiDocsGraphResult {
+func (v NullableModelGraphResult) Get() *ModelGraphResult {
 	return v.value
 }
 
-func (v *NullableApiDocsGraphResult) Set(val *ApiDocsGraphResult) {
+func (v *NullableModelGraphResult) Set(val *ModelGraphResult) {
 	v.value = val
 	v.isSet = true
 }
 
-func (v NullableApiDocsGraphResult) IsSet() bool {
+func (v NullableModelGraphResult) IsSet() bool {
 	return v.isSet
 }
 
-func (v *NullableApiDocsGraphResult) Unset() {
+func (v *NullableModelGraphResult) Unset() {
 	v.value = nil
 	v.isSet = false
 }
 
-func NewNullableApiDocsGraphResult(val *ApiDocsGraphResult) *NullableApiDocsGraphResult {
-	return &NullableApiDocsGraphResult{value: val, isSet: true}
+func NewNullableModelGraphResult(val *ModelGraphResult) *NullableModelGraphResult {
+	return &NullableModelGraphResult{value: val, isSet: true}
 }
 
-func (v NullableApiDocsGraphResult) MarshalJSON() ([]byte, error) {
+func (v NullableModelGraphResult) MarshalJSON() ([]byte, error) {
 	return json.Marshal(v.value)
 }
 
-func (v *NullableApiDocsGraphResult) UnmarshalJSON(src []byte) error {
+func (v *NullableModelGraphResult) UnmarshalJSON(src []byte) error {
 	v.isSet = true
 	return json.Unmarshal(src, &v.value)
 }

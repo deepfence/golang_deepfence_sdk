@@ -4,7 +4,6 @@
 
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
-**NodeIds** | [**[]ModelNodeIdentifier**](ModelNodeIdentifier.md) |  | 
 **ScanIds** | **[]string** |  | 
 **ScanType** | **string** |  | 
 
@@ -12,7 +11,7 @@ Name | Type | Description | Notes
 
 ### NewModelStopScanRequest
 
-`func NewModelStopScanRequest(nodeIds []ModelNodeIdentifier, scanIds []string, scanType string, ) *ModelStopScanRequest`
+`func NewModelStopScanRequest(scanIds []string, scanType string, ) *ModelStopScanRequest`
 
 NewModelStopScanRequest instantiates a new ModelStopScanRequest object
 This constructor will assign default values to properties that have it defined,
@@ -27,36 +26,6 @@ NewModelStopScanRequestWithDefaults instantiates a new ModelStopScanRequest obje
 This constructor will only assign default values to properties that have it defined,
 but it doesn't guarantee that properties required by API are set
 
-### GetNodeIds
-
-`func (o *ModelStopScanRequest) GetNodeIds() []ModelNodeIdentifier`
-
-GetNodeIds returns the NodeIds field if non-nil, zero value otherwise.
-
-### GetNodeIdsOk
-
-`func (o *ModelStopScanRequest) GetNodeIdsOk() (*[]ModelNodeIdentifier, bool)`
-
-GetNodeIdsOk returns a tuple with the NodeIds field if it's non-nil, zero value otherwise
-and a boolean to check if the value has been set.
-
-### SetNodeIds
-
-`func (o *ModelStopScanRequest) SetNodeIds(v []ModelNodeIdentifier)`
-
-SetNodeIds sets NodeIds field to given value.
-
-
-### SetNodeIdsNil
-
-`func (o *ModelStopScanRequest) SetNodeIdsNil(b bool)`
-
- SetNodeIdsNil sets the value for NodeIds to be an explicit nil
-
-### UnsetNodeIds
-`func (o *ModelStopScanRequest) UnsetNodeIds()`
-
-UnsetNodeIds ensures that no value is present for NodeIds, not even an explicit nil
 ### GetScanIds
 
 `func (o *ModelStopScanRequest) GetScanIds() []string`

@@ -10,7 +10,8 @@ Method | HTTP request | Description
 [**GetEmailConfiguration**](SettingsAPI.md#GetEmailConfiguration) | **Get** /deepfence/settings/email | Get Email Configurations
 [**GetScheduledTasks**](SettingsAPI.md#GetScheduledTasks) | **Get** /deepfence/scheduled-task | Get scheduled tasks
 [**GetSettings**](SettingsAPI.md#GetSettings) | **Get** /deepfence/settings/global-settings | Get settings
-[**GetUserActivityLogs**](SettingsAPI.md#GetUserActivityLogs) | **Get** /deepfence/settings/user-activity-log | Get activity logs
+[**GetUserAuditLogs**](SettingsAPI.md#GetUserAuditLogs) | **Post** /deepfence/settings/user-audit-log | Get user audit logs
+[**GetUserAuditLogsCount**](SettingsAPI.md#GetUserAuditLogsCount) | **Get** /deepfence/settings/user-audit-log/count | Get user audit logs count
 [**UpdateScheduledTask**](SettingsAPI.md#UpdateScheduledTask) | **Patch** /deepfence/scheduled-task/{id} | Update scheduled task
 [**UpdateSetting**](SettingsAPI.md#UpdateSetting) | **Patch** /deepfence/settings/global-settings/{id} | Update setting
 [**UploadVulnerabilityDatabase**](SettingsAPI.md#UploadVulnerabilityDatabase) | **Put** /deepfence/database/vulnerability | Upload Vulnerability Database
@@ -398,11 +399,77 @@ Other parameters are passed through a pointer to a apiGetSettingsRequest struct 
 [[Back to README]](../README.md)
 
 
-## GetUserActivityLogs
+## GetUserAuditLogs
 
-> []PostgresqlDbGetAuditLogsRow GetUserActivityLogs(ctx).Execute()
+> []PostgresqlDbGetAuditLogsRow GetUserAuditLogs(ctx).ModelGetAuditLogsRequest(modelGetAuditLogsRequest).Execute()
 
-Get activity logs
+Get user audit logs
+
+
+
+### Example
+
+```go
+package main
+
+import (
+    "context"
+    "fmt"
+    "os"
+    openapiclient "github.com/deepfence/golang_deepfence_sdk/client"
+)
+
+func main() {
+    modelGetAuditLogsRequest := *openapiclient.NewModelGetAuditLogsRequest(*openapiclient.NewModelFetchWindow(int32(123), int32(123))) // ModelGetAuditLogsRequest |  (optional)
+
+    configuration := openapiclient.NewConfiguration()
+    apiClient := openapiclient.NewAPIClient(configuration)
+    resp, r, err := apiClient.SettingsAPI.GetUserAuditLogs(context.Background()).ModelGetAuditLogsRequest(modelGetAuditLogsRequest).Execute()
+    if err != nil {
+        fmt.Fprintf(os.Stderr, "Error when calling `SettingsAPI.GetUserAuditLogs``: %v\n", err)
+        fmt.Fprintf(os.Stderr, "Full HTTP response: %v\n", r)
+    }
+    // response from `GetUserAuditLogs`: []PostgresqlDbGetAuditLogsRow
+    fmt.Fprintf(os.Stdout, "Response from `SettingsAPI.GetUserAuditLogs`: %v\n", resp)
+}
+```
+
+### Path Parameters
+
+
+
+### Other Parameters
+
+Other parameters are passed through a pointer to a apiGetUserAuditLogsRequest struct via the builder pattern
+
+
+Name | Type | Description  | Notes
+------------- | ------------- | ------------- | -------------
+ **modelGetAuditLogsRequest** | [**ModelGetAuditLogsRequest**](ModelGetAuditLogsRequest.md) |  | 
+
+### Return type
+
+[**[]PostgresqlDbGetAuditLogsRow**](PostgresqlDbGetAuditLogsRow.md)
+
+### Authorization
+
+[bearer_token](../README.md#bearer_token)
+
+### HTTP request headers
+
+- **Content-Type**: application/json
+- **Accept**: application/json
+
+[[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints)
+[[Back to Model list]](../README.md#documentation-for-models)
+[[Back to README]](../README.md)
+
+
+## GetUserAuditLogsCount
+
+> SearchSearchCountResp GetUserAuditLogsCount(ctx).Execute()
+
+Get user audit logs count
 
 
 
@@ -422,13 +489,13 @@ func main() {
 
     configuration := openapiclient.NewConfiguration()
     apiClient := openapiclient.NewAPIClient(configuration)
-    resp, r, err := apiClient.SettingsAPI.GetUserActivityLogs(context.Background()).Execute()
+    resp, r, err := apiClient.SettingsAPI.GetUserAuditLogsCount(context.Background()).Execute()
     if err != nil {
-        fmt.Fprintf(os.Stderr, "Error when calling `SettingsAPI.GetUserActivityLogs``: %v\n", err)
+        fmt.Fprintf(os.Stderr, "Error when calling `SettingsAPI.GetUserAuditLogsCount``: %v\n", err)
         fmt.Fprintf(os.Stderr, "Full HTTP response: %v\n", r)
     }
-    // response from `GetUserActivityLogs`: []PostgresqlDbGetAuditLogsRow
-    fmt.Fprintf(os.Stdout, "Response from `SettingsAPI.GetUserActivityLogs`: %v\n", resp)
+    // response from `GetUserAuditLogsCount`: SearchSearchCountResp
+    fmt.Fprintf(os.Stdout, "Response from `SettingsAPI.GetUserAuditLogsCount`: %v\n", resp)
 }
 ```
 
@@ -438,12 +505,12 @@ This endpoint does not need any parameter.
 
 ### Other Parameters
 
-Other parameters are passed through a pointer to a apiGetUserActivityLogsRequest struct via the builder pattern
+Other parameters are passed through a pointer to a apiGetUserAuditLogsCountRequest struct via the builder pattern
 
 
 ### Return type
 
-[**[]PostgresqlDbGetAuditLogsRow**](PostgresqlDbGetAuditLogsRow.md)
+[**SearchSearchCountResp**](SearchSearchCountResp.md)
 
 ### Authorization
 

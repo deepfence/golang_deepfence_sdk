@@ -34,7 +34,7 @@ func (r ApiGetContainersTopologyGraphRequest) GraphTopologyFilters(graphTopology
 	return r
 }
 
-func (r ApiGetContainersTopologyGraphRequest) Execute() (*ApiDocsGraphResult, *http.Response, error) {
+func (r ApiGetContainersTopologyGraphRequest) Execute() (*ModelGraphResult, *http.Response, error) {
 	return r.ApiService.GetContainersTopologyGraphExecute(r)
 }
 
@@ -54,13 +54,13 @@ func (a *TopologyAPIService) GetContainersTopologyGraph(ctx context.Context) Api
 }
 
 // Execute executes the request
-//  @return ApiDocsGraphResult
-func (a *TopologyAPIService) GetContainersTopologyGraphExecute(r ApiGetContainersTopologyGraphRequest) (*ApiDocsGraphResult, *http.Response, error) {
+//  @return ModelGraphResult
+func (a *TopologyAPIService) GetContainersTopologyGraphExecute(r ApiGetContainersTopologyGraphRequest) (*ModelGraphResult, *http.Response, error) {
 	var (
 		localVarHTTPMethod   = http.MethodPost
 		localVarPostBody     interface{}
 		formFiles            []formFile
-		localVarReturnValue  *ApiDocsGraphResult
+		localVarReturnValue  *ModelGraphResult
 	)
 
 	localBasePath, err := a.client.cfg.ServerURLWithContext(r.ctx, "TopologyAPIService.GetContainersTopologyGraph")
@@ -173,7 +173,7 @@ func (r ApiGetHostsTopologyGraphRequest) GraphTopologyFilters(graphTopologyFilte
 	return r
 }
 
-func (r ApiGetHostsTopologyGraphRequest) Execute() (*ApiDocsGraphResult, *http.Response, error) {
+func (r ApiGetHostsTopologyGraphRequest) Execute() (*ModelGraphResult, *http.Response, error) {
 	return r.ApiService.GetHostsTopologyGraphExecute(r)
 }
 
@@ -193,13 +193,13 @@ func (a *TopologyAPIService) GetHostsTopologyGraph(ctx context.Context) ApiGetHo
 }
 
 // Execute executes the request
-//  @return ApiDocsGraphResult
-func (a *TopologyAPIService) GetHostsTopologyGraphExecute(r ApiGetHostsTopologyGraphRequest) (*ApiDocsGraphResult, *http.Response, error) {
+//  @return ModelGraphResult
+func (a *TopologyAPIService) GetHostsTopologyGraphExecute(r ApiGetHostsTopologyGraphRequest) (*ModelGraphResult, *http.Response, error) {
 	var (
 		localVarHTTPMethod   = http.MethodPost
 		localVarPostBody     interface{}
 		formFiles            []formFile
-		localVarReturnValue  *ApiDocsGraphResult
+		localVarReturnValue  *ModelGraphResult
 	)
 
 	localBasePath, err := a.client.cfg.ServerURLWithContext(r.ctx, "TopologyAPIService.GetHostsTopologyGraph")
@@ -312,7 +312,7 @@ func (r ApiGetKubernetesTopologyGraphRequest) GraphTopologyFilters(graphTopology
 	return r
 }
 
-func (r ApiGetKubernetesTopologyGraphRequest) Execute() (*ApiDocsGraphResult, *http.Response, error) {
+func (r ApiGetKubernetesTopologyGraphRequest) Execute() (*ModelGraphResult, *http.Response, error) {
 	return r.ApiService.GetKubernetesTopologyGraphExecute(r)
 }
 
@@ -332,13 +332,13 @@ func (a *TopologyAPIService) GetKubernetesTopologyGraph(ctx context.Context) Api
 }
 
 // Execute executes the request
-//  @return ApiDocsGraphResult
-func (a *TopologyAPIService) GetKubernetesTopologyGraphExecute(r ApiGetKubernetesTopologyGraphRequest) (*ApiDocsGraphResult, *http.Response, error) {
+//  @return ModelGraphResult
+func (a *TopologyAPIService) GetKubernetesTopologyGraphExecute(r ApiGetKubernetesTopologyGraphRequest) (*ModelGraphResult, *http.Response, error) {
 	var (
 		localVarHTTPMethod   = http.MethodPost
 		localVarPostBody     interface{}
 		formFiles            []formFile
-		localVarReturnValue  *ApiDocsGraphResult
+		localVarReturnValue  *ModelGraphResult
 	)
 
 	localBasePath, err := a.client.cfg.ServerURLWithContext(r.ctx, "TopologyAPIService.GetKubernetesTopologyGraph")
@@ -451,7 +451,7 @@ func (r ApiGetPodsTopologyGraphRequest) GraphTopologyFilters(graphTopologyFilter
 	return r
 }
 
-func (r ApiGetPodsTopologyGraphRequest) Execute() (*ApiDocsGraphResult, *http.Response, error) {
+func (r ApiGetPodsTopologyGraphRequest) Execute() (*ModelGraphResult, *http.Response, error) {
 	return r.ApiService.GetPodsTopologyGraphExecute(r)
 }
 
@@ -471,13 +471,13 @@ func (a *TopologyAPIService) GetPodsTopologyGraph(ctx context.Context) ApiGetPod
 }
 
 // Execute executes the request
-//  @return ApiDocsGraphResult
-func (a *TopologyAPIService) GetPodsTopologyGraphExecute(r ApiGetPodsTopologyGraphRequest) (*ApiDocsGraphResult, *http.Response, error) {
+//  @return ModelGraphResult
+func (a *TopologyAPIService) GetPodsTopologyGraphExecute(r ApiGetPodsTopologyGraphRequest) (*ModelGraphResult, *http.Response, error) {
 	var (
 		localVarHTTPMethod   = http.MethodPost
 		localVarPostBody     interface{}
 		formFiles            []formFile
-		localVarReturnValue  *ApiDocsGraphResult
+		localVarReturnValue  *ModelGraphResult
 	)
 
 	localBasePath, err := a.client.cfg.ServerURLWithContext(r.ctx, "TopologyAPIService.GetPodsTopologyGraph")
@@ -579,6 +579,145 @@ func (a *TopologyAPIService) GetPodsTopologyGraphExecute(r ApiGetPodsTopologyGra
 	return localVarReturnValue, localVarHTTPResponse, nil
 }
 
+type ApiGetTopologyDeltaRequest struct {
+	ctx context.Context
+	ApiService *TopologyAPIService
+	modelTopologyDeltaReq *ModelTopologyDeltaReq
+}
+
+func (r ApiGetTopologyDeltaRequest) ModelTopologyDeltaReq(modelTopologyDeltaReq ModelTopologyDeltaReq) ApiGetTopologyDeltaRequest {
+	r.modelTopologyDeltaReq = &modelTopologyDeltaReq
+	return r
+}
+
+func (r ApiGetTopologyDeltaRequest) Execute() (*ModelTopologyDeltaResponse, *http.Response, error) {
+	return r.ApiService.GetTopologyDeltaExecute(r)
+}
+
+/*
+GetTopologyDelta Get Topology Delta
+
+Retrieve addition or deletion toplogy deltas
+
+ @param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
+ @return ApiGetTopologyDeltaRequest
+*/
+func (a *TopologyAPIService) GetTopologyDelta(ctx context.Context) ApiGetTopologyDeltaRequest {
+	return ApiGetTopologyDeltaRequest{
+		ApiService: a,
+		ctx: ctx,
+	}
+}
+
+// Execute executes the request
+//  @return ModelTopologyDeltaResponse
+func (a *TopologyAPIService) GetTopologyDeltaExecute(r ApiGetTopologyDeltaRequest) (*ModelTopologyDeltaResponse, *http.Response, error) {
+	var (
+		localVarHTTPMethod   = http.MethodPost
+		localVarPostBody     interface{}
+		formFiles            []formFile
+		localVarReturnValue  *ModelTopologyDeltaResponse
+	)
+
+	localBasePath, err := a.client.cfg.ServerURLWithContext(r.ctx, "TopologyAPIService.GetTopologyDelta")
+	if err != nil {
+		return localVarReturnValue, nil, &GenericOpenAPIError{error: err.Error()}
+	}
+
+	localVarPath := localBasePath + "/deepfence/graph/topology/delta"
+
+	localVarHeaderParams := make(map[string]string)
+	localVarQueryParams := url.Values{}
+	localVarFormParams := url.Values{}
+
+	// to determine the Content-Type header
+	localVarHTTPContentTypes := []string{"application/json"}
+
+	// set Content-Type header
+	localVarHTTPContentType := selectHeaderContentType(localVarHTTPContentTypes)
+	if localVarHTTPContentType != "" {
+		localVarHeaderParams["Content-Type"] = localVarHTTPContentType
+	}
+
+	// to determine the Accept header
+	localVarHTTPHeaderAccepts := []string{"application/json"}
+
+	// set Accept header
+	localVarHTTPHeaderAccept := selectHeaderAccept(localVarHTTPHeaderAccepts)
+	if localVarHTTPHeaderAccept != "" {
+		localVarHeaderParams["Accept"] = localVarHTTPHeaderAccept
+	}
+	// body params
+	localVarPostBody = r.modelTopologyDeltaReq
+	req, err := a.client.prepareRequest(r.ctx, localVarPath, localVarHTTPMethod, localVarPostBody, localVarHeaderParams, localVarQueryParams, localVarFormParams, formFiles)
+	if err != nil {
+		return localVarReturnValue, nil, err
+	}
+
+	localVarHTTPResponse, err := a.client.callAPI(req)
+	if err != nil || localVarHTTPResponse == nil {
+		return localVarReturnValue, localVarHTTPResponse, err
+	}
+
+	localVarBody, err := io.ReadAll(localVarHTTPResponse.Body)
+	localVarHTTPResponse.Body.Close()
+	localVarHTTPResponse.Body = io.NopCloser(bytes.NewBuffer(localVarBody))
+	if err != nil {
+		return localVarReturnValue, localVarHTTPResponse, err
+	}
+
+	if localVarHTTPResponse.StatusCode >= 300 {
+		newErr := &GenericOpenAPIError{
+			body:  localVarBody,
+			error: localVarHTTPResponse.Status,
+		}
+		if localVarHTTPResponse.StatusCode == 400 {
+			var v ApiDocsBadRequestResponse
+			err = a.client.decode(&v, localVarBody, localVarHTTPResponse.Header.Get("Content-Type"))
+			if err != nil {
+				newErr.error = err.Error()
+				return localVarReturnValue, localVarHTTPResponse, newErr
+			}
+					newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
+					newErr.model = v
+			return localVarReturnValue, localVarHTTPResponse, newErr
+		}
+		if localVarHTTPResponse.StatusCode == 404 {
+			var v ApiDocsFailureResponse
+			err = a.client.decode(&v, localVarBody, localVarHTTPResponse.Header.Get("Content-Type"))
+			if err != nil {
+				newErr.error = err.Error()
+				return localVarReturnValue, localVarHTTPResponse, newErr
+			}
+					newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
+					newErr.model = v
+			return localVarReturnValue, localVarHTTPResponse, newErr
+		}
+		if localVarHTTPResponse.StatusCode == 500 {
+			var v ApiDocsFailureResponse
+			err = a.client.decode(&v, localVarBody, localVarHTTPResponse.Header.Get("Content-Type"))
+			if err != nil {
+				newErr.error = err.Error()
+				return localVarReturnValue, localVarHTTPResponse, newErr
+			}
+					newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
+					newErr.model = v
+		}
+		return localVarReturnValue, localVarHTTPResponse, newErr
+	}
+
+	err = a.client.decode(&localVarReturnValue, localVarBody, localVarHTTPResponse.Header.Get("Content-Type"))
+	if err != nil {
+		newErr := &GenericOpenAPIError{
+			body:  localVarBody,
+			error: err.Error(),
+		}
+		return localVarReturnValue, localVarHTTPResponse, newErr
+	}
+
+	return localVarReturnValue, localVarHTTPResponse, nil
+}
+
 type ApiGetTopologyGraphRequest struct {
 	ctx context.Context
 	ApiService *TopologyAPIService
@@ -590,7 +729,7 @@ func (r ApiGetTopologyGraphRequest) GraphTopologyFilters(graphTopologyFilters Gr
 	return r
 }
 
-func (r ApiGetTopologyGraphRequest) Execute() (*ApiDocsGraphResult, *http.Response, error) {
+func (r ApiGetTopologyGraphRequest) Execute() (*ModelGraphResult, *http.Response, error) {
 	return r.ApiService.GetTopologyGraphExecute(r)
 }
 
@@ -610,13 +749,13 @@ func (a *TopologyAPIService) GetTopologyGraph(ctx context.Context) ApiGetTopolog
 }
 
 // Execute executes the request
-//  @return ApiDocsGraphResult
-func (a *TopologyAPIService) GetTopologyGraphExecute(r ApiGetTopologyGraphRequest) (*ApiDocsGraphResult, *http.Response, error) {
+//  @return ModelGraphResult
+func (a *TopologyAPIService) GetTopologyGraphExecute(r ApiGetTopologyGraphRequest) (*ModelGraphResult, *http.Response, error) {
 	var (
 		localVarHTTPMethod   = http.MethodPost
 		localVarPostBody     interface{}
 		formFiles            []formFile
-		localVarReturnValue  *ApiDocsGraphResult
+		localVarReturnValue  *ModelGraphResult
 	)
 
 	localBasePath, err := a.client.cfg.ServerURLWithContext(r.ctx, "TopologyAPIService.GetTopologyGraph")
