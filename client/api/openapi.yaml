@@ -8735,6 +8735,7 @@ components:
           - private_ip
           - private_ip
           docker_container_network_mode: docker_container_network_mode
+          cloud_account_id: cloud_account_id
           kubernetes_type: kubernetes_type
           resource_group: resource_group
           docker_image_tag: docker_image_tag
@@ -8756,7 +8757,6 @@ components:
           node_name: node_name
           threads: 3
           cloud_provider: cloud_provider
-          cloud_account_id: cloud_account_id
           docker_container_command: docker_container_command
           agent_running: true
           uptime: 2
@@ -11967,6 +11967,7 @@ components:
               - private_ip
               - private_ip
               docker_container_network_mode: docker_container_network_mode
+              cloud_account_id: cloud_account_id
               kubernetes_type: kubernetes_type
               resource_group: resource_group
               docker_image_tag: docker_image_tag
@@ -11988,7 +11989,6 @@ components:
               node_name: node_name
               threads: 3
               cloud_provider: cloud_provider
-              cloud_account_id: cloud_account_id
               docker_container_command: docker_container_command
               agent_running: true
               uptime: 2
@@ -17864,6 +17864,7 @@ components:
         - private_ip
         - private_ip
         docker_container_network_mode: docker_container_network_mode
+        cloud_account_id: cloud_account_id
         kubernetes_type: kubernetes_type
         resource_group: resource_group
         docker_image_tag: docker_image_tag
@@ -17885,7 +17886,6 @@ components:
         node_name: node_name
         threads: 3
         cloud_provider: cloud_provider
-        cloud_account_id: cloud_account_id
         docker_container_command: docker_container_command
         agent_running: true
         uptime: 2
@@ -17904,9 +17904,9 @@ components:
           type: boolean
         availability_zone:
           type: string
-        cloud_provider:
-          type: string
         cloud_account_id:
+          type: string
+        cloud_provider:
           type: string
         cloud_region:
           type: string
