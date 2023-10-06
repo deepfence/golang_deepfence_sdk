@@ -22,6 +22,7 @@ var _ MappedNullable = &ReportMetadata{}
 type ReportMetadata struct {
 	AgentRunning *bool `json:"agent_running,omitempty"`
 	AvailabilityZone *string `json:"availability_zone,omitempty"`
+	CloudAccountId *string `json:"cloud_account_id,omitempty"`
 	CloudProvider *string `json:"cloud_provider,omitempty"`
 	CloudRegion *string `json:"cloud_region,omitempty"`
 	Cmdline *string `json:"cmdline,omitempty"`
@@ -173,6 +174,38 @@ func (o *ReportMetadata) HasAvailabilityZone() bool {
 // SetAvailabilityZone gets a reference to the given string and assigns it to the AvailabilityZone field.
 func (o *ReportMetadata) SetAvailabilityZone(v string) {
 	o.AvailabilityZone = &v
+}
+
+// GetCloudAccountId returns the CloudAccountId field value if set, zero value otherwise.
+func (o *ReportMetadata) GetCloudAccountId() string {
+	if o == nil || IsNil(o.CloudAccountId) {
+		var ret string
+		return ret
+	}
+	return *o.CloudAccountId
+}
+
+// GetCloudAccountIdOk returns a tuple with the CloudAccountId field value if set, nil otherwise
+// and a boolean to check if the value has been set.
+func (o *ReportMetadata) GetCloudAccountIdOk() (*string, bool) {
+	if o == nil || IsNil(o.CloudAccountId) {
+		return nil, false
+	}
+	return o.CloudAccountId, true
+}
+
+// HasCloudAccountId returns a boolean if a field has been set.
+func (o *ReportMetadata) HasCloudAccountId() bool {
+	if o != nil && !IsNil(o.CloudAccountId) {
+		return true
+	}
+
+	return false
+}
+
+// SetCloudAccountId gets a reference to the given string and assigns it to the CloudAccountId field.
+func (o *ReportMetadata) SetCloudAccountId(v string) {
+	o.CloudAccountId = &v
 }
 
 // GetCloudProvider returns the CloudProvider field value if set, zero value otherwise.
@@ -2430,6 +2463,9 @@ func (o ReportMetadata) ToMap() (map[string]interface{}, error) {
 	}
 	if !IsNil(o.AvailabilityZone) {
 		toSerialize["availability_zone"] = o.AvailabilityZone
+	}
+	if !IsNil(o.CloudAccountId) {
+		toSerialize["cloud_account_id"] = o.CloudAccountId
 	}
 	if !IsNil(o.CloudProvider) {
 		toSerialize["cloud_provider"] = o.CloudProvider

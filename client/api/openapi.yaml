@@ -8735,6 +8735,7 @@ components:
           - private_ip
           - private_ip
           docker_container_network_mode: docker_container_network_mode
+          cloud_account_id: cloud_account_id
           kubernetes_type: kubernetes_type
           resource_group: resource_group
           docker_image_tag: docker_image_tag
@@ -11966,6 +11967,7 @@ components:
               - private_ip
               - private_ip
               docker_container_network_mode: docker_container_network_mode
+              cloud_account_id: cloud_account_id
               kubernetes_type: kubernetes_type
               resource_group: resource_group
               docker_image_tag: docker_image_tag
@@ -17862,6 +17864,7 @@ components:
         - private_ip
         - private_ip
         docker_container_network_mode: docker_container_network_mode
+        cloud_account_id: cloud_account_id
         kubernetes_type: kubernetes_type
         resource_group: resource_group
         docker_image_tag: docker_image_tag
@@ -17900,6 +17903,8 @@ components:
         agent_running:
           type: boolean
         availability_zone:
+          type: string
+        cloud_account_id:
           type: string
         cloud_provider:
           type: string

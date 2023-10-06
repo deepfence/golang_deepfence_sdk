@@ -6,6 +6,7 @@ Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
 **AgentRunning** | Pointer to **bool** |  | [optional] 
 **AvailabilityZone** | Pointer to **string** |  | [optional] 
+**CloudAccountId** | Pointer to **string** |  | [optional] 
 **CloudProvider** | Pointer to **string** |  | [optional] 
 **CloudRegion** | Pointer to **string** |  | [optional] 
 **Cmdline** | Pointer to **string** |  | [optional] 
@@ -145,6 +146,31 @@ SetAvailabilityZone sets AvailabilityZone field to given value.
 `func (o *ReportMetadata) HasAvailabilityZone() bool`
 
 HasAvailabilityZone returns a boolean if a field has been set.
+
+### GetCloudAccountId
+
+`func (o *ReportMetadata) GetCloudAccountId() string`
+
+GetCloudAccountId returns the CloudAccountId field if non-nil, zero value otherwise.
+
+### GetCloudAccountIdOk
+
+`func (o *ReportMetadata) GetCloudAccountIdOk() (*string, bool)`
+
+GetCloudAccountIdOk returns a tuple with the CloudAccountId field if it's non-nil, zero value otherwise
+and a boolean to check if the value has been set.
+
+### SetCloudAccountId
+
+`func (o *ReportMetadata) SetCloudAccountId(v string)`
+
+SetCloudAccountId sets CloudAccountId field to given value.
+
+### HasCloudAccountId
+
+`func (o *ReportMetadata) HasCloudAccountId() bool`
+
+HasCloudAccountId returns a boolean if a field has been set.
 
 ### GetCloudProvider
 
