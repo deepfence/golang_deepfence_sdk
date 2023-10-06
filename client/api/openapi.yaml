@@ -8756,6 +8756,7 @@ components:
           node_name: node_name
           threads: 3
           cloud_provider: cloud_provider
+          cloud_account_id: cloud_account_id
           docker_container_command: docker_container_command
           agent_running: true
           uptime: 2
@@ -11987,6 +11988,7 @@ components:
               node_name: node_name
               threads: 3
               cloud_provider: cloud_provider
+              cloud_account_id: cloud_account_id
               docker_container_command: docker_container_command
               agent_running: true
               uptime: 2
@@ -17883,6 +17885,7 @@ components:
         node_name: node_name
         threads: 3
         cloud_provider: cloud_provider
+        cloud_account_id: cloud_account_id
         docker_container_command: docker_container_command
         agent_running: true
         uptime: 2
@@ -17902,6 +17905,8 @@ components:
         availability_zone:
           type: string
         cloud_provider:
+          type: string
+        cloud_account_id:
           type: string
         cloud_region:
           type: string
