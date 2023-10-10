@@ -30,6 +30,7 @@ type ModelProcess struct {
 	OpenFilesCount int32 `json:"open_files_count"`
 	Pid int32 `json:"pid"`
 	Ppid int32 `json:"ppid"`
+	ShortName string `json:"short_name"`
 	Threads int32 `json:"threads"`
 }
 
@@ -37,7 +38,7 @@ type ModelProcess struct {
 // This constructor will assign default values to properties that have it defined,
 // and makes sure properties required by API are set, but the set of arguments
 // will change when the set of required properties is changed
-func NewModelProcess(cmdline string, cpuMax float32, cpuUsage float32, memoryMax int32, memoryUsage int32, nodeId string, nodeName string, openFilesCount int32, pid int32, ppid int32, threads int32) *ModelProcess {
+func NewModelProcess(cmdline string, cpuMax float32, cpuUsage float32, memoryMax int32, memoryUsage int32, nodeId string, nodeName string, openFilesCount int32, pid int32, ppid int32, shortName string, threads int32) *ModelProcess {
 	this := ModelProcess{}
 	this.Cmdline = cmdline
 	this.CpuMax = cpuMax
@@ -49,6 +50,7 @@ func NewModelProcess(cmdline string, cpuMax float32, cpuUsage float32, memoryMax
 	this.OpenFilesCount = openFilesCount
 	this.Pid = pid
 	this.Ppid = ppid
+	this.ShortName = shortName
 	this.Threads = threads
 	return &this
 }
@@ -301,6 +303,30 @@ func (o *ModelProcess) SetPpid(v int32) {
 	o.Ppid = v
 }
 
+// GetShortName returns the ShortName field value
+func (o *ModelProcess) GetShortName() string {
+	if o == nil {
+		var ret string
+		return ret
+	}
+
+	return o.ShortName
+}
+
+// GetShortNameOk returns a tuple with the ShortName field value
+// and a boolean to check if the value has been set.
+func (o *ModelProcess) GetShortNameOk() (*string, bool) {
+	if o == nil {
+		return nil, false
+	}
+	return &o.ShortName, true
+}
+
+// SetShortName sets field value
+func (o *ModelProcess) SetShortName(v string) {
+	o.ShortName = v
+}
+
 // GetThreads returns the Threads field value
 func (o *ModelProcess) GetThreads() int32 {
 	if o == nil {
@@ -345,6 +371,7 @@ func (o ModelProcess) ToMap() (map[string]interface{}, error) {
 	toSerialize["open_files_count"] = o.OpenFilesCount
 	toSerialize["pid"] = o.Pid
 	toSerialize["ppid"] = o.Ppid
+	toSerialize["short_name"] = o.ShortName
 	toSerialize["threads"] = o.Threads
 	return toSerialize, nil
 }

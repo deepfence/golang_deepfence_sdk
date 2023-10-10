@@ -71,6 +71,7 @@ Name | Type | Description | Notes
 **Pseudo** | Pointer to **bool** |  | [optional] 
 **PublicIp** | Pointer to **[]string** |  | [optional] 
 **ResourceGroup** | Pointer to **string** |  | [optional] 
+**ShortName** | Pointer to **string** |  | [optional] 
 **Tags** | Pointer to **[]string** |  | [optional] 
 **Threads** | Pointer to **int32** |  | [optional] 
 **Timestamp** | Pointer to **string** |  | [optional] 
@@ -1771,6 +1772,31 @@ SetResourceGroup sets ResourceGroup field to given value.
 `func (o *ReportMetadata) HasResourceGroup() bool`
 
 HasResourceGroup returns a boolean if a field has been set.
+
+### GetShortName
+
+`func (o *ReportMetadata) GetShortName() string`
+
+GetShortName returns the ShortName field if non-nil, zero value otherwise.
+
+### GetShortNameOk
+
+`func (o *ReportMetadata) GetShortNameOk() (*string, bool)`
+
+GetShortNameOk returns a tuple with the ShortName field if it's non-nil, zero value otherwise
+and a boolean to check if the value has been set.
+
+### SetShortName
+
+`func (o *ReportMetadata) SetShortName(v string)`
+
+SetShortName sets ShortName field to given value.
+
+### HasShortName
+
+`func (o *ReportMetadata) HasShortName() bool`
+
+HasShortName returns a boolean if a field has been set.
 
 ### GetTags
 

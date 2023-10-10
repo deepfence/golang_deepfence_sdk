@@ -95,7 +95,9 @@ Class | Method | HTTP request | Description
 *CloudScannerAPI* | [**StatusCloudComplianceScan**](docs/CloudScannerAPI.md#statuscloudcompliancescan) | **Post** /deepfence/scan/status/cloud-compliance | Get Cloud Compliance Scan Status
 *CommonAPI* | [**Eula**](docs/CommonAPI.md#eula) | **Get** /deepfence/end-user-license-agreement | Get End User License Agreement
 *CommonAPI* | [**GetScanReportFields**](docs/CommonAPI.md#getscanreportfields) | **Get** /deepfence/scan/results/fields | Get Scan Report Fields
+*CompletionAPI* | [**CompleteHostInfo**](docs/CompletionAPI.md#completehostinfo) | **Post** /deepfence/complete/host | Get Completion for host fields
 *CompletionAPI* | [**CompleteProcessInfo**](docs/CompletionAPI.md#completeprocessinfo) | **Post** /deepfence/complete/process | Get Completion for process fields
+*CompletionAPI* | [**CompleteVulnerabilityInfo**](docs/CompletionAPI.md#completevulnerabilityinfo) | **Post** /deepfence/complete/vulnerability | Get Completion for vulnerability fields
 *ComplianceAPI* | [**CountResultsComplianceScan**](docs/ComplianceAPI.md#countresultscompliancescan) | **Post** /deepfence/scan/results/count/compliance | Get Compliance Scans Results
 *ComplianceAPI* | [**IngestComplianceScanStatus**](docs/ComplianceAPI.md#ingestcompliancescanstatus) | **Post** /deepfence/ingest/compliance-scan-logs | Ingest Compliance Scan Status
 *ComplianceAPI* | [**IngestCompliances**](docs/ComplianceAPI.md#ingestcompliances) | **Post** /deepfence/ingest/compliance | Ingest Compliances

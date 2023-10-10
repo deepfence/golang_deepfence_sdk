@@ -6,6 +6,7 @@ Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
 **AgentRunning** | **bool** |  | 
 **AvailabilityZone** | **string** |  | 
+**CloudAccountId** | **string** |  | 
 **CloudProvider** | **string** |  | 
 **CloudRegion** | **string** |  | 
 **ComplianceLatestScanId** | **string** |  | 
@@ -51,7 +52,7 @@ Name | Type | Description | Notes
 
 ### NewModelHost
 
-`func NewModelHost(agentRunning bool, availabilityZone string, cloudProvider string, cloudRegion string, complianceLatestScanId string, complianceScanStatus string, compliancesCount int32, containerImages []ModelContainerImage, containers []ModelContainer, cpuMax float32, cpuUsage float32, hostName string, inboundConnections []ModelConnection, instanceId string, instanceType string, isConsoleVm bool, kernelId string, kernelVersion string, localCidr []interface{}, localNetworks []interface{}, malwareLatestScanId string, malwareScanStatus string, malwaresCount int32, memoryMax int32, memoryUsage int32, nodeId string, nodeName string, os string, outboundConnections []ModelConnection, pods []ModelPod, privateIp []interface{}, processes []ModelProcess, publicIp []interface{}, resourceGroup string, secretLatestScanId string, secretScanStatus string, secretsCount int32, uptime int32, version string, vulnerabilitiesCount int32, vulnerabilityLatestScanId string, vulnerabilityScanStatus string, ) *ModelHost`
+`func NewModelHost(agentRunning bool, availabilityZone string, cloudAccountId string, cloudProvider string, cloudRegion string, complianceLatestScanId string, complianceScanStatus string, compliancesCount int32, containerImages []ModelContainerImage, containers []ModelContainer, cpuMax float32, cpuUsage float32, hostName string, inboundConnections []ModelConnection, instanceId string, instanceType string, isConsoleVm bool, kernelId string, kernelVersion string, localCidr []interface{}, localNetworks []interface{}, malwareLatestScanId string, malwareScanStatus string, malwaresCount int32, memoryMax int32, memoryUsage int32, nodeId string, nodeName string, os string, outboundConnections []ModelConnection, pods []ModelPod, privateIp []interface{}, processes []ModelProcess, publicIp []interface{}, resourceGroup string, secretLatestScanId string, secretScanStatus string, secretsCount int32, uptime int32, version string, vulnerabilitiesCount int32, vulnerabilityLatestScanId string, vulnerabilityScanStatus string, ) *ModelHost`
 
 NewModelHost instantiates a new ModelHost object
 This constructor will assign default values to properties that have it defined,
@@ -104,6 +105,26 @@ and a boolean to check if the value has been set.
 `func (o *ModelHost) SetAvailabilityZone(v string)`
 
 SetAvailabilityZone sets AvailabilityZone field to given value.
+
+
+### GetCloudAccountId
+
+`func (o *ModelHost) GetCloudAccountId() string`
+
+GetCloudAccountId returns the CloudAccountId field if non-nil, zero value otherwise.
+
+### GetCloudAccountIdOk
+
+`func (o *ModelHost) GetCloudAccountIdOk() (*string, bool)`
+
+GetCloudAccountIdOk returns a tuple with the CloudAccountId field if it's non-nil, zero value otherwise
+and a boolean to check if the value has been set.
+
+### SetCloudAccountId
+
+`func (o *ModelHost) SetCloudAccountId(v string)`
+
+SetCloudAccountId sets CloudAccountId field to given value.
 
 
 ### GetCloudProvider

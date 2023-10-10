@@ -22,6 +22,7 @@ var _ MappedNullable = &CompletionCompletionNodeFieldReq{}
 type CompletionCompletionNodeFieldReq struct {
 	Completion string `json:"completion"`
 	FieldName string `json:"field_name"`
+	ScanId *string `json:"scan_id,omitempty"`
 	Window ModelFetchWindow `json:"window"`
 }
 
@@ -93,6 +94,38 @@ func (o *CompletionCompletionNodeFieldReq) SetFieldName(v string) {
 	o.FieldName = v
 }
 
+// GetScanId returns the ScanId field value if set, zero value otherwise.
+func (o *CompletionCompletionNodeFieldReq) GetScanId() string {
+	if o == nil || IsNil(o.ScanId) {
+		var ret string
+		return ret
+	}
+	return *o.ScanId
+}
+
+// GetScanIdOk returns a tuple with the ScanId field value if set, nil otherwise
+// and a boolean to check if the value has been set.
+func (o *CompletionCompletionNodeFieldReq) GetScanIdOk() (*string, bool) {
+	if o == nil || IsNil(o.ScanId) {
+		return nil, false
+	}
+	return o.ScanId, true
+}
+
+// HasScanId returns a boolean if a field has been set.
+func (o *CompletionCompletionNodeFieldReq) HasScanId() bool {
+	if o != nil && !IsNil(o.ScanId) {
+		return true
+	}
+
+	return false
+}
+
+// SetScanId gets a reference to the given string and assigns it to the ScanId field.
+func (o *CompletionCompletionNodeFieldReq) SetScanId(v string) {
+	o.ScanId = &v
+}
+
 // GetWindow returns the Window field value
 func (o *CompletionCompletionNodeFieldReq) GetWindow() ModelFetchWindow {
 	if o == nil {
@@ -129,6 +162,9 @@ func (o CompletionCompletionNodeFieldReq) ToMap() (map[string]interface{}, error
 	toSerialize := map[string]interface{}{}
 	toSerialize["completion"] = o.Completion
 	toSerialize["field_name"] = o.FieldName
+	if !IsNil(o.ScanId) {
+		toSerialize["scan_id"] = o.ScanId
+	}
 	toSerialize["window"] = o.Window
 	return toSerialize, nil
 }

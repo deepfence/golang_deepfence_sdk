@@ -87,6 +87,7 @@ type ReportMetadata struct {
 	Pseudo *bool `json:"pseudo,omitempty"`
 	PublicIp []string `json:"public_ip,omitempty"`
 	ResourceGroup *string `json:"resource_group,omitempty"`
+	ShortName *string `json:"short_name,omitempty"`
 	Tags []string `json:"tags,omitempty"`
 	Threads *int32 `json:"threads,omitempty"`
 	Timestamp *string `json:"timestamp,omitempty"`
@@ -2256,6 +2257,38 @@ func (o *ReportMetadata) SetResourceGroup(v string) {
 	o.ResourceGroup = &v
 }
 
+// GetShortName returns the ShortName field value if set, zero value otherwise.
+func (o *ReportMetadata) GetShortName() string {
+	if o == nil || IsNil(o.ShortName) {
+		var ret string
+		return ret
+	}
+	return *o.ShortName
+}
+
+// GetShortNameOk returns a tuple with the ShortName field value if set, nil otherwise
+// and a boolean to check if the value has been set.
+func (o *ReportMetadata) GetShortNameOk() (*string, bool) {
+	if o == nil || IsNil(o.ShortName) {
+		return nil, false
+	}
+	return o.ShortName, true
+}
+
+// HasShortName returns a boolean if a field has been set.
+func (o *ReportMetadata) HasShortName() bool {
+	if o != nil && !IsNil(o.ShortName) {
+		return true
+	}
+
+	return false
+}
+
+// SetShortName gets a reference to the given string and assigns it to the ShortName field.
+func (o *ReportMetadata) SetShortName(v string) {
+	o.ShortName = &v
+}
+
 // GetTags returns the Tags field value if set, zero value otherwise.
 func (o *ReportMetadata) GetTags() []string {
 	if o == nil || IsNil(o.Tags) {
@@ -2658,6 +2691,9 @@ func (o ReportMetadata) ToMap() (map[string]interface{}, error) {
 	}
 	if !IsNil(o.ResourceGroup) {
 		toSerialize["resource_group"] = o.ResourceGroup
+	}
+	if !IsNil(o.ShortName) {
+		toSerialize["short_name"] = o.ShortName
 	}
 	if !IsNil(o.Tags) {
 		toSerialize["tags"] = o.Tags

@@ -14,13 +14,14 @@ Name | Type | Description | Notes
 **OpenFilesCount** | **int32** |  | 
 **Pid** | **int32** |  | 
 **Ppid** | **int32** |  | 
+**ShortName** | **string** |  | 
 **Threads** | **int32** |  | 
 
 ## Methods
 
 ### NewModelProcess
 
-`func NewModelProcess(cmdline string, cpuMax float32, cpuUsage float32, memoryMax int32, memoryUsage int32, nodeId string, nodeName string, openFilesCount int32, pid int32, ppid int32, threads int32, ) *ModelProcess`
+`func NewModelProcess(cmdline string, cpuMax float32, cpuUsage float32, memoryMax int32, memoryUsage int32, nodeId string, nodeName string, openFilesCount int32, pid int32, ppid int32, shortName string, threads int32, ) *ModelProcess`
 
 NewModelProcess instantiates a new ModelProcess object
 This constructor will assign default values to properties that have it defined,
@@ -233,6 +234,26 @@ and a boolean to check if the value has been set.
 `func (o *ModelProcess) SetPpid(v int32)`
 
 SetPpid sets Ppid field to given value.
+
+
+### GetShortName
+
+`func (o *ModelProcess) GetShortName() string`
+
+GetShortName returns the ShortName field if non-nil, zero value otherwise.
+
+### GetShortNameOk
+
+`func (o *ModelProcess) GetShortNameOk() (*string, bool)`
+
+GetShortNameOk returns a tuple with the ShortName field if it's non-nil, zero value otherwise
+and a boolean to check if the value has been set.
+
+### SetShortName
+
+`func (o *ModelProcess) SetShortName(v string)`
+
+SetShortName sets ShortName field to given value.
 
 
 ### GetThreads
