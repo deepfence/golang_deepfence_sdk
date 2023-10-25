@@ -941,6 +941,92 @@ paths:
       summary: Update Agent Diagnostic Logs Status
       tags:
       - Diagnosis
+  /deepfence/diagnosis/cloud-scanner-logs:
+    post:
+      description: Generate Cloud Scanner Diagnostic Logs
+      operationId: generateCloudScannerDiagnosticLogs
+      requestBody:
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/DiagnosisGenerateCloudScannerDiagnosticLogsRequest'
+      responses:
+        "202":
+          description: Accepted
+        "400":
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ApiDocsBadRequestResponse'
+          description: Bad Request
+        "401":
+          description: Unauthorized
+        "403":
+          description: Forbidden
+        "404":
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ApiDocsFailureResponse'
+          description: Not Found
+        "500":
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ApiDocsFailureResponse'
+          description: Internal Server Error
+      security:
+      - bearer_token: []
+      summary: Generate Cloud Scanner Diagnostic Logs
+      tags:
+      - Diagnosis
+  /deepfence/diagnosis/cloud-scanner-logs/status/{node_id}:
+    put:
+      description: Update cloud scanner diagnostic logs status
+      operationId: updateCloudScannerDiagnosticLogsStatus
+      parameters:
+      - explode: false
+        in: path
+        name: node_id
+        required: true
+        schema:
+          type: string
+        style: simple
+      requestBody:
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/DiagnosisDiagnosticLogsStatus'
+      responses:
+        "204":
+          description: No Content
+        "400":
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ApiDocsBadRequestResponse'
+          description: Bad Request
+        "401":
+          description: Unauthorized
+        "403":
+          description: Forbidden
+        "404":
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ApiDocsFailureResponse'
+          description: Not Found
+        "500":
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ApiDocsFailureResponse'
+          description: Internal Server Error
+      security:
+      - bearer_token: []
+      summary: Update Cloud Scanner Diagnostic Logs Status
+      tags:
+      - Diagnosis
   /deepfence/diagnosis/console-logs:
     post:
       description: Generate Console Diagnostic Logs
@@ -8939,6 +9025,26 @@ components:
           type: string
       type: object
     DiagnosisGenerateAgentDiagnosticLogsRequest:
+      example:
+        tail: 0
+        node_ids:
+        - node_type: host
+          node_id: node_id
+        - node_type: host
+          node_id: node_id
+      properties:
+        node_ids:
+          items:
+            $ref: '#/components/schemas/DiagnosisNodeIdentifier'
+          nullable: true
+          type: array
+        tail:
+          type: integer
+      required:
+      - node_ids
+      - tail
+      type: object
+    DiagnosisGenerateCloudScannerDiagnosticLogsRequest:
       example:
         tail: 0
         node_ids:

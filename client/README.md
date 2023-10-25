@@ -117,9 +117,11 @@ Class | Method | HTTP request | Description
 *ControlsAPI* | [**UpgradeAgentVersion**](docs/ControlsAPI.md#upgradeagentversion) | **Post** /deepfence/controls/agent-upgrade | Schedule new agent version upgrade
 *DiagnosisAPI* | [**DiagnosticNotification**](docs/DiagnosisAPI.md#diagnosticnotification) | **Get** /deepfence/diagnosis/notification | Get Diagnostic Notification
 *DiagnosisAPI* | [**GenerateAgentDiagnosticLogs**](docs/DiagnosisAPI.md#generateagentdiagnosticlogs) | **Post** /deepfence/diagnosis/agent-logs | Generate Agent Diagnostic Logs
+*DiagnosisAPI* | [**GenerateCloudScannerDiagnosticLogs**](docs/DiagnosisAPI.md#generatecloudscannerdiagnosticlogs) | **Post** /deepfence/diagnosis/cloud-scanner-logs | Generate Cloud Scanner Diagnostic Logs
 *DiagnosisAPI* | [**GenerateConsoleDiagnosticLogs**](docs/DiagnosisAPI.md#generateconsolediagnosticlogs) | **Post** /deepfence/diagnosis/console-logs | Generate Console Diagnostic Logs
 *DiagnosisAPI* | [**GetDiagnosticLogs**](docs/DiagnosisAPI.md#getdiagnosticlogs) | **Get** /deepfence/diagnosis/diagnostic-logs | Get Diagnostic Logs
 *DiagnosisAPI* | [**UpdateAgentDiagnosticLogsStatus**](docs/DiagnosisAPI.md#updateagentdiagnosticlogsstatus) | **Put** /deepfence/diagnosis/agent-logs/status/{node_id} | Update Agent Diagnostic Logs Status
+*DiagnosisAPI* | [**UpdateCloudScannerDiagnosticLogsStatus**](docs/DiagnosisAPI.md#updatecloudscannerdiagnosticlogsstatus) | **Put** /deepfence/diagnosis/cloud-scanner-logs/status/{node_id} | Update Cloud Scanner Diagnostic Logs Status
 *DiffAddAPI* | [**DiffAddCloudCompliance**](docs/DiffAddAPI.md#diffaddcloudcompliance) | **Post** /deepfence/diff-add/cloud-compliance | Get Cloud Compliance Diff
 *DiffAddAPI* | [**DiffAddCompliance**](docs/DiffAddAPI.md#diffaddcompliance) | **Post** /deepfence/diff-add/compliance | Get Compliance Diff
 *DiffAddAPI* | [**DiffAddMalware**](docs/DiffAddAPI.md#diffaddmalware) | **Post** /deepfence/diff-add/malware | Get Malware Diff
@@ -298,6 +300,7 @@ Class | Method | HTTP request | Description
  - [DiagnosisDiagnosticLogsStatus](docs/DiagnosisDiagnosticLogsStatus.md)
  - [DiagnosisDiagnosticNotification](docs/DiagnosisDiagnosticNotification.md)
  - [DiagnosisGenerateAgentDiagnosticLogsRequest](docs/DiagnosisGenerateAgentDiagnosticLogsRequest.md)
+ - [DiagnosisGenerateCloudScannerDiagnosticLogsRequest](docs/DiagnosisGenerateCloudScannerDiagnosticLogsRequest.md)
  - [DiagnosisGenerateConsoleDiagnosticLogsRequest](docs/DiagnosisGenerateConsoleDiagnosticLogsRequest.md)
  - [DiagnosisGetDiagnosticLogsResponse](docs/DiagnosisGetDiagnosticLogsResponse.md)
  - [DiagnosisNodeIdentifier](docs/DiagnosisNodeIdentifier.md)
