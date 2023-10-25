@@ -21,6 +21,7 @@ var _ MappedNullable = &ModelComplianceScanResult{}
 // ModelComplianceScanResult struct for ModelComplianceScanResult
 type ModelComplianceScanResult struct {
 	BenchmarkType []string `json:"benchmark_type"`
+	CloudAccountId string `json:"cloud_account_id"`
 	CompliancePercentage float32 `json:"compliance_percentage"`
 	Compliances []ModelCompliance `json:"compliances"`
 	CreatedAt int64 `json:"created_at"`
@@ -40,9 +41,10 @@ type ModelComplianceScanResult struct {
 // This constructor will assign default values to properties that have it defined,
 // and makes sure properties required by API are set, but the set of arguments
 // will change when the set of required properties is changed
-func NewModelComplianceScanResult(benchmarkType []string, compliancePercentage float32, compliances []ModelCompliance, createdAt int64, dockerContainerName string, dockerImageName string, hostName string, kubernetesClusterName string, nodeId string, nodeName string, nodeType string, scanId string, statusCounts map[string]int32, updatedAt int64) *ModelComplianceScanResult {
+func NewModelComplianceScanResult(benchmarkType []string, cloudAccountId string, compliancePercentage float32, compliances []ModelCompliance, createdAt int64, dockerContainerName string, dockerImageName string, hostName string, kubernetesClusterName string, nodeId string, nodeName string, nodeType string, scanId string, statusCounts map[string]int32, updatedAt int64) *ModelComplianceScanResult {
 	this := ModelComplianceScanResult{}
 	this.BenchmarkType = benchmarkType
+	this.CloudAccountId = cloudAccountId
 	this.CompliancePercentage = compliancePercentage
 	this.Compliances = compliances
 	this.CreatedAt = createdAt
@@ -91,6 +93,30 @@ func (o *ModelComplianceScanResult) GetBenchmarkTypeOk() ([]string, bool) {
 // SetBenchmarkType sets field value
 func (o *ModelComplianceScanResult) SetBenchmarkType(v []string) {
 	o.BenchmarkType = v
+}
+
+// GetCloudAccountId returns the CloudAccountId field value
+func (o *ModelComplianceScanResult) GetCloudAccountId() string {
+	if o == nil {
+		var ret string
+		return ret
+	}
+
+	return o.CloudAccountId
+}
+
+// GetCloudAccountIdOk returns a tuple with the CloudAccountId field value
+// and a boolean to check if the value has been set.
+func (o *ModelComplianceScanResult) GetCloudAccountIdOk() (*string, bool) {
+	if o == nil {
+		return nil, false
+	}
+	return &o.CloudAccountId, true
+}
+
+// SetCloudAccountId sets field value
+func (o *ModelComplianceScanResult) SetCloudAccountId(v string) {
+	o.CloudAccountId = v
 }
 
 // GetCompliancePercentage returns the CompliancePercentage field value
@@ -422,6 +448,7 @@ func (o ModelComplianceScanResult) ToMap() (map[string]interface{}, error) {
 	if o.BenchmarkType != nil {
 		toSerialize["benchmark_type"] = o.BenchmarkType
 	}
+	toSerialize["cloud_account_id"] = o.CloudAccountId
 	toSerialize["compliance_percentage"] = o.CompliancePercentage
 	if o.Compliances != nil {
 		toSerialize["compliances"] = o.Compliances

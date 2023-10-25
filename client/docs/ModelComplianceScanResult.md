@@ -5,6 +5,7 @@
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
 **BenchmarkType** | **[]string** |  | 
+**CloudAccountId** | **string** |  | 
 **CompliancePercentage** | **float32** |  | 
 **Compliances** | [**[]ModelCompliance**](ModelCompliance.md) |  | 
 **CreatedAt** | **int64** |  | 
@@ -23,7 +24,7 @@ Name | Type | Description | Notes
 
 ### NewModelComplianceScanResult
 
-`func NewModelComplianceScanResult(benchmarkType []string, compliancePercentage float32, compliances []ModelCompliance, createdAt int64, dockerContainerName string, dockerImageName string, hostName string, kubernetesClusterName string, nodeId string, nodeName string, nodeType string, scanId string, statusCounts map[string]int32, updatedAt int64, ) *ModelComplianceScanResult`
+`func NewModelComplianceScanResult(benchmarkType []string, cloudAccountId string, compliancePercentage float32, compliances []ModelCompliance, createdAt int64, dockerContainerName string, dockerImageName string, hostName string, kubernetesClusterName string, nodeId string, nodeName string, nodeType string, scanId string, statusCounts map[string]int32, updatedAt int64, ) *ModelComplianceScanResult`
 
 NewModelComplianceScanResult instantiates a new ModelComplianceScanResult object
 This constructor will assign default values to properties that have it defined,
@@ -68,6 +69,26 @@ SetBenchmarkType sets BenchmarkType field to given value.
 `func (o *ModelComplianceScanResult) UnsetBenchmarkType()`
 
 UnsetBenchmarkType ensures that no value is present for BenchmarkType, not even an explicit nil
+### GetCloudAccountId
+
+`func (o *ModelComplianceScanResult) GetCloudAccountId() string`
+
+GetCloudAccountId returns the CloudAccountId field if non-nil, zero value otherwise.
+
+### GetCloudAccountIdOk
+
+`func (o *ModelComplianceScanResult) GetCloudAccountIdOk() (*string, bool)`
+
+GetCloudAccountIdOk returns a tuple with the CloudAccountId field if it's non-nil, zero value otherwise
+and a boolean to check if the value has been set.
+
+### SetCloudAccountId
+
+`func (o *ModelComplianceScanResult) SetCloudAccountId(v string)`
+
+SetCloudAccountId sets CloudAccountId field to given value.
+
+
 ### GetCompliancePercentage
 
 `func (o *ModelComplianceScanResult) GetCompliancePercentage() float32`

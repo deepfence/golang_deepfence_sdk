@@ -5,6 +5,8 @@
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
 **MaskAcrossHostsAndImages** | Pointer to **bool** |  | [optional] 
+**MaskInThisHostOrImageTags** | Pointer to **bool** |  | [optional] 
+**MaskInThisImageTag** | Pointer to **bool** |  | [optional] 
 **ResultIds** | **[]string** |  | 
 **ScanId** | **string** |  | 
 **ScanType** | **string** |  | 
@@ -52,6 +54,56 @@ SetMaskAcrossHostsAndImages sets MaskAcrossHostsAndImages field to given value.
 `func (o *ModelScanResultsMaskRequest) HasMaskAcrossHostsAndImages() bool`
 
 HasMaskAcrossHostsAndImages returns a boolean if a field has been set.
+
+### GetMaskInThisHostOrImageTags
+
+`func (o *ModelScanResultsMaskRequest) GetMaskInThisHostOrImageTags() bool`
+
+GetMaskInThisHostOrImageTags returns the MaskInThisHostOrImageTags field if non-nil, zero value otherwise.
+
+### GetMaskInThisHostOrImageTagsOk
+
+`func (o *ModelScanResultsMaskRequest) GetMaskInThisHostOrImageTagsOk() (*bool, bool)`
+
+GetMaskInThisHostOrImageTagsOk returns a tuple with the MaskInThisHostOrImageTags field if it's non-nil, zero value otherwise
+and a boolean to check if the value has been set.
+
+### SetMaskInThisHostOrImageTags
+
+`func (o *ModelScanResultsMaskRequest) SetMaskInThisHostOrImageTags(v bool)`
+
+SetMaskInThisHostOrImageTags sets MaskInThisHostOrImageTags field to given value.
+
+### HasMaskInThisHostOrImageTags
+
+`func (o *ModelScanResultsMaskRequest) HasMaskInThisHostOrImageTags() bool`
+
+HasMaskInThisHostOrImageTags returns a boolean if a field has been set.
+
+### GetMaskInThisImageTag
+
+`func (o *ModelScanResultsMaskRequest) GetMaskInThisImageTag() bool`
+
+GetMaskInThisImageTag returns the MaskInThisImageTag field if non-nil, zero value otherwise.
+
+### GetMaskInThisImageTagOk
+
+`func (o *ModelScanResultsMaskRequest) GetMaskInThisImageTagOk() (*bool, bool)`
+
+GetMaskInThisImageTagOk returns a tuple with the MaskInThisImageTag field if it's non-nil, zero value otherwise
+and a boolean to check if the value has been set.
+
+### SetMaskInThisImageTag
+
+`func (o *ModelScanResultsMaskRequest) SetMaskInThisImageTag(v bool)`
+
+SetMaskInThisImageTag sets MaskInThisImageTag field to given value.
+
+### HasMaskInThisImageTag
+
+`func (o *ModelScanResultsMaskRequest) HasMaskInThisImageTag() bool`
+
+HasMaskInThisImageTag returns a boolean if a field has been set.
 
 ### GetResultIds
 

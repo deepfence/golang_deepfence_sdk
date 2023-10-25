@@ -33,7 +33,7 @@ type ModelCloudCompliance struct {
 	Reason string `json:"reason"`
 	Region string `json:"region"`
 	Resource string `json:"resource"`
-	Resources []string `json:"resources,omitempty"`
+	Resources []ModelBasicNode `json:"resources,omitempty"`
 	Service string `json:"service"`
 	Severity string `json:"severity"`
 	Status string `json:"status"`
@@ -391,9 +391,9 @@ func (o *ModelCloudCompliance) SetResource(v string) {
 }
 
 // GetResources returns the Resources field value if set, zero value otherwise (both if not set or set to explicit null).
-func (o *ModelCloudCompliance) GetResources() []string {
+func (o *ModelCloudCompliance) GetResources() []ModelBasicNode {
 	if o == nil {
-		var ret []string
+		var ret []ModelBasicNode
 		return ret
 	}
 	return o.Resources
@@ -402,7 +402,7 @@ func (o *ModelCloudCompliance) GetResources() []string {
 // GetResourcesOk returns a tuple with the Resources field value if set, nil otherwise
 // and a boolean to check if the value has been set.
 // NOTE: If the value is an explicit nil, `nil, true` will be returned
-func (o *ModelCloudCompliance) GetResourcesOk() ([]string, bool) {
+func (o *ModelCloudCompliance) GetResourcesOk() ([]ModelBasicNode, bool) {
 	if o == nil || IsNil(o.Resources) {
 		return nil, false
 	}
@@ -418,8 +418,8 @@ func (o *ModelCloudCompliance) HasResources() bool {
 	return false
 }
 
-// SetResources gets a reference to the given []string and assigns it to the Resources field.
-func (o *ModelCloudCompliance) SetResources(v []string) {
+// SetResources gets a reference to the given []ModelBasicNode and assigns it to the Resources field.
+func (o *ModelCloudCompliance) SetResources(v []ModelBasicNode) {
 	o.Resources = v
 }
 

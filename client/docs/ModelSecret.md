@@ -13,7 +13,7 @@ Name | Type | Description | Notes
 **Part** | **string** |  | 
 **RelativeEndingIndex** | **int32** |  | 
 **RelativeStartingIndex** | **int32** |  | 
-**Resources** | Pointer to **[]string** |  | [optional] 
+**Resources** | Pointer to [**[]ModelBasicNode**](ModelBasicNode.md) |  | [optional] 
 **RuleId** | **int32** |  | 
 **Score** | **float32** |  | 
 **SignatureToMatch** | **string** |  | 
@@ -221,20 +221,20 @@ SetRelativeStartingIndex sets RelativeStartingIndex field to given value.
 
 ### GetResources
 
-`func (o *ModelSecret) GetResources() []string`
+`func (o *ModelSecret) GetResources() []ModelBasicNode`
 
 GetResources returns the Resources field if non-nil, zero value otherwise.
 
 ### GetResourcesOk
 
-`func (o *ModelSecret) GetResourcesOk() (*[]string, bool)`
+`func (o *ModelSecret) GetResourcesOk() (*[]ModelBasicNode, bool)`
 
 GetResourcesOk returns a tuple with the Resources field if it's non-nil, zero value otherwise
 and a boolean to check if the value has been set.
 
 ### SetResources
 
-`func (o *ModelSecret) SetResources(v []string)`
+`func (o *ModelSecret) SetResources(v []ModelBasicNode)`
 
 SetResources sets Resources field to given value.
 

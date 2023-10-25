@@ -5,6 +5,7 @@
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
 **CloudtrailTrails** | Pointer to [**[]ModelCloudNodeCloudtrailTrail**](ModelCloudNodeCloudtrailTrail.md) |  | [optional] 
+**LogAction** | Pointer to [**ControlsAction**](ControlsAction.md) |  | [optional] 
 **Refresh** | Pointer to **string** |  | [optional] 
 **Scans** | Pointer to [**map[string]ModelCloudComplianceScanDetails**](ModelCloudComplianceScanDetails.md) |  | [optional] 
 
@@ -62,6 +63,31 @@ HasCloudtrailTrails returns a boolean if a field has been set.
 `func (o *ModelCloudNodeAccountRegisterRespData) UnsetCloudtrailTrails()`
 
 UnsetCloudtrailTrails ensures that no value is present for CloudtrailTrails, not even an explicit nil
+### GetLogAction
+
+`func (o *ModelCloudNodeAccountRegisterRespData) GetLogAction() ControlsAction`
+
+GetLogAction returns the LogAction field if non-nil, zero value otherwise.
+
+### GetLogActionOk
+
+`func (o *ModelCloudNodeAccountRegisterRespData) GetLogActionOk() (*ControlsAction, bool)`
+
+GetLogActionOk returns a tuple with the LogAction field if it's non-nil, zero value otherwise
+and a boolean to check if the value has been set.
+
+### SetLogAction
+
+`func (o *ModelCloudNodeAccountRegisterRespData) SetLogAction(v ControlsAction)`
+
+SetLogAction sets LogAction field to given value.
+
+### HasLogAction
+
+`func (o *ModelCloudNodeAccountRegisterRespData) HasLogAction() bool`
+
+HasLogAction returns a boolean if a field has been set.
+
 ### GetRefresh
 
 `func (o *ModelCloudNodeAccountRegisterRespData) GetRefresh() string`
