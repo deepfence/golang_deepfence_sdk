@@ -4,6 +4,7 @@
 
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
+**CloudAccountId** | **string** |  | 
 **CreatedAt** | **int64** |  | 
 **DockerContainerName** | **string** |  | 
 **DockerImageName** | **string** |  | 
@@ -19,7 +20,7 @@ Name | Type | Description | Notes
 
 ### NewModelScanResultsCommon
 
-`func NewModelScanResultsCommon(createdAt int64, dockerContainerName string, dockerImageName string, hostName string, kubernetesClusterName string, nodeId string, nodeName string, nodeType string, scanId string, updatedAt int64, ) *ModelScanResultsCommon`
+`func NewModelScanResultsCommon(cloudAccountId string, createdAt int64, dockerContainerName string, dockerImageName string, hostName string, kubernetesClusterName string, nodeId string, nodeName string, nodeType string, scanId string, updatedAt int64, ) *ModelScanResultsCommon`
 
 NewModelScanResultsCommon instantiates a new ModelScanResultsCommon object
 This constructor will assign default values to properties that have it defined,
@@ -33,6 +34,26 @@ will change when the set of required properties is changed
 NewModelScanResultsCommonWithDefaults instantiates a new ModelScanResultsCommon object
 This constructor will only assign default values to properties that have it defined,
 but it doesn't guarantee that properties required by API are set
+
+### GetCloudAccountId
+
+`func (o *ModelScanResultsCommon) GetCloudAccountId() string`
+
+GetCloudAccountId returns the CloudAccountId field if non-nil, zero value otherwise.
+
+### GetCloudAccountIdOk
+
+`func (o *ModelScanResultsCommon) GetCloudAccountIdOk() (*string, bool)`
+
+GetCloudAccountIdOk returns a tuple with the CloudAccountId field if it's non-nil, zero value otherwise
+and a boolean to check if the value has been set.
+
+### SetCloudAccountId
+
+`func (o *ModelScanResultsCommon) SetCloudAccountId(v string)`
+
+SetCloudAccountId sets CloudAccountId field to given value.
+
 
 ### GetCreatedAt
 

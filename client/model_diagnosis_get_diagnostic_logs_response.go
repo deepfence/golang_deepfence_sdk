@@ -21,6 +21,7 @@ var _ MappedNullable = &DiagnosisGetDiagnosticLogsResponse{}
 // DiagnosisGetDiagnosticLogsResponse struct for DiagnosisGetDiagnosticLogsResponse
 type DiagnosisGetDiagnosticLogsResponse struct {
 	AgentLogs []DiagnosisDiagnosticLogsLink `json:"agent_logs,omitempty"`
+	CloudScannerLogs []DiagnosisDiagnosticLogsLink `json:"cloud_scanner_logs,omitempty"`
 	ConsoleLogs []DiagnosisDiagnosticLogsLink `json:"console_logs,omitempty"`
 }
 
@@ -74,6 +75,39 @@ func (o *DiagnosisGetDiagnosticLogsResponse) SetAgentLogs(v []DiagnosisDiagnosti
 	o.AgentLogs = v
 }
 
+// GetCloudScannerLogs returns the CloudScannerLogs field value if set, zero value otherwise (both if not set or set to explicit null).
+func (o *DiagnosisGetDiagnosticLogsResponse) GetCloudScannerLogs() []DiagnosisDiagnosticLogsLink {
+	if o == nil {
+		var ret []DiagnosisDiagnosticLogsLink
+		return ret
+	}
+	return o.CloudScannerLogs
+}
+
+// GetCloudScannerLogsOk returns a tuple with the CloudScannerLogs field value if set, nil otherwise
+// and a boolean to check if the value has been set.
+// NOTE: If the value is an explicit nil, `nil, true` will be returned
+func (o *DiagnosisGetDiagnosticLogsResponse) GetCloudScannerLogsOk() ([]DiagnosisDiagnosticLogsLink, bool) {
+	if o == nil || IsNil(o.CloudScannerLogs) {
+		return nil, false
+	}
+	return o.CloudScannerLogs, true
+}
+
+// HasCloudScannerLogs returns a boolean if a field has been set.
+func (o *DiagnosisGetDiagnosticLogsResponse) HasCloudScannerLogs() bool {
+	if o != nil && IsNil(o.CloudScannerLogs) {
+		return true
+	}
+
+	return false
+}
+
+// SetCloudScannerLogs gets a reference to the given []DiagnosisDiagnosticLogsLink and assigns it to the CloudScannerLogs field.
+func (o *DiagnosisGetDiagnosticLogsResponse) SetCloudScannerLogs(v []DiagnosisDiagnosticLogsLink) {
+	o.CloudScannerLogs = v
+}
+
 // GetConsoleLogs returns the ConsoleLogs field value if set, zero value otherwise (both if not set or set to explicit null).
 func (o *DiagnosisGetDiagnosticLogsResponse) GetConsoleLogs() []DiagnosisDiagnosticLogsLink {
 	if o == nil {
@@ -119,6 +153,9 @@ func (o DiagnosisGetDiagnosticLogsResponse) ToMap() (map[string]interface{}, err
 	toSerialize := map[string]interface{}{}
 	if o.AgentLogs != nil {
 		toSerialize["agent_logs"] = o.AgentLogs
+	}
+	if o.CloudScannerLogs != nil {
+		toSerialize["cloud_scanner_logs"] = o.CloudScannerLogs
 	}
 	if o.ConsoleLogs != nil {
 		toSerialize["console_logs"] = o.ConsoleLogs

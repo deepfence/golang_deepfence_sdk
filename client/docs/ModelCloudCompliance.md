@@ -17,7 +17,7 @@ Name | Type | Description | Notes
 **Reason** | **string** |  | 
 **Region** | **string** |  | 
 **Resource** | **string** |  | 
-**Resources** | Pointer to **[]string** |  | [optional] 
+**Resources** | Pointer to [**[]ModelBasicNode**](ModelBasicNode.md) |  | [optional] 
 **Service** | **string** |  | 
 **Severity** | **string** |  | 
 **Status** | **string** |  | 
@@ -306,20 +306,20 @@ SetResource sets Resource field to given value.
 
 ### GetResources
 
-`func (o *ModelCloudCompliance) GetResources() []string`
+`func (o *ModelCloudCompliance) GetResources() []ModelBasicNode`
 
 GetResources returns the Resources field if non-nil, zero value otherwise.
 
 ### GetResourcesOk
 
-`func (o *ModelCloudCompliance) GetResourcesOk() (*[]string, bool)`
+`func (o *ModelCloudCompliance) GetResourcesOk() (*[]ModelBasicNode, bool)`
 
 GetResourcesOk returns a tuple with the Resources field if it's non-nil, zero value otherwise
 and a boolean to check if the value has been set.
 
 ### SetResources
 
-`func (o *ModelCloudCompliance) SetResources(v []string)`
+`func (o *ModelCloudCompliance) SetResources(v []ModelBasicNode)`
 
 SetResources sets Resources field to given value.
 

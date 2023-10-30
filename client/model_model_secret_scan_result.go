@@ -20,6 +20,7 @@ var _ MappedNullable = &ModelSecretScanResult{}
 
 // ModelSecretScanResult struct for ModelSecretScanResult
 type ModelSecretScanResult struct {
+	CloudAccountId string `json:"cloud_account_id"`
 	CreatedAt int64 `json:"created_at"`
 	DockerContainerName string `json:"docker_container_name"`
 	DockerImageName string `json:"docker_image_name"`
@@ -38,8 +39,9 @@ type ModelSecretScanResult struct {
 // This constructor will assign default values to properties that have it defined,
 // and makes sure properties required by API are set, but the set of arguments
 // will change when the set of required properties is changed
-func NewModelSecretScanResult(createdAt int64, dockerContainerName string, dockerImageName string, hostName string, kubernetesClusterName string, nodeId string, nodeName string, nodeType string, scanId string, secrets []ModelSecret, severityCounts map[string]int32, updatedAt int64) *ModelSecretScanResult {
+func NewModelSecretScanResult(cloudAccountId string, createdAt int64, dockerContainerName string, dockerImageName string, hostName string, kubernetesClusterName string, nodeId string, nodeName string, nodeType string, scanId string, secrets []ModelSecret, severityCounts map[string]int32, updatedAt int64) *ModelSecretScanResult {
 	this := ModelSecretScanResult{}
+	this.CloudAccountId = cloudAccountId
 	this.CreatedAt = createdAt
 	this.DockerContainerName = dockerContainerName
 	this.DockerImageName = dockerImageName
@@ -61,6 +63,30 @@ func NewModelSecretScanResult(createdAt int64, dockerContainerName string, docke
 func NewModelSecretScanResultWithDefaults() *ModelSecretScanResult {
 	this := ModelSecretScanResult{}
 	return &this
+}
+
+// GetCloudAccountId returns the CloudAccountId field value
+func (o *ModelSecretScanResult) GetCloudAccountId() string {
+	if o == nil {
+		var ret string
+		return ret
+	}
+
+	return o.CloudAccountId
+}
+
+// GetCloudAccountIdOk returns a tuple with the CloudAccountId field value
+// and a boolean to check if the value has been set.
+func (o *ModelSecretScanResult) GetCloudAccountIdOk() (*string, bool) {
+	if o == nil {
+		return nil, false
+	}
+	return &o.CloudAccountId, true
+}
+
+// SetCloudAccountId sets field value
+func (o *ModelSecretScanResult) SetCloudAccountId(v string) {
+	o.CloudAccountId = v
 }
 
 // GetCreatedAt returns the CreatedAt field value
@@ -365,6 +391,7 @@ func (o ModelSecretScanResult) MarshalJSON() ([]byte, error) {
 
 func (o ModelSecretScanResult) ToMap() (map[string]interface{}, error) {
 	toSerialize := map[string]interface{}{}
+	toSerialize["cloud_account_id"] = o.CloudAccountId
 	toSerialize["created_at"] = o.CreatedAt
 	toSerialize["docker_container_name"] = o.DockerContainerName
 	toSerialize["docker_image_name"] = o.DockerImageName

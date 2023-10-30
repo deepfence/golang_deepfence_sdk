@@ -13,7 +13,8 @@ Name | Type | Description | Notes
 **RemediationPuppet** | **string** |  | 
 **RemediationScript** | **string** |  | 
 **Resource** | **string** |  | 
-**Resources** | Pointer to **[]string** |  | [optional] 
+**Resources** | Pointer to [**[]ModelBasicNode**](ModelBasicNode.md) |  | [optional] 
+**RuleId** | **string** |  | 
 **Status** | **string** |  | 
 **TestCategory** | **string** |  | 
 **TestDesc** | **string** |  | 
@@ -26,7 +27,7 @@ Name | Type | Description | Notes
 
 ### NewModelCompliance
 
-`func NewModelCompliance(complianceCheckType string, description string, masked bool, nodeId string, nodeType string, remediationAnsible string, remediationPuppet string, remediationScript string, resource string, status string, testCategory string, testDesc string, testNumber string, testRationale string, testSeverity string, updatedAt int32, ) *ModelCompliance`
+`func NewModelCompliance(complianceCheckType string, description string, masked bool, nodeId string, nodeType string, remediationAnsible string, remediationPuppet string, remediationScript string, resource string, ruleId string, status string, testCategory string, testDesc string, testNumber string, testRationale string, testSeverity string, updatedAt int32, ) *ModelCompliance`
 
 NewModelCompliance instantiates a new ModelCompliance object
 This constructor will assign default values to properties that have it defined,
@@ -223,20 +224,20 @@ SetResource sets Resource field to given value.
 
 ### GetResources
 
-`func (o *ModelCompliance) GetResources() []string`
+`func (o *ModelCompliance) GetResources() []ModelBasicNode`
 
 GetResources returns the Resources field if non-nil, zero value otherwise.
 
 ### GetResourcesOk
 
-`func (o *ModelCompliance) GetResourcesOk() (*[]string, bool)`
+`func (o *ModelCompliance) GetResourcesOk() (*[]ModelBasicNode, bool)`
 
 GetResourcesOk returns a tuple with the Resources field if it's non-nil, zero value otherwise
 and a boolean to check if the value has been set.
 
 ### SetResources
 
-`func (o *ModelCompliance) SetResources(v []string)`
+`func (o *ModelCompliance) SetResources(v []ModelBasicNode)`
 
 SetResources sets Resources field to given value.
 
@@ -256,6 +257,26 @@ HasResources returns a boolean if a field has been set.
 `func (o *ModelCompliance) UnsetResources()`
 
 UnsetResources ensures that no value is present for Resources, not even an explicit nil
+### GetRuleId
+
+`func (o *ModelCompliance) GetRuleId() string`
+
+GetRuleId returns the RuleId field if non-nil, zero value otherwise.
+
+### GetRuleIdOk
+
+`func (o *ModelCompliance) GetRuleIdOk() (*string, bool)`
+
+GetRuleIdOk returns a tuple with the RuleId field if it's non-nil, zero value otherwise
+and a boolean to check if the value has been set.
+
+### SetRuleId
+
+`func (o *ModelCompliance) SetRuleId(v string)`
+
+SetRuleId sets RuleId field to given value.
+
+
 ### GetStatus
 
 `func (o *ModelCompliance) GetStatus() string`

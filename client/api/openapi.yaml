@@ -941,6 +941,92 @@ paths:
       summary: Update Agent Diagnostic Logs Status
       tags:
       - Diagnosis
+  /deepfence/diagnosis/cloud-scanner-logs:
+    post:
+      description: Generate Cloud Scanner Diagnostic Logs
+      operationId: generateCloudScannerDiagnosticLogs
+      requestBody:
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/DiagnosisGenerateCloudScannerDiagnosticLogsRequest'
+      responses:
+        "202":
+          description: Accepted
+        "400":
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ApiDocsBadRequestResponse'
+          description: Bad Request
+        "401":
+          description: Unauthorized
+        "403":
+          description: Forbidden
+        "404":
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ApiDocsFailureResponse'
+          description: Not Found
+        "500":
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ApiDocsFailureResponse'
+          description: Internal Server Error
+      security:
+      - bearer_token: []
+      summary: Generate Cloud Scanner Diagnostic Logs
+      tags:
+      - Diagnosis
+  /deepfence/diagnosis/cloud-scanner-logs/status/{node_id}:
+    put:
+      description: Update cloud scanner diagnostic logs status
+      operationId: updateCloudScannerDiagnosticLogsStatus
+      parameters:
+      - explode: false
+        in: path
+        name: node_id
+        required: true
+        schema:
+          type: string
+        style: simple
+      requestBody:
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/DiagnosisDiagnosticLogsStatus'
+      responses:
+        "204":
+          description: No Content
+        "400":
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ApiDocsBadRequestResponse'
+          description: Bad Request
+        "401":
+          description: Unauthorized
+        "403":
+          description: Forbidden
+        "404":
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ApiDocsFailureResponse'
+          description: Not Found
+        "500":
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ApiDocsFailureResponse'
+          description: Internal Server Error
+      security:
+      - bearer_token: []
+      summary: Update Cloud Scanner Diagnostic Logs Status
+      tags:
+      - Diagnosis
   /deepfence/diagnosis/console-logs:
     post:
       description: Generate Console Diagnostic Logs
@@ -8704,7 +8790,7 @@ components:
       type: object
     ControlsAction:
       example:
-        id: 6
+        id: 0
         request_payload: request_payload
       properties:
         id:
@@ -8728,9 +8814,9 @@ components:
       example:
         beatrate: 0
         commands:
-        - id: 6
+        - id: 0
           request_payload: request_payload
-        - id: 6
+        - id: 0
           request_payload: request_payload
       properties:
         beatrate:
@@ -8958,6 +9044,26 @@ components:
       - node_ids
       - tail
       type: object
+    DiagnosisGenerateCloudScannerDiagnosticLogsRequest:
+      example:
+        tail: 0
+        node_ids:
+        - node_type: host
+          node_id: node_id
+        - node_type: host
+          node_id: node_id
+      properties:
+        node_ids:
+          items:
+            $ref: '#/components/schemas/DiagnosisNodeIdentifier'
+          nullable: true
+          type: array
+        tail:
+          type: integer
+      required:
+      - node_ids
+      - tail
+      type: object
     DiagnosisGenerateConsoleDiagnosticLogsRequest:
       example:
         tail: 0
@@ -8987,8 +9093,22 @@ components:
           created_at: created_at
           label: label
           message: message
+        cloud_scanner_logs:
+        - url_link: url_link
+          created_at: created_at
+          label: label
+          message: message
+        - url_link: url_link
+          created_at: created_at
+          label: label
+          message: message
       properties:
         agent_logs:
+          items:
+            $ref: '#/components/schemas/DiagnosisDiagnosticLogsLink'
+          nullable: true
+          type: array
+        cloud_scanner_logs:
           items:
             $ref: '#/components/schemas/DiagnosisDiagnosticLogsLink'
           nullable: true
@@ -9010,6 +9130,7 @@ components:
           enum:
           - host
           - cluster
+          - cloud_account
           type: string
       required:
       - node_id
@@ -9363,7 +9484,6 @@ components:
         reason: reason
         control_id: control_id
         resource: resource
-        masked: true
         count: 0
         description: description
         cloud_provider: cloud_provider
@@ -9397,8 +9517,6 @@ components:
           type: string
         group:
           type: string
-        masked:
-          type: boolean
         reason:
           type: string
         region:
@@ -9759,7 +9877,6 @@ components:
         summary: summary
         image_layer_id: image_layer_id
         rule_name: rule_name
-        masked: true
         file_sev_score: 0.8008281904610115
         file_severity: file_severity
         strings_to_match:
@@ -9795,8 +9912,6 @@ components:
           type: string
         image_layer_id:
           type: string
-        masked:
-          type: boolean
         meta:
           items:
             type: string
@@ -10034,7 +10149,6 @@ components:
     IngestersSecret:
       example:
         ImageLayerId: ImageLayerId
-        masked: true
         Severity:
           score: 5.637376656633329
           level: level
@@ -10059,8 +10173,6 @@ components:
           $ref: '#/components/schemas/IngestersSecret_Rule'
         Severity:
           $ref: '#/components/schemas/IngestersSecret_Severity'
-        masked:
-          type: boolean
         scan_id:
           type: string
       type: object
@@ -10383,8 +10495,14 @@ components:
         node_name: node_name
         description: description
         resources:
-        - resources
-        - resources
+        - node_type: node_type
+          name: name
+          host_name: host_name
+          node_id: node_id
+        - node_type: node_type
+          name: name
+          host_name: host_name
+          node_id: node_id
         cloud_provider: cloud_provider
         title: title
         type: type
@@ -10425,7 +10543,7 @@ components:
           type: string
         resources:
           items:
-            type: string
+            $ref: '#/components/schemas/ModelBasicNode'
           nullable: true
           type: array
         service:
@@ -10525,6 +10643,7 @@ components:
         kubernetes_cluster_name: kubernetes_cluster_name
         node_name: node_name
         created_at: 6
+        cloud_account_id: cloud_account_id
         compliances:
         - severity: severity
           reason: reason
@@ -10535,8 +10654,14 @@ components:
           node_name: node_name
           description: description
           resources:
-          - resources
-          - resources
+          - node_type: node_type
+            name: name
+            host_name: host_name
+            node_id: node_id
+          - node_type: node_type
+            name: name
+            host_name: host_name
+            node_id: node_id
           cloud_provider: cloud_provider
           title: title
           type: type
@@ -10557,8 +10682,14 @@ components:
           node_name: node_name
           description: description
           resources:
-          - resources
-          - resources
+          - node_type: node_type
+            name: name
+            host_name: host_name
+            node_id: node_id
+          - node_type: node_type
+            name: name
+            host_name: host_name
+            node_id: node_id
           cloud_provider: cloud_provider
           title: title
           type: type
@@ -10585,6 +10716,8 @@ components:
             type: string
           nullable: true
           type: array
+        cloud_account_id:
+          type: string
         compliance_percentage:
           type: number
         compliances:
@@ -10621,6 +10754,7 @@ components:
           type: integer
       required:
       - benchmark_type
+      - cloud_account_id
       - compliance_percentage
       - compliances
       - created_at
@@ -10712,6 +10846,9 @@ components:
             trail_name: trail_name
           - account_id: account_id
             trail_name: trail_name
+          log_action:
+            id: 0
+            request_payload: request_payload
           scans:
             key:
               account_id: account_id
@@ -10743,6 +10880,9 @@ components:
           trail_name: trail_name
         - account_id: account_id
           trail_name: trail_name
+        log_action:
+          id: 0
+          request_payload: request_payload
         scans:
           key:
             account_id: account_id
@@ -10769,6 +10909,8 @@ components:
             $ref: '#/components/schemas/ModelCloudNodeCloudtrailTrail'
           nullable: true
           type: array
+        log_action:
+          $ref: '#/components/schemas/ControlsAction'
         refresh:
           type: string
         scans:
@@ -11004,11 +11146,18 @@ components:
         masked: true
         description: description
         resources:
-        - resources
-        - resources
+        - node_type: node_type
+          name: name
+          host_name: host_name
+          node_id: node_id
+        - node_type: node_type
+          name: name
+          host_name: host_name
+          node_id: node_id
         test_category: test_category
         remediation_ansible: remediation_ansible
         compliance_check_type: compliance_check_type
+        rule_id: rule_id
         test_rationale: test_rationale
         test_severity: test_severity
         node_type: node_type
@@ -11040,9 +11189,11 @@ components:
           type: string
         resources:
           items:
-            type: string
+            $ref: '#/components/schemas/ModelBasicNode'
           nullable: true
           type: array
+        rule_id:
+          type: string
         status:
           type: string
         test_category:
@@ -11067,6 +11218,7 @@ components:
       - remediation_puppet
       - remediation_script
       - resource
+      - rule_id
       - status
       - test_category
       - test_desc
@@ -11177,16 +11329,24 @@ components:
         kubernetes_cluster_name: kubernetes_cluster_name
         node_name: node_name
         created_at: 6
+        cloud_account_id: cloud_account_id
         compliances:
         - resource: resource
           masked: true
           description: description
           resources:
-          - resources
-          - resources
+          - node_type: node_type
+            name: name
+            host_name: host_name
+            node_id: node_id
+          - node_type: node_type
+            name: name
+            host_name: host_name
+            node_id: node_id
           test_category: test_category
           remediation_ansible: remediation_ansible
           compliance_check_type: compliance_check_type
+          rule_id: rule_id
           test_rationale: test_rationale
           test_severity: test_severity
           node_type: node_type
@@ -11201,11 +11361,18 @@ components:
           masked: true
           description: description
           resources:
-          - resources
-          - resources
+          - node_type: node_type
+            name: name
+            host_name: host_name
+            node_id: node_id
+          - node_type: node_type
+            name: name
+            host_name: host_name
+            node_id: node_id
           test_category: test_category
           remediation_ansible: remediation_ansible
           compliance_check_type: compliance_check_type
+          rule_id: rule_id
           test_rationale: test_rationale
           test_severity: test_severity
           node_type: node_type
@@ -11231,6 +11398,8 @@ components:
             type: string
           nullable: true
           type: array
+        cloud_account_id:
+          type: string
         compliance_percentage:
           type: number
         compliances:
@@ -11267,6 +11436,7 @@ components:
           type: integer
       required:
       - benchmark_type
+      - cloud_account_id
       - compliance_percentage
       - compliances
       - created_at
@@ -11764,6 +11934,7 @@ components:
         - ""
         - ""
         scan_info:
+          cloud_account_id: cloud_account_id
           node_type: node_type
           docker_container_name: docker_container_name
           updated_at: 6
@@ -14957,8 +15128,14 @@ components:
         - ""
         description: description
         resources:
-        - resources
-        - resources
+        - node_type: node_type
+          name: name
+          host_name: host_name
+          node_id: node_id
+        - node_type: node_type
+          name: name
+          host_name: host_name
+          node_id: node_id
         version: version
         rule_id: rule_id
         complete_filename: complete_filename
@@ -14993,7 +15170,7 @@ components:
           type: string
         resources:
           items:
-            type: string
+            $ref: '#/components/schemas/ModelBasicNode'
           nullable: true
           type: array
         rule_id:
@@ -15068,12 +15245,13 @@ components:
       example:
         severity_counts:
           key: 6
-        node_type: node_type
         docker_container_name: docker_container_name
-        updated_at: 1
         kubernetes_cluster_name: kubernetes_cluster_name
         node_name: node_name
         created_at: 0
+        cloud_account_id: cloud_account_id
+        node_type: node_type
+        updated_at: 1
         scan_id: scan_id
         malwares:
         - date: date
@@ -15090,8 +15268,14 @@ components:
           - ""
           description: description
           resources:
-          - resources
-          - resources
+          - node_type: node_type
+            name: name
+            host_name: host_name
+            node_id: node_id
+          - node_type: node_type
+            name: name
+            host_name: host_name
+            node_id: node_id
           version: version
           rule_id: rule_id
           complete_filename: complete_filename
@@ -15113,8 +15297,14 @@ components:
           - ""
           description: description
           resources:
-          - resources
-          - resources
+          - node_type: node_type
+            name: name
+            host_name: host_name
+            node_id: node_id
+          - node_type: node_type
+            name: name
+            host_name: host_name
+            node_id: node_id
           version: version
           rule_id: rule_id
           complete_filename: complete_filename
@@ -15126,6 +15316,8 @@ components:
         host_name: host_name
         node_id: node_id
       properties:
+        cloud_account_id:
+          type: string
         created_at:
           format: int64
           type: integer
@@ -15159,6 +15351,7 @@ components:
           format: int64
           type: integer
       required:
+      - cloud_account_id
       - created_at
       - docker_container_name
       - docker_image_name
@@ -16290,8 +16483,14 @@ components:
           node_name: node_name
           description: description
           resources:
-          - resources
-          - resources
+          - node_type: node_type
+            name: name
+            host_name: host_name
+            node_id: node_id
+          - node_type: node_type
+            name: name
+            host_name: host_name
+            node_id: node_id
           cloud_provider: cloud_provider
           title: title
           type: type
@@ -16312,8 +16511,14 @@ components:
           node_name: node_name
           description: description
           resources:
-          - resources
-          - resources
+          - node_type: node_type
+            name: name
+            host_name: host_name
+            node_id: node_id
+          - node_type: node_type
+            name: name
+            host_name: host_name
+            node_id: node_id
           cloud_provider: cloud_provider
           title: title
           type: type
@@ -16341,11 +16546,18 @@ components:
           masked: true
           description: description
           resources:
-          - resources
-          - resources
+          - node_type: node_type
+            name: name
+            host_name: host_name
+            node_id: node_id
+          - node_type: node_type
+            name: name
+            host_name: host_name
+            node_id: node_id
           test_category: test_category
           remediation_ansible: remediation_ansible
           compliance_check_type: compliance_check_type
+          rule_id: rule_id
           test_rationale: test_rationale
           test_severity: test_severity
           node_type: node_type
@@ -16360,11 +16572,18 @@ components:
           masked: true
           description: description
           resources:
-          - resources
-          - resources
+          - node_type: node_type
+            name: name
+            host_name: host_name
+            node_id: node_id
+          - node_type: node_type
+            name: name
+            host_name: host_name
+            node_id: node_id
           test_category: test_category
           remediation_ansible: remediation_ansible
           compliance_check_type: compliance_check_type
+          rule_id: rule_id
           test_rationale: test_rationale
           test_severity: test_severity
           node_type: node_type
@@ -16401,8 +16620,14 @@ components:
           - ""
           description: description
           resources:
-          - resources
-          - resources
+          - node_type: node_type
+            name: name
+            host_name: host_name
+            node_id: node_id
+          - node_type: node_type
+            name: name
+            host_name: host_name
+            node_id: node_id
           version: version
           rule_id: rule_id
           complete_filename: complete_filename
@@ -16424,8 +16649,14 @@ components:
           - ""
           description: description
           resources:
-          - resources
-          - resources
+          - node_type: node_type
+            name: name
+            host_name: host_name
+            node_id: node_id
+          - node_type: node_type
+            name: name
+            host_name: host_name
+            node_id: node_id
           version: version
           rule_id: rule_id
           complete_filename: complete_filename
@@ -16452,8 +16683,14 @@ components:
           relative_ending_index: 0
           starting_index: 5
           resources:
-          - resources
-          - resources
+          - node_type: node_type
+            name: name
+            host_name: host_name
+            node_id: node_id
+          - node_type: node_type
+            name: name
+            host_name: host_name
+            node_id: node_id
           signature_to_match: signature_to_match
           rule_id: 1
           score: 5.962133916683182
@@ -16469,8 +16706,14 @@ components:
           relative_ending_index: 0
           starting_index: 5
           resources:
-          - resources
-          - resources
+          - node_type: node_type
+            name: name
+            host_name: host_name
+            node_id: node_id
+          - node_type: node_type
+            name: name
+            host_name: host_name
+            node_id: node_id
           signature_to_match: signature_to_match
           rule_id: 1
           score: 5.962133916683182
@@ -16497,11 +16740,18 @@ components:
           cve_description: cve_description
           cve_overall_score: 6.027456183070403
           resources:
-          - resources
-          - resources
+          - node_type: node_type
+            name: name
+            host_name: host_name
+            node_id: node_id
+          - node_type: node_type
+            name: name
+            host_name: host_name
+            node_id: node_id
           cve_caused_by_package: cve_caused_by_package
           cve_attack_vector: cve_attack_vector
           cve_cvss_score: 0.8008281904610115
+          rule_id: rule_id
           urls:
           - ""
           - ""
@@ -16521,11 +16771,18 @@ components:
           cve_description: cve_description
           cve_overall_score: 6.027456183070403
           resources:
-          - resources
-          - resources
+          - node_type: node_type
+            name: name
+            host_name: host_name
+            node_id: node_id
+          - node_type: node_type
+            name: name
+            host_name: host_name
+            node_id: node_id
           cve_caused_by_package: cve_caused_by_package
           cve_attack_vector: cve_attack_vector
           cve_cvss_score: 0.8008281904610115
+          rule_id: rule_id
           urls:
           - ""
           - ""
@@ -16831,6 +17088,7 @@ components:
       type: object
     ModelScanResultsCommon:
       example:
+        cloud_account_id: cloud_account_id
         node_type: node_type
         docker_container_name: docker_container_name
         updated_at: 6
@@ -16842,6 +17100,8 @@ components:
         host_name: host_name
         node_id: node_id
       properties:
+        cloud_account_id:
+          type: string
         created_at:
           format: int64
           type: integer
@@ -16865,6 +17125,7 @@ components:
           format: int64
           type: integer
       required:
+      - cloud_account_id
       - created_at
       - docker_container_name
       - docker_image_name
@@ -16879,13 +17140,19 @@ components:
     ModelScanResultsMaskRequest:
       example:
         mask_across_hosts_and_images: true
+        mask_in_this_image_tag: true
         result_ids:
         - result_ids
         - result_ids
         scan_type: SecretScan
+        mask_in_this_host_or_image_tags: true
         scan_id: scan_id
       properties:
         mask_across_hosts_and_images:
+          type: boolean
+        mask_in_this_host_or_image_tags:
+          type: boolean
+        mask_in_this_image_tag:
           type: boolean
         result_ids:
           items:
@@ -17034,8 +17301,14 @@ components:
         relative_ending_index: 0
         starting_index: 5
         resources:
-        - resources
-        - resources
+        - node_type: node_type
+          name: name
+          host_name: host_name
+          node_id: node_id
+        - node_type: node_type
+          name: name
+          host_name: host_name
+          node_id: node_id
         signature_to_match: signature_to_match
         rule_id: 1
         score: 5.962133916683182
@@ -17065,7 +17338,7 @@ components:
           type: integer
         resources:
           items:
-            type: string
+            $ref: '#/components/schemas/ModelBasicNode'
           nullable: true
           type: array
         rule_id:
@@ -17127,13 +17400,10 @@ components:
       example:
         severity_counts:
           key: 6
-        node_type: node_type
         docker_container_name: docker_container_name
-        updated_at: 1
         kubernetes_cluster_name: kubernetes_cluster_name
         node_name: node_name
         created_at: 0
-        scan_id: scan_id
         secrets:
         - full_filename: full_filename
           level: level
@@ -17142,8 +17412,14 @@ components:
           relative_ending_index: 0
           starting_index: 5
           resources:
-          - resources
-          - resources
+          - node_type: node_type
+            name: name
+            host_name: host_name
+            node_id: node_id
+          - node_type: node_type
+            name: name
+            host_name: host_name
+            node_id: node_id
           signature_to_match: signature_to_match
           rule_id: 1
           score: 5.962133916683182
@@ -17159,8 +17435,14 @@ components:
           relative_ending_index: 0
           starting_index: 5
           resources:
-          - resources
-          - resources
+          - node_type: node_type
+            name: name
+            host_name: host_name
+            node_id: node_id
+          - node_type: node_type
+            name: name
+            host_name: host_name
+            node_id: node_id
           signature_to_match: signature_to_match
           rule_id: 1
           score: 5.962133916683182
@@ -17169,10 +17451,16 @@ components:
           name: name
           relative_starting_index: 6
           node_id: node_id
+        cloud_account_id: cloud_account_id
+        node_type: node_type
+        updated_at: 1
+        scan_id: scan_id
         docker_image_name: docker_image_name
         host_name: host_name
         node_id: node_id
       properties:
+        cloud_account_id:
+          type: string
         created_at:
           format: int64
           type: integer
@@ -17206,6 +17494,7 @@ components:
           format: int64
           type: integer
       required:
+      - cloud_account_id
       - created_at
       - docker_container_name
       - docker_image_name
@@ -17584,11 +17873,18 @@ components:
         cve_description: cve_description
         cve_overall_score: 6.027456183070403
         resources:
-        - resources
-        - resources
+        - node_type: node_type
+          name: name
+          host_name: host_name
+          node_id: node_id
+        - node_type: node_type
+          name: name
+          host_name: host_name
+          node_id: node_id
         cve_caused_by_package: cve_caused_by_package
         cve_attack_vector: cve_attack_vector
         cve_cvss_score: 0.8008281904610115
+        rule_id: rule_id
         urls:
         - ""
         - ""
@@ -17639,9 +17935,11 @@ components:
           type: string
         resources:
           items:
-            type: string
+            $ref: '#/components/schemas/ModelBasicNode'
           nullable: true
           type: array
+        rule_id:
+          type: string
         updated_at:
           type: integer
         urls:
@@ -17666,6 +17964,7 @@ components:
       - masked
       - node_id
       - parsed_attack_vector
+      - rule_id
       - updated_at
       - urls
       type: object
@@ -17676,8 +17975,14 @@ components:
         cve_description: cve_description
         cve_overall_score: 6.027456183070403
         resources:
-        - resources
-        - resources
+        - node_type: node_type
+          name: name
+          host_name: host_name
+          node_id: node_id
+        - node_type: node_type
+          name: name
+          host_name: host_name
+          node_id: node_id
         cve_attack_vector: cve_attack_vector
         cve_cvss_score: 0.8008281904610115
         urls:
@@ -17720,7 +18025,7 @@ components:
           type: string
         resources:
           items:
-            type: string
+            $ref: '#/components/schemas/ModelBasicNode'
           nullable: true
           type: array
         updated_at:
@@ -17771,12 +18076,13 @@ components:
       example:
         severity_counts:
           key: 6
-        node_type: node_type
         docker_container_name: docker_container_name
-        updated_at: 1
         kubernetes_cluster_name: kubernetes_cluster_name
         node_name: node_name
         created_at: 0
+        cloud_account_id: cloud_account_id
+        node_type: node_type
+        updated_at: 1
         vulnerabilities:
         - parsed_attack_vector: parsed_attack_vector
           cve_container_layer: cve_container_layer
@@ -17784,11 +18090,18 @@ components:
           cve_description: cve_description
           cve_overall_score: 6.027456183070403
           resources:
-          - resources
-          - resources
+          - node_type: node_type
+            name: name
+            host_name: host_name
+            node_id: node_id
+          - node_type: node_type
+            name: name
+            host_name: host_name
+            node_id: node_id
           cve_caused_by_package: cve_caused_by_package
           cve_attack_vector: cve_attack_vector
           cve_cvss_score: 0.8008281904610115
+          rule_id: rule_id
           urls:
           - ""
           - ""
@@ -17808,11 +18121,18 @@ components:
           cve_description: cve_description
           cve_overall_score: 6.027456183070403
           resources:
-          - resources
-          - resources
+          - node_type: node_type
+            name: name
+            host_name: host_name
+            node_id: node_id
+          - node_type: node_type
+            name: name
+            host_name: host_name
+            node_id: node_id
           cve_caused_by_package: cve_caused_by_package
           cve_attack_vector: cve_attack_vector
           cve_cvss_score: 0.8008281904610115
+          rule_id: rule_id
           urls:
           - ""
           - ""
@@ -17831,6 +18151,8 @@ components:
         host_name: host_name
         node_id: node_id
       properties:
+        cloud_account_id:
+          type: string
         created_at:
           format: int64
           type: integer
@@ -17864,6 +18186,7 @@ components:
           nullable: true
           type: array
       required:
+      - cloud_account_id
       - created_at
       - docker_container_name
       - docker_image_name

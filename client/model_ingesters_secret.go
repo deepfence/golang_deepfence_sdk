@@ -24,7 +24,6 @@ type IngestersSecret struct {
 	Match *IngestersSecretMatch `json:"Match,omitempty"`
 	Rule *IngestersSecretRule `json:"Rule,omitempty"`
 	Severity *IngestersSecretSeverity `json:"Severity,omitempty"`
-	Masked *bool `json:"masked,omitempty"`
 	ScanId *string `json:"scan_id,omitempty"`
 }
 
@@ -173,38 +172,6 @@ func (o *IngestersSecret) SetSeverity(v IngestersSecretSeverity) {
 	o.Severity = &v
 }
 
-// GetMasked returns the Masked field value if set, zero value otherwise.
-func (o *IngestersSecret) GetMasked() bool {
-	if o == nil || IsNil(o.Masked) {
-		var ret bool
-		return ret
-	}
-	return *o.Masked
-}
-
-// GetMaskedOk returns a tuple with the Masked field value if set, nil otherwise
-// and a boolean to check if the value has been set.
-func (o *IngestersSecret) GetMaskedOk() (*bool, bool) {
-	if o == nil || IsNil(o.Masked) {
-		return nil, false
-	}
-	return o.Masked, true
-}
-
-// HasMasked returns a boolean if a field has been set.
-func (o *IngestersSecret) HasMasked() bool {
-	if o != nil && !IsNil(o.Masked) {
-		return true
-	}
-
-	return false
-}
-
-// SetMasked gets a reference to the given bool and assigns it to the Masked field.
-func (o *IngestersSecret) SetMasked(v bool) {
-	o.Masked = &v
-}
-
 // GetScanId returns the ScanId field value if set, zero value otherwise.
 func (o *IngestersSecret) GetScanId() string {
 	if o == nil || IsNil(o.ScanId) {
@@ -258,9 +225,6 @@ func (o IngestersSecret) ToMap() (map[string]interface{}, error) {
 	}
 	if !IsNil(o.Severity) {
 		toSerialize["Severity"] = o.Severity
-	}
-	if !IsNil(o.Masked) {
-		toSerialize["masked"] = o.Masked
 	}
 	if !IsNil(o.ScanId) {
 		toSerialize["scan_id"] = o.ScanId

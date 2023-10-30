@@ -29,7 +29,6 @@ type IngestersCloudCompliance struct {
 	Description *string `json:"description,omitempty"`
 	DocId *string `json:"doc_id,omitempty"`
 	Group *string `json:"group,omitempty"`
-	Masked *bool `json:"masked,omitempty"`
 	Reason *string `json:"reason,omitempty"`
 	Region *string `json:"region,omitempty"`
 	Resource *string `json:"resource,omitempty"`
@@ -344,38 +343,6 @@ func (o *IngestersCloudCompliance) HasGroup() bool {
 // SetGroup gets a reference to the given string and assigns it to the Group field.
 func (o *IngestersCloudCompliance) SetGroup(v string) {
 	o.Group = &v
-}
-
-// GetMasked returns the Masked field value if set, zero value otherwise.
-func (o *IngestersCloudCompliance) GetMasked() bool {
-	if o == nil || IsNil(o.Masked) {
-		var ret bool
-		return ret
-	}
-	return *o.Masked
-}
-
-// GetMaskedOk returns a tuple with the Masked field value if set, nil otherwise
-// and a boolean to check if the value has been set.
-func (o *IngestersCloudCompliance) GetMaskedOk() (*bool, bool) {
-	if o == nil || IsNil(o.Masked) {
-		return nil, false
-	}
-	return o.Masked, true
-}
-
-// HasMasked returns a boolean if a field has been set.
-func (o *IngestersCloudCompliance) HasMasked() bool {
-	if o != nil && !IsNil(o.Masked) {
-		return true
-	}
-
-	return false
-}
-
-// SetMasked gets a reference to the given bool and assigns it to the Masked field.
-func (o *IngestersCloudCompliance) SetMasked(v bool) {
-	o.Masked = &v
 }
 
 // GetReason returns the Reason field value if set, zero value otherwise.
@@ -702,9 +669,6 @@ func (o IngestersCloudCompliance) ToMap() (map[string]interface{}, error) {
 	}
 	if !IsNil(o.Group) {
 		toSerialize["group"] = o.Group
-	}
-	if !IsNil(o.Masked) {
-		toSerialize["masked"] = o.Masked
 	}
 	if !IsNil(o.Reason) {
 		toSerialize["reason"] = o.Reason

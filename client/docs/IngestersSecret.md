@@ -8,7 +8,6 @@ Name | Type | Description | Notes
 **Match** | Pointer to [**IngestersSecretMatch**](IngestersSecretMatch.md) |  | [optional] 
 **Rule** | Pointer to [**IngestersSecretRule**](IngestersSecretRule.md) |  | [optional] 
 **Severity** | Pointer to [**IngestersSecretSeverity**](IngestersSecretSeverity.md) |  | [optional] 
-**Masked** | Pointer to **bool** |  | [optional] 
 **ScanId** | Pointer to **string** |  | [optional] 
 
 ## Methods
@@ -129,31 +128,6 @@ SetSeverity sets Severity field to given value.
 `func (o *IngestersSecret) HasSeverity() bool`
 
 HasSeverity returns a boolean if a field has been set.
-
-### GetMasked
-
-`func (o *IngestersSecret) GetMasked() bool`
-
-GetMasked returns the Masked field if non-nil, zero value otherwise.
-
-### GetMaskedOk
-
-`func (o *IngestersSecret) GetMaskedOk() (*bool, bool)`
-
-GetMaskedOk returns a tuple with the Masked field if it's non-nil, zero value otherwise
-and a boolean to check if the value has been set.
-
-### SetMasked
-
-`func (o *IngestersSecret) SetMasked(v bool)`
-
-SetMasked sets Masked field to given value.
-
-### HasMasked
-
-`func (o *IngestersSecret) HasMasked() bool`
-
-HasMasked returns a boolean if a field has been set.
 
 ### GetScanId
 

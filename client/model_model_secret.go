@@ -29,7 +29,7 @@ type ModelSecret struct {
 	Part string `json:"part"`
 	RelativeEndingIndex int32 `json:"relative_ending_index"`
 	RelativeStartingIndex int32 `json:"relative_starting_index"`
-	Resources []string `json:"resources,omitempty"`
+	Resources []ModelBasicNode `json:"resources,omitempty"`
 	RuleId int32 `json:"rule_id"`
 	Score float32 `json:"score"`
 	SignatureToMatch string `json:"signature_to_match"`
@@ -285,9 +285,9 @@ func (o *ModelSecret) SetRelativeStartingIndex(v int32) {
 }
 
 // GetResources returns the Resources field value if set, zero value otherwise (both if not set or set to explicit null).
-func (o *ModelSecret) GetResources() []string {
+func (o *ModelSecret) GetResources() []ModelBasicNode {
 	if o == nil {
-		var ret []string
+		var ret []ModelBasicNode
 		return ret
 	}
 	return o.Resources
@@ -296,7 +296,7 @@ func (o *ModelSecret) GetResources() []string {
 // GetResourcesOk returns a tuple with the Resources field value if set, nil otherwise
 // and a boolean to check if the value has been set.
 // NOTE: If the value is an explicit nil, `nil, true` will be returned
-func (o *ModelSecret) GetResourcesOk() ([]string, bool) {
+func (o *ModelSecret) GetResourcesOk() ([]ModelBasicNode, bool) {
 	if o == nil || IsNil(o.Resources) {
 		return nil, false
 	}
@@ -312,8 +312,8 @@ func (o *ModelSecret) HasResources() bool {
 	return false
 }
 
-// SetResources gets a reference to the given []string and assigns it to the Resources field.
-func (o *ModelSecret) SetResources(v []string) {
+// SetResources gets a reference to the given []ModelBasicNode and assigns it to the Resources field.
+func (o *ModelSecret) SetResources(v []ModelBasicNode) {
 	o.Resources = v
 }
 
