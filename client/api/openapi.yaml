@@ -17139,21 +17139,20 @@ components:
       type: object
     ModelScanResultsMaskRequest:
       example:
-        mask_across_hosts_and_images: true
-        mask_in_this_image_tag: true
+        mask_action: mask_global
         result_ids:
         - result_ids
         - result_ids
         scan_type: SecretScan
-        mask_in_this_host_or_image_tags: true
         scan_id: scan_id
       properties:
-        mask_across_hosts_and_images:
-          type: boolean
-        mask_in_this_host_or_image_tags:
-          type: boolean
-        mask_in_this_image_tag:
-          type: boolean
+        mask_action:
+          enum:
+          - mask_global
+          - mask_all_image_tag
+          - mask_entity
+          - mask_image_tag
+          type: string
         result_ids:
           items:
             type: string
@@ -17170,6 +17169,7 @@ components:
           - CloudComplianceScan
           type: string
       required:
+      - mask_action
       - result_ids
       - scan_id
       - scan_type

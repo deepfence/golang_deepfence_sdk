@@ -374,7 +374,7 @@ import (
 )
 
 func main() {
-    modelScanResultsMaskRequest := *openapiclient.NewModelScanResultsMaskRequest([]string{"ResultIds_example"}, "ScanId_example", "ScanType_example") // ModelScanResultsMaskRequest |  (optional)
+    modelScanResultsMaskRequest := *openapiclient.NewModelScanResultsMaskRequest("MaskAction_example", []string{"ResultIds_example"}, "ScanId_example", "ScanType_example") // ModelScanResultsMaskRequest |  (optional)
 
     configuration := openapiclient.NewConfiguration()
     apiClient := openapiclient.NewAPIClient(configuration)
@@ -502,7 +502,7 @@ import (
 )
 
 func main() {
-    modelScanResultsMaskRequest := *openapiclient.NewModelScanResultsMaskRequest([]string{"ResultIds_example"}, "ScanId_example", "ScanType_example") // ModelScanResultsMaskRequest |  (optional)
+    modelScanResultsMaskRequest := *openapiclient.NewModelScanResultsMaskRequest("MaskAction_example", []string{"ResultIds_example"}, "ScanId_example", "ScanType_example") // ModelScanResultsMaskRequest |  (optional)
 
     configuration := openapiclient.NewConfiguration()
     apiClient := openapiclient.NewAPIClient(configuration)
