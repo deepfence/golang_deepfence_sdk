@@ -260,8 +260,6 @@ func (a *RegistryAPIService) AddRegistryGCRExecute(r ApiAddRegistryGCRRequest) (
 	var serviceAccountJsonLocalVarFileBytes    []byte
 
 	serviceAccountJsonLocalVarFormFileName = "service_account_json"
-
-
 	serviceAccountJsonLocalVarFile := r.serviceAccountJson
 
 	if serviceAccountJsonLocalVarFile != nil {

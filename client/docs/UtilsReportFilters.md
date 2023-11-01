@@ -6,6 +6,7 @@ Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
 **AdvancedReportFilters** | Pointer to [**UtilsAdvancedReportFilters**](UtilsAdvancedReportFilters.md) |  | [optional] 
 **IncludeDeadNodes** | Pointer to **bool** |  | [optional] 
+**MostExploitableReport** | Pointer to **bool** |  | [optional] 
 **NodeType** | **string** |  | 
 **ScanId** | Pointer to **string** |  | [optional] 
 **ScanType** | **string** |  | 
@@ -79,6 +80,31 @@ SetIncludeDeadNodes sets IncludeDeadNodes field to given value.
 `func (o *UtilsReportFilters) HasIncludeDeadNodes() bool`
 
 HasIncludeDeadNodes returns a boolean if a field has been set.
+
+### GetMostExploitableReport
+
+`func (o *UtilsReportFilters) GetMostExploitableReport() bool`
+
+GetMostExploitableReport returns the MostExploitableReport field if non-nil, zero value otherwise.
+
+### GetMostExploitableReportOk
+
+`func (o *UtilsReportFilters) GetMostExploitableReportOk() (*bool, bool)`
+
+GetMostExploitableReportOk returns a tuple with the MostExploitableReport field if it's non-nil, zero value otherwise
+and a boolean to check if the value has been set.
+
+### SetMostExploitableReport
+
+`func (o *UtilsReportFilters) SetMostExploitableReport(v bool)`
+
+SetMostExploitableReport sets MostExploitableReport field to given value.
+
+### HasMostExploitableReport
+
+`func (o *UtilsReportFilters) HasMostExploitableReport() bool`
+
+HasMostExploitableReport returns a boolean if a field has been set.
 
 ### GetNodeType
 

@@ -12096,6 +12096,7 @@ components:
         filters:
           include_dead_nodes: true
           node_type: host
+          most_exploitable_report: true
           advanced_report_filters:
             image_name:
             - image_name
@@ -19303,6 +19304,7 @@ components:
       example:
         include_dead_nodes: true
         node_type: host
+        most_exploitable_report: true
         advanced_report_filters:
           image_name:
           - image_name
@@ -19337,6 +19339,8 @@ components:
         advanced_report_filters:
           $ref: '#/components/schemas/UtilsAdvancedReportFilters'
         include_dead_nodes:
+          type: boolean
+        most_exploitable_report:
           type: boolean
         node_type:
           enum:

@@ -22,6 +22,7 @@ var _ MappedNullable = &UtilsReportFilters{}
 type UtilsReportFilters struct {
 	AdvancedReportFilters *UtilsAdvancedReportFilters `json:"advanced_report_filters,omitempty"`
 	IncludeDeadNodes *bool `json:"include_dead_nodes,omitempty"`
+	MostExploitableReport *bool `json:"most_exploitable_report,omitempty"`
 	NodeType string `json:"node_type"`
 	ScanId *string `json:"scan_id,omitempty"`
 	ScanType string `json:"scan_type"`
@@ -109,6 +110,38 @@ func (o *UtilsReportFilters) HasIncludeDeadNodes() bool {
 // SetIncludeDeadNodes gets a reference to the given bool and assigns it to the IncludeDeadNodes field.
 func (o *UtilsReportFilters) SetIncludeDeadNodes(v bool) {
 	o.IncludeDeadNodes = &v
+}
+
+// GetMostExploitableReport returns the MostExploitableReport field value if set, zero value otherwise.
+func (o *UtilsReportFilters) GetMostExploitableReport() bool {
+	if o == nil || IsNil(o.MostExploitableReport) {
+		var ret bool
+		return ret
+	}
+	return *o.MostExploitableReport
+}
+
+// GetMostExploitableReportOk returns a tuple with the MostExploitableReport field value if set, nil otherwise
+// and a boolean to check if the value has been set.
+func (o *UtilsReportFilters) GetMostExploitableReportOk() (*bool, bool) {
+	if o == nil || IsNil(o.MostExploitableReport) {
+		return nil, false
+	}
+	return o.MostExploitableReport, true
+}
+
+// HasMostExploitableReport returns a boolean if a field has been set.
+func (o *UtilsReportFilters) HasMostExploitableReport() bool {
+	if o != nil && !IsNil(o.MostExploitableReport) {
+		return true
+	}
+
+	return false
+}
+
+// SetMostExploitableReport gets a reference to the given bool and assigns it to the MostExploitableReport field.
+func (o *UtilsReportFilters) SetMostExploitableReport(v bool) {
+	o.MostExploitableReport = &v
 }
 
 // GetNodeType returns the NodeType field value
@@ -239,6 +272,9 @@ func (o UtilsReportFilters) ToMap() (map[string]interface{}, error) {
 	}
 	if !IsNil(o.IncludeDeadNodes) {
 		toSerialize["include_dead_nodes"] = o.IncludeDeadNodes
+	}
+	if !IsNil(o.MostExploitableReport) {
+		toSerialize["most_exploitable_report"] = o.MostExploitableReport
 	}
 	toSerialize["node_type"] = o.NodeType
 	if !IsNil(o.ScanId) {
