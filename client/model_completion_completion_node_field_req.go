@@ -13,6 +13,7 @@ package client
 
 import (
 	"encoding/json"
+	"fmt"
 )
 
 // checks if the CompletionCompletionNodeFieldReq type satisfies the MappedNullable interface at compile time
@@ -25,6 +26,8 @@ type CompletionCompletionNodeFieldReq struct {
 	ScanId *string `json:"scan_id,omitempty"`
 	Window ModelFetchWindow `json:"window"`
 }
+
+type _CompletionCompletionNodeFieldReq CompletionCompletionNodeFieldReq
 
 // NewCompletionCompletionNodeFieldReq instantiates a new CompletionCompletionNodeFieldReq object
 // This constructor will assign default values to properties that have it defined,
@@ -167,6 +170,43 @@ func (o CompletionCompletionNodeFieldReq) ToMap() (map[string]interface{}, error
 	}
 	toSerialize["window"] = o.Window
 	return toSerialize, nil
+}
+
+func (o *CompletionCompletionNodeFieldReq) UnmarshalJSON(bytes []byte) (err error) {
+    // This validates that all required properties are included in the JSON object
+	// by unmarshalling the object into a generic map with string keys and checking
+	// that every required field exists as a key in the generic map.
+	requiredProperties := []string{
+		"completion",
+		"field_name",
+		"window",
+	}
+
+	allProperties := make(map[string]interface{})
+
+	err = json.Unmarshal(bytes, &allProperties)
+
+	if err != nil {
+		return err;
+	}
+
+	for _, requiredProperty := range(requiredProperties) {
+		if _, exists := allProperties[requiredProperty]; !exists {
+			return fmt.Errorf("no value given for required property %v", requiredProperty)
+		}
+	}
+
+	varCompletionCompletionNodeFieldReq := _CompletionCompletionNodeFieldReq{}
+
+	err = json.Unmarshal(bytes, &varCompletionCompletionNodeFieldReq)
+
+	if err != nil {
+		return err
+	}
+
+	*o = CompletionCompletionNodeFieldReq(varCompletionCompletionNodeFieldReq)
+
+	return err
 }
 
 type NullableCompletionCompletionNodeFieldReq struct {

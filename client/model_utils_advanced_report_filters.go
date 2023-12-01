@@ -20,12 +20,12 @@ var _ MappedNullable = &UtilsAdvancedReportFilters{}
 
 // UtilsAdvancedReportFilters struct for UtilsAdvancedReportFilters
 type UtilsAdvancedReportFilters struct {
-	AccountId []string `json:"account_id,omitempty"`
 	ContainerName []string `json:"container_name,omitempty"`
 	HostName []string `json:"host_name,omitempty"`
 	ImageName []string `json:"image_name,omitempty"`
 	KubernetesClusterName []string `json:"kubernetes_cluster_name,omitempty"`
 	Masked []bool `json:"masked,omitempty"`
+	NodeId []string `json:"node_id,omitempty"`
 	PodName []string `json:"pod_name,omitempty"`
 	ScanStatus []string `json:"scan_status,omitempty"`
 }
@@ -45,38 +45,6 @@ func NewUtilsAdvancedReportFilters() *UtilsAdvancedReportFilters {
 func NewUtilsAdvancedReportFiltersWithDefaults() *UtilsAdvancedReportFilters {
 	this := UtilsAdvancedReportFilters{}
 	return &this
-}
-
-// GetAccountId returns the AccountId field value if set, zero value otherwise.
-func (o *UtilsAdvancedReportFilters) GetAccountId() []string {
-	if o == nil || IsNil(o.AccountId) {
-		var ret []string
-		return ret
-	}
-	return o.AccountId
-}
-
-// GetAccountIdOk returns a tuple with the AccountId field value if set, nil otherwise
-// and a boolean to check if the value has been set.
-func (o *UtilsAdvancedReportFilters) GetAccountIdOk() ([]string, bool) {
-	if o == nil || IsNil(o.AccountId) {
-		return nil, false
-	}
-	return o.AccountId, true
-}
-
-// HasAccountId returns a boolean if a field has been set.
-func (o *UtilsAdvancedReportFilters) HasAccountId() bool {
-	if o != nil && !IsNil(o.AccountId) {
-		return true
-	}
-
-	return false
-}
-
-// SetAccountId gets a reference to the given []string and assigns it to the AccountId field.
-func (o *UtilsAdvancedReportFilters) SetAccountId(v []string) {
-	o.AccountId = v
 }
 
 // GetContainerName returns the ContainerName field value if set, zero value otherwise.
@@ -239,6 +207,38 @@ func (o *UtilsAdvancedReportFilters) SetMasked(v []bool) {
 	o.Masked = v
 }
 
+// GetNodeId returns the NodeId field value if set, zero value otherwise.
+func (o *UtilsAdvancedReportFilters) GetNodeId() []string {
+	if o == nil || IsNil(o.NodeId) {
+		var ret []string
+		return ret
+	}
+	return o.NodeId
+}
+
+// GetNodeIdOk returns a tuple with the NodeId field value if set, nil otherwise
+// and a boolean to check if the value has been set.
+func (o *UtilsAdvancedReportFilters) GetNodeIdOk() ([]string, bool) {
+	if o == nil || IsNil(o.NodeId) {
+		return nil, false
+	}
+	return o.NodeId, true
+}
+
+// HasNodeId returns a boolean if a field has been set.
+func (o *UtilsAdvancedReportFilters) HasNodeId() bool {
+	if o != nil && !IsNil(o.NodeId) {
+		return true
+	}
+
+	return false
+}
+
+// SetNodeId gets a reference to the given []string and assigns it to the NodeId field.
+func (o *UtilsAdvancedReportFilters) SetNodeId(v []string) {
+	o.NodeId = v
+}
+
 // GetPodName returns the PodName field value if set, zero value otherwise.
 func (o *UtilsAdvancedReportFilters) GetPodName() []string {
 	if o == nil || IsNil(o.PodName) {
@@ -313,9 +313,6 @@ func (o UtilsAdvancedReportFilters) MarshalJSON() ([]byte, error) {
 
 func (o UtilsAdvancedReportFilters) ToMap() (map[string]interface{}, error) {
 	toSerialize := map[string]interface{}{}
-	if !IsNil(o.AccountId) {
-		toSerialize["account_id"] = o.AccountId
-	}
 	if !IsNil(o.ContainerName) {
 		toSerialize["container_name"] = o.ContainerName
 	}
@@ -330,6 +327,9 @@ func (o UtilsAdvancedReportFilters) ToMap() (map[string]interface{}, error) {
 	}
 	if !IsNil(o.Masked) {
 		toSerialize["masked"] = o.Masked
+	}
+	if !IsNil(o.NodeId) {
+		toSerialize["node_id"] = o.NodeId
 	}
 	if !IsNil(o.PodName) {
 		toSerialize["pod_name"] = o.PodName

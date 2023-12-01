@@ -13,6 +13,7 @@ package client
 
 import (
 	"encoding/json"
+	"fmt"
 )
 
 // checks if the ReportersContainsFilter type satisfies the MappedNullable interface at compile time
@@ -22,6 +23,8 @@ var _ MappedNullable = &ReportersContainsFilter{}
 type ReportersContainsFilter struct {
 	FilterIn map[string][]interface{} `json:"filter_in"`
 }
+
+type _ReportersContainsFilter ReportersContainsFilter
 
 // NewReportersContainsFilter instantiates a new ReportersContainsFilter object
 // This constructor will assign default values to properties that have it defined,
@@ -81,6 +84,41 @@ func (o ReportersContainsFilter) ToMap() (map[string]interface{}, error) {
 		toSerialize["filter_in"] = o.FilterIn
 	}
 	return toSerialize, nil
+}
+
+func (o *ReportersContainsFilter) UnmarshalJSON(bytes []byte) (err error) {
+    // This validates that all required properties are included in the JSON object
+	// by unmarshalling the object into a generic map with string keys and checking
+	// that every required field exists as a key in the generic map.
+	requiredProperties := []string{
+		"filter_in",
+	}
+
+	allProperties := make(map[string]interface{})
+
+	err = json.Unmarshal(bytes, &allProperties)
+
+	if err != nil {
+		return err;
+	}
+
+	for _, requiredProperty := range(requiredProperties) {
+		if _, exists := allProperties[requiredProperty]; !exists {
+			return fmt.Errorf("no value given for required property %v", requiredProperty)
+		}
+	}
+
+	varReportersContainsFilter := _ReportersContainsFilter{}
+
+	err = json.Unmarshal(bytes, &varReportersContainsFilter)
+
+	if err != nil {
+		return err
+	}
+
+	*o = ReportersContainsFilter(varReportersContainsFilter)
+
+	return err
 }
 
 type NullableReportersContainsFilter struct {

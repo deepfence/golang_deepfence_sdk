@@ -13,6 +13,7 @@ package client
 
 import (
 	"encoding/json"
+	"fmt"
 )
 
 // checks if the ModelProcess type satisfies the MappedNullable interface at compile time
@@ -33,6 +34,8 @@ type ModelProcess struct {
 	ShortName string `json:"short_name"`
 	Threads int32 `json:"threads"`
 }
+
+type _ModelProcess ModelProcess
 
 // NewModelProcess instantiates a new ModelProcess object
 // This constructor will assign default values to properties that have it defined,
@@ -374,6 +377,52 @@ func (o ModelProcess) ToMap() (map[string]interface{}, error) {
 	toSerialize["short_name"] = o.ShortName
 	toSerialize["threads"] = o.Threads
 	return toSerialize, nil
+}
+
+func (o *ModelProcess) UnmarshalJSON(bytes []byte) (err error) {
+    // This validates that all required properties are included in the JSON object
+	// by unmarshalling the object into a generic map with string keys and checking
+	// that every required field exists as a key in the generic map.
+	requiredProperties := []string{
+		"cmdline",
+		"cpu_max",
+		"cpu_usage",
+		"memory_max",
+		"memory_usage",
+		"node_id",
+		"node_name",
+		"open_files_count",
+		"pid",
+		"ppid",
+		"short_name",
+		"threads",
+	}
+
+	allProperties := make(map[string]interface{})
+
+	err = json.Unmarshal(bytes, &allProperties)
+
+	if err != nil {
+		return err;
+	}
+
+	for _, requiredProperty := range(requiredProperties) {
+		if _, exists := allProperties[requiredProperty]; !exists {
+			return fmt.Errorf("no value given for required property %v", requiredProperty)
+		}
+	}
+
+	varModelProcess := _ModelProcess{}
+
+	err = json.Unmarshal(bytes, &varModelProcess)
+
+	if err != nil {
+		return err
+	}
+
+	*o = ModelProcess(varModelProcess)
+
+	return err
 }
 
 type NullableModelProcess struct {

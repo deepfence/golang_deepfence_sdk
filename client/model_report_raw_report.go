@@ -13,6 +13,7 @@ package client
 
 import (
 	"encoding/json"
+	"fmt"
 )
 
 // checks if the ReportRawReport type satisfies the MappedNullable interface at compile time
@@ -22,6 +23,8 @@ var _ MappedNullable = &ReportRawReport{}
 type ReportRawReport struct {
 	Payload string `json:"payload"`
 }
+
+type _ReportRawReport ReportRawReport
 
 // NewReportRawReport instantiates a new ReportRawReport object
 // This constructor will assign default values to properties that have it defined,
@@ -77,6 +80,41 @@ func (o ReportRawReport) ToMap() (map[string]interface{}, error) {
 	toSerialize := map[string]interface{}{}
 	toSerialize["payload"] = o.Payload
 	return toSerialize, nil
+}
+
+func (o *ReportRawReport) UnmarshalJSON(bytes []byte) (err error) {
+    // This validates that all required properties are included in the JSON object
+	// by unmarshalling the object into a generic map with string keys and checking
+	// that every required field exists as a key in the generic map.
+	requiredProperties := []string{
+		"payload",
+	}
+
+	allProperties := make(map[string]interface{})
+
+	err = json.Unmarshal(bytes, &allProperties)
+
+	if err != nil {
+		return err;
+	}
+
+	for _, requiredProperty := range(requiredProperties) {
+		if _, exists := allProperties[requiredProperty]; !exists {
+			return fmt.Errorf("no value given for required property %v", requiredProperty)
+		}
+	}
+
+	varReportRawReport := _ReportRawReport{}
+
+	err = json.Unmarshal(bytes, &varReportRawReport)
+
+	if err != nil {
+		return err
+	}
+
+	*o = ReportRawReport(varReportRawReport)
+
+	return err
 }
 
 type NullableReportRawReport struct {

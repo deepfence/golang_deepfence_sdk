@@ -26,11 +26,11 @@ type AuthenticationAPIService service
 type ApiAuthTokenRequest struct {
 	ctx context.Context
 	ApiService *AuthenticationAPIService
-	modelApiAuthRequest *ModelApiAuthRequest
+	modelAPIAuthRequest *ModelAPIAuthRequest
 }
 
-func (r ApiAuthTokenRequest) ModelApiAuthRequest(modelApiAuthRequest ModelApiAuthRequest) ApiAuthTokenRequest {
-	r.modelApiAuthRequest = &modelApiAuthRequest
+func (r ApiAuthTokenRequest) ModelAPIAuthRequest(modelAPIAuthRequest ModelAPIAuthRequest) ApiAuthTokenRequest {
+	r.modelAPIAuthRequest = &modelAPIAuthRequest
 	return r
 }
 
@@ -92,7 +92,7 @@ func (a *AuthenticationAPIService) AuthTokenExecute(r ApiAuthTokenRequest) (*Mod
 		localVarHeaderParams["Accept"] = localVarHTTPHeaderAccept
 	}
 	// body params
-	localVarPostBody = r.modelApiAuthRequest
+	localVarPostBody = r.modelAPIAuthRequest
 	req, err := a.client.prepareRequest(r.ctx, localVarPath, localVarHTTPMethod, localVarPostBody, localVarHeaderParams, localVarQueryParams, localVarFormParams, formFiles)
 	if err != nil {
 		return localVarReturnValue, nil, err

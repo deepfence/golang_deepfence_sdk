@@ -13,6 +13,7 @@ package client
 
 import (
 	"encoding/json"
+	"fmt"
 )
 
 // checks if the ModelComplianceScanTriggerReq type satisfies the MappedNullable interface at compile time
@@ -22,8 +23,11 @@ var _ MappedNullable = &ModelComplianceScanTriggerReq{}
 type ModelComplianceScanTriggerReq struct {
 	BenchmarkTypes []string `json:"benchmark_types"`
 	Filters ModelScanFilter `json:"filters"`
+	IsPriority *bool `json:"is_priority,omitempty"`
 	NodeIds []ModelNodeIdentifier `json:"node_ids"`
 }
+
+type _ModelComplianceScanTriggerReq ModelComplianceScanTriggerReq
 
 // NewModelComplianceScanTriggerReq instantiates a new ModelComplianceScanTriggerReq object
 // This constructor will assign default values to properties that have it defined,
@@ -95,6 +99,38 @@ func (o *ModelComplianceScanTriggerReq) SetFilters(v ModelScanFilter) {
 	o.Filters = v
 }
 
+// GetIsPriority returns the IsPriority field value if set, zero value otherwise.
+func (o *ModelComplianceScanTriggerReq) GetIsPriority() bool {
+	if o == nil || IsNil(o.IsPriority) {
+		var ret bool
+		return ret
+	}
+	return *o.IsPriority
+}
+
+// GetIsPriorityOk returns a tuple with the IsPriority field value if set, nil otherwise
+// and a boolean to check if the value has been set.
+func (o *ModelComplianceScanTriggerReq) GetIsPriorityOk() (*bool, bool) {
+	if o == nil || IsNil(o.IsPriority) {
+		return nil, false
+	}
+	return o.IsPriority, true
+}
+
+// HasIsPriority returns a boolean if a field has been set.
+func (o *ModelComplianceScanTriggerReq) HasIsPriority() bool {
+	if o != nil && !IsNil(o.IsPriority) {
+		return true
+	}
+
+	return false
+}
+
+// SetIsPriority gets a reference to the given bool and assigns it to the IsPriority field.
+func (o *ModelComplianceScanTriggerReq) SetIsPriority(v bool) {
+	o.IsPriority = &v
+}
+
 // GetNodeIds returns the NodeIds field value
 // If the value is explicit nil, the zero value for []ModelNodeIdentifier will be returned
 func (o *ModelComplianceScanTriggerReq) GetNodeIds() []ModelNodeIdentifier {
@@ -135,10 +171,50 @@ func (o ModelComplianceScanTriggerReq) ToMap() (map[string]interface{}, error) {
 		toSerialize["benchmark_types"] = o.BenchmarkTypes
 	}
 	toSerialize["filters"] = o.Filters
+	if !IsNil(o.IsPriority) {
+		toSerialize["is_priority"] = o.IsPriority
+	}
 	if o.NodeIds != nil {
 		toSerialize["node_ids"] = o.NodeIds
 	}
 	return toSerialize, nil
+}
+
+func (o *ModelComplianceScanTriggerReq) UnmarshalJSON(bytes []byte) (err error) {
+    // This validates that all required properties are included in the JSON object
+	// by unmarshalling the object into a generic map with string keys and checking
+	// that every required field exists as a key in the generic map.
+	requiredProperties := []string{
+		"benchmark_types",
+		"filters",
+		"node_ids",
+	}
+
+	allProperties := make(map[string]interface{})
+
+	err = json.Unmarshal(bytes, &allProperties)
+
+	if err != nil {
+		return err;
+	}
+
+	for _, requiredProperty := range(requiredProperties) {
+		if _, exists := allProperties[requiredProperty]; !exists {
+			return fmt.Errorf("no value given for required property %v", requiredProperty)
+		}
+	}
+
+	varModelComplianceScanTriggerReq := _ModelComplianceScanTriggerReq{}
+
+	err = json.Unmarshal(bytes, &varModelComplianceScanTriggerReq)
+
+	if err != nil {
+		return err
+	}
+
+	*o = ModelComplianceScanTriggerReq(varModelComplianceScanTriggerReq)
+
+	return err
 }
 
 type NullableModelComplianceScanTriggerReq struct {

@@ -13,6 +13,7 @@ package client
 
 import (
 	"encoding/json"
+	"fmt"
 )
 
 // checks if the GraphTopologyFilters type satisfies the MappedNullable interface at compile time
@@ -29,6 +30,8 @@ type GraphTopologyFilters struct {
 	RegionFilter []string `json:"region_filter"`
 	SkipConnections bool `json:"skip_connections"`
 }
+
+type _GraphTopologyFilters GraphTopologyFilters
 
 // NewGraphTopologyFilters instantiates a new GraphTopologyFilters object
 // This constructor will assign default values to properties that have it defined,
@@ -290,6 +293,48 @@ func (o GraphTopologyFilters) ToMap() (map[string]interface{}, error) {
 	}
 	toSerialize["skip_connections"] = o.SkipConnections
 	return toSerialize, nil
+}
+
+func (o *GraphTopologyFilters) UnmarshalJSON(bytes []byte) (err error) {
+    // This validates that all required properties are included in the JSON object
+	// by unmarshalling the object into a generic map with string keys and checking
+	// that every required field exists as a key in the generic map.
+	requiredProperties := []string{
+		"cloud_filter",
+		"container_filter",
+		"field_filters",
+		"host_filter",
+		"kubernetes_filter",
+		"pod_filter",
+		"region_filter",
+		"skip_connections",
+	}
+
+	allProperties := make(map[string]interface{})
+
+	err = json.Unmarshal(bytes, &allProperties)
+
+	if err != nil {
+		return err;
+	}
+
+	for _, requiredProperty := range(requiredProperties) {
+		if _, exists := allProperties[requiredProperty]; !exists {
+			return fmt.Errorf("no value given for required property %v", requiredProperty)
+		}
+	}
+
+	varGraphTopologyFilters := _GraphTopologyFilters{}
+
+	err = json.Unmarshal(bytes, &varGraphTopologyFilters)
+
+	if err != nil {
+		return err
+	}
+
+	*o = GraphTopologyFilters(varGraphTopologyFilters)
+
+	return err
 }
 
 type NullableGraphTopologyFilters struct {

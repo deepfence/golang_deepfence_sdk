@@ -13,6 +13,7 @@ package client
 
 import (
 	"encoding/json"
+	"fmt"
 )
 
 // checks if the ModelAgentUpgrade type satisfies the MappedNullable interface at compile time
@@ -23,6 +24,8 @@ type ModelAgentUpgrade struct {
 	NodeId string `json:"node_id"`
 	Version string `json:"version"`
 }
+
+type _ModelAgentUpgrade ModelAgentUpgrade
 
 // NewModelAgentUpgrade instantiates a new ModelAgentUpgrade object
 // This constructor will assign default values to properties that have it defined,
@@ -104,6 +107,42 @@ func (o ModelAgentUpgrade) ToMap() (map[string]interface{}, error) {
 	toSerialize["node_id"] = o.NodeId
 	toSerialize["version"] = o.Version
 	return toSerialize, nil
+}
+
+func (o *ModelAgentUpgrade) UnmarshalJSON(bytes []byte) (err error) {
+    // This validates that all required properties are included in the JSON object
+	// by unmarshalling the object into a generic map with string keys and checking
+	// that every required field exists as a key in the generic map.
+	requiredProperties := []string{
+		"node_id",
+		"version",
+	}
+
+	allProperties := make(map[string]interface{})
+
+	err = json.Unmarshal(bytes, &allProperties)
+
+	if err != nil {
+		return err;
+	}
+
+	for _, requiredProperty := range(requiredProperties) {
+		if _, exists := allProperties[requiredProperty]; !exists {
+			return fmt.Errorf("no value given for required property %v", requiredProperty)
+		}
+	}
+
+	varModelAgentUpgrade := _ModelAgentUpgrade{}
+
+	err = json.Unmarshal(bytes, &varModelAgentUpgrade)
+
+	if err != nil {
+		return err
+	}
+
+	*o = ModelAgentUpgrade(varModelAgentUpgrade)
+
+	return err
 }
 
 type NullableModelAgentUpgrade struct {

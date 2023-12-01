@@ -9,6 +9,7 @@ Method | HTTP request | Description
 [**CountImageStubs**](RegistryAPI.md#CountImageStubs) | **Post** /deepfence/registryaccount/count/stubs | Count Image Stubs
 [**CountImages**](RegistryAPI.md#CountImages) | **Post** /deepfence/registryaccount/count/images | Count Registry Images
 [**DeleteRegistry**](RegistryAPI.md#DeleteRegistry) | **Delete** /deepfence/registryaccount/{registry_id} | Delete Registry
+[**DeleteRegistryBulk**](RegistryAPI.md#DeleteRegistryBulk) | **Patch** /deepfence/registryaccount/delete | Batch Delete Registry
 [**GetRegistrySummary**](RegistryAPI.md#GetRegistrySummary) | **Get** /deepfence/registryaccount/{registry_id}/summary | Get Registry Summary
 [**GetSummaryAll**](RegistryAPI.md#GetSummaryAll) | **Get** /deepfence/registryaccount/summary | Get All Registries Summary By Type
 [**GetSummaryByType**](RegistryAPI.md#GetSummaryByType) | **Get** /deepfence/registryaccount/{registry_type}/summary-by-type | Get Registry Summary By Type
@@ -349,6 +350,70 @@ Name | Type | Description  | Notes
 ### HTTP request headers
 
 - **Content-Type**: Not defined
+- **Accept**: application/json
+
+[[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints)
+[[Back to Model list]](../README.md#documentation-for-models)
+[[Back to README]](../README.md)
+
+
+## DeleteRegistryBulk
+
+> DeleteRegistryBulk(ctx).ModelDeleteRegistryBulkReq(modelDeleteRegistryBulkReq).Execute()
+
+Batch Delete Registry
+
+
+
+### Example
+
+```go
+package main
+
+import (
+    "context"
+    "fmt"
+    "os"
+    openapiclient "github.com/deepfence/golang_deepfence_sdk/client"
+)
+
+func main() {
+    modelDeleteRegistryBulkReq := *openapiclient.NewModelDeleteRegistryBulkReq([]string{"RegistryIds_example"}) // ModelDeleteRegistryBulkReq |  (optional)
+
+    configuration := openapiclient.NewConfiguration()
+    apiClient := openapiclient.NewAPIClient(configuration)
+    r, err := apiClient.RegistryAPI.DeleteRegistryBulk(context.Background()).ModelDeleteRegistryBulkReq(modelDeleteRegistryBulkReq).Execute()
+    if err != nil {
+        fmt.Fprintf(os.Stderr, "Error when calling `RegistryAPI.DeleteRegistryBulk``: %v\n", err)
+        fmt.Fprintf(os.Stderr, "Full HTTP response: %v\n", r)
+    }
+}
+```
+
+### Path Parameters
+
+
+
+### Other Parameters
+
+Other parameters are passed through a pointer to a apiDeleteRegistryBulkRequest struct via the builder pattern
+
+
+Name | Type | Description  | Notes
+------------- | ------------- | ------------- | -------------
+ **modelDeleteRegistryBulkReq** | [**ModelDeleteRegistryBulkReq**](ModelDeleteRegistryBulkReq.md) |  | 
+
+### Return type
+
+ (empty response body)
+
+### Authorization
+
+[bearer_token](../README.md#bearer_token)
+
+### HTTP request headers
+
+- **Content-Type**: application/json
 - **Accept**: application/json
 
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints)

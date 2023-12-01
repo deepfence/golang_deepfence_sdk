@@ -13,6 +13,7 @@ package client
 
 import (
 	"encoding/json"
+	"fmt"
 )
 
 // checks if the ModelMessageResponse type satisfies the MappedNullable interface at compile time
@@ -22,6 +23,8 @@ var _ MappedNullable = &ModelMessageResponse{}
 type ModelMessageResponse struct {
 	Message string `json:"message"`
 }
+
+type _ModelMessageResponse ModelMessageResponse
 
 // NewModelMessageResponse instantiates a new ModelMessageResponse object
 // This constructor will assign default values to properties that have it defined,
@@ -77,6 +80,41 @@ func (o ModelMessageResponse) ToMap() (map[string]interface{}, error) {
 	toSerialize := map[string]interface{}{}
 	toSerialize["message"] = o.Message
 	return toSerialize, nil
+}
+
+func (o *ModelMessageResponse) UnmarshalJSON(bytes []byte) (err error) {
+    // This validates that all required properties are included in the JSON object
+	// by unmarshalling the object into a generic map with string keys and checking
+	// that every required field exists as a key in the generic map.
+	requiredProperties := []string{
+		"message",
+	}
+
+	allProperties := make(map[string]interface{})
+
+	err = json.Unmarshal(bytes, &allProperties)
+
+	if err != nil {
+		return err;
+	}
+
+	for _, requiredProperty := range(requiredProperties) {
+		if _, exists := allProperties[requiredProperty]; !exists {
+			return fmt.Errorf("no value given for required property %v", requiredProperty)
+		}
+	}
+
+	varModelMessageResponse := _ModelMessageResponse{}
+
+	err = json.Unmarshal(bytes, &varModelMessageResponse)
+
+	if err != nil {
+		return err
+	}
+
+	*o = ModelMessageResponse(varModelMessageResponse)
+
+	return err
 }
 
 type NullableModelMessageResponse struct {

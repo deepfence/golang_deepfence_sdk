@@ -1,4 +1,4 @@
-# ModelUpdateUserIdRequest
+# ModelUpdateUserIDRequest
 
 ## Properties
 
@@ -11,120 +11,120 @@ Name | Type | Description | Notes
 
 ## Methods
 
-### NewModelUpdateUserIdRequest
+### NewModelUpdateUserIDRequest
 
-`func NewModelUpdateUserIdRequest() *ModelUpdateUserIdRequest`
+`func NewModelUpdateUserIDRequest() *ModelUpdateUserIDRequest`
 
-NewModelUpdateUserIdRequest instantiates a new ModelUpdateUserIdRequest object
+NewModelUpdateUserIDRequest instantiates a new ModelUpdateUserIDRequest object
 This constructor will assign default values to properties that have it defined,
 and makes sure properties required by API are set, but the set of arguments
 will change when the set of required properties is changed
 
-### NewModelUpdateUserIdRequestWithDefaults
+### NewModelUpdateUserIDRequestWithDefaults
 
-`func NewModelUpdateUserIdRequestWithDefaults() *ModelUpdateUserIdRequest`
+`func NewModelUpdateUserIDRequestWithDefaults() *ModelUpdateUserIDRequest`
 
-NewModelUpdateUserIdRequestWithDefaults instantiates a new ModelUpdateUserIdRequest object
+NewModelUpdateUserIDRequestWithDefaults instantiates a new ModelUpdateUserIDRequest object
 This constructor will only assign default values to properties that have it defined,
 but it doesn't guarantee that properties required by API are set
 
 ### GetFirstName
 
-`func (o *ModelUpdateUserIdRequest) GetFirstName() string`
+`func (o *ModelUpdateUserIDRequest) GetFirstName() string`
 
 GetFirstName returns the FirstName field if non-nil, zero value otherwise.
 
 ### GetFirstNameOk
 
-`func (o *ModelUpdateUserIdRequest) GetFirstNameOk() (*string, bool)`
+`func (o *ModelUpdateUserIDRequest) GetFirstNameOk() (*string, bool)`
 
 GetFirstNameOk returns a tuple with the FirstName field if it's non-nil, zero value otherwise
 and a boolean to check if the value has been set.
 
 ### SetFirstName
 
-`func (o *ModelUpdateUserIdRequest) SetFirstName(v string)`
+`func (o *ModelUpdateUserIDRequest) SetFirstName(v string)`
 
 SetFirstName sets FirstName field to given value.
 
 ### HasFirstName
 
-`func (o *ModelUpdateUserIdRequest) HasFirstName() bool`
+`func (o *ModelUpdateUserIDRequest) HasFirstName() bool`
 
 HasFirstName returns a boolean if a field has been set.
 
 ### GetIsActive
 
-`func (o *ModelUpdateUserIdRequest) GetIsActive() bool`
+`func (o *ModelUpdateUserIDRequest) GetIsActive() bool`
 
 GetIsActive returns the IsActive field if non-nil, zero value otherwise.
 
 ### GetIsActiveOk
 
-`func (o *ModelUpdateUserIdRequest) GetIsActiveOk() (*bool, bool)`
+`func (o *ModelUpdateUserIDRequest) GetIsActiveOk() (*bool, bool)`
 
 GetIsActiveOk returns a tuple with the IsActive field if it's non-nil, zero value otherwise
 and a boolean to check if the value has been set.
 
 ### SetIsActive
 
-`func (o *ModelUpdateUserIdRequest) SetIsActive(v bool)`
+`func (o *ModelUpdateUserIDRequest) SetIsActive(v bool)`
 
 SetIsActive sets IsActive field to given value.
 
 ### HasIsActive
 
-`func (o *ModelUpdateUserIdRequest) HasIsActive() bool`
+`func (o *ModelUpdateUserIDRequest) HasIsActive() bool`
 
 HasIsActive returns a boolean if a field has been set.
 
 ### GetLastName
 
-`func (o *ModelUpdateUserIdRequest) GetLastName() string`
+`func (o *ModelUpdateUserIDRequest) GetLastName() string`
 
 GetLastName returns the LastName field if non-nil, zero value otherwise.
 
 ### GetLastNameOk
 
-`func (o *ModelUpdateUserIdRequest) GetLastNameOk() (*string, bool)`
+`func (o *ModelUpdateUserIDRequest) GetLastNameOk() (*string, bool)`
 
 GetLastNameOk returns a tuple with the LastName field if it's non-nil, zero value otherwise
 and a boolean to check if the value has been set.
 
 ### SetLastName
 
-`func (o *ModelUpdateUserIdRequest) SetLastName(v string)`
+`func (o *ModelUpdateUserIDRequest) SetLastName(v string)`
 
 SetLastName sets LastName field to given value.
 
 ### HasLastName
 
-`func (o *ModelUpdateUserIdRequest) HasLastName() bool`
+`func (o *ModelUpdateUserIDRequest) HasLastName() bool`
 
 HasLastName returns a boolean if a field has been set.
 
 ### GetRole
 
-`func (o *ModelUpdateUserIdRequest) GetRole() string`
+`func (o *ModelUpdateUserIDRequest) GetRole() string`
 
 GetRole returns the Role field if non-nil, zero value otherwise.
 
 ### GetRoleOk
 
-`func (o *ModelUpdateUserIdRequest) GetRoleOk() (*string, bool)`
+`func (o *ModelUpdateUserIDRequest) GetRoleOk() (*string, bool)`
 
 GetRoleOk returns a tuple with the Role field if it's non-nil, zero value otherwise
 and a boolean to check if the value has been set.
 
 ### SetRole
 
-`func (o *ModelUpdateUserIdRequest) SetRole(v string)`
+`func (o *ModelUpdateUserIDRequest) SetRole(v string)`
 
 SetRole sets Role field to given value.
 
 ### HasRole
 
-`func (o *ModelUpdateUserIdRequest) HasRole() bool`
+`func (o *ModelUpdateUserIDRequest) HasRole() bool`
 
 HasRole returns a boolean if a field has been set.
 

@@ -13,6 +13,7 @@ package client
 
 import (
 	"encoding/json"
+	"fmt"
 )
 
 // checks if the UtilsReportFilters type satisfies the MappedNullable interface at compile time
@@ -28,6 +29,8 @@ type UtilsReportFilters struct {
 	ScanType string `json:"scan_type"`
 	SeverityOrCheckType []string `json:"severity_or_check_type,omitempty"`
 }
+
+type _UtilsReportFilters UtilsReportFilters
 
 // NewUtilsReportFilters instantiates a new UtilsReportFilters object
 // This constructor will assign default values to properties that have it defined,
@@ -285,6 +288,42 @@ func (o UtilsReportFilters) ToMap() (map[string]interface{}, error) {
 		toSerialize["severity_or_check_type"] = o.SeverityOrCheckType
 	}
 	return toSerialize, nil
+}
+
+func (o *UtilsReportFilters) UnmarshalJSON(bytes []byte) (err error) {
+    // This validates that all required properties are included in the JSON object
+	// by unmarshalling the object into a generic map with string keys and checking
+	// that every required field exists as a key in the generic map.
+	requiredProperties := []string{
+		"node_type",
+		"scan_type",
+	}
+
+	allProperties := make(map[string]interface{})
+
+	err = json.Unmarshal(bytes, &allProperties)
+
+	if err != nil {
+		return err;
+	}
+
+	for _, requiredProperty := range(requiredProperties) {
+		if _, exists := allProperties[requiredProperty]; !exists {
+			return fmt.Errorf("no value given for required property %v", requiredProperty)
+		}
+	}
+
+	varUtilsReportFilters := _UtilsReportFilters{}
+
+	err = json.Unmarshal(bytes, &varUtilsReportFilters)
+
+	if err != nil {
+		return err
+	}
+
+	*o = UtilsReportFilters(varUtilsReportFilters)
+
+	return err
 }
 
 type NullableUtilsReportFilters struct {

@@ -151,7 +151,7 @@ Name | Type | Description  | Notes
 
 ## GetApiTokens
 
-> []ModelApiTokenResponse GetApiTokens(ctx).Execute()
+> []ModelAPITokenResponse GetApiTokens(ctx).Execute()
 
 Get User's API Tokens
 
@@ -178,7 +178,7 @@ func main() {
         fmt.Fprintf(os.Stderr, "Error when calling `UserAPI.GetApiTokens``: %v\n", err)
         fmt.Fprintf(os.Stderr, "Full HTTP response: %v\n", r)
     }
-    // response from `GetApiTokens`: []ModelApiTokenResponse
+    // response from `GetApiTokens`: []ModelAPITokenResponse
     fmt.Fprintf(os.Stdout, "Response from `UserAPI.GetApiTokens`: %v\n", resp)
 }
 ```
@@ -194,7 +194,7 @@ Other parameters are passed through a pointer to a apiGetApiTokensRequest struct
 
 ### Return type
 
-[**[]ModelApiTokenResponse**](ModelApiTokenResponse.md)
+[**[]ModelAPITokenResponse**](ModelAPITokenResponse.md)
 
 ### Authorization
 
@@ -602,7 +602,7 @@ No authorization required
 
 ## ResetApiTokens
 
-> []ModelApiTokenResponse ResetApiTokens(ctx).Execute()
+> []ModelAPITokenResponse ResetApiTokens(ctx).Execute()
 
 Reset User's API Tokens
 
@@ -629,7 +629,7 @@ func main() {
         fmt.Fprintf(os.Stderr, "Error when calling `UserAPI.ResetApiTokens``: %v\n", err)
         fmt.Fprintf(os.Stderr, "Full HTTP response: %v\n", r)
     }
-    // response from `ResetApiTokens`: []ModelApiTokenResponse
+    // response from `ResetApiTokens`: []ModelAPITokenResponse
     fmt.Fprintf(os.Stdout, "Response from `UserAPI.ResetApiTokens`: %v\n", resp)
 }
 ```
@@ -645,7 +645,7 @@ Other parameters are passed through a pointer to a apiResetApiTokensRequest stru
 
 ### Return type
 
-[**[]ModelApiTokenResponse**](ModelApiTokenResponse.md)
+[**[]ModelAPITokenResponse**](ModelAPITokenResponse.md)
 
 ### Authorization
 
@@ -859,7 +859,7 @@ Name | Type | Description  | Notes
 
 ## UpdateUser
 
-> ModelUser UpdateUser(ctx, id).ModelUpdateUserIdRequest(modelUpdateUserIdRequest).Execute()
+> ModelUser UpdateUser(ctx, id).ModelUpdateUserIDRequest(modelUpdateUserIDRequest).Execute()
 
 Update User by User ID
 
@@ -879,11 +879,11 @@ import (
 
 func main() {
     id := int32(56) // int32 | 
-    modelUpdateUserIdRequest := *openapiclient.NewModelUpdateUserIdRequest() // ModelUpdateUserIdRequest |  (optional)
+    modelUpdateUserIDRequest := *openapiclient.NewModelUpdateUserIDRequest() // ModelUpdateUserIDRequest |  (optional)
 
     configuration := openapiclient.NewConfiguration()
     apiClient := openapiclient.NewAPIClient(configuration)
-    resp, r, err := apiClient.UserAPI.UpdateUser(context.Background(), id).ModelUpdateUserIdRequest(modelUpdateUserIdRequest).Execute()
+    resp, r, err := apiClient.UserAPI.UpdateUser(context.Background(), id).ModelUpdateUserIDRequest(modelUpdateUserIDRequest).Execute()
     if err != nil {
         fmt.Fprintf(os.Stderr, "Error when calling `UserAPI.UpdateUser``: %v\n", err)
         fmt.Fprintf(os.Stderr, "Full HTTP response: %v\n", r)
@@ -909,7 +909,7 @@ Other parameters are passed through a pointer to a apiUpdateUserRequest struct v
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
 
- **modelUpdateUserIdRequest** | [**ModelUpdateUserIdRequest**](ModelUpdateUserIdRequest.md) |  | 
+ **modelUpdateUserIDRequest** | [**ModelUpdateUserIDRequest**](ModelUpdateUserIDRequest.md) |  | 
 
 ### Return type
 

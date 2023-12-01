@@ -13,6 +13,7 @@ package client
 
 import (
 	"encoding/json"
+	"fmt"
 )
 
 // checks if the ModelCloudNodeAccountsListReq type satisfies the MappedNullable interface at compile time
@@ -23,6 +24,8 @@ type ModelCloudNodeAccountsListReq struct {
 	CloudProvider *string `json:"cloud_provider,omitempty"`
 	Window ModelFetchWindow `json:"window"`
 }
+
+type _ModelCloudNodeAccountsListReq ModelCloudNodeAccountsListReq
 
 // NewModelCloudNodeAccountsListReq instantiates a new ModelCloudNodeAccountsListReq object
 // This constructor will assign default values to properties that have it defined,
@@ -113,6 +116,41 @@ func (o ModelCloudNodeAccountsListReq) ToMap() (map[string]interface{}, error) {
 	}
 	toSerialize["window"] = o.Window
 	return toSerialize, nil
+}
+
+func (o *ModelCloudNodeAccountsListReq) UnmarshalJSON(bytes []byte) (err error) {
+    // This validates that all required properties are included in the JSON object
+	// by unmarshalling the object into a generic map with string keys and checking
+	// that every required field exists as a key in the generic map.
+	requiredProperties := []string{
+		"window",
+	}
+
+	allProperties := make(map[string]interface{})
+
+	err = json.Unmarshal(bytes, &allProperties)
+
+	if err != nil {
+		return err;
+	}
+
+	for _, requiredProperty := range(requiredProperties) {
+		if _, exists := allProperties[requiredProperty]; !exists {
+			return fmt.Errorf("no value given for required property %v", requiredProperty)
+		}
+	}
+
+	varModelCloudNodeAccountsListReq := _ModelCloudNodeAccountsListReq{}
+
+	err = json.Unmarshal(bytes, &varModelCloudNodeAccountsListReq)
+
+	if err != nil {
+		return err
+	}
+
+	*o = ModelCloudNodeAccountsListReq(varModelCloudNodeAccountsListReq)
+
+	return err
 }
 
 type NullableModelCloudNodeAccountsListReq struct {

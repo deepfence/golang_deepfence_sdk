@@ -13,36 +13,39 @@ package client
 
 import (
 	"encoding/json"
+	"fmt"
 )
 
-// checks if the ModelApiAuthRequest type satisfies the MappedNullable interface at compile time
-var _ MappedNullable = &ModelApiAuthRequest{}
+// checks if the ModelAPIAuthRequest type satisfies the MappedNullable interface at compile time
+var _ MappedNullable = &ModelAPIAuthRequest{}
 
-// ModelApiAuthRequest struct for ModelApiAuthRequest
-type ModelApiAuthRequest struct {
+// ModelAPIAuthRequest struct for ModelAPIAuthRequest
+type ModelAPIAuthRequest struct {
 	ApiToken string `json:"api_token"`
 }
 
-// NewModelApiAuthRequest instantiates a new ModelApiAuthRequest object
+type _ModelAPIAuthRequest ModelAPIAuthRequest
+
+// NewModelAPIAuthRequest instantiates a new ModelAPIAuthRequest object
 // This constructor will assign default values to properties that have it defined,
 // and makes sure properties required by API are set, but the set of arguments
 // will change when the set of required properties is changed
-func NewModelApiAuthRequest(apiToken string) *ModelApiAuthRequest {
-	this := ModelApiAuthRequest{}
+func NewModelAPIAuthRequest(apiToken string) *ModelAPIAuthRequest {
+	this := ModelAPIAuthRequest{}
 	this.ApiToken = apiToken
 	return &this
 }
 
-// NewModelApiAuthRequestWithDefaults instantiates a new ModelApiAuthRequest object
+// NewModelAPIAuthRequestWithDefaults instantiates a new ModelAPIAuthRequest object
 // This constructor will only assign default values to properties that have it defined,
 // but it doesn't guarantee that properties required by API are set
-func NewModelApiAuthRequestWithDefaults() *ModelApiAuthRequest {
-	this := ModelApiAuthRequest{}
+func NewModelAPIAuthRequestWithDefaults() *ModelAPIAuthRequest {
+	this := ModelAPIAuthRequest{}
 	return &this
 }
 
 // GetApiToken returns the ApiToken field value
-func (o *ModelApiAuthRequest) GetApiToken() string {
+func (o *ModelAPIAuthRequest) GetApiToken() string {
 	if o == nil {
 		var ret string
 		return ret
@@ -53,7 +56,7 @@ func (o *ModelApiAuthRequest) GetApiToken() string {
 
 // GetApiTokenOk returns a tuple with the ApiToken field value
 // and a boolean to check if the value has been set.
-func (o *ModelApiAuthRequest) GetApiTokenOk() (*string, bool) {
+func (o *ModelAPIAuthRequest) GetApiTokenOk() (*string, bool) {
 	if o == nil {
 		return nil, false
 	}
@@ -61,11 +64,11 @@ func (o *ModelApiAuthRequest) GetApiTokenOk() (*string, bool) {
 }
 
 // SetApiToken sets field value
-func (o *ModelApiAuthRequest) SetApiToken(v string) {
+func (o *ModelAPIAuthRequest) SetApiToken(v string) {
 	o.ApiToken = v
 }
 
-func (o ModelApiAuthRequest) MarshalJSON() ([]byte, error) {
+func (o ModelAPIAuthRequest) MarshalJSON() ([]byte, error) {
 	toSerialize,err := o.ToMap()
 	if err != nil {
 		return []byte{}, err
@@ -73,44 +76,79 @@ func (o ModelApiAuthRequest) MarshalJSON() ([]byte, error) {
 	return json.Marshal(toSerialize)
 }
 
-func (o ModelApiAuthRequest) ToMap() (map[string]interface{}, error) {
+func (o ModelAPIAuthRequest) ToMap() (map[string]interface{}, error) {
 	toSerialize := map[string]interface{}{}
 	toSerialize["api_token"] = o.ApiToken
 	return toSerialize, nil
 }
 
-type NullableModelApiAuthRequest struct {
-	value *ModelApiAuthRequest
+func (o *ModelAPIAuthRequest) UnmarshalJSON(bytes []byte) (err error) {
+    // This validates that all required properties are included in the JSON object
+	// by unmarshalling the object into a generic map with string keys and checking
+	// that every required field exists as a key in the generic map.
+	requiredProperties := []string{
+		"api_token",
+	}
+
+	allProperties := make(map[string]interface{})
+
+	err = json.Unmarshal(bytes, &allProperties)
+
+	if err != nil {
+		return err;
+	}
+
+	for _, requiredProperty := range(requiredProperties) {
+		if _, exists := allProperties[requiredProperty]; !exists {
+			return fmt.Errorf("no value given for required property %v", requiredProperty)
+		}
+	}
+
+	varModelAPIAuthRequest := _ModelAPIAuthRequest{}
+
+	err = json.Unmarshal(bytes, &varModelAPIAuthRequest)
+
+	if err != nil {
+		return err
+	}
+
+	*o = ModelAPIAuthRequest(varModelAPIAuthRequest)
+
+	return err
+}
+
+type NullableModelAPIAuthRequest struct {
+	value *ModelAPIAuthRequest
 	isSet bool
 }
 
-func (v NullableModelApiAuthRequest) Get() *ModelApiAuthRequest {
+func (v NullableModelAPIAuthRequest) Get() *ModelAPIAuthRequest {
 	return v.value
 }
 
-func (v *NullableModelApiAuthRequest) Set(val *ModelApiAuthRequest) {
+func (v *NullableModelAPIAuthRequest) Set(val *ModelAPIAuthRequest) {
 	v.value = val
 	v.isSet = true
 }
 
-func (v NullableModelApiAuthRequest) IsSet() bool {
+func (v NullableModelAPIAuthRequest) IsSet() bool {
 	return v.isSet
 }
 
-func (v *NullableModelApiAuthRequest) Unset() {
+func (v *NullableModelAPIAuthRequest) Unset() {
 	v.value = nil
 	v.isSet = false
 }
 
-func NewNullableModelApiAuthRequest(val *ModelApiAuthRequest) *NullableModelApiAuthRequest {
-	return &NullableModelApiAuthRequest{value: val, isSet: true}
+func NewNullableModelAPIAuthRequest(val *ModelAPIAuthRequest) *NullableModelAPIAuthRequest {
+	return &NullableModelAPIAuthRequest{value: val, isSet: true}
 }
 
-func (v NullableModelApiAuthRequest) MarshalJSON() ([]byte, error) {
+func (v NullableModelAPIAuthRequest) MarshalJSON() ([]byte, error) {
 	return json.Marshal(v.value)
 }
 
-func (v *NullableModelApiAuthRequest) UnmarshalJSON(src []byte) error {
+func (v *NullableModelAPIAuthRequest) UnmarshalJSON(src []byte) error {
 	v.isSet = true
 	return json.Unmarshal(src, &v.value)
 }

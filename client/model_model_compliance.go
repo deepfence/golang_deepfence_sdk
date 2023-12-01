@@ -13,6 +13,7 @@ package client
 
 import (
 	"encoding/json"
+	"fmt"
 )
 
 // checks if the ModelCompliance type satisfies the MappedNullable interface at compile time
@@ -39,6 +40,8 @@ type ModelCompliance struct {
 	TestSeverity string `json:"test_severity"`
 	UpdatedAt int32 `json:"updated_at"`
 }
+
+type _ModelCompliance ModelCompliance
 
 // NewModelCompliance instantiates a new ModelCompliance object
 // This constructor will assign default values to properties that have it defined,
@@ -546,6 +549,57 @@ func (o ModelCompliance) ToMap() (map[string]interface{}, error) {
 	toSerialize["test_severity"] = o.TestSeverity
 	toSerialize["updated_at"] = o.UpdatedAt
 	return toSerialize, nil
+}
+
+func (o *ModelCompliance) UnmarshalJSON(bytes []byte) (err error) {
+    // This validates that all required properties are included in the JSON object
+	// by unmarshalling the object into a generic map with string keys and checking
+	// that every required field exists as a key in the generic map.
+	requiredProperties := []string{
+		"compliance_check_type",
+		"description",
+		"masked",
+		"node_id",
+		"node_type",
+		"remediation_ansible",
+		"remediation_puppet",
+		"remediation_script",
+		"resource",
+		"rule_id",
+		"status",
+		"test_category",
+		"test_desc",
+		"test_number",
+		"test_rationale",
+		"test_severity",
+		"updated_at",
+	}
+
+	allProperties := make(map[string]interface{})
+
+	err = json.Unmarshal(bytes, &allProperties)
+
+	if err != nil {
+		return err;
+	}
+
+	for _, requiredProperty := range(requiredProperties) {
+		if _, exists := allProperties[requiredProperty]; !exists {
+			return fmt.Errorf("no value given for required property %v", requiredProperty)
+		}
+	}
+
+	varModelCompliance := _ModelCompliance{}
+
+	err = json.Unmarshal(bytes, &varModelCompliance)
+
+	if err != nil {
+		return err
+	}
+
+	*o = ModelCompliance(varModelCompliance)
+
+	return err
 }
 
 type NullableModelCompliance struct {

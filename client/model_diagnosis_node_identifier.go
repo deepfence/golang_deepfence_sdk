@@ -13,6 +13,7 @@ package client
 
 import (
 	"encoding/json"
+	"fmt"
 )
 
 // checks if the DiagnosisNodeIdentifier type satisfies the MappedNullable interface at compile time
@@ -23,6 +24,8 @@ type DiagnosisNodeIdentifier struct {
 	NodeId string `json:"node_id"`
 	NodeType string `json:"node_type"`
 }
+
+type _DiagnosisNodeIdentifier DiagnosisNodeIdentifier
 
 // NewDiagnosisNodeIdentifier instantiates a new DiagnosisNodeIdentifier object
 // This constructor will assign default values to properties that have it defined,
@@ -104,6 +107,42 @@ func (o DiagnosisNodeIdentifier) ToMap() (map[string]interface{}, error) {
 	toSerialize["node_id"] = o.NodeId
 	toSerialize["node_type"] = o.NodeType
 	return toSerialize, nil
+}
+
+func (o *DiagnosisNodeIdentifier) UnmarshalJSON(bytes []byte) (err error) {
+    // This validates that all required properties are included in the JSON object
+	// by unmarshalling the object into a generic map with string keys and checking
+	// that every required field exists as a key in the generic map.
+	requiredProperties := []string{
+		"node_id",
+		"node_type",
+	}
+
+	allProperties := make(map[string]interface{})
+
+	err = json.Unmarshal(bytes, &allProperties)
+
+	if err != nil {
+		return err;
+	}
+
+	for _, requiredProperty := range(requiredProperties) {
+		if _, exists := allProperties[requiredProperty]; !exists {
+			return fmt.Errorf("no value given for required property %v", requiredProperty)
+		}
+	}
+
+	varDiagnosisNodeIdentifier := _DiagnosisNodeIdentifier{}
+
+	err = json.Unmarshal(bytes, &varDiagnosisNodeIdentifier)
+
+	if err != nil {
+		return err
+	}
+
+	*o = DiagnosisNodeIdentifier(varDiagnosisNodeIdentifier)
+
+	return err
 }
 
 type NullableDiagnosisNodeIdentifier struct {

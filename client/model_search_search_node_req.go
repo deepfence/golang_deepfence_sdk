@@ -13,6 +13,7 @@ package client
 
 import (
 	"encoding/json"
+	"fmt"
 )
 
 // checks if the SearchSearchNodeReq type satisfies the MappedNullable interface at compile time
@@ -25,6 +26,8 @@ type SearchSearchNodeReq struct {
 	RelatedNodeFilter *SearchChainedSearchFilter `json:"related_node_filter,omitempty"`
 	Window ModelFetchWindow `json:"window"`
 }
+
+type _SearchSearchNodeReq SearchSearchNodeReq
 
 // NewSearchSearchNodeReq instantiates a new SearchSearchNodeReq object
 // This constructor will assign default values to properties that have it defined,
@@ -176,6 +179,42 @@ func (o SearchSearchNodeReq) ToMap() (map[string]interface{}, error) {
 	}
 	toSerialize["window"] = o.Window
 	return toSerialize, nil
+}
+
+func (o *SearchSearchNodeReq) UnmarshalJSON(bytes []byte) (err error) {
+    // This validates that all required properties are included in the JSON object
+	// by unmarshalling the object into a generic map with string keys and checking
+	// that every required field exists as a key in the generic map.
+	requiredProperties := []string{
+		"node_filter",
+		"window",
+	}
+
+	allProperties := make(map[string]interface{})
+
+	err = json.Unmarshal(bytes, &allProperties)
+
+	if err != nil {
+		return err;
+	}
+
+	for _, requiredProperty := range(requiredProperties) {
+		if _, exists := allProperties[requiredProperty]; !exists {
+			return fmt.Errorf("no value given for required property %v", requiredProperty)
+		}
+	}
+
+	varSearchSearchNodeReq := _SearchSearchNodeReq{}
+
+	err = json.Unmarshal(bytes, &varSearchSearchNodeReq)
+
+	if err != nil {
+		return err
+	}
+
+	*o = SearchSearchNodeReq(varSearchSearchNodeReq)
+
+	return err
 }
 
 type NullableSearchSearchNodeReq struct {

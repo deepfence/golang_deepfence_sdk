@@ -13,6 +13,7 @@ package client
 
 import (
 	"encoding/json"
+	"fmt"
 )
 
 // checks if the ModelGraphResult type satisfies the MappedNullable interface at compile time
@@ -23,6 +24,8 @@ type ModelGraphResult struct {
 	Edges map[string]DetailedConnectionSummary `json:"edges"`
 	Nodes map[string]DetailedNodeSummary `json:"nodes"`
 }
+
+type _ModelGraphResult ModelGraphResult
 
 // NewModelGraphResult instantiates a new ModelGraphResult object
 // This constructor will assign default values to properties that have it defined,
@@ -104,6 +107,42 @@ func (o ModelGraphResult) ToMap() (map[string]interface{}, error) {
 	toSerialize["edges"] = o.Edges
 	toSerialize["nodes"] = o.Nodes
 	return toSerialize, nil
+}
+
+func (o *ModelGraphResult) UnmarshalJSON(bytes []byte) (err error) {
+    // This validates that all required properties are included in the JSON object
+	// by unmarshalling the object into a generic map with string keys and checking
+	// that every required field exists as a key in the generic map.
+	requiredProperties := []string{
+		"edges",
+		"nodes",
+	}
+
+	allProperties := make(map[string]interface{})
+
+	err = json.Unmarshal(bytes, &allProperties)
+
+	if err != nil {
+		return err;
+	}
+
+	for _, requiredProperty := range(requiredProperties) {
+		if _, exists := allProperties[requiredProperty]; !exists {
+			return fmt.Errorf("no value given for required property %v", requiredProperty)
+		}
+	}
+
+	varModelGraphResult := _ModelGraphResult{}
+
+	err = json.Unmarshal(bytes, &varModelGraphResult)
+
+	if err != nil {
+		return err
+	}
+
+	*o = ModelGraphResult(varModelGraphResult)
+
+	return err
 }
 
 type NullableModelGraphResult struct {

@@ -13,6 +13,7 @@ package client
 
 import (
 	"encoding/json"
+	"fmt"
 )
 
 // checks if the GraphThreatNodeInfo type satisfies the MappedNullable interface at compile time
@@ -31,6 +32,8 @@ type GraphThreatNodeInfo struct {
 	SecretsCount int32 `json:"secrets_count"`
 	VulnerabilityCount int32 `json:"vulnerability_count"`
 }
+
+type _GraphThreatNodeInfo GraphThreatNodeInfo
 
 // NewGraphThreatNodeInfo instantiates a new GraphThreatNodeInfo object
 // This constructor will assign default values to properties that have it defined,
@@ -328,6 +331,50 @@ func (o GraphThreatNodeInfo) ToMap() (map[string]interface{}, error) {
 	toSerialize["secrets_count"] = o.SecretsCount
 	toSerialize["vulnerability_count"] = o.VulnerabilityCount
 	return toSerialize, nil
+}
+
+func (o *GraphThreatNodeInfo) UnmarshalJSON(bytes []byte) (err error) {
+    // This validates that all required properties are included in the JSON object
+	// by unmarshalling the object into a generic map with string keys and checking
+	// that every required field exists as a key in the generic map.
+	requiredProperties := []string{
+		"attack_path",
+		"cloud_compliance_count",
+		"compliance_count",
+		"count",
+		"id",
+		"label",
+		"node_type",
+		"nodes",
+		"secrets_count",
+		"vulnerability_count",
+	}
+
+	allProperties := make(map[string]interface{})
+
+	err = json.Unmarshal(bytes, &allProperties)
+
+	if err != nil {
+		return err;
+	}
+
+	for _, requiredProperty := range(requiredProperties) {
+		if _, exists := allProperties[requiredProperty]; !exists {
+			return fmt.Errorf("no value given for required property %v", requiredProperty)
+		}
+	}
+
+	varGraphThreatNodeInfo := _GraphThreatNodeInfo{}
+
+	err = json.Unmarshal(bytes, &varGraphThreatNodeInfo)
+
+	if err != nil {
+		return err
+	}
+
+	*o = GraphThreatNodeInfo(varGraphThreatNodeInfo)
+
+	return err
 }
 
 type NullableGraphThreatNodeInfo struct {

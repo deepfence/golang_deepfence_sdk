@@ -1,4 +1,4 @@
-# ModelApiTokenResponse
+# ModelAPITokenResponse
 
 ## Properties
 
@@ -13,170 +13,170 @@ Name | Type | Description | Notes
 
 ## Methods
 
-### NewModelApiTokenResponse
+### NewModelAPITokenResponse
 
-`func NewModelApiTokenResponse() *ModelApiTokenResponse`
+`func NewModelAPITokenResponse() *ModelAPITokenResponse`
 
-NewModelApiTokenResponse instantiates a new ModelApiTokenResponse object
+NewModelAPITokenResponse instantiates a new ModelAPITokenResponse object
 This constructor will assign default values to properties that have it defined,
 and makes sure properties required by API are set, but the set of arguments
 will change when the set of required properties is changed
 
-### NewModelApiTokenResponseWithDefaults
+### NewModelAPITokenResponseWithDefaults
 
-`func NewModelApiTokenResponseWithDefaults() *ModelApiTokenResponse`
+`func NewModelAPITokenResponseWithDefaults() *ModelAPITokenResponse`
 
-NewModelApiTokenResponseWithDefaults instantiates a new ModelApiTokenResponse object
+NewModelAPITokenResponseWithDefaults instantiates a new ModelAPITokenResponse object
 This constructor will only assign default values to properties that have it defined,
 but it doesn't guarantee that properties required by API are set
 
 ### GetApiToken
 
-`func (o *ModelApiTokenResponse) GetApiToken() string`
+`func (o *ModelAPITokenResponse) GetApiToken() string`
 
 GetApiToken returns the ApiToken field if non-nil, zero value otherwise.
 
 ### GetApiTokenOk
 
-`func (o *ModelApiTokenResponse) GetApiTokenOk() (*string, bool)`
+`func (o *ModelAPITokenResponse) GetApiTokenOk() (*string, bool)`
 
 GetApiTokenOk returns a tuple with the ApiToken field if it's non-nil, zero value otherwise
 and a boolean to check if the value has been set.
 
 ### SetApiToken
 
-`func (o *ModelApiTokenResponse) SetApiToken(v string)`
+`func (o *ModelAPITokenResponse) SetApiToken(v string)`
 
 SetApiToken sets ApiToken field to given value.
 
 ### HasApiToken
 
-`func (o *ModelApiTokenResponse) HasApiToken() bool`
+`func (o *ModelAPITokenResponse) HasApiToken() bool`
 
 HasApiToken returns a boolean if a field has been set.
 
 ### GetCompanyId
 
-`func (o *ModelApiTokenResponse) GetCompanyId() int32`
+`func (o *ModelAPITokenResponse) GetCompanyId() int32`
 
 GetCompanyId returns the CompanyId field if non-nil, zero value otherwise.
 
 ### GetCompanyIdOk
 
-`func (o *ModelApiTokenResponse) GetCompanyIdOk() (*int32, bool)`
+`func (o *ModelAPITokenResponse) GetCompanyIdOk() (*int32, bool)`
 
 GetCompanyIdOk returns a tuple with the CompanyId field if it's non-nil, zero value otherwise
 and a boolean to check if the value has been set.
 
 ### SetCompanyId
 
-`func (o *ModelApiTokenResponse) SetCompanyId(v int32)`
+`func (o *ModelAPITokenResponse) SetCompanyId(v int32)`
 
 SetCompanyId sets CompanyId field to given value.
 
 ### HasCompanyId
 
-`func (o *ModelApiTokenResponse) HasCompanyId() bool`
+`func (o *ModelAPITokenResponse) HasCompanyId() bool`
 
 HasCompanyId returns a boolean if a field has been set.
 
 ### GetCreatedAt
 
-`func (o *ModelApiTokenResponse) GetCreatedAt() time.Time`
+`func (o *ModelAPITokenResponse) GetCreatedAt() time.Time`
 
 GetCreatedAt returns the CreatedAt field if non-nil, zero value otherwise.
 
 ### GetCreatedAtOk
 
-`func (o *ModelApiTokenResponse) GetCreatedAtOk() (*time.Time, bool)`
+`func (o *ModelAPITokenResponse) GetCreatedAtOk() (*time.Time, bool)`
 
 GetCreatedAtOk returns a tuple with the CreatedAt field if it's non-nil, zero value otherwise
 and a boolean to check if the value has been set.
 
 ### SetCreatedAt
 
-`func (o *ModelApiTokenResponse) SetCreatedAt(v time.Time)`
+`func (o *ModelAPITokenResponse) SetCreatedAt(v time.Time)`
 
 SetCreatedAt sets CreatedAt field to given value.
 
 ### HasCreatedAt
 
-`func (o *ModelApiTokenResponse) HasCreatedAt() bool`
+`func (o *ModelAPITokenResponse) HasCreatedAt() bool`
 
 HasCreatedAt returns a boolean if a field has been set.
 
 ### GetCreatedByUserId
 
-`func (o *ModelApiTokenResponse) GetCreatedByUserId() int32`
+`func (o *ModelAPITokenResponse) GetCreatedByUserId() int32`
 
 GetCreatedByUserId returns the CreatedByUserId field if non-nil, zero value otherwise.
 
 ### GetCreatedByUserIdOk
 
-`func (o *ModelApiTokenResponse) GetCreatedByUserIdOk() (*int32, bool)`
+`func (o *ModelAPITokenResponse) GetCreatedByUserIdOk() (*int32, bool)`
 
 GetCreatedByUserIdOk returns a tuple with the CreatedByUserId field if it's non-nil, zero value otherwise
 and a boolean to check if the value has been set.
 
 ### SetCreatedByUserId
 
-`func (o *ModelApiTokenResponse) SetCreatedByUserId(v int32)`
+`func (o *ModelAPITokenResponse) SetCreatedByUserId(v int32)`
 
 SetCreatedByUserId sets CreatedByUserId field to given value.
 
 ### HasCreatedByUserId
 
-`func (o *ModelApiTokenResponse) HasCreatedByUserId() bool`
+`func (o *ModelAPITokenResponse) HasCreatedByUserId() bool`
 
 HasCreatedByUserId returns a boolean if a field has been set.
 
 ### GetId
 
-`func (o *ModelApiTokenResponse) GetId() int32`
+`func (o *ModelAPITokenResponse) GetId() int32`
 
 GetId returns the Id field if non-nil, zero value otherwise.
 
 ### GetIdOk
 
-`func (o *ModelApiTokenResponse) GetIdOk() (*int32, bool)`
+`func (o *ModelAPITokenResponse) GetIdOk() (*int32, bool)`
 
 GetIdOk returns a tuple with the Id field if it's non-nil, zero value otherwise
 and a boolean to check if the value has been set.
 
 ### SetId
 
-`func (o *ModelApiTokenResponse) SetId(v int32)`
+`func (o *ModelAPITokenResponse) SetId(v int32)`
 
 SetId sets Id field to given value.
 
 ### HasId
 
-`func (o *ModelApiTokenResponse) HasId() bool`
+`func (o *ModelAPITokenResponse) HasId() bool`
 
 HasId returns a boolean if a field has been set.
 
 ### GetName
 
-`func (o *ModelApiTokenResponse) GetName() string`
+`func (o *ModelAPITokenResponse) GetName() string`
 
 GetName returns the Name field if non-nil, zero value otherwise.
 
 ### GetNameOk
 
-`func (o *ModelApiTokenResponse) GetNameOk() (*string, bool)`
+`func (o *ModelAPITokenResponse) GetNameOk() (*string, bool)`
 
 GetNameOk returns a tuple with the Name field if it's non-nil, zero value otherwise
 and a boolean to check if the value has been set.
 
 ### SetName
 
-`func (o *ModelApiTokenResponse) SetName(v string)`
+`func (o *ModelAPITokenResponse) SetName(v string)`
 
 SetName sets Name field to given value.
 
 ### HasName
 
-`func (o *ModelApiTokenResponse) HasName() bool`
+`func (o *ModelAPITokenResponse) HasName() bool`
 
 HasName returns a boolean if a field has been set.
 

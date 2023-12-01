@@ -13,6 +13,7 @@ package client
 
 import (
 	"encoding/json"
+	"fmt"
 )
 
 // checks if the DiagnosisGenerateConsoleDiagnosticLogsRequest type satisfies the MappedNullable interface at compile time
@@ -22,6 +23,8 @@ var _ MappedNullable = &DiagnosisGenerateConsoleDiagnosticLogsRequest{}
 type DiagnosisGenerateConsoleDiagnosticLogsRequest struct {
 	Tail int32 `json:"tail"`
 }
+
+type _DiagnosisGenerateConsoleDiagnosticLogsRequest DiagnosisGenerateConsoleDiagnosticLogsRequest
 
 // NewDiagnosisGenerateConsoleDiagnosticLogsRequest instantiates a new DiagnosisGenerateConsoleDiagnosticLogsRequest object
 // This constructor will assign default values to properties that have it defined,
@@ -77,6 +80,41 @@ func (o DiagnosisGenerateConsoleDiagnosticLogsRequest) ToMap() (map[string]inter
 	toSerialize := map[string]interface{}{}
 	toSerialize["tail"] = o.Tail
 	return toSerialize, nil
+}
+
+func (o *DiagnosisGenerateConsoleDiagnosticLogsRequest) UnmarshalJSON(bytes []byte) (err error) {
+    // This validates that all required properties are included in the JSON object
+	// by unmarshalling the object into a generic map with string keys and checking
+	// that every required field exists as a key in the generic map.
+	requiredProperties := []string{
+		"tail",
+	}
+
+	allProperties := make(map[string]interface{})
+
+	err = json.Unmarshal(bytes, &allProperties)
+
+	if err != nil {
+		return err;
+	}
+
+	for _, requiredProperty := range(requiredProperties) {
+		if _, exists := allProperties[requiredProperty]; !exists {
+			return fmt.Errorf("no value given for required property %v", requiredProperty)
+		}
+	}
+
+	varDiagnosisGenerateConsoleDiagnosticLogsRequest := _DiagnosisGenerateConsoleDiagnosticLogsRequest{}
+
+	err = json.Unmarshal(bytes, &varDiagnosisGenerateConsoleDiagnosticLogsRequest)
+
+	if err != nil {
+		return err
+	}
+
+	*o = DiagnosisGenerateConsoleDiagnosticLogsRequest(varDiagnosisGenerateConsoleDiagnosticLogsRequest)
+
+	return err
 }
 
 type NullableDiagnosisGenerateConsoleDiagnosticLogsRequest struct {

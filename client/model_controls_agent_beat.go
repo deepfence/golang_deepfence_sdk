@@ -13,6 +13,7 @@ package client
 
 import (
 	"encoding/json"
+	"fmt"
 )
 
 // checks if the ControlsAgentBeat type satisfies the MappedNullable interface at compile time
@@ -22,6 +23,8 @@ var _ MappedNullable = &ControlsAgentBeat{}
 type ControlsAgentBeat struct {
 	Beatrate int32 `json:"beatrate"`
 }
+
+type _ControlsAgentBeat ControlsAgentBeat
 
 // NewControlsAgentBeat instantiates a new ControlsAgentBeat object
 // This constructor will assign default values to properties that have it defined,
@@ -77,6 +80,41 @@ func (o ControlsAgentBeat) ToMap() (map[string]interface{}, error) {
 	toSerialize := map[string]interface{}{}
 	toSerialize["beatrate"] = o.Beatrate
 	return toSerialize, nil
+}
+
+func (o *ControlsAgentBeat) UnmarshalJSON(bytes []byte) (err error) {
+    // This validates that all required properties are included in the JSON object
+	// by unmarshalling the object into a generic map with string keys and checking
+	// that every required field exists as a key in the generic map.
+	requiredProperties := []string{
+		"beatrate",
+	}
+
+	allProperties := make(map[string]interface{})
+
+	err = json.Unmarshal(bytes, &allProperties)
+
+	if err != nil {
+		return err;
+	}
+
+	for _, requiredProperty := range(requiredProperties) {
+		if _, exists := allProperties[requiredProperty]; !exists {
+			return fmt.Errorf("no value given for required property %v", requiredProperty)
+		}
+	}
+
+	varControlsAgentBeat := _ControlsAgentBeat{}
+
+	err = json.Unmarshal(bytes, &varControlsAgentBeat)
+
+	if err != nil {
+		return err
+	}
+
+	*o = ControlsAgentBeat(varControlsAgentBeat)
+
+	return err
 }
 
 type NullableControlsAgentBeat struct {

@@ -21,6 +21,7 @@ var _ MappedNullable = &ModelSbomResponse{}
 // ModelSbomResponse struct for ModelSbomResponse
 type ModelSbomResponse struct {
 	CveId *string `json:"cve_id,omitempty"`
+	CveNodeId *string `json:"cve_node_id,omitempty"`
 	Licenses []string `json:"licenses,omitempty"`
 	Locations []string `json:"locations,omitempty"`
 	PackageName *string `json:"package_name,omitempty"`
@@ -75,6 +76,38 @@ func (o *ModelSbomResponse) HasCveId() bool {
 // SetCveId gets a reference to the given string and assigns it to the CveId field.
 func (o *ModelSbomResponse) SetCveId(v string) {
 	o.CveId = &v
+}
+
+// GetCveNodeId returns the CveNodeId field value if set, zero value otherwise.
+func (o *ModelSbomResponse) GetCveNodeId() string {
+	if o == nil || IsNil(o.CveNodeId) {
+		var ret string
+		return ret
+	}
+	return *o.CveNodeId
+}
+
+// GetCveNodeIdOk returns a tuple with the CveNodeId field value if set, nil otherwise
+// and a boolean to check if the value has been set.
+func (o *ModelSbomResponse) GetCveNodeIdOk() (*string, bool) {
+	if o == nil || IsNil(o.CveNodeId) {
+		return nil, false
+	}
+	return o.CveNodeId, true
+}
+
+// HasCveNodeId returns a boolean if a field has been set.
+func (o *ModelSbomResponse) HasCveNodeId() bool {
+	if o != nil && !IsNil(o.CveNodeId) {
+		return true
+	}
+
+	return false
+}
+
+// SetCveNodeId gets a reference to the given string and assigns it to the CveNodeId field.
+func (o *ModelSbomResponse) SetCveNodeId(v string) {
+	o.CveNodeId = &v
 }
 
 // GetLicenses returns the Licenses field value if set, zero value otherwise.
@@ -249,6 +282,9 @@ func (o ModelSbomResponse) ToMap() (map[string]interface{}, error) {
 	toSerialize := map[string]interface{}{}
 	if !IsNil(o.CveId) {
 		toSerialize["cve_id"] = o.CveId
+	}
+	if !IsNil(o.CveNodeId) {
+		toSerialize["cve_node_id"] = o.CveNodeId
 	}
 	if !IsNil(o.Licenses) {
 		toSerialize["licenses"] = o.Licenses

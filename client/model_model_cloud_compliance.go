@@ -13,6 +13,7 @@ package client
 
 import (
 	"encoding/json"
+	"fmt"
 )
 
 // checks if the ModelCloudCompliance type satisfies the MappedNullable interface at compile time
@@ -41,6 +42,8 @@ type ModelCloudCompliance struct {
 	Type string `json:"type"`
 	UpdatedAt int32 `json:"updated_at"`
 }
+
+type _ModelCloudCompliance ModelCloudCompliance
 
 // NewModelCloudCompliance instantiates a new ModelCloudCompliance object
 // This constructor will assign default values to properties that have it defined,
@@ -600,6 +603,59 @@ func (o ModelCloudCompliance) ToMap() (map[string]interface{}, error) {
 	toSerialize["type"] = o.Type
 	toSerialize["updated_at"] = o.UpdatedAt
 	return toSerialize, nil
+}
+
+func (o *ModelCloudCompliance) UnmarshalJSON(bytes []byte) (err error) {
+    // This validates that all required properties are included in the JSON object
+	// by unmarshalling the object into a generic map with string keys and checking
+	// that every required field exists as a key in the generic map.
+	requiredProperties := []string{
+		"account_id",
+		"cloud_provider",
+		"compliance_check_type",
+		"control_id",
+		"count",
+		"description",
+		"group",
+		"masked",
+		"node_id",
+		"node_name",
+		"reason",
+		"region",
+		"resource",
+		"service",
+		"severity",
+		"status",
+		"title",
+		"type",
+		"updated_at",
+	}
+
+	allProperties := make(map[string]interface{})
+
+	err = json.Unmarshal(bytes, &allProperties)
+
+	if err != nil {
+		return err;
+	}
+
+	for _, requiredProperty := range(requiredProperties) {
+		if _, exists := allProperties[requiredProperty]; !exists {
+			return fmt.Errorf("no value given for required property %v", requiredProperty)
+		}
+	}
+
+	varModelCloudCompliance := _ModelCloudCompliance{}
+
+	err = json.Unmarshal(bytes, &varModelCloudCompliance)
+
+	if err != nil {
+		return err
+	}
+
+	*o = ModelCloudCompliance(varModelCloudCompliance)
+
+	return err
 }
 
 type NullableModelCloudCompliance struct {

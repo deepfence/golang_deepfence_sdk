@@ -274,7 +274,7 @@ Name | Type | Description  | Notes
 
 ## GetAgentControls
 
-> ControlsAgentControls GetAgentControls(ctx).ModelAgentId(modelAgentId).Execute()
+> ControlsAgentControls GetAgentControls(ctx).ModelAgentID(modelAgentID).Execute()
 
 Fetch Agent Actions
 
@@ -293,11 +293,11 @@ import (
 )
 
 func main() {
-    modelAgentId := *openapiclient.NewModelAgentId(int32(123), "NodeId_example") // ModelAgentId |  (optional)
+    modelAgentID := *openapiclient.NewModelAgentID(int32(123), "NodeId_example") // ModelAgentID |  (optional)
 
     configuration := openapiclient.NewConfiguration()
     apiClient := openapiclient.NewAPIClient(configuration)
-    resp, r, err := apiClient.ControlsAPI.GetAgentControls(context.Background()).ModelAgentId(modelAgentId).Execute()
+    resp, r, err := apiClient.ControlsAPI.GetAgentControls(context.Background()).ModelAgentID(modelAgentID).Execute()
     if err != nil {
         fmt.Fprintf(os.Stderr, "Error when calling `ControlsAPI.GetAgentControls``: %v\n", err)
         fmt.Fprintf(os.Stderr, "Full HTTP response: %v\n", r)
@@ -318,7 +318,7 @@ Other parameters are passed through a pointer to a apiGetAgentControlsRequest st
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **modelAgentId** | [**ModelAgentId**](ModelAgentId.md) |  | 
+ **modelAgentID** | [**ModelAgentID**](ModelAgentID.md) |  | 
 
 ### Return type
 
@@ -472,7 +472,7 @@ Name | Type | Description  | Notes
 
 ## GetKubernetesClusterControls
 
-> ControlsAgentControls GetKubernetesClusterControls(ctx).ModelAgentId(modelAgentId).Execute()
+> ControlsAgentControls GetKubernetesClusterControls(ctx).ModelAgentID(modelAgentID).Execute()
 
 Fetch Kubernetes Cluster Actions
 
@@ -491,11 +491,11 @@ import (
 )
 
 func main() {
-    modelAgentId := *openapiclient.NewModelAgentId(int32(123), "NodeId_example") // ModelAgentId |  (optional)
+    modelAgentID := *openapiclient.NewModelAgentID(int32(123), "NodeId_example") // ModelAgentID |  (optional)
 
     configuration := openapiclient.NewConfiguration()
     apiClient := openapiclient.NewAPIClient(configuration)
-    resp, r, err := apiClient.ControlsAPI.GetKubernetesClusterControls(context.Background()).ModelAgentId(modelAgentId).Execute()
+    resp, r, err := apiClient.ControlsAPI.GetKubernetesClusterControls(context.Background()).ModelAgentID(modelAgentID).Execute()
     if err != nil {
         fmt.Fprintf(os.Stderr, "Error when calling `ControlsAPI.GetKubernetesClusterControls``: %v\n", err)
         fmt.Fprintf(os.Stderr, "Full HTTP response: %v\n", r)
@@ -516,7 +516,7 @@ Other parameters are passed through a pointer to a apiGetKubernetesClusterContro
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **modelAgentId** | [**ModelAgentId**](ModelAgentId.md) |  | 
+ **modelAgentID** | [**ModelAgentID**](ModelAgentID.md) |  | 
 
 ### Return type
 

@@ -13,6 +13,7 @@ package client
 
 import (
 	"encoding/json"
+	"fmt"
 )
 
 // checks if the ModelScanCompareReq type satisfies the MappedNullable interface at compile time
@@ -25,6 +26,8 @@ type ModelScanCompareReq struct {
 	ToScanId string `json:"to_scan_id"`
 	Window ModelFetchWindow `json:"window"`
 }
+
+type _ModelScanCompareReq ModelScanCompareReq
 
 // NewModelScanCompareReq instantiates a new ModelScanCompareReq object
 // This constructor will assign default values to properties that have it defined,
@@ -158,6 +161,44 @@ func (o ModelScanCompareReq) ToMap() (map[string]interface{}, error) {
 	toSerialize["to_scan_id"] = o.ToScanId
 	toSerialize["window"] = o.Window
 	return toSerialize, nil
+}
+
+func (o *ModelScanCompareReq) UnmarshalJSON(bytes []byte) (err error) {
+    // This validates that all required properties are included in the JSON object
+	// by unmarshalling the object into a generic map with string keys and checking
+	// that every required field exists as a key in the generic map.
+	requiredProperties := []string{
+		"base_scan_id",
+		"fields_filter",
+		"to_scan_id",
+		"window",
+	}
+
+	allProperties := make(map[string]interface{})
+
+	err = json.Unmarshal(bytes, &allProperties)
+
+	if err != nil {
+		return err;
+	}
+
+	for _, requiredProperty := range(requiredProperties) {
+		if _, exists := allProperties[requiredProperty]; !exists {
+			return fmt.Errorf("no value given for required property %v", requiredProperty)
+		}
+	}
+
+	varModelScanCompareReq := _ModelScanCompareReq{}
+
+	err = json.Unmarshal(bytes, &varModelScanCompareReq)
+
+	if err != nil {
+		return err
+	}
+
+	*o = ModelScanCompareReq(varModelScanCompareReq)
+
+	return err
 }
 
 type NullableModelScanCompareReq struct {

@@ -16,11 +16,11 @@ import (
 	"time"
 )
 
-// checks if the ModelApiTokenResponse type satisfies the MappedNullable interface at compile time
-var _ MappedNullable = &ModelApiTokenResponse{}
+// checks if the ModelAPITokenResponse type satisfies the MappedNullable interface at compile time
+var _ MappedNullable = &ModelAPITokenResponse{}
 
-// ModelApiTokenResponse struct for ModelApiTokenResponse
-type ModelApiTokenResponse struct {
+// ModelAPITokenResponse struct for ModelAPITokenResponse
+type ModelAPITokenResponse struct {
 	ApiToken *string `json:"api_token,omitempty"`
 	CompanyId *int32 `json:"company_id,omitempty"`
 	CreatedAt *time.Time `json:"created_at,omitempty"`
@@ -29,25 +29,25 @@ type ModelApiTokenResponse struct {
 	Name *string `json:"name,omitempty"`
 }
 
-// NewModelApiTokenResponse instantiates a new ModelApiTokenResponse object
+// NewModelAPITokenResponse instantiates a new ModelAPITokenResponse object
 // This constructor will assign default values to properties that have it defined,
 // and makes sure properties required by API are set, but the set of arguments
 // will change when the set of required properties is changed
-func NewModelApiTokenResponse() *ModelApiTokenResponse {
-	this := ModelApiTokenResponse{}
+func NewModelAPITokenResponse() *ModelAPITokenResponse {
+	this := ModelAPITokenResponse{}
 	return &this
 }
 
-// NewModelApiTokenResponseWithDefaults instantiates a new ModelApiTokenResponse object
+// NewModelAPITokenResponseWithDefaults instantiates a new ModelAPITokenResponse object
 // This constructor will only assign default values to properties that have it defined,
 // but it doesn't guarantee that properties required by API are set
-func NewModelApiTokenResponseWithDefaults() *ModelApiTokenResponse {
-	this := ModelApiTokenResponse{}
+func NewModelAPITokenResponseWithDefaults() *ModelAPITokenResponse {
+	this := ModelAPITokenResponse{}
 	return &this
 }
 
 // GetApiToken returns the ApiToken field value if set, zero value otherwise.
-func (o *ModelApiTokenResponse) GetApiToken() string {
+func (o *ModelAPITokenResponse) GetApiToken() string {
 	if o == nil || IsNil(o.ApiToken) {
 		var ret string
 		return ret
@@ -57,7 +57,7 @@ func (o *ModelApiTokenResponse) GetApiToken() string {
 
 // GetApiTokenOk returns a tuple with the ApiToken field value if set, nil otherwise
 // and a boolean to check if the value has been set.
-func (o *ModelApiTokenResponse) GetApiTokenOk() (*string, bool) {
+func (o *ModelAPITokenResponse) GetApiTokenOk() (*string, bool) {
 	if o == nil || IsNil(o.ApiToken) {
 		return nil, false
 	}
@@ -65,7 +65,7 @@ func (o *ModelApiTokenResponse) GetApiTokenOk() (*string, bool) {
 }
 
 // HasApiToken returns a boolean if a field has been set.
-func (o *ModelApiTokenResponse) HasApiToken() bool {
+func (o *ModelAPITokenResponse) HasApiToken() bool {
 	if o != nil && !IsNil(o.ApiToken) {
 		return true
 	}
@@ -74,12 +74,12 @@ func (o *ModelApiTokenResponse) HasApiToken() bool {
 }
 
 // SetApiToken gets a reference to the given string and assigns it to the ApiToken field.
-func (o *ModelApiTokenResponse) SetApiToken(v string) {
+func (o *ModelAPITokenResponse) SetApiToken(v string) {
 	o.ApiToken = &v
 }
 
 // GetCompanyId returns the CompanyId field value if set, zero value otherwise.
-func (o *ModelApiTokenResponse) GetCompanyId() int32 {
+func (o *ModelAPITokenResponse) GetCompanyId() int32 {
 	if o == nil || IsNil(o.CompanyId) {
 		var ret int32
 		return ret
@@ -89,7 +89,7 @@ func (o *ModelApiTokenResponse) GetCompanyId() int32 {
 
 // GetCompanyIdOk returns a tuple with the CompanyId field value if set, nil otherwise
 // and a boolean to check if the value has been set.
-func (o *ModelApiTokenResponse) GetCompanyIdOk() (*int32, bool) {
+func (o *ModelAPITokenResponse) GetCompanyIdOk() (*int32, bool) {
 	if o == nil || IsNil(o.CompanyId) {
 		return nil, false
 	}
@@ -97,7 +97,7 @@ func (o *ModelApiTokenResponse) GetCompanyIdOk() (*int32, bool) {
 }
 
 // HasCompanyId returns a boolean if a field has been set.
-func (o *ModelApiTokenResponse) HasCompanyId() bool {
+func (o *ModelAPITokenResponse) HasCompanyId() bool {
 	if o != nil && !IsNil(o.CompanyId) {
 		return true
 	}
@@ -106,12 +106,12 @@ func (o *ModelApiTokenResponse) HasCompanyId() bool {
 }
 
 // SetCompanyId gets a reference to the given int32 and assigns it to the CompanyId field.
-func (o *ModelApiTokenResponse) SetCompanyId(v int32) {
+func (o *ModelAPITokenResponse) SetCompanyId(v int32) {
 	o.CompanyId = &v
 }
 
 // GetCreatedAt returns the CreatedAt field value if set, zero value otherwise.
-func (o *ModelApiTokenResponse) GetCreatedAt() time.Time {
+func (o *ModelAPITokenResponse) GetCreatedAt() time.Time {
 	if o == nil || IsNil(o.CreatedAt) {
 		var ret time.Time
 		return ret
@@ -121,7 +121,7 @@ func (o *ModelApiTokenResponse) GetCreatedAt() time.Time {
 
 // GetCreatedAtOk returns a tuple with the CreatedAt field value if set, nil otherwise
 // and a boolean to check if the value has been set.
-func (o *ModelApiTokenResponse) GetCreatedAtOk() (*time.Time, bool) {
+func (o *ModelAPITokenResponse) GetCreatedAtOk() (*time.Time, bool) {
 	if o == nil || IsNil(o.CreatedAt) {
 		return nil, false
 	}
@@ -129,7 +129,7 @@ func (o *ModelApiTokenResponse) GetCreatedAtOk() (*time.Time, bool) {
 }
 
 // HasCreatedAt returns a boolean if a field has been set.
-func (o *ModelApiTokenResponse) HasCreatedAt() bool {
+func (o *ModelAPITokenResponse) HasCreatedAt() bool {
 	if o != nil && !IsNil(o.CreatedAt) {
 		return true
 	}
@@ -138,12 +138,12 @@ func (o *ModelApiTokenResponse) HasCreatedAt() bool {
 }
 
 // SetCreatedAt gets a reference to the given time.Time and assigns it to the CreatedAt field.
-func (o *ModelApiTokenResponse) SetCreatedAt(v time.Time) {
+func (o *ModelAPITokenResponse) SetCreatedAt(v time.Time) {
 	o.CreatedAt = &v
 }
 
 // GetCreatedByUserId returns the CreatedByUserId field value if set, zero value otherwise.
-func (o *ModelApiTokenResponse) GetCreatedByUserId() int32 {
+func (o *ModelAPITokenResponse) GetCreatedByUserId() int32 {
 	if o == nil || IsNil(o.CreatedByUserId) {
 		var ret int32
 		return ret
@@ -153,7 +153,7 @@ func (o *ModelApiTokenResponse) GetCreatedByUserId() int32 {
 
 // GetCreatedByUserIdOk returns a tuple with the CreatedByUserId field value if set, nil otherwise
 // and a boolean to check if the value has been set.
-func (o *ModelApiTokenResponse) GetCreatedByUserIdOk() (*int32, bool) {
+func (o *ModelAPITokenResponse) GetCreatedByUserIdOk() (*int32, bool) {
 	if o == nil || IsNil(o.CreatedByUserId) {
 		return nil, false
 	}
@@ -161,7 +161,7 @@ func (o *ModelApiTokenResponse) GetCreatedByUserIdOk() (*int32, bool) {
 }
 
 // HasCreatedByUserId returns a boolean if a field has been set.
-func (o *ModelApiTokenResponse) HasCreatedByUserId() bool {
+func (o *ModelAPITokenResponse) HasCreatedByUserId() bool {
 	if o != nil && !IsNil(o.CreatedByUserId) {
 		return true
 	}
@@ -170,12 +170,12 @@ func (o *ModelApiTokenResponse) HasCreatedByUserId() bool {
 }
 
 // SetCreatedByUserId gets a reference to the given int32 and assigns it to the CreatedByUserId field.
-func (o *ModelApiTokenResponse) SetCreatedByUserId(v int32) {
+func (o *ModelAPITokenResponse) SetCreatedByUserId(v int32) {
 	o.CreatedByUserId = &v
 }
 
 // GetId returns the Id field value if set, zero value otherwise.
-func (o *ModelApiTokenResponse) GetId() int32 {
+func (o *ModelAPITokenResponse) GetId() int32 {
 	if o == nil || IsNil(o.Id) {
 		var ret int32
 		return ret
@@ -185,7 +185,7 @@ func (o *ModelApiTokenResponse) GetId() int32 {
 
 // GetIdOk returns a tuple with the Id field value if set, nil otherwise
 // and a boolean to check if the value has been set.
-func (o *ModelApiTokenResponse) GetIdOk() (*int32, bool) {
+func (o *ModelAPITokenResponse) GetIdOk() (*int32, bool) {
 	if o == nil || IsNil(o.Id) {
 		return nil, false
 	}
@@ -193,7 +193,7 @@ func (o *ModelApiTokenResponse) GetIdOk() (*int32, bool) {
 }
 
 // HasId returns a boolean if a field has been set.
-func (o *ModelApiTokenResponse) HasId() bool {
+func (o *ModelAPITokenResponse) HasId() bool {
 	if o != nil && !IsNil(o.Id) {
 		return true
 	}
@@ -202,12 +202,12 @@ func (o *ModelApiTokenResponse) HasId() bool {
 }
 
 // SetId gets a reference to the given int32 and assigns it to the Id field.
-func (o *ModelApiTokenResponse) SetId(v int32) {
+func (o *ModelAPITokenResponse) SetId(v int32) {
 	o.Id = &v
 }
 
 // GetName returns the Name field value if set, zero value otherwise.
-func (o *ModelApiTokenResponse) GetName() string {
+func (o *ModelAPITokenResponse) GetName() string {
 	if o == nil || IsNil(o.Name) {
 		var ret string
 		return ret
@@ -217,7 +217,7 @@ func (o *ModelApiTokenResponse) GetName() string {
 
 // GetNameOk returns a tuple with the Name field value if set, nil otherwise
 // and a boolean to check if the value has been set.
-func (o *ModelApiTokenResponse) GetNameOk() (*string, bool) {
+func (o *ModelAPITokenResponse) GetNameOk() (*string, bool) {
 	if o == nil || IsNil(o.Name) {
 		return nil, false
 	}
@@ -225,7 +225,7 @@ func (o *ModelApiTokenResponse) GetNameOk() (*string, bool) {
 }
 
 // HasName returns a boolean if a field has been set.
-func (o *ModelApiTokenResponse) HasName() bool {
+func (o *ModelAPITokenResponse) HasName() bool {
 	if o != nil && !IsNil(o.Name) {
 		return true
 	}
@@ -234,11 +234,11 @@ func (o *ModelApiTokenResponse) HasName() bool {
 }
 
 // SetName gets a reference to the given string and assigns it to the Name field.
-func (o *ModelApiTokenResponse) SetName(v string) {
+func (o *ModelAPITokenResponse) SetName(v string) {
 	o.Name = &v
 }
 
-func (o ModelApiTokenResponse) MarshalJSON() ([]byte, error) {
+func (o ModelAPITokenResponse) MarshalJSON() ([]byte, error) {
 	toSerialize,err := o.ToMap()
 	if err != nil {
 		return []byte{}, err
@@ -246,7 +246,7 @@ func (o ModelApiTokenResponse) MarshalJSON() ([]byte, error) {
 	return json.Marshal(toSerialize)
 }
 
-func (o ModelApiTokenResponse) ToMap() (map[string]interface{}, error) {
+func (o ModelAPITokenResponse) ToMap() (map[string]interface{}, error) {
 	toSerialize := map[string]interface{}{}
 	if !IsNil(o.ApiToken) {
 		toSerialize["api_token"] = o.ApiToken
@@ -269,38 +269,38 @@ func (o ModelApiTokenResponse) ToMap() (map[string]interface{}, error) {
 	return toSerialize, nil
 }
 
-type NullableModelApiTokenResponse struct {
-	value *ModelApiTokenResponse
+type NullableModelAPITokenResponse struct {
+	value *ModelAPITokenResponse
 	isSet bool
 }
 
-func (v NullableModelApiTokenResponse) Get() *ModelApiTokenResponse {
+func (v NullableModelAPITokenResponse) Get() *ModelAPITokenResponse {
 	return v.value
 }
 
-func (v *NullableModelApiTokenResponse) Set(val *ModelApiTokenResponse) {
+func (v *NullableModelAPITokenResponse) Set(val *ModelAPITokenResponse) {
 	v.value = val
 	v.isSet = true
 }
 
-func (v NullableModelApiTokenResponse) IsSet() bool {
+func (v NullableModelAPITokenResponse) IsSet() bool {
 	return v.isSet
 }
 
-func (v *NullableModelApiTokenResponse) Unset() {
+func (v *NullableModelAPITokenResponse) Unset() {
 	v.value = nil
 	v.isSet = false
 }
 
-func NewNullableModelApiTokenResponse(val *ModelApiTokenResponse) *NullableModelApiTokenResponse {
-	return &NullableModelApiTokenResponse{value: val, isSet: true}
+func NewNullableModelAPITokenResponse(val *ModelAPITokenResponse) *NullableModelAPITokenResponse {
+	return &NullableModelAPITokenResponse{value: val, isSet: true}
 }
 
-func (v NullableModelApiTokenResponse) MarshalJSON() ([]byte, error) {
+func (v NullableModelAPITokenResponse) MarshalJSON() ([]byte, error) {
 	return json.Marshal(v.value)
 }
 
-func (v *NullableModelApiTokenResponse) UnmarshalJSON(src []byte) error {
+func (v *NullableModelAPITokenResponse) UnmarshalJSON(src []byte) error {
 	v.isSet = true
 	return json.Unmarshal(src, &v.value)
 }

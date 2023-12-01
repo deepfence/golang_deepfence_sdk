@@ -13,6 +13,7 @@ package client
 
 import (
 	"encoding/json"
+	"fmt"
 )
 
 // checks if the GraphProviderThreatGraph type satisfies the MappedNullable interface at compile time
@@ -26,6 +27,8 @@ type GraphProviderThreatGraph struct {
 	SecretsCount int32 `json:"secrets_count"`
 	VulnerabilityCount int32 `json:"vulnerability_count"`
 }
+
+type _GraphProviderThreatGraph GraphProviderThreatGraph
 
 // NewGraphProviderThreatGraph instantiates a new GraphProviderThreatGraph object
 // This constructor will assign default values to properties that have it defined,
@@ -189,6 +192,45 @@ func (o GraphProviderThreatGraph) ToMap() (map[string]interface{}, error) {
 	toSerialize["secrets_count"] = o.SecretsCount
 	toSerialize["vulnerability_count"] = o.VulnerabilityCount
 	return toSerialize, nil
+}
+
+func (o *GraphProviderThreatGraph) UnmarshalJSON(bytes []byte) (err error) {
+    // This validates that all required properties are included in the JSON object
+	// by unmarshalling the object into a generic map with string keys and checking
+	// that every required field exists as a key in the generic map.
+	requiredProperties := []string{
+		"cloud_compliance_count",
+		"compliance_count",
+		"resources",
+		"secrets_count",
+		"vulnerability_count",
+	}
+
+	allProperties := make(map[string]interface{})
+
+	err = json.Unmarshal(bytes, &allProperties)
+
+	if err != nil {
+		return err;
+	}
+
+	for _, requiredProperty := range(requiredProperties) {
+		if _, exists := allProperties[requiredProperty]; !exists {
+			return fmt.Errorf("no value given for required property %v", requiredProperty)
+		}
+	}
+
+	varGraphProviderThreatGraph := _GraphProviderThreatGraph{}
+
+	err = json.Unmarshal(bytes, &varGraphProviderThreatGraph)
+
+	if err != nil {
+		return err
+	}
+
+	*o = GraphProviderThreatGraph(varGraphProviderThreatGraph)
+
+	return err
 }
 
 type NullableGraphProviderThreatGraph struct {

@@ -13,6 +13,7 @@ package client
 
 import (
 	"encoding/json"
+	"fmt"
 )
 
 // checks if the DiagnosisDiagnosticLogsStatus type satisfies the MappedNullable interface at compile time
@@ -23,6 +24,8 @@ type DiagnosisDiagnosticLogsStatus struct {
 	Message *string `json:"message,omitempty"`
 	Status string `json:"status"`
 }
+
+type _DiagnosisDiagnosticLogsStatus DiagnosisDiagnosticLogsStatus
 
 // NewDiagnosisDiagnosticLogsStatus instantiates a new DiagnosisDiagnosticLogsStatus object
 // This constructor will assign default values to properties that have it defined,
@@ -113,6 +116,41 @@ func (o DiagnosisDiagnosticLogsStatus) ToMap() (map[string]interface{}, error) {
 	}
 	toSerialize["status"] = o.Status
 	return toSerialize, nil
+}
+
+func (o *DiagnosisDiagnosticLogsStatus) UnmarshalJSON(bytes []byte) (err error) {
+    // This validates that all required properties are included in the JSON object
+	// by unmarshalling the object into a generic map with string keys and checking
+	// that every required field exists as a key in the generic map.
+	requiredProperties := []string{
+		"status",
+	}
+
+	allProperties := make(map[string]interface{})
+
+	err = json.Unmarshal(bytes, &allProperties)
+
+	if err != nil {
+		return err;
+	}
+
+	for _, requiredProperty := range(requiredProperties) {
+		if _, exists := allProperties[requiredProperty]; !exists {
+			return fmt.Errorf("no value given for required property %v", requiredProperty)
+		}
+	}
+
+	varDiagnosisDiagnosticLogsStatus := _DiagnosisDiagnosticLogsStatus{}
+
+	err = json.Unmarshal(bytes, &varDiagnosisDiagnosticLogsStatus)
+
+	if err != nil {
+		return err
+	}
+
+	*o = DiagnosisDiagnosticLogsStatus(varDiagnosisDiagnosticLogsStatus)
+
+	return err
 }
 
 type NullableDiagnosisDiagnosticLogsStatus struct {

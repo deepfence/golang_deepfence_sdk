@@ -13,6 +13,7 @@ package client
 
 import (
 	"encoding/json"
+	"fmt"
 )
 
 // checks if the ModelScanFilter type satisfies the MappedNullable interface at compile time
@@ -26,6 +27,8 @@ type ModelScanFilter struct {
 	ImageScanFilter ReportersContainsFilter `json:"image_scan_filter"`
 	KubernetesClusterScanFilter ReportersContainsFilter `json:"kubernetes_cluster_scan_filter"`
 }
+
+type _ModelScanFilter ModelScanFilter
 
 // NewModelScanFilter instantiates a new ModelScanFilter object
 // This constructor will assign default values to properties that have it defined,
@@ -185,6 +188,45 @@ func (o ModelScanFilter) ToMap() (map[string]interface{}, error) {
 	toSerialize["image_scan_filter"] = o.ImageScanFilter
 	toSerialize["kubernetes_cluster_scan_filter"] = o.KubernetesClusterScanFilter
 	return toSerialize, nil
+}
+
+func (o *ModelScanFilter) UnmarshalJSON(bytes []byte) (err error) {
+    // This validates that all required properties are included in the JSON object
+	// by unmarshalling the object into a generic map with string keys and checking
+	// that every required field exists as a key in the generic map.
+	requiredProperties := []string{
+		"cloud_account_scan_filter",
+		"container_scan_filter",
+		"host_scan_filter",
+		"image_scan_filter",
+		"kubernetes_cluster_scan_filter",
+	}
+
+	allProperties := make(map[string]interface{})
+
+	err = json.Unmarshal(bytes, &allProperties)
+
+	if err != nil {
+		return err;
+	}
+
+	for _, requiredProperty := range(requiredProperties) {
+		if _, exists := allProperties[requiredProperty]; !exists {
+			return fmt.Errorf("no value given for required property %v", requiredProperty)
+		}
+	}
+
+	varModelScanFilter := _ModelScanFilter{}
+
+	err = json.Unmarshal(bytes, &varModelScanFilter)
+
+	if err != nil {
+		return err
+	}
+
+	*o = ModelScanFilter(varModelScanFilter)
+
+	return err
 }
 
 type NullableModelScanFilter struct {

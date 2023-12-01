@@ -13,6 +13,7 @@ package client
 
 import (
 	"encoding/json"
+	"fmt"
 )
 
 // checks if the ModelSettingsResponse type satisfies the MappedNullable interface at compile time
@@ -26,6 +27,8 @@ type ModelSettingsResponse struct {
 	Label string `json:"label"`
 	Value interface{} `json:"value"`
 }
+
+type _ModelSettingsResponse ModelSettingsResponse
 
 // NewModelSettingsResponse instantiates a new ModelSettingsResponse object
 // This constructor will assign default values to properties that have it defined,
@@ -189,6 +192,45 @@ func (o ModelSettingsResponse) ToMap() (map[string]interface{}, error) {
 		toSerialize["value"] = o.Value
 	}
 	return toSerialize, nil
+}
+
+func (o *ModelSettingsResponse) UnmarshalJSON(bytes []byte) (err error) {
+    // This validates that all required properties are included in the JSON object
+	// by unmarshalling the object into a generic map with string keys and checking
+	// that every required field exists as a key in the generic map.
+	requiredProperties := []string{
+		"description",
+		"id",
+		"key",
+		"label",
+		"value",
+	}
+
+	allProperties := make(map[string]interface{})
+
+	err = json.Unmarshal(bytes, &allProperties)
+
+	if err != nil {
+		return err;
+	}
+
+	for _, requiredProperty := range(requiredProperties) {
+		if _, exists := allProperties[requiredProperty]; !exists {
+			return fmt.Errorf("no value given for required property %v", requiredProperty)
+		}
+	}
+
+	varModelSettingsResponse := _ModelSettingsResponse{}
+
+	err = json.Unmarshal(bytes, &varModelSettingsResponse)
+
+	if err != nil {
+		return err
+	}
+
+	*o = ModelSettingsResponse(varModelSettingsResponse)
+
+	return err
 }
 
 type NullableModelSettingsResponse struct {

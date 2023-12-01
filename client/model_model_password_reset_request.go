@@ -13,6 +13,7 @@ package client
 
 import (
 	"encoding/json"
+	"fmt"
 )
 
 // checks if the ModelPasswordResetRequest type satisfies the MappedNullable interface at compile time
@@ -22,6 +23,8 @@ var _ MappedNullable = &ModelPasswordResetRequest{}
 type ModelPasswordResetRequest struct {
 	Email string `json:"email"`
 }
+
+type _ModelPasswordResetRequest ModelPasswordResetRequest
 
 // NewModelPasswordResetRequest instantiates a new ModelPasswordResetRequest object
 // This constructor will assign default values to properties that have it defined,
@@ -77,6 +80,41 @@ func (o ModelPasswordResetRequest) ToMap() (map[string]interface{}, error) {
 	toSerialize := map[string]interface{}{}
 	toSerialize["email"] = o.Email
 	return toSerialize, nil
+}
+
+func (o *ModelPasswordResetRequest) UnmarshalJSON(bytes []byte) (err error) {
+    // This validates that all required properties are included in the JSON object
+	// by unmarshalling the object into a generic map with string keys and checking
+	// that every required field exists as a key in the generic map.
+	requiredProperties := []string{
+		"email",
+	}
+
+	allProperties := make(map[string]interface{})
+
+	err = json.Unmarshal(bytes, &allProperties)
+
+	if err != nil {
+		return err;
+	}
+
+	for _, requiredProperty := range(requiredProperties) {
+		if _, exists := allProperties[requiredProperty]; !exists {
+			return fmt.Errorf("no value given for required property %v", requiredProperty)
+		}
+	}
+
+	varModelPasswordResetRequest := _ModelPasswordResetRequest{}
+
+	err = json.Unmarshal(bytes, &varModelPasswordResetRequest)
+
+	if err != nil {
+		return err
+	}
+
+	*o = ModelPasswordResetRequest(varModelPasswordResetRequest)
+
+	return err
 }
 
 type NullableModelPasswordResetRequest struct {

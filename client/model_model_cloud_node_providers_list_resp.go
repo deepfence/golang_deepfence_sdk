@@ -13,6 +13,7 @@ package client
 
 import (
 	"encoding/json"
+	"fmt"
 )
 
 // checks if the ModelCloudNodeProvidersListResp type satisfies the MappedNullable interface at compile time
@@ -22,6 +23,8 @@ var _ MappedNullable = &ModelCloudNodeProvidersListResp{}
 type ModelCloudNodeProvidersListResp struct {
 	Providers []ModelPostureProvider `json:"providers"`
 }
+
+type _ModelCloudNodeProvidersListResp ModelCloudNodeProvidersListResp
 
 // NewModelCloudNodeProvidersListResp instantiates a new ModelCloudNodeProvidersListResp object
 // This constructor will assign default values to properties that have it defined,
@@ -81,6 +84,41 @@ func (o ModelCloudNodeProvidersListResp) ToMap() (map[string]interface{}, error)
 		toSerialize["providers"] = o.Providers
 	}
 	return toSerialize, nil
+}
+
+func (o *ModelCloudNodeProvidersListResp) UnmarshalJSON(bytes []byte) (err error) {
+    // This validates that all required properties are included in the JSON object
+	// by unmarshalling the object into a generic map with string keys and checking
+	// that every required field exists as a key in the generic map.
+	requiredProperties := []string{
+		"providers",
+	}
+
+	allProperties := make(map[string]interface{})
+
+	err = json.Unmarshal(bytes, &allProperties)
+
+	if err != nil {
+		return err;
+	}
+
+	for _, requiredProperty := range(requiredProperties) {
+		if _, exists := allProperties[requiredProperty]; !exists {
+			return fmt.Errorf("no value given for required property %v", requiredProperty)
+		}
+	}
+
+	varModelCloudNodeProvidersListResp := _ModelCloudNodeProvidersListResp{}
+
+	err = json.Unmarshal(bytes, &varModelCloudNodeProvidersListResp)
+
+	if err != nil {
+		return err
+	}
+
+	*o = ModelCloudNodeProvidersListResp(varModelCloudNodeProvidersListResp)
+
+	return err
 }
 
 type NullableModelCloudNodeProvidersListResp struct {

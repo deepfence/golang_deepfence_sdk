@@ -13,6 +13,7 @@ package client
 
 import (
 	"encoding/json"
+	"fmt"
 )
 
 // checks if the IngestersReportIngestionData type satisfies the MappedNullable interface at compile time
@@ -37,6 +38,8 @@ type IngestersReportIngestionData struct {
 	ProcessBatch []map[string]interface{} `json:"process_batch"`
 	ProcessEdgesBatch []map[string]interface{} `json:"process_edges_batch"`
 }
+
+type _IngestersReportIngestionData IngestersReportIngestionData
 
 // NewIngestersReportIngestionData instantiates a new IngestersReportIngestionData object
 // This constructor will assign default values to properties that have it defined,
@@ -542,6 +545,56 @@ func (o IngestersReportIngestionData) ToMap() (map[string]interface{}, error) {
 		toSerialize["process_edges_batch"] = o.ProcessEdgesBatch
 	}
 	return toSerialize, nil
+}
+
+func (o *IngestersReportIngestionData) UnmarshalJSON(bytes []byte) (err error) {
+    // This validates that all required properties are included in the JSON object
+	// by unmarshalling the object into a generic map with string keys and checking
+	// that every required field exists as a key in the generic map.
+	requiredProperties := []string{
+		"container_batch",
+		"container_edges_batch",
+		"container_image_batch",
+		"container_image_edge_batch",
+		"container_process_edge_batch",
+		"endpoint_edges_batch",
+		"host_batch",
+		"hosts",
+		"kubernetes_cluster_batch",
+		"kubernetes_cluster_edge_batch",
+		"num_merged",
+		"pod_batch",
+		"pod_edges_batch",
+		"pod_host_edges_batch",
+		"process_batch",
+		"process_edges_batch",
+	}
+
+	allProperties := make(map[string]interface{})
+
+	err = json.Unmarshal(bytes, &allProperties)
+
+	if err != nil {
+		return err;
+	}
+
+	for _, requiredProperty := range(requiredProperties) {
+		if _, exists := allProperties[requiredProperty]; !exists {
+			return fmt.Errorf("no value given for required property %v", requiredProperty)
+		}
+	}
+
+	varIngestersReportIngestionData := _IngestersReportIngestionData{}
+
+	err = json.Unmarshal(bytes, &varIngestersReportIngestionData)
+
+	if err != nil {
+		return err
+	}
+
+	*o = IngestersReportIngestionData(varIngestersReportIngestionData)
+
+	return err
 }
 
 type NullableIngestersReportIngestionData struct {

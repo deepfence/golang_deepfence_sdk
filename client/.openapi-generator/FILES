@@ -12,6 +12,7 @@ api_compliance.go
 api_controls.go
 api_diagnosis.go
 api_diff_add.go
+api_generative_ai.go
 api_integration.go
 api_internal.go
 api_lookup.go
@@ -55,6 +56,7 @@ docs/DiagnosisGenerateConsoleDiagnosticLogsRequest.md
 docs/DiagnosisGetDiagnosticLogsResponse.md
 docs/DiagnosisNodeIdentifier.md
 docs/DiffAddAPI.md
+docs/GenerativeAIAPI.md
 docs/GraphCloudProviderFilter.md
 docs/GraphIndividualThreatGraph.md
 docs/GraphIndividualThreatGraphRequest.md
@@ -85,13 +87,15 @@ docs/InternalAPI.md
 docs/LookupAPI.md
 docs/LookupLookupFilter.md
 docs/MalwareScanAPI.md
+docs/ModelAPIAuthRequest.md
+docs/ModelAPITokenResponse.md
+docs/ModelAddGenerativeAiBedrockIntegration.md
+docs/ModelAddGenerativeAiOpenAIIntegration.md
 docs/ModelAddScheduledTaskRequest.md
-docs/ModelAgentId.md
+docs/ModelAgentID.md
 docs/ModelAgentPluginDisable.md
 docs/ModelAgentPluginEnable.md
 docs/ModelAgentUpgrade.md
-docs/ModelApiAuthRequest.md
-docs/ModelApiTokenResponse.md
 docs/ModelBasicNode.md
 docs/ModelBulkDeleteScansRequest.md
 docs/ModelCloudCompliance.md
@@ -120,6 +124,7 @@ docs/ModelComplianceScanTriggerReq.md
 docs/ModelConnection.md
 docs/ModelContainer.md
 docs/ModelContainerImage.md
+docs/ModelDeleteRegistryBulkReq.md
 docs/ModelDownloadReportResponse.md
 docs/ModelDownloadScanResultsResponse.md
 docs/ModelEmailConfigurationAdd.md
@@ -130,6 +135,13 @@ docs/ModelFiltersReq.md
 docs/ModelFiltersResult.md
 docs/ModelGenerateReportReq.md
 docs/ModelGenerateReportResp.md
+docs/ModelGenerativeAiIntegrationCloudPostureRequest.md
+docs/ModelGenerativeAiIntegrationKubernetesPostureRequest.md
+docs/ModelGenerativeAiIntegrationLinuxPostureRequest.md
+docs/ModelGenerativeAiIntegrationListResponse.md
+docs/ModelGenerativeAiIntegrationMalwareRequest.md
+docs/ModelGenerativeAiIntegrationSecretRequest.md
+docs/ModelGenerativeAiIntegrationVulnerabilityRequest.md
 docs/ModelGetAuditLogsRequest.md
 docs/ModelGraphResult.md
 docs/ModelHost.md
@@ -141,6 +153,7 @@ docs/ModelIntegrationListResp.md
 docs/ModelInviteUserRequest.md
 docs/ModelInviteUserResponse.md
 docs/ModelKubernetesCluster.md
+docs/ModelListAgentVersionResp.md
 docs/ModelLoginRequest.md
 docs/ModelLoginResponse.md
 docs/ModelMalware.md
@@ -199,7 +212,7 @@ docs/ModelSummary.md
 docs/ModelTopologyDeltaReq.md
 docs/ModelTopologyDeltaResponse.md
 docs/ModelUpdateScheduledTaskRequest.md
-docs/ModelUpdateUserIdRequest.md
+docs/ModelUpdateUserIDRequest.md
 docs/ModelUpdateUserPasswordRequest.md
 docs/ModelUpdateUserRequest.md
 docs/ModelUser.md
@@ -286,6 +299,8 @@ model_ingesters_secret_severity.go
 model_ingesters_vulnerability.go
 model_ingesters_vulnerability_scan_status.go
 model_lookup_lookup_filter.go
+model_model_add_generative_ai_bedrock_integration.go
+model_model_add_generative_ai_open_ai_integration.go
 model_model_add_scheduled_task_request.go
 model_model_agent_id.go
 model_model_agent_plugin_disable.go
@@ -321,6 +336,7 @@ model_model_compliance_scan_trigger_req.go
 model_model_connection.go
 model_model_container.go
 model_model_container_image.go
+model_model_delete_registry_bulk_req.go
 model_model_download_report_response.go
 model_model_download_scan_results_response.go
 model_model_email_configuration_add.go
@@ -331,6 +347,13 @@ model_model_filters_req.go
 model_model_filters_result.go
 model_model_generate_report_req.go
 model_model_generate_report_resp.go
+model_model_generative_ai_integration_cloud_posture_request.go
+model_model_generative_ai_integration_kubernetes_posture_request.go
+model_model_generative_ai_integration_linux_posture_request.go
+model_model_generative_ai_integration_list_response.go
+model_model_generative_ai_integration_malware_request.go
+model_model_generative_ai_integration_secret_request.go
+model_model_generative_ai_integration_vulnerability_request.go
 model_model_get_audit_logs_request.go
 model_model_graph_result.go
 model_model_host.go
@@ -342,6 +365,7 @@ model_model_integration_list_resp.go
 model_model_invite_user_request.go
 model_model_invite_user_response.go
 model_model_kubernetes_cluster.go
+model_model_list_agent_version_resp.go
 model_model_login_request.go
 model_model_login_response.go
 model_model_malware.go
@@ -442,6 +466,7 @@ test/api_compliance_test.go
 test/api_controls_test.go
 test/api_diagnosis_test.go
 test/api_diff_add_test.go
+test/api_generative_ai_test.go
 test/api_integration_test.go
 test/api_internal_test.go
 test/api_lookup_test.go

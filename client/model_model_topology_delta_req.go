@@ -13,6 +13,7 @@ package client
 
 import (
 	"encoding/json"
+	"fmt"
 )
 
 // checks if the ModelTopologyDeltaReq type satisfies the MappedNullable interface at compile time
@@ -26,6 +27,8 @@ type ModelTopologyDeltaReq struct {
 	DeletionTimestamp int64 `json:"deletion_timestamp"`
 	EntityTypes []string `json:"entity_types"`
 }
+
+type _ModelTopologyDeltaReq ModelTopologyDeltaReq
 
 // NewModelTopologyDeltaReq instantiates a new ModelTopologyDeltaReq object
 // This constructor will assign default values to properties that have it defined,
@@ -189,6 +192,45 @@ func (o ModelTopologyDeltaReq) ToMap() (map[string]interface{}, error) {
 		toSerialize["entity_types"] = o.EntityTypes
 	}
 	return toSerialize, nil
+}
+
+func (o *ModelTopologyDeltaReq) UnmarshalJSON(bytes []byte) (err error) {
+    // This validates that all required properties are included in the JSON object
+	// by unmarshalling the object into a generic map with string keys and checking
+	// that every required field exists as a key in the generic map.
+	requiredProperties := []string{
+		"addition",
+		"addition_timestamp",
+		"deletion",
+		"deletion_timestamp",
+		"entity_types",
+	}
+
+	allProperties := make(map[string]interface{})
+
+	err = json.Unmarshal(bytes, &allProperties)
+
+	if err != nil {
+		return err;
+	}
+
+	for _, requiredProperty := range(requiredProperties) {
+		if _, exists := allProperties[requiredProperty]; !exists {
+			return fmt.Errorf("no value given for required property %v", requiredProperty)
+		}
+	}
+
+	varModelTopologyDeltaReq := _ModelTopologyDeltaReq{}
+
+	err = json.Unmarshal(bytes, &varModelTopologyDeltaReq)
+
+	if err != nil {
+		return err
+	}
+
+	*o = ModelTopologyDeltaReq(varModelTopologyDeltaReq)
+
+	return err
 }
 
 type NullableModelTopologyDeltaReq struct {

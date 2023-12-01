@@ -70,6 +70,8 @@ type APIClient struct {
 
 	DiffAddAPI *DiffAddAPIService
 
+	GenerativeAIAPI *GenerativeAIAPIService
+
 	IntegrationAPI *IntegrationAPIService
 
 	InternalAPI *InternalAPIService
@@ -125,6 +127,7 @@ func NewAPIClient(cfg *Configuration) *APIClient {
 	c.ControlsAPI = (*ControlsAPIService)(&c.common)
 	c.DiagnosisAPI = (*DiagnosisAPIService)(&c.common)
 	c.DiffAddAPI = (*DiffAddAPIService)(&c.common)
+	c.GenerativeAIAPI = (*GenerativeAIAPIService)(&c.common)
 	c.IntegrationAPI = (*IntegrationAPIService)(&c.common)
 	c.InternalAPI = (*InternalAPIService)(&c.common)
 	c.LookupAPI = (*LookupAPIService)(&c.common)
@@ -511,7 +514,6 @@ func (c *APIClient) decode(v interface{}, b []byte, contentType string) (err err
 			return
 		}
 		_, err = f.Seek(0, io.SeekStart)
-		err = os.Remove(f.Name())
 		return
 	}
 	if f, ok := v.(**os.File); ok {
@@ -524,7 +526,6 @@ func (c *APIClient) decode(v interface{}, b []byte, contentType string) (err err
 			return
 		}
 		_, err = (*f).Seek(0, io.SeekStart)
-		err = os.Remove((*f).Name())
 		return
 	}
 	if XmlCheck.MatchString(contentType) {

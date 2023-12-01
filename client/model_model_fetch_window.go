@@ -13,6 +13,7 @@ package client
 
 import (
 	"encoding/json"
+	"fmt"
 )
 
 // checks if the ModelFetchWindow type satisfies the MappedNullable interface at compile time
@@ -23,6 +24,8 @@ type ModelFetchWindow struct {
 	Offset int32 `json:"offset"`
 	Size int32 `json:"size"`
 }
+
+type _ModelFetchWindow ModelFetchWindow
 
 // NewModelFetchWindow instantiates a new ModelFetchWindow object
 // This constructor will assign default values to properties that have it defined,
@@ -104,6 +107,42 @@ func (o ModelFetchWindow) ToMap() (map[string]interface{}, error) {
 	toSerialize["offset"] = o.Offset
 	toSerialize["size"] = o.Size
 	return toSerialize, nil
+}
+
+func (o *ModelFetchWindow) UnmarshalJSON(bytes []byte) (err error) {
+    // This validates that all required properties are included in the JSON object
+	// by unmarshalling the object into a generic map with string keys and checking
+	// that every required field exists as a key in the generic map.
+	requiredProperties := []string{
+		"offset",
+		"size",
+	}
+
+	allProperties := make(map[string]interface{})
+
+	err = json.Unmarshal(bytes, &allProperties)
+
+	if err != nil {
+		return err;
+	}
+
+	for _, requiredProperty := range(requiredProperties) {
+		if _, exists := allProperties[requiredProperty]; !exists {
+			return fmt.Errorf("no value given for required property %v", requiredProperty)
+		}
+	}
+
+	varModelFetchWindow := _ModelFetchWindow{}
+
+	err = json.Unmarshal(bytes, &varModelFetchWindow)
+
+	if err != nil {
+		return err
+	}
+
+	*o = ModelFetchWindow(varModelFetchWindow)
+
+	return err
 }
 
 type NullableModelFetchWindow struct {

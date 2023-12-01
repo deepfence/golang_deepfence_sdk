@@ -13,6 +13,7 @@ package client
 
 import (
 	"encoding/json"
+	"fmt"
 )
 
 // checks if the ModelRegistryImageStubsReq type satisfies the MappedNullable interface at compile time
@@ -24,6 +25,8 @@ type ModelRegistryImageStubsReq struct {
 	RegistryId string `json:"registry_id"`
 	Window ModelFetchWindow `json:"window"`
 }
+
+type _ModelRegistryImageStubsReq ModelRegistryImageStubsReq
 
 // NewModelRegistryImageStubsReq instantiates a new ModelRegistryImageStubsReq object
 // This constructor will assign default values to properties that have it defined,
@@ -131,6 +134,43 @@ func (o ModelRegistryImageStubsReq) ToMap() (map[string]interface{}, error) {
 	toSerialize["registry_id"] = o.RegistryId
 	toSerialize["window"] = o.Window
 	return toSerialize, nil
+}
+
+func (o *ModelRegistryImageStubsReq) UnmarshalJSON(bytes []byte) (err error) {
+    // This validates that all required properties are included in the JSON object
+	// by unmarshalling the object into a generic map with string keys and checking
+	// that every required field exists as a key in the generic map.
+	requiredProperties := []string{
+		"image_filter",
+		"registry_id",
+		"window",
+	}
+
+	allProperties := make(map[string]interface{})
+
+	err = json.Unmarshal(bytes, &allProperties)
+
+	if err != nil {
+		return err;
+	}
+
+	for _, requiredProperty := range(requiredProperties) {
+		if _, exists := allProperties[requiredProperty]; !exists {
+			return fmt.Errorf("no value given for required property %v", requiredProperty)
+		}
+	}
+
+	varModelRegistryImageStubsReq := _ModelRegistryImageStubsReq{}
+
+	err = json.Unmarshal(bytes, &varModelRegistryImageStubsReq)
+
+	if err != nil {
+		return err
+	}
+
+	*o = ModelRegistryImageStubsReq(varModelRegistryImageStubsReq)
+
+	return err
 }
 
 type NullableModelRegistryImageStubsReq struct {

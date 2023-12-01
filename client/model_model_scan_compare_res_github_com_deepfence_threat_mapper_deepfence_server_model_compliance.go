@@ -13,6 +13,7 @@ package client
 
 import (
 	"encoding/json"
+	"fmt"
 )
 
 // checks if the ModelScanCompareResGithubComDeepfenceThreatMapperDeepfenceServerModelCompliance type satisfies the MappedNullable interface at compile time
@@ -22,6 +23,8 @@ var _ MappedNullable = &ModelScanCompareResGithubComDeepfenceThreatMapperDeepfen
 type ModelScanCompareResGithubComDeepfenceThreatMapperDeepfenceServerModelCompliance struct {
 	New []ModelCompliance `json:"new"`
 }
+
+type _ModelScanCompareResGithubComDeepfenceThreatMapperDeepfenceServerModelCompliance ModelScanCompareResGithubComDeepfenceThreatMapperDeepfenceServerModelCompliance
 
 // NewModelScanCompareResGithubComDeepfenceThreatMapperDeepfenceServerModelCompliance instantiates a new ModelScanCompareResGithubComDeepfenceThreatMapperDeepfenceServerModelCompliance object
 // This constructor will assign default values to properties that have it defined,
@@ -81,6 +84,41 @@ func (o ModelScanCompareResGithubComDeepfenceThreatMapperDeepfenceServerModelCom
 		toSerialize["new"] = o.New
 	}
 	return toSerialize, nil
+}
+
+func (o *ModelScanCompareResGithubComDeepfenceThreatMapperDeepfenceServerModelCompliance) UnmarshalJSON(bytes []byte) (err error) {
+    // This validates that all required properties are included in the JSON object
+	// by unmarshalling the object into a generic map with string keys and checking
+	// that every required field exists as a key in the generic map.
+	requiredProperties := []string{
+		"new",
+	}
+
+	allProperties := make(map[string]interface{})
+
+	err = json.Unmarshal(bytes, &allProperties)
+
+	if err != nil {
+		return err;
+	}
+
+	for _, requiredProperty := range(requiredProperties) {
+		if _, exists := allProperties[requiredProperty]; !exists {
+			return fmt.Errorf("no value given for required property %v", requiredProperty)
+		}
+	}
+
+	varModelScanCompareResGithubComDeepfenceThreatMapperDeepfenceServerModelCompliance := _ModelScanCompareResGithubComDeepfenceThreatMapperDeepfenceServerModelCompliance{}
+
+	err = json.Unmarshal(bytes, &varModelScanCompareResGithubComDeepfenceThreatMapperDeepfenceServerModelCompliance)
+
+	if err != nil {
+		return err
+	}
+
+	*o = ModelScanCompareResGithubComDeepfenceThreatMapperDeepfenceServerModelCompliance(varModelScanCompareResGithubComDeepfenceThreatMapperDeepfenceServerModelCompliance)
+
+	return err
 }
 
 type NullableModelScanCompareResGithubComDeepfenceThreatMapperDeepfenceServerModelCompliance struct {

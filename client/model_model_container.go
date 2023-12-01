@@ -13,6 +13,7 @@ package client
 
 import (
 	"encoding/json"
+	"fmt"
 )
 
 // checks if the ModelContainer type satisfies the MappedNullable interface at compile time
@@ -50,6 +51,8 @@ type ModelContainer struct {
 	VulnerabilityLatestScanId string `json:"vulnerability_latest_scan_id"`
 	VulnerabilityScanStatus string `json:"vulnerability_scan_status"`
 }
+
+type _ModelContainer ModelContainer
 
 // NewModelContainer instantiates a new ModelContainer object
 // This constructor will assign default values to properties that have it defined,
@@ -845,6 +848,69 @@ func (o ModelContainer) ToMap() (map[string]interface{}, error) {
 	toSerialize["vulnerability_latest_scan_id"] = o.VulnerabilityLatestScanId
 	toSerialize["vulnerability_scan_status"] = o.VulnerabilityScanStatus
 	return toSerialize, nil
+}
+
+func (o *ModelContainer) UnmarshalJSON(bytes []byte) (err error) {
+    // This validates that all required properties are included in the JSON object
+	// by unmarshalling the object into a generic map with string keys and checking
+	// that every required field exists as a key in the generic map.
+	requiredProperties := []string{
+		"cpu_max",
+		"cpu_usage",
+		"docker_container_command",
+		"docker_container_created",
+		"docker_container_ips",
+		"docker_container_name",
+		"docker_container_network_mode",
+		"docker_container_networks",
+		"docker_container_ports",
+		"docker_container_state",
+		"docker_container_state_human",
+		"docker_labels",
+		"host_name",
+		"image",
+		"malware_latest_scan_id",
+		"malware_scan_status",
+		"malwares_count",
+		"memory_max",
+		"memory_usage",
+		"node_id",
+		"node_name",
+		"processes",
+		"secret_latest_scan_id",
+		"secret_scan_status",
+		"secrets_count",
+		"uptime",
+		"vulnerabilities_count",
+		"vulnerability_latest_scan_id",
+		"vulnerability_scan_status",
+	}
+
+	allProperties := make(map[string]interface{})
+
+	err = json.Unmarshal(bytes, &allProperties)
+
+	if err != nil {
+		return err;
+	}
+
+	for _, requiredProperty := range(requiredProperties) {
+		if _, exists := allProperties[requiredProperty]; !exists {
+			return fmt.Errorf("no value given for required property %v", requiredProperty)
+		}
+	}
+
+	varModelContainer := _ModelContainer{}
+
+	err = json.Unmarshal(bytes, &varModelContainer)
+
+	if err != nil {
+		return err
+	}
+
+	*o = ModelContainer(varModelContainer)
+
+	return err
 }
 
 type NullableModelContainer struct {

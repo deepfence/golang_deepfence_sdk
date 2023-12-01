@@ -31,6 +31,78 @@ tags:
 - name: Malware Scan
 - name: Vulnerability
 paths:
+  /deepfence/agent/version:
+    put:
+      description: Upload Agent version
+      operationId: uploadAgentVersion
+      responses:
+        "200":
+          description: OK
+        "400":
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ApiDocsBadRequestResponse'
+          description: Bad Request
+        "401":
+          description: Unauthorized
+        "403":
+          description: Forbidden
+        "404":
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ApiDocsFailureResponse'
+          description: Not Found
+        "500":
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ApiDocsFailureResponse'
+          description: Internal Server Error
+      security:
+      - bearer_token: []
+      summary: Upload New agent version
+      tags:
+      - Settings
+  /deepfence/agent/versions:
+    get:
+      description: Get available agent versions
+      operationId: getAgentVersions
+      responses:
+        "200":
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ModelListAgentVersionResp'
+          description: OK
+        "400":
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ApiDocsBadRequestResponse'
+          description: Bad Request
+        "401":
+          description: Unauthorized
+        "403":
+          description: Forbidden
+        "404":
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ApiDocsFailureResponse'
+          description: Not Found
+        "500":
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ApiDocsFailureResponse'
+          description: Internal Server Error
+      security:
+      - bearer_token: []
+      summary: Get available agent versions
+      tags:
+      - Settings
   /deepfence/api-token:
     get:
       description: Get logged in user's API Tokens
@@ -41,7 +113,7 @@ paths:
             application/json:
               schema:
                 items:
-                  $ref: '#/components/schemas/ModelApiTokenResponse'
+                  $ref: '#/components/schemas/ModelAPITokenResponse'
                 type: array
           description: OK
         "400":
@@ -81,7 +153,7 @@ paths:
             application/json:
               schema:
                 items:
-                  $ref: '#/components/schemas/ModelApiTokenResponse'
+                  $ref: '#/components/schemas/ModelAPITokenResponse'
                 type: array
           description: OK
         "400":
@@ -120,7 +192,7 @@ paths:
         content:
           application/json:
             schema:
-              $ref: '#/components/schemas/ModelApiAuthRequest'
+              $ref: '#/components/schemas/ModelAPIAuthRequest'
       responses:
         "200":
           content:
@@ -453,7 +525,7 @@ paths:
         content:
           application/json:
             schema:
-              $ref: '#/components/schemas/ModelAgentId'
+              $ref: '#/components/schemas/ModelAgentID'
       responses:
         "200":
           content:
@@ -777,7 +849,7 @@ paths:
         content:
           application/json:
             schema:
-              $ref: '#/components/schemas/ModelAgentId'
+              $ref: '#/components/schemas/ModelAgentID'
       responses:
         "200":
           content:
@@ -1481,6 +1553,485 @@ paths:
       summary: Get Compliance Filters
       tags:
       - Search
+  /deepfence/generative-ai-integration:
+    get:
+      description: List all the added Generative AI Integrations
+      operationId: listGenerativeAiIntegration
+      parameters:
+      - explode: true
+        in: query
+        name: integration_type
+        required: false
+        schema:
+          enum:
+          - openai
+          - amazon-bedrock
+          type: string
+        style: form
+      responses:
+        "200":
+          content:
+            application/json:
+              schema:
+                items:
+                  $ref: '#/components/schemas/ModelGenerativeAiIntegrationListResponse'
+                type: array
+          description: OK
+        "400":
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ApiDocsBadRequestResponse'
+          description: Bad Request
+        "401":
+          description: Unauthorized
+        "403":
+          description: Forbidden
+        "404":
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ApiDocsFailureResponse'
+          description: Not Found
+        "500":
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ApiDocsFailureResponse'
+          description: Internal Server Error
+      security:
+      - bearer_token: []
+      summary: List Generative AI Integrations
+      tags:
+      - Generative AI
+  /deepfence/generative-ai-integration/{integration_id}:
+    delete:
+      description: Delete Generative AI integration
+      operationId: deleteGenerativeAiIntegration
+      parameters:
+      - explode: false
+        in: path
+        name: integration_id
+        required: true
+        schema:
+          type: string
+        style: simple
+      responses:
+        "204":
+          description: No Content
+        "400":
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ApiDocsBadRequestResponse'
+          description: Bad Request
+        "401":
+          description: Unauthorized
+        "403":
+          description: Forbidden
+        "404":
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ApiDocsFailureResponse'
+          description: Not Found
+        "500":
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ApiDocsFailureResponse'
+          description: Internal Server Error
+      security:
+      - bearer_token: []
+      summary: Delete Generative AI Integration
+      tags:
+      - Generative AI
+  /deepfence/generative-ai-integration/{integration_id}/default:
+    put:
+      description: Set Default Generative AI integration
+      operationId: setDefaultGenerativeAiIntegration
+      parameters:
+      - explode: false
+        in: path
+        name: integration_id
+        required: true
+        schema:
+          type: string
+        style: simple
+      responses:
+        "204":
+          description: No Content
+        "400":
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ApiDocsBadRequestResponse'
+          description: Bad Request
+        "401":
+          description: Unauthorized
+        "403":
+          description: Forbidden
+        "404":
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ApiDocsFailureResponse'
+          description: Not Found
+        "500":
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ApiDocsFailureResponse'
+          description: Internal Server Error
+      security:
+      - bearer_token: []
+      summary: Set Default Generative AI Integration
+      tags:
+      - Generative AI
+  /deepfence/generative-ai-integration/bedrock:
+    post:
+      description: Add a new AWS Bedrock Generative AI Integration
+      operationId: addGenerativeAiIntegrationBedrock
+      requestBody:
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/ModelAddGenerativeAiBedrockIntegration'
+      responses:
+        "200":
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ModelMessageResponse'
+          description: OK
+        "400":
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ApiDocsBadRequestResponse'
+          description: Bad Request
+        "401":
+          description: Unauthorized
+        "403":
+          description: Forbidden
+        "404":
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ApiDocsFailureResponse'
+          description: Not Found
+        "500":
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ApiDocsFailureResponse'
+          description: Internal Server Error
+      security:
+      - bearer_token: []
+      summary: Add AWS Bedrock Generative AI Integration
+      tags:
+      - Generative AI
+  /deepfence/generative-ai-integration/openai:
+    post:
+      description: Add a new OpenAI Generative AI Integration
+      operationId: addGenerativeAiIntegrationOpenAI
+      requestBody:
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/ModelAddGenerativeAiOpenAIIntegration'
+      responses:
+        "200":
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ModelMessageResponse'
+          description: OK
+        "400":
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ApiDocsBadRequestResponse'
+          description: Bad Request
+        "401":
+          description: Unauthorized
+        "403":
+          description: Forbidden
+        "404":
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ApiDocsFailureResponse'
+          description: Not Found
+        "500":
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ApiDocsFailureResponse'
+          description: Internal Server Error
+      security:
+      - bearer_token: []
+      summary: Add OpenAI Generative AI Integration
+      tags:
+      - Generative AI
+  /deepfence/generative-ai-integration/query/cloud-posture:
+    post:
+      description: Send Cloud Posture query to Generative AI Integration
+      operationId: generativeAiIntegrationCloudPostureQuery
+      requestBody:
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/ModelGenerativeAiIntegrationCloudPostureRequest'
+      responses:
+        "200":
+          content:
+            application/json:
+              schema:
+                type: string
+          description: OK
+        "400":
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ApiDocsBadRequestResponse'
+          description: Bad Request
+        "401":
+          description: Unauthorized
+        "403":
+          description: Forbidden
+        "404":
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ApiDocsFailureResponse'
+          description: Not Found
+        "500":
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ApiDocsFailureResponse'
+          description: Internal Server Error
+      security:
+      - bearer_token: []
+      summary: Send Cloud Posture query to Generative AI Integration
+      tags:
+      - Generative AI
+  /deepfence/generative-ai-integration/query/kubernetes-posture:
+    post:
+      description: Send Kubernetes Posture query to Generative AI Integration
+      operationId: generativeAiIntegrationKubernetesPostureQuery
+      requestBody:
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/ModelGenerativeAiIntegrationKubernetesPostureRequest'
+      responses:
+        "200":
+          content:
+            application/json:
+              schema:
+                type: string
+          description: OK
+        "400":
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ApiDocsBadRequestResponse'
+          description: Bad Request
+        "401":
+          description: Unauthorized
+        "403":
+          description: Forbidden
+        "404":
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ApiDocsFailureResponse'
+          description: Not Found
+        "500":
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ApiDocsFailureResponse'
+          description: Internal Server Error
+      security:
+      - bearer_token: []
+      summary: Send Kubernetes Posture query to Generative AI Integration
+      tags:
+      - Generative AI
+  /deepfence/generative-ai-integration/query/linux-posture:
+    post:
+      description: Send Linux Posture query to Generative AI Integration
+      operationId: generativeAiIntegrationLinuxPostureQuery
+      requestBody:
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/ModelGenerativeAiIntegrationLinuxPostureRequest'
+      responses:
+        "200":
+          content:
+            application/json:
+              schema:
+                type: string
+          description: OK
+        "400":
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ApiDocsBadRequestResponse'
+          description: Bad Request
+        "401":
+          description: Unauthorized
+        "403":
+          description: Forbidden
+        "404":
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ApiDocsFailureResponse'
+          description: Not Found
+        "500":
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ApiDocsFailureResponse'
+          description: Internal Server Error
+      security:
+      - bearer_token: []
+      summary: Send Linux Posture query to Generative AI Integration
+      tags:
+      - Generative AI
+  /deepfence/generative-ai-integration/query/malware:
+    post:
+      description: Send Malware query to Generative AI Integration
+      operationId: generativeAiIntegrationMalwareQuery
+      requestBody:
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/ModelGenerativeAiIntegrationMalwareRequest'
+      responses:
+        "200":
+          content:
+            application/json:
+              schema:
+                type: string
+          description: OK
+        "400":
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ApiDocsBadRequestResponse'
+          description: Bad Request
+        "401":
+          description: Unauthorized
+        "403":
+          description: Forbidden
+        "404":
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ApiDocsFailureResponse'
+          description: Not Found
+        "500":
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ApiDocsFailureResponse'
+          description: Internal Server Error
+      security:
+      - bearer_token: []
+      summary: Send Malware query to Generative AI Integration
+      tags:
+      - Generative AI
+  /deepfence/generative-ai-integration/query/secret:
+    post:
+      description: Send Secret query to Generative AI Integration
+      operationId: generativeAiIntegrationSecretQuery
+      requestBody:
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/ModelGenerativeAiIntegrationSecretRequest'
+      responses:
+        "200":
+          content:
+            application/json:
+              schema:
+                type: string
+          description: OK
+        "400":
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ApiDocsBadRequestResponse'
+          description: Bad Request
+        "401":
+          description: Unauthorized
+        "403":
+          description: Forbidden
+        "404":
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ApiDocsFailureResponse'
+          description: Not Found
+        "500":
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ApiDocsFailureResponse'
+          description: Internal Server Error
+      security:
+      - bearer_token: []
+      summary: Send Secret query to Generative AI Integration
+      tags:
+      - Generative AI
+  /deepfence/generative-ai-integration/query/vulnerability:
+    post:
+      description: Send Vulnerability query to Generative AI Integration
+      operationId: generativeAiIntegrationVulnerabilityQuery
+      requestBody:
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/ModelGenerativeAiIntegrationVulnerabilityRequest'
+      responses:
+        "200":
+          content:
+            application/json:
+              schema:
+                type: string
+          description: OK
+        "400":
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ApiDocsBadRequestResponse'
+          description: Bad Request
+        "401":
+          description: Unauthorized
+        "403":
+          description: Forbidden
+        "404":
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ApiDocsFailureResponse'
+          description: Not Found
+        "500":
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ApiDocsFailureResponse'
+          description: Internal Server Error
+      security:
+      - bearer_token: []
+      summary: Send Vulnerability query to Generative AI Integration
+      tags:
+      - Generative AI
   /deepfence/graph/threat:
     post:
       description: Retrieve the full threat graph associated with the account
@@ -2547,7 +3098,7 @@ paths:
           content:
             application/json:
               schema:
-                $ref: '#/components/schemas/ModelApiAuthRequest'
+                $ref: '#/components/schemas/ModelAPIAuthRequest'
           description: OK
         "400":
           content:
@@ -3555,6 +4106,45 @@ paths:
       security:
       - bearer_token: []
       summary: Count Image Stubs
+      tags:
+      - Registry
+  /deepfence/registryaccount/delete:
+    patch:
+      description: Batch Delete registry
+      operationId: deleteRegistryBulk
+      requestBody:
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/ModelDeleteRegistryBulkReq'
+      responses:
+        "204":
+          description: No Content
+        "400":
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ApiDocsBadRequestResponse'
+          description: Bad Request
+        "401":
+          description: Unauthorized
+        "403":
+          description: Forbidden
+        "404":
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ApiDocsFailureResponse'
+          description: Not Found
+        "500":
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ApiDocsFailureResponse'
+          description: Internal Server Error
+      security:
+      - bearer_token: []
+      summary: Batch Delete Registry
       tags:
       - Registry
   /deepfence/registryaccount/gcr:
@@ -5889,6 +6479,47 @@ paths:
       tags:
       - Settings
   /deepfence/scheduled-task/{id}:
+    delete:
+      description: Delete Custom Schedule task
+      operationId: deleteCustomScheduledTask
+      parameters:
+      - explode: false
+        in: path
+        name: id
+        required: true
+        schema:
+          type: integer
+        style: simple
+      responses:
+        "204":
+          description: No Content
+        "400":
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ApiDocsBadRequestResponse'
+          description: Bad Request
+        "401":
+          description: Unauthorized
+        "403":
+          description: Forbidden
+        "404":
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ApiDocsFailureResponse'
+          description: Not Found
+        "500":
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ApiDocsFailureResponse'
+          description: Internal Server Error
+      security:
+      - bearer_token: []
+      summary: Delete Custom Schedule task
+      tags:
+      - Settings
     patch:
       description: Update scheduled task
       operationId: updateScheduledTask
@@ -8687,7 +9318,7 @@ paths:
         content:
           application/json:
             schema:
-              $ref: '#/components/schemas/ModelUpdateUserIdRequest'
+              $ref: '#/components/schemas/ModelUpdateUserIDRequest'
       responses:
         "200":
           content:
@@ -10297,26 +10928,194 @@ components:
       - node_ids
       - window
       type: object
+    ModelAPIAuthRequest:
+      example:
+        api_token: api_token
+      properties:
+        api_token:
+          type: string
+      required:
+      - api_token
+      type: object
+    ModelAPITokenResponse:
+      example:
+        company_id: 0
+        api_token: api_token
+        name: name
+        created_at: 2000-01-23T04:56:07.000+00:00
+        id: 1
+        created_by_user_id: 6
+      properties:
+        api_token:
+          type: string
+        company_id:
+          type: integer
+        created_at:
+          format: date-time
+          type: string
+        created_by_user_id:
+          type: integer
+        id:
+          type: integer
+        name:
+          type: string
+      type: object
+    ModelAddGenerativeAiBedrockIntegration:
+      example:
+        aws_region: us-east-1
+        aws_access_key: aws_access_key
+        model_id: anthropic.claude-v2
+        aws_secret_key: aws_secret_key
+        use_iam_role: true
+      properties:
+        aws_access_key:
+          type: string
+        aws_region:
+          enum:
+          - us-east-1
+          - us-east-2
+          - us-west-1
+          - us-west-2
+          - af-south-1
+          - ap-east-1
+          - ap-south-1
+          - ap-northeast-1
+          - ap-northeast-2
+          - ap-northeast-3
+          - ap-southeast-1
+          - ap-southeast-2
+          - ap-southeast-3
+          - ca-central-1
+          - eu-central-1
+          - eu-west-1
+          - eu-west-2
+          - eu-west-3
+          - eu-south-1
+          - eu-north-1
+          - me-south-1
+          - me-central-1
+          - sa-east-1
+          - us-gov-east-1
+          - us-gov-west-1
+          type: string
+        aws_secret_key:
+          type: string
+        model_id:
+          enum:
+          - anthropic.claude-v2
+          - anthropic.claude-instant-v1
+          - amazon.titan-text-lite-v1
+          - amazon.titan-text-express-v1
+          - ai21.j2-ultra-v1
+          - ai21.j2-mid-v1
+          - meta.llama2-13b-chat-v1
+          - cohere.command-text-v14
+          - cohere.command-light-text-v14
+          type: string
+        use_iam_role:
+          type: boolean
+      required:
+      - aws_region
+      - model_id
+      type: object
+    ModelAddGenerativeAiOpenAIIntegration:
+      example:
+        api_key: api_key
+        model_id: gpt-4
+      properties:
+        api_key:
+          type: string
+        model_id:
+          enum:
+          - gpt-4
+          type: string
+      required:
+      - api_key
+      - model_id
+      type: object
     ModelAddScheduledTaskRequest:
       example:
-        node_type: node_type
+        is_priority: true
+        benchmark_types:
+        - benchmark_types
+        - benchmark_types
+        scan_config:
+        - language: base
+        - language: base
         cron_expr: cron_expr
-        action: action
+        action: SecretScan
         description: description
-        filters: filters
+        filters:
+          container_scan_filter:
+            filter_in:
+              key:
+              - ""
+              - ""
+          cloud_account_scan_filter:
+            filter_in:
+              key:
+              - ""
+              - ""
+          image_scan_filter:
+            filter_in:
+              key:
+              - ""
+              - ""
+          kubernetes_cluster_scan_filter:
+            filter_in:
+              key:
+              - ""
+              - ""
+          host_scan_filter:
+            filter_in:
+              key:
+              - ""
+              - ""
+        node_ids:
+        - node_type: image
+          node_id: node_id
+        - node_type: image
+          node_id: node_id
       properties:
         action:
+          enum:
+          - SecretScan
+          - VulnerabilityScan
+          - MalwareScan
+          - ComplianceScan
+          - CloudComplianceScan
           type: string
+        benchmark_types:
+          items:
+            type: string
+          nullable: true
+          type: array
         cron_expr:
           type: string
         description:
           type: string
         filters:
-          type: string
-        node_type:
-          type: string
+          $ref: '#/components/schemas/ModelScanFilter'
+        is_priority:
+          type: boolean
+        node_ids:
+          items:
+            $ref: '#/components/schemas/ModelNodeIdentifier'
+          nullable: true
+          type: array
+        scan_config:
+          items:
+            $ref: '#/components/schemas/ModelVulnerabilityScanConfigLanguage'
+          nullable: true
+          type: array
+      required:
+      - action
+      - benchmark_types
+      - filters
+      - node_ids
+      - scan_config
       type: object
-    ModelAgentId:
+    ModelAgentID:
       example:
         available_workload: 0
         node_id: node_id
@@ -10371,38 +11170,6 @@ components:
       required:
       - node_id
       - version
-      type: object
-    ModelApiAuthRequest:
-      example:
-        api_token: api_token
-      properties:
-        api_token:
-          type: string
-      required:
-      - api_token
-      type: object
-    ModelApiTokenResponse:
-      example:
-        company_id: 0
-        api_token: api_token
-        name: name
-        created_at: 2000-01-23T04:56:07.000+00:00
-        id: 1
-        created_by_user_id: 6
-      properties:
-        api_token:
-          type: string
-        company_id:
-          type: integer
-        created_at:
-          format: date-time
-          type: string
-        created_by_user_id:
-          type: integer
-        id:
-          type: integer
-        name:
-          type: string
       type: object
     ModelBasicNode:
       example:
@@ -11491,6 +12258,7 @@ components:
       type: object
     ModelComplianceScanTriggerReq:
       example:
+        is_priority: true
         benchmark_types:
         - benchmark_types
         - benchmark_types
@@ -11533,6 +12301,8 @@ components:
           type: array
         filters:
           $ref: '#/components/schemas/ModelScanFilter'
+        is_priority:
+          type: boolean
         node_ids:
           items:
             $ref: '#/components/schemas/ModelNodeIdentifier'
@@ -11882,6 +12652,7 @@ components:
           type: integer
         metadata:
           additionalProperties: {}
+          nullable: true
           type: object
         node_id:
           type: string
@@ -11920,6 +12691,20 @@ components:
       - vulnerabilities_count
       - vulnerability_latest_scan_id
       - vulnerability_scan_status
+      type: object
+    ModelDeleteRegistryBulkReq:
+      example:
+        registry_ids:
+        - registry_ids
+        - registry_ids
+      properties:
+        registry_ids:
+          items:
+            type: string
+          nullable: true
+          type: array
+      required:
+      - registry_ids
       type: object
     ModelDownloadReportResponse:
       example:
@@ -12101,9 +12886,6 @@ components:
             image_name:
             - image_name
             - image_name
-            account_id:
-            - account_id
-            - account_id
             container_name:
             - container_name
             - container_name
@@ -12119,6 +12901,9 @@ components:
             host_name:
             - host_name
             - host_name
+            node_id:
+            - node_id
+            - node_id
             pod_name:
             - pod_name
             - pod_name
@@ -12155,6 +12940,207 @@ components:
       properties:
         report_id:
           type: string
+      type: object
+    ModelGenerativeAiIntegrationCloudPostureRequest:
+      example:
+        integration_id: 0
+        remediation_format: all
+        service: service
+        cloud_provider: cloud_provider
+        query_type: remediation
+        title: title
+        compliance_check_type: compliance_check_type
+        group: group
+      properties:
+        cloud_provider:
+          type: string
+        compliance_check_type:
+          type: string
+        group:
+          type: string
+        integration_id:
+          type: integer
+        query_type:
+          enum:
+          - remediation
+          type: string
+        remediation_format:
+          enum:
+          - all
+          - cli
+          - pulumi
+          - terraform
+          type: string
+        service:
+          type: string
+        title:
+          type: string
+      required:
+      - cloud_provider
+      - compliance_check_type
+      - query_type
+      - remediation_format
+      - title
+      type: object
+    ModelGenerativeAiIntegrationKubernetesPostureRequest:
+      example:
+        integration_id: 0
+        remediation_format: all
+        description: description
+        query_type: remediation
+        compliance_check_type: compliance_check_type
+      properties:
+        compliance_check_type:
+          type: string
+        description:
+          type: string
+        integration_id:
+          type: integer
+        query_type:
+          enum:
+          - remediation
+          type: string
+        remediation_format:
+          enum:
+          - all
+          - cli
+          - pulumi
+          - terraform
+          type: string
+      required:
+      - compliance_check_type
+      - description
+      - query_type
+      - remediation_format
+      type: object
+    ModelGenerativeAiIntegrationLinuxPostureRequest:
+      example:
+        integration_id: 0
+        remediation_format: all
+        description: description
+        query_type: remediation
+        compliance_check_type: compliance_check_type
+        test_number: test_number
+      properties:
+        compliance_check_type:
+          type: string
+        description:
+          type: string
+        integration_id:
+          type: integer
+        query_type:
+          enum:
+          - remediation
+          type: string
+        remediation_format:
+          enum:
+          - all
+          - cli
+          - pulumi
+          - terraform
+          type: string
+        test_number:
+          type: string
+      required:
+      - compliance_check_type
+      - description
+      - query_type
+      - remediation_format
+      - test_number
+      type: object
+    ModelGenerativeAiIntegrationListResponse:
+      example:
+        default_integration: true
+        id: 0
+        label: label
+        integration_type: integration_type
+        last_error_msg: last_error_msg
+      properties:
+        default_integration:
+          type: boolean
+        id:
+          type: integer
+        integration_type:
+          type: string
+        label:
+          type: string
+        last_error_msg:
+          type: string
+      type: object
+    ModelGenerativeAiIntegrationMalwareRequest:
+      example:
+        integration_id: 0
+        rule_name: rule_name
+        query_type: remediation
+        info: info
+      properties:
+        info:
+          type: string
+        integration_id:
+          type: integer
+        query_type:
+          enum:
+          - remediation
+          type: string
+        rule_name:
+          type: string
+      required:
+      - info
+      - query_type
+      - rule_name
+      type: object
+    ModelGenerativeAiIntegrationSecretRequest:
+      example:
+        integration_id: 0
+        name: name
+        query_type: remediation
+      properties:
+        integration_id:
+          type: integer
+        name:
+          type: string
+        query_type:
+          enum:
+          - remediation
+          type: string
+      required:
+      - name
+      - query_type
+      type: object
+    ModelGenerativeAiIntegrationVulnerabilityRequest:
+      example:
+        integration_id: 0
+        remediation_format: all
+        cve_id: cve_id
+        cve_type: cve_type
+        query_type: remediation
+        cve_caused_by_package: cve_caused_by_package
+      properties:
+        cve_caused_by_package:
+          type: string
+        cve_id:
+          type: string
+        cve_type:
+          type: string
+        integration_id:
+          type: integer
+        query_type:
+          enum:
+          - remediation
+          type: string
+        remediation_format:
+          enum:
+          - all
+          - cli
+          - pulumi
+          - terraform
+          type: string
+      required:
+      - cve_caused_by_package
+      - cve_id
+      - cve_type
+      - query_type
+      - remediation_format
       type: object
     ModelGetAuditLogsRequest:
       example:
@@ -15079,6 +16065,20 @@ components:
       - node_id
       - node_name
       type: object
+    ModelListAgentVersionResp:
+      example:
+        versions:
+        - versions
+        - versions
+      properties:
+        versions:
+          items:
+            type: string
+          nullable: true
+          type: array
+      required:
+      - versions
+      type: object
     ModelLoginRequest:
       example:
         password: password
@@ -15396,6 +16396,7 @@ components:
       type: object
     ModelMalwareScanTriggerReq:
       example:
+        is_priority: true
         filters:
           container_scan_filter:
             filter_in:
@@ -15430,6 +16431,8 @@ components:
       properties:
         filters:
           $ref: '#/components/schemas/ModelScanFilter'
+        is_priority:
+          type: boolean
         node_ids:
           items:
             $ref: '#/components/schemas/ModelNodeIdentifier'
@@ -15447,9 +16450,6 @@ components:
           type: string
       required:
       - message
-      type: object
-    ModelMetadata:
-      additionalProperties: {}
       type: object
     ModelNodeIdentifier:
       example:
@@ -16387,12 +17387,15 @@ components:
         - licenses
         cve_id: cve_id
         package_name: package_name
+        cve_node_id: cve_node_id
         locations:
         - locations
         - locations
         version: version
       properties:
         cve_id:
+          type: string
+        cve_node_id:
           type: string
         licenses:
           items:
@@ -17525,6 +18528,7 @@ components:
       type: object
     ModelSecretScanTriggerReq:
       example:
+        is_priority: true
         filters:
           container_scan_filter:
             filter_in:
@@ -17559,6 +18563,8 @@ components:
       properties:
         filters:
           $ref: '#/components/schemas/ModelScanFilter'
+        is_priority:
+          type: boolean
         node_ids:
           items:
             $ref: '#/components/schemas/ModelNodeIdentifier'
@@ -17727,7 +18733,7 @@ components:
       required:
       - is_enabled
       type: object
-    ModelUpdateUserIdRequest:
+    ModelUpdateUserIDRequest:
       example:
         is_active: true
         role: admin
@@ -18203,6 +19209,7 @@ components:
       type: object
     ModelVulnerabilityScanTriggerReq:
       example:
+        is_priority: true
         scan_config:
         - language: base
         - language: base
@@ -18240,6 +19247,8 @@ components:
       properties:
         filters:
           $ref: '#/components/schemas/ModelScanFilter'
+        is_priority:
+          type: boolean
         node_ids:
           items:
             $ref: '#/components/schemas/ModelNodeIdentifier'
@@ -19245,9 +20254,6 @@ components:
         image_name:
         - image_name
         - image_name
-        account_id:
-        - account_id
-        - account_id
         container_name:
         - container_name
         - container_name
@@ -19263,14 +20269,13 @@ components:
         host_name:
         - host_name
         - host_name
+        node_id:
+        - node_id
+        - node_id
         pod_name:
         - pod_name
         - pod_name
       properties:
-        account_id:
-          items:
-            type: string
-          type: array
         container_name:
           items:
             type: string
@@ -19291,6 +20296,10 @@ components:
           items:
             type: boolean
           type: array
+        node_id:
+          items:
+            type: string
+          type: array
         pod_name:
           items:
             type: string
@@ -19309,9 +20318,6 @@ components:
           image_name:
           - image_name
           - image_name
-          account_id:
-          - account_id
-          - account_id
           container_name:
           - container_name
           - container_name
@@ -19327,6 +20333,9 @@ components:
           host_name:
           - host_name
           - host_name
+          node_id:
+          - node_id
+          - node_id
           pod_name:
           - pod_name
           - pod_name

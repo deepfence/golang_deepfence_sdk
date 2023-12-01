@@ -13,6 +13,7 @@ package client
 
 import (
 	"encoding/json"
+	"fmt"
 )
 
 // checks if the ModelComplianceScanResult type satisfies the MappedNullable interface at compile time
@@ -36,6 +37,8 @@ type ModelComplianceScanResult struct {
 	StatusCounts map[string]int32 `json:"status_counts"`
 	UpdatedAt int64 `json:"updated_at"`
 }
+
+type _ModelComplianceScanResult ModelComplianceScanResult
 
 // NewModelComplianceScanResult instantiates a new ModelComplianceScanResult object
 // This constructor will assign default values to properties that have it defined,
@@ -467,6 +470,55 @@ func (o ModelComplianceScanResult) ToMap() (map[string]interface{}, error) {
 	}
 	toSerialize["updated_at"] = o.UpdatedAt
 	return toSerialize, nil
+}
+
+func (o *ModelComplianceScanResult) UnmarshalJSON(bytes []byte) (err error) {
+    // This validates that all required properties are included in the JSON object
+	// by unmarshalling the object into a generic map with string keys and checking
+	// that every required field exists as a key in the generic map.
+	requiredProperties := []string{
+		"benchmark_type",
+		"cloud_account_id",
+		"compliance_percentage",
+		"compliances",
+		"created_at",
+		"docker_container_name",
+		"docker_image_name",
+		"host_name",
+		"kubernetes_cluster_name",
+		"node_id",
+		"node_name",
+		"node_type",
+		"scan_id",
+		"status_counts",
+		"updated_at",
+	}
+
+	allProperties := make(map[string]interface{})
+
+	err = json.Unmarshal(bytes, &allProperties)
+
+	if err != nil {
+		return err;
+	}
+
+	for _, requiredProperty := range(requiredProperties) {
+		if _, exists := allProperties[requiredProperty]; !exists {
+			return fmt.Errorf("no value given for required property %v", requiredProperty)
+		}
+	}
+
+	varModelComplianceScanResult := _ModelComplianceScanResult{}
+
+	err = json.Unmarshal(bytes, &varModelComplianceScanResult)
+
+	if err != nil {
+		return err
+	}
+
+	*o = ModelComplianceScanResult(varModelComplianceScanResult)
+
+	return err
 }
 
 type NullableModelComplianceScanResult struct {

@@ -13,6 +13,7 @@ package client
 
 import (
 	"encoding/json"
+	"fmt"
 )
 
 // checks if the ModelSbomRequest type satisfies the MappedNullable interface at compile time
@@ -22,6 +23,8 @@ var _ MappedNullable = &ModelSbomRequest{}
 type ModelSbomRequest struct {
 	ScanId string `json:"scan_id"`
 }
+
+type _ModelSbomRequest ModelSbomRequest
 
 // NewModelSbomRequest instantiates a new ModelSbomRequest object
 // This constructor will assign default values to properties that have it defined,
@@ -77,6 +80,41 @@ func (o ModelSbomRequest) ToMap() (map[string]interface{}, error) {
 	toSerialize := map[string]interface{}{}
 	toSerialize["scan_id"] = o.ScanId
 	return toSerialize, nil
+}
+
+func (o *ModelSbomRequest) UnmarshalJSON(bytes []byte) (err error) {
+    // This validates that all required properties are included in the JSON object
+	// by unmarshalling the object into a generic map with string keys and checking
+	// that every required field exists as a key in the generic map.
+	requiredProperties := []string{
+		"scan_id",
+	}
+
+	allProperties := make(map[string]interface{})
+
+	err = json.Unmarshal(bytes, &allProperties)
+
+	if err != nil {
+		return err;
+	}
+
+	for _, requiredProperty := range(requiredProperties) {
+		if _, exists := allProperties[requiredProperty]; !exists {
+			return fmt.Errorf("no value given for required property %v", requiredProperty)
+		}
+	}
+
+	varModelSbomRequest := _ModelSbomRequest{}
+
+	err = json.Unmarshal(bytes, &varModelSbomRequest)
+
+	if err != nil {
+		return err
+	}
+
+	*o = ModelSbomRequest(varModelSbomRequest)
+
+	return err
 }
 
 type NullableModelSbomRequest struct {

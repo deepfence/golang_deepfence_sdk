@@ -13,6 +13,7 @@ package client
 
 import (
 	"encoding/json"
+	"fmt"
 )
 
 // checks if the CompletionCompletionNodeFieldRes type satisfies the MappedNullable interface at compile time
@@ -22,6 +23,8 @@ var _ MappedNullable = &CompletionCompletionNodeFieldRes{}
 type CompletionCompletionNodeFieldRes struct {
 	PossibleValues []string `json:"possible_values"`
 }
+
+type _CompletionCompletionNodeFieldRes CompletionCompletionNodeFieldRes
 
 // NewCompletionCompletionNodeFieldRes instantiates a new CompletionCompletionNodeFieldRes object
 // This constructor will assign default values to properties that have it defined,
@@ -81,6 +84,41 @@ func (o CompletionCompletionNodeFieldRes) ToMap() (map[string]interface{}, error
 		toSerialize["possible_values"] = o.PossibleValues
 	}
 	return toSerialize, nil
+}
+
+func (o *CompletionCompletionNodeFieldRes) UnmarshalJSON(bytes []byte) (err error) {
+    // This validates that all required properties are included in the JSON object
+	// by unmarshalling the object into a generic map with string keys and checking
+	// that every required field exists as a key in the generic map.
+	requiredProperties := []string{
+		"possible_values",
+	}
+
+	allProperties := make(map[string]interface{})
+
+	err = json.Unmarshal(bytes, &allProperties)
+
+	if err != nil {
+		return err;
+	}
+
+	for _, requiredProperty := range(requiredProperties) {
+		if _, exists := allProperties[requiredProperty]; !exists {
+			return fmt.Errorf("no value given for required property %v", requiredProperty)
+		}
+	}
+
+	varCompletionCompletionNodeFieldRes := _CompletionCompletionNodeFieldRes{}
+
+	err = json.Unmarshal(bytes, &varCompletionCompletionNodeFieldRes)
+
+	if err != nil {
+		return err
+	}
+
+	*o = CompletionCompletionNodeFieldRes(varCompletionCompletionNodeFieldRes)
+
+	return err
 }
 
 type NullableCompletionCompletionNodeFieldRes struct {

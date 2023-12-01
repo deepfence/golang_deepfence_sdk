@@ -13,6 +13,7 @@ package client
 
 import (
 	"encoding/json"
+	"fmt"
 )
 
 // checks if the ModelContainerImage type satisfies the MappedNullable interface at compile time
@@ -42,6 +43,8 @@ type ModelContainerImage struct {
 	VulnerabilityLatestScanId string `json:"vulnerability_latest_scan_id"`
 	VulnerabilityScanStatus string `json:"vulnerability_scan_status"`
 }
+
+type _ModelContainerImage ModelContainerImage
 
 // NewModelContainerImage instantiates a new ModelContainerImage object
 // This constructor will assign default values to properties that have it defined,
@@ -372,9 +375,9 @@ func (o *ModelContainerImage) SetMalwaresCount(v int32) {
 	o.MalwaresCount = v
 }
 
-// GetMetadata returns the Metadata field value if set, zero value otherwise.
+// GetMetadata returns the Metadata field value if set, zero value otherwise (both if not set or set to explicit null).
 func (o *ModelContainerImage) GetMetadata() map[string]interface{} {
-	if o == nil || IsNil(o.Metadata) {
+	if o == nil {
 		var ret map[string]interface{}
 		return ret
 	}
@@ -383,6 +386,7 @@ func (o *ModelContainerImage) GetMetadata() map[string]interface{} {
 
 // GetMetadataOk returns a tuple with the Metadata field value if set, nil otherwise
 // and a boolean to check if the value has been set.
+// NOTE: If the value is an explicit nil, `nil, true` will be returned
 func (o *ModelContainerImage) GetMetadataOk() (map[string]interface{}, bool) {
 	if o == nil || IsNil(o.Metadata) {
 		return map[string]interface{}{}, false
@@ -392,7 +396,7 @@ func (o *ModelContainerImage) GetMetadataOk() (map[string]interface{}, bool) {
 
 // HasMetadata returns a boolean if a field has been set.
 func (o *ModelContainerImage) HasMetadata() bool {
-	if o != nil && !IsNil(o.Metadata) {
+	if o != nil && IsNil(o.Metadata) {
 		return true
 	}
 
@@ -622,7 +626,7 @@ func (o ModelContainerImage) ToMap() (map[string]interface{}, error) {
 	toSerialize["malware_latest_scan_id"] = o.MalwareLatestScanId
 	toSerialize["malware_scan_status"] = o.MalwareScanStatus
 	toSerialize["malwares_count"] = o.MalwaresCount
-	if !IsNil(o.Metadata) {
+	if o.Metadata != nil {
 		toSerialize["metadata"] = o.Metadata
 	}
 	toSerialize["node_id"] = o.NodeId
@@ -634,6 +638,60 @@ func (o ModelContainerImage) ToMap() (map[string]interface{}, error) {
 	toSerialize["vulnerability_latest_scan_id"] = o.VulnerabilityLatestScanId
 	toSerialize["vulnerability_scan_status"] = o.VulnerabilityScanStatus
 	return toSerialize, nil
+}
+
+func (o *ModelContainerImage) UnmarshalJSON(bytes []byte) (err error) {
+    // This validates that all required properties are included in the JSON object
+	// by unmarshalling the object into a generic map with string keys and checking
+	// that every required field exists as a key in the generic map.
+	requiredProperties := []string{
+		"containers",
+		"docker_image_created_at",
+		"docker_image_id",
+		"docker_image_name",
+		"docker_image_size",
+		"docker_image_tag",
+		"docker_image_tag_list",
+		"docker_image_virtual_size",
+		"image_node_id",
+		"malware_latest_scan_id",
+		"malware_scan_status",
+		"malwares_count",
+		"node_id",
+		"node_name",
+		"secret_latest_scan_id",
+		"secret_scan_status",
+		"secrets_count",
+		"vulnerabilities_count",
+		"vulnerability_latest_scan_id",
+		"vulnerability_scan_status",
+	}
+
+	allProperties := make(map[string]interface{})
+
+	err = json.Unmarshal(bytes, &allProperties)
+
+	if err != nil {
+		return err;
+	}
+
+	for _, requiredProperty := range(requiredProperties) {
+		if _, exists := allProperties[requiredProperty]; !exists {
+			return fmt.Errorf("no value given for required property %v", requiredProperty)
+		}
+	}
+
+	varModelContainerImage := _ModelContainerImage{}
+
+	err = json.Unmarshal(bytes, &varModelContainerImage)
+
+	if err != nil {
+		return err
+	}
+
+	*o = ModelContainerImage(varModelContainerImage)
+
+	return err
 }
 
 type NullableModelContainerImage struct {

@@ -13,6 +13,7 @@ package client
 
 import (
 	"encoding/json"
+	"fmt"
 )
 
 // checks if the ReportersOrderFilter type satisfies the MappedNullable interface at compile time
@@ -22,6 +23,8 @@ var _ MappedNullable = &ReportersOrderFilter{}
 type ReportersOrderFilter struct {
 	OrderFields []ReportersOrderSpec `json:"order_fields"`
 }
+
+type _ReportersOrderFilter ReportersOrderFilter
 
 // NewReportersOrderFilter instantiates a new ReportersOrderFilter object
 // This constructor will assign default values to properties that have it defined,
@@ -81,6 +84,41 @@ func (o ReportersOrderFilter) ToMap() (map[string]interface{}, error) {
 		toSerialize["order_fields"] = o.OrderFields
 	}
 	return toSerialize, nil
+}
+
+func (o *ReportersOrderFilter) UnmarshalJSON(bytes []byte) (err error) {
+    // This validates that all required properties are included in the JSON object
+	// by unmarshalling the object into a generic map with string keys and checking
+	// that every required field exists as a key in the generic map.
+	requiredProperties := []string{
+		"order_fields",
+	}
+
+	allProperties := make(map[string]interface{})
+
+	err = json.Unmarshal(bytes, &allProperties)
+
+	if err != nil {
+		return err;
+	}
+
+	for _, requiredProperty := range(requiredProperties) {
+		if _, exists := allProperties[requiredProperty]; !exists {
+			return fmt.Errorf("no value given for required property %v", requiredProperty)
+		}
+	}
+
+	varReportersOrderFilter := _ReportersOrderFilter{}
+
+	err = json.Unmarshal(bytes, &varReportersOrderFilter)
+
+	if err != nil {
+		return err
+	}
+
+	*o = ReportersOrderFilter(varReportersOrderFilter)
+
+	return err
 }
 
 type NullableReportersOrderFilter struct {

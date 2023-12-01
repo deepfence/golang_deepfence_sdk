@@ -13,6 +13,7 @@ package client
 
 import (
 	"encoding/json"
+	"fmt"
 )
 
 // checks if the ModelRegistryUpdateReq type satisfies the MappedNullable interface at compile time
@@ -26,6 +27,8 @@ type ModelRegistryUpdateReq struct {
 	RegistryType string `json:"registry_type"`
 	Secret map[string]interface{} `json:"secret,omitempty"`
 }
+
+type _ModelRegistryUpdateReq ModelRegistryUpdateReq
 
 // NewModelRegistryUpdateReq instantiates a new ModelRegistryUpdateReq object
 // This constructor will assign default values to properties that have it defined,
@@ -215,6 +218,42 @@ func (o ModelRegistryUpdateReq) ToMap() (map[string]interface{}, error) {
 		toSerialize["secret"] = o.Secret
 	}
 	return toSerialize, nil
+}
+
+func (o *ModelRegistryUpdateReq) UnmarshalJSON(bytes []byte) (err error) {
+    // This validates that all required properties are included in the JSON object
+	// by unmarshalling the object into a generic map with string keys and checking
+	// that every required field exists as a key in the generic map.
+	requiredProperties := []string{
+		"name",
+		"registry_type",
+	}
+
+	allProperties := make(map[string]interface{})
+
+	err = json.Unmarshal(bytes, &allProperties)
+
+	if err != nil {
+		return err;
+	}
+
+	for _, requiredProperty := range(requiredProperties) {
+		if _, exists := allProperties[requiredProperty]; !exists {
+			return fmt.Errorf("no value given for required property %v", requiredProperty)
+		}
+	}
+
+	varModelRegistryUpdateReq := _ModelRegistryUpdateReq{}
+
+	err = json.Unmarshal(bytes, &varModelRegistryUpdateReq)
+
+	if err != nil {
+		return err
+	}
+
+	*o = ModelRegistryUpdateReq(varModelRegistryUpdateReq)
+
+	return err
 }
 
 type NullableModelRegistryUpdateReq struct {

@@ -13,6 +13,7 @@ package client
 
 import (
 	"encoding/json"
+	"fmt"
 )
 
 // checks if the ModelPod type satisfies the MappedNullable interface at compile time
@@ -38,6 +39,8 @@ type ModelPod struct {
 	SecretScanStatus string `json:"secret_scan_status"`
 	VulnerabilityScanStatus string `json:"vulnerability_scan_status"`
 }
+
+type _ModelPod ModelPod
 
 // NewModelPod instantiates a new ModelPod object
 // This constructor will assign default values to properties that have it defined,
@@ -521,6 +524,57 @@ func (o ModelPod) ToMap() (map[string]interface{}, error) {
 	toSerialize["secret_scan_status"] = o.SecretScanStatus
 	toSerialize["vulnerability_scan_status"] = o.VulnerabilityScanStatus
 	return toSerialize, nil
+}
+
+func (o *ModelPod) UnmarshalJSON(bytes []byte) (err error) {
+    // This validates that all required properties are included in the JSON object
+	// by unmarshalling the object into a generic map with string keys and checking
+	// that every required field exists as a key in the generic map.
+	requiredProperties := []string{
+		"containers",
+		"host_name",
+		"kubernetes_cluster_id",
+		"kubernetes_cluster_name",
+		"kubernetes_created",
+		"kubernetes_ip",
+		"kubernetes_is_in_host_network",
+		"kubernetes_labels",
+		"kubernetes_namespace",
+		"kubernetes_state",
+		"malware_scan_status",
+		"node_id",
+		"node_name",
+		"pod_name",
+		"processes",
+		"secret_scan_status",
+		"vulnerability_scan_status",
+	}
+
+	allProperties := make(map[string]interface{})
+
+	err = json.Unmarshal(bytes, &allProperties)
+
+	if err != nil {
+		return err;
+	}
+
+	for _, requiredProperty := range(requiredProperties) {
+		if _, exists := allProperties[requiredProperty]; !exists {
+			return fmt.Errorf("no value given for required property %v", requiredProperty)
+		}
+	}
+
+	varModelPod := _ModelPod{}
+
+	err = json.Unmarshal(bytes, &varModelPod)
+
+	if err != nil {
+		return err
+	}
+
+	*o = ModelPod(varModelPod)
+
+	return err
 }
 
 type NullableModelPod struct {

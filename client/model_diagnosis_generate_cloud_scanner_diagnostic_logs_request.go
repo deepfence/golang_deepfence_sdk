@@ -13,6 +13,7 @@ package client
 
 import (
 	"encoding/json"
+	"fmt"
 )
 
 // checks if the DiagnosisGenerateCloudScannerDiagnosticLogsRequest type satisfies the MappedNullable interface at compile time
@@ -23,6 +24,8 @@ type DiagnosisGenerateCloudScannerDiagnosticLogsRequest struct {
 	NodeIds []DiagnosisNodeIdentifier `json:"node_ids"`
 	Tail int32 `json:"tail"`
 }
+
+type _DiagnosisGenerateCloudScannerDiagnosticLogsRequest DiagnosisGenerateCloudScannerDiagnosticLogsRequest
 
 // NewDiagnosisGenerateCloudScannerDiagnosticLogsRequest instantiates a new DiagnosisGenerateCloudScannerDiagnosticLogsRequest object
 // This constructor will assign default values to properties that have it defined,
@@ -108,6 +111,42 @@ func (o DiagnosisGenerateCloudScannerDiagnosticLogsRequest) ToMap() (map[string]
 	}
 	toSerialize["tail"] = o.Tail
 	return toSerialize, nil
+}
+
+func (o *DiagnosisGenerateCloudScannerDiagnosticLogsRequest) UnmarshalJSON(bytes []byte) (err error) {
+    // This validates that all required properties are included in the JSON object
+	// by unmarshalling the object into a generic map with string keys and checking
+	// that every required field exists as a key in the generic map.
+	requiredProperties := []string{
+		"node_ids",
+		"tail",
+	}
+
+	allProperties := make(map[string]interface{})
+
+	err = json.Unmarshal(bytes, &allProperties)
+
+	if err != nil {
+		return err;
+	}
+
+	for _, requiredProperty := range(requiredProperties) {
+		if _, exists := allProperties[requiredProperty]; !exists {
+			return fmt.Errorf("no value given for required property %v", requiredProperty)
+		}
+	}
+
+	varDiagnosisGenerateCloudScannerDiagnosticLogsRequest := _DiagnosisGenerateCloudScannerDiagnosticLogsRequest{}
+
+	err = json.Unmarshal(bytes, &varDiagnosisGenerateCloudScannerDiagnosticLogsRequest)
+
+	if err != nil {
+		return err
+	}
+
+	*o = DiagnosisGenerateCloudScannerDiagnosticLogsRequest(varDiagnosisGenerateCloudScannerDiagnosticLogsRequest)
+
+	return err
 }
 
 type NullableDiagnosisGenerateCloudScannerDiagnosticLogsRequest struct {

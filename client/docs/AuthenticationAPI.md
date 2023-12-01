@@ -13,7 +13,7 @@ Method | HTTP request | Description
 
 ## AuthToken
 
-> ModelResponseAccessToken AuthToken(ctx).ModelApiAuthRequest(modelApiAuthRequest).Execute()
+> ModelResponseAccessToken AuthToken(ctx).ModelAPIAuthRequest(modelAPIAuthRequest).Execute()
 
 Get Access Token for API Token
 
@@ -32,11 +32,11 @@ import (
 )
 
 func main() {
-    modelApiAuthRequest := *openapiclient.NewModelApiAuthRequest("ApiToken_example") // ModelApiAuthRequest |  (optional)
+    modelAPIAuthRequest := *openapiclient.NewModelAPIAuthRequest("ApiToken_example") // ModelAPIAuthRequest |  (optional)
 
     configuration := openapiclient.NewConfiguration()
     apiClient := openapiclient.NewAPIClient(configuration)
-    resp, r, err := apiClient.AuthenticationAPI.AuthToken(context.Background()).ModelApiAuthRequest(modelApiAuthRequest).Execute()
+    resp, r, err := apiClient.AuthenticationAPI.AuthToken(context.Background()).ModelAPIAuthRequest(modelAPIAuthRequest).Execute()
     if err != nil {
         fmt.Fprintf(os.Stderr, "Error when calling `AuthenticationAPI.AuthToken``: %v\n", err)
         fmt.Fprintf(os.Stderr, "Full HTTP response: %v\n", r)
@@ -57,7 +57,7 @@ Other parameters are passed through a pointer to a apiAuthTokenRequest struct vi
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **modelApiAuthRequest** | [**ModelApiAuthRequest**](ModelApiAuthRequest.md) |  | 
+ **modelAPIAuthRequest** | [**ModelAPIAuthRequest**](ModelAPIAuthRequest.md) |  | 
 
 ### Return type
 

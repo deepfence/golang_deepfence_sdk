@@ -13,6 +13,7 @@ package client
 
 import (
 	"encoding/json"
+	"fmt"
 )
 
 // checks if the ControlsAction type satisfies the MappedNullable interface at compile time
@@ -23,6 +24,8 @@ type ControlsAction struct {
 	Id int32 `json:"id"`
 	RequestPayload string `json:"request_payload"`
 }
+
+type _ControlsAction ControlsAction
 
 // NewControlsAction instantiates a new ControlsAction object
 // This constructor will assign default values to properties that have it defined,
@@ -104,6 +107,42 @@ func (o ControlsAction) ToMap() (map[string]interface{}, error) {
 	toSerialize["id"] = o.Id
 	toSerialize["request_payload"] = o.RequestPayload
 	return toSerialize, nil
+}
+
+func (o *ControlsAction) UnmarshalJSON(bytes []byte) (err error) {
+    // This validates that all required properties are included in the JSON object
+	// by unmarshalling the object into a generic map with string keys and checking
+	// that every required field exists as a key in the generic map.
+	requiredProperties := []string{
+		"id",
+		"request_payload",
+	}
+
+	allProperties := make(map[string]interface{})
+
+	err = json.Unmarshal(bytes, &allProperties)
+
+	if err != nil {
+		return err;
+	}
+
+	for _, requiredProperty := range(requiredProperties) {
+		if _, exists := allProperties[requiredProperty]; !exists {
+			return fmt.Errorf("no value given for required property %v", requiredProperty)
+		}
+	}
+
+	varControlsAction := _ControlsAction{}
+
+	err = json.Unmarshal(bytes, &varControlsAction)
+
+	if err != nil {
+		return err
+	}
+
+	*o = ControlsAction(varControlsAction)
+
+	return err
 }
 
 type NullableControlsAction struct {

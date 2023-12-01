@@ -13,6 +13,7 @@ package client
 
 import (
 	"encoding/json"
+	"fmt"
 )
 
 // checks if the ModelScanResultsReq type satisfies the MappedNullable interface at compile time
@@ -24,6 +25,8 @@ type ModelScanResultsReq struct {
 	ScanId string `json:"scan_id"`
 	Window ModelFetchWindow `json:"window"`
 }
+
+type _ModelScanResultsReq ModelScanResultsReq
 
 // NewModelScanResultsReq instantiates a new ModelScanResultsReq object
 // This constructor will assign default values to properties that have it defined,
@@ -131,6 +134,43 @@ func (o ModelScanResultsReq) ToMap() (map[string]interface{}, error) {
 	toSerialize["scan_id"] = o.ScanId
 	toSerialize["window"] = o.Window
 	return toSerialize, nil
+}
+
+func (o *ModelScanResultsReq) UnmarshalJSON(bytes []byte) (err error) {
+    // This validates that all required properties are included in the JSON object
+	// by unmarshalling the object into a generic map with string keys and checking
+	// that every required field exists as a key in the generic map.
+	requiredProperties := []string{
+		"fields_filter",
+		"scan_id",
+		"window",
+	}
+
+	allProperties := make(map[string]interface{})
+
+	err = json.Unmarshal(bytes, &allProperties)
+
+	if err != nil {
+		return err;
+	}
+
+	for _, requiredProperty := range(requiredProperties) {
+		if _, exists := allProperties[requiredProperty]; !exists {
+			return fmt.Errorf("no value given for required property %v", requiredProperty)
+		}
+	}
+
+	varModelScanResultsReq := _ModelScanResultsReq{}
+
+	err = json.Unmarshal(bytes, &varModelScanResultsReq)
+
+	if err != nil {
+		return err
+	}
+
+	*o = ModelScanResultsReq(varModelScanResultsReq)
+
+	return err
 }
 
 type NullableModelScanResultsReq struct {

@@ -13,6 +13,7 @@ package client
 
 import (
 	"encoding/json"
+	"fmt"
 )
 
 // checks if the ModelHost type satisfies the MappedNullable interface at compile time
@@ -64,6 +65,8 @@ type ModelHost struct {
 	VulnerabilityLatestScanId string `json:"vulnerability_latest_scan_id"`
 	VulnerabilityScanStatus string `json:"vulnerability_scan_status"`
 }
+
+type _ModelHost ModelHost
 
 // NewModelHost instantiates a new ModelHost object
 // This constructor will assign default values to properties that have it defined,
@@ -1251,6 +1254,83 @@ func (o ModelHost) ToMap() (map[string]interface{}, error) {
 	toSerialize["vulnerability_latest_scan_id"] = o.VulnerabilityLatestScanId
 	toSerialize["vulnerability_scan_status"] = o.VulnerabilityScanStatus
 	return toSerialize, nil
+}
+
+func (o *ModelHost) UnmarshalJSON(bytes []byte) (err error) {
+    // This validates that all required properties are included in the JSON object
+	// by unmarshalling the object into a generic map with string keys and checking
+	// that every required field exists as a key in the generic map.
+	requiredProperties := []string{
+		"agent_running",
+		"availability_zone",
+		"cloud_account_id",
+		"cloud_provider",
+		"cloud_region",
+		"compliance_latest_scan_id",
+		"compliance_scan_status",
+		"compliances_count",
+		"container_images",
+		"containers",
+		"cpu_max",
+		"cpu_usage",
+		"host_name",
+		"inbound_connections",
+		"instance_id",
+		"instance_type",
+		"is_console_vm",
+		"kernel_id",
+		"kernel_version",
+		"local_cidr",
+		"local_networks",
+		"malware_latest_scan_id",
+		"malware_scan_status",
+		"malwares_count",
+		"memory_max",
+		"memory_usage",
+		"node_id",
+		"node_name",
+		"os",
+		"outbound_connections",
+		"pods",
+		"private_ip",
+		"processes",
+		"public_ip",
+		"resource_group",
+		"secret_latest_scan_id",
+		"secret_scan_status",
+		"secrets_count",
+		"uptime",
+		"version",
+		"vulnerabilities_count",
+		"vulnerability_latest_scan_id",
+		"vulnerability_scan_status",
+	}
+
+	allProperties := make(map[string]interface{})
+
+	err = json.Unmarshal(bytes, &allProperties)
+
+	if err != nil {
+		return err;
+	}
+
+	for _, requiredProperty := range(requiredProperties) {
+		if _, exists := allProperties[requiredProperty]; !exists {
+			return fmt.Errorf("no value given for required property %v", requiredProperty)
+		}
+	}
+
+	varModelHost := _ModelHost{}
+
+	err = json.Unmarshal(bytes, &varModelHost)
+
+	if err != nil {
+		return err
+	}
+
+	*o = ModelHost(varModelHost)
+
+	return err
 }
 
 type NullableModelHost struct {

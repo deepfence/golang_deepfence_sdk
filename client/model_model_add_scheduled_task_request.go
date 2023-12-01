@@ -13,6 +13,7 @@ package client
 
 import (
 	"encoding/json"
+	"fmt"
 )
 
 // checks if the ModelAddScheduledTaskRequest type satisfies the MappedNullable interface at compile time
@@ -20,19 +21,29 @@ var _ MappedNullable = &ModelAddScheduledTaskRequest{}
 
 // ModelAddScheduledTaskRequest struct for ModelAddScheduledTaskRequest
 type ModelAddScheduledTaskRequest struct {
-	Action *string `json:"action,omitempty"`
+	Action string `json:"action"`
+	BenchmarkTypes []string `json:"benchmark_types"`
 	CronExpr *string `json:"cron_expr,omitempty"`
 	Description *string `json:"description,omitempty"`
-	Filters *string `json:"filters,omitempty"`
-	NodeType *string `json:"node_type,omitempty"`
+	Filters ModelScanFilter `json:"filters"`
+	IsPriority *bool `json:"is_priority,omitempty"`
+	NodeIds []ModelNodeIdentifier `json:"node_ids"`
+	ScanConfig []ModelVulnerabilityScanConfigLanguage `json:"scan_config"`
 }
+
+type _ModelAddScheduledTaskRequest ModelAddScheduledTaskRequest
 
 // NewModelAddScheduledTaskRequest instantiates a new ModelAddScheduledTaskRequest object
 // This constructor will assign default values to properties that have it defined,
 // and makes sure properties required by API are set, but the set of arguments
 // will change when the set of required properties is changed
-func NewModelAddScheduledTaskRequest() *ModelAddScheduledTaskRequest {
+func NewModelAddScheduledTaskRequest(action string, benchmarkTypes []string, filters ModelScanFilter, nodeIds []ModelNodeIdentifier, scanConfig []ModelVulnerabilityScanConfigLanguage) *ModelAddScheduledTaskRequest {
 	this := ModelAddScheduledTaskRequest{}
+	this.Action = action
+	this.BenchmarkTypes = benchmarkTypes
+	this.Filters = filters
+	this.NodeIds = nodeIds
+	this.ScanConfig = scanConfig
 	return &this
 }
 
@@ -44,36 +55,54 @@ func NewModelAddScheduledTaskRequestWithDefaults() *ModelAddScheduledTaskRequest
 	return &this
 }
 
-// GetAction returns the Action field value if set, zero value otherwise.
+// GetAction returns the Action field value
 func (o *ModelAddScheduledTaskRequest) GetAction() string {
-	if o == nil || IsNil(o.Action) {
+	if o == nil {
 		var ret string
 		return ret
 	}
-	return *o.Action
+
+	return o.Action
 }
 
-// GetActionOk returns a tuple with the Action field value if set, nil otherwise
+// GetActionOk returns a tuple with the Action field value
 // and a boolean to check if the value has been set.
 func (o *ModelAddScheduledTaskRequest) GetActionOk() (*string, bool) {
-	if o == nil || IsNil(o.Action) {
+	if o == nil {
 		return nil, false
 	}
-	return o.Action, true
+	return &o.Action, true
 }
 
-// HasAction returns a boolean if a field has been set.
-func (o *ModelAddScheduledTaskRequest) HasAction() bool {
-	if o != nil && !IsNil(o.Action) {
-		return true
+// SetAction sets field value
+func (o *ModelAddScheduledTaskRequest) SetAction(v string) {
+	o.Action = v
+}
+
+// GetBenchmarkTypes returns the BenchmarkTypes field value
+// If the value is explicit nil, the zero value for []string will be returned
+func (o *ModelAddScheduledTaskRequest) GetBenchmarkTypes() []string {
+	if o == nil {
+		var ret []string
+		return ret
 	}
 
-	return false
+	return o.BenchmarkTypes
 }
 
-// SetAction gets a reference to the given string and assigns it to the Action field.
-func (o *ModelAddScheduledTaskRequest) SetAction(v string) {
-	o.Action = &v
+// GetBenchmarkTypesOk returns a tuple with the BenchmarkTypes field value
+// and a boolean to check if the value has been set.
+// NOTE: If the value is an explicit nil, `nil, true` will be returned
+func (o *ModelAddScheduledTaskRequest) GetBenchmarkTypesOk() ([]string, bool) {
+	if o == nil || IsNil(o.BenchmarkTypes) {
+		return nil, false
+	}
+	return o.BenchmarkTypes, true
+}
+
+// SetBenchmarkTypes sets field value
+func (o *ModelAddScheduledTaskRequest) SetBenchmarkTypes(v []string) {
+	o.BenchmarkTypes = v
 }
 
 // GetCronExpr returns the CronExpr field value if set, zero value otherwise.
@@ -140,68 +169,112 @@ func (o *ModelAddScheduledTaskRequest) SetDescription(v string) {
 	o.Description = &v
 }
 
-// GetFilters returns the Filters field value if set, zero value otherwise.
-func (o *ModelAddScheduledTaskRequest) GetFilters() string {
-	if o == nil || IsNil(o.Filters) {
-		var ret string
+// GetFilters returns the Filters field value
+func (o *ModelAddScheduledTaskRequest) GetFilters() ModelScanFilter {
+	if o == nil {
+		var ret ModelScanFilter
 		return ret
 	}
-	return *o.Filters
+
+	return o.Filters
 }
 
-// GetFiltersOk returns a tuple with the Filters field value if set, nil otherwise
+// GetFiltersOk returns a tuple with the Filters field value
 // and a boolean to check if the value has been set.
-func (o *ModelAddScheduledTaskRequest) GetFiltersOk() (*string, bool) {
-	if o == nil || IsNil(o.Filters) {
+func (o *ModelAddScheduledTaskRequest) GetFiltersOk() (*ModelScanFilter, bool) {
+	if o == nil {
 		return nil, false
 	}
-	return o.Filters, true
+	return &o.Filters, true
 }
 
-// HasFilters returns a boolean if a field has been set.
-func (o *ModelAddScheduledTaskRequest) HasFilters() bool {
-	if o != nil && !IsNil(o.Filters) {
+// SetFilters sets field value
+func (o *ModelAddScheduledTaskRequest) SetFilters(v ModelScanFilter) {
+	o.Filters = v
+}
+
+// GetIsPriority returns the IsPriority field value if set, zero value otherwise.
+func (o *ModelAddScheduledTaskRequest) GetIsPriority() bool {
+	if o == nil || IsNil(o.IsPriority) {
+		var ret bool
+		return ret
+	}
+	return *o.IsPriority
+}
+
+// GetIsPriorityOk returns a tuple with the IsPriority field value if set, nil otherwise
+// and a boolean to check if the value has been set.
+func (o *ModelAddScheduledTaskRequest) GetIsPriorityOk() (*bool, bool) {
+	if o == nil || IsNil(o.IsPriority) {
+		return nil, false
+	}
+	return o.IsPriority, true
+}
+
+// HasIsPriority returns a boolean if a field has been set.
+func (o *ModelAddScheduledTaskRequest) HasIsPriority() bool {
+	if o != nil && !IsNil(o.IsPriority) {
 		return true
 	}
 
 	return false
 }
 
-// SetFilters gets a reference to the given string and assigns it to the Filters field.
-func (o *ModelAddScheduledTaskRequest) SetFilters(v string) {
-	o.Filters = &v
+// SetIsPriority gets a reference to the given bool and assigns it to the IsPriority field.
+func (o *ModelAddScheduledTaskRequest) SetIsPriority(v bool) {
+	o.IsPriority = &v
 }
 
-// GetNodeType returns the NodeType field value if set, zero value otherwise.
-func (o *ModelAddScheduledTaskRequest) GetNodeType() string {
-	if o == nil || IsNil(o.NodeType) {
-		var ret string
+// GetNodeIds returns the NodeIds field value
+// If the value is explicit nil, the zero value for []ModelNodeIdentifier will be returned
+func (o *ModelAddScheduledTaskRequest) GetNodeIds() []ModelNodeIdentifier {
+	if o == nil {
+		var ret []ModelNodeIdentifier
 		return ret
 	}
-	return *o.NodeType
+
+	return o.NodeIds
 }
 
-// GetNodeTypeOk returns a tuple with the NodeType field value if set, nil otherwise
+// GetNodeIdsOk returns a tuple with the NodeIds field value
 // and a boolean to check if the value has been set.
-func (o *ModelAddScheduledTaskRequest) GetNodeTypeOk() (*string, bool) {
-	if o == nil || IsNil(o.NodeType) {
+// NOTE: If the value is an explicit nil, `nil, true` will be returned
+func (o *ModelAddScheduledTaskRequest) GetNodeIdsOk() ([]ModelNodeIdentifier, bool) {
+	if o == nil || IsNil(o.NodeIds) {
 		return nil, false
 	}
-	return o.NodeType, true
+	return o.NodeIds, true
 }
 
-// HasNodeType returns a boolean if a field has been set.
-func (o *ModelAddScheduledTaskRequest) HasNodeType() bool {
-	if o != nil && !IsNil(o.NodeType) {
-		return true
+// SetNodeIds sets field value
+func (o *ModelAddScheduledTaskRequest) SetNodeIds(v []ModelNodeIdentifier) {
+	o.NodeIds = v
+}
+
+// GetScanConfig returns the ScanConfig field value
+// If the value is explicit nil, the zero value for []ModelVulnerabilityScanConfigLanguage will be returned
+func (o *ModelAddScheduledTaskRequest) GetScanConfig() []ModelVulnerabilityScanConfigLanguage {
+	if o == nil {
+		var ret []ModelVulnerabilityScanConfigLanguage
+		return ret
 	}
 
-	return false
+	return o.ScanConfig
 }
 
-// SetNodeType gets a reference to the given string and assigns it to the NodeType field.
-func (o *ModelAddScheduledTaskRequest) SetNodeType(v string) {
-	o.NodeType = &v
+// GetScanConfigOk returns a tuple with the ScanConfig field value
+// and a boolean to check if the value has been set.
+// NOTE: If the value is an explicit nil, `nil, true` will be returned
+func (o *ModelAddScheduledTaskRequest) GetScanConfigOk() ([]ModelVulnerabilityScanConfigLanguage, bool) {
+	if o == nil || IsNil(o.ScanConfig) {
+		return nil, false
+	}
+	return o.ScanConfig, true
+}
+
+// SetScanConfig sets field value
+func (o *ModelAddScheduledTaskRequest) SetScanConfig(v []ModelVulnerabilityScanConfigLanguage) {
+	o.ScanConfig = v
 }
 
 func (o ModelAddScheduledTaskRequest) MarshalJSON() ([]byte, error) {
@@ -214,8 +287,9 @@ func (o ModelAddScheduledTaskRequest) MarshalJSON() ([]byte, error) {
 
 func (o ModelAddScheduledTaskRequest) ToMap() (map[string]interface{}, error) {
 	toSerialize := map[string]interface{}{}
-	if !IsNil(o.Action) {
-		toSerialize["action"] = o.Action
+	toSerialize["action"] = o.Action
+	if o.BenchmarkTypes != nil {
+		toSerialize["benchmark_types"] = o.BenchmarkTypes
 	}
 	if !IsNil(o.CronExpr) {
 		toSerialize["cron_expr"] = o.CronExpr
@@ -223,13 +297,56 @@ func (o ModelAddScheduledTaskRequest) ToMap() (map[string]interface{}, error) {
 	if !IsNil(o.Description) {
 		toSerialize["description"] = o.Description
 	}
-	if !IsNil(o.Filters) {
-		toSerialize["filters"] = o.Filters
+	toSerialize["filters"] = o.Filters
+	if !IsNil(o.IsPriority) {
+		toSerialize["is_priority"] = o.IsPriority
 	}
-	if !IsNil(o.NodeType) {
-		toSerialize["node_type"] = o.NodeType
+	if o.NodeIds != nil {
+		toSerialize["node_ids"] = o.NodeIds
+	}
+	if o.ScanConfig != nil {
+		toSerialize["scan_config"] = o.ScanConfig
 	}
 	return toSerialize, nil
+}
+
+func (o *ModelAddScheduledTaskRequest) UnmarshalJSON(bytes []byte) (err error) {
+    // This validates that all required properties are included in the JSON object
+	// by unmarshalling the object into a generic map with string keys and checking
+	// that every required field exists as a key in the generic map.
+	requiredProperties := []string{
+		"action",
+		"benchmark_types",
+		"filters",
+		"node_ids",
+		"scan_config",
+	}
+
+	allProperties := make(map[string]interface{})
+
+	err = json.Unmarshal(bytes, &allProperties)
+
+	if err != nil {
+		return err;
+	}
+
+	for _, requiredProperty := range(requiredProperties) {
+		if _, exists := allProperties[requiredProperty]; !exists {
+			return fmt.Errorf("no value given for required property %v", requiredProperty)
+		}
+	}
+
+	varModelAddScheduledTaskRequest := _ModelAddScheduledTaskRequest{}
+
+	err = json.Unmarshal(bytes, &varModelAddScheduledTaskRequest)
+
+	if err != nil {
+		return err
+	}
+
+	*o = ModelAddScheduledTaskRequest(varModelAddScheduledTaskRequest)
+
+	return err
 }
 
 type NullableModelAddScheduledTaskRequest struct {

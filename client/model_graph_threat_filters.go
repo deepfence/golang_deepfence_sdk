@@ -13,6 +13,7 @@ package client
 
 import (
 	"encoding/json"
+	"fmt"
 )
 
 // checks if the GraphThreatFilters type satisfies the MappedNullable interface at compile time
@@ -26,6 +27,8 @@ type GraphThreatFilters struct {
 	GcpFilter GraphCloudProviderFilter `json:"gcp_filter"`
 	Type string `json:"type"`
 }
+
+type _GraphThreatFilters GraphThreatFilters
 
 // NewGraphThreatFilters instantiates a new GraphThreatFilters object
 // This constructor will assign default values to properties that have it defined,
@@ -185,6 +188,45 @@ func (o GraphThreatFilters) ToMap() (map[string]interface{}, error) {
 	toSerialize["gcp_filter"] = o.GcpFilter
 	toSerialize["type"] = o.Type
 	return toSerialize, nil
+}
+
+func (o *GraphThreatFilters) UnmarshalJSON(bytes []byte) (err error) {
+    // This validates that all required properties are included in the JSON object
+	// by unmarshalling the object into a generic map with string keys and checking
+	// that every required field exists as a key in the generic map.
+	requiredProperties := []string{
+		"aws_filter",
+		"azure_filter",
+		"cloud_resource_only",
+		"gcp_filter",
+		"type",
+	}
+
+	allProperties := make(map[string]interface{})
+
+	err = json.Unmarshal(bytes, &allProperties)
+
+	if err != nil {
+		return err;
+	}
+
+	for _, requiredProperty := range(requiredProperties) {
+		if _, exists := allProperties[requiredProperty]; !exists {
+			return fmt.Errorf("no value given for required property %v", requiredProperty)
+		}
+	}
+
+	varGraphThreatFilters := _GraphThreatFilters{}
+
+	err = json.Unmarshal(bytes, &varGraphThreatFilters)
+
+	if err != nil {
+		return err
+	}
+
+	*o = GraphThreatFilters(varGraphThreatFilters)
+
+	return err
 }
 
 type NullableGraphThreatFilters struct {

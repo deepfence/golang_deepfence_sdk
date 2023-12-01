@@ -13,6 +13,7 @@ package client
 
 import (
 	"encoding/json"
+	"fmt"
 )
 
 // checks if the ModelUser type satisfies the MappedNullable interface at compile time
@@ -33,6 +34,8 @@ type ModelUser struct {
 	Role *string `json:"role,omitempty"`
 	RoleId *int32 `json:"role_id,omitempty"`
 }
+
+type _ModelUser ModelUser
 
 // NewModelUser instantiates a new ModelUser object
 // This constructor will assign default values to properties that have it defined,
@@ -457,6 +460,44 @@ func (o ModelUser) ToMap() (map[string]interface{}, error) {
 		toSerialize["role_id"] = o.RoleId
 	}
 	return toSerialize, nil
+}
+
+func (o *ModelUser) UnmarshalJSON(bytes []byte) (err error) {
+    // This validates that all required properties are included in the JSON object
+	// by unmarshalling the object into a generic map with string keys and checking
+	// that every required field exists as a key in the generic map.
+	requiredProperties := []string{
+		"company",
+		"email",
+		"first_name",
+		"last_name",
+	}
+
+	allProperties := make(map[string]interface{})
+
+	err = json.Unmarshal(bytes, &allProperties)
+
+	if err != nil {
+		return err;
+	}
+
+	for _, requiredProperty := range(requiredProperties) {
+		if _, exists := allProperties[requiredProperty]; !exists {
+			return fmt.Errorf("no value given for required property %v", requiredProperty)
+		}
+	}
+
+	varModelUser := _ModelUser{}
+
+	err = json.Unmarshal(bytes, &varModelUser)
+
+	if err != nil {
+		return err
+	}
+
+	*o = ModelUser(varModelUser)
+
+	return err
 }
 
 type NullableModelUser struct {

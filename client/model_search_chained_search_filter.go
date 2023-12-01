@@ -13,6 +13,7 @@ package client
 
 import (
 	"encoding/json"
+	"fmt"
 )
 
 // checks if the SearchChainedSearchFilter type satisfies the MappedNullable interface at compile time
@@ -24,6 +25,8 @@ type SearchChainedSearchFilter struct {
 	NodeFilter SearchSearchFilter `json:"node_filter"`
 	RelationShip string `json:"relation_ship"`
 }
+
+type _SearchChainedSearchFilter SearchChainedSearchFilter
 
 // NewSearchChainedSearchFilter instantiates a new SearchChainedSearchFilter object
 // This constructor will assign default values to properties that have it defined,
@@ -141,6 +144,42 @@ func (o SearchChainedSearchFilter) ToMap() (map[string]interface{}, error) {
 	toSerialize["node_filter"] = o.NodeFilter
 	toSerialize["relation_ship"] = o.RelationShip
 	return toSerialize, nil
+}
+
+func (o *SearchChainedSearchFilter) UnmarshalJSON(bytes []byte) (err error) {
+    // This validates that all required properties are included in the JSON object
+	// by unmarshalling the object into a generic map with string keys and checking
+	// that every required field exists as a key in the generic map.
+	requiredProperties := []string{
+		"node_filter",
+		"relation_ship",
+	}
+
+	allProperties := make(map[string]interface{})
+
+	err = json.Unmarshal(bytes, &allProperties)
+
+	if err != nil {
+		return err;
+	}
+
+	for _, requiredProperty := range(requiredProperties) {
+		if _, exists := allProperties[requiredProperty]; !exists {
+			return fmt.Errorf("no value given for required property %v", requiredProperty)
+		}
+	}
+
+	varSearchChainedSearchFilter := _SearchChainedSearchFilter{}
+
+	err = json.Unmarshal(bytes, &varSearchChainedSearchFilter)
+
+	if err != nil {
+		return err
+	}
+
+	*o = SearchChainedSearchFilter(varSearchChainedSearchFilter)
+
+	return err
 }
 
 type NullableSearchChainedSearchFilter struct {

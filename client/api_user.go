@@ -273,7 +273,7 @@ type ApiGetApiTokensRequest struct {
 	ApiService *UserAPIService
 }
 
-func (r ApiGetApiTokensRequest) Execute() ([]ModelApiTokenResponse, *http.Response, error) {
+func (r ApiGetApiTokensRequest) Execute() ([]ModelAPITokenResponse, *http.Response, error) {
 	return r.ApiService.GetApiTokensExecute(r)
 }
 
@@ -293,13 +293,13 @@ func (a *UserAPIService) GetApiTokens(ctx context.Context) ApiGetApiTokensReques
 }
 
 // Execute executes the request
-//  @return []ModelApiTokenResponse
-func (a *UserAPIService) GetApiTokensExecute(r ApiGetApiTokensRequest) ([]ModelApiTokenResponse, *http.Response, error) {
+//  @return []ModelAPITokenResponse
+func (a *UserAPIService) GetApiTokensExecute(r ApiGetApiTokensRequest) ([]ModelAPITokenResponse, *http.Response, error) {
 	var (
 		localVarHTTPMethod   = http.MethodGet
 		localVarPostBody     interface{}
 		formFiles            []formFile
-		localVarReturnValue  []ModelApiTokenResponse
+		localVarReturnValue  []ModelAPITokenResponse
 	)
 
 	localBasePath, err := a.client.cfg.ServerURLWithContext(r.ctx, "UserAPIService.GetApiTokens")
@@ -1218,7 +1218,7 @@ type ApiResetApiTokensRequest struct {
 	ApiService *UserAPIService
 }
 
-func (r ApiResetApiTokensRequest) Execute() ([]ModelApiTokenResponse, *http.Response, error) {
+func (r ApiResetApiTokensRequest) Execute() ([]ModelAPITokenResponse, *http.Response, error) {
 	return r.ApiService.ResetApiTokensExecute(r)
 }
 
@@ -1238,13 +1238,13 @@ func (a *UserAPIService) ResetApiTokens(ctx context.Context) ApiResetApiTokensRe
 }
 
 // Execute executes the request
-//  @return []ModelApiTokenResponse
-func (a *UserAPIService) ResetApiTokensExecute(r ApiResetApiTokensRequest) ([]ModelApiTokenResponse, *http.Response, error) {
+//  @return []ModelAPITokenResponse
+func (a *UserAPIService) ResetApiTokensExecute(r ApiResetApiTokensRequest) ([]ModelAPITokenResponse, *http.Response, error) {
 	var (
 		localVarHTTPMethod   = http.MethodPost
 		localVarPostBody     interface{}
 		formFiles            []formFile
-		localVarReturnValue  []ModelApiTokenResponse
+		localVarReturnValue  []ModelAPITokenResponse
 	)
 
 	localBasePath, err := a.client.cfg.ServerURLWithContext(r.ctx, "UserAPIService.ResetApiTokens")
@@ -1754,11 +1754,11 @@ type ApiUpdateUserRequest struct {
 	ctx context.Context
 	ApiService *UserAPIService
 	id int32
-	modelUpdateUserIdRequest *ModelUpdateUserIdRequest
+	modelUpdateUserIDRequest *ModelUpdateUserIDRequest
 }
 
-func (r ApiUpdateUserRequest) ModelUpdateUserIdRequest(modelUpdateUserIdRequest ModelUpdateUserIdRequest) ApiUpdateUserRequest {
-	r.modelUpdateUserIdRequest = &modelUpdateUserIdRequest
+func (r ApiUpdateUserRequest) ModelUpdateUserIDRequest(modelUpdateUserIDRequest ModelUpdateUserIDRequest) ApiUpdateUserRequest {
+	r.modelUpdateUserIDRequest = &modelUpdateUserIDRequest
 	return r
 }
 
@@ -1823,7 +1823,7 @@ func (a *UserAPIService) UpdateUserExecute(r ApiUpdateUserRequest) (*ModelUser, 
 		localVarHeaderParams["Accept"] = localVarHTTPHeaderAccept
 	}
 	// body params
-	localVarPostBody = r.modelUpdateUserIdRequest
+	localVarPostBody = r.modelUpdateUserIDRequest
 	req, err := a.client.prepareRequest(r.ctx, localVarPath, localVarHTTPMethod, localVarPostBody, localVarHeaderParams, localVarQueryParams, localVarFormParams, formFiles)
 	if err != nil {
 		return localVarReturnValue, nil, err

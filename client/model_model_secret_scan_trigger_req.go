@@ -13,6 +13,7 @@ package client
 
 import (
 	"encoding/json"
+	"fmt"
 )
 
 // checks if the ModelSecretScanTriggerReq type satisfies the MappedNullable interface at compile time
@@ -21,8 +22,11 @@ var _ MappedNullable = &ModelSecretScanTriggerReq{}
 // ModelSecretScanTriggerReq struct for ModelSecretScanTriggerReq
 type ModelSecretScanTriggerReq struct {
 	Filters ModelScanFilter `json:"filters"`
+	IsPriority *bool `json:"is_priority,omitempty"`
 	NodeIds []ModelNodeIdentifier `json:"node_ids"`
 }
+
+type _ModelSecretScanTriggerReq ModelSecretScanTriggerReq
 
 // NewModelSecretScanTriggerReq instantiates a new ModelSecretScanTriggerReq object
 // This constructor will assign default values to properties that have it defined,
@@ -67,6 +71,38 @@ func (o *ModelSecretScanTriggerReq) SetFilters(v ModelScanFilter) {
 	o.Filters = v
 }
 
+// GetIsPriority returns the IsPriority field value if set, zero value otherwise.
+func (o *ModelSecretScanTriggerReq) GetIsPriority() bool {
+	if o == nil || IsNil(o.IsPriority) {
+		var ret bool
+		return ret
+	}
+	return *o.IsPriority
+}
+
+// GetIsPriorityOk returns a tuple with the IsPriority field value if set, nil otherwise
+// and a boolean to check if the value has been set.
+func (o *ModelSecretScanTriggerReq) GetIsPriorityOk() (*bool, bool) {
+	if o == nil || IsNil(o.IsPriority) {
+		return nil, false
+	}
+	return o.IsPriority, true
+}
+
+// HasIsPriority returns a boolean if a field has been set.
+func (o *ModelSecretScanTriggerReq) HasIsPriority() bool {
+	if o != nil && !IsNil(o.IsPriority) {
+		return true
+	}
+
+	return false
+}
+
+// SetIsPriority gets a reference to the given bool and assigns it to the IsPriority field.
+func (o *ModelSecretScanTriggerReq) SetIsPriority(v bool) {
+	o.IsPriority = &v
+}
+
 // GetNodeIds returns the NodeIds field value
 // If the value is explicit nil, the zero value for []ModelNodeIdentifier will be returned
 func (o *ModelSecretScanTriggerReq) GetNodeIds() []ModelNodeIdentifier {
@@ -104,10 +140,49 @@ func (o ModelSecretScanTriggerReq) MarshalJSON() ([]byte, error) {
 func (o ModelSecretScanTriggerReq) ToMap() (map[string]interface{}, error) {
 	toSerialize := map[string]interface{}{}
 	toSerialize["filters"] = o.Filters
+	if !IsNil(o.IsPriority) {
+		toSerialize["is_priority"] = o.IsPriority
+	}
 	if o.NodeIds != nil {
 		toSerialize["node_ids"] = o.NodeIds
 	}
 	return toSerialize, nil
+}
+
+func (o *ModelSecretScanTriggerReq) UnmarshalJSON(bytes []byte) (err error) {
+    // This validates that all required properties are included in the JSON object
+	// by unmarshalling the object into a generic map with string keys and checking
+	// that every required field exists as a key in the generic map.
+	requiredProperties := []string{
+		"filters",
+		"node_ids",
+	}
+
+	allProperties := make(map[string]interface{})
+
+	err = json.Unmarshal(bytes, &allProperties)
+
+	if err != nil {
+		return err;
+	}
+
+	for _, requiredProperty := range(requiredProperties) {
+		if _, exists := allProperties[requiredProperty]; !exists {
+			return fmt.Errorf("no value given for required property %v", requiredProperty)
+		}
+	}
+
+	varModelSecretScanTriggerReq := _ModelSecretScanTriggerReq{}
+
+	err = json.Unmarshal(bytes, &varModelSecretScanTriggerReq)
+
+	if err != nil {
+		return err
+	}
+
+	*o = ModelSecretScanTriggerReq(varModelSecretScanTriggerReq)
+
+	return err
 }
 
 type NullableModelSecretScanTriggerReq struct {

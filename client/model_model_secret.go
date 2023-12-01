@@ -13,6 +13,7 @@ package client
 
 import (
 	"encoding/json"
+	"fmt"
 )
 
 // checks if the ModelSecret type satisfies the MappedNullable interface at compile time
@@ -36,6 +37,8 @@ type ModelSecret struct {
 	StartingIndex int32 `json:"starting_index"`
 	UpdatedAt int32 `json:"updated_at"`
 }
+
+type _ModelSecret ModelSecret
 
 // NewModelSecret instantiates a new ModelSecret object
 // This constructor will assign default values to properties that have it defined,
@@ -465,6 +468,54 @@ func (o ModelSecret) ToMap() (map[string]interface{}, error) {
 	toSerialize["starting_index"] = o.StartingIndex
 	toSerialize["updated_at"] = o.UpdatedAt
 	return toSerialize, nil
+}
+
+func (o *ModelSecret) UnmarshalJSON(bytes []byte) (err error) {
+    // This validates that all required properties are included in the JSON object
+	// by unmarshalling the object into a generic map with string keys and checking
+	// that every required field exists as a key in the generic map.
+	requiredProperties := []string{
+		"full_filename",
+		"level",
+		"masked",
+		"matched_content",
+		"name",
+		"node_id",
+		"part",
+		"relative_ending_index",
+		"relative_starting_index",
+		"rule_id",
+		"score",
+		"signature_to_match",
+		"starting_index",
+		"updated_at",
+	}
+
+	allProperties := make(map[string]interface{})
+
+	err = json.Unmarshal(bytes, &allProperties)
+
+	if err != nil {
+		return err;
+	}
+
+	for _, requiredProperty := range(requiredProperties) {
+		if _, exists := allProperties[requiredProperty]; !exists {
+			return fmt.Errorf("no value given for required property %v", requiredProperty)
+		}
+	}
+
+	varModelSecret := _ModelSecret{}
+
+	err = json.Unmarshal(bytes, &varModelSecret)
+
+	if err != nil {
+		return err
+	}
+
+	*o = ModelSecret(varModelSecret)
+
+	return err
 }
 
 type NullableModelSecret struct {

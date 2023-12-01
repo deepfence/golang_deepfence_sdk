@@ -5,6 +5,7 @@
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
 **CveId** | Pointer to **string** |  | [optional] 
+**CveNodeId** | Pointer to **string** |  | [optional] 
 **Licenses** | Pointer to **[]string** |  | [optional] 
 **Locations** | Pointer to **[]string** |  | [optional] 
 **PackageName** | Pointer to **string** |  | [optional] 
@@ -54,6 +55,31 @@ SetCveId sets CveId field to given value.
 `func (o *ModelSbomResponse) HasCveId() bool`
 
 HasCveId returns a boolean if a field has been set.
+
+### GetCveNodeId
+
+`func (o *ModelSbomResponse) GetCveNodeId() string`
+
+GetCveNodeId returns the CveNodeId field if non-nil, zero value otherwise.
+
+### GetCveNodeIdOk
+
+`func (o *ModelSbomResponse) GetCveNodeIdOk() (*string, bool)`
+
+GetCveNodeIdOk returns a tuple with the CveNodeId field if it's non-nil, zero value otherwise
+and a boolean to check if the value has been set.
+
+### SetCveNodeId
+
+`func (o *ModelSbomResponse) SetCveNodeId(v string)`
+
+SetCveNodeId sets CveNodeId field to given value.
+
+### HasCveNodeId
+
+`func (o *ModelSbomResponse) HasCveNodeId() bool`
+
+HasCveNodeId returns a boolean if a field has been set.
 
 ### GetLicenses
 

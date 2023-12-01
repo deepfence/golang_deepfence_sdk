@@ -6,6 +6,7 @@ Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
 **BenchmarkTypes** | **[]string** |  | 
 **Filters** | [**ModelScanFilter**](ModelScanFilter.md) |  | 
+**IsPriority** | Pointer to **bool** |  | [optional] 
 **NodeIds** | [**[]ModelNodeIdentifier**](ModelNodeIdentifier.md) |  | 
 
 ## Methods
@@ -76,6 +77,31 @@ and a boolean to check if the value has been set.
 
 SetFilters sets Filters field to given value.
 
+
+### GetIsPriority
+
+`func (o *ModelComplianceScanTriggerReq) GetIsPriority() bool`
+
+GetIsPriority returns the IsPriority field if non-nil, zero value otherwise.
+
+### GetIsPriorityOk
+
+`func (o *ModelComplianceScanTriggerReq) GetIsPriorityOk() (*bool, bool)`
+
+GetIsPriorityOk returns a tuple with the IsPriority field if it's non-nil, zero value otherwise
+and a boolean to check if the value has been set.
+
+### SetIsPriority
+
+`func (o *ModelComplianceScanTriggerReq) SetIsPriority(v bool)`
+
+SetIsPriority sets IsPriority field to given value.
+
+### HasIsPriority
+
+`func (o *ModelComplianceScanTriggerReq) HasIsPriority() bool`
+
+HasIsPriority returns a boolean if a field has been set.
 
 ### GetNodeIds
 

@@ -13,6 +13,7 @@ package client
 
 import (
 	"encoding/json"
+	"fmt"
 )
 
 // checks if the ModelRegistryAccount type satisfies the MappedNullable interface at compile time
@@ -24,6 +25,8 @@ type ModelRegistryAccount struct {
 	HostName string `json:"host_name"`
 	NodeId string `json:"node_id"`
 }
+
+type _ModelRegistryAccount ModelRegistryAccount
 
 // NewModelRegistryAccount instantiates a new ModelRegistryAccount object
 // This constructor will assign default values to properties that have it defined,
@@ -135,6 +138,43 @@ func (o ModelRegistryAccount) ToMap() (map[string]interface{}, error) {
 	toSerialize["host_name"] = o.HostName
 	toSerialize["node_id"] = o.NodeId
 	return toSerialize, nil
+}
+
+func (o *ModelRegistryAccount) UnmarshalJSON(bytes []byte) (err error) {
+    // This validates that all required properties are included in the JSON object
+	// by unmarshalling the object into a generic map with string keys and checking
+	// that every required field exists as a key in the generic map.
+	requiredProperties := []string{
+		"container_images",
+		"host_name",
+		"node_id",
+	}
+
+	allProperties := make(map[string]interface{})
+
+	err = json.Unmarshal(bytes, &allProperties)
+
+	if err != nil {
+		return err;
+	}
+
+	for _, requiredProperty := range(requiredProperties) {
+		if _, exists := allProperties[requiredProperty]; !exists {
+			return fmt.Errorf("no value given for required property %v", requiredProperty)
+		}
+	}
+
+	varModelRegistryAccount := _ModelRegistryAccount{}
+
+	err = json.Unmarshal(bytes, &varModelRegistryAccount)
+
+	if err != nil {
+		return err
+	}
+
+	*o = ModelRegistryAccount(varModelRegistryAccount)
+
+	return err
 }
 
 type NullableModelRegistryAccount struct {

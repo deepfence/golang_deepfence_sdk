@@ -13,6 +13,7 @@ package client
 
 import (
 	"encoding/json"
+	"fmt"
 )
 
 // checks if the ModelScanResultsActionRequest type satisfies the MappedNullable interface at compile time
@@ -25,6 +26,8 @@ type ModelScanResultsActionRequest struct {
 	ScanId string `json:"scan_id"`
 	ScanType string `json:"scan_type"`
 }
+
+type _ModelScanResultsActionRequest ModelScanResultsActionRequest
 
 // NewModelScanResultsActionRequest instantiates a new ModelScanResultsActionRequest object
 // This constructor will assign default values to properties that have it defined,
@@ -171,6 +174,43 @@ func (o ModelScanResultsActionRequest) ToMap() (map[string]interface{}, error) {
 	toSerialize["scan_id"] = o.ScanId
 	toSerialize["scan_type"] = o.ScanType
 	return toSerialize, nil
+}
+
+func (o *ModelScanResultsActionRequest) UnmarshalJSON(bytes []byte) (err error) {
+    // This validates that all required properties are included in the JSON object
+	// by unmarshalling the object into a generic map with string keys and checking
+	// that every required field exists as a key in the generic map.
+	requiredProperties := []string{
+		"result_ids",
+		"scan_id",
+		"scan_type",
+	}
+
+	allProperties := make(map[string]interface{})
+
+	err = json.Unmarshal(bytes, &allProperties)
+
+	if err != nil {
+		return err;
+	}
+
+	for _, requiredProperty := range(requiredProperties) {
+		if _, exists := allProperties[requiredProperty]; !exists {
+			return fmt.Errorf("no value given for required property %v", requiredProperty)
+		}
+	}
+
+	varModelScanResultsActionRequest := _ModelScanResultsActionRequest{}
+
+	err = json.Unmarshal(bytes, &varModelScanResultsActionRequest)
+
+	if err != nil {
+		return err
+	}
+
+	*o = ModelScanResultsActionRequest(varModelScanResultsActionRequest)
+
+	return err
 }
 
 type NullableModelScanResultsActionRequest struct {

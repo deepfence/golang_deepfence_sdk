@@ -127,6 +127,17 @@ Class | Method | HTTP request | Description
 *DiffAddAPI* | [**DiffAddMalware**](docs/DiffAddAPI.md#diffaddmalware) | **Post** /deepfence/diff-add/malware | Get Malware Diff
 *DiffAddAPI* | [**DiffAddSecret**](docs/DiffAddAPI.md#diffaddsecret) | **Post** /deepfence/diff-add/secret | Get Secret Diff
 *DiffAddAPI* | [**DiffAddVulnerability**](docs/DiffAddAPI.md#diffaddvulnerability) | **Post** /deepfence/diff-add/vulnerability | Get Vulnerability Diff
+*GenerativeAIAPI* | [**AddGenerativeAiIntegrationBedrock**](docs/GenerativeAIAPI.md#addgenerativeaiintegrationbedrock) | **Post** /deepfence/generative-ai-integration/bedrock | Add AWS Bedrock Generative AI Integration
+*GenerativeAIAPI* | [**AddGenerativeAiIntegrationOpenAI**](docs/GenerativeAIAPI.md#addgenerativeaiintegrationopenai) | **Post** /deepfence/generative-ai-integration/openai | Add OpenAI Generative AI Integration
+*GenerativeAIAPI* | [**DeleteGenerativeAiIntegration**](docs/GenerativeAIAPI.md#deletegenerativeaiintegration) | **Delete** /deepfence/generative-ai-integration/{integration_id} | Delete Generative AI Integration
+*GenerativeAIAPI* | [**GenerativeAiIntegrationCloudPostureQuery**](docs/GenerativeAIAPI.md#generativeaiintegrationcloudposturequery) | **Post** /deepfence/generative-ai-integration/query/cloud-posture | Send Cloud Posture query to Generative AI Integration
+*GenerativeAIAPI* | [**GenerativeAiIntegrationKubernetesPostureQuery**](docs/GenerativeAIAPI.md#generativeaiintegrationkubernetesposturequery) | **Post** /deepfence/generative-ai-integration/query/kubernetes-posture | Send Kubernetes Posture query to Generative AI Integration
+*GenerativeAIAPI* | [**GenerativeAiIntegrationLinuxPostureQuery**](docs/GenerativeAIAPI.md#generativeaiintegrationlinuxposturequery) | **Post** /deepfence/generative-ai-integration/query/linux-posture | Send Linux Posture query to Generative AI Integration
+*GenerativeAIAPI* | [**GenerativeAiIntegrationMalwareQuery**](docs/GenerativeAIAPI.md#generativeaiintegrationmalwarequery) | **Post** /deepfence/generative-ai-integration/query/malware | Send Malware query to Generative AI Integration
+*GenerativeAIAPI* | [**GenerativeAiIntegrationSecretQuery**](docs/GenerativeAIAPI.md#generativeaiintegrationsecretquery) | **Post** /deepfence/generative-ai-integration/query/secret | Send Secret query to Generative AI Integration
+*GenerativeAIAPI* | [**GenerativeAiIntegrationVulnerabilityQuery**](docs/GenerativeAIAPI.md#generativeaiintegrationvulnerabilityquery) | **Post** /deepfence/generative-ai-integration/query/vulnerability | Send Vulnerability query to Generative AI Integration
+*GenerativeAIAPI* | [**ListGenerativeAiIntegration**](docs/GenerativeAIAPI.md#listgenerativeaiintegration) | **Get** /deepfence/generative-ai-integration | List Generative AI Integrations
+*GenerativeAIAPI* | [**SetDefaultGenerativeAiIntegration**](docs/GenerativeAIAPI.md#setdefaultgenerativeaiintegration) | **Put** /deepfence/generative-ai-integration/{integration_id}/default | Set Default Generative AI Integration
 *IntegrationAPI* | [**AddIntegration**](docs/IntegrationAPI.md#addintegration) | **Post** /deepfence/integration | Add Integration
 *IntegrationAPI* | [**DeleteIntegration**](docs/IntegrationAPI.md#deleteintegration) | **Delete** /deepfence/integration/{integration_id} | Delete Integration
 *IntegrationAPI* | [**ListIntegration**](docs/IntegrationAPI.md#listintegration) | **Get** /deepfence/integration | List Integrations
@@ -161,6 +172,7 @@ Class | Method | HTTP request | Description
 *RegistryAPI* | [**CountImageStubs**](docs/RegistryAPI.md#countimagestubs) | **Post** /deepfence/registryaccount/count/stubs | Count Image Stubs
 *RegistryAPI* | [**CountImages**](docs/RegistryAPI.md#countimages) | **Post** /deepfence/registryaccount/count/images | Count Registry Images
 *RegistryAPI* | [**DeleteRegistry**](docs/RegistryAPI.md#deleteregistry) | **Delete** /deepfence/registryaccount/{registry_id} | Delete Registry
+*RegistryAPI* | [**DeleteRegistryBulk**](docs/RegistryAPI.md#deleteregistrybulk) | **Patch** /deepfence/registryaccount/delete | Batch Delete Registry
 *RegistryAPI* | [**GetRegistrySummary**](docs/RegistryAPI.md#getregistrysummary) | **Get** /deepfence/registryaccount/{registry_id}/summary | Get Registry Summary
 *RegistryAPI* | [**GetSummaryAll**](docs/RegistryAPI.md#getsummaryall) | **Get** /deepfence/registryaccount/summary | Get All Registries Summary By Type
 *RegistryAPI* | [**GetSummaryByType**](docs/RegistryAPI.md#getsummarybytype) | **Get** /deepfence/registryaccount/{registry_type}/summary-by-type | Get Registry Summary By Type
@@ -238,7 +250,9 @@ Class | Method | HTTP request | Description
 *SecretScanAPI* | [**StopSecretScan**](docs/SecretScanAPI.md#stopsecretscan) | **Post** /deepfence/scan/stop/secret | Stop Secret Scan
 *SettingsAPI* | [**AddEmailConfiguration**](docs/SettingsAPI.md#addemailconfiguration) | **Post** /deepfence/settings/email | Add Email Configuration
 *SettingsAPI* | [**AddScheduledTask**](docs/SettingsAPI.md#addscheduledtask) | **Post** /deepfence/scheduled-task | Add scheduled task
+*SettingsAPI* | [**DeleteCustomScheduledTask**](docs/SettingsAPI.md#deletecustomscheduledtask) | **Delete** /deepfence/scheduled-task/{id} | Delete Custom Schedule task
 *SettingsAPI* | [**DeleteEmailConfiguration**](docs/SettingsAPI.md#deleteemailconfiguration) | **Delete** /deepfence/settings/email/{config_id} | Delete Email Configurations
+*SettingsAPI* | [**GetAgentVersions**](docs/SettingsAPI.md#getagentversions) | **Get** /deepfence/agent/versions | Get available agent versions
 *SettingsAPI* | [**GetEmailConfiguration**](docs/SettingsAPI.md#getemailconfiguration) | **Get** /deepfence/settings/email | Get Email Configurations
 *SettingsAPI* | [**GetScheduledTasks**](docs/SettingsAPI.md#getscheduledtasks) | **Get** /deepfence/scheduled-task | Get scheduled tasks
 *SettingsAPI* | [**GetSettings**](docs/SettingsAPI.md#getsettings) | **Get** /deepfence/settings/global-settings | Get settings
@@ -246,6 +260,7 @@ Class | Method | HTTP request | Description
 *SettingsAPI* | [**GetUserAuditLogsCount**](docs/SettingsAPI.md#getuserauditlogscount) | **Get** /deepfence/settings/user-audit-log/count | Get user audit logs count
 *SettingsAPI* | [**UpdateScheduledTask**](docs/SettingsAPI.md#updatescheduledtask) | **Patch** /deepfence/scheduled-task/{id} | Update scheduled task
 *SettingsAPI* | [**UpdateSetting**](docs/SettingsAPI.md#updatesetting) | **Patch** /deepfence/settings/global-settings/{id} | Update setting
+*SettingsAPI* | [**UploadAgentVersion**](docs/SettingsAPI.md#uploadagentversion) | **Put** /deepfence/agent/version | Upload New agent version
 *SettingsAPI* | [**UploadVulnerabilityDatabase**](docs/SettingsAPI.md#uploadvulnerabilitydatabase) | **Put** /deepfence/database/vulnerability | Upload Vulnerability Database
 *ThreatAPI* | [**GetIndividualThreatGraph**](docs/ThreatAPI.md#getindividualthreatgraph) | **Post** /deepfence/graph/threat/individual | Get Vulnerability Threat Graph
 *ThreatAPI* | [**GetThreatGraph**](docs/ThreatAPI.md#getthreatgraph) | **Post** /deepfence/graph/threat | Get Threat Graph
@@ -330,13 +345,15 @@ Class | Method | HTTP request | Description
  - [IngestersVulnerability](docs/IngestersVulnerability.md)
  - [IngestersVulnerabilityScanStatus](docs/IngestersVulnerabilityScanStatus.md)
  - [LookupLookupFilter](docs/LookupLookupFilter.md)
+ - [ModelAPIAuthRequest](docs/ModelAPIAuthRequest.md)
+ - [ModelAPITokenResponse](docs/ModelAPITokenResponse.md)
+ - [ModelAddGenerativeAiBedrockIntegration](docs/ModelAddGenerativeAiBedrockIntegration.md)
+ - [ModelAddGenerativeAiOpenAIIntegration](docs/ModelAddGenerativeAiOpenAIIntegration.md)
  - [ModelAddScheduledTaskRequest](docs/ModelAddScheduledTaskRequest.md)
- - [ModelAgentId](docs/ModelAgentId.md)
+ - [ModelAgentID](docs/ModelAgentID.md)
  - [ModelAgentPluginDisable](docs/ModelAgentPluginDisable.md)
  - [ModelAgentPluginEnable](docs/ModelAgentPluginEnable.md)
  - [ModelAgentUpgrade](docs/ModelAgentUpgrade.md)
- - [ModelApiAuthRequest](docs/ModelApiAuthRequest.md)
- - [ModelApiTokenResponse](docs/ModelApiTokenResponse.md)
  - [ModelBasicNode](docs/ModelBasicNode.md)
  - [ModelBulkDeleteScansRequest](docs/ModelBulkDeleteScansRequest.md)
  - [ModelCloudCompliance](docs/ModelCloudCompliance.md)
@@ -365,6 +382,7 @@ Class | Method | HTTP request | Description
  - [ModelConnection](docs/ModelConnection.md)
  - [ModelContainer](docs/ModelContainer.md)
  - [ModelContainerImage](docs/ModelContainerImage.md)
+ - [ModelDeleteRegistryBulkReq](docs/ModelDeleteRegistryBulkReq.md)
  - [ModelDownloadReportResponse](docs/ModelDownloadReportResponse.md)
  - [ModelDownloadScanResultsResponse](docs/ModelDownloadScanResultsResponse.md)
  - [ModelEmailConfigurationAdd](docs/ModelEmailConfigurationAdd.md)
@@ -375,6 +393,13 @@ Class | Method | HTTP request | Description
  - [ModelFiltersResult](docs/ModelFiltersResult.md)
  - [ModelGenerateReportReq](docs/ModelGenerateReportReq.md)
  - [ModelGenerateReportResp](docs/ModelGenerateReportResp.md)
+ - [ModelGenerativeAiIntegrationCloudPostureRequest](docs/ModelGenerativeAiIntegrationCloudPostureRequest.md)
+ - [ModelGenerativeAiIntegrationKubernetesPostureRequest](docs/ModelGenerativeAiIntegrationKubernetesPostureRequest.md)
+ - [ModelGenerativeAiIntegrationLinuxPostureRequest](docs/ModelGenerativeAiIntegrationLinuxPostureRequest.md)
+ - [ModelGenerativeAiIntegrationListResponse](docs/ModelGenerativeAiIntegrationListResponse.md)
+ - [ModelGenerativeAiIntegrationMalwareRequest](docs/ModelGenerativeAiIntegrationMalwareRequest.md)
+ - [ModelGenerativeAiIntegrationSecretRequest](docs/ModelGenerativeAiIntegrationSecretRequest.md)
+ - [ModelGenerativeAiIntegrationVulnerabilityRequest](docs/ModelGenerativeAiIntegrationVulnerabilityRequest.md)
  - [ModelGetAuditLogsRequest](docs/ModelGetAuditLogsRequest.md)
  - [ModelGraphResult](docs/ModelGraphResult.md)
  - [ModelHost](docs/ModelHost.md)
@@ -386,6 +411,7 @@ Class | Method | HTTP request | Description
  - [ModelInviteUserRequest](docs/ModelInviteUserRequest.md)
  - [ModelInviteUserResponse](docs/ModelInviteUserResponse.md)
  - [ModelKubernetesCluster](docs/ModelKubernetesCluster.md)
+ - [ModelListAgentVersionResp](docs/ModelListAgentVersionResp.md)
  - [ModelLoginRequest](docs/ModelLoginRequest.md)
  - [ModelLoginResponse](docs/ModelLoginResponse.md)
  - [ModelMalware](docs/ModelMalware.md)
@@ -444,7 +470,7 @@ Class | Method | HTTP request | Description
  - [ModelTopologyDeltaReq](docs/ModelTopologyDeltaReq.md)
  - [ModelTopologyDeltaResponse](docs/ModelTopologyDeltaResponse.md)
  - [ModelUpdateScheduledTaskRequest](docs/ModelUpdateScheduledTaskRequest.md)
- - [ModelUpdateUserIdRequest](docs/ModelUpdateUserIdRequest.md)
+ - [ModelUpdateUserIDRequest](docs/ModelUpdateUserIDRequest.md)
  - [ModelUpdateUserPasswordRequest](docs/ModelUpdateUserPasswordRequest.md)
  - [ModelUpdateUserRequest](docs/ModelUpdateUserRequest.md)
  - [ModelUser](docs/ModelUser.md)

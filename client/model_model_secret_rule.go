@@ -13,6 +13,7 @@ package client
 
 import (
 	"encoding/json"
+	"fmt"
 )
 
 // checks if the ModelSecretRule type satisfies the MappedNullable interface at compile time
@@ -28,6 +29,8 @@ type ModelSecretRule struct {
 	SignatureToMatch *string `json:"signature_to_match,omitempty"`
 	UpdatedAt int32 `json:"updated_at"`
 }
+
+type _ModelSecretRule ModelSecretRule
 
 // NewModelSecretRule instantiates a new ModelSecretRule object
 // This constructor will assign default values to properties that have it defined,
@@ -275,6 +278,43 @@ func (o ModelSecretRule) ToMap() (map[string]interface{}, error) {
 	}
 	toSerialize["updated_at"] = o.UpdatedAt
 	return toSerialize, nil
+}
+
+func (o *ModelSecretRule) UnmarshalJSON(bytes []byte) (err error) {
+    // This validates that all required properties are included in the JSON object
+	// by unmarshalling the object into a generic map with string keys and checking
+	// that every required field exists as a key in the generic map.
+	requiredProperties := []string{
+		"level",
+		"masked",
+		"updated_at",
+	}
+
+	allProperties := make(map[string]interface{})
+
+	err = json.Unmarshal(bytes, &allProperties)
+
+	if err != nil {
+		return err;
+	}
+
+	for _, requiredProperty := range(requiredProperties) {
+		if _, exists := allProperties[requiredProperty]; !exists {
+			return fmt.Errorf("no value given for required property %v", requiredProperty)
+		}
+	}
+
+	varModelSecretRule := _ModelSecretRule{}
+
+	err = json.Unmarshal(bytes, &varModelSecretRule)
+
+	if err != nil {
+		return err
+	}
+
+	*o = ModelSecretRule(varModelSecretRule)
+
+	return err
 }
 
 type NullableModelSecretRule struct {

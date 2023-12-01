@@ -13,6 +13,7 @@ package client
 
 import (
 	"encoding/json"
+	"fmt"
 )
 
 // checks if the ModelRegisterInvitedUserRequest type satisfies the MappedNullable interface at compile time
@@ -27,6 +28,8 @@ type ModelRegisterInvitedUserRequest struct {
 	Namespace string `json:"namespace"`
 	Password string `json:"password"`
 }
+
+type _ModelRegisterInvitedUserRequest ModelRegisterInvitedUserRequest
 
 // NewModelRegisterInvitedUserRequest instantiates a new ModelRegisterInvitedUserRequest object
 // This constructor will assign default values to properties that have it defined,
@@ -221,6 +224,45 @@ func (o ModelRegisterInvitedUserRequest) ToMap() (map[string]interface{}, error)
 	toSerialize["namespace"] = o.Namespace
 	toSerialize["password"] = o.Password
 	return toSerialize, nil
+}
+
+func (o *ModelRegisterInvitedUserRequest) UnmarshalJSON(bytes []byte) (err error) {
+    // This validates that all required properties are included in the JSON object
+	// by unmarshalling the object into a generic map with string keys and checking
+	// that every required field exists as a key in the generic map.
+	requiredProperties := []string{
+		"code",
+		"first_name",
+		"last_name",
+		"namespace",
+		"password",
+	}
+
+	allProperties := make(map[string]interface{})
+
+	err = json.Unmarshal(bytes, &allProperties)
+
+	if err != nil {
+		return err;
+	}
+
+	for _, requiredProperty := range(requiredProperties) {
+		if _, exists := allProperties[requiredProperty]; !exists {
+			return fmt.Errorf("no value given for required property %v", requiredProperty)
+		}
+	}
+
+	varModelRegisterInvitedUserRequest := _ModelRegisterInvitedUserRequest{}
+
+	err = json.Unmarshal(bytes, &varModelRegisterInvitedUserRequest)
+
+	if err != nil {
+		return err
+	}
+
+	*o = ModelRegisterInvitedUserRequest(varModelRegisterInvitedUserRequest)
+
+	return err
 }
 
 type NullableModelRegisterInvitedUserRequest struct {

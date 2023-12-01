@@ -4,12 +4,12 @@
 
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
-**AccountId** | Pointer to **[]string** |  | [optional] 
 **ContainerName** | Pointer to **[]string** |  | [optional] 
 **HostName** | Pointer to **[]string** |  | [optional] 
 **ImageName** | Pointer to **[]string** |  | [optional] 
 **KubernetesClusterName** | Pointer to **[]string** |  | [optional] 
 **Masked** | Pointer to **[]bool** |  | [optional] 
+**NodeId** | Pointer to **[]string** |  | [optional] 
 **PodName** | Pointer to **[]string** |  | [optional] 
 **ScanStatus** | Pointer to **[]string** |  | [optional] 
 
@@ -31,31 +31,6 @@ will change when the set of required properties is changed
 NewUtilsAdvancedReportFiltersWithDefaults instantiates a new UtilsAdvancedReportFilters object
 This constructor will only assign default values to properties that have it defined,
 but it doesn't guarantee that properties required by API are set
-
-### GetAccountId
-
-`func (o *UtilsAdvancedReportFilters) GetAccountId() []string`
-
-GetAccountId returns the AccountId field if non-nil, zero value otherwise.
-
-### GetAccountIdOk
-
-`func (o *UtilsAdvancedReportFilters) GetAccountIdOk() (*[]string, bool)`
-
-GetAccountIdOk returns a tuple with the AccountId field if it's non-nil, zero value otherwise
-and a boolean to check if the value has been set.
-
-### SetAccountId
-
-`func (o *UtilsAdvancedReportFilters) SetAccountId(v []string)`
-
-SetAccountId sets AccountId field to given value.
-
-### HasAccountId
-
-`func (o *UtilsAdvancedReportFilters) HasAccountId() bool`
-
-HasAccountId returns a boolean if a field has been set.
 
 ### GetContainerName
 
@@ -181,6 +156,31 @@ SetMasked sets Masked field to given value.
 `func (o *UtilsAdvancedReportFilters) HasMasked() bool`
 
 HasMasked returns a boolean if a field has been set.
+
+### GetNodeId
+
+`func (o *UtilsAdvancedReportFilters) GetNodeId() []string`
+
+GetNodeId returns the NodeId field if non-nil, zero value otherwise.
+
+### GetNodeIdOk
+
+`func (o *UtilsAdvancedReportFilters) GetNodeIdOk() (*[]string, bool)`
+
+GetNodeIdOk returns a tuple with the NodeId field if it's non-nil, zero value otherwise
+and a boolean to check if the value has been set.
+
+### SetNodeId
+
+`func (o *UtilsAdvancedReportFilters) SetNodeId(v []string)`
+
+SetNodeId sets NodeId field to given value.
+
+### HasNodeId
+
+`func (o *UtilsAdvancedReportFilters) HasNodeId() bool`
+
+HasNodeId returns a boolean if a field has been set.
 
 ### GetPodName
 

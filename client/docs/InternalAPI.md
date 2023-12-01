@@ -10,7 +10,7 @@ Method | HTTP request | Description
 
 ## GetConsoleApiToken
 
-> ModelApiAuthRequest GetConsoleApiToken(ctx).Execute()
+> ModelAPIAuthRequest GetConsoleApiToken(ctx).Execute()
 
 Get api-token for console agent
 
@@ -37,7 +37,7 @@ func main() {
         fmt.Fprintf(os.Stderr, "Error when calling `InternalAPI.GetConsoleApiToken``: %v\n", err)
         fmt.Fprintf(os.Stderr, "Full HTTP response: %v\n", r)
     }
-    // response from `GetConsoleApiToken`: ModelApiAuthRequest
+    // response from `GetConsoleApiToken`: ModelAPIAuthRequest
     fmt.Fprintf(os.Stdout, "Response from `InternalAPI.GetConsoleApiToken`: %v\n", resp)
 }
 ```
@@ -53,7 +53,7 @@ Other parameters are passed through a pointer to a apiGetConsoleApiTokenRequest 
 
 ### Return type
 
-[**ModelApiAuthRequest**](ModelApiAuthRequest.md)
+[**ModelAPIAuthRequest**](ModelAPIAuthRequest.md)
 
 ### Authorization
 

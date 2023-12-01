@@ -13,38 +13,41 @@ package client
 
 import (
 	"encoding/json"
+	"fmt"
 )
 
-// checks if the ModelAgentId type satisfies the MappedNullable interface at compile time
-var _ MappedNullable = &ModelAgentId{}
+// checks if the ModelAgentID type satisfies the MappedNullable interface at compile time
+var _ MappedNullable = &ModelAgentID{}
 
-// ModelAgentId struct for ModelAgentId
-type ModelAgentId struct {
+// ModelAgentID struct for ModelAgentID
+type ModelAgentID struct {
 	AvailableWorkload int32 `json:"available_workload"`
 	NodeId string `json:"node_id"`
 }
 
-// NewModelAgentId instantiates a new ModelAgentId object
+type _ModelAgentID ModelAgentID
+
+// NewModelAgentID instantiates a new ModelAgentID object
 // This constructor will assign default values to properties that have it defined,
 // and makes sure properties required by API are set, but the set of arguments
 // will change when the set of required properties is changed
-func NewModelAgentId(availableWorkload int32, nodeId string) *ModelAgentId {
-	this := ModelAgentId{}
+func NewModelAgentID(availableWorkload int32, nodeId string) *ModelAgentID {
+	this := ModelAgentID{}
 	this.AvailableWorkload = availableWorkload
 	this.NodeId = nodeId
 	return &this
 }
 
-// NewModelAgentIdWithDefaults instantiates a new ModelAgentId object
+// NewModelAgentIDWithDefaults instantiates a new ModelAgentID object
 // This constructor will only assign default values to properties that have it defined,
 // but it doesn't guarantee that properties required by API are set
-func NewModelAgentIdWithDefaults() *ModelAgentId {
-	this := ModelAgentId{}
+func NewModelAgentIDWithDefaults() *ModelAgentID {
+	this := ModelAgentID{}
 	return &this
 }
 
 // GetAvailableWorkload returns the AvailableWorkload field value
-func (o *ModelAgentId) GetAvailableWorkload() int32 {
+func (o *ModelAgentID) GetAvailableWorkload() int32 {
 	if o == nil {
 		var ret int32
 		return ret
@@ -55,7 +58,7 @@ func (o *ModelAgentId) GetAvailableWorkload() int32 {
 
 // GetAvailableWorkloadOk returns a tuple with the AvailableWorkload field value
 // and a boolean to check if the value has been set.
-func (o *ModelAgentId) GetAvailableWorkloadOk() (*int32, bool) {
+func (o *ModelAgentID) GetAvailableWorkloadOk() (*int32, bool) {
 	if o == nil {
 		return nil, false
 	}
@@ -63,12 +66,12 @@ func (o *ModelAgentId) GetAvailableWorkloadOk() (*int32, bool) {
 }
 
 // SetAvailableWorkload sets field value
-func (o *ModelAgentId) SetAvailableWorkload(v int32) {
+func (o *ModelAgentID) SetAvailableWorkload(v int32) {
 	o.AvailableWorkload = v
 }
 
 // GetNodeId returns the NodeId field value
-func (o *ModelAgentId) GetNodeId() string {
+func (o *ModelAgentID) GetNodeId() string {
 	if o == nil {
 		var ret string
 		return ret
@@ -79,7 +82,7 @@ func (o *ModelAgentId) GetNodeId() string {
 
 // GetNodeIdOk returns a tuple with the NodeId field value
 // and a boolean to check if the value has been set.
-func (o *ModelAgentId) GetNodeIdOk() (*string, bool) {
+func (o *ModelAgentID) GetNodeIdOk() (*string, bool) {
 	if o == nil {
 		return nil, false
 	}
@@ -87,11 +90,11 @@ func (o *ModelAgentId) GetNodeIdOk() (*string, bool) {
 }
 
 // SetNodeId sets field value
-func (o *ModelAgentId) SetNodeId(v string) {
+func (o *ModelAgentID) SetNodeId(v string) {
 	o.NodeId = v
 }
 
-func (o ModelAgentId) MarshalJSON() ([]byte, error) {
+func (o ModelAgentID) MarshalJSON() ([]byte, error) {
 	toSerialize,err := o.ToMap()
 	if err != nil {
 		return []byte{}, err
@@ -99,45 +102,81 @@ func (o ModelAgentId) MarshalJSON() ([]byte, error) {
 	return json.Marshal(toSerialize)
 }
 
-func (o ModelAgentId) ToMap() (map[string]interface{}, error) {
+func (o ModelAgentID) ToMap() (map[string]interface{}, error) {
 	toSerialize := map[string]interface{}{}
 	toSerialize["available_workload"] = o.AvailableWorkload
 	toSerialize["node_id"] = o.NodeId
 	return toSerialize, nil
 }
 
-type NullableModelAgentId struct {
-	value *ModelAgentId
+func (o *ModelAgentID) UnmarshalJSON(bytes []byte) (err error) {
+    // This validates that all required properties are included in the JSON object
+	// by unmarshalling the object into a generic map with string keys and checking
+	// that every required field exists as a key in the generic map.
+	requiredProperties := []string{
+		"available_workload",
+		"node_id",
+	}
+
+	allProperties := make(map[string]interface{})
+
+	err = json.Unmarshal(bytes, &allProperties)
+
+	if err != nil {
+		return err;
+	}
+
+	for _, requiredProperty := range(requiredProperties) {
+		if _, exists := allProperties[requiredProperty]; !exists {
+			return fmt.Errorf("no value given for required property %v", requiredProperty)
+		}
+	}
+
+	varModelAgentID := _ModelAgentID{}
+
+	err = json.Unmarshal(bytes, &varModelAgentID)
+
+	if err != nil {
+		return err
+	}
+
+	*o = ModelAgentID(varModelAgentID)
+
+	return err
+}
+
+type NullableModelAgentID struct {
+	value *ModelAgentID
 	isSet bool
 }
 
-func (v NullableModelAgentId) Get() *ModelAgentId {
+func (v NullableModelAgentID) Get() *ModelAgentID {
 	return v.value
 }
 
-func (v *NullableModelAgentId) Set(val *ModelAgentId) {
+func (v *NullableModelAgentID) Set(val *ModelAgentID) {
 	v.value = val
 	v.isSet = true
 }
 
-func (v NullableModelAgentId) IsSet() bool {
+func (v NullableModelAgentID) IsSet() bool {
 	return v.isSet
 }
 
-func (v *NullableModelAgentId) Unset() {
+func (v *NullableModelAgentID) Unset() {
 	v.value = nil
 	v.isSet = false
 }
 
-func NewNullableModelAgentId(val *ModelAgentId) *NullableModelAgentId {
-	return &NullableModelAgentId{value: val, isSet: true}
+func NewNullableModelAgentID(val *ModelAgentID) *NullableModelAgentID {
+	return &NullableModelAgentID{value: val, isSet: true}
 }
 
-func (v NullableModelAgentId) MarshalJSON() ([]byte, error) {
+func (v NullableModelAgentID) MarshalJSON() ([]byte, error) {
 	return json.Marshal(v.value)
 }
 
-func (v *NullableModelAgentId) UnmarshalJSON(src []byte) error {
+func (v *NullableModelAgentID) UnmarshalJSON(src []byte) error {
 	v.isSet = true
 	return json.Unmarshal(src, &v.value)
 }
