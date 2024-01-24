@@ -22,22 +22,22 @@ Ingest Cloud resources
 package main
 
 import (
-    "context"
-    "fmt"
-    "os"
-    openapiclient "github.com/deepfence/golang_deepfence_sdk/client"
+	"context"
+	"fmt"
+	"os"
+	openapiclient "github.com/deepfence/golang_deepfence_sdk/client"
 )
 
 func main() {
-    ingestersCloudResource := []openapiclient.IngestersCloudResource{*openapiclient.NewIngestersCloudResource()} // []IngestersCloudResource |  (optional)
+	ingestersCloudResource := []openapiclient.IngestersCloudResource{*openapiclient.NewIngestersCloudResource()} // []IngestersCloudResource |  (optional)
 
-    configuration := openapiclient.NewConfiguration()
-    apiClient := openapiclient.NewAPIClient(configuration)
-    r, err := apiClient.CloudResourcesAPI.IngestCloudResources(context.Background()).IngestersCloudResource(ingestersCloudResource).Execute()
-    if err != nil {
-        fmt.Fprintf(os.Stderr, "Error when calling `CloudResourcesAPI.IngestCloudResources``: %v\n", err)
-        fmt.Fprintf(os.Stderr, "Full HTTP response: %v\n", r)
-    }
+	configuration := openapiclient.NewConfiguration()
+	apiClient := openapiclient.NewAPIClient(configuration)
+	r, err := apiClient.CloudResourcesAPI.IngestCloudResources(context.Background()).IngestersCloudResource(ingestersCloudResource).Execute()
+	if err != nil {
+		fmt.Fprintf(os.Stderr, "Error when calling `CloudResourcesAPI.IngestCloudResources``: %v\n", err)
+		fmt.Fprintf(os.Stderr, "Full HTTP response: %v\n", r)
+	}
 }
 ```
 

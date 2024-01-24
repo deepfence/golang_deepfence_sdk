@@ -29,22 +29,22 @@ Bulk Delete Scans
 package main
 
 import (
-    "context"
-    "fmt"
-    "os"
-    openapiclient "github.com/deepfence/golang_deepfence_sdk/client"
+	"context"
+	"fmt"
+	"os"
+	openapiclient "github.com/deepfence/golang_deepfence_sdk/client"
 )
 
 func main() {
-    modelBulkDeleteScansRequest := *openapiclient.NewModelBulkDeleteScansRequest(*openapiclient.NewReportersFieldsFilters([]openapiclient.ReportersCompareFilter{*openapiclient.NewReportersCompareFilter("FieldName_example", interface{}(123), false)}, *openapiclient.NewReportersContainsFilter(map[string][]interface{}{"key": []interface{}{nil}}), *openapiclient.NewReportersMatchFilter(map[string][]interface{}{"key": []interface{}{nil}}), *openapiclient.NewReportersOrderFilter([]openapiclient.ReportersOrderSpec{*openapiclient.NewReportersOrderSpec(false, "FieldName_example")})), "ScanType_example") // ModelBulkDeleteScansRequest |  (optional)
+	modelBulkDeleteScansRequest := *openapiclient.NewModelBulkDeleteScansRequest(*openapiclient.NewReportersFieldsFilters([]openapiclient.ReportersCompareFilter{*openapiclient.NewReportersCompareFilter("FieldName_example", interface{}(123), false)}, *openapiclient.NewReportersContainsFilter(map[string][]interface{}{"key": []interface{}{nil}}), *openapiclient.NewReportersMatchFilter(map[string][]interface{}{"key": []interface{}{nil}}), *openapiclient.NewReportersOrderFilter([]openapiclient.ReportersOrderSpec{*openapiclient.NewReportersOrderSpec(false, "FieldName_example")})), "ScanType_example") // ModelBulkDeleteScansRequest |  (optional)
 
-    configuration := openapiclient.NewConfiguration()
-    apiClient := openapiclient.NewAPIClient(configuration)
-    r, err := apiClient.ScanResultsAPI.BulkDeleteScans(context.Background()).ModelBulkDeleteScansRequest(modelBulkDeleteScansRequest).Execute()
-    if err != nil {
-        fmt.Fprintf(os.Stderr, "Error when calling `ScanResultsAPI.BulkDeleteScans``: %v\n", err)
-        fmt.Fprintf(os.Stderr, "Full HTTP response: %v\n", r)
-    }
+	configuration := openapiclient.NewConfiguration()
+	apiClient := openapiclient.NewAPIClient(configuration)
+	r, err := apiClient.ScanResultsAPI.BulkDeleteScans(context.Background()).ModelBulkDeleteScansRequest(modelBulkDeleteScansRequest).Execute()
+	if err != nil {
+		fmt.Fprintf(os.Stderr, "Error when calling `ScanResultsAPI.BulkDeleteScans``: %v\n", err)
+		fmt.Fprintf(os.Stderr, "Full HTTP response: %v\n", r)
+	}
 }
 ```
 
@@ -93,22 +93,22 @@ Delete selected scan results
 package main
 
 import (
-    "context"
-    "fmt"
-    "os"
-    openapiclient "github.com/deepfence/golang_deepfence_sdk/client"
+	"context"
+	"fmt"
+	"os"
+	openapiclient "github.com/deepfence/golang_deepfence_sdk/client"
 )
 
 func main() {
-    modelScanResultsActionRequest := *openapiclient.NewModelScanResultsActionRequest([]string{"ResultIds_example"}, "ScanId_example", "ScanType_example") // ModelScanResultsActionRequest |  (optional)
+	modelScanResultsActionRequest := *openapiclient.NewModelScanResultsActionRequest([]string{"ResultIds_example"}, "ScanId_example", "ScanType_example") // ModelScanResultsActionRequest |  (optional)
 
-    configuration := openapiclient.NewConfiguration()
-    apiClient := openapiclient.NewAPIClient(configuration)
-    r, err := apiClient.ScanResultsAPI.DeleteScanResult(context.Background()).ModelScanResultsActionRequest(modelScanResultsActionRequest).Execute()
-    if err != nil {
-        fmt.Fprintf(os.Stderr, "Error when calling `ScanResultsAPI.DeleteScanResult``: %v\n", err)
-        fmt.Fprintf(os.Stderr, "Full HTTP response: %v\n", r)
-    }
+	configuration := openapiclient.NewConfiguration()
+	apiClient := openapiclient.NewAPIClient(configuration)
+	r, err := apiClient.ScanResultsAPI.DeleteScanResult(context.Background()).ModelScanResultsActionRequest(modelScanResultsActionRequest).Execute()
+	if err != nil {
+		fmt.Fprintf(os.Stderr, "Error when calling `ScanResultsAPI.DeleteScanResult``: %v\n", err)
+		fmt.Fprintf(os.Stderr, "Full HTTP response: %v\n", r)
+	}
 }
 ```
 
@@ -157,23 +157,23 @@ Delete all scan results for a scan id
 package main
 
 import (
-    "context"
-    "fmt"
-    "os"
-    openapiclient "github.com/deepfence/golang_deepfence_sdk/client"
+	"context"
+	"fmt"
+	"os"
+	openapiclient "github.com/deepfence/golang_deepfence_sdk/client"
 )
 
 func main() {
-    scanId := "scanId_example" // string | 
-    scanType := "scanType_example" // string | 
+	scanId := "scanId_example" // string | 
+	scanType := "scanType_example" // string | 
 
-    configuration := openapiclient.NewConfiguration()
-    apiClient := openapiclient.NewAPIClient(configuration)
-    r, err := apiClient.ScanResultsAPI.DeleteScanResultsForScanID(context.Background(), scanId, scanType).Execute()
-    if err != nil {
-        fmt.Fprintf(os.Stderr, "Error when calling `ScanResultsAPI.DeleteScanResultsForScanID``: %v\n", err)
-        fmt.Fprintf(os.Stderr, "Full HTTP response: %v\n", r)
-    }
+	configuration := openapiclient.NewConfiguration()
+	apiClient := openapiclient.NewAPIClient(configuration)
+	r, err := apiClient.ScanResultsAPI.DeleteScanResultsForScanID(context.Background(), scanId, scanType).Execute()
+	if err != nil {
+		fmt.Fprintf(os.Stderr, "Error when calling `ScanResultsAPI.DeleteScanResultsForScanID``: %v\n", err)
+		fmt.Fprintf(os.Stderr, "Full HTTP response: %v\n", r)
+	}
 }
 ```
 
@@ -228,25 +228,25 @@ Download Scans Results
 package main
 
 import (
-    "context"
-    "fmt"
-    "os"
-    openapiclient "github.com/deepfence/golang_deepfence_sdk/client"
+	"context"
+	"fmt"
+	"os"
+	openapiclient "github.com/deepfence/golang_deepfence_sdk/client"
 )
 
 func main() {
-    scanId := "scanId_example" // string | 
-    scanType := "scanType_example" // string | 
+	scanId := "scanId_example" // string | 
+	scanType := "scanType_example" // string | 
 
-    configuration := openapiclient.NewConfiguration()
-    apiClient := openapiclient.NewAPIClient(configuration)
-    resp, r, err := apiClient.ScanResultsAPI.DownloadScanResults(context.Background(), scanId, scanType).Execute()
-    if err != nil {
-        fmt.Fprintf(os.Stderr, "Error when calling `ScanResultsAPI.DownloadScanResults``: %v\n", err)
-        fmt.Fprintf(os.Stderr, "Full HTTP response: %v\n", r)
-    }
-    // response from `DownloadScanResults`: ModelDownloadScanResultsResponse
-    fmt.Fprintf(os.Stdout, "Response from `ScanResultsAPI.DownloadScanResults`: %v\n", resp)
+	configuration := openapiclient.NewConfiguration()
+	apiClient := openapiclient.NewAPIClient(configuration)
+	resp, r, err := apiClient.ScanResultsAPI.DownloadScanResults(context.Background(), scanId, scanType).Execute()
+	if err != nil {
+		fmt.Fprintf(os.Stderr, "Error when calling `ScanResultsAPI.DownloadScanResults``: %v\n", err)
+		fmt.Fprintf(os.Stderr, "Full HTTP response: %v\n", r)
+	}
+	// response from `DownloadScanResults`: ModelDownloadScanResultsResponse
+	fmt.Fprintf(os.Stdout, "Response from `ScanResultsAPI.DownloadScanResults`: %v\n", resp)
 }
 ```
 
@@ -301,24 +301,24 @@ Get all nodes in given scan result ids
 package main
 
 import (
-    "context"
-    "fmt"
-    "os"
-    openapiclient "github.com/deepfence/golang_deepfence_sdk/client"
+	"context"
+	"fmt"
+	"os"
+	openapiclient "github.com/deepfence/golang_deepfence_sdk/client"
 )
 
 func main() {
-    modelNodesInScanResultRequest := *openapiclient.NewModelNodesInScanResultRequest([]string{"ResultIds_example"}, "ScanType_example") // ModelNodesInScanResultRequest |  (optional)
+	modelNodesInScanResultRequest := *openapiclient.NewModelNodesInScanResultRequest([]string{"ResultIds_example"}, "ScanType_example") // ModelNodesInScanResultRequest |  (optional)
 
-    configuration := openapiclient.NewConfiguration()
-    apiClient := openapiclient.NewAPIClient(configuration)
-    resp, r, err := apiClient.ScanResultsAPI.GetAllNodesInScanResults(context.Background()).ModelNodesInScanResultRequest(modelNodesInScanResultRequest).Execute()
-    if err != nil {
-        fmt.Fprintf(os.Stderr, "Error when calling `ScanResultsAPI.GetAllNodesInScanResults``: %v\n", err)
-        fmt.Fprintf(os.Stderr, "Full HTTP response: %v\n", r)
-    }
-    // response from `GetAllNodesInScanResults`: []ModelScanResultBasicNode
-    fmt.Fprintf(os.Stdout, "Response from `ScanResultsAPI.GetAllNodesInScanResults`: %v\n", resp)
+	configuration := openapiclient.NewConfiguration()
+	apiClient := openapiclient.NewAPIClient(configuration)
+	resp, r, err := apiClient.ScanResultsAPI.GetAllNodesInScanResults(context.Background()).ModelNodesInScanResultRequest(modelNodesInScanResultRequest).Execute()
+	if err != nil {
+		fmt.Fprintf(os.Stderr, "Error when calling `ScanResultsAPI.GetAllNodesInScanResults``: %v\n", err)
+		fmt.Fprintf(os.Stderr, "Full HTTP response: %v\n", r)
+	}
+	// response from `GetAllNodesInScanResults`: []ModelScanResultBasicNode
+	fmt.Fprintf(os.Stdout, "Response from `ScanResultsAPI.GetAllNodesInScanResults`: %v\n", resp)
 }
 ```
 
@@ -367,22 +367,22 @@ Mask Scans Results
 package main
 
 import (
-    "context"
-    "fmt"
-    "os"
-    openapiclient "github.com/deepfence/golang_deepfence_sdk/client"
+	"context"
+	"fmt"
+	"os"
+	openapiclient "github.com/deepfence/golang_deepfence_sdk/client"
 )
 
 func main() {
-    modelScanResultsMaskRequest := *openapiclient.NewModelScanResultsMaskRequest("MaskAction_example", []string{"ResultIds_example"}, "ScanId_example", "ScanType_example") // ModelScanResultsMaskRequest |  (optional)
+	modelScanResultsMaskRequest := *openapiclient.NewModelScanResultsMaskRequest("MaskAction_example", []string{"ResultIds_example"}, "ScanId_example", "ScanType_example") // ModelScanResultsMaskRequest |  (optional)
 
-    configuration := openapiclient.NewConfiguration()
-    apiClient := openapiclient.NewAPIClient(configuration)
-    r, err := apiClient.ScanResultsAPI.MaskScanResult(context.Background()).ModelScanResultsMaskRequest(modelScanResultsMaskRequest).Execute()
-    if err != nil {
-        fmt.Fprintf(os.Stderr, "Error when calling `ScanResultsAPI.MaskScanResult``: %v\n", err)
-        fmt.Fprintf(os.Stderr, "Full HTTP response: %v\n", r)
-    }
+	configuration := openapiclient.NewConfiguration()
+	apiClient := openapiclient.NewAPIClient(configuration)
+	r, err := apiClient.ScanResultsAPI.MaskScanResult(context.Background()).ModelScanResultsMaskRequest(modelScanResultsMaskRequest).Execute()
+	if err != nil {
+		fmt.Fprintf(os.Stderr, "Error when calling `ScanResultsAPI.MaskScanResult``: %v\n", err)
+		fmt.Fprintf(os.Stderr, "Full HTTP response: %v\n", r)
+	}
 }
 ```
 
@@ -431,22 +431,22 @@ Notify Scans Results
 package main
 
 import (
-    "context"
-    "fmt"
-    "os"
-    openapiclient "github.com/deepfence/golang_deepfence_sdk/client"
+	"context"
+	"fmt"
+	"os"
+	openapiclient "github.com/deepfence/golang_deepfence_sdk/client"
 )
 
 func main() {
-    modelScanResultsActionRequest := *openapiclient.NewModelScanResultsActionRequest([]string{"ResultIds_example"}, "ScanId_example", "ScanType_example") // ModelScanResultsActionRequest |  (optional)
+	modelScanResultsActionRequest := *openapiclient.NewModelScanResultsActionRequest([]string{"ResultIds_example"}, "ScanId_example", "ScanType_example") // ModelScanResultsActionRequest |  (optional)
 
-    configuration := openapiclient.NewConfiguration()
-    apiClient := openapiclient.NewAPIClient(configuration)
-    r, err := apiClient.ScanResultsAPI.NotifyScanResult(context.Background()).ModelScanResultsActionRequest(modelScanResultsActionRequest).Execute()
-    if err != nil {
-        fmt.Fprintf(os.Stderr, "Error when calling `ScanResultsAPI.NotifyScanResult``: %v\n", err)
-        fmt.Fprintf(os.Stderr, "Full HTTP response: %v\n", r)
-    }
+	configuration := openapiclient.NewConfiguration()
+	apiClient := openapiclient.NewAPIClient(configuration)
+	r, err := apiClient.ScanResultsAPI.NotifyScanResult(context.Background()).ModelScanResultsActionRequest(modelScanResultsActionRequest).Execute()
+	if err != nil {
+		fmt.Fprintf(os.Stderr, "Error when calling `ScanResultsAPI.NotifyScanResult``: %v\n", err)
+		fmt.Fprintf(os.Stderr, "Full HTTP response: %v\n", r)
+	}
 }
 ```
 
@@ -495,22 +495,22 @@ Unmask Scans Results
 package main
 
 import (
-    "context"
-    "fmt"
-    "os"
-    openapiclient "github.com/deepfence/golang_deepfence_sdk/client"
+	"context"
+	"fmt"
+	"os"
+	openapiclient "github.com/deepfence/golang_deepfence_sdk/client"
 )
 
 func main() {
-    modelScanResultsMaskRequest := *openapiclient.NewModelScanResultsMaskRequest("MaskAction_example", []string{"ResultIds_example"}, "ScanId_example", "ScanType_example") // ModelScanResultsMaskRequest |  (optional)
+	modelScanResultsMaskRequest := *openapiclient.NewModelScanResultsMaskRequest("MaskAction_example", []string{"ResultIds_example"}, "ScanId_example", "ScanType_example") // ModelScanResultsMaskRequest |  (optional)
 
-    configuration := openapiclient.NewConfiguration()
-    apiClient := openapiclient.NewAPIClient(configuration)
-    r, err := apiClient.ScanResultsAPI.UnmaskScanResult(context.Background()).ModelScanResultsMaskRequest(modelScanResultsMaskRequest).Execute()
-    if err != nil {
-        fmt.Fprintf(os.Stderr, "Error when calling `ScanResultsAPI.UnmaskScanResult``: %v\n", err)
-        fmt.Fprintf(os.Stderr, "Full HTTP response: %v\n", r)
-    }
+	configuration := openapiclient.NewConfiguration()
+	apiClient := openapiclient.NewAPIClient(configuration)
+	r, err := apiClient.ScanResultsAPI.UnmaskScanResult(context.Background()).ModelScanResultsMaskRequest(modelScanResultsMaskRequest).Execute()
+	if err != nil {
+		fmt.Fprintf(os.Stderr, "Error when calling `ScanResultsAPI.UnmaskScanResult``: %v\n", err)
+		fmt.Fprintf(os.Stderr, "Full HTTP response: %v\n", r)
+	}
 }
 ```
 

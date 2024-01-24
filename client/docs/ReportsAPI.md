@@ -25,22 +25,22 @@ Delete Report
 package main
 
 import (
-    "context"
-    "fmt"
-    "os"
-    openapiclient "github.com/deepfence/golang_deepfence_sdk/client"
+	"context"
+	"fmt"
+	"os"
+	openapiclient "github.com/deepfence/golang_deepfence_sdk/client"
 )
 
 func main() {
-    reportId := "reportId_example" // string | 
+	reportId := "reportId_example" // string | 
 
-    configuration := openapiclient.NewConfiguration()
-    apiClient := openapiclient.NewAPIClient(configuration)
-    r, err := apiClient.ReportsAPI.DeleteReport(context.Background(), reportId).Execute()
-    if err != nil {
-        fmt.Fprintf(os.Stderr, "Error when calling `ReportsAPI.DeleteReport``: %v\n", err)
-        fmt.Fprintf(os.Stderr, "Full HTTP response: %v\n", r)
-    }
+	configuration := openapiclient.NewConfiguration()
+	apiClient := openapiclient.NewAPIClient(configuration)
+	r, err := apiClient.ReportsAPI.DeleteReport(context.Background(), reportId).Execute()
+	if err != nil {
+		fmt.Fprintf(os.Stderr, "Error when calling `ReportsAPI.DeleteReport``: %v\n", err)
+		fmt.Fprintf(os.Stderr, "Full HTTP response: %v\n", r)
+	}
 }
 ```
 
@@ -93,24 +93,24 @@ Generate Report
 package main
 
 import (
-    "context"
-    "fmt"
-    "os"
-    openapiclient "github.com/deepfence/golang_deepfence_sdk/client"
+	"context"
+	"fmt"
+	"os"
+	openapiclient "github.com/deepfence/golang_deepfence_sdk/client"
 )
 
 func main() {
-    modelGenerateReportReq := *openapiclient.NewModelGenerateReportReq("ReportType_example") // ModelGenerateReportReq |  (optional)
+	modelGenerateReportReq := *openapiclient.NewModelGenerateReportReq("ReportType_example") // ModelGenerateReportReq |  (optional)
 
-    configuration := openapiclient.NewConfiguration()
-    apiClient := openapiclient.NewAPIClient(configuration)
-    resp, r, err := apiClient.ReportsAPI.GenerateReport(context.Background()).ModelGenerateReportReq(modelGenerateReportReq).Execute()
-    if err != nil {
-        fmt.Fprintf(os.Stderr, "Error when calling `ReportsAPI.GenerateReport``: %v\n", err)
-        fmt.Fprintf(os.Stderr, "Full HTTP response: %v\n", r)
-    }
-    // response from `GenerateReport`: ModelGenerateReportResp
-    fmt.Fprintf(os.Stdout, "Response from `ReportsAPI.GenerateReport`: %v\n", resp)
+	configuration := openapiclient.NewConfiguration()
+	apiClient := openapiclient.NewAPIClient(configuration)
+	resp, r, err := apiClient.ReportsAPI.GenerateReport(context.Background()).ModelGenerateReportReq(modelGenerateReportReq).Execute()
+	if err != nil {
+		fmt.Fprintf(os.Stderr, "Error when calling `ReportsAPI.GenerateReport``: %v\n", err)
+		fmt.Fprintf(os.Stderr, "Full HTTP response: %v\n", r)
+	}
+	// response from `GenerateReport`: ModelGenerateReportResp
+	fmt.Fprintf(os.Stdout, "Response from `ReportsAPI.GenerateReport`: %v\n", resp)
 }
 ```
 
@@ -159,24 +159,24 @@ Get Report
 package main
 
 import (
-    "context"
-    "fmt"
-    "os"
-    openapiclient "github.com/deepfence/golang_deepfence_sdk/client"
+	"context"
+	"fmt"
+	"os"
+	openapiclient "github.com/deepfence/golang_deepfence_sdk/client"
 )
 
 func main() {
-    reportId := "reportId_example" // string | 
+	reportId := "reportId_example" // string | 
 
-    configuration := openapiclient.NewConfiguration()
-    apiClient := openapiclient.NewAPIClient(configuration)
-    resp, r, err := apiClient.ReportsAPI.GetReport(context.Background(), reportId).Execute()
-    if err != nil {
-        fmt.Fprintf(os.Stderr, "Error when calling `ReportsAPI.GetReport``: %v\n", err)
-        fmt.Fprintf(os.Stderr, "Full HTTP response: %v\n", r)
-    }
-    // response from `GetReport`: ModelExportReport
-    fmt.Fprintf(os.Stdout, "Response from `ReportsAPI.GetReport`: %v\n", resp)
+	configuration := openapiclient.NewConfiguration()
+	apiClient := openapiclient.NewAPIClient(configuration)
+	resp, r, err := apiClient.ReportsAPI.GetReport(context.Background(), reportId).Execute()
+	if err != nil {
+		fmt.Fprintf(os.Stderr, "Error when calling `ReportsAPI.GetReport``: %v\n", err)
+		fmt.Fprintf(os.Stderr, "Full HTTP response: %v\n", r)
+	}
+	// response from `GetReport`: ModelExportReport
+	fmt.Fprintf(os.Stdout, "Response from `ReportsAPI.GetReport`: %v\n", resp)
 }
 ```
 
@@ -229,23 +229,23 @@ List Reports
 package main
 
 import (
-    "context"
-    "fmt"
-    "os"
-    openapiclient "github.com/deepfence/golang_deepfence_sdk/client"
+	"context"
+	"fmt"
+	"os"
+	openapiclient "github.com/deepfence/golang_deepfence_sdk/client"
 )
 
 func main() {
 
-    configuration := openapiclient.NewConfiguration()
-    apiClient := openapiclient.NewAPIClient(configuration)
-    resp, r, err := apiClient.ReportsAPI.ListReports(context.Background()).Execute()
-    if err != nil {
-        fmt.Fprintf(os.Stderr, "Error when calling `ReportsAPI.ListReports``: %v\n", err)
-        fmt.Fprintf(os.Stderr, "Full HTTP response: %v\n", r)
-    }
-    // response from `ListReports`: []ModelExportReport
-    fmt.Fprintf(os.Stdout, "Response from `ReportsAPI.ListReports`: %v\n", resp)
+	configuration := openapiclient.NewConfiguration()
+	apiClient := openapiclient.NewAPIClient(configuration)
+	resp, r, err := apiClient.ReportsAPI.ListReports(context.Background()).Execute()
+	if err != nil {
+		fmt.Fprintf(os.Stderr, "Error when calling `ReportsAPI.ListReports``: %v\n", err)
+		fmt.Fprintf(os.Stderr, "Full HTTP response: %v\n", r)
+	}
+	// response from `ListReports`: []ModelExportReport
+	fmt.Fprintf(os.Stdout, "Response from `ReportsAPI.ListReports`: %v\n", resp)
 }
 ```
 

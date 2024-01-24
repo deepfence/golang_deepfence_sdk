@@ -31,24 +31,24 @@ Get Secret Scans Results
 package main
 
 import (
-    "context"
-    "fmt"
-    "os"
-    openapiclient "github.com/deepfence/golang_deepfence_sdk/client"
+	"context"
+	"fmt"
+	"os"
+	openapiclient "github.com/deepfence/golang_deepfence_sdk/client"
 )
 
 func main() {
-    modelScanResultsReq := *openapiclient.NewModelScanResultsReq(*openapiclient.NewReportersFieldsFilters([]openapiclient.ReportersCompareFilter{*openapiclient.NewReportersCompareFilter("FieldName_example", interface{}(123), false)}, *openapiclient.NewReportersContainsFilter(map[string][]interface{}{"key": []interface{}{nil}}), *openapiclient.NewReportersMatchFilter(map[string][]interface{}{"key": []interface{}{nil}}), *openapiclient.NewReportersOrderFilter([]openapiclient.ReportersOrderSpec{*openapiclient.NewReportersOrderSpec(false, "FieldName_example")})), "ScanId_example", *openapiclient.NewModelFetchWindow(int32(123), int32(123))) // ModelScanResultsReq |  (optional)
+	modelScanResultsReq := *openapiclient.NewModelScanResultsReq(*openapiclient.NewReportersFieldsFilters([]openapiclient.ReportersCompareFilter{*openapiclient.NewReportersCompareFilter("FieldName_example", interface{}(123), false)}, *openapiclient.NewReportersContainsFilter(map[string][]interface{}{"key": []interface{}{nil}}), *openapiclient.NewReportersMatchFilter(map[string][]interface{}{"key": []interface{}{nil}}), *openapiclient.NewReportersOrderFilter([]openapiclient.ReportersOrderSpec{*openapiclient.NewReportersOrderSpec(false, "FieldName_example")})), "ScanId_example", *openapiclient.NewModelFetchWindow(int32(123), int32(123))) // ModelScanResultsReq |  (optional)
 
-    configuration := openapiclient.NewConfiguration()
-    apiClient := openapiclient.NewAPIClient(configuration)
-    resp, r, err := apiClient.SecretScanAPI.CountResultsSecretScan(context.Background()).ModelScanResultsReq(modelScanResultsReq).Execute()
-    if err != nil {
-        fmt.Fprintf(os.Stderr, "Error when calling `SecretScanAPI.CountResultsSecretScan``: %v\n", err)
-        fmt.Fprintf(os.Stderr, "Full HTTP response: %v\n", r)
-    }
-    // response from `CountResultsSecretScan`: SearchSearchCountResp
-    fmt.Fprintf(os.Stdout, "Response from `SecretScanAPI.CountResultsSecretScan`: %v\n", resp)
+	configuration := openapiclient.NewConfiguration()
+	apiClient := openapiclient.NewAPIClient(configuration)
+	resp, r, err := apiClient.SecretScanAPI.CountResultsSecretScan(context.Background()).ModelScanResultsReq(modelScanResultsReq).Execute()
+	if err != nil {
+		fmt.Fprintf(os.Stderr, "Error when calling `SecretScanAPI.CountResultsSecretScan``: %v\n", err)
+		fmt.Fprintf(os.Stderr, "Full HTTP response: %v\n", r)
+	}
+	// response from `CountResultsSecretScan`: SearchSearchCountResp
+	fmt.Fprintf(os.Stdout, "Response from `SecretScanAPI.CountResultsSecretScan`: %v\n", resp)
 }
 ```
 
@@ -97,23 +97,23 @@ Group Secret Results
 package main
 
 import (
-    "context"
-    "fmt"
-    "os"
-    openapiclient "github.com/deepfence/golang_deepfence_sdk/client"
+	"context"
+	"fmt"
+	"os"
+	openapiclient "github.com/deepfence/golang_deepfence_sdk/client"
 )
 
 func main() {
 
-    configuration := openapiclient.NewConfiguration()
-    apiClient := openapiclient.NewAPIClient(configuration)
-    resp, r, err := apiClient.SecretScanAPI.GroupResultsSecrets(context.Background()).Execute()
-    if err != nil {
-        fmt.Fprintf(os.Stderr, "Error when calling `SecretScanAPI.GroupResultsSecrets``: %v\n", err)
-        fmt.Fprintf(os.Stderr, "Full HTTP response: %v\n", r)
-    }
-    // response from `GroupResultsSecrets`: SearchResultGroupResp
-    fmt.Fprintf(os.Stdout, "Response from `SecretScanAPI.GroupResultsSecrets`: %v\n", resp)
+	configuration := openapiclient.NewConfiguration()
+	apiClient := openapiclient.NewAPIClient(configuration)
+	resp, r, err := apiClient.SecretScanAPI.GroupResultsSecrets(context.Background()).Execute()
+	if err != nil {
+		fmt.Fprintf(os.Stderr, "Error when calling `SecretScanAPI.GroupResultsSecrets``: %v\n", err)
+		fmt.Fprintf(os.Stderr, "Full HTTP response: %v\n", r)
+	}
+	// response from `GroupResultsSecrets`: SearchResultGroupResp
+	fmt.Fprintf(os.Stdout, "Response from `SecretScanAPI.GroupResultsSecrets`: %v\n", resp)
 }
 ```
 
@@ -158,22 +158,22 @@ Ingest Secrets Scan Status
 package main
 
 import (
-    "context"
-    "fmt"
-    "os"
-    openapiclient "github.com/deepfence/golang_deepfence_sdk/client"
+	"context"
+	"fmt"
+	"os"
+	openapiclient "github.com/deepfence/golang_deepfence_sdk/client"
 )
 
 func main() {
-    ingestersSecretScanStatus := []openapiclient.IngestersSecretScanStatus{*openapiclient.NewIngestersSecretScanStatus()} // []IngestersSecretScanStatus |  (optional)
+	ingestersSecretScanStatus := []openapiclient.IngestersSecretScanStatus{*openapiclient.NewIngestersSecretScanStatus()} // []IngestersSecretScanStatus |  (optional)
 
-    configuration := openapiclient.NewConfiguration()
-    apiClient := openapiclient.NewAPIClient(configuration)
-    r, err := apiClient.SecretScanAPI.IngestSecretScanStatus(context.Background()).IngestersSecretScanStatus(ingestersSecretScanStatus).Execute()
-    if err != nil {
-        fmt.Fprintf(os.Stderr, "Error when calling `SecretScanAPI.IngestSecretScanStatus``: %v\n", err)
-        fmt.Fprintf(os.Stderr, "Full HTTP response: %v\n", r)
-    }
+	configuration := openapiclient.NewConfiguration()
+	apiClient := openapiclient.NewAPIClient(configuration)
+	r, err := apiClient.SecretScanAPI.IngestSecretScanStatus(context.Background()).IngestersSecretScanStatus(ingestersSecretScanStatus).Execute()
+	if err != nil {
+		fmt.Fprintf(os.Stderr, "Error when calling `SecretScanAPI.IngestSecretScanStatus``: %v\n", err)
+		fmt.Fprintf(os.Stderr, "Full HTTP response: %v\n", r)
+	}
 }
 ```
 
@@ -222,22 +222,22 @@ Ingest Secrets
 package main
 
 import (
-    "context"
-    "fmt"
-    "os"
-    openapiclient "github.com/deepfence/golang_deepfence_sdk/client"
+	"context"
+	"fmt"
+	"os"
+	openapiclient "github.com/deepfence/golang_deepfence_sdk/client"
 )
 
 func main() {
-    ingestersSecret := []openapiclient.IngestersSecret{*openapiclient.NewIngestersSecret()} // []IngestersSecret |  (optional)
+	ingestersSecret := []openapiclient.IngestersSecret{*openapiclient.NewIngestersSecret()} // []IngestersSecret |  (optional)
 
-    configuration := openapiclient.NewConfiguration()
-    apiClient := openapiclient.NewAPIClient(configuration)
-    r, err := apiClient.SecretScanAPI.IngestSecrets(context.Background()).IngestersSecret(ingestersSecret).Execute()
-    if err != nil {
-        fmt.Fprintf(os.Stderr, "Error when calling `SecretScanAPI.IngestSecrets``: %v\n", err)
-        fmt.Fprintf(os.Stderr, "Full HTTP response: %v\n", r)
-    }
+	configuration := openapiclient.NewConfiguration()
+	apiClient := openapiclient.NewAPIClient(configuration)
+	r, err := apiClient.SecretScanAPI.IngestSecrets(context.Background()).IngestersSecret(ingestersSecret).Execute()
+	if err != nil {
+		fmt.Fprintf(os.Stderr, "Error when calling `SecretScanAPI.IngestSecrets``: %v\n", err)
+		fmt.Fprintf(os.Stderr, "Full HTTP response: %v\n", r)
+	}
 }
 ```
 
@@ -286,24 +286,24 @@ Get Secret Scans List
 package main
 
 import (
-    "context"
-    "fmt"
-    "os"
-    openapiclient "github.com/deepfence/golang_deepfence_sdk/client"
+	"context"
+	"fmt"
+	"os"
+	openapiclient "github.com/deepfence/golang_deepfence_sdk/client"
 )
 
 func main() {
-    modelScanListReq := *openapiclient.NewModelScanListReq(*openapiclient.NewReportersFieldsFilters([]openapiclient.ReportersCompareFilter{*openapiclient.NewReportersCompareFilter("FieldName_example", interface{}(123), false)}, *openapiclient.NewReportersContainsFilter(map[string][]interface{}{"key": []interface{}{nil}}), *openapiclient.NewReportersMatchFilter(map[string][]interface{}{"key": []interface{}{nil}}), *openapiclient.NewReportersOrderFilter([]openapiclient.ReportersOrderSpec{*openapiclient.NewReportersOrderSpec(false, "FieldName_example")})), []openapiclient.ModelNodeIdentifier{*openapiclient.NewModelNodeIdentifier("NodeId_example", "NodeType_example")}, *openapiclient.NewModelFetchWindow(int32(123), int32(123))) // ModelScanListReq |  (optional)
+	modelScanListReq := *openapiclient.NewModelScanListReq(*openapiclient.NewReportersFieldsFilters([]openapiclient.ReportersCompareFilter{*openapiclient.NewReportersCompareFilter("FieldName_example", interface{}(123), false)}, *openapiclient.NewReportersContainsFilter(map[string][]interface{}{"key": []interface{}{nil}}), *openapiclient.NewReportersMatchFilter(map[string][]interface{}{"key": []interface{}{nil}}), *openapiclient.NewReportersOrderFilter([]openapiclient.ReportersOrderSpec{*openapiclient.NewReportersOrderSpec(false, "FieldName_example")})), []openapiclient.ModelNodeIdentifier{*openapiclient.NewModelNodeIdentifier("NodeId_example", "NodeType_example")}, *openapiclient.NewModelFetchWindow(int32(123), int32(123))) // ModelScanListReq |  (optional)
 
-    configuration := openapiclient.NewConfiguration()
-    apiClient := openapiclient.NewAPIClient(configuration)
-    resp, r, err := apiClient.SecretScanAPI.ListSecretScan(context.Background()).ModelScanListReq(modelScanListReq).Execute()
-    if err != nil {
-        fmt.Fprintf(os.Stderr, "Error when calling `SecretScanAPI.ListSecretScan``: %v\n", err)
-        fmt.Fprintf(os.Stderr, "Full HTTP response: %v\n", r)
-    }
-    // response from `ListSecretScan`: ModelScanListResp
-    fmt.Fprintf(os.Stdout, "Response from `SecretScanAPI.ListSecretScan`: %v\n", resp)
+	configuration := openapiclient.NewConfiguration()
+	apiClient := openapiclient.NewAPIClient(configuration)
+	resp, r, err := apiClient.SecretScanAPI.ListSecretScan(context.Background()).ModelScanListReq(modelScanListReq).Execute()
+	if err != nil {
+		fmt.Fprintf(os.Stderr, "Error when calling `SecretScanAPI.ListSecretScan``: %v\n", err)
+		fmt.Fprintf(os.Stderr, "Full HTTP response: %v\n", r)
+	}
+	// response from `ListSecretScan`: ModelScanListResp
+	fmt.Fprintf(os.Stdout, "Response from `SecretScanAPI.ListSecretScan`: %v\n", resp)
 }
 ```
 
@@ -352,24 +352,24 @@ Get Secret Scans Result Rules
 package main
 
 import (
-    "context"
-    "fmt"
-    "os"
-    openapiclient "github.com/deepfence/golang_deepfence_sdk/client"
+	"context"
+	"fmt"
+	"os"
+	openapiclient "github.com/deepfence/golang_deepfence_sdk/client"
 )
 
 func main() {
-    modelScanResultsReq := *openapiclient.NewModelScanResultsReq(*openapiclient.NewReportersFieldsFilters([]openapiclient.ReportersCompareFilter{*openapiclient.NewReportersCompareFilter("FieldName_example", interface{}(123), false)}, *openapiclient.NewReportersContainsFilter(map[string][]interface{}{"key": []interface{}{nil}}), *openapiclient.NewReportersMatchFilter(map[string][]interface{}{"key": []interface{}{nil}}), *openapiclient.NewReportersOrderFilter([]openapiclient.ReportersOrderSpec{*openapiclient.NewReportersOrderSpec(false, "FieldName_example")})), "ScanId_example", *openapiclient.NewModelFetchWindow(int32(123), int32(123))) // ModelScanResultsReq |  (optional)
+	modelScanResultsReq := *openapiclient.NewModelScanResultsReq(*openapiclient.NewReportersFieldsFilters([]openapiclient.ReportersCompareFilter{*openapiclient.NewReportersCompareFilter("FieldName_example", interface{}(123), false)}, *openapiclient.NewReportersContainsFilter(map[string][]interface{}{"key": []interface{}{nil}}), *openapiclient.NewReportersMatchFilter(map[string][]interface{}{"key": []interface{}{nil}}), *openapiclient.NewReportersOrderFilter([]openapiclient.ReportersOrderSpec{*openapiclient.NewReportersOrderSpec(false, "FieldName_example")})), "ScanId_example", *openapiclient.NewModelFetchWindow(int32(123), int32(123))) // ModelScanResultsReq |  (optional)
 
-    configuration := openapiclient.NewConfiguration()
-    apiClient := openapiclient.NewAPIClient(configuration)
-    resp, r, err := apiClient.SecretScanAPI.ResultsRulesSecretScan(context.Background()).ModelScanResultsReq(modelScanResultsReq).Execute()
-    if err != nil {
-        fmt.Fprintf(os.Stderr, "Error when calling `SecretScanAPI.ResultsRulesSecretScan``: %v\n", err)
-        fmt.Fprintf(os.Stderr, "Full HTTP response: %v\n", r)
-    }
-    // response from `ResultsRulesSecretScan`: ModelSecretScanResultRules
-    fmt.Fprintf(os.Stdout, "Response from `SecretScanAPI.ResultsRulesSecretScan`: %v\n", resp)
+	configuration := openapiclient.NewConfiguration()
+	apiClient := openapiclient.NewAPIClient(configuration)
+	resp, r, err := apiClient.SecretScanAPI.ResultsRulesSecretScan(context.Background()).ModelScanResultsReq(modelScanResultsReq).Execute()
+	if err != nil {
+		fmt.Fprintf(os.Stderr, "Error when calling `SecretScanAPI.ResultsRulesSecretScan``: %v\n", err)
+		fmt.Fprintf(os.Stderr, "Full HTTP response: %v\n", r)
+	}
+	// response from `ResultsRulesSecretScan`: ModelSecretScanResultRules
+	fmt.Fprintf(os.Stdout, "Response from `SecretScanAPI.ResultsRulesSecretScan`: %v\n", resp)
 }
 ```
 
@@ -418,24 +418,24 @@ Get Secret Scans Results
 package main
 
 import (
-    "context"
-    "fmt"
-    "os"
-    openapiclient "github.com/deepfence/golang_deepfence_sdk/client"
+	"context"
+	"fmt"
+	"os"
+	openapiclient "github.com/deepfence/golang_deepfence_sdk/client"
 )
 
 func main() {
-    modelScanResultsReq := *openapiclient.NewModelScanResultsReq(*openapiclient.NewReportersFieldsFilters([]openapiclient.ReportersCompareFilter{*openapiclient.NewReportersCompareFilter("FieldName_example", interface{}(123), false)}, *openapiclient.NewReportersContainsFilter(map[string][]interface{}{"key": []interface{}{nil}}), *openapiclient.NewReportersMatchFilter(map[string][]interface{}{"key": []interface{}{nil}}), *openapiclient.NewReportersOrderFilter([]openapiclient.ReportersOrderSpec{*openapiclient.NewReportersOrderSpec(false, "FieldName_example")})), "ScanId_example", *openapiclient.NewModelFetchWindow(int32(123), int32(123))) // ModelScanResultsReq |  (optional)
+	modelScanResultsReq := *openapiclient.NewModelScanResultsReq(*openapiclient.NewReportersFieldsFilters([]openapiclient.ReportersCompareFilter{*openapiclient.NewReportersCompareFilter("FieldName_example", interface{}(123), false)}, *openapiclient.NewReportersContainsFilter(map[string][]interface{}{"key": []interface{}{nil}}), *openapiclient.NewReportersMatchFilter(map[string][]interface{}{"key": []interface{}{nil}}), *openapiclient.NewReportersOrderFilter([]openapiclient.ReportersOrderSpec{*openapiclient.NewReportersOrderSpec(false, "FieldName_example")})), "ScanId_example", *openapiclient.NewModelFetchWindow(int32(123), int32(123))) // ModelScanResultsReq |  (optional)
 
-    configuration := openapiclient.NewConfiguration()
-    apiClient := openapiclient.NewAPIClient(configuration)
-    resp, r, err := apiClient.SecretScanAPI.ResultsSecretScan(context.Background()).ModelScanResultsReq(modelScanResultsReq).Execute()
-    if err != nil {
-        fmt.Fprintf(os.Stderr, "Error when calling `SecretScanAPI.ResultsSecretScan``: %v\n", err)
-        fmt.Fprintf(os.Stderr, "Full HTTP response: %v\n", r)
-    }
-    // response from `ResultsSecretScan`: ModelSecretScanResult
-    fmt.Fprintf(os.Stdout, "Response from `SecretScanAPI.ResultsSecretScan`: %v\n", resp)
+	configuration := openapiclient.NewConfiguration()
+	apiClient := openapiclient.NewAPIClient(configuration)
+	resp, r, err := apiClient.SecretScanAPI.ResultsSecretScan(context.Background()).ModelScanResultsReq(modelScanResultsReq).Execute()
+	if err != nil {
+		fmt.Fprintf(os.Stderr, "Error when calling `SecretScanAPI.ResultsSecretScan``: %v\n", err)
+		fmt.Fprintf(os.Stderr, "Full HTTP response: %v\n", r)
+	}
+	// response from `ResultsSecretScan`: ModelSecretScanResult
+	fmt.Fprintf(os.Stdout, "Response from `SecretScanAPI.ResultsSecretScan`: %v\n", resp)
 }
 ```
 
@@ -484,24 +484,24 @@ Start Secret Scan
 package main
 
 import (
-    "context"
-    "fmt"
-    "os"
-    openapiclient "github.com/deepfence/golang_deepfence_sdk/client"
+	"context"
+	"fmt"
+	"os"
+	openapiclient "github.com/deepfence/golang_deepfence_sdk/client"
 )
 
 func main() {
-    modelSecretScanTriggerReq := *openapiclient.NewModelSecretScanTriggerReq(*openapiclient.NewModelScanFilter(*openapiclient.NewReportersContainsFilter(map[string][]interface{}{"key": []interface{}{nil}}), *openapiclient.NewReportersContainsFilter(map[string][]interface{}{"key": []interface{}{nil}}), *openapiclient.NewReportersContainsFilter(map[string][]interface{}{"key": []interface{}{nil}}), *openapiclient.NewReportersContainsFilter(map[string][]interface{}{"key": []interface{}{nil}}), *openapiclient.NewReportersContainsFilter(map[string][]interface{}{"key": []interface{}{nil}})), []openapiclient.ModelNodeIdentifier{*openapiclient.NewModelNodeIdentifier("NodeId_example", "NodeType_example")}) // ModelSecretScanTriggerReq |  (optional)
+	modelSecretScanTriggerReq := *openapiclient.NewModelSecretScanTriggerReq(*openapiclient.NewModelScanFilter(*openapiclient.NewReportersContainsFilter(map[string][]interface{}{"key": []interface{}{nil}}), *openapiclient.NewReportersContainsFilter(map[string][]interface{}{"key": []interface{}{nil}}), *openapiclient.NewReportersContainsFilter(map[string][]interface{}{"key": []interface{}{nil}}), *openapiclient.NewReportersContainsFilter(map[string][]interface{}{"key": []interface{}{nil}}), *openapiclient.NewReportersContainsFilter(map[string][]interface{}{"key": []interface{}{nil}})), []openapiclient.ModelNodeIdentifier{*openapiclient.NewModelNodeIdentifier("NodeId_example", "NodeType_example")}) // ModelSecretScanTriggerReq |  (optional)
 
-    configuration := openapiclient.NewConfiguration()
-    apiClient := openapiclient.NewAPIClient(configuration)
-    resp, r, err := apiClient.SecretScanAPI.StartSecretScan(context.Background()).ModelSecretScanTriggerReq(modelSecretScanTriggerReq).Execute()
-    if err != nil {
-        fmt.Fprintf(os.Stderr, "Error when calling `SecretScanAPI.StartSecretScan``: %v\n", err)
-        fmt.Fprintf(os.Stderr, "Full HTTP response: %v\n", r)
-    }
-    // response from `StartSecretScan`: ModelScanTriggerResp
-    fmt.Fprintf(os.Stdout, "Response from `SecretScanAPI.StartSecretScan`: %v\n", resp)
+	configuration := openapiclient.NewConfiguration()
+	apiClient := openapiclient.NewAPIClient(configuration)
+	resp, r, err := apiClient.SecretScanAPI.StartSecretScan(context.Background()).ModelSecretScanTriggerReq(modelSecretScanTriggerReq).Execute()
+	if err != nil {
+		fmt.Fprintf(os.Stderr, "Error when calling `SecretScanAPI.StartSecretScan``: %v\n", err)
+		fmt.Fprintf(os.Stderr, "Full HTTP response: %v\n", r)
+	}
+	// response from `StartSecretScan`: ModelScanTriggerResp
+	fmt.Fprintf(os.Stdout, "Response from `SecretScanAPI.StartSecretScan`: %v\n", resp)
 }
 ```
 
@@ -550,24 +550,24 @@ Get Secret Scan Status
 package main
 
 import (
-    "context"
-    "fmt"
-    "os"
-    openapiclient "github.com/deepfence/golang_deepfence_sdk/client"
+	"context"
+	"fmt"
+	"os"
+	openapiclient "github.com/deepfence/golang_deepfence_sdk/client"
 )
 
 func main() {
-    modelScanStatusReq := *openapiclient.NewModelScanStatusReq("BulkScanId_example", []string{"ScanIds_example"}) // ModelScanStatusReq |  (optional)
+	modelScanStatusReq := *openapiclient.NewModelScanStatusReq("BulkScanId_example", []string{"ScanIds_example"}) // ModelScanStatusReq |  (optional)
 
-    configuration := openapiclient.NewConfiguration()
-    apiClient := openapiclient.NewAPIClient(configuration)
-    resp, r, err := apiClient.SecretScanAPI.StatusSecretScan(context.Background()).ModelScanStatusReq(modelScanStatusReq).Execute()
-    if err != nil {
-        fmt.Fprintf(os.Stderr, "Error when calling `SecretScanAPI.StatusSecretScan``: %v\n", err)
-        fmt.Fprintf(os.Stderr, "Full HTTP response: %v\n", r)
-    }
-    // response from `StatusSecretScan`: ModelScanStatusResp
-    fmt.Fprintf(os.Stdout, "Response from `SecretScanAPI.StatusSecretScan`: %v\n", resp)
+	configuration := openapiclient.NewConfiguration()
+	apiClient := openapiclient.NewAPIClient(configuration)
+	resp, r, err := apiClient.SecretScanAPI.StatusSecretScan(context.Background()).ModelScanStatusReq(modelScanStatusReq).Execute()
+	if err != nil {
+		fmt.Fprintf(os.Stderr, "Error when calling `SecretScanAPI.StatusSecretScan``: %v\n", err)
+		fmt.Fprintf(os.Stderr, "Full HTTP response: %v\n", r)
+	}
+	// response from `StatusSecretScan`: ModelScanStatusResp
+	fmt.Fprintf(os.Stdout, "Response from `SecretScanAPI.StatusSecretScan`: %v\n", resp)
 }
 ```
 
@@ -616,22 +616,22 @@ Stop Secret Scan
 package main
 
 import (
-    "context"
-    "fmt"
-    "os"
-    openapiclient "github.com/deepfence/golang_deepfence_sdk/client"
+	"context"
+	"fmt"
+	"os"
+	openapiclient "github.com/deepfence/golang_deepfence_sdk/client"
 )
 
 func main() {
-    modelStopScanRequest := *openapiclient.NewModelStopScanRequest([]string{"ScanIds_example"}, "ScanType_example") // ModelStopScanRequest |  (optional)
+	modelStopScanRequest := *openapiclient.NewModelStopScanRequest([]string{"ScanIds_example"}, "ScanType_example") // ModelStopScanRequest |  (optional)
 
-    configuration := openapiclient.NewConfiguration()
-    apiClient := openapiclient.NewAPIClient(configuration)
-    r, err := apiClient.SecretScanAPI.StopSecretScan(context.Background()).ModelStopScanRequest(modelStopScanRequest).Execute()
-    if err != nil {
-        fmt.Fprintf(os.Stderr, "Error when calling `SecretScanAPI.StopSecretScan``: %v\n", err)
-        fmt.Fprintf(os.Stderr, "Full HTTP response: %v\n", r)
-    }
+	configuration := openapiclient.NewConfiguration()
+	apiClient := openapiclient.NewAPIClient(configuration)
+	r, err := apiClient.SecretScanAPI.StopSecretScan(context.Background()).ModelStopScanRequest(modelStopScanRequest).Execute()
+	if err != nil {
+		fmt.Fprintf(os.Stderr, "Error when calling `SecretScanAPI.StopSecretScan``: %v\n", err)
+		fmt.Fprintf(os.Stderr, "Full HTTP response: %v\n", r)
+	}
 }
 ```
 

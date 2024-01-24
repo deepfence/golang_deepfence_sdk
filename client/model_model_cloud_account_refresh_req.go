@@ -17,39 +17,37 @@ import (
 	"fmt"
 )
 
-// checks if the ModelAgentUpgrade type satisfies the MappedNullable interface at compile time
-var _ MappedNullable = &ModelAgentUpgrade{}
+// checks if the ModelCloudAccountRefreshReq type satisfies the MappedNullable interface at compile time
+var _ MappedNullable = &ModelCloudAccountRefreshReq{}
 
-// ModelAgentUpgrade struct for ModelAgentUpgrade
-type ModelAgentUpgrade struct {
+// ModelCloudAccountRefreshReq struct for ModelCloudAccountRefreshReq
+type ModelCloudAccountRefreshReq struct {
 	NodeIds []string `json:"node_ids"`
-	Version string `json:"version"`
 }
 
-type _ModelAgentUpgrade ModelAgentUpgrade
+type _ModelCloudAccountRefreshReq ModelCloudAccountRefreshReq
 
-// NewModelAgentUpgrade instantiates a new ModelAgentUpgrade object
+// NewModelCloudAccountRefreshReq instantiates a new ModelCloudAccountRefreshReq object
 // This constructor will assign default values to properties that have it defined,
 // and makes sure properties required by API are set, but the set of arguments
 // will change when the set of required properties is changed
-func NewModelAgentUpgrade(nodeIds []string, version string) *ModelAgentUpgrade {
-	this := ModelAgentUpgrade{}
+func NewModelCloudAccountRefreshReq(nodeIds []string) *ModelCloudAccountRefreshReq {
+	this := ModelCloudAccountRefreshReq{}
 	this.NodeIds = nodeIds
-	this.Version = version
 	return &this
 }
 
-// NewModelAgentUpgradeWithDefaults instantiates a new ModelAgentUpgrade object
+// NewModelCloudAccountRefreshReqWithDefaults instantiates a new ModelCloudAccountRefreshReq object
 // This constructor will only assign default values to properties that have it defined,
 // but it doesn't guarantee that properties required by API are set
-func NewModelAgentUpgradeWithDefaults() *ModelAgentUpgrade {
-	this := ModelAgentUpgrade{}
+func NewModelCloudAccountRefreshReqWithDefaults() *ModelCloudAccountRefreshReq {
+	this := ModelCloudAccountRefreshReq{}
 	return &this
 }
 
 // GetNodeIds returns the NodeIds field value
 // If the value is explicit nil, the zero value for []string will be returned
-func (o *ModelAgentUpgrade) GetNodeIds() []string {
+func (o *ModelCloudAccountRefreshReq) GetNodeIds() []string {
 	if o == nil {
 		var ret []string
 		return ret
@@ -61,7 +59,7 @@ func (o *ModelAgentUpgrade) GetNodeIds() []string {
 // GetNodeIdsOk returns a tuple with the NodeIds field value
 // and a boolean to check if the value has been set.
 // NOTE: If the value is an explicit nil, `nil, true` will be returned
-func (o *ModelAgentUpgrade) GetNodeIdsOk() ([]string, bool) {
+func (o *ModelCloudAccountRefreshReq) GetNodeIdsOk() ([]string, bool) {
 	if o == nil || IsNil(o.NodeIds) {
 		return nil, false
 	}
@@ -69,35 +67,11 @@ func (o *ModelAgentUpgrade) GetNodeIdsOk() ([]string, bool) {
 }
 
 // SetNodeIds sets field value
-func (o *ModelAgentUpgrade) SetNodeIds(v []string) {
+func (o *ModelCloudAccountRefreshReq) SetNodeIds(v []string) {
 	o.NodeIds = v
 }
 
-// GetVersion returns the Version field value
-func (o *ModelAgentUpgrade) GetVersion() string {
-	if o == nil {
-		var ret string
-		return ret
-	}
-
-	return o.Version
-}
-
-// GetVersionOk returns a tuple with the Version field value
-// and a boolean to check if the value has been set.
-func (o *ModelAgentUpgrade) GetVersionOk() (*string, bool) {
-	if o == nil {
-		return nil, false
-	}
-	return &o.Version, true
-}
-
-// SetVersion sets field value
-func (o *ModelAgentUpgrade) SetVersion(v string) {
-	o.Version = v
-}
-
-func (o ModelAgentUpgrade) MarshalJSON() ([]byte, error) {
+func (o ModelCloudAccountRefreshReq) MarshalJSON() ([]byte, error) {
 	toSerialize,err := o.ToMap()
 	if err != nil {
 		return []byte{}, err
@@ -105,22 +79,20 @@ func (o ModelAgentUpgrade) MarshalJSON() ([]byte, error) {
 	return json.Marshal(toSerialize)
 }
 
-func (o ModelAgentUpgrade) ToMap() (map[string]interface{}, error) {
+func (o ModelCloudAccountRefreshReq) ToMap() (map[string]interface{}, error) {
 	toSerialize := map[string]interface{}{}
 	if o.NodeIds != nil {
 		toSerialize["node_ids"] = o.NodeIds
 	}
-	toSerialize["version"] = o.Version
 	return toSerialize, nil
 }
 
-func (o *ModelAgentUpgrade) UnmarshalJSON(data []byte) (err error) {
+func (o *ModelCloudAccountRefreshReq) UnmarshalJSON(data []byte) (err error) {
 	// This validates that all required properties are included in the JSON object
 	// by unmarshalling the object into a generic map with string keys and checking
 	// that every required field exists as a key in the generic map.
 	requiredProperties := []string{
 		"node_ids",
-		"version",
 	}
 
 	allProperties := make(map[string]interface{})
@@ -137,53 +109,53 @@ func (o *ModelAgentUpgrade) UnmarshalJSON(data []byte) (err error) {
 		}
 	}
 
-	varModelAgentUpgrade := _ModelAgentUpgrade{}
+	varModelCloudAccountRefreshReq := _ModelCloudAccountRefreshReq{}
 
 	decoder := json.NewDecoder(bytes.NewReader(data))
 	decoder.DisallowUnknownFields()
-	err = decoder.Decode(&varModelAgentUpgrade)
+	err = decoder.Decode(&varModelCloudAccountRefreshReq)
 
 	if err != nil {
 		return err
 	}
 
-	*o = ModelAgentUpgrade(varModelAgentUpgrade)
+	*o = ModelCloudAccountRefreshReq(varModelCloudAccountRefreshReq)
 
 	return err
 }
 
-type NullableModelAgentUpgrade struct {
-	value *ModelAgentUpgrade
+type NullableModelCloudAccountRefreshReq struct {
+	value *ModelCloudAccountRefreshReq
 	isSet bool
 }
 
-func (v NullableModelAgentUpgrade) Get() *ModelAgentUpgrade {
+func (v NullableModelCloudAccountRefreshReq) Get() *ModelCloudAccountRefreshReq {
 	return v.value
 }
 
-func (v *NullableModelAgentUpgrade) Set(val *ModelAgentUpgrade) {
+func (v *NullableModelCloudAccountRefreshReq) Set(val *ModelCloudAccountRefreshReq) {
 	v.value = val
 	v.isSet = true
 }
 
-func (v NullableModelAgentUpgrade) IsSet() bool {
+func (v NullableModelCloudAccountRefreshReq) IsSet() bool {
 	return v.isSet
 }
 
-func (v *NullableModelAgentUpgrade) Unset() {
+func (v *NullableModelCloudAccountRefreshReq) Unset() {
 	v.value = nil
 	v.isSet = false
 }
 
-func NewNullableModelAgentUpgrade(val *ModelAgentUpgrade) *NullableModelAgentUpgrade {
-	return &NullableModelAgentUpgrade{value: val, isSet: true}
+func NewNullableModelCloudAccountRefreshReq(val *ModelCloudAccountRefreshReq) *NullableModelCloudAccountRefreshReq {
+	return &NullableModelCloudAccountRefreshReq{value: val, isSet: true}
 }
 
-func (v NullableModelAgentUpgrade) MarshalJSON() ([]byte, error) {
+func (v NullableModelCloudAccountRefreshReq) MarshalJSON() ([]byte, error) {
 	return json.Marshal(v.value)
 }
 
-func (v *NullableModelAgentUpgrade) UnmarshalJSON(src []byte) error {
+func (v *NullableModelCloudAccountRefreshReq) UnmarshalJSON(src []byte) error {
 	v.isSet = true
 	return json.Unmarshal(src, &v.value)
 }

@@ -13,6 +13,7 @@ package client
 
 import (
 	"encoding/json"
+	"bytes"
 	"fmt"
 )
 
@@ -109,8 +110,8 @@ func (o ModelUpdateUserPasswordRequest) ToMap() (map[string]interface{}, error) 
 	return toSerialize, nil
 }
 
-func (o *ModelUpdateUserPasswordRequest) UnmarshalJSON(bytes []byte) (err error) {
-    // This validates that all required properties are included in the JSON object
+func (o *ModelUpdateUserPasswordRequest) UnmarshalJSON(data []byte) (err error) {
+	// This validates that all required properties are included in the JSON object
 	// by unmarshalling the object into a generic map with string keys and checking
 	// that every required field exists as a key in the generic map.
 	requiredProperties := []string{
@@ -120,7 +121,7 @@ func (o *ModelUpdateUserPasswordRequest) UnmarshalJSON(bytes []byte) (err error)
 
 	allProperties := make(map[string]interface{})
 
-	err = json.Unmarshal(bytes, &allProperties)
+	err = json.Unmarshal(data, &allProperties)
 
 	if err != nil {
 		return err;
@@ -134,7 +135,9 @@ func (o *ModelUpdateUserPasswordRequest) UnmarshalJSON(bytes []byte) (err error)
 
 	varModelUpdateUserPasswordRequest := _ModelUpdateUserPasswordRequest{}
 
-	err = json.Unmarshal(bytes, &varModelUpdateUserPasswordRequest)
+	decoder := json.NewDecoder(bytes.NewReader(data))
+	decoder.DisallowUnknownFields()
+	err = decoder.Decode(&varModelUpdateUserPasswordRequest)
 
 	if err != nil {
 		return err

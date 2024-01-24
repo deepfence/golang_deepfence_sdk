@@ -7,12 +7,14 @@ Name | Type | Description | Notes
 **ContainerImages** | [**[]ModelContainerImage**](ModelContainerImage.md) |  | 
 **HostName** | **string** |  | 
 **NodeId** | **string** |  | 
+**RegistryType** | **string** |  | 
+**Syncing** | **bool** |  | 
 
 ## Methods
 
 ### NewModelRegistryAccount
 
-`func NewModelRegistryAccount(containerImages []ModelContainerImage, hostName string, nodeId string, ) *ModelRegistryAccount`
+`func NewModelRegistryAccount(containerImages []ModelContainerImage, hostName string, nodeId string, registryType string, syncing bool, ) *ModelRegistryAccount`
 
 NewModelRegistryAccount instantiates a new ModelRegistryAccount object
 This constructor will assign default values to properties that have it defined,
@@ -95,6 +97,46 @@ and a boolean to check if the value has been set.
 `func (o *ModelRegistryAccount) SetNodeId(v string)`
 
 SetNodeId sets NodeId field to given value.
+
+
+### GetRegistryType
+
+`func (o *ModelRegistryAccount) GetRegistryType() string`
+
+GetRegistryType returns the RegistryType field if non-nil, zero value otherwise.
+
+### GetRegistryTypeOk
+
+`func (o *ModelRegistryAccount) GetRegistryTypeOk() (*string, bool)`
+
+GetRegistryTypeOk returns a tuple with the RegistryType field if it's non-nil, zero value otherwise
+and a boolean to check if the value has been set.
+
+### SetRegistryType
+
+`func (o *ModelRegistryAccount) SetRegistryType(v string)`
+
+SetRegistryType sets RegistryType field to given value.
+
+
+### GetSyncing
+
+`func (o *ModelRegistryAccount) GetSyncing() bool`
+
+GetSyncing returns the Syncing field if non-nil, zero value otherwise.
+
+### GetSyncingOk
+
+`func (o *ModelRegistryAccount) GetSyncingOk() (*bool, bool)`
+
+GetSyncingOk returns a tuple with the Syncing field if it's non-nil, zero value otherwise
+and a boolean to check if the value has been set.
+
+### SetSyncing
+
+`func (o *ModelRegistryAccount) SetSyncing(v bool)`
+
+SetSyncing sets Syncing field to given value.
 
 
 

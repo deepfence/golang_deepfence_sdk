@@ -23,23 +23,23 @@ Get End User License Agreement
 package main
 
 import (
-    "context"
-    "fmt"
-    "os"
-    openapiclient "github.com/deepfence/golang_deepfence_sdk/client"
+	"context"
+	"fmt"
+	"os"
+	openapiclient "github.com/deepfence/golang_deepfence_sdk/client"
 )
 
 func main() {
 
-    configuration := openapiclient.NewConfiguration()
-    apiClient := openapiclient.NewAPIClient(configuration)
-    resp, r, err := apiClient.CommonAPI.Eula(context.Background()).Execute()
-    if err != nil {
-        fmt.Fprintf(os.Stderr, "Error when calling `CommonAPI.Eula``: %v\n", err)
-        fmt.Fprintf(os.Stderr, "Full HTTP response: %v\n", r)
-    }
-    // response from `Eula`: ModelMessageResponse
-    fmt.Fprintf(os.Stdout, "Response from `CommonAPI.Eula`: %v\n", resp)
+	configuration := openapiclient.NewConfiguration()
+	apiClient := openapiclient.NewAPIClient(configuration)
+	resp, r, err := apiClient.CommonAPI.Eula(context.Background()).Execute()
+	if err != nil {
+		fmt.Fprintf(os.Stderr, "Error when calling `CommonAPI.Eula``: %v\n", err)
+		fmt.Fprintf(os.Stderr, "Full HTTP response: %v\n", r)
+	}
+	// response from `Eula`: ModelMessageResponse
+	fmt.Fprintf(os.Stdout, "Response from `CommonAPI.Eula`: %v\n", resp)
 }
 ```
 
@@ -84,23 +84,23 @@ Get Scan Report Fields
 package main
 
 import (
-    "context"
-    "fmt"
-    "os"
-    openapiclient "github.com/deepfence/golang_deepfence_sdk/client"
+	"context"
+	"fmt"
+	"os"
+	openapiclient "github.com/deepfence/golang_deepfence_sdk/client"
 )
 
 func main() {
 
-    configuration := openapiclient.NewConfiguration()
-    apiClient := openapiclient.NewAPIClient(configuration)
-    resp, r, err := apiClient.CommonAPI.GetScanReportFields(context.Background()).Execute()
-    if err != nil {
-        fmt.Fprintf(os.Stderr, "Error when calling `CommonAPI.GetScanReportFields``: %v\n", err)
-        fmt.Fprintf(os.Stderr, "Full HTTP response: %v\n", r)
-    }
-    // response from `GetScanReportFields`: ModelScanReportFieldsResponse
-    fmt.Fprintf(os.Stdout, "Response from `CommonAPI.GetScanReportFields`: %v\n", resp)
+	configuration := openapiclient.NewConfiguration()
+	apiClient := openapiclient.NewAPIClient(configuration)
+	resp, r, err := apiClient.CommonAPI.GetScanReportFields(context.Background()).Execute()
+	if err != nil {
+		fmt.Fprintf(os.Stderr, "Error when calling `CommonAPI.GetScanReportFields``: %v\n", err)
+		fmt.Fprintf(os.Stderr, "Full HTTP response: %v\n", r)
+	}
+	// response from `GetScanReportFields`: ModelScanReportFieldsResponse
+	fmt.Fprintf(os.Stdout, "Response from `CommonAPI.GetScanReportFields`: %v\n", resp)
 }
 ```
 

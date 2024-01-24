@@ -26,24 +26,24 @@ Get Cloud Compliance Diff
 package main
 
 import (
-    "context"
-    "fmt"
-    "os"
-    openapiclient "github.com/deepfence/golang_deepfence_sdk/client"
+	"context"
+	"fmt"
+	"os"
+	openapiclient "github.com/deepfence/golang_deepfence_sdk/client"
 )
 
 func main() {
-    modelScanCompareReq := *openapiclient.NewModelScanCompareReq("BaseScanId_example", *openapiclient.NewReportersFieldsFilters([]openapiclient.ReportersCompareFilter{*openapiclient.NewReportersCompareFilter("FieldName_example", interface{}(123), false)}, *openapiclient.NewReportersContainsFilter(map[string][]interface{}{"key": []interface{}{nil}}), *openapiclient.NewReportersMatchFilter(map[string][]interface{}{"key": []interface{}{nil}}), *openapiclient.NewReportersOrderFilter([]openapiclient.ReportersOrderSpec{*openapiclient.NewReportersOrderSpec(false, "FieldName_example")})), "ToScanId_example", *openapiclient.NewModelFetchWindow(int32(123), int32(123))) // ModelScanCompareReq |  (optional)
+	modelScanCompareReq := *openapiclient.NewModelScanCompareReq("BaseScanId_example", *openapiclient.NewReportersFieldsFilters([]openapiclient.ReportersCompareFilter{*openapiclient.NewReportersCompareFilter("FieldName_example", interface{}(123), false)}, *openapiclient.NewReportersContainsFilter(map[string][]interface{}{"key": []interface{}{nil}}), *openapiclient.NewReportersMatchFilter(map[string][]interface{}{"key": []interface{}{nil}}), *openapiclient.NewReportersOrderFilter([]openapiclient.ReportersOrderSpec{*openapiclient.NewReportersOrderSpec(false, "FieldName_example")})), "ToScanId_example", *openapiclient.NewModelFetchWindow(int32(123), int32(123))) // ModelScanCompareReq |  (optional)
 
-    configuration := openapiclient.NewConfiguration()
-    apiClient := openapiclient.NewAPIClient(configuration)
-    resp, r, err := apiClient.DiffAddAPI.DiffAddCloudCompliance(context.Background()).ModelScanCompareReq(modelScanCompareReq).Execute()
-    if err != nil {
-        fmt.Fprintf(os.Stderr, "Error when calling `DiffAddAPI.DiffAddCloudCompliance``: %v\n", err)
-        fmt.Fprintf(os.Stderr, "Full HTTP response: %v\n", r)
-    }
-    // response from `DiffAddCloudCompliance`: ModelScanCompareResGithubComDeepfenceThreatMapperDeepfenceServerModelCloudCompliance
-    fmt.Fprintf(os.Stdout, "Response from `DiffAddAPI.DiffAddCloudCompliance`: %v\n", resp)
+	configuration := openapiclient.NewConfiguration()
+	apiClient := openapiclient.NewAPIClient(configuration)
+	resp, r, err := apiClient.DiffAddAPI.DiffAddCloudCompliance(context.Background()).ModelScanCompareReq(modelScanCompareReq).Execute()
+	if err != nil {
+		fmt.Fprintf(os.Stderr, "Error when calling `DiffAddAPI.DiffAddCloudCompliance``: %v\n", err)
+		fmt.Fprintf(os.Stderr, "Full HTTP response: %v\n", r)
+	}
+	// response from `DiffAddCloudCompliance`: ModelScanCompareResGithubComDeepfenceThreatMapperDeepfenceServerModelCloudCompliance
+	fmt.Fprintf(os.Stdout, "Response from `DiffAddAPI.DiffAddCloudCompliance`: %v\n", resp)
 }
 ```
 
@@ -92,24 +92,24 @@ Get Compliance Diff
 package main
 
 import (
-    "context"
-    "fmt"
-    "os"
-    openapiclient "github.com/deepfence/golang_deepfence_sdk/client"
+	"context"
+	"fmt"
+	"os"
+	openapiclient "github.com/deepfence/golang_deepfence_sdk/client"
 )
 
 func main() {
-    modelScanCompareReq := *openapiclient.NewModelScanCompareReq("BaseScanId_example", *openapiclient.NewReportersFieldsFilters([]openapiclient.ReportersCompareFilter{*openapiclient.NewReportersCompareFilter("FieldName_example", interface{}(123), false)}, *openapiclient.NewReportersContainsFilter(map[string][]interface{}{"key": []interface{}{nil}}), *openapiclient.NewReportersMatchFilter(map[string][]interface{}{"key": []interface{}{nil}}), *openapiclient.NewReportersOrderFilter([]openapiclient.ReportersOrderSpec{*openapiclient.NewReportersOrderSpec(false, "FieldName_example")})), "ToScanId_example", *openapiclient.NewModelFetchWindow(int32(123), int32(123))) // ModelScanCompareReq |  (optional)
+	modelScanCompareReq := *openapiclient.NewModelScanCompareReq("BaseScanId_example", *openapiclient.NewReportersFieldsFilters([]openapiclient.ReportersCompareFilter{*openapiclient.NewReportersCompareFilter("FieldName_example", interface{}(123), false)}, *openapiclient.NewReportersContainsFilter(map[string][]interface{}{"key": []interface{}{nil}}), *openapiclient.NewReportersMatchFilter(map[string][]interface{}{"key": []interface{}{nil}}), *openapiclient.NewReportersOrderFilter([]openapiclient.ReportersOrderSpec{*openapiclient.NewReportersOrderSpec(false, "FieldName_example")})), "ToScanId_example", *openapiclient.NewModelFetchWindow(int32(123), int32(123))) // ModelScanCompareReq |  (optional)
 
-    configuration := openapiclient.NewConfiguration()
-    apiClient := openapiclient.NewAPIClient(configuration)
-    resp, r, err := apiClient.DiffAddAPI.DiffAddCompliance(context.Background()).ModelScanCompareReq(modelScanCompareReq).Execute()
-    if err != nil {
-        fmt.Fprintf(os.Stderr, "Error when calling `DiffAddAPI.DiffAddCompliance``: %v\n", err)
-        fmt.Fprintf(os.Stderr, "Full HTTP response: %v\n", r)
-    }
-    // response from `DiffAddCompliance`: ModelScanCompareResGithubComDeepfenceThreatMapperDeepfenceServerModelCompliance
-    fmt.Fprintf(os.Stdout, "Response from `DiffAddAPI.DiffAddCompliance`: %v\n", resp)
+	configuration := openapiclient.NewConfiguration()
+	apiClient := openapiclient.NewAPIClient(configuration)
+	resp, r, err := apiClient.DiffAddAPI.DiffAddCompliance(context.Background()).ModelScanCompareReq(modelScanCompareReq).Execute()
+	if err != nil {
+		fmt.Fprintf(os.Stderr, "Error when calling `DiffAddAPI.DiffAddCompliance``: %v\n", err)
+		fmt.Fprintf(os.Stderr, "Full HTTP response: %v\n", r)
+	}
+	// response from `DiffAddCompliance`: ModelScanCompareResGithubComDeepfenceThreatMapperDeepfenceServerModelCompliance
+	fmt.Fprintf(os.Stdout, "Response from `DiffAddAPI.DiffAddCompliance`: %v\n", resp)
 }
 ```
 
@@ -158,24 +158,24 @@ Get Malware Diff
 package main
 
 import (
-    "context"
-    "fmt"
-    "os"
-    openapiclient "github.com/deepfence/golang_deepfence_sdk/client"
+	"context"
+	"fmt"
+	"os"
+	openapiclient "github.com/deepfence/golang_deepfence_sdk/client"
 )
 
 func main() {
-    modelScanCompareReq := *openapiclient.NewModelScanCompareReq("BaseScanId_example", *openapiclient.NewReportersFieldsFilters([]openapiclient.ReportersCompareFilter{*openapiclient.NewReportersCompareFilter("FieldName_example", interface{}(123), false)}, *openapiclient.NewReportersContainsFilter(map[string][]interface{}{"key": []interface{}{nil}}), *openapiclient.NewReportersMatchFilter(map[string][]interface{}{"key": []interface{}{nil}}), *openapiclient.NewReportersOrderFilter([]openapiclient.ReportersOrderSpec{*openapiclient.NewReportersOrderSpec(false, "FieldName_example")})), "ToScanId_example", *openapiclient.NewModelFetchWindow(int32(123), int32(123))) // ModelScanCompareReq |  (optional)
+	modelScanCompareReq := *openapiclient.NewModelScanCompareReq("BaseScanId_example", *openapiclient.NewReportersFieldsFilters([]openapiclient.ReportersCompareFilter{*openapiclient.NewReportersCompareFilter("FieldName_example", interface{}(123), false)}, *openapiclient.NewReportersContainsFilter(map[string][]interface{}{"key": []interface{}{nil}}), *openapiclient.NewReportersMatchFilter(map[string][]interface{}{"key": []interface{}{nil}}), *openapiclient.NewReportersOrderFilter([]openapiclient.ReportersOrderSpec{*openapiclient.NewReportersOrderSpec(false, "FieldName_example")})), "ToScanId_example", *openapiclient.NewModelFetchWindow(int32(123), int32(123))) // ModelScanCompareReq |  (optional)
 
-    configuration := openapiclient.NewConfiguration()
-    apiClient := openapiclient.NewAPIClient(configuration)
-    resp, r, err := apiClient.DiffAddAPI.DiffAddMalware(context.Background()).ModelScanCompareReq(modelScanCompareReq).Execute()
-    if err != nil {
-        fmt.Fprintf(os.Stderr, "Error when calling `DiffAddAPI.DiffAddMalware``: %v\n", err)
-        fmt.Fprintf(os.Stderr, "Full HTTP response: %v\n", r)
-    }
-    // response from `DiffAddMalware`: ModelScanCompareResGithubComDeepfenceThreatMapperDeepfenceServerModelMalware
-    fmt.Fprintf(os.Stdout, "Response from `DiffAddAPI.DiffAddMalware`: %v\n", resp)
+	configuration := openapiclient.NewConfiguration()
+	apiClient := openapiclient.NewAPIClient(configuration)
+	resp, r, err := apiClient.DiffAddAPI.DiffAddMalware(context.Background()).ModelScanCompareReq(modelScanCompareReq).Execute()
+	if err != nil {
+		fmt.Fprintf(os.Stderr, "Error when calling `DiffAddAPI.DiffAddMalware``: %v\n", err)
+		fmt.Fprintf(os.Stderr, "Full HTTP response: %v\n", r)
+	}
+	// response from `DiffAddMalware`: ModelScanCompareResGithubComDeepfenceThreatMapperDeepfenceServerModelMalware
+	fmt.Fprintf(os.Stdout, "Response from `DiffAddAPI.DiffAddMalware`: %v\n", resp)
 }
 ```
 
@@ -224,24 +224,24 @@ Get Secret Diff
 package main
 
 import (
-    "context"
-    "fmt"
-    "os"
-    openapiclient "github.com/deepfence/golang_deepfence_sdk/client"
+	"context"
+	"fmt"
+	"os"
+	openapiclient "github.com/deepfence/golang_deepfence_sdk/client"
 )
 
 func main() {
-    modelScanCompareReq := *openapiclient.NewModelScanCompareReq("BaseScanId_example", *openapiclient.NewReportersFieldsFilters([]openapiclient.ReportersCompareFilter{*openapiclient.NewReportersCompareFilter("FieldName_example", interface{}(123), false)}, *openapiclient.NewReportersContainsFilter(map[string][]interface{}{"key": []interface{}{nil}}), *openapiclient.NewReportersMatchFilter(map[string][]interface{}{"key": []interface{}{nil}}), *openapiclient.NewReportersOrderFilter([]openapiclient.ReportersOrderSpec{*openapiclient.NewReportersOrderSpec(false, "FieldName_example")})), "ToScanId_example", *openapiclient.NewModelFetchWindow(int32(123), int32(123))) // ModelScanCompareReq |  (optional)
+	modelScanCompareReq := *openapiclient.NewModelScanCompareReq("BaseScanId_example", *openapiclient.NewReportersFieldsFilters([]openapiclient.ReportersCompareFilter{*openapiclient.NewReportersCompareFilter("FieldName_example", interface{}(123), false)}, *openapiclient.NewReportersContainsFilter(map[string][]interface{}{"key": []interface{}{nil}}), *openapiclient.NewReportersMatchFilter(map[string][]interface{}{"key": []interface{}{nil}}), *openapiclient.NewReportersOrderFilter([]openapiclient.ReportersOrderSpec{*openapiclient.NewReportersOrderSpec(false, "FieldName_example")})), "ToScanId_example", *openapiclient.NewModelFetchWindow(int32(123), int32(123))) // ModelScanCompareReq |  (optional)
 
-    configuration := openapiclient.NewConfiguration()
-    apiClient := openapiclient.NewAPIClient(configuration)
-    resp, r, err := apiClient.DiffAddAPI.DiffAddSecret(context.Background()).ModelScanCompareReq(modelScanCompareReq).Execute()
-    if err != nil {
-        fmt.Fprintf(os.Stderr, "Error when calling `DiffAddAPI.DiffAddSecret``: %v\n", err)
-        fmt.Fprintf(os.Stderr, "Full HTTP response: %v\n", r)
-    }
-    // response from `DiffAddSecret`: ModelScanCompareResGithubComDeepfenceThreatMapperDeepfenceServerModelSecret
-    fmt.Fprintf(os.Stdout, "Response from `DiffAddAPI.DiffAddSecret`: %v\n", resp)
+	configuration := openapiclient.NewConfiguration()
+	apiClient := openapiclient.NewAPIClient(configuration)
+	resp, r, err := apiClient.DiffAddAPI.DiffAddSecret(context.Background()).ModelScanCompareReq(modelScanCompareReq).Execute()
+	if err != nil {
+		fmt.Fprintf(os.Stderr, "Error when calling `DiffAddAPI.DiffAddSecret``: %v\n", err)
+		fmt.Fprintf(os.Stderr, "Full HTTP response: %v\n", r)
+	}
+	// response from `DiffAddSecret`: ModelScanCompareResGithubComDeepfenceThreatMapperDeepfenceServerModelSecret
+	fmt.Fprintf(os.Stdout, "Response from `DiffAddAPI.DiffAddSecret`: %v\n", resp)
 }
 ```
 
@@ -290,24 +290,24 @@ Get Vulnerability Diff
 package main
 
 import (
-    "context"
-    "fmt"
-    "os"
-    openapiclient "github.com/deepfence/golang_deepfence_sdk/client"
+	"context"
+	"fmt"
+	"os"
+	openapiclient "github.com/deepfence/golang_deepfence_sdk/client"
 )
 
 func main() {
-    modelScanCompareReq := *openapiclient.NewModelScanCompareReq("BaseScanId_example", *openapiclient.NewReportersFieldsFilters([]openapiclient.ReportersCompareFilter{*openapiclient.NewReportersCompareFilter("FieldName_example", interface{}(123), false)}, *openapiclient.NewReportersContainsFilter(map[string][]interface{}{"key": []interface{}{nil}}), *openapiclient.NewReportersMatchFilter(map[string][]interface{}{"key": []interface{}{nil}}), *openapiclient.NewReportersOrderFilter([]openapiclient.ReportersOrderSpec{*openapiclient.NewReportersOrderSpec(false, "FieldName_example")})), "ToScanId_example", *openapiclient.NewModelFetchWindow(int32(123), int32(123))) // ModelScanCompareReq |  (optional)
+	modelScanCompareReq := *openapiclient.NewModelScanCompareReq("BaseScanId_example", *openapiclient.NewReportersFieldsFilters([]openapiclient.ReportersCompareFilter{*openapiclient.NewReportersCompareFilter("FieldName_example", interface{}(123), false)}, *openapiclient.NewReportersContainsFilter(map[string][]interface{}{"key": []interface{}{nil}}), *openapiclient.NewReportersMatchFilter(map[string][]interface{}{"key": []interface{}{nil}}), *openapiclient.NewReportersOrderFilter([]openapiclient.ReportersOrderSpec{*openapiclient.NewReportersOrderSpec(false, "FieldName_example")})), "ToScanId_example", *openapiclient.NewModelFetchWindow(int32(123), int32(123))) // ModelScanCompareReq |  (optional)
 
-    configuration := openapiclient.NewConfiguration()
-    apiClient := openapiclient.NewAPIClient(configuration)
-    resp, r, err := apiClient.DiffAddAPI.DiffAddVulnerability(context.Background()).ModelScanCompareReq(modelScanCompareReq).Execute()
-    if err != nil {
-        fmt.Fprintf(os.Stderr, "Error when calling `DiffAddAPI.DiffAddVulnerability``: %v\n", err)
-        fmt.Fprintf(os.Stderr, "Full HTTP response: %v\n", r)
-    }
-    // response from `DiffAddVulnerability`: ModelScanCompareResGithubComDeepfenceThreatMapperDeepfenceServerModelVulnerability
-    fmt.Fprintf(os.Stdout, "Response from `DiffAddAPI.DiffAddVulnerability`: %v\n", resp)
+	configuration := openapiclient.NewConfiguration()
+	apiClient := openapiclient.NewAPIClient(configuration)
+	resp, r, err := apiClient.DiffAddAPI.DiffAddVulnerability(context.Background()).ModelScanCompareReq(modelScanCompareReq).Execute()
+	if err != nil {
+		fmt.Fprintf(os.Stderr, "Error when calling `DiffAddAPI.DiffAddVulnerability``: %v\n", err)
+		fmt.Fprintf(os.Stderr, "Full HTTP response: %v\n", r)
+	}
+	// response from `DiffAddVulnerability`: ModelScanCompareResGithubComDeepfenceThreatMapperDeepfenceServerModelVulnerability
+	fmt.Fprintf(os.Stdout, "Response from `DiffAddAPI.DiffAddVulnerability`: %v\n", resp)
 }
 ```
 

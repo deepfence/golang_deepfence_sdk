@@ -13,6 +13,7 @@ package client
 
 import (
 	"encoding/json"
+	"bytes"
 	"fmt"
 )
 
@@ -26,6 +27,7 @@ type ModelHost struct {
 	CloudAccountId string `json:"cloud_account_id"`
 	CloudProvider string `json:"cloud_provider"`
 	CloudRegion string `json:"cloud_region"`
+	CloudWarnAlarmCount int32 `json:"cloud_warn_alarm_count"`
 	ComplianceLatestScanId string `json:"compliance_latest_scan_id"`
 	ComplianceScanStatus string `json:"compliance_scan_status"`
 	CompliancesCount int32 `json:"compliances_count"`
@@ -33,6 +35,9 @@ type ModelHost struct {
 	Containers []ModelContainer `json:"containers"`
 	CpuMax float32 `json:"cpu_max"`
 	CpuUsage float32 `json:"cpu_usage"`
+	ExploitableMalwaresCount int32 `json:"exploitable_malwares_count"`
+	ExploitableSecretsCount int32 `json:"exploitable_secrets_count"`
+	ExploitableVulnerabilitiesCount int32 `json:"exploitable_vulnerabilities_count"`
 	HostName string `json:"host_name"`
 	InboundConnections []ModelConnection `json:"inbound_connections"`
 	InstanceId string `json:"instance_id"`
@@ -64,6 +69,7 @@ type ModelHost struct {
 	VulnerabilitiesCount int32 `json:"vulnerabilities_count"`
 	VulnerabilityLatestScanId string `json:"vulnerability_latest_scan_id"`
 	VulnerabilityScanStatus string `json:"vulnerability_scan_status"`
+	WarnAlarmCount int32 `json:"warn_alarm_count"`
 }
 
 type _ModelHost ModelHost
@@ -72,13 +78,14 @@ type _ModelHost ModelHost
 // This constructor will assign default values to properties that have it defined,
 // and makes sure properties required by API are set, but the set of arguments
 // will change when the set of required properties is changed
-func NewModelHost(agentRunning bool, availabilityZone string, cloudAccountId string, cloudProvider string, cloudRegion string, complianceLatestScanId string, complianceScanStatus string, compliancesCount int32, containerImages []ModelContainerImage, containers []ModelContainer, cpuMax float32, cpuUsage float32, hostName string, inboundConnections []ModelConnection, instanceId string, instanceType string, isConsoleVm bool, kernelId string, kernelVersion string, localCidr []interface{}, localNetworks []interface{}, malwareLatestScanId string, malwareScanStatus string, malwaresCount int32, memoryMax int32, memoryUsage int32, nodeId string, nodeName string, os string, outboundConnections []ModelConnection, pods []ModelPod, privateIp []interface{}, processes []ModelProcess, publicIp []interface{}, resourceGroup string, secretLatestScanId string, secretScanStatus string, secretsCount int32, uptime int32, version string, vulnerabilitiesCount int32, vulnerabilityLatestScanId string, vulnerabilityScanStatus string) *ModelHost {
+func NewModelHost(agentRunning bool, availabilityZone string, cloudAccountId string, cloudProvider string, cloudRegion string, cloudWarnAlarmCount int32, complianceLatestScanId string, complianceScanStatus string, compliancesCount int32, containerImages []ModelContainerImage, containers []ModelContainer, cpuMax float32, cpuUsage float32, exploitableMalwaresCount int32, exploitableSecretsCount int32, exploitableVulnerabilitiesCount int32, hostName string, inboundConnections []ModelConnection, instanceId string, instanceType string, isConsoleVm bool, kernelId string, kernelVersion string, localCidr []interface{}, localNetworks []interface{}, malwareLatestScanId string, malwareScanStatus string, malwaresCount int32, memoryMax int32, memoryUsage int32, nodeId string, nodeName string, os string, outboundConnections []ModelConnection, pods []ModelPod, privateIp []interface{}, processes []ModelProcess, publicIp []interface{}, resourceGroup string, secretLatestScanId string, secretScanStatus string, secretsCount int32, uptime int32, version string, vulnerabilitiesCount int32, vulnerabilityLatestScanId string, vulnerabilityScanStatus string, warnAlarmCount int32) *ModelHost {
 	this := ModelHost{}
 	this.AgentRunning = agentRunning
 	this.AvailabilityZone = availabilityZone
 	this.CloudAccountId = cloudAccountId
 	this.CloudProvider = cloudProvider
 	this.CloudRegion = cloudRegion
+	this.CloudWarnAlarmCount = cloudWarnAlarmCount
 	this.ComplianceLatestScanId = complianceLatestScanId
 	this.ComplianceScanStatus = complianceScanStatus
 	this.CompliancesCount = compliancesCount
@@ -86,6 +93,9 @@ func NewModelHost(agentRunning bool, availabilityZone string, cloudAccountId str
 	this.Containers = containers
 	this.CpuMax = cpuMax
 	this.CpuUsage = cpuUsage
+	this.ExploitableMalwaresCount = exploitableMalwaresCount
+	this.ExploitableSecretsCount = exploitableSecretsCount
+	this.ExploitableVulnerabilitiesCount = exploitableVulnerabilitiesCount
 	this.HostName = hostName
 	this.InboundConnections = inboundConnections
 	this.InstanceId = instanceId
@@ -117,6 +127,7 @@ func NewModelHost(agentRunning bool, availabilityZone string, cloudAccountId str
 	this.VulnerabilitiesCount = vulnerabilitiesCount
 	this.VulnerabilityLatestScanId = vulnerabilityLatestScanId
 	this.VulnerabilityScanStatus = vulnerabilityScanStatus
+	this.WarnAlarmCount = warnAlarmCount
 	return &this
 }
 
@@ -246,6 +257,30 @@ func (o *ModelHost) GetCloudRegionOk() (*string, bool) {
 // SetCloudRegion sets field value
 func (o *ModelHost) SetCloudRegion(v string) {
 	o.CloudRegion = v
+}
+
+// GetCloudWarnAlarmCount returns the CloudWarnAlarmCount field value
+func (o *ModelHost) GetCloudWarnAlarmCount() int32 {
+	if o == nil {
+		var ret int32
+		return ret
+	}
+
+	return o.CloudWarnAlarmCount
+}
+
+// GetCloudWarnAlarmCountOk returns a tuple with the CloudWarnAlarmCount field value
+// and a boolean to check if the value has been set.
+func (o *ModelHost) GetCloudWarnAlarmCountOk() (*int32, bool) {
+	if o == nil {
+		return nil, false
+	}
+	return &o.CloudWarnAlarmCount, true
+}
+
+// SetCloudWarnAlarmCount sets field value
+func (o *ModelHost) SetCloudWarnAlarmCount(v int32) {
+	o.CloudWarnAlarmCount = v
 }
 
 // GetComplianceLatestScanId returns the ComplianceLatestScanId field value
@@ -418,6 +453,78 @@ func (o *ModelHost) GetCpuUsageOk() (*float32, bool) {
 // SetCpuUsage sets field value
 func (o *ModelHost) SetCpuUsage(v float32) {
 	o.CpuUsage = v
+}
+
+// GetExploitableMalwaresCount returns the ExploitableMalwaresCount field value
+func (o *ModelHost) GetExploitableMalwaresCount() int32 {
+	if o == nil {
+		var ret int32
+		return ret
+	}
+
+	return o.ExploitableMalwaresCount
+}
+
+// GetExploitableMalwaresCountOk returns a tuple with the ExploitableMalwaresCount field value
+// and a boolean to check if the value has been set.
+func (o *ModelHost) GetExploitableMalwaresCountOk() (*int32, bool) {
+	if o == nil {
+		return nil, false
+	}
+	return &o.ExploitableMalwaresCount, true
+}
+
+// SetExploitableMalwaresCount sets field value
+func (o *ModelHost) SetExploitableMalwaresCount(v int32) {
+	o.ExploitableMalwaresCount = v
+}
+
+// GetExploitableSecretsCount returns the ExploitableSecretsCount field value
+func (o *ModelHost) GetExploitableSecretsCount() int32 {
+	if o == nil {
+		var ret int32
+		return ret
+	}
+
+	return o.ExploitableSecretsCount
+}
+
+// GetExploitableSecretsCountOk returns a tuple with the ExploitableSecretsCount field value
+// and a boolean to check if the value has been set.
+func (o *ModelHost) GetExploitableSecretsCountOk() (*int32, bool) {
+	if o == nil {
+		return nil, false
+	}
+	return &o.ExploitableSecretsCount, true
+}
+
+// SetExploitableSecretsCount sets field value
+func (o *ModelHost) SetExploitableSecretsCount(v int32) {
+	o.ExploitableSecretsCount = v
+}
+
+// GetExploitableVulnerabilitiesCount returns the ExploitableVulnerabilitiesCount field value
+func (o *ModelHost) GetExploitableVulnerabilitiesCount() int32 {
+	if o == nil {
+		var ret int32
+		return ret
+	}
+
+	return o.ExploitableVulnerabilitiesCount
+}
+
+// GetExploitableVulnerabilitiesCountOk returns a tuple with the ExploitableVulnerabilitiesCount field value
+// and a boolean to check if the value has been set.
+func (o *ModelHost) GetExploitableVulnerabilitiesCountOk() (*int32, bool) {
+	if o == nil {
+		return nil, false
+	}
+	return &o.ExploitableVulnerabilitiesCount, true
+}
+
+// SetExploitableVulnerabilitiesCount sets field value
+func (o *ModelHost) SetExploitableVulnerabilitiesCount(v int32) {
+	o.ExploitableVulnerabilitiesCount = v
 }
 
 // GetHostName returns the HostName field value
@@ -1180,6 +1287,30 @@ func (o *ModelHost) SetVulnerabilityScanStatus(v string) {
 	o.VulnerabilityScanStatus = v
 }
 
+// GetWarnAlarmCount returns the WarnAlarmCount field value
+func (o *ModelHost) GetWarnAlarmCount() int32 {
+	if o == nil {
+		var ret int32
+		return ret
+	}
+
+	return o.WarnAlarmCount
+}
+
+// GetWarnAlarmCountOk returns a tuple with the WarnAlarmCount field value
+// and a boolean to check if the value has been set.
+func (o *ModelHost) GetWarnAlarmCountOk() (*int32, bool) {
+	if o == nil {
+		return nil, false
+	}
+	return &o.WarnAlarmCount, true
+}
+
+// SetWarnAlarmCount sets field value
+func (o *ModelHost) SetWarnAlarmCount(v int32) {
+	o.WarnAlarmCount = v
+}
+
 func (o ModelHost) MarshalJSON() ([]byte, error) {
 	toSerialize,err := o.ToMap()
 	if err != nil {
@@ -1195,6 +1326,7 @@ func (o ModelHost) ToMap() (map[string]interface{}, error) {
 	toSerialize["cloud_account_id"] = o.CloudAccountId
 	toSerialize["cloud_provider"] = o.CloudProvider
 	toSerialize["cloud_region"] = o.CloudRegion
+	toSerialize["cloud_warn_alarm_count"] = o.CloudWarnAlarmCount
 	toSerialize["compliance_latest_scan_id"] = o.ComplianceLatestScanId
 	toSerialize["compliance_scan_status"] = o.ComplianceScanStatus
 	toSerialize["compliances_count"] = o.CompliancesCount
@@ -1206,6 +1338,9 @@ func (o ModelHost) ToMap() (map[string]interface{}, error) {
 	}
 	toSerialize["cpu_max"] = o.CpuMax
 	toSerialize["cpu_usage"] = o.CpuUsage
+	toSerialize["exploitable_malwares_count"] = o.ExploitableMalwaresCount
+	toSerialize["exploitable_secrets_count"] = o.ExploitableSecretsCount
+	toSerialize["exploitable_vulnerabilities_count"] = o.ExploitableVulnerabilitiesCount
 	toSerialize["host_name"] = o.HostName
 	if o.InboundConnections != nil {
 		toSerialize["inbound_connections"] = o.InboundConnections
@@ -1253,11 +1388,12 @@ func (o ModelHost) ToMap() (map[string]interface{}, error) {
 	toSerialize["vulnerabilities_count"] = o.VulnerabilitiesCount
 	toSerialize["vulnerability_latest_scan_id"] = o.VulnerabilityLatestScanId
 	toSerialize["vulnerability_scan_status"] = o.VulnerabilityScanStatus
+	toSerialize["warn_alarm_count"] = o.WarnAlarmCount
 	return toSerialize, nil
 }
 
-func (o *ModelHost) UnmarshalJSON(bytes []byte) (err error) {
-    // This validates that all required properties are included in the JSON object
+func (o *ModelHost) UnmarshalJSON(data []byte) (err error) {
+	// This validates that all required properties are included in the JSON object
 	// by unmarshalling the object into a generic map with string keys and checking
 	// that every required field exists as a key in the generic map.
 	requiredProperties := []string{
@@ -1266,6 +1402,7 @@ func (o *ModelHost) UnmarshalJSON(bytes []byte) (err error) {
 		"cloud_account_id",
 		"cloud_provider",
 		"cloud_region",
+		"cloud_warn_alarm_count",
 		"compliance_latest_scan_id",
 		"compliance_scan_status",
 		"compliances_count",
@@ -1273,6 +1410,9 @@ func (o *ModelHost) UnmarshalJSON(bytes []byte) (err error) {
 		"containers",
 		"cpu_max",
 		"cpu_usage",
+		"exploitable_malwares_count",
+		"exploitable_secrets_count",
+		"exploitable_vulnerabilities_count",
 		"host_name",
 		"inbound_connections",
 		"instance_id",
@@ -1304,11 +1444,12 @@ func (o *ModelHost) UnmarshalJSON(bytes []byte) (err error) {
 		"vulnerabilities_count",
 		"vulnerability_latest_scan_id",
 		"vulnerability_scan_status",
+		"warn_alarm_count",
 	}
 
 	allProperties := make(map[string]interface{})
 
-	err = json.Unmarshal(bytes, &allProperties)
+	err = json.Unmarshal(data, &allProperties)
 
 	if err != nil {
 		return err;
@@ -1322,7 +1463,9 @@ func (o *ModelHost) UnmarshalJSON(bytes []byte) (err error) {
 
 	varModelHost := _ModelHost{}
 
-	err = json.Unmarshal(bytes, &varModelHost)
+	decoder := json.NewDecoder(bytes.NewReader(data))
+	decoder.DisallowUnknownFields()
+	err = decoder.Decode(&varModelHost)
 
 	if err != nil {
 		return err

@@ -13,6 +13,7 @@ package client
 
 import (
 	"encoding/json"
+	"bytes"
 	"fmt"
 )
 
@@ -199,8 +200,8 @@ func (o ModelGenerativeAiIntegrationKubernetesPostureRequest) ToMap() (map[strin
 	return toSerialize, nil
 }
 
-func (o *ModelGenerativeAiIntegrationKubernetesPostureRequest) UnmarshalJSON(bytes []byte) (err error) {
-    // This validates that all required properties are included in the JSON object
+func (o *ModelGenerativeAiIntegrationKubernetesPostureRequest) UnmarshalJSON(data []byte) (err error) {
+	// This validates that all required properties are included in the JSON object
 	// by unmarshalling the object into a generic map with string keys and checking
 	// that every required field exists as a key in the generic map.
 	requiredProperties := []string{
@@ -212,7 +213,7 @@ func (o *ModelGenerativeAiIntegrationKubernetesPostureRequest) UnmarshalJSON(byt
 
 	allProperties := make(map[string]interface{})
 
-	err = json.Unmarshal(bytes, &allProperties)
+	err = json.Unmarshal(data, &allProperties)
 
 	if err != nil {
 		return err;
@@ -226,7 +227,9 @@ func (o *ModelGenerativeAiIntegrationKubernetesPostureRequest) UnmarshalJSON(byt
 
 	varModelGenerativeAiIntegrationKubernetesPostureRequest := _ModelGenerativeAiIntegrationKubernetesPostureRequest{}
 
-	err = json.Unmarshal(bytes, &varModelGenerativeAiIntegrationKubernetesPostureRequest)
+	decoder := json.NewDecoder(bytes.NewReader(data))
+	decoder.DisallowUnknownFields()
+	err = decoder.Decode(&varModelGenerativeAiIntegrationKubernetesPostureRequest)
 
 	if err != nil {
 		return err

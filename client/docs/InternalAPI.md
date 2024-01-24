@@ -22,23 +22,23 @@ Get api-token for console agent
 package main
 
 import (
-    "context"
-    "fmt"
-    "os"
-    openapiclient "github.com/deepfence/golang_deepfence_sdk/client"
+	"context"
+	"fmt"
+	"os"
+	openapiclient "github.com/deepfence/golang_deepfence_sdk/client"
 )
 
 func main() {
 
-    configuration := openapiclient.NewConfiguration()
-    apiClient := openapiclient.NewAPIClient(configuration)
-    resp, r, err := apiClient.InternalAPI.GetConsoleApiToken(context.Background()).Execute()
-    if err != nil {
-        fmt.Fprintf(os.Stderr, "Error when calling `InternalAPI.GetConsoleApiToken``: %v\n", err)
-        fmt.Fprintf(os.Stderr, "Full HTTP response: %v\n", r)
-    }
-    // response from `GetConsoleApiToken`: ModelAPIAuthRequest
-    fmt.Fprintf(os.Stdout, "Response from `InternalAPI.GetConsoleApiToken`: %v\n", resp)
+	configuration := openapiclient.NewConfiguration()
+	apiClient := openapiclient.NewAPIClient(configuration)
+	resp, r, err := apiClient.InternalAPI.GetConsoleApiToken(context.Background()).Execute()
+	if err != nil {
+		fmt.Fprintf(os.Stderr, "Error when calling `InternalAPI.GetConsoleApiToken``: %v\n", err)
+		fmt.Fprintf(os.Stderr, "Full HTTP response: %v\n", r)
+	}
+	// response from `GetConsoleApiToken`: ModelAPIAuthRequest
+	fmt.Fprintf(os.Stdout, "Response from `InternalAPI.GetConsoleApiToken`: %v\n", resp)
 }
 ```
 

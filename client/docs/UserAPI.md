@@ -36,21 +36,21 @@ Delete Current User
 package main
 
 import (
-    "context"
-    "fmt"
-    "os"
-    openapiclient "github.com/deepfence/golang_deepfence_sdk/client"
+	"context"
+	"fmt"
+	"os"
+	openapiclient "github.com/deepfence/golang_deepfence_sdk/client"
 )
 
 func main() {
 
-    configuration := openapiclient.NewConfiguration()
-    apiClient := openapiclient.NewAPIClient(configuration)
-    r, err := apiClient.UserAPI.DeleteCurrentUser(context.Background()).Execute()
-    if err != nil {
-        fmt.Fprintf(os.Stderr, "Error when calling `UserAPI.DeleteCurrentUser``: %v\n", err)
-        fmt.Fprintf(os.Stderr, "Full HTTP response: %v\n", r)
-    }
+	configuration := openapiclient.NewConfiguration()
+	apiClient := openapiclient.NewAPIClient(configuration)
+	r, err := apiClient.UserAPI.DeleteCurrentUser(context.Background()).Execute()
+	if err != nil {
+		fmt.Fprintf(os.Stderr, "Error when calling `UserAPI.DeleteCurrentUser``: %v\n", err)
+		fmt.Fprintf(os.Stderr, "Full HTTP response: %v\n", r)
+	}
 }
 ```
 
@@ -95,22 +95,22 @@ Delete User by User ID
 package main
 
 import (
-    "context"
-    "fmt"
-    "os"
-    openapiclient "github.com/deepfence/golang_deepfence_sdk/client"
+	"context"
+	"fmt"
+	"os"
+	openapiclient "github.com/deepfence/golang_deepfence_sdk/client"
 )
 
 func main() {
-    id := int32(56) // int32 | 
+	id := int32(56) // int32 | 
 
-    configuration := openapiclient.NewConfiguration()
-    apiClient := openapiclient.NewAPIClient(configuration)
-    r, err := apiClient.UserAPI.DeleteUser(context.Background(), id).Execute()
-    if err != nil {
-        fmt.Fprintf(os.Stderr, "Error when calling `UserAPI.DeleteUser``: %v\n", err)
-        fmt.Fprintf(os.Stderr, "Full HTTP response: %v\n", r)
-    }
+	configuration := openapiclient.NewConfiguration()
+	apiClient := openapiclient.NewAPIClient(configuration)
+	r, err := apiClient.UserAPI.DeleteUser(context.Background(), id).Execute()
+	if err != nil {
+		fmt.Fprintf(os.Stderr, "Error when calling `UserAPI.DeleteUser``: %v\n", err)
+		fmt.Fprintf(os.Stderr, "Full HTTP response: %v\n", r)
+	}
 }
 ```
 
@@ -163,23 +163,23 @@ Get User's API Tokens
 package main
 
 import (
-    "context"
-    "fmt"
-    "os"
-    openapiclient "github.com/deepfence/golang_deepfence_sdk/client"
+	"context"
+	"fmt"
+	"os"
+	openapiclient "github.com/deepfence/golang_deepfence_sdk/client"
 )
 
 func main() {
 
-    configuration := openapiclient.NewConfiguration()
-    apiClient := openapiclient.NewAPIClient(configuration)
-    resp, r, err := apiClient.UserAPI.GetApiTokens(context.Background()).Execute()
-    if err != nil {
-        fmt.Fprintf(os.Stderr, "Error when calling `UserAPI.GetApiTokens``: %v\n", err)
-        fmt.Fprintf(os.Stderr, "Full HTTP response: %v\n", r)
-    }
-    // response from `GetApiTokens`: []ModelAPITokenResponse
-    fmt.Fprintf(os.Stdout, "Response from `UserAPI.GetApiTokens`: %v\n", resp)
+	configuration := openapiclient.NewConfiguration()
+	apiClient := openapiclient.NewAPIClient(configuration)
+	resp, r, err := apiClient.UserAPI.GetApiTokens(context.Background()).Execute()
+	if err != nil {
+		fmt.Fprintf(os.Stderr, "Error when calling `UserAPI.GetApiTokens``: %v\n", err)
+		fmt.Fprintf(os.Stderr, "Full HTTP response: %v\n", r)
+	}
+	// response from `GetApiTokens`: []ModelAPITokenResponse
+	fmt.Fprintf(os.Stdout, "Response from `UserAPI.GetApiTokens`: %v\n", resp)
 }
 ```
 
@@ -224,23 +224,23 @@ Get Current User
 package main
 
 import (
-    "context"
-    "fmt"
-    "os"
-    openapiclient "github.com/deepfence/golang_deepfence_sdk/client"
+	"context"
+	"fmt"
+	"os"
+	openapiclient "github.com/deepfence/golang_deepfence_sdk/client"
 )
 
 func main() {
 
-    configuration := openapiclient.NewConfiguration()
-    apiClient := openapiclient.NewAPIClient(configuration)
-    resp, r, err := apiClient.UserAPI.GetCurrentUser(context.Background()).Execute()
-    if err != nil {
-        fmt.Fprintf(os.Stderr, "Error when calling `UserAPI.GetCurrentUser``: %v\n", err)
-        fmt.Fprintf(os.Stderr, "Full HTTP response: %v\n", r)
-    }
-    // response from `GetCurrentUser`: ModelUser
-    fmt.Fprintf(os.Stdout, "Response from `UserAPI.GetCurrentUser`: %v\n", resp)
+	configuration := openapiclient.NewConfiguration()
+	apiClient := openapiclient.NewAPIClient(configuration)
+	resp, r, err := apiClient.UserAPI.GetCurrentUser(context.Background()).Execute()
+	if err != nil {
+		fmt.Fprintf(os.Stderr, "Error when calling `UserAPI.GetCurrentUser``: %v\n", err)
+		fmt.Fprintf(os.Stderr, "Full HTTP response: %v\n", r)
+	}
+	// response from `GetCurrentUser`: ModelUser
+	fmt.Fprintf(os.Stdout, "Response from `UserAPI.GetCurrentUser`: %v\n", resp)
 }
 ```
 
@@ -285,24 +285,24 @@ Get User by User ID
 package main
 
 import (
-    "context"
-    "fmt"
-    "os"
-    openapiclient "github.com/deepfence/golang_deepfence_sdk/client"
+	"context"
+	"fmt"
+	"os"
+	openapiclient "github.com/deepfence/golang_deepfence_sdk/client"
 )
 
 func main() {
-    id := int32(56) // int32 | 
+	id := int32(56) // int32 | 
 
-    configuration := openapiclient.NewConfiguration()
-    apiClient := openapiclient.NewAPIClient(configuration)
-    resp, r, err := apiClient.UserAPI.GetUser(context.Background(), id).Execute()
-    if err != nil {
-        fmt.Fprintf(os.Stderr, "Error when calling `UserAPI.GetUser``: %v\n", err)
-        fmt.Fprintf(os.Stderr, "Full HTTP response: %v\n", r)
-    }
-    // response from `GetUser`: ModelUser
-    fmt.Fprintf(os.Stdout, "Response from `UserAPI.GetUser`: %v\n", resp)
+	configuration := openapiclient.NewConfiguration()
+	apiClient := openapiclient.NewAPIClient(configuration)
+	resp, r, err := apiClient.UserAPI.GetUser(context.Background(), id).Execute()
+	if err != nil {
+		fmt.Fprintf(os.Stderr, "Error when calling `UserAPI.GetUser``: %v\n", err)
+		fmt.Fprintf(os.Stderr, "Full HTTP response: %v\n", r)
+	}
+	// response from `GetUser`: ModelUser
+	fmt.Fprintf(os.Stdout, "Response from `UserAPI.GetUser`: %v\n", resp)
 }
 ```
 
@@ -355,23 +355,23 @@ Get all users
 package main
 
 import (
-    "context"
-    "fmt"
-    "os"
-    openapiclient "github.com/deepfence/golang_deepfence_sdk/client"
+	"context"
+	"fmt"
+	"os"
+	openapiclient "github.com/deepfence/golang_deepfence_sdk/client"
 )
 
 func main() {
 
-    configuration := openapiclient.NewConfiguration()
-    apiClient := openapiclient.NewAPIClient(configuration)
-    resp, r, err := apiClient.UserAPI.GetUsers(context.Background()).Execute()
-    if err != nil {
-        fmt.Fprintf(os.Stderr, "Error when calling `UserAPI.GetUsers``: %v\n", err)
-        fmt.Fprintf(os.Stderr, "Full HTTP response: %v\n", r)
-    }
-    // response from `GetUsers`: []ModelUser
-    fmt.Fprintf(os.Stdout, "Response from `UserAPI.GetUsers`: %v\n", resp)
+	configuration := openapiclient.NewConfiguration()
+	apiClient := openapiclient.NewAPIClient(configuration)
+	resp, r, err := apiClient.UserAPI.GetUsers(context.Background()).Execute()
+	if err != nil {
+		fmt.Fprintf(os.Stderr, "Error when calling `UserAPI.GetUsers``: %v\n", err)
+		fmt.Fprintf(os.Stderr, "Full HTTP response: %v\n", r)
+	}
+	// response from `GetUsers`: []ModelUser
+	fmt.Fprintf(os.Stdout, "Response from `UserAPI.GetUsers`: %v\n", resp)
 }
 ```
 
@@ -416,24 +416,24 @@ Invite User
 package main
 
 import (
-    "context"
-    "fmt"
-    "os"
-    openapiclient "github.com/deepfence/golang_deepfence_sdk/client"
+	"context"
+	"fmt"
+	"os"
+	openapiclient "github.com/deepfence/golang_deepfence_sdk/client"
 )
 
 func main() {
-    modelInviteUserRequest := *openapiclient.NewModelInviteUserRequest("Action_example", "Email_example", "Role_example") // ModelInviteUserRequest |  (optional)
+	modelInviteUserRequest := *openapiclient.NewModelInviteUserRequest("Action_example", "Email_example", "Role_example") // ModelInviteUserRequest |  (optional)
 
-    configuration := openapiclient.NewConfiguration()
-    apiClient := openapiclient.NewAPIClient(configuration)
-    resp, r, err := apiClient.UserAPI.InviteUser(context.Background()).ModelInviteUserRequest(modelInviteUserRequest).Execute()
-    if err != nil {
-        fmt.Fprintf(os.Stderr, "Error when calling `UserAPI.InviteUser``: %v\n", err)
-        fmt.Fprintf(os.Stderr, "Full HTTP response: %v\n", r)
-    }
-    // response from `InviteUser`: ModelInviteUserResponse
-    fmt.Fprintf(os.Stdout, "Response from `UserAPI.InviteUser`: %v\n", resp)
+	configuration := openapiclient.NewConfiguration()
+	apiClient := openapiclient.NewAPIClient(configuration)
+	resp, r, err := apiClient.UserAPI.InviteUser(context.Background()).ModelInviteUserRequest(modelInviteUserRequest).Execute()
+	if err != nil {
+		fmt.Fprintf(os.Stderr, "Error when calling `UserAPI.InviteUser``: %v\n", err)
+		fmt.Fprintf(os.Stderr, "Full HTTP response: %v\n", r)
+	}
+	// response from `InviteUser`: ModelInviteUserResponse
+	fmt.Fprintf(os.Stdout, "Response from `UserAPI.InviteUser`: %v\n", resp)
 }
 ```
 
@@ -482,24 +482,24 @@ Register Invited User
 package main
 
 import (
-    "context"
-    "fmt"
-    "os"
-    openapiclient "github.com/deepfence/golang_deepfence_sdk/client"
+	"context"
+	"fmt"
+	"os"
+	openapiclient "github.com/deepfence/golang_deepfence_sdk/client"
 )
 
 func main() {
-    modelRegisterInvitedUserRequest := *openapiclient.NewModelRegisterInvitedUserRequest("Code_example", "FirstName_example", "LastName_example", "Namespace_example", "Password_example") // ModelRegisterInvitedUserRequest |  (optional)
+	modelRegisterInvitedUserRequest := *openapiclient.NewModelRegisterInvitedUserRequest("Code_example", "FirstName_example", "LastName_example", "Namespace_example", "Password_example") // ModelRegisterInvitedUserRequest |  (optional)
 
-    configuration := openapiclient.NewConfiguration()
-    apiClient := openapiclient.NewAPIClient(configuration)
-    resp, r, err := apiClient.UserAPI.RegisterInvitedUser(context.Background()).ModelRegisterInvitedUserRequest(modelRegisterInvitedUserRequest).Execute()
-    if err != nil {
-        fmt.Fprintf(os.Stderr, "Error when calling `UserAPI.RegisterInvitedUser``: %v\n", err)
-        fmt.Fprintf(os.Stderr, "Full HTTP response: %v\n", r)
-    }
-    // response from `RegisterInvitedUser`: ModelLoginResponse
-    fmt.Fprintf(os.Stdout, "Response from `UserAPI.RegisterInvitedUser`: %v\n", resp)
+	configuration := openapiclient.NewConfiguration()
+	apiClient := openapiclient.NewAPIClient(configuration)
+	resp, r, err := apiClient.UserAPI.RegisterInvitedUser(context.Background()).ModelRegisterInvitedUserRequest(modelRegisterInvitedUserRequest).Execute()
+	if err != nil {
+		fmt.Fprintf(os.Stderr, "Error when calling `UserAPI.RegisterInvitedUser``: %v\n", err)
+		fmt.Fprintf(os.Stderr, "Full HTTP response: %v\n", r)
+	}
+	// response from `RegisterInvitedUser`: ModelLoginResponse
+	fmt.Fprintf(os.Stdout, "Response from `UserAPI.RegisterInvitedUser`: %v\n", resp)
 }
 ```
 
@@ -548,24 +548,24 @@ Register User
 package main
 
 import (
-    "context"
-    "fmt"
-    "os"
-    openapiclient "github.com/deepfence/golang_deepfence_sdk/client"
+	"context"
+	"fmt"
+	"os"
+	openapiclient "github.com/deepfence/golang_deepfence_sdk/client"
 )
 
 func main() {
-    modelUserRegisterRequest := *openapiclient.NewModelUserRegisterRequest("Company_example", "ConsoleUrl_example", "Email_example", "FirstName_example", "LastName_example", "Password_example") // ModelUserRegisterRequest |  (optional)
+	modelUserRegisterRequest := *openapiclient.NewModelUserRegisterRequest("Company_example", "ConsoleUrl_example", "Email_example", "FirstName_example", "LastName_example", "Password_example") // ModelUserRegisterRequest |  (optional)
 
-    configuration := openapiclient.NewConfiguration()
-    apiClient := openapiclient.NewAPIClient(configuration)
-    resp, r, err := apiClient.UserAPI.RegisterUser(context.Background()).ModelUserRegisterRequest(modelUserRegisterRequest).Execute()
-    if err != nil {
-        fmt.Fprintf(os.Stderr, "Error when calling `UserAPI.RegisterUser``: %v\n", err)
-        fmt.Fprintf(os.Stderr, "Full HTTP response: %v\n", r)
-    }
-    // response from `RegisterUser`: ModelLoginResponse
-    fmt.Fprintf(os.Stdout, "Response from `UserAPI.RegisterUser`: %v\n", resp)
+	configuration := openapiclient.NewConfiguration()
+	apiClient := openapiclient.NewAPIClient(configuration)
+	resp, r, err := apiClient.UserAPI.RegisterUser(context.Background()).ModelUserRegisterRequest(modelUserRegisterRequest).Execute()
+	if err != nil {
+		fmt.Fprintf(os.Stderr, "Error when calling `UserAPI.RegisterUser``: %v\n", err)
+		fmt.Fprintf(os.Stderr, "Full HTTP response: %v\n", r)
+	}
+	// response from `RegisterUser`: ModelLoginResponse
+	fmt.Fprintf(os.Stdout, "Response from `UserAPI.RegisterUser`: %v\n", resp)
 }
 ```
 
@@ -614,23 +614,23 @@ Reset User's API Tokens
 package main
 
 import (
-    "context"
-    "fmt"
-    "os"
-    openapiclient "github.com/deepfence/golang_deepfence_sdk/client"
+	"context"
+	"fmt"
+	"os"
+	openapiclient "github.com/deepfence/golang_deepfence_sdk/client"
 )
 
 func main() {
 
-    configuration := openapiclient.NewConfiguration()
-    apiClient := openapiclient.NewAPIClient(configuration)
-    resp, r, err := apiClient.UserAPI.ResetApiTokens(context.Background()).Execute()
-    if err != nil {
-        fmt.Fprintf(os.Stderr, "Error when calling `UserAPI.ResetApiTokens``: %v\n", err)
-        fmt.Fprintf(os.Stderr, "Full HTTP response: %v\n", r)
-    }
-    // response from `ResetApiTokens`: []ModelAPITokenResponse
-    fmt.Fprintf(os.Stdout, "Response from `UserAPI.ResetApiTokens`: %v\n", resp)
+	configuration := openapiclient.NewConfiguration()
+	apiClient := openapiclient.NewAPIClient(configuration)
+	resp, r, err := apiClient.UserAPI.ResetApiTokens(context.Background()).Execute()
+	if err != nil {
+		fmt.Fprintf(os.Stderr, "Error when calling `UserAPI.ResetApiTokens``: %v\n", err)
+		fmt.Fprintf(os.Stderr, "Full HTTP response: %v\n", r)
+	}
+	// response from `ResetApiTokens`: []ModelAPITokenResponse
+	fmt.Fprintf(os.Stdout, "Response from `UserAPI.ResetApiTokens`: %v\n", resp)
 }
 ```
 
@@ -675,24 +675,24 @@ Reset Password Request
 package main
 
 import (
-    "context"
-    "fmt"
-    "os"
-    openapiclient "github.com/deepfence/golang_deepfence_sdk/client"
+	"context"
+	"fmt"
+	"os"
+	openapiclient "github.com/deepfence/golang_deepfence_sdk/client"
 )
 
 func main() {
-    modelPasswordResetRequest := *openapiclient.NewModelPasswordResetRequest("Email_example") // ModelPasswordResetRequest |  (optional)
+	modelPasswordResetRequest := *openapiclient.NewModelPasswordResetRequest("Email_example") // ModelPasswordResetRequest |  (optional)
 
-    configuration := openapiclient.NewConfiguration()
-    apiClient := openapiclient.NewAPIClient(configuration)
-    resp, r, err := apiClient.UserAPI.ResetPasswordRequest(context.Background()).ModelPasswordResetRequest(modelPasswordResetRequest).Execute()
-    if err != nil {
-        fmt.Fprintf(os.Stderr, "Error when calling `UserAPI.ResetPasswordRequest``: %v\n", err)
-        fmt.Fprintf(os.Stderr, "Full HTTP response: %v\n", r)
-    }
-    // response from `ResetPasswordRequest`: ModelMessageResponse
-    fmt.Fprintf(os.Stdout, "Response from `UserAPI.ResetPasswordRequest`: %v\n", resp)
+	configuration := openapiclient.NewConfiguration()
+	apiClient := openapiclient.NewAPIClient(configuration)
+	resp, r, err := apiClient.UserAPI.ResetPasswordRequest(context.Background()).ModelPasswordResetRequest(modelPasswordResetRequest).Execute()
+	if err != nil {
+		fmt.Fprintf(os.Stderr, "Error when calling `UserAPI.ResetPasswordRequest``: %v\n", err)
+		fmt.Fprintf(os.Stderr, "Full HTTP response: %v\n", r)
+	}
+	// response from `ResetPasswordRequest`: ModelMessageResponse
+	fmt.Fprintf(os.Stdout, "Response from `UserAPI.ResetPasswordRequest`: %v\n", resp)
 }
 ```
 
@@ -741,24 +741,24 @@ Update Current User
 package main
 
 import (
-    "context"
-    "fmt"
-    "os"
-    openapiclient "github.com/deepfence/golang_deepfence_sdk/client"
+	"context"
+	"fmt"
+	"os"
+	openapiclient "github.com/deepfence/golang_deepfence_sdk/client"
 )
 
 func main() {
-    modelUpdateUserRequest := *openapiclient.NewModelUpdateUserRequest() // ModelUpdateUserRequest |  (optional)
+	modelUpdateUserRequest := *openapiclient.NewModelUpdateUserRequest() // ModelUpdateUserRequest |  (optional)
 
-    configuration := openapiclient.NewConfiguration()
-    apiClient := openapiclient.NewAPIClient(configuration)
-    resp, r, err := apiClient.UserAPI.UpdateCurrentUser(context.Background()).ModelUpdateUserRequest(modelUpdateUserRequest).Execute()
-    if err != nil {
-        fmt.Fprintf(os.Stderr, "Error when calling `UserAPI.UpdateCurrentUser``: %v\n", err)
-        fmt.Fprintf(os.Stderr, "Full HTTP response: %v\n", r)
-    }
-    // response from `UpdateCurrentUser`: ModelUser
-    fmt.Fprintf(os.Stdout, "Response from `UserAPI.UpdateCurrentUser`: %v\n", resp)
+	configuration := openapiclient.NewConfiguration()
+	apiClient := openapiclient.NewAPIClient(configuration)
+	resp, r, err := apiClient.UserAPI.UpdateCurrentUser(context.Background()).ModelUpdateUserRequest(modelUpdateUserRequest).Execute()
+	if err != nil {
+		fmt.Fprintf(os.Stderr, "Error when calling `UserAPI.UpdateCurrentUser``: %v\n", err)
+		fmt.Fprintf(os.Stderr, "Full HTTP response: %v\n", r)
+	}
+	// response from `UpdateCurrentUser`: ModelUser
+	fmt.Fprintf(os.Stdout, "Response from `UserAPI.UpdateCurrentUser`: %v\n", resp)
 }
 ```
 
@@ -807,22 +807,22 @@ Update Password
 package main
 
 import (
-    "context"
-    "fmt"
-    "os"
-    openapiclient "github.com/deepfence/golang_deepfence_sdk/client"
+	"context"
+	"fmt"
+	"os"
+	openapiclient "github.com/deepfence/golang_deepfence_sdk/client"
 )
 
 func main() {
-    modelUpdateUserPasswordRequest := *openapiclient.NewModelUpdateUserPasswordRequest("NewPassword_example", "OldPassword_example") // ModelUpdateUserPasswordRequest |  (optional)
+	modelUpdateUserPasswordRequest := *openapiclient.NewModelUpdateUserPasswordRequest("NewPassword_example", "OldPassword_example") // ModelUpdateUserPasswordRequest |  (optional)
 
-    configuration := openapiclient.NewConfiguration()
-    apiClient := openapiclient.NewAPIClient(configuration)
-    r, err := apiClient.UserAPI.UpdatePassword(context.Background()).ModelUpdateUserPasswordRequest(modelUpdateUserPasswordRequest).Execute()
-    if err != nil {
-        fmt.Fprintf(os.Stderr, "Error when calling `UserAPI.UpdatePassword``: %v\n", err)
-        fmt.Fprintf(os.Stderr, "Full HTTP response: %v\n", r)
-    }
+	configuration := openapiclient.NewConfiguration()
+	apiClient := openapiclient.NewAPIClient(configuration)
+	r, err := apiClient.UserAPI.UpdatePassword(context.Background()).ModelUpdateUserPasswordRequest(modelUpdateUserPasswordRequest).Execute()
+	if err != nil {
+		fmt.Fprintf(os.Stderr, "Error when calling `UserAPI.UpdatePassword``: %v\n", err)
+		fmt.Fprintf(os.Stderr, "Full HTTP response: %v\n", r)
+	}
 }
 ```
 
@@ -871,25 +871,25 @@ Update User by User ID
 package main
 
 import (
-    "context"
-    "fmt"
-    "os"
-    openapiclient "github.com/deepfence/golang_deepfence_sdk/client"
+	"context"
+	"fmt"
+	"os"
+	openapiclient "github.com/deepfence/golang_deepfence_sdk/client"
 )
 
 func main() {
-    id := int32(56) // int32 | 
-    modelUpdateUserIDRequest := *openapiclient.NewModelUpdateUserIDRequest() // ModelUpdateUserIDRequest |  (optional)
+	id := int32(56) // int32 | 
+	modelUpdateUserIDRequest := *openapiclient.NewModelUpdateUserIDRequest() // ModelUpdateUserIDRequest |  (optional)
 
-    configuration := openapiclient.NewConfiguration()
-    apiClient := openapiclient.NewAPIClient(configuration)
-    resp, r, err := apiClient.UserAPI.UpdateUser(context.Background(), id).ModelUpdateUserIDRequest(modelUpdateUserIDRequest).Execute()
-    if err != nil {
-        fmt.Fprintf(os.Stderr, "Error when calling `UserAPI.UpdateUser``: %v\n", err)
-        fmt.Fprintf(os.Stderr, "Full HTTP response: %v\n", r)
-    }
-    // response from `UpdateUser`: ModelUser
-    fmt.Fprintf(os.Stdout, "Response from `UserAPI.UpdateUser`: %v\n", resp)
+	configuration := openapiclient.NewConfiguration()
+	apiClient := openapiclient.NewAPIClient(configuration)
+	resp, r, err := apiClient.UserAPI.UpdateUser(context.Background(), id).ModelUpdateUserIDRequest(modelUpdateUserIDRequest).Execute()
+	if err != nil {
+		fmt.Fprintf(os.Stderr, "Error when calling `UserAPI.UpdateUser``: %v\n", err)
+		fmt.Fprintf(os.Stderr, "Full HTTP response: %v\n", r)
+	}
+	// response from `UpdateUser`: ModelUser
+	fmt.Fprintf(os.Stdout, "Response from `UserAPI.UpdateUser`: %v\n", resp)
 }
 ```
 
@@ -943,22 +943,22 @@ Verify and Reset Password
 package main
 
 import (
-    "context"
-    "fmt"
-    "os"
-    openapiclient "github.com/deepfence/golang_deepfence_sdk/client"
+	"context"
+	"fmt"
+	"os"
+	openapiclient "github.com/deepfence/golang_deepfence_sdk/client"
 )
 
 func main() {
-    modelPasswordResetVerifyRequest := *openapiclient.NewModelPasswordResetVerifyRequest("Code_example", "Namespace_example", "Password_example") // ModelPasswordResetVerifyRequest |  (optional)
+	modelPasswordResetVerifyRequest := *openapiclient.NewModelPasswordResetVerifyRequest("Code_example", "Namespace_example", "Password_example") // ModelPasswordResetVerifyRequest |  (optional)
 
-    configuration := openapiclient.NewConfiguration()
-    apiClient := openapiclient.NewAPIClient(configuration)
-    r, err := apiClient.UserAPI.VerifyResetPasswordRequest(context.Background()).ModelPasswordResetVerifyRequest(modelPasswordResetVerifyRequest).Execute()
-    if err != nil {
-        fmt.Fprintf(os.Stderr, "Error when calling `UserAPI.VerifyResetPasswordRequest``: %v\n", err)
-        fmt.Fprintf(os.Stderr, "Full HTTP response: %v\n", r)
-    }
+	configuration := openapiclient.NewConfiguration()
+	apiClient := openapiclient.NewAPIClient(configuration)
+	r, err := apiClient.UserAPI.VerifyResetPasswordRequest(context.Background()).ModelPasswordResetVerifyRequest(modelPasswordResetVerifyRequest).Execute()
+	if err != nil {
+		fmt.Fprintf(os.Stderr, "Error when calling `UserAPI.VerifyResetPasswordRequest``: %v\n", err)
+		fmt.Fprintf(os.Stderr, "Full HTTP response: %v\n", r)
+	}
 }
 ```
 

@@ -579,7 +579,7 @@ func (a *SettingsAPIService) GetAgentVersionsExecute(r ApiGetAgentVersionsReques
 		return localVarReturnValue, nil, &GenericOpenAPIError{error: err.Error()}
 	}
 
-	localVarPath := localBasePath + "/deepfence/agent/versions"
+	localVarPath := localBasePath + "/deepfence/settings/agent/versions"
 
 	localVarHeaderParams := make(map[string]string)
 	localVarQueryParams := url.Values{}
@@ -1635,7 +1635,7 @@ func (a *SettingsAPIService) UploadAgentVersionExecute(r ApiUploadAgentVersionRe
 		return nil, &GenericOpenAPIError{error: err.Error()}
 	}
 
-	localVarPath := localBasePath + "/deepfence/agent/version"
+	localVarPath := localBasePath + "/deepfence/settings/agent/version"
 
 	localVarHeaderParams := make(map[string]string)
 	localVarQueryParams := url.Values{}

@@ -24,24 +24,24 @@ Get Completion for host fields
 package main
 
 import (
-    "context"
-    "fmt"
-    "os"
-    openapiclient "github.com/deepfence/golang_deepfence_sdk/client"
+	"context"
+	"fmt"
+	"os"
+	openapiclient "github.com/deepfence/golang_deepfence_sdk/client"
 )
 
 func main() {
-    completionCompletionNodeFieldReq := *openapiclient.NewCompletionCompletionNodeFieldReq("Completion_example", "FieldName_example", *openapiclient.NewModelFetchWindow(int32(123), int32(123))) // CompletionCompletionNodeFieldReq |  (optional)
+	completionCompletionNodeFieldReq := *openapiclient.NewCompletionCompletionNodeFieldReq("Completion_example", "FieldName_example", *openapiclient.NewModelFetchWindow(int32(123), int32(123))) // CompletionCompletionNodeFieldReq |  (optional)
 
-    configuration := openapiclient.NewConfiguration()
-    apiClient := openapiclient.NewAPIClient(configuration)
-    resp, r, err := apiClient.CompletionAPI.CompleteHostInfo(context.Background()).CompletionCompletionNodeFieldReq(completionCompletionNodeFieldReq).Execute()
-    if err != nil {
-        fmt.Fprintf(os.Stderr, "Error when calling `CompletionAPI.CompleteHostInfo``: %v\n", err)
-        fmt.Fprintf(os.Stderr, "Full HTTP response: %v\n", r)
-    }
-    // response from `CompleteHostInfo`: CompletionCompletionNodeFieldRes
-    fmt.Fprintf(os.Stdout, "Response from `CompletionAPI.CompleteHostInfo`: %v\n", resp)
+	configuration := openapiclient.NewConfiguration()
+	apiClient := openapiclient.NewAPIClient(configuration)
+	resp, r, err := apiClient.CompletionAPI.CompleteHostInfo(context.Background()).CompletionCompletionNodeFieldReq(completionCompletionNodeFieldReq).Execute()
+	if err != nil {
+		fmt.Fprintf(os.Stderr, "Error when calling `CompletionAPI.CompleteHostInfo``: %v\n", err)
+		fmt.Fprintf(os.Stderr, "Full HTTP response: %v\n", r)
+	}
+	// response from `CompleteHostInfo`: CompletionCompletionNodeFieldRes
+	fmt.Fprintf(os.Stdout, "Response from `CompletionAPI.CompleteHostInfo`: %v\n", resp)
 }
 ```
 
@@ -90,24 +90,24 @@ Get Completion for process fields
 package main
 
 import (
-    "context"
-    "fmt"
-    "os"
-    openapiclient "github.com/deepfence/golang_deepfence_sdk/client"
+	"context"
+	"fmt"
+	"os"
+	openapiclient "github.com/deepfence/golang_deepfence_sdk/client"
 )
 
 func main() {
-    completionCompletionNodeFieldReq := *openapiclient.NewCompletionCompletionNodeFieldReq("Completion_example", "FieldName_example", *openapiclient.NewModelFetchWindow(int32(123), int32(123))) // CompletionCompletionNodeFieldReq |  (optional)
+	completionCompletionNodeFieldReq := *openapiclient.NewCompletionCompletionNodeFieldReq("Completion_example", "FieldName_example", *openapiclient.NewModelFetchWindow(int32(123), int32(123))) // CompletionCompletionNodeFieldReq |  (optional)
 
-    configuration := openapiclient.NewConfiguration()
-    apiClient := openapiclient.NewAPIClient(configuration)
-    resp, r, err := apiClient.CompletionAPI.CompleteProcessInfo(context.Background()).CompletionCompletionNodeFieldReq(completionCompletionNodeFieldReq).Execute()
-    if err != nil {
-        fmt.Fprintf(os.Stderr, "Error when calling `CompletionAPI.CompleteProcessInfo``: %v\n", err)
-        fmt.Fprintf(os.Stderr, "Full HTTP response: %v\n", r)
-    }
-    // response from `CompleteProcessInfo`: CompletionCompletionNodeFieldRes
-    fmt.Fprintf(os.Stdout, "Response from `CompletionAPI.CompleteProcessInfo`: %v\n", resp)
+	configuration := openapiclient.NewConfiguration()
+	apiClient := openapiclient.NewAPIClient(configuration)
+	resp, r, err := apiClient.CompletionAPI.CompleteProcessInfo(context.Background()).CompletionCompletionNodeFieldReq(completionCompletionNodeFieldReq).Execute()
+	if err != nil {
+		fmt.Fprintf(os.Stderr, "Error when calling `CompletionAPI.CompleteProcessInfo``: %v\n", err)
+		fmt.Fprintf(os.Stderr, "Full HTTP response: %v\n", r)
+	}
+	// response from `CompleteProcessInfo`: CompletionCompletionNodeFieldRes
+	fmt.Fprintf(os.Stdout, "Response from `CompletionAPI.CompleteProcessInfo`: %v\n", resp)
 }
 ```
 
@@ -156,24 +156,24 @@ Get Completion for vulnerability fields
 package main
 
 import (
-    "context"
-    "fmt"
-    "os"
-    openapiclient "github.com/deepfence/golang_deepfence_sdk/client"
+	"context"
+	"fmt"
+	"os"
+	openapiclient "github.com/deepfence/golang_deepfence_sdk/client"
 )
 
 func main() {
-    completionCompletionNodeFieldReq := *openapiclient.NewCompletionCompletionNodeFieldReq("Completion_example", "FieldName_example", *openapiclient.NewModelFetchWindow(int32(123), int32(123))) // CompletionCompletionNodeFieldReq |  (optional)
+	completionCompletionNodeFieldReq := *openapiclient.NewCompletionCompletionNodeFieldReq("Completion_example", "FieldName_example", *openapiclient.NewModelFetchWindow(int32(123), int32(123))) // CompletionCompletionNodeFieldReq |  (optional)
 
-    configuration := openapiclient.NewConfiguration()
-    apiClient := openapiclient.NewAPIClient(configuration)
-    resp, r, err := apiClient.CompletionAPI.CompleteVulnerabilityInfo(context.Background()).CompletionCompletionNodeFieldReq(completionCompletionNodeFieldReq).Execute()
-    if err != nil {
-        fmt.Fprintf(os.Stderr, "Error when calling `CompletionAPI.CompleteVulnerabilityInfo``: %v\n", err)
-        fmt.Fprintf(os.Stderr, "Full HTTP response: %v\n", r)
-    }
-    // response from `CompleteVulnerabilityInfo`: CompletionCompletionNodeFieldRes
-    fmt.Fprintf(os.Stdout, "Response from `CompletionAPI.CompleteVulnerabilityInfo`: %v\n", resp)
+	configuration := openapiclient.NewConfiguration()
+	apiClient := openapiclient.NewAPIClient(configuration)
+	resp, r, err := apiClient.CompletionAPI.CompleteVulnerabilityInfo(context.Background()).CompletionCompletionNodeFieldReq(completionCompletionNodeFieldReq).Execute()
+	if err != nil {
+		fmt.Fprintf(os.Stderr, "Error when calling `CompletionAPI.CompleteVulnerabilityInfo``: %v\n", err)
+		fmt.Fprintf(os.Stderr, "Full HTTP response: %v\n", r)
+	}
+	// response from `CompleteVulnerabilityInfo`: CompletionCompletionNodeFieldRes
+	fmt.Fprintf(os.Stdout, "Response from `CompletionAPI.CompleteVulnerabilityInfo`: %v\n", resp)
 }
 ```
 

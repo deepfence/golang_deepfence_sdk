@@ -13,6 +13,7 @@ package client
 
 import (
 	"encoding/json"
+	"bytes"
 	"fmt"
 )
 
@@ -22,11 +23,15 @@ var _ MappedNullable = &GraphNodeInfo{}
 // GraphNodeInfo struct for GraphNodeInfo
 type GraphNodeInfo struct {
 	CloudComplianceCount int32 `json:"cloud_compliance_count"`
+	CloudWarnAlarmCount int32 `json:"cloud_warn_alarm_count"`
 	ComplianceCount int32 `json:"compliance_count"`
+	ExploitableSecretsCount int32 `json:"exploitable_secrets_count"`
+	ExploitableVulnerabilitiesCount int32 `json:"exploitable_vulnerabilities_count"`
 	Name string `json:"name"`
 	NodeId string `json:"node_id"`
 	SecretsCount int32 `json:"secrets_count"`
 	VulnerabilityCount int32 `json:"vulnerability_count"`
+	WarnAlarmCount int32 `json:"warn_alarm_count"`
 }
 
 type _GraphNodeInfo GraphNodeInfo
@@ -35,14 +40,18 @@ type _GraphNodeInfo GraphNodeInfo
 // This constructor will assign default values to properties that have it defined,
 // and makes sure properties required by API are set, but the set of arguments
 // will change when the set of required properties is changed
-func NewGraphNodeInfo(cloudComplianceCount int32, complianceCount int32, name string, nodeId string, secretsCount int32, vulnerabilityCount int32) *GraphNodeInfo {
+func NewGraphNodeInfo(cloudComplianceCount int32, cloudWarnAlarmCount int32, complianceCount int32, exploitableSecretsCount int32, exploitableVulnerabilitiesCount int32, name string, nodeId string, secretsCount int32, vulnerabilityCount int32, warnAlarmCount int32) *GraphNodeInfo {
 	this := GraphNodeInfo{}
 	this.CloudComplianceCount = cloudComplianceCount
+	this.CloudWarnAlarmCount = cloudWarnAlarmCount
 	this.ComplianceCount = complianceCount
+	this.ExploitableSecretsCount = exploitableSecretsCount
+	this.ExploitableVulnerabilitiesCount = exploitableVulnerabilitiesCount
 	this.Name = name
 	this.NodeId = nodeId
 	this.SecretsCount = secretsCount
 	this.VulnerabilityCount = vulnerabilityCount
+	this.WarnAlarmCount = warnAlarmCount
 	return &this
 }
 
@@ -78,6 +87,30 @@ func (o *GraphNodeInfo) SetCloudComplianceCount(v int32) {
 	o.CloudComplianceCount = v
 }
 
+// GetCloudWarnAlarmCount returns the CloudWarnAlarmCount field value
+func (o *GraphNodeInfo) GetCloudWarnAlarmCount() int32 {
+	if o == nil {
+		var ret int32
+		return ret
+	}
+
+	return o.CloudWarnAlarmCount
+}
+
+// GetCloudWarnAlarmCountOk returns a tuple with the CloudWarnAlarmCount field value
+// and a boolean to check if the value has been set.
+func (o *GraphNodeInfo) GetCloudWarnAlarmCountOk() (*int32, bool) {
+	if o == nil {
+		return nil, false
+	}
+	return &o.CloudWarnAlarmCount, true
+}
+
+// SetCloudWarnAlarmCount sets field value
+func (o *GraphNodeInfo) SetCloudWarnAlarmCount(v int32) {
+	o.CloudWarnAlarmCount = v
+}
+
 // GetComplianceCount returns the ComplianceCount field value
 func (o *GraphNodeInfo) GetComplianceCount() int32 {
 	if o == nil {
@@ -100,6 +133,54 @@ func (o *GraphNodeInfo) GetComplianceCountOk() (*int32, bool) {
 // SetComplianceCount sets field value
 func (o *GraphNodeInfo) SetComplianceCount(v int32) {
 	o.ComplianceCount = v
+}
+
+// GetExploitableSecretsCount returns the ExploitableSecretsCount field value
+func (o *GraphNodeInfo) GetExploitableSecretsCount() int32 {
+	if o == nil {
+		var ret int32
+		return ret
+	}
+
+	return o.ExploitableSecretsCount
+}
+
+// GetExploitableSecretsCountOk returns a tuple with the ExploitableSecretsCount field value
+// and a boolean to check if the value has been set.
+func (o *GraphNodeInfo) GetExploitableSecretsCountOk() (*int32, bool) {
+	if o == nil {
+		return nil, false
+	}
+	return &o.ExploitableSecretsCount, true
+}
+
+// SetExploitableSecretsCount sets field value
+func (o *GraphNodeInfo) SetExploitableSecretsCount(v int32) {
+	o.ExploitableSecretsCount = v
+}
+
+// GetExploitableVulnerabilitiesCount returns the ExploitableVulnerabilitiesCount field value
+func (o *GraphNodeInfo) GetExploitableVulnerabilitiesCount() int32 {
+	if o == nil {
+		var ret int32
+		return ret
+	}
+
+	return o.ExploitableVulnerabilitiesCount
+}
+
+// GetExploitableVulnerabilitiesCountOk returns a tuple with the ExploitableVulnerabilitiesCount field value
+// and a boolean to check if the value has been set.
+func (o *GraphNodeInfo) GetExploitableVulnerabilitiesCountOk() (*int32, bool) {
+	if o == nil {
+		return nil, false
+	}
+	return &o.ExploitableVulnerabilitiesCount, true
+}
+
+// SetExploitableVulnerabilitiesCount sets field value
+func (o *GraphNodeInfo) SetExploitableVulnerabilitiesCount(v int32) {
+	o.ExploitableVulnerabilitiesCount = v
 }
 
 // GetName returns the Name field value
@@ -198,6 +279,30 @@ func (o *GraphNodeInfo) SetVulnerabilityCount(v int32) {
 	o.VulnerabilityCount = v
 }
 
+// GetWarnAlarmCount returns the WarnAlarmCount field value
+func (o *GraphNodeInfo) GetWarnAlarmCount() int32 {
+	if o == nil {
+		var ret int32
+		return ret
+	}
+
+	return o.WarnAlarmCount
+}
+
+// GetWarnAlarmCountOk returns a tuple with the WarnAlarmCount field value
+// and a boolean to check if the value has been set.
+func (o *GraphNodeInfo) GetWarnAlarmCountOk() (*int32, bool) {
+	if o == nil {
+		return nil, false
+	}
+	return &o.WarnAlarmCount, true
+}
+
+// SetWarnAlarmCount sets field value
+func (o *GraphNodeInfo) SetWarnAlarmCount(v int32) {
+	o.WarnAlarmCount = v
+}
+
 func (o GraphNodeInfo) MarshalJSON() ([]byte, error) {
 	toSerialize,err := o.ToMap()
 	if err != nil {
@@ -209,30 +314,38 @@ func (o GraphNodeInfo) MarshalJSON() ([]byte, error) {
 func (o GraphNodeInfo) ToMap() (map[string]interface{}, error) {
 	toSerialize := map[string]interface{}{}
 	toSerialize["cloud_compliance_count"] = o.CloudComplianceCount
+	toSerialize["cloud_warn_alarm_count"] = o.CloudWarnAlarmCount
 	toSerialize["compliance_count"] = o.ComplianceCount
+	toSerialize["exploitable_secrets_count"] = o.ExploitableSecretsCount
+	toSerialize["exploitable_vulnerabilities_count"] = o.ExploitableVulnerabilitiesCount
 	toSerialize["name"] = o.Name
 	toSerialize["node_id"] = o.NodeId
 	toSerialize["secrets_count"] = o.SecretsCount
 	toSerialize["vulnerability_count"] = o.VulnerabilityCount
+	toSerialize["warn_alarm_count"] = o.WarnAlarmCount
 	return toSerialize, nil
 }
 
-func (o *GraphNodeInfo) UnmarshalJSON(bytes []byte) (err error) {
-    // This validates that all required properties are included in the JSON object
+func (o *GraphNodeInfo) UnmarshalJSON(data []byte) (err error) {
+	// This validates that all required properties are included in the JSON object
 	// by unmarshalling the object into a generic map with string keys and checking
 	// that every required field exists as a key in the generic map.
 	requiredProperties := []string{
 		"cloud_compliance_count",
+		"cloud_warn_alarm_count",
 		"compliance_count",
+		"exploitable_secrets_count",
+		"exploitable_vulnerabilities_count",
 		"name",
 		"node_id",
 		"secrets_count",
 		"vulnerability_count",
+		"warn_alarm_count",
 	}
 
 	allProperties := make(map[string]interface{})
 
-	err = json.Unmarshal(bytes, &allProperties)
+	err = json.Unmarshal(data, &allProperties)
 
 	if err != nil {
 		return err;
@@ -246,7 +359,9 @@ func (o *GraphNodeInfo) UnmarshalJSON(bytes []byte) (err error) {
 
 	varGraphNodeInfo := _GraphNodeInfo{}
 
-	err = json.Unmarshal(bytes, &varGraphNodeInfo)
+	decoder := json.NewDecoder(bytes.NewReader(data))
+	decoder.DisallowUnknownFields()
+	err = decoder.Decode(&varGraphNodeInfo)
 
 	if err != nil {
 		return err

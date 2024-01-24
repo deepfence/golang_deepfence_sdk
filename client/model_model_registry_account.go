@@ -13,6 +13,7 @@ package client
 
 import (
 	"encoding/json"
+	"bytes"
 	"fmt"
 )
 
@@ -24,6 +25,8 @@ type ModelRegistryAccount struct {
 	ContainerImages []ModelContainerImage `json:"container_images"`
 	HostName string `json:"host_name"`
 	NodeId string `json:"node_id"`
+	RegistryType string `json:"registry_type"`
+	Syncing bool `json:"syncing"`
 }
 
 type _ModelRegistryAccount ModelRegistryAccount
@@ -32,11 +35,13 @@ type _ModelRegistryAccount ModelRegistryAccount
 // This constructor will assign default values to properties that have it defined,
 // and makes sure properties required by API are set, but the set of arguments
 // will change when the set of required properties is changed
-func NewModelRegistryAccount(containerImages []ModelContainerImage, hostName string, nodeId string) *ModelRegistryAccount {
+func NewModelRegistryAccount(containerImages []ModelContainerImage, hostName string, nodeId string, registryType string, syncing bool) *ModelRegistryAccount {
 	this := ModelRegistryAccount{}
 	this.ContainerImages = containerImages
 	this.HostName = hostName
 	this.NodeId = nodeId
+	this.RegistryType = registryType
+	this.Syncing = syncing
 	return &this
 }
 
@@ -122,6 +127,54 @@ func (o *ModelRegistryAccount) SetNodeId(v string) {
 	o.NodeId = v
 }
 
+// GetRegistryType returns the RegistryType field value
+func (o *ModelRegistryAccount) GetRegistryType() string {
+	if o == nil {
+		var ret string
+		return ret
+	}
+
+	return o.RegistryType
+}
+
+// GetRegistryTypeOk returns a tuple with the RegistryType field value
+// and a boolean to check if the value has been set.
+func (o *ModelRegistryAccount) GetRegistryTypeOk() (*string, bool) {
+	if o == nil {
+		return nil, false
+	}
+	return &o.RegistryType, true
+}
+
+// SetRegistryType sets field value
+func (o *ModelRegistryAccount) SetRegistryType(v string) {
+	o.RegistryType = v
+}
+
+// GetSyncing returns the Syncing field value
+func (o *ModelRegistryAccount) GetSyncing() bool {
+	if o == nil {
+		var ret bool
+		return ret
+	}
+
+	return o.Syncing
+}
+
+// GetSyncingOk returns a tuple with the Syncing field value
+// and a boolean to check if the value has been set.
+func (o *ModelRegistryAccount) GetSyncingOk() (*bool, bool) {
+	if o == nil {
+		return nil, false
+	}
+	return &o.Syncing, true
+}
+
+// SetSyncing sets field value
+func (o *ModelRegistryAccount) SetSyncing(v bool) {
+	o.Syncing = v
+}
+
 func (o ModelRegistryAccount) MarshalJSON() ([]byte, error) {
 	toSerialize,err := o.ToMap()
 	if err != nil {
@@ -137,22 +190,26 @@ func (o ModelRegistryAccount) ToMap() (map[string]interface{}, error) {
 	}
 	toSerialize["host_name"] = o.HostName
 	toSerialize["node_id"] = o.NodeId
+	toSerialize["registry_type"] = o.RegistryType
+	toSerialize["syncing"] = o.Syncing
 	return toSerialize, nil
 }
 
-func (o *ModelRegistryAccount) UnmarshalJSON(bytes []byte) (err error) {
-    // This validates that all required properties are included in the JSON object
+func (o *ModelRegistryAccount) UnmarshalJSON(data []byte) (err error) {
+	// This validates that all required properties are included in the JSON object
 	// by unmarshalling the object into a generic map with string keys and checking
 	// that every required field exists as a key in the generic map.
 	requiredProperties := []string{
 		"container_images",
 		"host_name",
 		"node_id",
+		"registry_type",
+		"syncing",
 	}
 
 	allProperties := make(map[string]interface{})
 
-	err = json.Unmarshal(bytes, &allProperties)
+	err = json.Unmarshal(data, &allProperties)
 
 	if err != nil {
 		return err;
@@ -166,7 +223,9 @@ func (o *ModelRegistryAccount) UnmarshalJSON(bytes []byte) (err error) {
 
 	varModelRegistryAccount := _ModelRegistryAccount{}
 
-	err = json.Unmarshal(bytes, &varModelRegistryAccount)
+	decoder := json.NewDecoder(bytes.NewReader(data))
+	decoder.DisallowUnknownFields()
+	err = decoder.Decode(&varModelRegistryAccount)
 
 	if err != nil {
 		return err

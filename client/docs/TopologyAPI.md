@@ -29,24 +29,24 @@ Get Containers Topology Graph
 package main
 
 import (
-    "context"
-    "fmt"
-    "os"
-    openapiclient "github.com/deepfence/golang_deepfence_sdk/client"
+	"context"
+	"fmt"
+	"os"
+	openapiclient "github.com/deepfence/golang_deepfence_sdk/client"
 )
 
 func main() {
-    graphTopologyFilters := *openapiclient.NewGraphTopologyFilters([]string{"CloudFilter_example"}, []string{"ContainerFilter_example"}, *openapiclient.NewReportersFieldsFilters([]openapiclient.ReportersCompareFilter{*openapiclient.NewReportersCompareFilter("FieldName_example", interface{}(123), false)}, *openapiclient.NewReportersContainsFilter(map[string][]interface{}{"key": []interface{}{nil}}), *openapiclient.NewReportersMatchFilter(map[string][]interface{}{"key": []interface{}{nil}}), *openapiclient.NewReportersOrderFilter([]openapiclient.ReportersOrderSpec{*openapiclient.NewReportersOrderSpec(false, "FieldName_example")})), []string{"HostFilter_example"}, []string{"KubernetesFilter_example"}, []string{"PodFilter_example"}, []string{"RegionFilter_example"}, false) // GraphTopologyFilters |  (optional)
+	graphTopologyFilters := *openapiclient.NewGraphTopologyFilters([]string{"CloudFilter_example"}, []string{"ContainerFilter_example"}, *openapiclient.NewReportersFieldsFilters([]openapiclient.ReportersCompareFilter{*openapiclient.NewReportersCompareFilter("FieldName_example", interface{}(123), false)}, *openapiclient.NewReportersContainsFilter(map[string][]interface{}{"key": []interface{}{nil}}), *openapiclient.NewReportersMatchFilter(map[string][]interface{}{"key": []interface{}{nil}}), *openapiclient.NewReportersOrderFilter([]openapiclient.ReportersOrderSpec{*openapiclient.NewReportersOrderSpec(false, "FieldName_example")})), []string{"HostFilter_example"}, []string{"KubernetesFilter_example"}, []string{"PodFilter_example"}, []string{"RegionFilter_example"}, false) // GraphTopologyFilters |  (optional)
 
-    configuration := openapiclient.NewConfiguration()
-    apiClient := openapiclient.NewAPIClient(configuration)
-    resp, r, err := apiClient.TopologyAPI.GetContainersTopologyGraph(context.Background()).GraphTopologyFilters(graphTopologyFilters).Execute()
-    if err != nil {
-        fmt.Fprintf(os.Stderr, "Error when calling `TopologyAPI.GetContainersTopologyGraph``: %v\n", err)
-        fmt.Fprintf(os.Stderr, "Full HTTP response: %v\n", r)
-    }
-    // response from `GetContainersTopologyGraph`: ModelGraphResult
-    fmt.Fprintf(os.Stdout, "Response from `TopologyAPI.GetContainersTopologyGraph`: %v\n", resp)
+	configuration := openapiclient.NewConfiguration()
+	apiClient := openapiclient.NewAPIClient(configuration)
+	resp, r, err := apiClient.TopologyAPI.GetContainersTopologyGraph(context.Background()).GraphTopologyFilters(graphTopologyFilters).Execute()
+	if err != nil {
+		fmt.Fprintf(os.Stderr, "Error when calling `TopologyAPI.GetContainersTopologyGraph``: %v\n", err)
+		fmt.Fprintf(os.Stderr, "Full HTTP response: %v\n", r)
+	}
+	// response from `GetContainersTopologyGraph`: ModelGraphResult
+	fmt.Fprintf(os.Stdout, "Response from `TopologyAPI.GetContainersTopologyGraph`: %v\n", resp)
 }
 ```
 
@@ -95,24 +95,24 @@ Get Hosts Topology Graph
 package main
 
 import (
-    "context"
-    "fmt"
-    "os"
-    openapiclient "github.com/deepfence/golang_deepfence_sdk/client"
+	"context"
+	"fmt"
+	"os"
+	openapiclient "github.com/deepfence/golang_deepfence_sdk/client"
 )
 
 func main() {
-    graphTopologyFilters := *openapiclient.NewGraphTopologyFilters([]string{"CloudFilter_example"}, []string{"ContainerFilter_example"}, *openapiclient.NewReportersFieldsFilters([]openapiclient.ReportersCompareFilter{*openapiclient.NewReportersCompareFilter("FieldName_example", interface{}(123), false)}, *openapiclient.NewReportersContainsFilter(map[string][]interface{}{"key": []interface{}{nil}}), *openapiclient.NewReportersMatchFilter(map[string][]interface{}{"key": []interface{}{nil}}), *openapiclient.NewReportersOrderFilter([]openapiclient.ReportersOrderSpec{*openapiclient.NewReportersOrderSpec(false, "FieldName_example")})), []string{"HostFilter_example"}, []string{"KubernetesFilter_example"}, []string{"PodFilter_example"}, []string{"RegionFilter_example"}, false) // GraphTopologyFilters |  (optional)
+	graphTopologyFilters := *openapiclient.NewGraphTopologyFilters([]string{"CloudFilter_example"}, []string{"ContainerFilter_example"}, *openapiclient.NewReportersFieldsFilters([]openapiclient.ReportersCompareFilter{*openapiclient.NewReportersCompareFilter("FieldName_example", interface{}(123), false)}, *openapiclient.NewReportersContainsFilter(map[string][]interface{}{"key": []interface{}{nil}}), *openapiclient.NewReportersMatchFilter(map[string][]interface{}{"key": []interface{}{nil}}), *openapiclient.NewReportersOrderFilter([]openapiclient.ReportersOrderSpec{*openapiclient.NewReportersOrderSpec(false, "FieldName_example")})), []string{"HostFilter_example"}, []string{"KubernetesFilter_example"}, []string{"PodFilter_example"}, []string{"RegionFilter_example"}, false) // GraphTopologyFilters |  (optional)
 
-    configuration := openapiclient.NewConfiguration()
-    apiClient := openapiclient.NewAPIClient(configuration)
-    resp, r, err := apiClient.TopologyAPI.GetHostsTopologyGraph(context.Background()).GraphTopologyFilters(graphTopologyFilters).Execute()
-    if err != nil {
-        fmt.Fprintf(os.Stderr, "Error when calling `TopologyAPI.GetHostsTopologyGraph``: %v\n", err)
-        fmt.Fprintf(os.Stderr, "Full HTTP response: %v\n", r)
-    }
-    // response from `GetHostsTopologyGraph`: ModelGraphResult
-    fmt.Fprintf(os.Stdout, "Response from `TopologyAPI.GetHostsTopologyGraph`: %v\n", resp)
+	configuration := openapiclient.NewConfiguration()
+	apiClient := openapiclient.NewAPIClient(configuration)
+	resp, r, err := apiClient.TopologyAPI.GetHostsTopologyGraph(context.Background()).GraphTopologyFilters(graphTopologyFilters).Execute()
+	if err != nil {
+		fmt.Fprintf(os.Stderr, "Error when calling `TopologyAPI.GetHostsTopologyGraph``: %v\n", err)
+		fmt.Fprintf(os.Stderr, "Full HTTP response: %v\n", r)
+	}
+	// response from `GetHostsTopologyGraph`: ModelGraphResult
+	fmt.Fprintf(os.Stdout, "Response from `TopologyAPI.GetHostsTopologyGraph`: %v\n", resp)
 }
 ```
 
@@ -161,24 +161,24 @@ Get Kubernetes Topology Graph
 package main
 
 import (
-    "context"
-    "fmt"
-    "os"
-    openapiclient "github.com/deepfence/golang_deepfence_sdk/client"
+	"context"
+	"fmt"
+	"os"
+	openapiclient "github.com/deepfence/golang_deepfence_sdk/client"
 )
 
 func main() {
-    graphTopologyFilters := *openapiclient.NewGraphTopologyFilters([]string{"CloudFilter_example"}, []string{"ContainerFilter_example"}, *openapiclient.NewReportersFieldsFilters([]openapiclient.ReportersCompareFilter{*openapiclient.NewReportersCompareFilter("FieldName_example", interface{}(123), false)}, *openapiclient.NewReportersContainsFilter(map[string][]interface{}{"key": []interface{}{nil}}), *openapiclient.NewReportersMatchFilter(map[string][]interface{}{"key": []interface{}{nil}}), *openapiclient.NewReportersOrderFilter([]openapiclient.ReportersOrderSpec{*openapiclient.NewReportersOrderSpec(false, "FieldName_example")})), []string{"HostFilter_example"}, []string{"KubernetesFilter_example"}, []string{"PodFilter_example"}, []string{"RegionFilter_example"}, false) // GraphTopologyFilters |  (optional)
+	graphTopologyFilters := *openapiclient.NewGraphTopologyFilters([]string{"CloudFilter_example"}, []string{"ContainerFilter_example"}, *openapiclient.NewReportersFieldsFilters([]openapiclient.ReportersCompareFilter{*openapiclient.NewReportersCompareFilter("FieldName_example", interface{}(123), false)}, *openapiclient.NewReportersContainsFilter(map[string][]interface{}{"key": []interface{}{nil}}), *openapiclient.NewReportersMatchFilter(map[string][]interface{}{"key": []interface{}{nil}}), *openapiclient.NewReportersOrderFilter([]openapiclient.ReportersOrderSpec{*openapiclient.NewReportersOrderSpec(false, "FieldName_example")})), []string{"HostFilter_example"}, []string{"KubernetesFilter_example"}, []string{"PodFilter_example"}, []string{"RegionFilter_example"}, false) // GraphTopologyFilters |  (optional)
 
-    configuration := openapiclient.NewConfiguration()
-    apiClient := openapiclient.NewAPIClient(configuration)
-    resp, r, err := apiClient.TopologyAPI.GetKubernetesTopologyGraph(context.Background()).GraphTopologyFilters(graphTopologyFilters).Execute()
-    if err != nil {
-        fmt.Fprintf(os.Stderr, "Error when calling `TopologyAPI.GetKubernetesTopologyGraph``: %v\n", err)
-        fmt.Fprintf(os.Stderr, "Full HTTP response: %v\n", r)
-    }
-    // response from `GetKubernetesTopologyGraph`: ModelGraphResult
-    fmt.Fprintf(os.Stdout, "Response from `TopologyAPI.GetKubernetesTopologyGraph`: %v\n", resp)
+	configuration := openapiclient.NewConfiguration()
+	apiClient := openapiclient.NewAPIClient(configuration)
+	resp, r, err := apiClient.TopologyAPI.GetKubernetesTopologyGraph(context.Background()).GraphTopologyFilters(graphTopologyFilters).Execute()
+	if err != nil {
+		fmt.Fprintf(os.Stderr, "Error when calling `TopologyAPI.GetKubernetesTopologyGraph``: %v\n", err)
+		fmt.Fprintf(os.Stderr, "Full HTTP response: %v\n", r)
+	}
+	// response from `GetKubernetesTopologyGraph`: ModelGraphResult
+	fmt.Fprintf(os.Stdout, "Response from `TopologyAPI.GetKubernetesTopologyGraph`: %v\n", resp)
 }
 ```
 
@@ -227,24 +227,24 @@ Get Pods Topology Graph
 package main
 
 import (
-    "context"
-    "fmt"
-    "os"
-    openapiclient "github.com/deepfence/golang_deepfence_sdk/client"
+	"context"
+	"fmt"
+	"os"
+	openapiclient "github.com/deepfence/golang_deepfence_sdk/client"
 )
 
 func main() {
-    graphTopologyFilters := *openapiclient.NewGraphTopologyFilters([]string{"CloudFilter_example"}, []string{"ContainerFilter_example"}, *openapiclient.NewReportersFieldsFilters([]openapiclient.ReportersCompareFilter{*openapiclient.NewReportersCompareFilter("FieldName_example", interface{}(123), false)}, *openapiclient.NewReportersContainsFilter(map[string][]interface{}{"key": []interface{}{nil}}), *openapiclient.NewReportersMatchFilter(map[string][]interface{}{"key": []interface{}{nil}}), *openapiclient.NewReportersOrderFilter([]openapiclient.ReportersOrderSpec{*openapiclient.NewReportersOrderSpec(false, "FieldName_example")})), []string{"HostFilter_example"}, []string{"KubernetesFilter_example"}, []string{"PodFilter_example"}, []string{"RegionFilter_example"}, false) // GraphTopologyFilters |  (optional)
+	graphTopologyFilters := *openapiclient.NewGraphTopologyFilters([]string{"CloudFilter_example"}, []string{"ContainerFilter_example"}, *openapiclient.NewReportersFieldsFilters([]openapiclient.ReportersCompareFilter{*openapiclient.NewReportersCompareFilter("FieldName_example", interface{}(123), false)}, *openapiclient.NewReportersContainsFilter(map[string][]interface{}{"key": []interface{}{nil}}), *openapiclient.NewReportersMatchFilter(map[string][]interface{}{"key": []interface{}{nil}}), *openapiclient.NewReportersOrderFilter([]openapiclient.ReportersOrderSpec{*openapiclient.NewReportersOrderSpec(false, "FieldName_example")})), []string{"HostFilter_example"}, []string{"KubernetesFilter_example"}, []string{"PodFilter_example"}, []string{"RegionFilter_example"}, false) // GraphTopologyFilters |  (optional)
 
-    configuration := openapiclient.NewConfiguration()
-    apiClient := openapiclient.NewAPIClient(configuration)
-    resp, r, err := apiClient.TopologyAPI.GetPodsTopologyGraph(context.Background()).GraphTopologyFilters(graphTopologyFilters).Execute()
-    if err != nil {
-        fmt.Fprintf(os.Stderr, "Error when calling `TopologyAPI.GetPodsTopologyGraph``: %v\n", err)
-        fmt.Fprintf(os.Stderr, "Full HTTP response: %v\n", r)
-    }
-    // response from `GetPodsTopologyGraph`: ModelGraphResult
-    fmt.Fprintf(os.Stdout, "Response from `TopologyAPI.GetPodsTopologyGraph`: %v\n", resp)
+	configuration := openapiclient.NewConfiguration()
+	apiClient := openapiclient.NewAPIClient(configuration)
+	resp, r, err := apiClient.TopologyAPI.GetPodsTopologyGraph(context.Background()).GraphTopologyFilters(graphTopologyFilters).Execute()
+	if err != nil {
+		fmt.Fprintf(os.Stderr, "Error when calling `TopologyAPI.GetPodsTopologyGraph``: %v\n", err)
+		fmt.Fprintf(os.Stderr, "Full HTTP response: %v\n", r)
+	}
+	// response from `GetPodsTopologyGraph`: ModelGraphResult
+	fmt.Fprintf(os.Stdout, "Response from `TopologyAPI.GetPodsTopologyGraph`: %v\n", resp)
 }
 ```
 
@@ -293,24 +293,24 @@ Get Topology Delta
 package main
 
 import (
-    "context"
-    "fmt"
-    "os"
-    openapiclient "github.com/deepfence/golang_deepfence_sdk/client"
+	"context"
+	"fmt"
+	"os"
+	openapiclient "github.com/deepfence/golang_deepfence_sdk/client"
 )
 
 func main() {
-    modelTopologyDeltaReq := *openapiclient.NewModelTopologyDeltaReq(false, int64(123), false, int64(123), []string{"EntityTypes_example"}) // ModelTopologyDeltaReq |  (optional)
+	modelTopologyDeltaReq := *openapiclient.NewModelTopologyDeltaReq(false, int64(123), false, int64(123), []string{"EntityTypes_example"}) // ModelTopologyDeltaReq |  (optional)
 
-    configuration := openapiclient.NewConfiguration()
-    apiClient := openapiclient.NewAPIClient(configuration)
-    resp, r, err := apiClient.TopologyAPI.GetTopologyDelta(context.Background()).ModelTopologyDeltaReq(modelTopologyDeltaReq).Execute()
-    if err != nil {
-        fmt.Fprintf(os.Stderr, "Error when calling `TopologyAPI.GetTopologyDelta``: %v\n", err)
-        fmt.Fprintf(os.Stderr, "Full HTTP response: %v\n", r)
-    }
-    // response from `GetTopologyDelta`: ModelTopologyDeltaResponse
-    fmt.Fprintf(os.Stdout, "Response from `TopologyAPI.GetTopologyDelta`: %v\n", resp)
+	configuration := openapiclient.NewConfiguration()
+	apiClient := openapiclient.NewAPIClient(configuration)
+	resp, r, err := apiClient.TopologyAPI.GetTopologyDelta(context.Background()).ModelTopologyDeltaReq(modelTopologyDeltaReq).Execute()
+	if err != nil {
+		fmt.Fprintf(os.Stderr, "Error when calling `TopologyAPI.GetTopologyDelta``: %v\n", err)
+		fmt.Fprintf(os.Stderr, "Full HTTP response: %v\n", r)
+	}
+	// response from `GetTopologyDelta`: ModelTopologyDeltaResponse
+	fmt.Fprintf(os.Stdout, "Response from `TopologyAPI.GetTopologyDelta`: %v\n", resp)
 }
 ```
 
@@ -359,24 +359,24 @@ Get Topology Graph
 package main
 
 import (
-    "context"
-    "fmt"
-    "os"
-    openapiclient "github.com/deepfence/golang_deepfence_sdk/client"
+	"context"
+	"fmt"
+	"os"
+	openapiclient "github.com/deepfence/golang_deepfence_sdk/client"
 )
 
 func main() {
-    graphTopologyFilters := *openapiclient.NewGraphTopologyFilters([]string{"CloudFilter_example"}, []string{"ContainerFilter_example"}, *openapiclient.NewReportersFieldsFilters([]openapiclient.ReportersCompareFilter{*openapiclient.NewReportersCompareFilter("FieldName_example", interface{}(123), false)}, *openapiclient.NewReportersContainsFilter(map[string][]interface{}{"key": []interface{}{nil}}), *openapiclient.NewReportersMatchFilter(map[string][]interface{}{"key": []interface{}{nil}}), *openapiclient.NewReportersOrderFilter([]openapiclient.ReportersOrderSpec{*openapiclient.NewReportersOrderSpec(false, "FieldName_example")})), []string{"HostFilter_example"}, []string{"KubernetesFilter_example"}, []string{"PodFilter_example"}, []string{"RegionFilter_example"}, false) // GraphTopologyFilters |  (optional)
+	graphTopologyFilters := *openapiclient.NewGraphTopologyFilters([]string{"CloudFilter_example"}, []string{"ContainerFilter_example"}, *openapiclient.NewReportersFieldsFilters([]openapiclient.ReportersCompareFilter{*openapiclient.NewReportersCompareFilter("FieldName_example", interface{}(123), false)}, *openapiclient.NewReportersContainsFilter(map[string][]interface{}{"key": []interface{}{nil}}), *openapiclient.NewReportersMatchFilter(map[string][]interface{}{"key": []interface{}{nil}}), *openapiclient.NewReportersOrderFilter([]openapiclient.ReportersOrderSpec{*openapiclient.NewReportersOrderSpec(false, "FieldName_example")})), []string{"HostFilter_example"}, []string{"KubernetesFilter_example"}, []string{"PodFilter_example"}, []string{"RegionFilter_example"}, false) // GraphTopologyFilters |  (optional)
 
-    configuration := openapiclient.NewConfiguration()
-    apiClient := openapiclient.NewAPIClient(configuration)
-    resp, r, err := apiClient.TopologyAPI.GetTopologyGraph(context.Background()).GraphTopologyFilters(graphTopologyFilters).Execute()
-    if err != nil {
-        fmt.Fprintf(os.Stderr, "Error when calling `TopologyAPI.GetTopologyGraph``: %v\n", err)
-        fmt.Fprintf(os.Stderr, "Full HTTP response: %v\n", r)
-    }
-    // response from `GetTopologyGraph`: ModelGraphResult
-    fmt.Fprintf(os.Stdout, "Response from `TopologyAPI.GetTopologyGraph`: %v\n", resp)
+	configuration := openapiclient.NewConfiguration()
+	apiClient := openapiclient.NewAPIClient(configuration)
+	resp, r, err := apiClient.TopologyAPI.GetTopologyGraph(context.Background()).GraphTopologyFilters(graphTopologyFilters).Execute()
+	if err != nil {
+		fmt.Fprintf(os.Stderr, "Error when calling `TopologyAPI.GetTopologyGraph``: %v\n", err)
+		fmt.Fprintf(os.Stderr, "Full HTTP response: %v\n", r)
+	}
+	// response from `GetTopologyGraph`: ModelGraphResult
+	fmt.Fprintf(os.Stdout, "Response from `TopologyAPI.GetTopologyGraph`: %v\n", resp)
 }
 ```
 
@@ -425,24 +425,24 @@ Ingest Topology Data
 package main
 
 import (
-    "context"
-    "fmt"
-    "os"
-    openapiclient "github.com/deepfence/golang_deepfence_sdk/client"
+	"context"
+	"fmt"
+	"os"
+	openapiclient "github.com/deepfence/golang_deepfence_sdk/client"
 )
 
 func main() {
-    reportRawReport := *openapiclient.NewReportRawReport("Payload_example") // ReportRawReport |  (optional)
+	reportRawReport := *openapiclient.NewReportRawReport("Payload_example") // ReportRawReport |  (optional)
 
-    configuration := openapiclient.NewConfiguration()
-    apiClient := openapiclient.NewAPIClient(configuration)
-    resp, r, err := apiClient.TopologyAPI.IngestAgentReport(context.Background()).ReportRawReport(reportRawReport).Execute()
-    if err != nil {
-        fmt.Fprintf(os.Stderr, "Error when calling `TopologyAPI.IngestAgentReport``: %v\n", err)
-        fmt.Fprintf(os.Stderr, "Full HTTP response: %v\n", r)
-    }
-    // response from `IngestAgentReport`: ControlsAgentBeat
-    fmt.Fprintf(os.Stdout, "Response from `TopologyAPI.IngestAgentReport`: %v\n", resp)
+	configuration := openapiclient.NewConfiguration()
+	apiClient := openapiclient.NewAPIClient(configuration)
+	resp, r, err := apiClient.TopologyAPI.IngestAgentReport(context.Background()).ReportRawReport(reportRawReport).Execute()
+	if err != nil {
+		fmt.Fprintf(os.Stderr, "Error when calling `TopologyAPI.IngestAgentReport``: %v\n", err)
+		fmt.Fprintf(os.Stderr, "Full HTTP response: %v\n", r)
+	}
+	// response from `IngestAgentReport`: ControlsAgentBeat
+	fmt.Fprintf(os.Stdout, "Response from `TopologyAPI.IngestAgentReport`: %v\n", resp)
 }
 ```
 
@@ -491,22 +491,22 @@ Ingest Topology Data
 package main
 
 import (
-    "context"
-    "fmt"
-    "os"
-    openapiclient "github.com/deepfence/golang_deepfence_sdk/client"
+	"context"
+	"fmt"
+	"os"
+	openapiclient "github.com/deepfence/golang_deepfence_sdk/client"
 )
 
 func main() {
-    ingestersReportIngestionData := *openapiclient.NewIngestersReportIngestionData([]map[string]interface{}{map[string]interface{}{"key": interface{}(123)}}, []map[string]interface{}{map[string]interface{}{"key": interface{}(123)}}, []map[string]interface{}{map[string]interface{}{"key": interface{}(123)}}, []map[string]interface{}{map[string]interface{}{"key": interface{}(123)}}, []map[string]interface{}{map[string]interface{}{"key": interface{}(123)}}, []map[string]interface{}{map[string]interface{}{"key": interface{}(123)}}, []map[string]interface{}{map[string]interface{}{"key": interface{}(123)}}, []map[string]interface{}{map[string]interface{}{"key": interface{}(123)}}, []map[string]interface{}{map[string]interface{}{"key": interface{}(123)}}, []map[string]interface{}{map[string]interface{}{"key": interface{}(123)}}, int32(123), []map[string]interface{}{map[string]interface{}{"key": interface{}(123)}}, []map[string]interface{}{map[string]interface{}{"key": interface{}(123)}}, []map[string]interface{}{map[string]interface{}{"key": interface{}(123)}}, []map[string]interface{}{map[string]interface{}{"key": interface{}(123)}}, []map[string]interface{}{map[string]interface{}{"key": interface{}(123)}}) // IngestersReportIngestionData |  (optional)
+	ingestersReportIngestionData := *openapiclient.NewIngestersReportIngestionData([]map[string]interface{}{map[string]interface{}{"key": interface{}(123)}}, []map[string]interface{}{map[string]interface{}{"key": interface{}(123)}}, []map[string]interface{}{map[string]interface{}{"key": interface{}(123)}}, []map[string]interface{}{map[string]interface{}{"key": interface{}(123)}}, []map[string]interface{}{map[string]interface{}{"key": interface{}(123)}}, []map[string]interface{}{map[string]interface{}{"key": interface{}(123)}}, []map[string]interface{}{map[string]interface{}{"key": interface{}(123)}}, []map[string]interface{}{map[string]interface{}{"key": interface{}(123)}}, []map[string]interface{}{map[string]interface{}{"key": interface{}(123)}}, []map[string]interface{}{map[string]interface{}{"key": interface{}(123)}}, int32(123), []map[string]interface{}{map[string]interface{}{"key": interface{}(123)}}, []map[string]interface{}{map[string]interface{}{"key": interface{}(123)}}, []map[string]interface{}{map[string]interface{}{"key": interface{}(123)}}, []map[string]interface{}{map[string]interface{}{"key": interface{}(123)}}, []map[string]interface{}{map[string]interface{}{"key": interface{}(123)}}) // IngestersReportIngestionData |  (optional)
 
-    configuration := openapiclient.NewConfiguration()
-    apiClient := openapiclient.NewAPIClient(configuration)
-    r, err := apiClient.TopologyAPI.IngestSyncAgentReport(context.Background()).IngestersReportIngestionData(ingestersReportIngestionData).Execute()
-    if err != nil {
-        fmt.Fprintf(os.Stderr, "Error when calling `TopologyAPI.IngestSyncAgentReport``: %v\n", err)
-        fmt.Fprintf(os.Stderr, "Full HTTP response: %v\n", r)
-    }
+	configuration := openapiclient.NewConfiguration()
+	apiClient := openapiclient.NewAPIClient(configuration)
+	r, err := apiClient.TopologyAPI.IngestSyncAgentReport(context.Background()).IngestersReportIngestionData(ingestersReportIngestionData).Execute()
+	if err != nil {
+		fmt.Fprintf(os.Stderr, "Error when calling `TopologyAPI.IngestSyncAgentReport``: %v\n", err)
+		fmt.Fprintf(os.Stderr, "Full HTTP response: %v\n", r)
+	}
 }
 ```
 

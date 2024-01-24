@@ -4,7 +4,7 @@
 
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
-**NextFilter** | Pointer to **interface{}** |  | [optional] 
+**NextFilter** | Pointer to [**SearchChainedSearchFilter**](SearchChainedSearchFilter.md) |  | [optional] 
 **NodeFilter** | [**SearchSearchFilter**](SearchSearchFilter.md) |  | 
 **RelationShip** | **string** |  | 
 
@@ -29,20 +29,20 @@ but it doesn't guarantee that properties required by API are set
 
 ### GetNextFilter
 
-`func (o *SearchChainedSearchFilter) GetNextFilter() interface{}`
+`func (o *SearchChainedSearchFilter) GetNextFilter() SearchChainedSearchFilter`
 
 GetNextFilter returns the NextFilter field if non-nil, zero value otherwise.
 
 ### GetNextFilterOk
 
-`func (o *SearchChainedSearchFilter) GetNextFilterOk() (*interface{}, bool)`
+`func (o *SearchChainedSearchFilter) GetNextFilterOk() (*SearchChainedSearchFilter, bool)`
 
 GetNextFilterOk returns a tuple with the NextFilter field if it's non-nil, zero value otherwise
 and a boolean to check if the value has been set.
 
 ### SetNextFilter
 
-`func (o *SearchChainedSearchFilter) SetNextFilter(v interface{})`
+`func (o *SearchChainedSearchFilter) SetNextFilter(v SearchChainedSearchFilter)`
 
 SetNextFilter sets NextFilter field to given value.
 
@@ -52,16 +52,6 @@ SetNextFilter sets NextFilter field to given value.
 
 HasNextFilter returns a boolean if a field has been set.
 
-### SetNextFilterNil
-
-`func (o *SearchChainedSearchFilter) SetNextFilterNil(b bool)`
-
- SetNextFilterNil sets the value for NextFilter to be an explicit nil
-
-### UnsetNextFilter
-`func (o *SearchChainedSearchFilter) UnsetNextFilter()`
-
-UnsetNextFilter ensures that no value is present for NextFilter, not even an explicit nil
 ### GetNodeFilter
 
 `func (o *SearchChainedSearchFilter) GetNodeFilter() SearchSearchFilter`

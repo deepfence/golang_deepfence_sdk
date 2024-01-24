@@ -35,24 +35,24 @@ Add Registry
 package main
 
 import (
-    "context"
-    "fmt"
-    "os"
-    openapiclient "github.com/deepfence/golang_deepfence_sdk/client"
+	"context"
+	"fmt"
+	"os"
+	openapiclient "github.com/deepfence/golang_deepfence_sdk/client"
 )
 
 func main() {
-    modelRegistryAddReq := *openapiclient.NewModelRegistryAddReq("Name_example", "RegistryType_example") // ModelRegistryAddReq |  (optional)
+	modelRegistryAddReq := *openapiclient.NewModelRegistryAddReq("Name_example", "RegistryType_example") // ModelRegistryAddReq |  (optional)
 
-    configuration := openapiclient.NewConfiguration()
-    apiClient := openapiclient.NewAPIClient(configuration)
-    resp, r, err := apiClient.RegistryAPI.AddRegistry(context.Background()).ModelRegistryAddReq(modelRegistryAddReq).Execute()
-    if err != nil {
-        fmt.Fprintf(os.Stderr, "Error when calling `RegistryAPI.AddRegistry``: %v\n", err)
-        fmt.Fprintf(os.Stderr, "Full HTTP response: %v\n", r)
-    }
-    // response from `AddRegistry`: ModelMessageResponse
-    fmt.Fprintf(os.Stdout, "Response from `RegistryAPI.AddRegistry`: %v\n", resp)
+	configuration := openapiclient.NewConfiguration()
+	apiClient := openapiclient.NewAPIClient(configuration)
+	resp, r, err := apiClient.RegistryAPI.AddRegistry(context.Background()).ModelRegistryAddReq(modelRegistryAddReq).Execute()
+	if err != nil {
+		fmt.Fprintf(os.Stderr, "Error when calling `RegistryAPI.AddRegistry``: %v\n", err)
+		fmt.Fprintf(os.Stderr, "Full HTTP response: %v\n", r)
+	}
+	// response from `AddRegistry`: ModelMessageResponse
+	fmt.Fprintf(os.Stdout, "Response from `RegistryAPI.AddRegistry`: %v\n", resp)
 }
 ```
 
@@ -101,26 +101,26 @@ Add Google Container Registry
 package main
 
 import (
-    "context"
-    "fmt"
-    "os"
-    openapiclient "github.com/deepfence/golang_deepfence_sdk/client"
+	"context"
+	"fmt"
+	"os"
+	openapiclient "github.com/deepfence/golang_deepfence_sdk/client"
 )
 
 func main() {
-    name := "name_example" // string | 
-    registryUrl := "registryUrl_example" // string | 
-    serviceAccountJson := os.NewFile(1234, "some_file") // *os.File | 
+	name := "name_example" // string | 
+	registryUrl := "registryUrl_example" // string | 
+	serviceAccountJson := os.NewFile(1234, "some_file") // *os.File | 
 
-    configuration := openapiclient.NewConfiguration()
-    apiClient := openapiclient.NewAPIClient(configuration)
-    resp, r, err := apiClient.RegistryAPI.AddRegistryGCR(context.Background()).Name(name).RegistryUrl(registryUrl).ServiceAccountJson(serviceAccountJson).Execute()
-    if err != nil {
-        fmt.Fprintf(os.Stderr, "Error when calling `RegistryAPI.AddRegistryGCR``: %v\n", err)
-        fmt.Fprintf(os.Stderr, "Full HTTP response: %v\n", r)
-    }
-    // response from `AddRegistryGCR`: ModelMessageResponse
-    fmt.Fprintf(os.Stdout, "Response from `RegistryAPI.AddRegistryGCR`: %v\n", resp)
+	configuration := openapiclient.NewConfiguration()
+	apiClient := openapiclient.NewAPIClient(configuration)
+	resp, r, err := apiClient.RegistryAPI.AddRegistryGCR(context.Background()).Name(name).RegistryUrl(registryUrl).ServiceAccountJson(serviceAccountJson).Execute()
+	if err != nil {
+		fmt.Fprintf(os.Stderr, "Error when calling `RegistryAPI.AddRegistryGCR``: %v\n", err)
+		fmt.Fprintf(os.Stderr, "Full HTTP response: %v\n", r)
+	}
+	// response from `AddRegistryGCR`: ModelMessageResponse
+	fmt.Fprintf(os.Stdout, "Response from `RegistryAPI.AddRegistryGCR`: %v\n", resp)
 }
 ```
 
@@ -171,24 +171,24 @@ Count Image Stubs
 package main
 
 import (
-    "context"
-    "fmt"
-    "os"
-    openapiclient "github.com/deepfence/golang_deepfence_sdk/client"
+	"context"
+	"fmt"
+	"os"
+	openapiclient "github.com/deepfence/golang_deepfence_sdk/client"
 )
 
 func main() {
-    modelRegistryImageStubsReq := *openapiclient.NewModelRegistryImageStubsReq(*openapiclient.NewReportersFieldsFilters([]openapiclient.ReportersCompareFilter{*openapiclient.NewReportersCompareFilter("FieldName_example", interface{}(123), false)}, *openapiclient.NewReportersContainsFilter(map[string][]interface{}{"key": []interface{}{nil}}), *openapiclient.NewReportersMatchFilter(map[string][]interface{}{"key": []interface{}{nil}}), *openapiclient.NewReportersOrderFilter([]openapiclient.ReportersOrderSpec{*openapiclient.NewReportersOrderSpec(false, "FieldName_example")})), "RegistryId_example", *openapiclient.NewModelFetchWindow(int32(123), int32(123))) // ModelRegistryImageStubsReq |  (optional)
+	modelRegistryImageStubsReq := *openapiclient.NewModelRegistryImageStubsReq(*openapiclient.NewReportersFieldsFilters([]openapiclient.ReportersCompareFilter{*openapiclient.NewReportersCompareFilter("FieldName_example", interface{}(123), false)}, *openapiclient.NewReportersContainsFilter(map[string][]interface{}{"key": []interface{}{nil}}), *openapiclient.NewReportersMatchFilter(map[string][]interface{}{"key": []interface{}{nil}}), *openapiclient.NewReportersOrderFilter([]openapiclient.ReportersOrderSpec{*openapiclient.NewReportersOrderSpec(false, "FieldName_example")})), "RegistryId_example", *openapiclient.NewModelFetchWindow(int32(123), int32(123))) // ModelRegistryImageStubsReq |  (optional)
 
-    configuration := openapiclient.NewConfiguration()
-    apiClient := openapiclient.NewAPIClient(configuration)
-    resp, r, err := apiClient.RegistryAPI.CountImageStubs(context.Background()).ModelRegistryImageStubsReq(modelRegistryImageStubsReq).Execute()
-    if err != nil {
-        fmt.Fprintf(os.Stderr, "Error when calling `RegistryAPI.CountImageStubs``: %v\n", err)
-        fmt.Fprintf(os.Stderr, "Full HTTP response: %v\n", r)
-    }
-    // response from `CountImageStubs`: ModelRegistryCountResp
-    fmt.Fprintf(os.Stdout, "Response from `RegistryAPI.CountImageStubs`: %v\n", resp)
+	configuration := openapiclient.NewConfiguration()
+	apiClient := openapiclient.NewAPIClient(configuration)
+	resp, r, err := apiClient.RegistryAPI.CountImageStubs(context.Background()).ModelRegistryImageStubsReq(modelRegistryImageStubsReq).Execute()
+	if err != nil {
+		fmt.Fprintf(os.Stderr, "Error when calling `RegistryAPI.CountImageStubs``: %v\n", err)
+		fmt.Fprintf(os.Stderr, "Full HTTP response: %v\n", r)
+	}
+	// response from `CountImageStubs`: ModelRegistryCountResp
+	fmt.Fprintf(os.Stdout, "Response from `RegistryAPI.CountImageStubs`: %v\n", resp)
 }
 ```
 
@@ -237,24 +237,24 @@ Count Registry Images
 package main
 
 import (
-    "context"
-    "fmt"
-    "os"
-    openapiclient "github.com/deepfence/golang_deepfence_sdk/client"
+	"context"
+	"fmt"
+	"os"
+	openapiclient "github.com/deepfence/golang_deepfence_sdk/client"
 )
 
 func main() {
-    modelRegistryImagesReq := *openapiclient.NewModelRegistryImagesReq(*openapiclient.NewReportersFieldsFilters([]openapiclient.ReportersCompareFilter{*openapiclient.NewReportersCompareFilter("FieldName_example", interface{}(123), false)}, *openapiclient.NewReportersContainsFilter(map[string][]interface{}{"key": []interface{}{nil}}), *openapiclient.NewReportersMatchFilter(map[string][]interface{}{"key": []interface{}{nil}}), *openapiclient.NewReportersOrderFilter([]openapiclient.ReportersOrderSpec{*openapiclient.NewReportersOrderSpec(false, "FieldName_example")})), "RegistryId_example", *openapiclient.NewModelFetchWindow(int32(123), int32(123))) // ModelRegistryImagesReq |  (optional)
+	modelRegistryImagesReq := *openapiclient.NewModelRegistryImagesReq(*openapiclient.NewReportersFieldsFilters([]openapiclient.ReportersCompareFilter{*openapiclient.NewReportersCompareFilter("FieldName_example", interface{}(123), false)}, *openapiclient.NewReportersContainsFilter(map[string][]interface{}{"key": []interface{}{nil}}), *openapiclient.NewReportersMatchFilter(map[string][]interface{}{"key": []interface{}{nil}}), *openapiclient.NewReportersOrderFilter([]openapiclient.ReportersOrderSpec{*openapiclient.NewReportersOrderSpec(false, "FieldName_example")})), "RegistryId_example", *openapiclient.NewModelFetchWindow(int32(123), int32(123))) // ModelRegistryImagesReq |  (optional)
 
-    configuration := openapiclient.NewConfiguration()
-    apiClient := openapiclient.NewAPIClient(configuration)
-    resp, r, err := apiClient.RegistryAPI.CountImages(context.Background()).ModelRegistryImagesReq(modelRegistryImagesReq).Execute()
-    if err != nil {
-        fmt.Fprintf(os.Stderr, "Error when calling `RegistryAPI.CountImages``: %v\n", err)
-        fmt.Fprintf(os.Stderr, "Full HTTP response: %v\n", r)
-    }
-    // response from `CountImages`: ModelRegistryCountResp
-    fmt.Fprintf(os.Stdout, "Response from `RegistryAPI.CountImages`: %v\n", resp)
+	configuration := openapiclient.NewConfiguration()
+	apiClient := openapiclient.NewAPIClient(configuration)
+	resp, r, err := apiClient.RegistryAPI.CountImages(context.Background()).ModelRegistryImagesReq(modelRegistryImagesReq).Execute()
+	if err != nil {
+		fmt.Fprintf(os.Stderr, "Error when calling `RegistryAPI.CountImages``: %v\n", err)
+		fmt.Fprintf(os.Stderr, "Full HTTP response: %v\n", r)
+	}
+	// response from `CountImages`: ModelRegistryCountResp
+	fmt.Fprintf(os.Stdout, "Response from `RegistryAPI.CountImages`: %v\n", resp)
 }
 ```
 
@@ -303,22 +303,22 @@ Delete Registry
 package main
 
 import (
-    "context"
-    "fmt"
-    "os"
-    openapiclient "github.com/deepfence/golang_deepfence_sdk/client"
+	"context"
+	"fmt"
+	"os"
+	openapiclient "github.com/deepfence/golang_deepfence_sdk/client"
 )
 
 func main() {
-    registryId := "registryId_example" // string | 
+	registryId := "registryId_example" // string | 
 
-    configuration := openapiclient.NewConfiguration()
-    apiClient := openapiclient.NewAPIClient(configuration)
-    r, err := apiClient.RegistryAPI.DeleteRegistry(context.Background(), registryId).Execute()
-    if err != nil {
-        fmt.Fprintf(os.Stderr, "Error when calling `RegistryAPI.DeleteRegistry``: %v\n", err)
-        fmt.Fprintf(os.Stderr, "Full HTTP response: %v\n", r)
-    }
+	configuration := openapiclient.NewConfiguration()
+	apiClient := openapiclient.NewAPIClient(configuration)
+	r, err := apiClient.RegistryAPI.DeleteRegistry(context.Background(), registryId).Execute()
+	if err != nil {
+		fmt.Fprintf(os.Stderr, "Error when calling `RegistryAPI.DeleteRegistry``: %v\n", err)
+		fmt.Fprintf(os.Stderr, "Full HTTP response: %v\n", r)
+	}
 }
 ```
 
@@ -371,22 +371,22 @@ Batch Delete Registry
 package main
 
 import (
-    "context"
-    "fmt"
-    "os"
-    openapiclient "github.com/deepfence/golang_deepfence_sdk/client"
+	"context"
+	"fmt"
+	"os"
+	openapiclient "github.com/deepfence/golang_deepfence_sdk/client"
 )
 
 func main() {
-    modelDeleteRegistryBulkReq := *openapiclient.NewModelDeleteRegistryBulkReq([]string{"RegistryIds_example"}) // ModelDeleteRegistryBulkReq |  (optional)
+	modelDeleteRegistryBulkReq := *openapiclient.NewModelDeleteRegistryBulkReq([]string{"RegistryIds_example"}) // ModelDeleteRegistryBulkReq |  (optional)
 
-    configuration := openapiclient.NewConfiguration()
-    apiClient := openapiclient.NewAPIClient(configuration)
-    r, err := apiClient.RegistryAPI.DeleteRegistryBulk(context.Background()).ModelDeleteRegistryBulkReq(modelDeleteRegistryBulkReq).Execute()
-    if err != nil {
-        fmt.Fprintf(os.Stderr, "Error when calling `RegistryAPI.DeleteRegistryBulk``: %v\n", err)
-        fmt.Fprintf(os.Stderr, "Full HTTP response: %v\n", r)
-    }
+	configuration := openapiclient.NewConfiguration()
+	apiClient := openapiclient.NewAPIClient(configuration)
+	r, err := apiClient.RegistryAPI.DeleteRegistryBulk(context.Background()).ModelDeleteRegistryBulkReq(modelDeleteRegistryBulkReq).Execute()
+	if err != nil {
+		fmt.Fprintf(os.Stderr, "Error when calling `RegistryAPI.DeleteRegistryBulk``: %v\n", err)
+		fmt.Fprintf(os.Stderr, "Full HTTP response: %v\n", r)
+	}
 }
 ```
 
@@ -435,24 +435,24 @@ Get Registry Summary
 package main
 
 import (
-    "context"
-    "fmt"
-    "os"
-    openapiclient "github.com/deepfence/golang_deepfence_sdk/client"
+	"context"
+	"fmt"
+	"os"
+	openapiclient "github.com/deepfence/golang_deepfence_sdk/client"
 )
 
 func main() {
-    registryId := "registryId_example" // string | 
+	registryId := "registryId_example" // string | 
 
-    configuration := openapiclient.NewConfiguration()
-    apiClient := openapiclient.NewAPIClient(configuration)
-    resp, r, err := apiClient.RegistryAPI.GetRegistrySummary(context.Background(), registryId).Execute()
-    if err != nil {
-        fmt.Fprintf(os.Stderr, "Error when calling `RegistryAPI.GetRegistrySummary``: %v\n", err)
-        fmt.Fprintf(os.Stderr, "Full HTTP response: %v\n", r)
-    }
-    // response from `GetRegistrySummary`: ModelSummary
-    fmt.Fprintf(os.Stdout, "Response from `RegistryAPI.GetRegistrySummary`: %v\n", resp)
+	configuration := openapiclient.NewConfiguration()
+	apiClient := openapiclient.NewAPIClient(configuration)
+	resp, r, err := apiClient.RegistryAPI.GetRegistrySummary(context.Background(), registryId).Execute()
+	if err != nil {
+		fmt.Fprintf(os.Stderr, "Error when calling `RegistryAPI.GetRegistrySummary``: %v\n", err)
+		fmt.Fprintf(os.Stderr, "Full HTTP response: %v\n", r)
+	}
+	// response from `GetRegistrySummary`: ModelSummary
+	fmt.Fprintf(os.Stdout, "Response from `RegistryAPI.GetRegistrySummary`: %v\n", resp)
 }
 ```
 
@@ -505,23 +505,23 @@ Get All Registries Summary By Type
 package main
 
 import (
-    "context"
-    "fmt"
-    "os"
-    openapiclient "github.com/deepfence/golang_deepfence_sdk/client"
+	"context"
+	"fmt"
+	"os"
+	openapiclient "github.com/deepfence/golang_deepfence_sdk/client"
 )
 
 func main() {
 
-    configuration := openapiclient.NewConfiguration()
-    apiClient := openapiclient.NewAPIClient(configuration)
-    resp, r, err := apiClient.RegistryAPI.GetSummaryAll(context.Background()).Execute()
-    if err != nil {
-        fmt.Fprintf(os.Stderr, "Error when calling `RegistryAPI.GetSummaryAll``: %v\n", err)
-        fmt.Fprintf(os.Stderr, "Full HTTP response: %v\n", r)
-    }
-    // response from `GetSummaryAll`: map[string]ModelSummary
-    fmt.Fprintf(os.Stdout, "Response from `RegistryAPI.GetSummaryAll`: %v\n", resp)
+	configuration := openapiclient.NewConfiguration()
+	apiClient := openapiclient.NewAPIClient(configuration)
+	resp, r, err := apiClient.RegistryAPI.GetSummaryAll(context.Background()).Execute()
+	if err != nil {
+		fmt.Fprintf(os.Stderr, "Error when calling `RegistryAPI.GetSummaryAll``: %v\n", err)
+		fmt.Fprintf(os.Stderr, "Full HTTP response: %v\n", r)
+	}
+	// response from `GetSummaryAll`: map[string]ModelSummary
+	fmt.Fprintf(os.Stdout, "Response from `RegistryAPI.GetSummaryAll`: %v\n", resp)
 }
 ```
 
@@ -566,24 +566,24 @@ Get Registry Summary By Type
 package main
 
 import (
-    "context"
-    "fmt"
-    "os"
-    openapiclient "github.com/deepfence/golang_deepfence_sdk/client"
+	"context"
+	"fmt"
+	"os"
+	openapiclient "github.com/deepfence/golang_deepfence_sdk/client"
 )
 
 func main() {
-    registryType := "registryType_example" // string | 
+	registryType := "registryType_example" // string | 
 
-    configuration := openapiclient.NewConfiguration()
-    apiClient := openapiclient.NewAPIClient(configuration)
-    resp, r, err := apiClient.RegistryAPI.GetSummaryByType(context.Background(), registryType).Execute()
-    if err != nil {
-        fmt.Fprintf(os.Stderr, "Error when calling `RegistryAPI.GetSummaryByType``: %v\n", err)
-        fmt.Fprintf(os.Stderr, "Full HTTP response: %v\n", r)
-    }
-    // response from `GetSummaryByType`: ModelSummary
-    fmt.Fprintf(os.Stdout, "Response from `RegistryAPI.GetSummaryByType`: %v\n", resp)
+	configuration := openapiclient.NewConfiguration()
+	apiClient := openapiclient.NewAPIClient(configuration)
+	resp, r, err := apiClient.RegistryAPI.GetSummaryByType(context.Background(), registryType).Execute()
+	if err != nil {
+		fmt.Fprintf(os.Stderr, "Error when calling `RegistryAPI.GetSummaryByType``: %v\n", err)
+		fmt.Fprintf(os.Stderr, "Full HTTP response: %v\n", r)
+	}
+	// response from `GetSummaryByType`: ModelSummary
+	fmt.Fprintf(os.Stdout, "Response from `RegistryAPI.GetSummaryByType`: %v\n", resp)
 }
 ```
 
@@ -636,24 +636,24 @@ List Image Stubs
 package main
 
 import (
-    "context"
-    "fmt"
-    "os"
-    openapiclient "github.com/deepfence/golang_deepfence_sdk/client"
+	"context"
+	"fmt"
+	"os"
+	openapiclient "github.com/deepfence/golang_deepfence_sdk/client"
 )
 
 func main() {
-    modelRegistryImageStubsReq := *openapiclient.NewModelRegistryImageStubsReq(*openapiclient.NewReportersFieldsFilters([]openapiclient.ReportersCompareFilter{*openapiclient.NewReportersCompareFilter("FieldName_example", interface{}(123), false)}, *openapiclient.NewReportersContainsFilter(map[string][]interface{}{"key": []interface{}{nil}}), *openapiclient.NewReportersMatchFilter(map[string][]interface{}{"key": []interface{}{nil}}), *openapiclient.NewReportersOrderFilter([]openapiclient.ReportersOrderSpec{*openapiclient.NewReportersOrderSpec(false, "FieldName_example")})), "RegistryId_example", *openapiclient.NewModelFetchWindow(int32(123), int32(123))) // ModelRegistryImageStubsReq |  (optional)
+	modelRegistryImageStubsReq := *openapiclient.NewModelRegistryImageStubsReq(*openapiclient.NewReportersFieldsFilters([]openapiclient.ReportersCompareFilter{*openapiclient.NewReportersCompareFilter("FieldName_example", interface{}(123), false)}, *openapiclient.NewReportersContainsFilter(map[string][]interface{}{"key": []interface{}{nil}}), *openapiclient.NewReportersMatchFilter(map[string][]interface{}{"key": []interface{}{nil}}), *openapiclient.NewReportersOrderFilter([]openapiclient.ReportersOrderSpec{*openapiclient.NewReportersOrderSpec(false, "FieldName_example")})), "RegistryId_example", *openapiclient.NewModelFetchWindow(int32(123), int32(123))) // ModelRegistryImageStubsReq |  (optional)
 
-    configuration := openapiclient.NewConfiguration()
-    apiClient := openapiclient.NewAPIClient(configuration)
-    resp, r, err := apiClient.RegistryAPI.ListImageStubs(context.Background()).ModelRegistryImageStubsReq(modelRegistryImageStubsReq).Execute()
-    if err != nil {
-        fmt.Fprintf(os.Stderr, "Error when calling `RegistryAPI.ListImageStubs``: %v\n", err)
-        fmt.Fprintf(os.Stderr, "Full HTTP response: %v\n", r)
-    }
-    // response from `ListImageStubs`: []ModelImageStub
-    fmt.Fprintf(os.Stdout, "Response from `RegistryAPI.ListImageStubs`: %v\n", resp)
+	configuration := openapiclient.NewConfiguration()
+	apiClient := openapiclient.NewAPIClient(configuration)
+	resp, r, err := apiClient.RegistryAPI.ListImageStubs(context.Background()).ModelRegistryImageStubsReq(modelRegistryImageStubsReq).Execute()
+	if err != nil {
+		fmt.Fprintf(os.Stderr, "Error when calling `RegistryAPI.ListImageStubs``: %v\n", err)
+		fmt.Fprintf(os.Stderr, "Full HTTP response: %v\n", r)
+	}
+	// response from `ListImageStubs`: []ModelImageStub
+	fmt.Fprintf(os.Stdout, "Response from `RegistryAPI.ListImageStubs`: %v\n", resp)
 }
 ```
 
@@ -702,24 +702,24 @@ List Registry Images
 package main
 
 import (
-    "context"
-    "fmt"
-    "os"
-    openapiclient "github.com/deepfence/golang_deepfence_sdk/client"
+	"context"
+	"fmt"
+	"os"
+	openapiclient "github.com/deepfence/golang_deepfence_sdk/client"
 )
 
 func main() {
-    modelRegistryImagesReq := *openapiclient.NewModelRegistryImagesReq(*openapiclient.NewReportersFieldsFilters([]openapiclient.ReportersCompareFilter{*openapiclient.NewReportersCompareFilter("FieldName_example", interface{}(123), false)}, *openapiclient.NewReportersContainsFilter(map[string][]interface{}{"key": []interface{}{nil}}), *openapiclient.NewReportersMatchFilter(map[string][]interface{}{"key": []interface{}{nil}}), *openapiclient.NewReportersOrderFilter([]openapiclient.ReportersOrderSpec{*openapiclient.NewReportersOrderSpec(false, "FieldName_example")})), "RegistryId_example", *openapiclient.NewModelFetchWindow(int32(123), int32(123))) // ModelRegistryImagesReq |  (optional)
+	modelRegistryImagesReq := *openapiclient.NewModelRegistryImagesReq(*openapiclient.NewReportersFieldsFilters([]openapiclient.ReportersCompareFilter{*openapiclient.NewReportersCompareFilter("FieldName_example", interface{}(123), false)}, *openapiclient.NewReportersContainsFilter(map[string][]interface{}{"key": []interface{}{nil}}), *openapiclient.NewReportersMatchFilter(map[string][]interface{}{"key": []interface{}{nil}}), *openapiclient.NewReportersOrderFilter([]openapiclient.ReportersOrderSpec{*openapiclient.NewReportersOrderSpec(false, "FieldName_example")})), "RegistryId_example", *openapiclient.NewModelFetchWindow(int32(123), int32(123))) // ModelRegistryImagesReq |  (optional)
 
-    configuration := openapiclient.NewConfiguration()
-    apiClient := openapiclient.NewAPIClient(configuration)
-    resp, r, err := apiClient.RegistryAPI.ListImages(context.Background()).ModelRegistryImagesReq(modelRegistryImagesReq).Execute()
-    if err != nil {
-        fmt.Fprintf(os.Stderr, "Error when calling `RegistryAPI.ListImages``: %v\n", err)
-        fmt.Fprintf(os.Stderr, "Full HTTP response: %v\n", r)
-    }
-    // response from `ListImages`: []ModelContainerImage
-    fmt.Fprintf(os.Stdout, "Response from `RegistryAPI.ListImages`: %v\n", resp)
+	configuration := openapiclient.NewConfiguration()
+	apiClient := openapiclient.NewAPIClient(configuration)
+	resp, r, err := apiClient.RegistryAPI.ListImages(context.Background()).ModelRegistryImagesReq(modelRegistryImagesReq).Execute()
+	if err != nil {
+		fmt.Fprintf(os.Stderr, "Error when calling `RegistryAPI.ListImages``: %v\n", err)
+		fmt.Fprintf(os.Stderr, "Full HTTP response: %v\n", r)
+	}
+	// response from `ListImages`: []ModelContainerImage
+	fmt.Fprintf(os.Stdout, "Response from `RegistryAPI.ListImages`: %v\n", resp)
 }
 ```
 
@@ -768,23 +768,23 @@ List Registries
 package main
 
 import (
-    "context"
-    "fmt"
-    "os"
-    openapiclient "github.com/deepfence/golang_deepfence_sdk/client"
+	"context"
+	"fmt"
+	"os"
+	openapiclient "github.com/deepfence/golang_deepfence_sdk/client"
 )
 
 func main() {
 
-    configuration := openapiclient.NewConfiguration()
-    apiClient := openapiclient.NewAPIClient(configuration)
-    resp, r, err := apiClient.RegistryAPI.ListRegistry(context.Background()).Execute()
-    if err != nil {
-        fmt.Fprintf(os.Stderr, "Error when calling `RegistryAPI.ListRegistry``: %v\n", err)
-        fmt.Fprintf(os.Stderr, "Full HTTP response: %v\n", r)
-    }
-    // response from `ListRegistry`: []ModelRegistryListResp
-    fmt.Fprintf(os.Stdout, "Response from `RegistryAPI.ListRegistry`: %v\n", resp)
+	configuration := openapiclient.NewConfiguration()
+	apiClient := openapiclient.NewAPIClient(configuration)
+	resp, r, err := apiClient.RegistryAPI.ListRegistry(context.Background()).Execute()
+	if err != nil {
+		fmt.Fprintf(os.Stderr, "Error when calling `RegistryAPI.ListRegistry``: %v\n", err)
+		fmt.Fprintf(os.Stderr, "Full HTTP response: %v\n", r)
+	}
+	// response from `ListRegistry`: []ModelRegistryListResp
+	fmt.Fprintf(os.Stdout, "Response from `RegistryAPI.ListRegistry`: %v\n", resp)
 }
 ```
 
@@ -829,24 +829,24 @@ Sync Registry
 package main
 
 import (
-    "context"
-    "fmt"
-    "os"
-    openapiclient "github.com/deepfence/golang_deepfence_sdk/client"
+	"context"
+	"fmt"
+	"os"
+	openapiclient "github.com/deepfence/golang_deepfence_sdk/client"
 )
 
 func main() {
-    registryId := "registryId_example" // string | 
+	registryId := "registryId_example" // string | 
 
-    configuration := openapiclient.NewConfiguration()
-    apiClient := openapiclient.NewAPIClient(configuration)
-    resp, r, err := apiClient.RegistryAPI.SyncRegistry(context.Background(), registryId).Execute()
-    if err != nil {
-        fmt.Fprintf(os.Stderr, "Error when calling `RegistryAPI.SyncRegistry``: %v\n", err)
-        fmt.Fprintf(os.Stderr, "Full HTTP response: %v\n", r)
-    }
-    // response from `SyncRegistry`: ModelMessageResponse
-    fmt.Fprintf(os.Stdout, "Response from `RegistryAPI.SyncRegistry`: %v\n", resp)
+	configuration := openapiclient.NewConfiguration()
+	apiClient := openapiclient.NewAPIClient(configuration)
+	resp, r, err := apiClient.RegistryAPI.SyncRegistry(context.Background(), registryId).Execute()
+	if err != nil {
+		fmt.Fprintf(os.Stderr, "Error when calling `RegistryAPI.SyncRegistry``: %v\n", err)
+		fmt.Fprintf(os.Stderr, "Full HTTP response: %v\n", r)
+	}
+	// response from `SyncRegistry`: ModelMessageResponse
+	fmt.Fprintf(os.Stdout, "Response from `RegistryAPI.SyncRegistry`: %v\n", resp)
 }
 ```
 
@@ -899,25 +899,25 @@ Update Registry
 package main
 
 import (
-    "context"
-    "fmt"
-    "os"
-    openapiclient "github.com/deepfence/golang_deepfence_sdk/client"
+	"context"
+	"fmt"
+	"os"
+	openapiclient "github.com/deepfence/golang_deepfence_sdk/client"
 )
 
 func main() {
-    registryId := "registryId_example" // string | 
-    modelRegistryUpdateReq := *openapiclient.NewModelRegistryUpdateReq("Name_example", "RegistryType_example") // ModelRegistryUpdateReq |  (optional)
+	registryId := "registryId_example" // string | 
+	modelRegistryUpdateReq := *openapiclient.NewModelRegistryUpdateReq("Name_example", "RegistryType_example") // ModelRegistryUpdateReq |  (optional)
 
-    configuration := openapiclient.NewConfiguration()
-    apiClient := openapiclient.NewAPIClient(configuration)
-    resp, r, err := apiClient.RegistryAPI.UpdateRegistry(context.Background(), registryId).ModelRegistryUpdateReq(modelRegistryUpdateReq).Execute()
-    if err != nil {
-        fmt.Fprintf(os.Stderr, "Error when calling `RegistryAPI.UpdateRegistry``: %v\n", err)
-        fmt.Fprintf(os.Stderr, "Full HTTP response: %v\n", r)
-    }
-    // response from `UpdateRegistry`: ModelMessageResponse
-    fmt.Fprintf(os.Stdout, "Response from `RegistryAPI.UpdateRegistry`: %v\n", resp)
+	configuration := openapiclient.NewConfiguration()
+	apiClient := openapiclient.NewAPIClient(configuration)
+	resp, r, err := apiClient.RegistryAPI.UpdateRegistry(context.Background(), registryId).ModelRegistryUpdateReq(modelRegistryUpdateReq).Execute()
+	if err != nil {
+		fmt.Fprintf(os.Stderr, "Error when calling `RegistryAPI.UpdateRegistry``: %v\n", err)
+		fmt.Fprintf(os.Stderr, "Full HTTP response: %v\n", r)
+	}
+	// response from `UpdateRegistry`: ModelMessageResponse
+	fmt.Fprintf(os.Stdout, "Response from `RegistryAPI.UpdateRegistry`: %v\n", resp)
 }
 ```
 

@@ -1,81 +1,60 @@
-# ModelAgentUpgrade
+# ModelCloudAccountRefreshReq
 
 ## Properties
 
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
 **NodeIds** | **[]string** |  | 
-**Version** | **string** |  | 
 
 ## Methods
 
-### NewModelAgentUpgrade
+### NewModelCloudAccountRefreshReq
 
-`func NewModelAgentUpgrade(nodeIds []string, version string, ) *ModelAgentUpgrade`
+`func NewModelCloudAccountRefreshReq(nodeIds []string, ) *ModelCloudAccountRefreshReq`
 
-NewModelAgentUpgrade instantiates a new ModelAgentUpgrade object
+NewModelCloudAccountRefreshReq instantiates a new ModelCloudAccountRefreshReq object
 This constructor will assign default values to properties that have it defined,
 and makes sure properties required by API are set, but the set of arguments
 will change when the set of required properties is changed
 
-### NewModelAgentUpgradeWithDefaults
+### NewModelCloudAccountRefreshReqWithDefaults
 
-`func NewModelAgentUpgradeWithDefaults() *ModelAgentUpgrade`
+`func NewModelCloudAccountRefreshReqWithDefaults() *ModelCloudAccountRefreshReq`
 
-NewModelAgentUpgradeWithDefaults instantiates a new ModelAgentUpgrade object
+NewModelCloudAccountRefreshReqWithDefaults instantiates a new ModelCloudAccountRefreshReq object
 This constructor will only assign default values to properties that have it defined,
 but it doesn't guarantee that properties required by API are set
 
 ### GetNodeIds
 
-`func (o *ModelAgentUpgrade) GetNodeIds() []string`
+`func (o *ModelCloudAccountRefreshReq) GetNodeIds() []string`
 
 GetNodeIds returns the NodeIds field if non-nil, zero value otherwise.
 
 ### GetNodeIdsOk
 
-`func (o *ModelAgentUpgrade) GetNodeIdsOk() (*[]string, bool)`
+`func (o *ModelCloudAccountRefreshReq) GetNodeIdsOk() (*[]string, bool)`
 
 GetNodeIdsOk returns a tuple with the NodeIds field if it's non-nil, zero value otherwise
 and a boolean to check if the value has been set.
 
 ### SetNodeIds
 
-`func (o *ModelAgentUpgrade) SetNodeIds(v []string)`
+`func (o *ModelCloudAccountRefreshReq) SetNodeIds(v []string)`
 
 SetNodeIds sets NodeIds field to given value.
 
 
 ### SetNodeIdsNil
 
-`func (o *ModelAgentUpgrade) SetNodeIdsNil(b bool)`
+`func (o *ModelCloudAccountRefreshReq) SetNodeIdsNil(b bool)`
 
  SetNodeIdsNil sets the value for NodeIds to be an explicit nil
 
 ### UnsetNodeIds
-`func (o *ModelAgentUpgrade) UnsetNodeIds()`
+`func (o *ModelCloudAccountRefreshReq) UnsetNodeIds()`
 
 UnsetNodeIds ensures that no value is present for NodeIds, not even an explicit nil
-### GetVersion
-
-`func (o *ModelAgentUpgrade) GetVersion() string`
-
-GetVersion returns the Version field if non-nil, zero value otherwise.
-
-### GetVersionOk
-
-`func (o *ModelAgentUpgrade) GetVersionOk() (*string, bool)`
-
-GetVersionOk returns a tuple with the Version field if it's non-nil, zero value otherwise
-and a boolean to check if the value has been set.
-
-### SetVersion
-
-`func (o *ModelAgentUpgrade) SetVersion(v string)`
-
-SetVersion sets Version field to given value.
-
-
 
 [[Back to Model list]](../README.md#documentation-for-models) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to README]](../README.md)
 

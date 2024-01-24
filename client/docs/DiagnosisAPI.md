@@ -28,23 +28,23 @@ Get Diagnostic Notification
 package main
 
 import (
-    "context"
-    "fmt"
-    "os"
-    openapiclient "github.com/deepfence/golang_deepfence_sdk/client"
+	"context"
+	"fmt"
+	"os"
+	openapiclient "github.com/deepfence/golang_deepfence_sdk/client"
 )
 
 func main() {
 
-    configuration := openapiclient.NewConfiguration()
-    apiClient := openapiclient.NewAPIClient(configuration)
-    resp, r, err := apiClient.DiagnosisAPI.DiagnosticNotification(context.Background()).Execute()
-    if err != nil {
-        fmt.Fprintf(os.Stderr, "Error when calling `DiagnosisAPI.DiagnosticNotification``: %v\n", err)
-        fmt.Fprintf(os.Stderr, "Full HTTP response: %v\n", r)
-    }
-    // response from `DiagnosticNotification`: []DiagnosisDiagnosticNotification
-    fmt.Fprintf(os.Stdout, "Response from `DiagnosisAPI.DiagnosticNotification`: %v\n", resp)
+	configuration := openapiclient.NewConfiguration()
+	apiClient := openapiclient.NewAPIClient(configuration)
+	resp, r, err := apiClient.DiagnosisAPI.DiagnosticNotification(context.Background()).Execute()
+	if err != nil {
+		fmt.Fprintf(os.Stderr, "Error when calling `DiagnosisAPI.DiagnosticNotification``: %v\n", err)
+		fmt.Fprintf(os.Stderr, "Full HTTP response: %v\n", r)
+	}
+	// response from `DiagnosticNotification`: []DiagnosisDiagnosticNotification
+	fmt.Fprintf(os.Stdout, "Response from `DiagnosisAPI.DiagnosticNotification`: %v\n", resp)
 }
 ```
 
@@ -89,22 +89,22 @@ Generate Agent Diagnostic Logs
 package main
 
 import (
-    "context"
-    "fmt"
-    "os"
-    openapiclient "github.com/deepfence/golang_deepfence_sdk/client"
+	"context"
+	"fmt"
+	"os"
+	openapiclient "github.com/deepfence/golang_deepfence_sdk/client"
 )
 
 func main() {
-    diagnosisGenerateAgentDiagnosticLogsRequest := *openapiclient.NewDiagnosisGenerateAgentDiagnosticLogsRequest([]openapiclient.DiagnosisNodeIdentifier{*openapiclient.NewDiagnosisNodeIdentifier("NodeId_example", "NodeType_example")}, int32(123)) // DiagnosisGenerateAgentDiagnosticLogsRequest |  (optional)
+	diagnosisGenerateAgentDiagnosticLogsRequest := *openapiclient.NewDiagnosisGenerateAgentDiagnosticLogsRequest([]openapiclient.DiagnosisNodeIdentifier{*openapiclient.NewDiagnosisNodeIdentifier("NodeId_example", "NodeType_example")}, int32(123)) // DiagnosisGenerateAgentDiagnosticLogsRequest |  (optional)
 
-    configuration := openapiclient.NewConfiguration()
-    apiClient := openapiclient.NewAPIClient(configuration)
-    r, err := apiClient.DiagnosisAPI.GenerateAgentDiagnosticLogs(context.Background()).DiagnosisGenerateAgentDiagnosticLogsRequest(diagnosisGenerateAgentDiagnosticLogsRequest).Execute()
-    if err != nil {
-        fmt.Fprintf(os.Stderr, "Error when calling `DiagnosisAPI.GenerateAgentDiagnosticLogs``: %v\n", err)
-        fmt.Fprintf(os.Stderr, "Full HTTP response: %v\n", r)
-    }
+	configuration := openapiclient.NewConfiguration()
+	apiClient := openapiclient.NewAPIClient(configuration)
+	r, err := apiClient.DiagnosisAPI.GenerateAgentDiagnosticLogs(context.Background()).DiagnosisGenerateAgentDiagnosticLogsRequest(diagnosisGenerateAgentDiagnosticLogsRequest).Execute()
+	if err != nil {
+		fmt.Fprintf(os.Stderr, "Error when calling `DiagnosisAPI.GenerateAgentDiagnosticLogs``: %v\n", err)
+		fmt.Fprintf(os.Stderr, "Full HTTP response: %v\n", r)
+	}
 }
 ```
 
@@ -153,22 +153,22 @@ Generate Cloud Scanner Diagnostic Logs
 package main
 
 import (
-    "context"
-    "fmt"
-    "os"
-    openapiclient "github.com/deepfence/golang_deepfence_sdk/client"
+	"context"
+	"fmt"
+	"os"
+	openapiclient "github.com/deepfence/golang_deepfence_sdk/client"
 )
 
 func main() {
-    diagnosisGenerateCloudScannerDiagnosticLogsRequest := *openapiclient.NewDiagnosisGenerateCloudScannerDiagnosticLogsRequest([]openapiclient.DiagnosisNodeIdentifier{*openapiclient.NewDiagnosisNodeIdentifier("NodeId_example", "NodeType_example")}, int32(123)) // DiagnosisGenerateCloudScannerDiagnosticLogsRequest |  (optional)
+	diagnosisGenerateCloudScannerDiagnosticLogsRequest := *openapiclient.NewDiagnosisGenerateCloudScannerDiagnosticLogsRequest([]openapiclient.DiagnosisNodeIdentifier{*openapiclient.NewDiagnosisNodeIdentifier("NodeId_example", "NodeType_example")}, int32(123)) // DiagnosisGenerateCloudScannerDiagnosticLogsRequest |  (optional)
 
-    configuration := openapiclient.NewConfiguration()
-    apiClient := openapiclient.NewAPIClient(configuration)
-    r, err := apiClient.DiagnosisAPI.GenerateCloudScannerDiagnosticLogs(context.Background()).DiagnosisGenerateCloudScannerDiagnosticLogsRequest(diagnosisGenerateCloudScannerDiagnosticLogsRequest).Execute()
-    if err != nil {
-        fmt.Fprintf(os.Stderr, "Error when calling `DiagnosisAPI.GenerateCloudScannerDiagnosticLogs``: %v\n", err)
-        fmt.Fprintf(os.Stderr, "Full HTTP response: %v\n", r)
-    }
+	configuration := openapiclient.NewConfiguration()
+	apiClient := openapiclient.NewAPIClient(configuration)
+	r, err := apiClient.DiagnosisAPI.GenerateCloudScannerDiagnosticLogs(context.Background()).DiagnosisGenerateCloudScannerDiagnosticLogsRequest(diagnosisGenerateCloudScannerDiagnosticLogsRequest).Execute()
+	if err != nil {
+		fmt.Fprintf(os.Stderr, "Error when calling `DiagnosisAPI.GenerateCloudScannerDiagnosticLogs``: %v\n", err)
+		fmt.Fprintf(os.Stderr, "Full HTTP response: %v\n", r)
+	}
 }
 ```
 
@@ -217,22 +217,22 @@ Generate Console Diagnostic Logs
 package main
 
 import (
-    "context"
-    "fmt"
-    "os"
-    openapiclient "github.com/deepfence/golang_deepfence_sdk/client"
+	"context"
+	"fmt"
+	"os"
+	openapiclient "github.com/deepfence/golang_deepfence_sdk/client"
 )
 
 func main() {
-    diagnosisGenerateConsoleDiagnosticLogsRequest := *openapiclient.NewDiagnosisGenerateConsoleDiagnosticLogsRequest(int32(123)) // DiagnosisGenerateConsoleDiagnosticLogsRequest |  (optional)
+	diagnosisGenerateConsoleDiagnosticLogsRequest := *openapiclient.NewDiagnosisGenerateConsoleDiagnosticLogsRequest(int32(123)) // DiagnosisGenerateConsoleDiagnosticLogsRequest |  (optional)
 
-    configuration := openapiclient.NewConfiguration()
-    apiClient := openapiclient.NewAPIClient(configuration)
-    r, err := apiClient.DiagnosisAPI.GenerateConsoleDiagnosticLogs(context.Background()).DiagnosisGenerateConsoleDiagnosticLogsRequest(diagnosisGenerateConsoleDiagnosticLogsRequest).Execute()
-    if err != nil {
-        fmt.Fprintf(os.Stderr, "Error when calling `DiagnosisAPI.GenerateConsoleDiagnosticLogs``: %v\n", err)
-        fmt.Fprintf(os.Stderr, "Full HTTP response: %v\n", r)
-    }
+	configuration := openapiclient.NewConfiguration()
+	apiClient := openapiclient.NewAPIClient(configuration)
+	r, err := apiClient.DiagnosisAPI.GenerateConsoleDiagnosticLogs(context.Background()).DiagnosisGenerateConsoleDiagnosticLogsRequest(diagnosisGenerateConsoleDiagnosticLogsRequest).Execute()
+	if err != nil {
+		fmt.Fprintf(os.Stderr, "Error when calling `DiagnosisAPI.GenerateConsoleDiagnosticLogs``: %v\n", err)
+		fmt.Fprintf(os.Stderr, "Full HTTP response: %v\n", r)
+	}
 }
 ```
 
@@ -281,23 +281,23 @@ Get Diagnostic Logs
 package main
 
 import (
-    "context"
-    "fmt"
-    "os"
-    openapiclient "github.com/deepfence/golang_deepfence_sdk/client"
+	"context"
+	"fmt"
+	"os"
+	openapiclient "github.com/deepfence/golang_deepfence_sdk/client"
 )
 
 func main() {
 
-    configuration := openapiclient.NewConfiguration()
-    apiClient := openapiclient.NewAPIClient(configuration)
-    resp, r, err := apiClient.DiagnosisAPI.GetDiagnosticLogs(context.Background()).Execute()
-    if err != nil {
-        fmt.Fprintf(os.Stderr, "Error when calling `DiagnosisAPI.GetDiagnosticLogs``: %v\n", err)
-        fmt.Fprintf(os.Stderr, "Full HTTP response: %v\n", r)
-    }
-    // response from `GetDiagnosticLogs`: DiagnosisGetDiagnosticLogsResponse
-    fmt.Fprintf(os.Stdout, "Response from `DiagnosisAPI.GetDiagnosticLogs`: %v\n", resp)
+	configuration := openapiclient.NewConfiguration()
+	apiClient := openapiclient.NewAPIClient(configuration)
+	resp, r, err := apiClient.DiagnosisAPI.GetDiagnosticLogs(context.Background()).Execute()
+	if err != nil {
+		fmt.Fprintf(os.Stderr, "Error when calling `DiagnosisAPI.GetDiagnosticLogs``: %v\n", err)
+		fmt.Fprintf(os.Stderr, "Full HTTP response: %v\n", r)
+	}
+	// response from `GetDiagnosticLogs`: DiagnosisGetDiagnosticLogsResponse
+	fmt.Fprintf(os.Stdout, "Response from `DiagnosisAPI.GetDiagnosticLogs`: %v\n", resp)
 }
 ```
 
@@ -342,23 +342,23 @@ Update Agent Diagnostic Logs Status
 package main
 
 import (
-    "context"
-    "fmt"
-    "os"
-    openapiclient "github.com/deepfence/golang_deepfence_sdk/client"
+	"context"
+	"fmt"
+	"os"
+	openapiclient "github.com/deepfence/golang_deepfence_sdk/client"
 )
 
 func main() {
-    nodeId := "nodeId_example" // string | 
-    diagnosisDiagnosticLogsStatus := *openapiclient.NewDiagnosisDiagnosticLogsStatus("Status_example") // DiagnosisDiagnosticLogsStatus |  (optional)
+	nodeId := "nodeId_example" // string | 
+	diagnosisDiagnosticLogsStatus := *openapiclient.NewDiagnosisDiagnosticLogsStatus("Status_example") // DiagnosisDiagnosticLogsStatus |  (optional)
 
-    configuration := openapiclient.NewConfiguration()
-    apiClient := openapiclient.NewAPIClient(configuration)
-    r, err := apiClient.DiagnosisAPI.UpdateAgentDiagnosticLogsStatus(context.Background(), nodeId).DiagnosisDiagnosticLogsStatus(diagnosisDiagnosticLogsStatus).Execute()
-    if err != nil {
-        fmt.Fprintf(os.Stderr, "Error when calling `DiagnosisAPI.UpdateAgentDiagnosticLogsStatus``: %v\n", err)
-        fmt.Fprintf(os.Stderr, "Full HTTP response: %v\n", r)
-    }
+	configuration := openapiclient.NewConfiguration()
+	apiClient := openapiclient.NewAPIClient(configuration)
+	r, err := apiClient.DiagnosisAPI.UpdateAgentDiagnosticLogsStatus(context.Background(), nodeId).DiagnosisDiagnosticLogsStatus(diagnosisDiagnosticLogsStatus).Execute()
+	if err != nil {
+		fmt.Fprintf(os.Stderr, "Error when calling `DiagnosisAPI.UpdateAgentDiagnosticLogsStatus``: %v\n", err)
+		fmt.Fprintf(os.Stderr, "Full HTTP response: %v\n", r)
+	}
 }
 ```
 
@@ -412,23 +412,23 @@ Update Cloud Scanner Diagnostic Logs Status
 package main
 
 import (
-    "context"
-    "fmt"
-    "os"
-    openapiclient "github.com/deepfence/golang_deepfence_sdk/client"
+	"context"
+	"fmt"
+	"os"
+	openapiclient "github.com/deepfence/golang_deepfence_sdk/client"
 )
 
 func main() {
-    nodeId := "nodeId_example" // string | 
-    diagnosisDiagnosticLogsStatus := *openapiclient.NewDiagnosisDiagnosticLogsStatus("Status_example") // DiagnosisDiagnosticLogsStatus |  (optional)
+	nodeId := "nodeId_example" // string | 
+	diagnosisDiagnosticLogsStatus := *openapiclient.NewDiagnosisDiagnosticLogsStatus("Status_example") // DiagnosisDiagnosticLogsStatus |  (optional)
 
-    configuration := openapiclient.NewConfiguration()
-    apiClient := openapiclient.NewAPIClient(configuration)
-    r, err := apiClient.DiagnosisAPI.UpdateCloudScannerDiagnosticLogsStatus(context.Background(), nodeId).DiagnosisDiagnosticLogsStatus(diagnosisDiagnosticLogsStatus).Execute()
-    if err != nil {
-        fmt.Fprintf(os.Stderr, "Error when calling `DiagnosisAPI.UpdateCloudScannerDiagnosticLogsStatus``: %v\n", err)
-        fmt.Fprintf(os.Stderr, "Full HTTP response: %v\n", r)
-    }
+	configuration := openapiclient.NewConfiguration()
+	apiClient := openapiclient.NewAPIClient(configuration)
+	r, err := apiClient.DiagnosisAPI.UpdateCloudScannerDiagnosticLogsStatus(context.Background(), nodeId).DiagnosisDiagnosticLogsStatus(diagnosisDiagnosticLogsStatus).Execute()
+	if err != nil {
+		fmt.Fprintf(os.Stderr, "Error when calling `DiagnosisAPI.UpdateCloudScannerDiagnosticLogsStatus``: %v\n", err)
+		fmt.Fprintf(os.Stderr, "Full HTTP response: %v\n", r)
+	}
 }
 ```
 

@@ -5,16 +5,20 @@
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
 **CloudComplianceCount** | **int32** |  | 
+**CloudWarnAlarmCount** | **int32** |  | 
 **ComplianceCount** | **int32** |  | 
+**ExploitableSecretsCount** | **int32** |  | 
+**ExploitableVulnerabilitiesCount** | **int32** |  | 
 **Resources** | [**[]GraphThreatNodeInfo**](GraphThreatNodeInfo.md) |  | 
 **SecretsCount** | **int32** |  | 
 **VulnerabilityCount** | **int32** |  | 
+**WarnAlarmCount** | **int32** |  | 
 
 ## Methods
 
 ### NewGraphProviderThreatGraph
 
-`func NewGraphProviderThreatGraph(cloudComplianceCount int32, complianceCount int32, resources []GraphThreatNodeInfo, secretsCount int32, vulnerabilityCount int32, ) *GraphProviderThreatGraph`
+`func NewGraphProviderThreatGraph(cloudComplianceCount int32, cloudWarnAlarmCount int32, complianceCount int32, exploitableSecretsCount int32, exploitableVulnerabilitiesCount int32, resources []GraphThreatNodeInfo, secretsCount int32, vulnerabilityCount int32, warnAlarmCount int32, ) *GraphProviderThreatGraph`
 
 NewGraphProviderThreatGraph instantiates a new GraphProviderThreatGraph object
 This constructor will assign default values to properties that have it defined,
@@ -49,6 +53,26 @@ and a boolean to check if the value has been set.
 SetCloudComplianceCount sets CloudComplianceCount field to given value.
 
 
+### GetCloudWarnAlarmCount
+
+`func (o *GraphProviderThreatGraph) GetCloudWarnAlarmCount() int32`
+
+GetCloudWarnAlarmCount returns the CloudWarnAlarmCount field if non-nil, zero value otherwise.
+
+### GetCloudWarnAlarmCountOk
+
+`func (o *GraphProviderThreatGraph) GetCloudWarnAlarmCountOk() (*int32, bool)`
+
+GetCloudWarnAlarmCountOk returns a tuple with the CloudWarnAlarmCount field if it's non-nil, zero value otherwise
+and a boolean to check if the value has been set.
+
+### SetCloudWarnAlarmCount
+
+`func (o *GraphProviderThreatGraph) SetCloudWarnAlarmCount(v int32)`
+
+SetCloudWarnAlarmCount sets CloudWarnAlarmCount field to given value.
+
+
 ### GetComplianceCount
 
 `func (o *GraphProviderThreatGraph) GetComplianceCount() int32`
@@ -67,6 +91,46 @@ and a boolean to check if the value has been set.
 `func (o *GraphProviderThreatGraph) SetComplianceCount(v int32)`
 
 SetComplianceCount sets ComplianceCount field to given value.
+
+
+### GetExploitableSecretsCount
+
+`func (o *GraphProviderThreatGraph) GetExploitableSecretsCount() int32`
+
+GetExploitableSecretsCount returns the ExploitableSecretsCount field if non-nil, zero value otherwise.
+
+### GetExploitableSecretsCountOk
+
+`func (o *GraphProviderThreatGraph) GetExploitableSecretsCountOk() (*int32, bool)`
+
+GetExploitableSecretsCountOk returns a tuple with the ExploitableSecretsCount field if it's non-nil, zero value otherwise
+and a boolean to check if the value has been set.
+
+### SetExploitableSecretsCount
+
+`func (o *GraphProviderThreatGraph) SetExploitableSecretsCount(v int32)`
+
+SetExploitableSecretsCount sets ExploitableSecretsCount field to given value.
+
+
+### GetExploitableVulnerabilitiesCount
+
+`func (o *GraphProviderThreatGraph) GetExploitableVulnerabilitiesCount() int32`
+
+GetExploitableVulnerabilitiesCount returns the ExploitableVulnerabilitiesCount field if non-nil, zero value otherwise.
+
+### GetExploitableVulnerabilitiesCountOk
+
+`func (o *GraphProviderThreatGraph) GetExploitableVulnerabilitiesCountOk() (*int32, bool)`
+
+GetExploitableVulnerabilitiesCountOk returns a tuple with the ExploitableVulnerabilitiesCount field if it's non-nil, zero value otherwise
+and a boolean to check if the value has been set.
+
+### SetExploitableVulnerabilitiesCount
+
+`func (o *GraphProviderThreatGraph) SetExploitableVulnerabilitiesCount(v int32)`
+
+SetExploitableVulnerabilitiesCount sets ExploitableVulnerabilitiesCount field to given value.
 
 
 ### GetResources
@@ -137,6 +201,26 @@ and a boolean to check if the value has been set.
 `func (o *GraphProviderThreatGraph) SetVulnerabilityCount(v int32)`
 
 SetVulnerabilityCount sets VulnerabilityCount field to given value.
+
+
+### GetWarnAlarmCount
+
+`func (o *GraphProviderThreatGraph) GetWarnAlarmCount() int32`
+
+GetWarnAlarmCount returns the WarnAlarmCount field if non-nil, zero value otherwise.
+
+### GetWarnAlarmCountOk
+
+`func (o *GraphProviderThreatGraph) GetWarnAlarmCountOk() (*int32, bool)`
+
+GetWarnAlarmCountOk returns a tuple with the WarnAlarmCount field if it's non-nil, zero value otherwise
+and a boolean to check if the value has been set.
+
+### SetWarnAlarmCount
+
+`func (o *GraphProviderThreatGraph) SetWarnAlarmCount(v int32)`
+
+SetWarnAlarmCount sets WarnAlarmCount field to given value.
 
 
 

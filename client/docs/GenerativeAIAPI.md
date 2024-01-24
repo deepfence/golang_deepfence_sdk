@@ -6,6 +6,7 @@ Method | HTTP request | Description
 ------------- | ------------- | -------------
 [**AddGenerativeAiIntegrationBedrock**](GenerativeAIAPI.md#AddGenerativeAiIntegrationBedrock) | **Post** /deepfence/generative-ai-integration/bedrock | Add AWS Bedrock Generative AI Integration
 [**AddGenerativeAiIntegrationOpenAI**](GenerativeAIAPI.md#AddGenerativeAiIntegrationOpenAI) | **Post** /deepfence/generative-ai-integration/openai | Add OpenAI Generative AI Integration
+[**AutoAddGenerativeAiIntegration**](GenerativeAIAPI.md#AutoAddGenerativeAiIntegration) | **Post** /deepfence/generative-ai-integration/auto-add | Automatically add Generative AI Integration
 [**DeleteGenerativeAiIntegration**](GenerativeAIAPI.md#DeleteGenerativeAiIntegration) | **Delete** /deepfence/generative-ai-integration/{integration_id} | Delete Generative AI Integration
 [**GenerativeAiIntegrationCloudPostureQuery**](GenerativeAIAPI.md#GenerativeAiIntegrationCloudPostureQuery) | **Post** /deepfence/generative-ai-integration/query/cloud-posture | Send Cloud Posture query to Generative AI Integration
 [**GenerativeAiIntegrationKubernetesPostureQuery**](GenerativeAIAPI.md#GenerativeAiIntegrationKubernetesPostureQuery) | **Post** /deepfence/generative-ai-integration/query/kubernetes-posture | Send Kubernetes Posture query to Generative AI Integration
@@ -32,24 +33,24 @@ Add AWS Bedrock Generative AI Integration
 package main
 
 import (
-    "context"
-    "fmt"
-    "os"
-    openapiclient "github.com/deepfence/golang_deepfence_sdk/client"
+	"context"
+	"fmt"
+	"os"
+	openapiclient "github.com/deepfence/golang_deepfence_sdk/client"
 )
 
 func main() {
-    modelAddGenerativeAiBedrockIntegration := *openapiclient.NewModelAddGenerativeAiBedrockIntegration("AwsRegion_example", "ModelId_example") // ModelAddGenerativeAiBedrockIntegration |  (optional)
+	modelAddGenerativeAiBedrockIntegration := *openapiclient.NewModelAddGenerativeAiBedrockIntegration("AwsRegion_example", "ModelId_example") // ModelAddGenerativeAiBedrockIntegration |  (optional)
 
-    configuration := openapiclient.NewConfiguration()
-    apiClient := openapiclient.NewAPIClient(configuration)
-    resp, r, err := apiClient.GenerativeAIAPI.AddGenerativeAiIntegrationBedrock(context.Background()).ModelAddGenerativeAiBedrockIntegration(modelAddGenerativeAiBedrockIntegration).Execute()
-    if err != nil {
-        fmt.Fprintf(os.Stderr, "Error when calling `GenerativeAIAPI.AddGenerativeAiIntegrationBedrock``: %v\n", err)
-        fmt.Fprintf(os.Stderr, "Full HTTP response: %v\n", r)
-    }
-    // response from `AddGenerativeAiIntegrationBedrock`: ModelMessageResponse
-    fmt.Fprintf(os.Stdout, "Response from `GenerativeAIAPI.AddGenerativeAiIntegrationBedrock`: %v\n", resp)
+	configuration := openapiclient.NewConfiguration()
+	apiClient := openapiclient.NewAPIClient(configuration)
+	resp, r, err := apiClient.GenerativeAIAPI.AddGenerativeAiIntegrationBedrock(context.Background()).ModelAddGenerativeAiBedrockIntegration(modelAddGenerativeAiBedrockIntegration).Execute()
+	if err != nil {
+		fmt.Fprintf(os.Stderr, "Error when calling `GenerativeAIAPI.AddGenerativeAiIntegrationBedrock``: %v\n", err)
+		fmt.Fprintf(os.Stderr, "Full HTTP response: %v\n", r)
+	}
+	// response from `AddGenerativeAiIntegrationBedrock`: ModelMessageResponse
+	fmt.Fprintf(os.Stdout, "Response from `GenerativeAIAPI.AddGenerativeAiIntegrationBedrock`: %v\n", resp)
 }
 ```
 
@@ -98,24 +99,24 @@ Add OpenAI Generative AI Integration
 package main
 
 import (
-    "context"
-    "fmt"
-    "os"
-    openapiclient "github.com/deepfence/golang_deepfence_sdk/client"
+	"context"
+	"fmt"
+	"os"
+	openapiclient "github.com/deepfence/golang_deepfence_sdk/client"
 )
 
 func main() {
-    modelAddGenerativeAiOpenAIIntegration := *openapiclient.NewModelAddGenerativeAiOpenAIIntegration("ApiKey_example", "ModelId_example") // ModelAddGenerativeAiOpenAIIntegration |  (optional)
+	modelAddGenerativeAiOpenAIIntegration := *openapiclient.NewModelAddGenerativeAiOpenAIIntegration("ApiKey_example", "ModelId_example") // ModelAddGenerativeAiOpenAIIntegration |  (optional)
 
-    configuration := openapiclient.NewConfiguration()
-    apiClient := openapiclient.NewAPIClient(configuration)
-    resp, r, err := apiClient.GenerativeAIAPI.AddGenerativeAiIntegrationOpenAI(context.Background()).ModelAddGenerativeAiOpenAIIntegration(modelAddGenerativeAiOpenAIIntegration).Execute()
-    if err != nil {
-        fmt.Fprintf(os.Stderr, "Error when calling `GenerativeAIAPI.AddGenerativeAiIntegrationOpenAI``: %v\n", err)
-        fmt.Fprintf(os.Stderr, "Full HTTP response: %v\n", r)
-    }
-    // response from `AddGenerativeAiIntegrationOpenAI`: ModelMessageResponse
-    fmt.Fprintf(os.Stdout, "Response from `GenerativeAIAPI.AddGenerativeAiIntegrationOpenAI`: %v\n", resp)
+	configuration := openapiclient.NewConfiguration()
+	apiClient := openapiclient.NewAPIClient(configuration)
+	resp, r, err := apiClient.GenerativeAIAPI.AddGenerativeAiIntegrationOpenAI(context.Background()).ModelAddGenerativeAiOpenAIIntegration(modelAddGenerativeAiOpenAIIntegration).Execute()
+	if err != nil {
+		fmt.Fprintf(os.Stderr, "Error when calling `GenerativeAIAPI.AddGenerativeAiIntegrationOpenAI``: %v\n", err)
+		fmt.Fprintf(os.Stderr, "Full HTTP response: %v\n", r)
+	}
+	// response from `AddGenerativeAiIntegrationOpenAI`: ModelMessageResponse
+	fmt.Fprintf(os.Stdout, "Response from `GenerativeAIAPI.AddGenerativeAiIntegrationOpenAI`: %v\n", resp)
 }
 ```
 
@@ -150,6 +151,65 @@ Name | Type | Description  | Notes
 [[Back to README]](../README.md)
 
 
+## AutoAddGenerativeAiIntegration
+
+> AutoAddGenerativeAiIntegration(ctx).Execute()
+
+Automatically add Generative AI Integration
+
+
+
+### Example
+
+```go
+package main
+
+import (
+	"context"
+	"fmt"
+	"os"
+	openapiclient "github.com/deepfence/golang_deepfence_sdk/client"
+)
+
+func main() {
+
+	configuration := openapiclient.NewConfiguration()
+	apiClient := openapiclient.NewAPIClient(configuration)
+	r, err := apiClient.GenerativeAIAPI.AutoAddGenerativeAiIntegration(context.Background()).Execute()
+	if err != nil {
+		fmt.Fprintf(os.Stderr, "Error when calling `GenerativeAIAPI.AutoAddGenerativeAiIntegration``: %v\n", err)
+		fmt.Fprintf(os.Stderr, "Full HTTP response: %v\n", r)
+	}
+}
+```
+
+### Path Parameters
+
+This endpoint does not need any parameter.
+
+### Other Parameters
+
+Other parameters are passed through a pointer to a apiAutoAddGenerativeAiIntegrationRequest struct via the builder pattern
+
+
+### Return type
+
+ (empty response body)
+
+### Authorization
+
+[bearer_token](../README.md#bearer_token)
+
+### HTTP request headers
+
+- **Content-Type**: Not defined
+- **Accept**: application/json
+
+[[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints)
+[[Back to Model list]](../README.md#documentation-for-models)
+[[Back to README]](../README.md)
+
+
 ## DeleteGenerativeAiIntegration
 
 > DeleteGenerativeAiIntegration(ctx, integrationId).Execute()
@@ -164,22 +224,22 @@ Delete Generative AI Integration
 package main
 
 import (
-    "context"
-    "fmt"
-    "os"
-    openapiclient "github.com/deepfence/golang_deepfence_sdk/client"
+	"context"
+	"fmt"
+	"os"
+	openapiclient "github.com/deepfence/golang_deepfence_sdk/client"
 )
 
 func main() {
-    integrationId := "integrationId_example" // string | 
+	integrationId := "integrationId_example" // string | 
 
-    configuration := openapiclient.NewConfiguration()
-    apiClient := openapiclient.NewAPIClient(configuration)
-    r, err := apiClient.GenerativeAIAPI.DeleteGenerativeAiIntegration(context.Background(), integrationId).Execute()
-    if err != nil {
-        fmt.Fprintf(os.Stderr, "Error when calling `GenerativeAIAPI.DeleteGenerativeAiIntegration``: %v\n", err)
-        fmt.Fprintf(os.Stderr, "Full HTTP response: %v\n", r)
-    }
+	configuration := openapiclient.NewConfiguration()
+	apiClient := openapiclient.NewAPIClient(configuration)
+	r, err := apiClient.GenerativeAIAPI.DeleteGenerativeAiIntegration(context.Background(), integrationId).Execute()
+	if err != nil {
+		fmt.Fprintf(os.Stderr, "Error when calling `GenerativeAIAPI.DeleteGenerativeAiIntegration``: %v\n", err)
+		fmt.Fprintf(os.Stderr, "Full HTTP response: %v\n", r)
+	}
 }
 ```
 
@@ -232,24 +292,24 @@ Send Cloud Posture query to Generative AI Integration
 package main
 
 import (
-    "context"
-    "fmt"
-    "os"
-    openapiclient "github.com/deepfence/golang_deepfence_sdk/client"
+	"context"
+	"fmt"
+	"os"
+	openapiclient "github.com/deepfence/golang_deepfence_sdk/client"
 )
 
 func main() {
-    modelGenerativeAiIntegrationCloudPostureRequest := *openapiclient.NewModelGenerativeAiIntegrationCloudPostureRequest("CloudProvider_example", "ComplianceCheckType_example", "QueryType_example", "RemediationFormat_example", "Title_example") // ModelGenerativeAiIntegrationCloudPostureRequest |  (optional)
+	modelGenerativeAiIntegrationCloudPostureRequest := *openapiclient.NewModelGenerativeAiIntegrationCloudPostureRequest("CloudProvider_example", "ComplianceCheckType_example", "QueryType_example", "RemediationFormat_example", "Title_example") // ModelGenerativeAiIntegrationCloudPostureRequest |  (optional)
 
-    configuration := openapiclient.NewConfiguration()
-    apiClient := openapiclient.NewAPIClient(configuration)
-    resp, r, err := apiClient.GenerativeAIAPI.GenerativeAiIntegrationCloudPostureQuery(context.Background()).ModelGenerativeAiIntegrationCloudPostureRequest(modelGenerativeAiIntegrationCloudPostureRequest).Execute()
-    if err != nil {
-        fmt.Fprintf(os.Stderr, "Error when calling `GenerativeAIAPI.GenerativeAiIntegrationCloudPostureQuery``: %v\n", err)
-        fmt.Fprintf(os.Stderr, "Full HTTP response: %v\n", r)
-    }
-    // response from `GenerativeAiIntegrationCloudPostureQuery`: string
-    fmt.Fprintf(os.Stdout, "Response from `GenerativeAIAPI.GenerativeAiIntegrationCloudPostureQuery`: %v\n", resp)
+	configuration := openapiclient.NewConfiguration()
+	apiClient := openapiclient.NewAPIClient(configuration)
+	resp, r, err := apiClient.GenerativeAIAPI.GenerativeAiIntegrationCloudPostureQuery(context.Background()).ModelGenerativeAiIntegrationCloudPostureRequest(modelGenerativeAiIntegrationCloudPostureRequest).Execute()
+	if err != nil {
+		fmt.Fprintf(os.Stderr, "Error when calling `GenerativeAIAPI.GenerativeAiIntegrationCloudPostureQuery``: %v\n", err)
+		fmt.Fprintf(os.Stderr, "Full HTTP response: %v\n", r)
+	}
+	// response from `GenerativeAiIntegrationCloudPostureQuery`: string
+	fmt.Fprintf(os.Stdout, "Response from `GenerativeAIAPI.GenerativeAiIntegrationCloudPostureQuery`: %v\n", resp)
 }
 ```
 
@@ -298,24 +358,24 @@ Send Kubernetes Posture query to Generative AI Integration
 package main
 
 import (
-    "context"
-    "fmt"
-    "os"
-    openapiclient "github.com/deepfence/golang_deepfence_sdk/client"
+	"context"
+	"fmt"
+	"os"
+	openapiclient "github.com/deepfence/golang_deepfence_sdk/client"
 )
 
 func main() {
-    modelGenerativeAiIntegrationKubernetesPostureRequest := *openapiclient.NewModelGenerativeAiIntegrationKubernetesPostureRequest("ComplianceCheckType_example", "Description_example", "QueryType_example", "RemediationFormat_example") // ModelGenerativeAiIntegrationKubernetesPostureRequest |  (optional)
+	modelGenerativeAiIntegrationKubernetesPostureRequest := *openapiclient.NewModelGenerativeAiIntegrationKubernetesPostureRequest("ComplianceCheckType_example", "Description_example", "QueryType_example", "RemediationFormat_example") // ModelGenerativeAiIntegrationKubernetesPostureRequest |  (optional)
 
-    configuration := openapiclient.NewConfiguration()
-    apiClient := openapiclient.NewAPIClient(configuration)
-    resp, r, err := apiClient.GenerativeAIAPI.GenerativeAiIntegrationKubernetesPostureQuery(context.Background()).ModelGenerativeAiIntegrationKubernetesPostureRequest(modelGenerativeAiIntegrationKubernetesPostureRequest).Execute()
-    if err != nil {
-        fmt.Fprintf(os.Stderr, "Error when calling `GenerativeAIAPI.GenerativeAiIntegrationKubernetesPostureQuery``: %v\n", err)
-        fmt.Fprintf(os.Stderr, "Full HTTP response: %v\n", r)
-    }
-    // response from `GenerativeAiIntegrationKubernetesPostureQuery`: string
-    fmt.Fprintf(os.Stdout, "Response from `GenerativeAIAPI.GenerativeAiIntegrationKubernetesPostureQuery`: %v\n", resp)
+	configuration := openapiclient.NewConfiguration()
+	apiClient := openapiclient.NewAPIClient(configuration)
+	resp, r, err := apiClient.GenerativeAIAPI.GenerativeAiIntegrationKubernetesPostureQuery(context.Background()).ModelGenerativeAiIntegrationKubernetesPostureRequest(modelGenerativeAiIntegrationKubernetesPostureRequest).Execute()
+	if err != nil {
+		fmt.Fprintf(os.Stderr, "Error when calling `GenerativeAIAPI.GenerativeAiIntegrationKubernetesPostureQuery``: %v\n", err)
+		fmt.Fprintf(os.Stderr, "Full HTTP response: %v\n", r)
+	}
+	// response from `GenerativeAiIntegrationKubernetesPostureQuery`: string
+	fmt.Fprintf(os.Stdout, "Response from `GenerativeAIAPI.GenerativeAiIntegrationKubernetesPostureQuery`: %v\n", resp)
 }
 ```
 
@@ -364,24 +424,24 @@ Send Linux Posture query to Generative AI Integration
 package main
 
 import (
-    "context"
-    "fmt"
-    "os"
-    openapiclient "github.com/deepfence/golang_deepfence_sdk/client"
+	"context"
+	"fmt"
+	"os"
+	openapiclient "github.com/deepfence/golang_deepfence_sdk/client"
 )
 
 func main() {
-    modelGenerativeAiIntegrationLinuxPostureRequest := *openapiclient.NewModelGenerativeAiIntegrationLinuxPostureRequest("ComplianceCheckType_example", "Description_example", "QueryType_example", "RemediationFormat_example", "TestNumber_example") // ModelGenerativeAiIntegrationLinuxPostureRequest |  (optional)
+	modelGenerativeAiIntegrationLinuxPostureRequest := *openapiclient.NewModelGenerativeAiIntegrationLinuxPostureRequest("ComplianceCheckType_example", "Description_example", "QueryType_example", "RemediationFormat_example", "TestNumber_example") // ModelGenerativeAiIntegrationLinuxPostureRequest |  (optional)
 
-    configuration := openapiclient.NewConfiguration()
-    apiClient := openapiclient.NewAPIClient(configuration)
-    resp, r, err := apiClient.GenerativeAIAPI.GenerativeAiIntegrationLinuxPostureQuery(context.Background()).ModelGenerativeAiIntegrationLinuxPostureRequest(modelGenerativeAiIntegrationLinuxPostureRequest).Execute()
-    if err != nil {
-        fmt.Fprintf(os.Stderr, "Error when calling `GenerativeAIAPI.GenerativeAiIntegrationLinuxPostureQuery``: %v\n", err)
-        fmt.Fprintf(os.Stderr, "Full HTTP response: %v\n", r)
-    }
-    // response from `GenerativeAiIntegrationLinuxPostureQuery`: string
-    fmt.Fprintf(os.Stdout, "Response from `GenerativeAIAPI.GenerativeAiIntegrationLinuxPostureQuery`: %v\n", resp)
+	configuration := openapiclient.NewConfiguration()
+	apiClient := openapiclient.NewAPIClient(configuration)
+	resp, r, err := apiClient.GenerativeAIAPI.GenerativeAiIntegrationLinuxPostureQuery(context.Background()).ModelGenerativeAiIntegrationLinuxPostureRequest(modelGenerativeAiIntegrationLinuxPostureRequest).Execute()
+	if err != nil {
+		fmt.Fprintf(os.Stderr, "Error when calling `GenerativeAIAPI.GenerativeAiIntegrationLinuxPostureQuery``: %v\n", err)
+		fmt.Fprintf(os.Stderr, "Full HTTP response: %v\n", r)
+	}
+	// response from `GenerativeAiIntegrationLinuxPostureQuery`: string
+	fmt.Fprintf(os.Stdout, "Response from `GenerativeAIAPI.GenerativeAiIntegrationLinuxPostureQuery`: %v\n", resp)
 }
 ```
 
@@ -430,24 +490,24 @@ Send Malware query to Generative AI Integration
 package main
 
 import (
-    "context"
-    "fmt"
-    "os"
-    openapiclient "github.com/deepfence/golang_deepfence_sdk/client"
+	"context"
+	"fmt"
+	"os"
+	openapiclient "github.com/deepfence/golang_deepfence_sdk/client"
 )
 
 func main() {
-    modelGenerativeAiIntegrationMalwareRequest := *openapiclient.NewModelGenerativeAiIntegrationMalwareRequest("Info_example", "QueryType_example", "RuleName_example") // ModelGenerativeAiIntegrationMalwareRequest |  (optional)
+	modelGenerativeAiIntegrationMalwareRequest := *openapiclient.NewModelGenerativeAiIntegrationMalwareRequest("Info_example", "QueryType_example", "RuleName_example") // ModelGenerativeAiIntegrationMalwareRequest |  (optional)
 
-    configuration := openapiclient.NewConfiguration()
-    apiClient := openapiclient.NewAPIClient(configuration)
-    resp, r, err := apiClient.GenerativeAIAPI.GenerativeAiIntegrationMalwareQuery(context.Background()).ModelGenerativeAiIntegrationMalwareRequest(modelGenerativeAiIntegrationMalwareRequest).Execute()
-    if err != nil {
-        fmt.Fprintf(os.Stderr, "Error when calling `GenerativeAIAPI.GenerativeAiIntegrationMalwareQuery``: %v\n", err)
-        fmt.Fprintf(os.Stderr, "Full HTTP response: %v\n", r)
-    }
-    // response from `GenerativeAiIntegrationMalwareQuery`: string
-    fmt.Fprintf(os.Stdout, "Response from `GenerativeAIAPI.GenerativeAiIntegrationMalwareQuery`: %v\n", resp)
+	configuration := openapiclient.NewConfiguration()
+	apiClient := openapiclient.NewAPIClient(configuration)
+	resp, r, err := apiClient.GenerativeAIAPI.GenerativeAiIntegrationMalwareQuery(context.Background()).ModelGenerativeAiIntegrationMalwareRequest(modelGenerativeAiIntegrationMalwareRequest).Execute()
+	if err != nil {
+		fmt.Fprintf(os.Stderr, "Error when calling `GenerativeAIAPI.GenerativeAiIntegrationMalwareQuery``: %v\n", err)
+		fmt.Fprintf(os.Stderr, "Full HTTP response: %v\n", r)
+	}
+	// response from `GenerativeAiIntegrationMalwareQuery`: string
+	fmt.Fprintf(os.Stdout, "Response from `GenerativeAIAPI.GenerativeAiIntegrationMalwareQuery`: %v\n", resp)
 }
 ```
 
@@ -496,24 +556,24 @@ Send Secret query to Generative AI Integration
 package main
 
 import (
-    "context"
-    "fmt"
-    "os"
-    openapiclient "github.com/deepfence/golang_deepfence_sdk/client"
+	"context"
+	"fmt"
+	"os"
+	openapiclient "github.com/deepfence/golang_deepfence_sdk/client"
 )
 
 func main() {
-    modelGenerativeAiIntegrationSecretRequest := *openapiclient.NewModelGenerativeAiIntegrationSecretRequest("Name_example", "QueryType_example") // ModelGenerativeAiIntegrationSecretRequest |  (optional)
+	modelGenerativeAiIntegrationSecretRequest := *openapiclient.NewModelGenerativeAiIntegrationSecretRequest("Name_example", "QueryType_example") // ModelGenerativeAiIntegrationSecretRequest |  (optional)
 
-    configuration := openapiclient.NewConfiguration()
-    apiClient := openapiclient.NewAPIClient(configuration)
-    resp, r, err := apiClient.GenerativeAIAPI.GenerativeAiIntegrationSecretQuery(context.Background()).ModelGenerativeAiIntegrationSecretRequest(modelGenerativeAiIntegrationSecretRequest).Execute()
-    if err != nil {
-        fmt.Fprintf(os.Stderr, "Error when calling `GenerativeAIAPI.GenerativeAiIntegrationSecretQuery``: %v\n", err)
-        fmt.Fprintf(os.Stderr, "Full HTTP response: %v\n", r)
-    }
-    // response from `GenerativeAiIntegrationSecretQuery`: string
-    fmt.Fprintf(os.Stdout, "Response from `GenerativeAIAPI.GenerativeAiIntegrationSecretQuery`: %v\n", resp)
+	configuration := openapiclient.NewConfiguration()
+	apiClient := openapiclient.NewAPIClient(configuration)
+	resp, r, err := apiClient.GenerativeAIAPI.GenerativeAiIntegrationSecretQuery(context.Background()).ModelGenerativeAiIntegrationSecretRequest(modelGenerativeAiIntegrationSecretRequest).Execute()
+	if err != nil {
+		fmt.Fprintf(os.Stderr, "Error when calling `GenerativeAIAPI.GenerativeAiIntegrationSecretQuery``: %v\n", err)
+		fmt.Fprintf(os.Stderr, "Full HTTP response: %v\n", r)
+	}
+	// response from `GenerativeAiIntegrationSecretQuery`: string
+	fmt.Fprintf(os.Stdout, "Response from `GenerativeAIAPI.GenerativeAiIntegrationSecretQuery`: %v\n", resp)
 }
 ```
 
@@ -562,24 +622,24 @@ Send Vulnerability query to Generative AI Integration
 package main
 
 import (
-    "context"
-    "fmt"
-    "os"
-    openapiclient "github.com/deepfence/golang_deepfence_sdk/client"
+	"context"
+	"fmt"
+	"os"
+	openapiclient "github.com/deepfence/golang_deepfence_sdk/client"
 )
 
 func main() {
-    modelGenerativeAiIntegrationVulnerabilityRequest := *openapiclient.NewModelGenerativeAiIntegrationVulnerabilityRequest("CveCausedByPackage_example", "CveId_example", "CveType_example", "QueryType_example", "RemediationFormat_example") // ModelGenerativeAiIntegrationVulnerabilityRequest |  (optional)
+	modelGenerativeAiIntegrationVulnerabilityRequest := *openapiclient.NewModelGenerativeAiIntegrationVulnerabilityRequest("CveCausedByPackage_example", "CveId_example", "CveType_example", "QueryType_example", "RemediationFormat_example") // ModelGenerativeAiIntegrationVulnerabilityRequest |  (optional)
 
-    configuration := openapiclient.NewConfiguration()
-    apiClient := openapiclient.NewAPIClient(configuration)
-    resp, r, err := apiClient.GenerativeAIAPI.GenerativeAiIntegrationVulnerabilityQuery(context.Background()).ModelGenerativeAiIntegrationVulnerabilityRequest(modelGenerativeAiIntegrationVulnerabilityRequest).Execute()
-    if err != nil {
-        fmt.Fprintf(os.Stderr, "Error when calling `GenerativeAIAPI.GenerativeAiIntegrationVulnerabilityQuery``: %v\n", err)
-        fmt.Fprintf(os.Stderr, "Full HTTP response: %v\n", r)
-    }
-    // response from `GenerativeAiIntegrationVulnerabilityQuery`: string
-    fmt.Fprintf(os.Stdout, "Response from `GenerativeAIAPI.GenerativeAiIntegrationVulnerabilityQuery`: %v\n", resp)
+	configuration := openapiclient.NewConfiguration()
+	apiClient := openapiclient.NewAPIClient(configuration)
+	resp, r, err := apiClient.GenerativeAIAPI.GenerativeAiIntegrationVulnerabilityQuery(context.Background()).ModelGenerativeAiIntegrationVulnerabilityRequest(modelGenerativeAiIntegrationVulnerabilityRequest).Execute()
+	if err != nil {
+		fmt.Fprintf(os.Stderr, "Error when calling `GenerativeAIAPI.GenerativeAiIntegrationVulnerabilityQuery``: %v\n", err)
+		fmt.Fprintf(os.Stderr, "Full HTTP response: %v\n", r)
+	}
+	// response from `GenerativeAiIntegrationVulnerabilityQuery`: string
+	fmt.Fprintf(os.Stdout, "Response from `GenerativeAIAPI.GenerativeAiIntegrationVulnerabilityQuery`: %v\n", resp)
 }
 ```
 
@@ -628,24 +688,24 @@ List Generative AI Integrations
 package main
 
 import (
-    "context"
-    "fmt"
-    "os"
-    openapiclient "github.com/deepfence/golang_deepfence_sdk/client"
+	"context"
+	"fmt"
+	"os"
+	openapiclient "github.com/deepfence/golang_deepfence_sdk/client"
 )
 
 func main() {
-    integrationType := "integrationType_example" // string |  (optional)
+	integrationType := "integrationType_example" // string |  (optional)
 
-    configuration := openapiclient.NewConfiguration()
-    apiClient := openapiclient.NewAPIClient(configuration)
-    resp, r, err := apiClient.GenerativeAIAPI.ListGenerativeAiIntegration(context.Background()).IntegrationType(integrationType).Execute()
-    if err != nil {
-        fmt.Fprintf(os.Stderr, "Error when calling `GenerativeAIAPI.ListGenerativeAiIntegration``: %v\n", err)
-        fmt.Fprintf(os.Stderr, "Full HTTP response: %v\n", r)
-    }
-    // response from `ListGenerativeAiIntegration`: []ModelGenerativeAiIntegrationListResponse
-    fmt.Fprintf(os.Stdout, "Response from `GenerativeAIAPI.ListGenerativeAiIntegration`: %v\n", resp)
+	configuration := openapiclient.NewConfiguration()
+	apiClient := openapiclient.NewAPIClient(configuration)
+	resp, r, err := apiClient.GenerativeAIAPI.ListGenerativeAiIntegration(context.Background()).IntegrationType(integrationType).Execute()
+	if err != nil {
+		fmt.Fprintf(os.Stderr, "Error when calling `GenerativeAIAPI.ListGenerativeAiIntegration``: %v\n", err)
+		fmt.Fprintf(os.Stderr, "Full HTTP response: %v\n", r)
+	}
+	// response from `ListGenerativeAiIntegration`: []ModelGenerativeAiIntegrationListResponse
+	fmt.Fprintf(os.Stdout, "Response from `GenerativeAIAPI.ListGenerativeAiIntegration`: %v\n", resp)
 }
 ```
 
@@ -694,22 +754,22 @@ Set Default Generative AI Integration
 package main
 
 import (
-    "context"
-    "fmt"
-    "os"
-    openapiclient "github.com/deepfence/golang_deepfence_sdk/client"
+	"context"
+	"fmt"
+	"os"
+	openapiclient "github.com/deepfence/golang_deepfence_sdk/client"
 )
 
 func main() {
-    integrationId := "integrationId_example" // string | 
+	integrationId := "integrationId_example" // string | 
 
-    configuration := openapiclient.NewConfiguration()
-    apiClient := openapiclient.NewAPIClient(configuration)
-    r, err := apiClient.GenerativeAIAPI.SetDefaultGenerativeAiIntegration(context.Background(), integrationId).Execute()
-    if err != nil {
-        fmt.Fprintf(os.Stderr, "Error when calling `GenerativeAIAPI.SetDefaultGenerativeAiIntegration``: %v\n", err)
-        fmt.Fprintf(os.Stderr, "Full HTTP response: %v\n", r)
-    }
+	configuration := openapiclient.NewConfiguration()
+	apiClient := openapiclient.NewAPIClient(configuration)
+	r, err := apiClient.GenerativeAIAPI.SetDefaultGenerativeAiIntegration(context.Background(), integrationId).Execute()
+	if err != nil {
+		fmt.Fprintf(os.Stderr, "Error when calling `GenerativeAIAPI.SetDefaultGenerativeAiIntegration``: %v\n", err)
+		fmt.Fprintf(os.Stderr, "Full HTTP response: %v\n", r)
+	}
 }
 ```
 

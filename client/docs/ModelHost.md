@@ -9,6 +9,7 @@ Name | Type | Description | Notes
 **CloudAccountId** | **string** |  | 
 **CloudProvider** | **string** |  | 
 **CloudRegion** | **string** |  | 
+**CloudWarnAlarmCount** | **int32** |  | 
 **ComplianceLatestScanId** | **string** |  | 
 **ComplianceScanStatus** | **string** |  | 
 **CompliancesCount** | **int32** |  | 
@@ -16,6 +17,9 @@ Name | Type | Description | Notes
 **Containers** | [**[]ModelContainer**](ModelContainer.md) |  | 
 **CpuMax** | **float32** |  | 
 **CpuUsage** | **float32** |  | 
+**ExploitableMalwaresCount** | **int32** |  | 
+**ExploitableSecretsCount** | **int32** |  | 
+**ExploitableVulnerabilitiesCount** | **int32** |  | 
 **HostName** | **string** |  | 
 **InboundConnections** | [**[]ModelConnection**](ModelConnection.md) |  | 
 **InstanceId** | **string** |  | 
@@ -47,12 +51,13 @@ Name | Type | Description | Notes
 **VulnerabilitiesCount** | **int32** |  | 
 **VulnerabilityLatestScanId** | **string** |  | 
 **VulnerabilityScanStatus** | **string** |  | 
+**WarnAlarmCount** | **int32** |  | 
 
 ## Methods
 
 ### NewModelHost
 
-`func NewModelHost(agentRunning bool, availabilityZone string, cloudAccountId string, cloudProvider string, cloudRegion string, complianceLatestScanId string, complianceScanStatus string, compliancesCount int32, containerImages []ModelContainerImage, containers []ModelContainer, cpuMax float32, cpuUsage float32, hostName string, inboundConnections []ModelConnection, instanceId string, instanceType string, isConsoleVm bool, kernelId string, kernelVersion string, localCidr []interface{}, localNetworks []interface{}, malwareLatestScanId string, malwareScanStatus string, malwaresCount int32, memoryMax int32, memoryUsage int32, nodeId string, nodeName string, os string, outboundConnections []ModelConnection, pods []ModelPod, privateIp []interface{}, processes []ModelProcess, publicIp []interface{}, resourceGroup string, secretLatestScanId string, secretScanStatus string, secretsCount int32, uptime int32, version string, vulnerabilitiesCount int32, vulnerabilityLatestScanId string, vulnerabilityScanStatus string, ) *ModelHost`
+`func NewModelHost(agentRunning bool, availabilityZone string, cloudAccountId string, cloudProvider string, cloudRegion string, cloudWarnAlarmCount int32, complianceLatestScanId string, complianceScanStatus string, compliancesCount int32, containerImages []ModelContainerImage, containers []ModelContainer, cpuMax float32, cpuUsage float32, exploitableMalwaresCount int32, exploitableSecretsCount int32, exploitableVulnerabilitiesCount int32, hostName string, inboundConnections []ModelConnection, instanceId string, instanceType string, isConsoleVm bool, kernelId string, kernelVersion string, localCidr []interface{}, localNetworks []interface{}, malwareLatestScanId string, malwareScanStatus string, malwaresCount int32, memoryMax int32, memoryUsage int32, nodeId string, nodeName string, os string, outboundConnections []ModelConnection, pods []ModelPod, privateIp []interface{}, processes []ModelProcess, publicIp []interface{}, resourceGroup string, secretLatestScanId string, secretScanStatus string, secretsCount int32, uptime int32, version string, vulnerabilitiesCount int32, vulnerabilityLatestScanId string, vulnerabilityScanStatus string, warnAlarmCount int32, ) *ModelHost`
 
 NewModelHost instantiates a new ModelHost object
 This constructor will assign default values to properties that have it defined,
@@ -165,6 +170,26 @@ and a boolean to check if the value has been set.
 `func (o *ModelHost) SetCloudRegion(v string)`
 
 SetCloudRegion sets CloudRegion field to given value.
+
+
+### GetCloudWarnAlarmCount
+
+`func (o *ModelHost) GetCloudWarnAlarmCount() int32`
+
+GetCloudWarnAlarmCount returns the CloudWarnAlarmCount field if non-nil, zero value otherwise.
+
+### GetCloudWarnAlarmCountOk
+
+`func (o *ModelHost) GetCloudWarnAlarmCountOk() (*int32, bool)`
+
+GetCloudWarnAlarmCountOk returns a tuple with the CloudWarnAlarmCount field if it's non-nil, zero value otherwise
+and a boolean to check if the value has been set.
+
+### SetCloudWarnAlarmCount
+
+`func (o *ModelHost) SetCloudWarnAlarmCount(v int32)`
+
+SetCloudWarnAlarmCount sets CloudWarnAlarmCount field to given value.
 
 
 ### GetComplianceLatestScanId
@@ -325,6 +350,66 @@ and a boolean to check if the value has been set.
 `func (o *ModelHost) SetCpuUsage(v float32)`
 
 SetCpuUsage sets CpuUsage field to given value.
+
+
+### GetExploitableMalwaresCount
+
+`func (o *ModelHost) GetExploitableMalwaresCount() int32`
+
+GetExploitableMalwaresCount returns the ExploitableMalwaresCount field if non-nil, zero value otherwise.
+
+### GetExploitableMalwaresCountOk
+
+`func (o *ModelHost) GetExploitableMalwaresCountOk() (*int32, bool)`
+
+GetExploitableMalwaresCountOk returns a tuple with the ExploitableMalwaresCount field if it's non-nil, zero value otherwise
+and a boolean to check if the value has been set.
+
+### SetExploitableMalwaresCount
+
+`func (o *ModelHost) SetExploitableMalwaresCount(v int32)`
+
+SetExploitableMalwaresCount sets ExploitableMalwaresCount field to given value.
+
+
+### GetExploitableSecretsCount
+
+`func (o *ModelHost) GetExploitableSecretsCount() int32`
+
+GetExploitableSecretsCount returns the ExploitableSecretsCount field if non-nil, zero value otherwise.
+
+### GetExploitableSecretsCountOk
+
+`func (o *ModelHost) GetExploitableSecretsCountOk() (*int32, bool)`
+
+GetExploitableSecretsCountOk returns a tuple with the ExploitableSecretsCount field if it's non-nil, zero value otherwise
+and a boolean to check if the value has been set.
+
+### SetExploitableSecretsCount
+
+`func (o *ModelHost) SetExploitableSecretsCount(v int32)`
+
+SetExploitableSecretsCount sets ExploitableSecretsCount field to given value.
+
+
+### GetExploitableVulnerabilitiesCount
+
+`func (o *ModelHost) GetExploitableVulnerabilitiesCount() int32`
+
+GetExploitableVulnerabilitiesCount returns the ExploitableVulnerabilitiesCount field if non-nil, zero value otherwise.
+
+### GetExploitableVulnerabilitiesCountOk
+
+`func (o *ModelHost) GetExploitableVulnerabilitiesCountOk() (*int32, bool)`
+
+GetExploitableVulnerabilitiesCountOk returns a tuple with the ExploitableVulnerabilitiesCount field if it's non-nil, zero value otherwise
+and a boolean to check if the value has been set.
+
+### SetExploitableVulnerabilitiesCount
+
+`func (o *ModelHost) SetExploitableVulnerabilitiesCount(v int32)`
+
+SetExploitableVulnerabilitiesCount sets ExploitableVulnerabilitiesCount field to given value.
 
 
 ### GetHostName
@@ -1025,6 +1110,26 @@ and a boolean to check if the value has been set.
 `func (o *ModelHost) SetVulnerabilityScanStatus(v string)`
 
 SetVulnerabilityScanStatus sets VulnerabilityScanStatus field to given value.
+
+
+### GetWarnAlarmCount
+
+`func (o *ModelHost) GetWarnAlarmCount() int32`
+
+GetWarnAlarmCount returns the WarnAlarmCount field if non-nil, zero value otherwise.
+
+### GetWarnAlarmCountOk
+
+`func (o *ModelHost) GetWarnAlarmCountOk() (*int32, bool)`
+
+GetWarnAlarmCountOk returns a tuple with the WarnAlarmCount field if it's non-nil, zero value otherwise
+and a boolean to check if the value has been set.
+
+### SetWarnAlarmCount
+
+`func (o *ModelHost) SetWarnAlarmCount(v int32)`
+
+SetWarnAlarmCount sets WarnAlarmCount field to given value.
 
 
 

@@ -13,6 +13,7 @@ package client
 
 import (
 	"encoding/json"
+	"bytes"
 	"fmt"
 )
 
@@ -21,7 +22,7 @@ var _ MappedNullable = &SearchChainedSearchFilter{}
 
 // SearchChainedSearchFilter struct for SearchChainedSearchFilter
 type SearchChainedSearchFilter struct {
-	NextFilter interface{} `json:"next_filter,omitempty"`
+	NextFilter *SearchChainedSearchFilter `json:"next_filter,omitempty"`
 	NodeFilter SearchSearchFilter `json:"node_filter"`
 	RelationShip string `json:"relation_ship"`
 }
@@ -47,37 +48,36 @@ func NewSearchChainedSearchFilterWithDefaults() *SearchChainedSearchFilter {
 	return &this
 }
 
-// GetNextFilter returns the NextFilter field value if set, zero value otherwise (both if not set or set to explicit null).
-func (o *SearchChainedSearchFilter) GetNextFilter() interface{} {
-	if o == nil {
-		var ret interface{}
+// GetNextFilter returns the NextFilter field value if set, zero value otherwise.
+func (o *SearchChainedSearchFilter) GetNextFilter() SearchChainedSearchFilter {
+	if o == nil || IsNil(o.NextFilter) {
+		var ret SearchChainedSearchFilter
 		return ret
 	}
-	return o.NextFilter
+	return *o.NextFilter
 }
 
 // GetNextFilterOk returns a tuple with the NextFilter field value if set, nil otherwise
 // and a boolean to check if the value has been set.
-// NOTE: If the value is an explicit nil, `nil, true` will be returned
-func (o *SearchChainedSearchFilter) GetNextFilterOk() (*interface{}, bool) {
+func (o *SearchChainedSearchFilter) GetNextFilterOk() (*SearchChainedSearchFilter, bool) {
 	if o == nil || IsNil(o.NextFilter) {
 		return nil, false
 	}
-	return &o.NextFilter, true
+	return o.NextFilter, true
 }
 
 // HasNextFilter returns a boolean if a field has been set.
 func (o *SearchChainedSearchFilter) HasNextFilter() bool {
-	if o != nil && IsNil(o.NextFilter) {
+	if o != nil && !IsNil(o.NextFilter) {
 		return true
 	}
 
 	return false
 }
 
-// SetNextFilter gets a reference to the given interface{} and assigns it to the NextFilter field.
-func (o *SearchChainedSearchFilter) SetNextFilter(v interface{}) {
-	o.NextFilter = v
+// SetNextFilter gets a reference to the given SearchChainedSearchFilter and assigns it to the NextFilter field.
+func (o *SearchChainedSearchFilter) SetNextFilter(v SearchChainedSearchFilter) {
+	o.NextFilter = &v
 }
 
 // GetNodeFilter returns the NodeFilter field value
@@ -138,7 +138,7 @@ func (o SearchChainedSearchFilter) MarshalJSON() ([]byte, error) {
 
 func (o SearchChainedSearchFilter) ToMap() (map[string]interface{}, error) {
 	toSerialize := map[string]interface{}{}
-	if o.NextFilter != nil {
+	if !IsNil(o.NextFilter) {
 		toSerialize["next_filter"] = o.NextFilter
 	}
 	toSerialize["node_filter"] = o.NodeFilter
@@ -146,8 +146,8 @@ func (o SearchChainedSearchFilter) ToMap() (map[string]interface{}, error) {
 	return toSerialize, nil
 }
 
-func (o *SearchChainedSearchFilter) UnmarshalJSON(bytes []byte) (err error) {
-    // This validates that all required properties are included in the JSON object
+func (o *SearchChainedSearchFilter) UnmarshalJSON(data []byte) (err error) {
+	// This validates that all required properties are included in the JSON object
 	// by unmarshalling the object into a generic map with string keys and checking
 	// that every required field exists as a key in the generic map.
 	requiredProperties := []string{
@@ -157,7 +157,7 @@ func (o *SearchChainedSearchFilter) UnmarshalJSON(bytes []byte) (err error) {
 
 	allProperties := make(map[string]interface{})
 
-	err = json.Unmarshal(bytes, &allProperties)
+	err = json.Unmarshal(data, &allProperties)
 
 	if err != nil {
 		return err;
@@ -171,7 +171,9 @@ func (o *SearchChainedSearchFilter) UnmarshalJSON(bytes []byte) (err error) {
 
 	varSearchChainedSearchFilter := _SearchChainedSearchFilter{}
 
-	err = json.Unmarshal(bytes, &varSearchChainedSearchFilter)
+	decoder := json.NewDecoder(bytes.NewReader(data))
+	decoder.DisallowUnknownFields()
+	err = decoder.Decode(&varSearchChainedSearchFilter)
 
 	if err != nil {
 		return err

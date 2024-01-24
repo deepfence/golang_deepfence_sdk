@@ -23,24 +23,24 @@ Get Vulnerability Threat Graph
 package main
 
 import (
-    "context"
-    "fmt"
-    "os"
-    openapiclient "github.com/deepfence/golang_deepfence_sdk/client"
+	"context"
+	"fmt"
+	"os"
+	openapiclient "github.com/deepfence/golang_deepfence_sdk/client"
 )
 
 func main() {
-    graphIndividualThreatGraphRequest := *openapiclient.NewGraphIndividualThreatGraphRequest("GraphType_example", "IssueType_example") // GraphIndividualThreatGraphRequest |  (optional)
+	graphIndividualThreatGraphRequest := *openapiclient.NewGraphIndividualThreatGraphRequest("GraphType_example", "IssueType_example") // GraphIndividualThreatGraphRequest |  (optional)
 
-    configuration := openapiclient.NewConfiguration()
-    apiClient := openapiclient.NewAPIClient(configuration)
-    resp, r, err := apiClient.ThreatAPI.GetIndividualThreatGraph(context.Background()).GraphIndividualThreatGraphRequest(graphIndividualThreatGraphRequest).Execute()
-    if err != nil {
-        fmt.Fprintf(os.Stderr, "Error when calling `ThreatAPI.GetIndividualThreatGraph``: %v\n", err)
-        fmt.Fprintf(os.Stderr, "Full HTTP response: %v\n", r)
-    }
-    // response from `GetIndividualThreatGraph`: []GraphIndividualThreatGraph
-    fmt.Fprintf(os.Stdout, "Response from `ThreatAPI.GetIndividualThreatGraph`: %v\n", resp)
+	configuration := openapiclient.NewConfiguration()
+	apiClient := openapiclient.NewAPIClient(configuration)
+	resp, r, err := apiClient.ThreatAPI.GetIndividualThreatGraph(context.Background()).GraphIndividualThreatGraphRequest(graphIndividualThreatGraphRequest).Execute()
+	if err != nil {
+		fmt.Fprintf(os.Stderr, "Error when calling `ThreatAPI.GetIndividualThreatGraph``: %v\n", err)
+		fmt.Fprintf(os.Stderr, "Full HTTP response: %v\n", r)
+	}
+	// response from `GetIndividualThreatGraph`: []GraphIndividualThreatGraph
+	fmt.Fprintf(os.Stdout, "Response from `ThreatAPI.GetIndividualThreatGraph`: %v\n", resp)
 }
 ```
 
@@ -89,24 +89,24 @@ Get Threat Graph
 package main
 
 import (
-    "context"
-    "fmt"
-    "os"
-    openapiclient "github.com/deepfence/golang_deepfence_sdk/client"
+	"context"
+	"fmt"
+	"os"
+	openapiclient "github.com/deepfence/golang_deepfence_sdk/client"
 )
 
 func main() {
-    graphThreatFilters := *openapiclient.NewGraphThreatFilters(*openapiclient.NewGraphCloudProviderFilter([]string{"AccountIds_example"}), *openapiclient.NewGraphCloudProviderFilter([]string{"AccountIds_example"}), false, *openapiclient.NewGraphCloudProviderFilter([]string{"AccountIds_example"}), "Type_example") // GraphThreatFilters |  (optional)
+	graphThreatFilters := *openapiclient.NewGraphThreatFilters(*openapiclient.NewGraphCloudProviderFilter([]string{"AccountIds_example"}), *openapiclient.NewGraphCloudProviderFilter([]string{"AccountIds_example"}), false, *openapiclient.NewGraphCloudProviderFilter([]string{"AccountIds_example"}), "Type_example") // GraphThreatFilters |  (optional)
 
-    configuration := openapiclient.NewConfiguration()
-    apiClient := openapiclient.NewAPIClient(configuration)
-    resp, r, err := apiClient.ThreatAPI.GetThreatGraph(context.Background()).GraphThreatFilters(graphThreatFilters).Execute()
-    if err != nil {
-        fmt.Fprintf(os.Stderr, "Error when calling `ThreatAPI.GetThreatGraph``: %v\n", err)
-        fmt.Fprintf(os.Stderr, "Full HTTP response: %v\n", r)
-    }
-    // response from `GetThreatGraph`: map[string]GraphProviderThreatGraph
-    fmt.Fprintf(os.Stdout, "Response from `ThreatAPI.GetThreatGraph`: %v\n", resp)
+	configuration := openapiclient.NewConfiguration()
+	apiClient := openapiclient.NewAPIClient(configuration)
+	resp, r, err := apiClient.ThreatAPI.GetThreatGraph(context.Background()).GraphThreatFilters(graphThreatFilters).Execute()
+	if err != nil {
+		fmt.Fprintf(os.Stderr, "Error when calling `ThreatAPI.GetThreatGraph``: %v\n", err)
+		fmt.Fprintf(os.Stderr, "Full HTTP response: %v\n", r)
+	}
+	// response from `GetThreatGraph`: map[string]GraphProviderThreatGraph
+	fmt.Fprintf(os.Stdout, "Response from `ThreatAPI.GetThreatGraph`: %v\n", resp)
 }
 ```
 

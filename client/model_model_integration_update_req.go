@@ -15,38 +15,37 @@ import (
 	"encoding/json"
 )
 
-// checks if the ModelIntegrationListResp type satisfies the MappedNullable interface at compile time
-var _ MappedNullable = &ModelIntegrationListResp{}
+// checks if the ModelIntegrationUpdateReq type satisfies the MappedNullable interface at compile time
+var _ MappedNullable = &ModelIntegrationUpdateReq{}
 
-// ModelIntegrationListResp struct for ModelIntegrationListResp
-type ModelIntegrationListResp struct {
+// ModelIntegrationUpdateReq struct for ModelIntegrationUpdateReq
+type ModelIntegrationUpdateReq struct {
 	Config map[string]interface{} `json:"config,omitempty"`
 	Filters *ModelIntegrationFilters `json:"filters,omitempty"`
 	Id *int32 `json:"id,omitempty"`
 	IntegrationType *string `json:"integration_type,omitempty"`
-	LastErrorMsg *string `json:"last_error_msg,omitempty"`
 	NotificationType *string `json:"notification_type,omitempty"`
 }
 
-// NewModelIntegrationListResp instantiates a new ModelIntegrationListResp object
+// NewModelIntegrationUpdateReq instantiates a new ModelIntegrationUpdateReq object
 // This constructor will assign default values to properties that have it defined,
 // and makes sure properties required by API are set, but the set of arguments
 // will change when the set of required properties is changed
-func NewModelIntegrationListResp() *ModelIntegrationListResp {
-	this := ModelIntegrationListResp{}
+func NewModelIntegrationUpdateReq() *ModelIntegrationUpdateReq {
+	this := ModelIntegrationUpdateReq{}
 	return &this
 }
 
-// NewModelIntegrationListRespWithDefaults instantiates a new ModelIntegrationListResp object
+// NewModelIntegrationUpdateReqWithDefaults instantiates a new ModelIntegrationUpdateReq object
 // This constructor will only assign default values to properties that have it defined,
 // but it doesn't guarantee that properties required by API are set
-func NewModelIntegrationListRespWithDefaults() *ModelIntegrationListResp {
-	this := ModelIntegrationListResp{}
+func NewModelIntegrationUpdateReqWithDefaults() *ModelIntegrationUpdateReq {
+	this := ModelIntegrationUpdateReq{}
 	return &this
 }
 
 // GetConfig returns the Config field value if set, zero value otherwise (both if not set or set to explicit null).
-func (o *ModelIntegrationListResp) GetConfig() map[string]interface{} {
+func (o *ModelIntegrationUpdateReq) GetConfig() map[string]interface{} {
 	if o == nil {
 		var ret map[string]interface{}
 		return ret
@@ -57,7 +56,7 @@ func (o *ModelIntegrationListResp) GetConfig() map[string]interface{} {
 // GetConfigOk returns a tuple with the Config field value if set, nil otherwise
 // and a boolean to check if the value has been set.
 // NOTE: If the value is an explicit nil, `nil, true` will be returned
-func (o *ModelIntegrationListResp) GetConfigOk() (map[string]interface{}, bool) {
+func (o *ModelIntegrationUpdateReq) GetConfigOk() (map[string]interface{}, bool) {
 	if o == nil || IsNil(o.Config) {
 		return map[string]interface{}{}, false
 	}
@@ -65,7 +64,7 @@ func (o *ModelIntegrationListResp) GetConfigOk() (map[string]interface{}, bool) 
 }
 
 // HasConfig returns a boolean if a field has been set.
-func (o *ModelIntegrationListResp) HasConfig() bool {
+func (o *ModelIntegrationUpdateReq) HasConfig() bool {
 	if o != nil && IsNil(o.Config) {
 		return true
 	}
@@ -74,12 +73,12 @@ func (o *ModelIntegrationListResp) HasConfig() bool {
 }
 
 // SetConfig gets a reference to the given map[string]interface{} and assigns it to the Config field.
-func (o *ModelIntegrationListResp) SetConfig(v map[string]interface{}) {
+func (o *ModelIntegrationUpdateReq) SetConfig(v map[string]interface{}) {
 	o.Config = v
 }
 
 // GetFilters returns the Filters field value if set, zero value otherwise.
-func (o *ModelIntegrationListResp) GetFilters() ModelIntegrationFilters {
+func (o *ModelIntegrationUpdateReq) GetFilters() ModelIntegrationFilters {
 	if o == nil || IsNil(o.Filters) {
 		var ret ModelIntegrationFilters
 		return ret
@@ -89,7 +88,7 @@ func (o *ModelIntegrationListResp) GetFilters() ModelIntegrationFilters {
 
 // GetFiltersOk returns a tuple with the Filters field value if set, nil otherwise
 // and a boolean to check if the value has been set.
-func (o *ModelIntegrationListResp) GetFiltersOk() (*ModelIntegrationFilters, bool) {
+func (o *ModelIntegrationUpdateReq) GetFiltersOk() (*ModelIntegrationFilters, bool) {
 	if o == nil || IsNil(o.Filters) {
 		return nil, false
 	}
@@ -97,7 +96,7 @@ func (o *ModelIntegrationListResp) GetFiltersOk() (*ModelIntegrationFilters, boo
 }
 
 // HasFilters returns a boolean if a field has been set.
-func (o *ModelIntegrationListResp) HasFilters() bool {
+func (o *ModelIntegrationUpdateReq) HasFilters() bool {
 	if o != nil && !IsNil(o.Filters) {
 		return true
 	}
@@ -106,12 +105,12 @@ func (o *ModelIntegrationListResp) HasFilters() bool {
 }
 
 // SetFilters gets a reference to the given ModelIntegrationFilters and assigns it to the Filters field.
-func (o *ModelIntegrationListResp) SetFilters(v ModelIntegrationFilters) {
+func (o *ModelIntegrationUpdateReq) SetFilters(v ModelIntegrationFilters) {
 	o.Filters = &v
 }
 
 // GetId returns the Id field value if set, zero value otherwise.
-func (o *ModelIntegrationListResp) GetId() int32 {
+func (o *ModelIntegrationUpdateReq) GetId() int32 {
 	if o == nil || IsNil(o.Id) {
 		var ret int32
 		return ret
@@ -121,7 +120,7 @@ func (o *ModelIntegrationListResp) GetId() int32 {
 
 // GetIdOk returns a tuple with the Id field value if set, nil otherwise
 // and a boolean to check if the value has been set.
-func (o *ModelIntegrationListResp) GetIdOk() (*int32, bool) {
+func (o *ModelIntegrationUpdateReq) GetIdOk() (*int32, bool) {
 	if o == nil || IsNil(o.Id) {
 		return nil, false
 	}
@@ -129,7 +128,7 @@ func (o *ModelIntegrationListResp) GetIdOk() (*int32, bool) {
 }
 
 // HasId returns a boolean if a field has been set.
-func (o *ModelIntegrationListResp) HasId() bool {
+func (o *ModelIntegrationUpdateReq) HasId() bool {
 	if o != nil && !IsNil(o.Id) {
 		return true
 	}
@@ -138,12 +137,12 @@ func (o *ModelIntegrationListResp) HasId() bool {
 }
 
 // SetId gets a reference to the given int32 and assigns it to the Id field.
-func (o *ModelIntegrationListResp) SetId(v int32) {
+func (o *ModelIntegrationUpdateReq) SetId(v int32) {
 	o.Id = &v
 }
 
 // GetIntegrationType returns the IntegrationType field value if set, zero value otherwise.
-func (o *ModelIntegrationListResp) GetIntegrationType() string {
+func (o *ModelIntegrationUpdateReq) GetIntegrationType() string {
 	if o == nil || IsNil(o.IntegrationType) {
 		var ret string
 		return ret
@@ -153,7 +152,7 @@ func (o *ModelIntegrationListResp) GetIntegrationType() string {
 
 // GetIntegrationTypeOk returns a tuple with the IntegrationType field value if set, nil otherwise
 // and a boolean to check if the value has been set.
-func (o *ModelIntegrationListResp) GetIntegrationTypeOk() (*string, bool) {
+func (o *ModelIntegrationUpdateReq) GetIntegrationTypeOk() (*string, bool) {
 	if o == nil || IsNil(o.IntegrationType) {
 		return nil, false
 	}
@@ -161,7 +160,7 @@ func (o *ModelIntegrationListResp) GetIntegrationTypeOk() (*string, bool) {
 }
 
 // HasIntegrationType returns a boolean if a field has been set.
-func (o *ModelIntegrationListResp) HasIntegrationType() bool {
+func (o *ModelIntegrationUpdateReq) HasIntegrationType() bool {
 	if o != nil && !IsNil(o.IntegrationType) {
 		return true
 	}
@@ -170,44 +169,12 @@ func (o *ModelIntegrationListResp) HasIntegrationType() bool {
 }
 
 // SetIntegrationType gets a reference to the given string and assigns it to the IntegrationType field.
-func (o *ModelIntegrationListResp) SetIntegrationType(v string) {
+func (o *ModelIntegrationUpdateReq) SetIntegrationType(v string) {
 	o.IntegrationType = &v
 }
 
-// GetLastErrorMsg returns the LastErrorMsg field value if set, zero value otherwise.
-func (o *ModelIntegrationListResp) GetLastErrorMsg() string {
-	if o == nil || IsNil(o.LastErrorMsg) {
-		var ret string
-		return ret
-	}
-	return *o.LastErrorMsg
-}
-
-// GetLastErrorMsgOk returns a tuple with the LastErrorMsg field value if set, nil otherwise
-// and a boolean to check if the value has been set.
-func (o *ModelIntegrationListResp) GetLastErrorMsgOk() (*string, bool) {
-	if o == nil || IsNil(o.LastErrorMsg) {
-		return nil, false
-	}
-	return o.LastErrorMsg, true
-}
-
-// HasLastErrorMsg returns a boolean if a field has been set.
-func (o *ModelIntegrationListResp) HasLastErrorMsg() bool {
-	if o != nil && !IsNil(o.LastErrorMsg) {
-		return true
-	}
-
-	return false
-}
-
-// SetLastErrorMsg gets a reference to the given string and assigns it to the LastErrorMsg field.
-func (o *ModelIntegrationListResp) SetLastErrorMsg(v string) {
-	o.LastErrorMsg = &v
-}
-
 // GetNotificationType returns the NotificationType field value if set, zero value otherwise.
-func (o *ModelIntegrationListResp) GetNotificationType() string {
+func (o *ModelIntegrationUpdateReq) GetNotificationType() string {
 	if o == nil || IsNil(o.NotificationType) {
 		var ret string
 		return ret
@@ -217,7 +184,7 @@ func (o *ModelIntegrationListResp) GetNotificationType() string {
 
 // GetNotificationTypeOk returns a tuple with the NotificationType field value if set, nil otherwise
 // and a boolean to check if the value has been set.
-func (o *ModelIntegrationListResp) GetNotificationTypeOk() (*string, bool) {
+func (o *ModelIntegrationUpdateReq) GetNotificationTypeOk() (*string, bool) {
 	if o == nil || IsNil(o.NotificationType) {
 		return nil, false
 	}
@@ -225,7 +192,7 @@ func (o *ModelIntegrationListResp) GetNotificationTypeOk() (*string, bool) {
 }
 
 // HasNotificationType returns a boolean if a field has been set.
-func (o *ModelIntegrationListResp) HasNotificationType() bool {
+func (o *ModelIntegrationUpdateReq) HasNotificationType() bool {
 	if o != nil && !IsNil(o.NotificationType) {
 		return true
 	}
@@ -234,11 +201,11 @@ func (o *ModelIntegrationListResp) HasNotificationType() bool {
 }
 
 // SetNotificationType gets a reference to the given string and assigns it to the NotificationType field.
-func (o *ModelIntegrationListResp) SetNotificationType(v string) {
+func (o *ModelIntegrationUpdateReq) SetNotificationType(v string) {
 	o.NotificationType = &v
 }
 
-func (o ModelIntegrationListResp) MarshalJSON() ([]byte, error) {
+func (o ModelIntegrationUpdateReq) MarshalJSON() ([]byte, error) {
 	toSerialize,err := o.ToMap()
 	if err != nil {
 		return []byte{}, err
@@ -246,7 +213,7 @@ func (o ModelIntegrationListResp) MarshalJSON() ([]byte, error) {
 	return json.Marshal(toSerialize)
 }
 
-func (o ModelIntegrationListResp) ToMap() (map[string]interface{}, error) {
+func (o ModelIntegrationUpdateReq) ToMap() (map[string]interface{}, error) {
 	toSerialize := map[string]interface{}{}
 	if o.Config != nil {
 		toSerialize["config"] = o.Config
@@ -260,47 +227,44 @@ func (o ModelIntegrationListResp) ToMap() (map[string]interface{}, error) {
 	if !IsNil(o.IntegrationType) {
 		toSerialize["integration_type"] = o.IntegrationType
 	}
-	if !IsNil(o.LastErrorMsg) {
-		toSerialize["last_error_msg"] = o.LastErrorMsg
-	}
 	if !IsNil(o.NotificationType) {
 		toSerialize["notification_type"] = o.NotificationType
 	}
 	return toSerialize, nil
 }
 
-type NullableModelIntegrationListResp struct {
-	value *ModelIntegrationListResp
+type NullableModelIntegrationUpdateReq struct {
+	value *ModelIntegrationUpdateReq
 	isSet bool
 }
 
-func (v NullableModelIntegrationListResp) Get() *ModelIntegrationListResp {
+func (v NullableModelIntegrationUpdateReq) Get() *ModelIntegrationUpdateReq {
 	return v.value
 }
 
-func (v *NullableModelIntegrationListResp) Set(val *ModelIntegrationListResp) {
+func (v *NullableModelIntegrationUpdateReq) Set(val *ModelIntegrationUpdateReq) {
 	v.value = val
 	v.isSet = true
 }
 
-func (v NullableModelIntegrationListResp) IsSet() bool {
+func (v NullableModelIntegrationUpdateReq) IsSet() bool {
 	return v.isSet
 }
 
-func (v *NullableModelIntegrationListResp) Unset() {
+func (v *NullableModelIntegrationUpdateReq) Unset() {
 	v.value = nil
 	v.isSet = false
 }
 
-func NewNullableModelIntegrationListResp(val *ModelIntegrationListResp) *NullableModelIntegrationListResp {
-	return &NullableModelIntegrationListResp{value: val, isSet: true}
+func NewNullableModelIntegrationUpdateReq(val *ModelIntegrationUpdateReq) *NullableModelIntegrationUpdateReq {
+	return &NullableModelIntegrationUpdateReq{value: val, isSet: true}
 }
 
-func (v NullableModelIntegrationListResp) MarshalJSON() ([]byte, error) {
+func (v NullableModelIntegrationUpdateReq) MarshalJSON() ([]byte, error) {
 	return json.Marshal(v.value)
 }
 
-func (v *NullableModelIntegrationListResp) UnmarshalJSON(src []byte) error {
+func (v *NullableModelIntegrationUpdateReq) UnmarshalJSON(src []byte) error {
 	v.isSet = true
 	return json.Unmarshal(src, &v.value)
 }

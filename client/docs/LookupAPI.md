@@ -34,24 +34,24 @@ Retrieve Cloud Compliances data
 package main
 
 import (
-    "context"
-    "fmt"
-    "os"
-    openapiclient "github.com/deepfence/golang_deepfence_sdk/client"
+	"context"
+	"fmt"
+	"os"
+	openapiclient "github.com/deepfence/golang_deepfence_sdk/client"
 )
 
 func main() {
-    lookupLookupFilter := *openapiclient.NewLookupLookupFilter([]string{"InFieldFilter_example"}, []string{"NodeIds_example"}, *openapiclient.NewModelFetchWindow(int32(123), int32(123))) // LookupLookupFilter |  (optional)
+	lookupLookupFilter := *openapiclient.NewLookupLookupFilter([]string{"InFieldFilter_example"}, []string{"NodeIds_example"}, *openapiclient.NewModelFetchWindow(int32(123), int32(123))) // LookupLookupFilter |  (optional)
 
-    configuration := openapiclient.NewConfiguration()
-    apiClient := openapiclient.NewAPIClient(configuration)
-    resp, r, err := apiClient.LookupAPI.GetCloudCompliances(context.Background()).LookupLookupFilter(lookupLookupFilter).Execute()
-    if err != nil {
-        fmt.Fprintf(os.Stderr, "Error when calling `LookupAPI.GetCloudCompliances``: %v\n", err)
-        fmt.Fprintf(os.Stderr, "Full HTTP response: %v\n", r)
-    }
-    // response from `GetCloudCompliances`: []ModelCloudCompliance
-    fmt.Fprintf(os.Stdout, "Response from `LookupAPI.GetCloudCompliances`: %v\n", resp)
+	configuration := openapiclient.NewConfiguration()
+	apiClient := openapiclient.NewAPIClient(configuration)
+	resp, r, err := apiClient.LookupAPI.GetCloudCompliances(context.Background()).LookupLookupFilter(lookupLookupFilter).Execute()
+	if err != nil {
+		fmt.Fprintf(os.Stderr, "Error when calling `LookupAPI.GetCloudCompliances``: %v\n", err)
+		fmt.Fprintf(os.Stderr, "Full HTTP response: %v\n", r)
+	}
+	// response from `GetCloudCompliances`: []ModelCloudCompliance
+	fmt.Fprintf(os.Stdout, "Response from `LookupAPI.GetCloudCompliances`: %v\n", resp)
 }
 ```
 
@@ -100,24 +100,24 @@ Get Cloud Resources
 package main
 
 import (
-    "context"
-    "fmt"
-    "os"
-    openapiclient "github.com/deepfence/golang_deepfence_sdk/client"
+	"context"
+	"fmt"
+	"os"
+	openapiclient "github.com/deepfence/golang_deepfence_sdk/client"
 )
 
 func main() {
-    lookupLookupFilter := *openapiclient.NewLookupLookupFilter([]string{"InFieldFilter_example"}, []string{"NodeIds_example"}, *openapiclient.NewModelFetchWindow(int32(123), int32(123))) // LookupLookupFilter |  (optional)
+	lookupLookupFilter := *openapiclient.NewLookupLookupFilter([]string{"InFieldFilter_example"}, []string{"NodeIds_example"}, *openapiclient.NewModelFetchWindow(int32(123), int32(123))) // LookupLookupFilter |  (optional)
 
-    configuration := openapiclient.NewConfiguration()
-    apiClient := openapiclient.NewAPIClient(configuration)
-    resp, r, err := apiClient.LookupAPI.GetCloudResources(context.Background()).LookupLookupFilter(lookupLookupFilter).Execute()
-    if err != nil {
-        fmt.Fprintf(os.Stderr, "Error when calling `LookupAPI.GetCloudResources``: %v\n", err)
-        fmt.Fprintf(os.Stderr, "Full HTTP response: %v\n", r)
-    }
-    // response from `GetCloudResources`: []ModelCloudResource
-    fmt.Fprintf(os.Stdout, "Response from `LookupAPI.GetCloudResources`: %v\n", resp)
+	configuration := openapiclient.NewConfiguration()
+	apiClient := openapiclient.NewAPIClient(configuration)
+	resp, r, err := apiClient.LookupAPI.GetCloudResources(context.Background()).LookupLookupFilter(lookupLookupFilter).Execute()
+	if err != nil {
+		fmt.Fprintf(os.Stderr, "Error when calling `LookupAPI.GetCloudResources``: %v\n", err)
+		fmt.Fprintf(os.Stderr, "Full HTTP response: %v\n", r)
+	}
+	// response from `GetCloudResources`: []ModelCloudResource
+	fmt.Fprintf(os.Stdout, "Response from `LookupAPI.GetCloudResources`: %v\n", resp)
 }
 ```
 
@@ -166,24 +166,24 @@ Retrieve Compliances data
 package main
 
 import (
-    "context"
-    "fmt"
-    "os"
-    openapiclient "github.com/deepfence/golang_deepfence_sdk/client"
+	"context"
+	"fmt"
+	"os"
+	openapiclient "github.com/deepfence/golang_deepfence_sdk/client"
 )
 
 func main() {
-    lookupLookupFilter := *openapiclient.NewLookupLookupFilter([]string{"InFieldFilter_example"}, []string{"NodeIds_example"}, *openapiclient.NewModelFetchWindow(int32(123), int32(123))) // LookupLookupFilter |  (optional)
+	lookupLookupFilter := *openapiclient.NewLookupLookupFilter([]string{"InFieldFilter_example"}, []string{"NodeIds_example"}, *openapiclient.NewModelFetchWindow(int32(123), int32(123))) // LookupLookupFilter |  (optional)
 
-    configuration := openapiclient.NewConfiguration()
-    apiClient := openapiclient.NewAPIClient(configuration)
-    resp, r, err := apiClient.LookupAPI.GetCompliances(context.Background()).LookupLookupFilter(lookupLookupFilter).Execute()
-    if err != nil {
-        fmt.Fprintf(os.Stderr, "Error when calling `LookupAPI.GetCompliances``: %v\n", err)
-        fmt.Fprintf(os.Stderr, "Full HTTP response: %v\n", r)
-    }
-    // response from `GetCompliances`: []ModelCompliance
-    fmt.Fprintf(os.Stdout, "Response from `LookupAPI.GetCompliances`: %v\n", resp)
+	configuration := openapiclient.NewConfiguration()
+	apiClient := openapiclient.NewAPIClient(configuration)
+	resp, r, err := apiClient.LookupAPI.GetCompliances(context.Background()).LookupLookupFilter(lookupLookupFilter).Execute()
+	if err != nil {
+		fmt.Fprintf(os.Stderr, "Error when calling `LookupAPI.GetCompliances``: %v\n", err)
+		fmt.Fprintf(os.Stderr, "Full HTTP response: %v\n", r)
+	}
+	// response from `GetCompliances`: []ModelCompliance
+	fmt.Fprintf(os.Stdout, "Response from `LookupAPI.GetCompliances`: %v\n", resp)
 }
 ```
 
@@ -232,24 +232,24 @@ Retrieve Container Images data
 package main
 
 import (
-    "context"
-    "fmt"
-    "os"
-    openapiclient "github.com/deepfence/golang_deepfence_sdk/client"
+	"context"
+	"fmt"
+	"os"
+	openapiclient "github.com/deepfence/golang_deepfence_sdk/client"
 )
 
 func main() {
-    lookupLookupFilter := *openapiclient.NewLookupLookupFilter([]string{"InFieldFilter_example"}, []string{"NodeIds_example"}, *openapiclient.NewModelFetchWindow(int32(123), int32(123))) // LookupLookupFilter |  (optional)
+	lookupLookupFilter := *openapiclient.NewLookupLookupFilter([]string{"InFieldFilter_example"}, []string{"NodeIds_example"}, *openapiclient.NewModelFetchWindow(int32(123), int32(123))) // LookupLookupFilter |  (optional)
 
-    configuration := openapiclient.NewConfiguration()
-    apiClient := openapiclient.NewAPIClient(configuration)
-    resp, r, err := apiClient.LookupAPI.GetContainerImages(context.Background()).LookupLookupFilter(lookupLookupFilter).Execute()
-    if err != nil {
-        fmt.Fprintf(os.Stderr, "Error when calling `LookupAPI.GetContainerImages``: %v\n", err)
-        fmt.Fprintf(os.Stderr, "Full HTTP response: %v\n", r)
-    }
-    // response from `GetContainerImages`: []ModelContainerImage
-    fmt.Fprintf(os.Stdout, "Response from `LookupAPI.GetContainerImages`: %v\n", resp)
+	configuration := openapiclient.NewConfiguration()
+	apiClient := openapiclient.NewAPIClient(configuration)
+	resp, r, err := apiClient.LookupAPI.GetContainerImages(context.Background()).LookupLookupFilter(lookupLookupFilter).Execute()
+	if err != nil {
+		fmt.Fprintf(os.Stderr, "Error when calling `LookupAPI.GetContainerImages``: %v\n", err)
+		fmt.Fprintf(os.Stderr, "Full HTTP response: %v\n", r)
+	}
+	// response from `GetContainerImages`: []ModelContainerImage
+	fmt.Fprintf(os.Stdout, "Response from `LookupAPI.GetContainerImages`: %v\n", resp)
 }
 ```
 
@@ -298,24 +298,24 @@ Retrieve Containers data
 package main
 
 import (
-    "context"
-    "fmt"
-    "os"
-    openapiclient "github.com/deepfence/golang_deepfence_sdk/client"
+	"context"
+	"fmt"
+	"os"
+	openapiclient "github.com/deepfence/golang_deepfence_sdk/client"
 )
 
 func main() {
-    lookupLookupFilter := *openapiclient.NewLookupLookupFilter([]string{"InFieldFilter_example"}, []string{"NodeIds_example"}, *openapiclient.NewModelFetchWindow(int32(123), int32(123))) // LookupLookupFilter |  (optional)
+	lookupLookupFilter := *openapiclient.NewLookupLookupFilter([]string{"InFieldFilter_example"}, []string{"NodeIds_example"}, *openapiclient.NewModelFetchWindow(int32(123), int32(123))) // LookupLookupFilter |  (optional)
 
-    configuration := openapiclient.NewConfiguration()
-    apiClient := openapiclient.NewAPIClient(configuration)
-    resp, r, err := apiClient.LookupAPI.GetContainers(context.Background()).LookupLookupFilter(lookupLookupFilter).Execute()
-    if err != nil {
-        fmt.Fprintf(os.Stderr, "Error when calling `LookupAPI.GetContainers``: %v\n", err)
-        fmt.Fprintf(os.Stderr, "Full HTTP response: %v\n", r)
-    }
-    // response from `GetContainers`: []ModelContainer
-    fmt.Fprintf(os.Stdout, "Response from `LookupAPI.GetContainers`: %v\n", resp)
+	configuration := openapiclient.NewConfiguration()
+	apiClient := openapiclient.NewAPIClient(configuration)
+	resp, r, err := apiClient.LookupAPI.GetContainers(context.Background()).LookupLookupFilter(lookupLookupFilter).Execute()
+	if err != nil {
+		fmt.Fprintf(os.Stderr, "Error when calling `LookupAPI.GetContainers``: %v\n", err)
+		fmt.Fprintf(os.Stderr, "Full HTTP response: %v\n", r)
+	}
+	// response from `GetContainers`: []ModelContainer
+	fmt.Fprintf(os.Stdout, "Response from `LookupAPI.GetContainers`: %v\n", resp)
 }
 ```
 
@@ -364,24 +364,24 @@ Retrieve Hosts data
 package main
 
 import (
-    "context"
-    "fmt"
-    "os"
-    openapiclient "github.com/deepfence/golang_deepfence_sdk/client"
+	"context"
+	"fmt"
+	"os"
+	openapiclient "github.com/deepfence/golang_deepfence_sdk/client"
 )
 
 func main() {
-    lookupLookupFilter := *openapiclient.NewLookupLookupFilter([]string{"InFieldFilter_example"}, []string{"NodeIds_example"}, *openapiclient.NewModelFetchWindow(int32(123), int32(123))) // LookupLookupFilter |  (optional)
+	lookupLookupFilter := *openapiclient.NewLookupLookupFilter([]string{"InFieldFilter_example"}, []string{"NodeIds_example"}, *openapiclient.NewModelFetchWindow(int32(123), int32(123))) // LookupLookupFilter |  (optional)
 
-    configuration := openapiclient.NewConfiguration()
-    apiClient := openapiclient.NewAPIClient(configuration)
-    resp, r, err := apiClient.LookupAPI.GetHosts(context.Background()).LookupLookupFilter(lookupLookupFilter).Execute()
-    if err != nil {
-        fmt.Fprintf(os.Stderr, "Error when calling `LookupAPI.GetHosts``: %v\n", err)
-        fmt.Fprintf(os.Stderr, "Full HTTP response: %v\n", r)
-    }
-    // response from `GetHosts`: []ModelHost
-    fmt.Fprintf(os.Stdout, "Response from `LookupAPI.GetHosts`: %v\n", resp)
+	configuration := openapiclient.NewConfiguration()
+	apiClient := openapiclient.NewAPIClient(configuration)
+	resp, r, err := apiClient.LookupAPI.GetHosts(context.Background()).LookupLookupFilter(lookupLookupFilter).Execute()
+	if err != nil {
+		fmt.Fprintf(os.Stderr, "Error when calling `LookupAPI.GetHosts``: %v\n", err)
+		fmt.Fprintf(os.Stderr, "Full HTTP response: %v\n", r)
+	}
+	// response from `GetHosts`: []ModelHost
+	fmt.Fprintf(os.Stdout, "Response from `LookupAPI.GetHosts`: %v\n", resp)
 }
 ```
 
@@ -430,24 +430,24 @@ Retrieve K8s data
 package main
 
 import (
-    "context"
-    "fmt"
-    "os"
-    openapiclient "github.com/deepfence/golang_deepfence_sdk/client"
+	"context"
+	"fmt"
+	"os"
+	openapiclient "github.com/deepfence/golang_deepfence_sdk/client"
 )
 
 func main() {
-    lookupLookupFilter := *openapiclient.NewLookupLookupFilter([]string{"InFieldFilter_example"}, []string{"NodeIds_example"}, *openapiclient.NewModelFetchWindow(int32(123), int32(123))) // LookupLookupFilter |  (optional)
+	lookupLookupFilter := *openapiclient.NewLookupLookupFilter([]string{"InFieldFilter_example"}, []string{"NodeIds_example"}, *openapiclient.NewModelFetchWindow(int32(123), int32(123))) // LookupLookupFilter |  (optional)
 
-    configuration := openapiclient.NewConfiguration()
-    apiClient := openapiclient.NewAPIClient(configuration)
-    resp, r, err := apiClient.LookupAPI.GetKubernetesClusters(context.Background()).LookupLookupFilter(lookupLookupFilter).Execute()
-    if err != nil {
-        fmt.Fprintf(os.Stderr, "Error when calling `LookupAPI.GetKubernetesClusters``: %v\n", err)
-        fmt.Fprintf(os.Stderr, "Full HTTP response: %v\n", r)
-    }
-    // response from `GetKubernetesClusters`: []ModelKubernetesCluster
-    fmt.Fprintf(os.Stdout, "Response from `LookupAPI.GetKubernetesClusters`: %v\n", resp)
+	configuration := openapiclient.NewConfiguration()
+	apiClient := openapiclient.NewAPIClient(configuration)
+	resp, r, err := apiClient.LookupAPI.GetKubernetesClusters(context.Background()).LookupLookupFilter(lookupLookupFilter).Execute()
+	if err != nil {
+		fmt.Fprintf(os.Stderr, "Error when calling `LookupAPI.GetKubernetesClusters``: %v\n", err)
+		fmt.Fprintf(os.Stderr, "Full HTTP response: %v\n", r)
+	}
+	// response from `GetKubernetesClusters`: []ModelKubernetesCluster
+	fmt.Fprintf(os.Stdout, "Response from `LookupAPI.GetKubernetesClusters`: %v\n", resp)
 }
 ```
 
@@ -496,24 +496,24 @@ Retrieve Malwares data
 package main
 
 import (
-    "context"
-    "fmt"
-    "os"
-    openapiclient "github.com/deepfence/golang_deepfence_sdk/client"
+	"context"
+	"fmt"
+	"os"
+	openapiclient "github.com/deepfence/golang_deepfence_sdk/client"
 )
 
 func main() {
-    lookupLookupFilter := *openapiclient.NewLookupLookupFilter([]string{"InFieldFilter_example"}, []string{"NodeIds_example"}, *openapiclient.NewModelFetchWindow(int32(123), int32(123))) // LookupLookupFilter |  (optional)
+	lookupLookupFilter := *openapiclient.NewLookupLookupFilter([]string{"InFieldFilter_example"}, []string{"NodeIds_example"}, *openapiclient.NewModelFetchWindow(int32(123), int32(123))) // LookupLookupFilter |  (optional)
 
-    configuration := openapiclient.NewConfiguration()
-    apiClient := openapiclient.NewAPIClient(configuration)
-    resp, r, err := apiClient.LookupAPI.GetMalwares(context.Background()).LookupLookupFilter(lookupLookupFilter).Execute()
-    if err != nil {
-        fmt.Fprintf(os.Stderr, "Error when calling `LookupAPI.GetMalwares``: %v\n", err)
-        fmt.Fprintf(os.Stderr, "Full HTTP response: %v\n", r)
-    }
-    // response from `GetMalwares`: []ModelMalware
-    fmt.Fprintf(os.Stdout, "Response from `LookupAPI.GetMalwares`: %v\n", resp)
+	configuration := openapiclient.NewConfiguration()
+	apiClient := openapiclient.NewAPIClient(configuration)
+	resp, r, err := apiClient.LookupAPI.GetMalwares(context.Background()).LookupLookupFilter(lookupLookupFilter).Execute()
+	if err != nil {
+		fmt.Fprintf(os.Stderr, "Error when calling `LookupAPI.GetMalwares``: %v\n", err)
+		fmt.Fprintf(os.Stderr, "Full HTTP response: %v\n", r)
+	}
+	// response from `GetMalwares`: []ModelMalware
+	fmt.Fprintf(os.Stdout, "Response from `LookupAPI.GetMalwares`: %v\n", resp)
 }
 ```
 
@@ -562,24 +562,24 @@ Retrieve Pods data
 package main
 
 import (
-    "context"
-    "fmt"
-    "os"
-    openapiclient "github.com/deepfence/golang_deepfence_sdk/client"
+	"context"
+	"fmt"
+	"os"
+	openapiclient "github.com/deepfence/golang_deepfence_sdk/client"
 )
 
 func main() {
-    lookupLookupFilter := *openapiclient.NewLookupLookupFilter([]string{"InFieldFilter_example"}, []string{"NodeIds_example"}, *openapiclient.NewModelFetchWindow(int32(123), int32(123))) // LookupLookupFilter |  (optional)
+	lookupLookupFilter := *openapiclient.NewLookupLookupFilter([]string{"InFieldFilter_example"}, []string{"NodeIds_example"}, *openapiclient.NewModelFetchWindow(int32(123), int32(123))) // LookupLookupFilter |  (optional)
 
-    configuration := openapiclient.NewConfiguration()
-    apiClient := openapiclient.NewAPIClient(configuration)
-    resp, r, err := apiClient.LookupAPI.GetPods(context.Background()).LookupLookupFilter(lookupLookupFilter).Execute()
-    if err != nil {
-        fmt.Fprintf(os.Stderr, "Error when calling `LookupAPI.GetPods``: %v\n", err)
-        fmt.Fprintf(os.Stderr, "Full HTTP response: %v\n", r)
-    }
-    // response from `GetPods`: []ModelPod
-    fmt.Fprintf(os.Stdout, "Response from `LookupAPI.GetPods`: %v\n", resp)
+	configuration := openapiclient.NewConfiguration()
+	apiClient := openapiclient.NewAPIClient(configuration)
+	resp, r, err := apiClient.LookupAPI.GetPods(context.Background()).LookupLookupFilter(lookupLookupFilter).Execute()
+	if err != nil {
+		fmt.Fprintf(os.Stderr, "Error when calling `LookupAPI.GetPods``: %v\n", err)
+		fmt.Fprintf(os.Stderr, "Full HTTP response: %v\n", r)
+	}
+	// response from `GetPods`: []ModelPod
+	fmt.Fprintf(os.Stdout, "Response from `LookupAPI.GetPods`: %v\n", resp)
 }
 ```
 
@@ -628,24 +628,24 @@ Retrieve Processes data
 package main
 
 import (
-    "context"
-    "fmt"
-    "os"
-    openapiclient "github.com/deepfence/golang_deepfence_sdk/client"
+	"context"
+	"fmt"
+	"os"
+	openapiclient "github.com/deepfence/golang_deepfence_sdk/client"
 )
 
 func main() {
-    lookupLookupFilter := *openapiclient.NewLookupLookupFilter([]string{"InFieldFilter_example"}, []string{"NodeIds_example"}, *openapiclient.NewModelFetchWindow(int32(123), int32(123))) // LookupLookupFilter |  (optional)
+	lookupLookupFilter := *openapiclient.NewLookupLookupFilter([]string{"InFieldFilter_example"}, []string{"NodeIds_example"}, *openapiclient.NewModelFetchWindow(int32(123), int32(123))) // LookupLookupFilter |  (optional)
 
-    configuration := openapiclient.NewConfiguration()
-    apiClient := openapiclient.NewAPIClient(configuration)
-    resp, r, err := apiClient.LookupAPI.GetProcesses(context.Background()).LookupLookupFilter(lookupLookupFilter).Execute()
-    if err != nil {
-        fmt.Fprintf(os.Stderr, "Error when calling `LookupAPI.GetProcesses``: %v\n", err)
-        fmt.Fprintf(os.Stderr, "Full HTTP response: %v\n", r)
-    }
-    // response from `GetProcesses`: []ModelProcess
-    fmt.Fprintf(os.Stdout, "Response from `LookupAPI.GetProcesses`: %v\n", resp)
+	configuration := openapiclient.NewConfiguration()
+	apiClient := openapiclient.NewAPIClient(configuration)
+	resp, r, err := apiClient.LookupAPI.GetProcesses(context.Background()).LookupLookupFilter(lookupLookupFilter).Execute()
+	if err != nil {
+		fmt.Fprintf(os.Stderr, "Error when calling `LookupAPI.GetProcesses``: %v\n", err)
+		fmt.Fprintf(os.Stderr, "Full HTTP response: %v\n", r)
+	}
+	// response from `GetProcesses`: []ModelProcess
+	fmt.Fprintf(os.Stdout, "Response from `LookupAPI.GetProcesses`: %v\n", resp)
 }
 ```
 
@@ -694,24 +694,24 @@ Get Images in Registry
 package main
 
 import (
-    "context"
-    "fmt"
-    "os"
-    openapiclient "github.com/deepfence/golang_deepfence_sdk/client"
+	"context"
+	"fmt"
+	"os"
+	openapiclient "github.com/deepfence/golang_deepfence_sdk/client"
 )
 
 func main() {
-    lookupLookupFilter := *openapiclient.NewLookupLookupFilter([]string{"InFieldFilter_example"}, []string{"NodeIds_example"}, *openapiclient.NewModelFetchWindow(int32(123), int32(123))) // LookupLookupFilter |  (optional)
+	lookupLookupFilter := *openapiclient.NewLookupLookupFilter([]string{"InFieldFilter_example"}, []string{"NodeIds_example"}, *openapiclient.NewModelFetchWindow(int32(123), int32(123))) // LookupLookupFilter |  (optional)
 
-    configuration := openapiclient.NewConfiguration()
-    apiClient := openapiclient.NewAPIClient(configuration)
-    resp, r, err := apiClient.LookupAPI.GetRegistryAccount(context.Background()).LookupLookupFilter(lookupLookupFilter).Execute()
-    if err != nil {
-        fmt.Fprintf(os.Stderr, "Error when calling `LookupAPI.GetRegistryAccount``: %v\n", err)
-        fmt.Fprintf(os.Stderr, "Full HTTP response: %v\n", r)
-    }
-    // response from `GetRegistryAccount`: []ModelRegistryAccount
-    fmt.Fprintf(os.Stdout, "Response from `LookupAPI.GetRegistryAccount`: %v\n", resp)
+	configuration := openapiclient.NewConfiguration()
+	apiClient := openapiclient.NewAPIClient(configuration)
+	resp, r, err := apiClient.LookupAPI.GetRegistryAccount(context.Background()).LookupLookupFilter(lookupLookupFilter).Execute()
+	if err != nil {
+		fmt.Fprintf(os.Stderr, "Error when calling `LookupAPI.GetRegistryAccount``: %v\n", err)
+		fmt.Fprintf(os.Stderr, "Full HTTP response: %v\n", r)
+	}
+	// response from `GetRegistryAccount`: []ModelRegistryAccount
+	fmt.Fprintf(os.Stdout, "Response from `LookupAPI.GetRegistryAccount`: %v\n", resp)
 }
 ```
 
@@ -760,24 +760,24 @@ Retrieve Secrets data
 package main
 
 import (
-    "context"
-    "fmt"
-    "os"
-    openapiclient "github.com/deepfence/golang_deepfence_sdk/client"
+	"context"
+	"fmt"
+	"os"
+	openapiclient "github.com/deepfence/golang_deepfence_sdk/client"
 )
 
 func main() {
-    lookupLookupFilter := *openapiclient.NewLookupLookupFilter([]string{"InFieldFilter_example"}, []string{"NodeIds_example"}, *openapiclient.NewModelFetchWindow(int32(123), int32(123))) // LookupLookupFilter |  (optional)
+	lookupLookupFilter := *openapiclient.NewLookupLookupFilter([]string{"InFieldFilter_example"}, []string{"NodeIds_example"}, *openapiclient.NewModelFetchWindow(int32(123), int32(123))) // LookupLookupFilter |  (optional)
 
-    configuration := openapiclient.NewConfiguration()
-    apiClient := openapiclient.NewAPIClient(configuration)
-    resp, r, err := apiClient.LookupAPI.GetSecrets(context.Background()).LookupLookupFilter(lookupLookupFilter).Execute()
-    if err != nil {
-        fmt.Fprintf(os.Stderr, "Error when calling `LookupAPI.GetSecrets``: %v\n", err)
-        fmt.Fprintf(os.Stderr, "Full HTTP response: %v\n", r)
-    }
-    // response from `GetSecrets`: []ModelSecret
-    fmt.Fprintf(os.Stdout, "Response from `LookupAPI.GetSecrets`: %v\n", resp)
+	configuration := openapiclient.NewConfiguration()
+	apiClient := openapiclient.NewAPIClient(configuration)
+	resp, r, err := apiClient.LookupAPI.GetSecrets(context.Background()).LookupLookupFilter(lookupLookupFilter).Execute()
+	if err != nil {
+		fmt.Fprintf(os.Stderr, "Error when calling `LookupAPI.GetSecrets``: %v\n", err)
+		fmt.Fprintf(os.Stderr, "Full HTTP response: %v\n", r)
+	}
+	// response from `GetSecrets`: []ModelSecret
+	fmt.Fprintf(os.Stdout, "Response from `LookupAPI.GetSecrets`: %v\n", resp)
 }
 ```
 
@@ -826,24 +826,24 @@ Retrieve Vulnerabilities data
 package main
 
 import (
-    "context"
-    "fmt"
-    "os"
-    openapiclient "github.com/deepfence/golang_deepfence_sdk/client"
+	"context"
+	"fmt"
+	"os"
+	openapiclient "github.com/deepfence/golang_deepfence_sdk/client"
 )
 
 func main() {
-    lookupLookupFilter := *openapiclient.NewLookupLookupFilter([]string{"InFieldFilter_example"}, []string{"NodeIds_example"}, *openapiclient.NewModelFetchWindow(int32(123), int32(123))) // LookupLookupFilter |  (optional)
+	lookupLookupFilter := *openapiclient.NewLookupLookupFilter([]string{"InFieldFilter_example"}, []string{"NodeIds_example"}, *openapiclient.NewModelFetchWindow(int32(123), int32(123))) // LookupLookupFilter |  (optional)
 
-    configuration := openapiclient.NewConfiguration()
-    apiClient := openapiclient.NewAPIClient(configuration)
-    resp, r, err := apiClient.LookupAPI.GetVulnerabilities(context.Background()).LookupLookupFilter(lookupLookupFilter).Execute()
-    if err != nil {
-        fmt.Fprintf(os.Stderr, "Error when calling `LookupAPI.GetVulnerabilities``: %v\n", err)
-        fmt.Fprintf(os.Stderr, "Full HTTP response: %v\n", r)
-    }
-    // response from `GetVulnerabilities`: []ModelVulnerability
-    fmt.Fprintf(os.Stdout, "Response from `LookupAPI.GetVulnerabilities`: %v\n", resp)
+	configuration := openapiclient.NewConfiguration()
+	apiClient := openapiclient.NewAPIClient(configuration)
+	resp, r, err := apiClient.LookupAPI.GetVulnerabilities(context.Background()).LookupLookupFilter(lookupLookupFilter).Execute()
+	if err != nil {
+		fmt.Fprintf(os.Stderr, "Error when calling `LookupAPI.GetVulnerabilities``: %v\n", err)
+		fmt.Fprintf(os.Stderr, "Full HTTP response: %v\n", r)
+	}
+	// response from `GetVulnerabilities`: []ModelVulnerability
+	fmt.Fprintf(os.Stdout, "Response from `LookupAPI.GetVulnerabilities`: %v\n", resp)
 }
 ```
 

@@ -30,22 +30,22 @@ Schedule new agent plugin version disabling
 package main
 
 import (
-    "context"
-    "fmt"
-    "os"
-    openapiclient "github.com/deepfence/golang_deepfence_sdk/client"
+	"context"
+	"fmt"
+	"os"
+	openapiclient "github.com/deepfence/golang_deepfence_sdk/client"
 )
 
 func main() {
-    modelAgentPluginDisable := *openapiclient.NewModelAgentPluginDisable("NodeId_example", "PluginName_example") // ModelAgentPluginDisable |  (optional)
+	modelAgentPluginDisable := *openapiclient.NewModelAgentPluginDisable("NodeId_example", "PluginName_example") // ModelAgentPluginDisable |  (optional)
 
-    configuration := openapiclient.NewConfiguration()
-    apiClient := openapiclient.NewAPIClient(configuration)
-    r, err := apiClient.ControlsAPI.DisableAgentPlugin(context.Background()).ModelAgentPluginDisable(modelAgentPluginDisable).Execute()
-    if err != nil {
-        fmt.Fprintf(os.Stderr, "Error when calling `ControlsAPI.DisableAgentPlugin``: %v\n", err)
-        fmt.Fprintf(os.Stderr, "Full HTTP response: %v\n", r)
-    }
+	configuration := openapiclient.NewConfiguration()
+	apiClient := openapiclient.NewAPIClient(configuration)
+	r, err := apiClient.ControlsAPI.DisableAgentPlugin(context.Background()).ModelAgentPluginDisable(modelAgentPluginDisable).Execute()
+	if err != nil {
+		fmt.Fprintf(os.Stderr, "Error when calling `ControlsAPI.DisableAgentPlugin``: %v\n", err)
+		fmt.Fprintf(os.Stderr, "Full HTTP response: %v\n", r)
+	}
 }
 ```
 
@@ -94,22 +94,22 @@ Disable Cloud Node Controls
 package main
 
 import (
-    "context"
-    "fmt"
-    "os"
-    openapiclient "github.com/deepfence/golang_deepfence_sdk/client"
+	"context"
+	"fmt"
+	"os"
+	openapiclient "github.com/deepfence/golang_deepfence_sdk/client"
 )
 
 func main() {
-    modelCloudNodeEnableDisableReq := *openapiclient.NewModelCloudNodeEnableDisableReq() // ModelCloudNodeEnableDisableReq |  (optional)
+	modelCloudNodeEnableDisableReq := *openapiclient.NewModelCloudNodeEnableDisableReq() // ModelCloudNodeEnableDisableReq |  (optional)
 
-    configuration := openapiclient.NewConfiguration()
-    apiClient := openapiclient.NewAPIClient(configuration)
-    r, err := apiClient.ControlsAPI.DisableCloudNodeControls(context.Background()).ModelCloudNodeEnableDisableReq(modelCloudNodeEnableDisableReq).Execute()
-    if err != nil {
-        fmt.Fprintf(os.Stderr, "Error when calling `ControlsAPI.DisableCloudNodeControls``: %v\n", err)
-        fmt.Fprintf(os.Stderr, "Full HTTP response: %v\n", r)
-    }
+	configuration := openapiclient.NewConfiguration()
+	apiClient := openapiclient.NewAPIClient(configuration)
+	r, err := apiClient.ControlsAPI.DisableCloudNodeControls(context.Background()).ModelCloudNodeEnableDisableReq(modelCloudNodeEnableDisableReq).Execute()
+	if err != nil {
+		fmt.Fprintf(os.Stderr, "Error when calling `ControlsAPI.DisableCloudNodeControls``: %v\n", err)
+		fmt.Fprintf(os.Stderr, "Full HTTP response: %v\n", r)
+	}
 }
 ```
 
@@ -158,22 +158,22 @@ Schedule new agent plugin version enabling
 package main
 
 import (
-    "context"
-    "fmt"
-    "os"
-    openapiclient "github.com/deepfence/golang_deepfence_sdk/client"
+	"context"
+	"fmt"
+	"os"
+	openapiclient "github.com/deepfence/golang_deepfence_sdk/client"
 )
 
 func main() {
-    modelAgentPluginEnable := *openapiclient.NewModelAgentPluginEnable("NodeId_example", "PluginName_example", "Version_example") // ModelAgentPluginEnable |  (optional)
+	modelAgentPluginEnable := *openapiclient.NewModelAgentPluginEnable("NodeId_example", "PluginName_example", "Version_example") // ModelAgentPluginEnable |  (optional)
 
-    configuration := openapiclient.NewConfiguration()
-    apiClient := openapiclient.NewAPIClient(configuration)
-    r, err := apiClient.ControlsAPI.EnableAgentPlugin(context.Background()).ModelAgentPluginEnable(modelAgentPluginEnable).Execute()
-    if err != nil {
-        fmt.Fprintf(os.Stderr, "Error when calling `ControlsAPI.EnableAgentPlugin``: %v\n", err)
-        fmt.Fprintf(os.Stderr, "Full HTTP response: %v\n", r)
-    }
+	configuration := openapiclient.NewConfiguration()
+	apiClient := openapiclient.NewAPIClient(configuration)
+	r, err := apiClient.ControlsAPI.EnableAgentPlugin(context.Background()).ModelAgentPluginEnable(modelAgentPluginEnable).Execute()
+	if err != nil {
+		fmt.Fprintf(os.Stderr, "Error when calling `ControlsAPI.EnableAgentPlugin``: %v\n", err)
+		fmt.Fprintf(os.Stderr, "Full HTTP response: %v\n", r)
+	}
 }
 ```
 
@@ -222,22 +222,22 @@ Enable Cloud Node Controls
 package main
 
 import (
-    "context"
-    "fmt"
-    "os"
-    openapiclient "github.com/deepfence/golang_deepfence_sdk/client"
+	"context"
+	"fmt"
+	"os"
+	openapiclient "github.com/deepfence/golang_deepfence_sdk/client"
 )
 
 func main() {
-    modelCloudNodeEnableDisableReq := *openapiclient.NewModelCloudNodeEnableDisableReq() // ModelCloudNodeEnableDisableReq |  (optional)
+	modelCloudNodeEnableDisableReq := *openapiclient.NewModelCloudNodeEnableDisableReq() // ModelCloudNodeEnableDisableReq |  (optional)
 
-    configuration := openapiclient.NewConfiguration()
-    apiClient := openapiclient.NewAPIClient(configuration)
-    r, err := apiClient.ControlsAPI.EnableCloudNodeControls(context.Background()).ModelCloudNodeEnableDisableReq(modelCloudNodeEnableDisableReq).Execute()
-    if err != nil {
-        fmt.Fprintf(os.Stderr, "Error when calling `ControlsAPI.EnableCloudNodeControls``: %v\n", err)
-        fmt.Fprintf(os.Stderr, "Full HTTP response: %v\n", r)
-    }
+	configuration := openapiclient.NewConfiguration()
+	apiClient := openapiclient.NewAPIClient(configuration)
+	r, err := apiClient.ControlsAPI.EnableCloudNodeControls(context.Background()).ModelCloudNodeEnableDisableReq(modelCloudNodeEnableDisableReq).Execute()
+	if err != nil {
+		fmt.Fprintf(os.Stderr, "Error when calling `ControlsAPI.EnableCloudNodeControls``: %v\n", err)
+		fmt.Fprintf(os.Stderr, "Full HTTP response: %v\n", r)
+	}
 }
 ```
 
@@ -286,24 +286,24 @@ Fetch Agent Actions
 package main
 
 import (
-    "context"
-    "fmt"
-    "os"
-    openapiclient "github.com/deepfence/golang_deepfence_sdk/client"
+	"context"
+	"fmt"
+	"os"
+	openapiclient "github.com/deepfence/golang_deepfence_sdk/client"
 )
 
 func main() {
-    modelAgentID := *openapiclient.NewModelAgentID(int32(123), "NodeId_example") // ModelAgentID |  (optional)
+	modelAgentID := *openapiclient.NewModelAgentID(int32(123), "NodeId_example") // ModelAgentID |  (optional)
 
-    configuration := openapiclient.NewConfiguration()
-    apiClient := openapiclient.NewAPIClient(configuration)
-    resp, r, err := apiClient.ControlsAPI.GetAgentControls(context.Background()).ModelAgentID(modelAgentID).Execute()
-    if err != nil {
-        fmt.Fprintf(os.Stderr, "Error when calling `ControlsAPI.GetAgentControls``: %v\n", err)
-        fmt.Fprintf(os.Stderr, "Full HTTP response: %v\n", r)
-    }
-    // response from `GetAgentControls`: ControlsAgentControls
-    fmt.Fprintf(os.Stdout, "Response from `ControlsAPI.GetAgentControls`: %v\n", resp)
+	configuration := openapiclient.NewConfiguration()
+	apiClient := openapiclient.NewAPIClient(configuration)
+	resp, r, err := apiClient.ControlsAPI.GetAgentControls(context.Background()).ModelAgentID(modelAgentID).Execute()
+	if err != nil {
+		fmt.Fprintf(os.Stderr, "Error when calling `ControlsAPI.GetAgentControls``: %v\n", err)
+		fmt.Fprintf(os.Stderr, "Full HTTP response: %v\n", r)
+	}
+	// response from `GetAgentControls`: ControlsAgentControls
+	fmt.Fprintf(os.Stdout, "Response from `ControlsAPI.GetAgentControls`: %v\n", resp)
 }
 ```
 
@@ -352,24 +352,24 @@ Fetch Agent Init Actions
 package main
 
 import (
-    "context"
-    "fmt"
-    "os"
-    openapiclient "github.com/deepfence/golang_deepfence_sdk/client"
+	"context"
+	"fmt"
+	"os"
+	openapiclient "github.com/deepfence/golang_deepfence_sdk/client"
 )
 
 func main() {
-    modelInitAgentReq := *openapiclient.NewModelInitAgentReq(int32(123), "NodeId_example", "Version_example") // ModelInitAgentReq |  (optional)
+	modelInitAgentReq := *openapiclient.NewModelInitAgentReq(int32(123), "NodeId_example", "Version_example") // ModelInitAgentReq |  (optional)
 
-    configuration := openapiclient.NewConfiguration()
-    apiClient := openapiclient.NewAPIClient(configuration)
-    resp, r, err := apiClient.ControlsAPI.GetAgentInitControls(context.Background()).ModelInitAgentReq(modelInitAgentReq).Execute()
-    if err != nil {
-        fmt.Fprintf(os.Stderr, "Error when calling `ControlsAPI.GetAgentInitControls``: %v\n", err)
-        fmt.Fprintf(os.Stderr, "Full HTTP response: %v\n", r)
-    }
-    // response from `GetAgentInitControls`: ControlsAgentControls
-    fmt.Fprintf(os.Stdout, "Response from `ControlsAPI.GetAgentInitControls`: %v\n", resp)
+	configuration := openapiclient.NewConfiguration()
+	apiClient := openapiclient.NewAPIClient(configuration)
+	resp, r, err := apiClient.ControlsAPI.GetAgentInitControls(context.Background()).ModelInitAgentReq(modelInitAgentReq).Execute()
+	if err != nil {
+		fmt.Fprintf(os.Stderr, "Error when calling `ControlsAPI.GetAgentInitControls``: %v\n", err)
+		fmt.Fprintf(os.Stderr, "Full HTTP response: %v\n", r)
+	}
+	// response from `GetAgentInitControls`: ControlsAgentControls
+	fmt.Fprintf(os.Stdout, "Response from `ControlsAPI.GetAgentInitControls`: %v\n", resp)
 }
 ```
 
@@ -418,24 +418,24 @@ Fetch Cloud Node Controls
 package main
 
 import (
-    "context"
-    "fmt"
-    "os"
-    openapiclient "github.com/deepfence/golang_deepfence_sdk/client"
+	"context"
+	"fmt"
+	"os"
+	openapiclient "github.com/deepfence/golang_deepfence_sdk/client"
 )
 
 func main() {
-    modelCloudNodeControlReq := *openapiclient.NewModelCloudNodeControlReq("CloudProvider_example", "ComplianceType_example") // ModelCloudNodeControlReq |  (optional)
+	modelCloudNodeControlReq := *openapiclient.NewModelCloudNodeControlReq("CloudProvider_example", "ComplianceType_example") // ModelCloudNodeControlReq |  (optional)
 
-    configuration := openapiclient.NewConfiguration()
-    apiClient := openapiclient.NewAPIClient(configuration)
-    resp, r, err := apiClient.ControlsAPI.GetCloudNodeControls(context.Background()).ModelCloudNodeControlReq(modelCloudNodeControlReq).Execute()
-    if err != nil {
-        fmt.Fprintf(os.Stderr, "Error when calling `ControlsAPI.GetCloudNodeControls``: %v\n", err)
-        fmt.Fprintf(os.Stderr, "Full HTTP response: %v\n", r)
-    }
-    // response from `GetCloudNodeControls`: ModelCloudNodeControlResp
-    fmt.Fprintf(os.Stdout, "Response from `ControlsAPI.GetCloudNodeControls`: %v\n", resp)
+	configuration := openapiclient.NewConfiguration()
+	apiClient := openapiclient.NewAPIClient(configuration)
+	resp, r, err := apiClient.ControlsAPI.GetCloudNodeControls(context.Background()).ModelCloudNodeControlReq(modelCloudNodeControlReq).Execute()
+	if err != nil {
+		fmt.Fprintf(os.Stderr, "Error when calling `ControlsAPI.GetCloudNodeControls``: %v\n", err)
+		fmt.Fprintf(os.Stderr, "Full HTTP response: %v\n", r)
+	}
+	// response from `GetCloudNodeControls`: ModelCloudNodeControlResp
+	fmt.Fprintf(os.Stdout, "Response from `ControlsAPI.GetCloudNodeControls`: %v\n", resp)
 }
 ```
 
@@ -484,24 +484,24 @@ Fetch Kubernetes Cluster Actions
 package main
 
 import (
-    "context"
-    "fmt"
-    "os"
-    openapiclient "github.com/deepfence/golang_deepfence_sdk/client"
+	"context"
+	"fmt"
+	"os"
+	openapiclient "github.com/deepfence/golang_deepfence_sdk/client"
 )
 
 func main() {
-    modelAgentID := *openapiclient.NewModelAgentID(int32(123), "NodeId_example") // ModelAgentID |  (optional)
+	modelAgentID := *openapiclient.NewModelAgentID(int32(123), "NodeId_example") // ModelAgentID |  (optional)
 
-    configuration := openapiclient.NewConfiguration()
-    apiClient := openapiclient.NewAPIClient(configuration)
-    resp, r, err := apiClient.ControlsAPI.GetKubernetesClusterControls(context.Background()).ModelAgentID(modelAgentID).Execute()
-    if err != nil {
-        fmt.Fprintf(os.Stderr, "Error when calling `ControlsAPI.GetKubernetesClusterControls``: %v\n", err)
-        fmt.Fprintf(os.Stderr, "Full HTTP response: %v\n", r)
-    }
-    // response from `GetKubernetesClusterControls`: ControlsAgentControls
-    fmt.Fprintf(os.Stdout, "Response from `ControlsAPI.GetKubernetesClusterControls`: %v\n", resp)
+	configuration := openapiclient.NewConfiguration()
+	apiClient := openapiclient.NewAPIClient(configuration)
+	resp, r, err := apiClient.ControlsAPI.GetKubernetesClusterControls(context.Background()).ModelAgentID(modelAgentID).Execute()
+	if err != nil {
+		fmt.Fprintf(os.Stderr, "Error when calling `ControlsAPI.GetKubernetesClusterControls``: %v\n", err)
+		fmt.Fprintf(os.Stderr, "Full HTTP response: %v\n", r)
+	}
+	// response from `GetKubernetesClusterControls`: ControlsAgentControls
+	fmt.Fprintf(os.Stdout, "Response from `ControlsAPI.GetKubernetesClusterControls`: %v\n", resp)
 }
 ```
 
@@ -550,22 +550,22 @@ Schedule new agent version upgrade
 package main
 
 import (
-    "context"
-    "fmt"
-    "os"
-    openapiclient "github.com/deepfence/golang_deepfence_sdk/client"
+	"context"
+	"fmt"
+	"os"
+	openapiclient "github.com/deepfence/golang_deepfence_sdk/client"
 )
 
 func main() {
-    modelAgentUpgrade := *openapiclient.NewModelAgentUpgrade("NodeId_example", "Version_example") // ModelAgentUpgrade |  (optional)
+	modelAgentUpgrade := *openapiclient.NewModelAgentUpgrade([]string{"NodeIds_example"}, "Version_example") // ModelAgentUpgrade |  (optional)
 
-    configuration := openapiclient.NewConfiguration()
-    apiClient := openapiclient.NewAPIClient(configuration)
-    r, err := apiClient.ControlsAPI.UpgradeAgentVersion(context.Background()).ModelAgentUpgrade(modelAgentUpgrade).Execute()
-    if err != nil {
-        fmt.Fprintf(os.Stderr, "Error when calling `ControlsAPI.UpgradeAgentVersion``: %v\n", err)
-        fmt.Fprintf(os.Stderr, "Full HTTP response: %v\n", r)
-    }
+	configuration := openapiclient.NewConfiguration()
+	apiClient := openapiclient.NewAPIClient(configuration)
+	r, err := apiClient.ControlsAPI.UpgradeAgentVersion(context.Background()).ModelAgentUpgrade(modelAgentUpgrade).Execute()
+	if err != nil {
+		fmt.Fprintf(os.Stderr, "Error when calling `ControlsAPI.UpgradeAgentVersion``: %v\n", err)
+		fmt.Fprintf(os.Stderr, "Full HTTP response: %v\n", r)
+	}
 }
 ```
 

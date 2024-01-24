@@ -27,24 +27,24 @@ Get Cloud Compliance Scan Results
 package main
 
 import (
-    "context"
-    "fmt"
-    "os"
-    openapiclient "github.com/deepfence/golang_deepfence_sdk/client"
+	"context"
+	"fmt"
+	"os"
+	openapiclient "github.com/deepfence/golang_deepfence_sdk/client"
 )
 
 func main() {
-    modelScanResultsReq := *openapiclient.NewModelScanResultsReq(*openapiclient.NewReportersFieldsFilters([]openapiclient.ReportersCompareFilter{*openapiclient.NewReportersCompareFilter("FieldName_example", interface{}(123), false)}, *openapiclient.NewReportersContainsFilter(map[string][]interface{}{"key": []interface{}{nil}}), *openapiclient.NewReportersMatchFilter(map[string][]interface{}{"key": []interface{}{nil}}), *openapiclient.NewReportersOrderFilter([]openapiclient.ReportersOrderSpec{*openapiclient.NewReportersOrderSpec(false, "FieldName_example")})), "ScanId_example", *openapiclient.NewModelFetchWindow(int32(123), int32(123))) // ModelScanResultsReq |  (optional)
+	modelScanResultsReq := *openapiclient.NewModelScanResultsReq(*openapiclient.NewReportersFieldsFilters([]openapiclient.ReportersCompareFilter{*openapiclient.NewReportersCompareFilter("FieldName_example", interface{}(123), false)}, *openapiclient.NewReportersContainsFilter(map[string][]interface{}{"key": []interface{}{nil}}), *openapiclient.NewReportersMatchFilter(map[string][]interface{}{"key": []interface{}{nil}}), *openapiclient.NewReportersOrderFilter([]openapiclient.ReportersOrderSpec{*openapiclient.NewReportersOrderSpec(false, "FieldName_example")})), "ScanId_example", *openapiclient.NewModelFetchWindow(int32(123), int32(123))) // ModelScanResultsReq |  (optional)
 
-    configuration := openapiclient.NewConfiguration()
-    apiClient := openapiclient.NewAPIClient(configuration)
-    resp, r, err := apiClient.CloudScannerAPI.CountResultsCloudComplianceScan(context.Background()).ModelScanResultsReq(modelScanResultsReq).Execute()
-    if err != nil {
-        fmt.Fprintf(os.Stderr, "Error when calling `CloudScannerAPI.CountResultsCloudComplianceScan``: %v\n", err)
-        fmt.Fprintf(os.Stderr, "Full HTTP response: %v\n", r)
-    }
-    // response from `CountResultsCloudComplianceScan`: SearchSearchCountResp
-    fmt.Fprintf(os.Stdout, "Response from `CloudScannerAPI.CountResultsCloudComplianceScan`: %v\n", resp)
+	configuration := openapiclient.NewConfiguration()
+	apiClient := openapiclient.NewAPIClient(configuration)
+	resp, r, err := apiClient.CloudScannerAPI.CountResultsCloudComplianceScan(context.Background()).ModelScanResultsReq(modelScanResultsReq).Execute()
+	if err != nil {
+		fmt.Fprintf(os.Stderr, "Error when calling `CloudScannerAPI.CountResultsCloudComplianceScan``: %v\n", err)
+		fmt.Fprintf(os.Stderr, "Full HTTP response: %v\n", r)
+	}
+	// response from `CountResultsCloudComplianceScan`: SearchSearchCountResp
+	fmt.Fprintf(os.Stdout, "Response from `CloudScannerAPI.CountResultsCloudComplianceScan`: %v\n", resp)
 }
 ```
 
@@ -93,22 +93,22 @@ Ingest Cloud Compliances scan status
 package main
 
 import (
-    "context"
-    "fmt"
-    "os"
-    openapiclient "github.com/deepfence/golang_deepfence_sdk/client"
+	"context"
+	"fmt"
+	"os"
+	openapiclient "github.com/deepfence/golang_deepfence_sdk/client"
 )
 
 func main() {
-    ingestersCloudComplianceScanStatus := []openapiclient.IngestersCloudComplianceScanStatus{*openapiclient.NewIngestersCloudComplianceScanStatus()} // []IngestersCloudComplianceScanStatus |  (optional)
+	ingestersCloudComplianceScanStatus := []openapiclient.IngestersCloudComplianceScanStatus{*openapiclient.NewIngestersCloudComplianceScanStatus()} // []IngestersCloudComplianceScanStatus |  (optional)
 
-    configuration := openapiclient.NewConfiguration()
-    apiClient := openapiclient.NewAPIClient(configuration)
-    r, err := apiClient.CloudScannerAPI.IngestCloudComplianceScanStatus(context.Background()).IngestersCloudComplianceScanStatus(ingestersCloudComplianceScanStatus).Execute()
-    if err != nil {
-        fmt.Fprintf(os.Stderr, "Error when calling `CloudScannerAPI.IngestCloudComplianceScanStatus``: %v\n", err)
-        fmt.Fprintf(os.Stderr, "Full HTTP response: %v\n", r)
-    }
+	configuration := openapiclient.NewConfiguration()
+	apiClient := openapiclient.NewAPIClient(configuration)
+	r, err := apiClient.CloudScannerAPI.IngestCloudComplianceScanStatus(context.Background()).IngestersCloudComplianceScanStatus(ingestersCloudComplianceScanStatus).Execute()
+	if err != nil {
+		fmt.Fprintf(os.Stderr, "Error when calling `CloudScannerAPI.IngestCloudComplianceScanStatus``: %v\n", err)
+		fmt.Fprintf(os.Stderr, "Full HTTP response: %v\n", r)
+	}
 }
 ```
 
@@ -157,22 +157,22 @@ Ingest Cloud Compliances
 package main
 
 import (
-    "context"
-    "fmt"
-    "os"
-    openapiclient "github.com/deepfence/golang_deepfence_sdk/client"
+	"context"
+	"fmt"
+	"os"
+	openapiclient "github.com/deepfence/golang_deepfence_sdk/client"
 )
 
 func main() {
-    ingestersCloudCompliance := []openapiclient.IngestersCloudCompliance{*openapiclient.NewIngestersCloudCompliance()} // []IngestersCloudCompliance |  (optional)
+	ingestersCloudCompliance := []openapiclient.IngestersCloudCompliance{*openapiclient.NewIngestersCloudCompliance()} // []IngestersCloudCompliance |  (optional)
 
-    configuration := openapiclient.NewConfiguration()
-    apiClient := openapiclient.NewAPIClient(configuration)
-    r, err := apiClient.CloudScannerAPI.IngestCloudCompliances(context.Background()).IngestersCloudCompliance(ingestersCloudCompliance).Execute()
-    if err != nil {
-        fmt.Fprintf(os.Stderr, "Error when calling `CloudScannerAPI.IngestCloudCompliances``: %v\n", err)
-        fmt.Fprintf(os.Stderr, "Full HTTP response: %v\n", r)
-    }
+	configuration := openapiclient.NewConfiguration()
+	apiClient := openapiclient.NewAPIClient(configuration)
+	r, err := apiClient.CloudScannerAPI.IngestCloudCompliances(context.Background()).IngestersCloudCompliance(ingestersCloudCompliance).Execute()
+	if err != nil {
+		fmt.Fprintf(os.Stderr, "Error when calling `CloudScannerAPI.IngestCloudCompliances``: %v\n", err)
+		fmt.Fprintf(os.Stderr, "Full HTTP response: %v\n", r)
+	}
 }
 ```
 
@@ -221,24 +221,24 @@ Get Cloud Compliance Scans List
 package main
 
 import (
-    "context"
-    "fmt"
-    "os"
-    openapiclient "github.com/deepfence/golang_deepfence_sdk/client"
+	"context"
+	"fmt"
+	"os"
+	openapiclient "github.com/deepfence/golang_deepfence_sdk/client"
 )
 
 func main() {
-    modelScanListReq := *openapiclient.NewModelScanListReq(*openapiclient.NewReportersFieldsFilters([]openapiclient.ReportersCompareFilter{*openapiclient.NewReportersCompareFilter("FieldName_example", interface{}(123), false)}, *openapiclient.NewReportersContainsFilter(map[string][]interface{}{"key": []interface{}{nil}}), *openapiclient.NewReportersMatchFilter(map[string][]interface{}{"key": []interface{}{nil}}), *openapiclient.NewReportersOrderFilter([]openapiclient.ReportersOrderSpec{*openapiclient.NewReportersOrderSpec(false, "FieldName_example")})), []openapiclient.ModelNodeIdentifier{*openapiclient.NewModelNodeIdentifier("NodeId_example", "NodeType_example")}, *openapiclient.NewModelFetchWindow(int32(123), int32(123))) // ModelScanListReq |  (optional)
+	modelScanListReq := *openapiclient.NewModelScanListReq(*openapiclient.NewReportersFieldsFilters([]openapiclient.ReportersCompareFilter{*openapiclient.NewReportersCompareFilter("FieldName_example", interface{}(123), false)}, *openapiclient.NewReportersContainsFilter(map[string][]interface{}{"key": []interface{}{nil}}), *openapiclient.NewReportersMatchFilter(map[string][]interface{}{"key": []interface{}{nil}}), *openapiclient.NewReportersOrderFilter([]openapiclient.ReportersOrderSpec{*openapiclient.NewReportersOrderSpec(false, "FieldName_example")})), []openapiclient.ModelNodeIdentifier{*openapiclient.NewModelNodeIdentifier("NodeId_example", "NodeType_example")}, *openapiclient.NewModelFetchWindow(int32(123), int32(123))) // ModelScanListReq |  (optional)
 
-    configuration := openapiclient.NewConfiguration()
-    apiClient := openapiclient.NewAPIClient(configuration)
-    resp, r, err := apiClient.CloudScannerAPI.ListCloudComplianceScan(context.Background()).ModelScanListReq(modelScanListReq).Execute()
-    if err != nil {
-        fmt.Fprintf(os.Stderr, "Error when calling `CloudScannerAPI.ListCloudComplianceScan``: %v\n", err)
-        fmt.Fprintf(os.Stderr, "Full HTTP response: %v\n", r)
-    }
-    // response from `ListCloudComplianceScan`: ModelScanListResp
-    fmt.Fprintf(os.Stdout, "Response from `CloudScannerAPI.ListCloudComplianceScan`: %v\n", resp)
+	configuration := openapiclient.NewConfiguration()
+	apiClient := openapiclient.NewAPIClient(configuration)
+	resp, r, err := apiClient.CloudScannerAPI.ListCloudComplianceScan(context.Background()).ModelScanListReq(modelScanListReq).Execute()
+	if err != nil {
+		fmt.Fprintf(os.Stderr, "Error when calling `CloudScannerAPI.ListCloudComplianceScan``: %v\n", err)
+		fmt.Fprintf(os.Stderr, "Full HTTP response: %v\n", r)
+	}
+	// response from `ListCloudComplianceScan`: ModelScanListResp
+	fmt.Fprintf(os.Stdout, "Response from `CloudScannerAPI.ListCloudComplianceScan`: %v\n", resp)
 }
 ```
 
@@ -287,24 +287,24 @@ Get Cloud Compliance Scan Results
 package main
 
 import (
-    "context"
-    "fmt"
-    "os"
-    openapiclient "github.com/deepfence/golang_deepfence_sdk/client"
+	"context"
+	"fmt"
+	"os"
+	openapiclient "github.com/deepfence/golang_deepfence_sdk/client"
 )
 
 func main() {
-    modelScanResultsReq := *openapiclient.NewModelScanResultsReq(*openapiclient.NewReportersFieldsFilters([]openapiclient.ReportersCompareFilter{*openapiclient.NewReportersCompareFilter("FieldName_example", interface{}(123), false)}, *openapiclient.NewReportersContainsFilter(map[string][]interface{}{"key": []interface{}{nil}}), *openapiclient.NewReportersMatchFilter(map[string][]interface{}{"key": []interface{}{nil}}), *openapiclient.NewReportersOrderFilter([]openapiclient.ReportersOrderSpec{*openapiclient.NewReportersOrderSpec(false, "FieldName_example")})), "ScanId_example", *openapiclient.NewModelFetchWindow(int32(123), int32(123))) // ModelScanResultsReq |  (optional)
+	modelScanResultsReq := *openapiclient.NewModelScanResultsReq(*openapiclient.NewReportersFieldsFilters([]openapiclient.ReportersCompareFilter{*openapiclient.NewReportersCompareFilter("FieldName_example", interface{}(123), false)}, *openapiclient.NewReportersContainsFilter(map[string][]interface{}{"key": []interface{}{nil}}), *openapiclient.NewReportersMatchFilter(map[string][]interface{}{"key": []interface{}{nil}}), *openapiclient.NewReportersOrderFilter([]openapiclient.ReportersOrderSpec{*openapiclient.NewReportersOrderSpec(false, "FieldName_example")})), "ScanId_example", *openapiclient.NewModelFetchWindow(int32(123), int32(123))) // ModelScanResultsReq |  (optional)
 
-    configuration := openapiclient.NewConfiguration()
-    apiClient := openapiclient.NewAPIClient(configuration)
-    resp, r, err := apiClient.CloudScannerAPI.ResultsCloudComplianceScan(context.Background()).ModelScanResultsReq(modelScanResultsReq).Execute()
-    if err != nil {
-        fmt.Fprintf(os.Stderr, "Error when calling `CloudScannerAPI.ResultsCloudComplianceScan``: %v\n", err)
-        fmt.Fprintf(os.Stderr, "Full HTTP response: %v\n", r)
-    }
-    // response from `ResultsCloudComplianceScan`: ModelCloudComplianceScanResult
-    fmt.Fprintf(os.Stdout, "Response from `CloudScannerAPI.ResultsCloudComplianceScan`: %v\n", resp)
+	configuration := openapiclient.NewConfiguration()
+	apiClient := openapiclient.NewAPIClient(configuration)
+	resp, r, err := apiClient.CloudScannerAPI.ResultsCloudComplianceScan(context.Background()).ModelScanResultsReq(modelScanResultsReq).Execute()
+	if err != nil {
+		fmt.Fprintf(os.Stderr, "Error when calling `CloudScannerAPI.ResultsCloudComplianceScan``: %v\n", err)
+		fmt.Fprintf(os.Stderr, "Full HTTP response: %v\n", r)
+	}
+	// response from `ResultsCloudComplianceScan`: ModelCloudComplianceScanResult
+	fmt.Fprintf(os.Stdout, "Response from `CloudScannerAPI.ResultsCloudComplianceScan`: %v\n", resp)
 }
 ```
 
@@ -353,24 +353,24 @@ Get Cloud Compliance Scan Status
 package main
 
 import (
-    "context"
-    "fmt"
-    "os"
-    openapiclient "github.com/deepfence/golang_deepfence_sdk/client"
+	"context"
+	"fmt"
+	"os"
+	openapiclient "github.com/deepfence/golang_deepfence_sdk/client"
 )
 
 func main() {
-    modelScanStatusReq := *openapiclient.NewModelScanStatusReq("BulkScanId_example", []string{"ScanIds_example"}) // ModelScanStatusReq |  (optional)
+	modelScanStatusReq := *openapiclient.NewModelScanStatusReq("BulkScanId_example", []string{"ScanIds_example"}) // ModelScanStatusReq |  (optional)
 
-    configuration := openapiclient.NewConfiguration()
-    apiClient := openapiclient.NewAPIClient(configuration)
-    resp, r, err := apiClient.CloudScannerAPI.StatusCloudComplianceScan(context.Background()).ModelScanStatusReq(modelScanStatusReq).Execute()
-    if err != nil {
-        fmt.Fprintf(os.Stderr, "Error when calling `CloudScannerAPI.StatusCloudComplianceScan``: %v\n", err)
-        fmt.Fprintf(os.Stderr, "Full HTTP response: %v\n", r)
-    }
-    // response from `StatusCloudComplianceScan`: ModelComplianceScanStatusResp
-    fmt.Fprintf(os.Stdout, "Response from `CloudScannerAPI.StatusCloudComplianceScan`: %v\n", resp)
+	configuration := openapiclient.NewConfiguration()
+	apiClient := openapiclient.NewAPIClient(configuration)
+	resp, r, err := apiClient.CloudScannerAPI.StatusCloudComplianceScan(context.Background()).ModelScanStatusReq(modelScanStatusReq).Execute()
+	if err != nil {
+		fmt.Fprintf(os.Stderr, "Error when calling `CloudScannerAPI.StatusCloudComplianceScan``: %v\n", err)
+		fmt.Fprintf(os.Stderr, "Full HTTP response: %v\n", r)
+	}
+	// response from `StatusCloudComplianceScan`: ModelComplianceScanStatusResp
+	fmt.Fprintf(os.Stdout, "Response from `CloudScannerAPI.StatusCloudComplianceScan`: %v\n", resp)
 }
 ```
 
