@@ -24,6 +24,7 @@ var _ MappedNullable = &ModelGenerateReportReq{}
 type ModelGenerateReportReq struct {
 	Duration *int32 `json:"duration,omitempty"`
 	Filters *UtilsReportFilters `json:"filters,omitempty"`
+	Options *UtilsReportOptions `json:"options,omitempty"`
 	ReportType string `json:"report_type"`
 }
 
@@ -111,6 +112,38 @@ func (o *ModelGenerateReportReq) SetFilters(v UtilsReportFilters) {
 	o.Filters = &v
 }
 
+// GetOptions returns the Options field value if set, zero value otherwise.
+func (o *ModelGenerateReportReq) GetOptions() UtilsReportOptions {
+	if o == nil || IsNil(o.Options) {
+		var ret UtilsReportOptions
+		return ret
+	}
+	return *o.Options
+}
+
+// GetOptionsOk returns a tuple with the Options field value if set, nil otherwise
+// and a boolean to check if the value has been set.
+func (o *ModelGenerateReportReq) GetOptionsOk() (*UtilsReportOptions, bool) {
+	if o == nil || IsNil(o.Options) {
+		return nil, false
+	}
+	return o.Options, true
+}
+
+// HasOptions returns a boolean if a field has been set.
+func (o *ModelGenerateReportReq) HasOptions() bool {
+	if o != nil && !IsNil(o.Options) {
+		return true
+	}
+
+	return false
+}
+
+// SetOptions gets a reference to the given UtilsReportOptions and assigns it to the Options field.
+func (o *ModelGenerateReportReq) SetOptions(v UtilsReportOptions) {
+	o.Options = &v
+}
+
 // GetReportType returns the ReportType field value
 func (o *ModelGenerateReportReq) GetReportType() string {
 	if o == nil {
@@ -150,6 +183,9 @@ func (o ModelGenerateReportReq) ToMap() (map[string]interface{}, error) {
 	}
 	if !IsNil(o.Filters) {
 		toSerialize["filters"] = o.Filters
+	}
+	if !IsNil(o.Options) {
+		toSerialize["options"] = o.Options
 	}
 	toSerialize["report_type"] = o.ReportType
 	return toSerialize, nil

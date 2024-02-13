@@ -23,6 +23,7 @@ var _ MappedNullable = &SearchSearchScanReq{}
 // SearchSearchScanReq struct for SearchSearchScanReq
 type SearchSearchScanReq struct {
 	NodeFilters SearchSearchFilter `json:"node_filters"`
+	RelatedNodeFilter *SearchChainedSearchFilter `json:"related_node_filter,omitempty"`
 	ScanFilters SearchSearchFilter `json:"scan_filters"`
 	Window ModelFetchWindow `json:"window"`
 }
@@ -71,6 +72,38 @@ func (o *SearchSearchScanReq) GetNodeFiltersOk() (*SearchSearchFilter, bool) {
 // SetNodeFilters sets field value
 func (o *SearchSearchScanReq) SetNodeFilters(v SearchSearchFilter) {
 	o.NodeFilters = v
+}
+
+// GetRelatedNodeFilter returns the RelatedNodeFilter field value if set, zero value otherwise.
+func (o *SearchSearchScanReq) GetRelatedNodeFilter() SearchChainedSearchFilter {
+	if o == nil || IsNil(o.RelatedNodeFilter) {
+		var ret SearchChainedSearchFilter
+		return ret
+	}
+	return *o.RelatedNodeFilter
+}
+
+// GetRelatedNodeFilterOk returns a tuple with the RelatedNodeFilter field value if set, nil otherwise
+// and a boolean to check if the value has been set.
+func (o *SearchSearchScanReq) GetRelatedNodeFilterOk() (*SearchChainedSearchFilter, bool) {
+	if o == nil || IsNil(o.RelatedNodeFilter) {
+		return nil, false
+	}
+	return o.RelatedNodeFilter, true
+}
+
+// HasRelatedNodeFilter returns a boolean if a field has been set.
+func (o *SearchSearchScanReq) HasRelatedNodeFilter() bool {
+	if o != nil && !IsNil(o.RelatedNodeFilter) {
+		return true
+	}
+
+	return false
+}
+
+// SetRelatedNodeFilter gets a reference to the given SearchChainedSearchFilter and assigns it to the RelatedNodeFilter field.
+func (o *SearchSearchScanReq) SetRelatedNodeFilter(v SearchChainedSearchFilter) {
+	o.RelatedNodeFilter = &v
 }
 
 // GetScanFilters returns the ScanFilters field value
@@ -132,6 +165,9 @@ func (o SearchSearchScanReq) MarshalJSON() ([]byte, error) {
 func (o SearchSearchScanReq) ToMap() (map[string]interface{}, error) {
 	toSerialize := map[string]interface{}{}
 	toSerialize["node_filters"] = o.NodeFilters
+	if !IsNil(o.RelatedNodeFilter) {
+		toSerialize["related_node_filter"] = o.RelatedNodeFilter
+	}
 	toSerialize["scan_filters"] = o.ScanFilters
 	toSerialize["window"] = o.Window
 	return toSerialize, nil

@@ -4,6 +4,7 @@
 
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
+**ContainerNames** | Pointer to **[]string** |  | [optional] 
 **FieldsFilters** | Pointer to [**ReportersFieldsFilters**](ReportersFieldsFilters.md) |  | [optional] 
 **NodeIds** | [**[]ModelNodeIdentifier**](ModelNodeIdentifier.md) |  | 
 
@@ -26,6 +27,41 @@ NewModelIntegrationFiltersWithDefaults instantiates a new ModelIntegrationFilter
 This constructor will only assign default values to properties that have it defined,
 but it doesn't guarantee that properties required by API are set
 
+### GetContainerNames
+
+`func (o *ModelIntegrationFilters) GetContainerNames() []string`
+
+GetContainerNames returns the ContainerNames field if non-nil, zero value otherwise.
+
+### GetContainerNamesOk
+
+`func (o *ModelIntegrationFilters) GetContainerNamesOk() (*[]string, bool)`
+
+GetContainerNamesOk returns a tuple with the ContainerNames field if it's non-nil, zero value otherwise
+and a boolean to check if the value has been set.
+
+### SetContainerNames
+
+`func (o *ModelIntegrationFilters) SetContainerNames(v []string)`
+
+SetContainerNames sets ContainerNames field to given value.
+
+### HasContainerNames
+
+`func (o *ModelIntegrationFilters) HasContainerNames() bool`
+
+HasContainerNames returns a boolean if a field has been set.
+
+### SetContainerNamesNil
+
+`func (o *ModelIntegrationFilters) SetContainerNamesNil(b bool)`
+
+ SetContainerNamesNil sets the value for ContainerNames to be an explicit nil
+
+### UnsetContainerNames
+`func (o *ModelIntegrationFilters) UnsetContainerNames()`
+
+UnsetContainerNames ensures that no value is present for ContainerNames, not even an explicit nil
 ### GetFieldsFilters
 
 `func (o *ModelIntegrationFilters) GetFieldsFilters() ReportersFieldsFilters`

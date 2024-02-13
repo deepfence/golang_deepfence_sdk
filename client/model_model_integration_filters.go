@@ -22,6 +22,7 @@ var _ MappedNullable = &ModelIntegrationFilters{}
 
 // ModelIntegrationFilters struct for ModelIntegrationFilters
 type ModelIntegrationFilters struct {
+	ContainerNames []string `json:"container_names,omitempty"`
 	FieldsFilters *ReportersFieldsFilters `json:"fields_filters,omitempty"`
 	NodeIds []ModelNodeIdentifier `json:"node_ids"`
 }
@@ -44,6 +45,39 @@ func NewModelIntegrationFilters(nodeIds []ModelNodeIdentifier) *ModelIntegration
 func NewModelIntegrationFiltersWithDefaults() *ModelIntegrationFilters {
 	this := ModelIntegrationFilters{}
 	return &this
+}
+
+// GetContainerNames returns the ContainerNames field value if set, zero value otherwise (both if not set or set to explicit null).
+func (o *ModelIntegrationFilters) GetContainerNames() []string {
+	if o == nil {
+		var ret []string
+		return ret
+	}
+	return o.ContainerNames
+}
+
+// GetContainerNamesOk returns a tuple with the ContainerNames field value if set, nil otherwise
+// and a boolean to check if the value has been set.
+// NOTE: If the value is an explicit nil, `nil, true` will be returned
+func (o *ModelIntegrationFilters) GetContainerNamesOk() ([]string, bool) {
+	if o == nil || IsNil(o.ContainerNames) {
+		return nil, false
+	}
+	return o.ContainerNames, true
+}
+
+// HasContainerNames returns a boolean if a field has been set.
+func (o *ModelIntegrationFilters) HasContainerNames() bool {
+	if o != nil && IsNil(o.ContainerNames) {
+		return true
+	}
+
+	return false
+}
+
+// SetContainerNames gets a reference to the given []string and assigns it to the ContainerNames field.
+func (o *ModelIntegrationFilters) SetContainerNames(v []string) {
+	o.ContainerNames = v
 }
 
 // GetFieldsFilters returns the FieldsFilters field value if set, zero value otherwise.
@@ -114,6 +148,9 @@ func (o ModelIntegrationFilters) MarshalJSON() ([]byte, error) {
 
 func (o ModelIntegrationFilters) ToMap() (map[string]interface{}, error) {
 	toSerialize := map[string]interface{}{}
+	if o.ContainerNames != nil {
+		toSerialize["container_names"] = o.ContainerNames
+	}
 	if !IsNil(o.FieldsFilters) {
 		toSerialize["fields_filters"] = o.FieldsFilters
 	}

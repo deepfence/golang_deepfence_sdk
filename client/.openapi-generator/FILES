@@ -97,6 +97,7 @@ docs/ModelAgentPluginDisable.md
 docs/ModelAgentPluginEnable.md
 docs/ModelAgentUpgrade.md
 docs/ModelBasicNode.md
+docs/ModelBulkDeleteReportReq.md
 docs/ModelBulkDeleteScansRequest.md
 docs/ModelCloudAccountRefreshReq.md
 docs/ModelCloudCompliance.md
@@ -125,6 +126,7 @@ docs/ModelComplianceScanTriggerReq.md
 docs/ModelConnection.md
 docs/ModelContainer.md
 docs/ModelContainerImage.md
+docs/ModelDeleteIntegrationReq.md
 docs/ModelDeleteRegistryBulkReq.md
 docs/ModelDownloadReportResponse.md
 docs/ModelDownloadScanResultsResponse.md
@@ -253,6 +255,7 @@ docs/TopologyAPI.md
 docs/UserAPI.md
 docs/UtilsAdvancedReportFilters.md
 docs/UtilsReportFilters.md
+docs/UtilsReportOptions.md
 docs/UtilsScanSbomRequest.md
 docs/VulnerabilityAPI.md
 git_push.sh
@@ -311,6 +314,7 @@ model_model_agent_upgrade.go
 model_model_api_auth_request.go
 model_model_api_token_response.go
 model_model_basic_node.go
+model_model_bulk_delete_report_req.go
 model_model_bulk_delete_scans_request.go
 model_model_cloud_account_refresh_req.go
 model_model_cloud_compliance.go
@@ -339,6 +343,7 @@ model_model_compliance_scan_trigger_req.go
 model_model_connection.go
 model_model_container.go
 model_model_container_image.go
+model_model_delete_integration_req.go
 model_model_delete_registry_bulk_req.go
 model_model_download_report_response.go
 model_model_download_scan_results_response.go
@@ -458,6 +463,7 @@ model_search_search_node_req.go
 model_search_search_scan_req.go
 model_utils_advanced_report_filters.go
 model_utils_report_filters.go
+model_utils_report_options.go
 model_utils_scan_sbom_request.go
 response.go
 test/api_authentication_test.go

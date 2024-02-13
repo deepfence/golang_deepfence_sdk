@@ -4,11 +4,76 @@ All URIs are relative to *http://localhost*
 
 Method | HTTP request | Description
 ------------- | ------------- | -------------
+[**BulkDeleteReports**](ReportsAPI.md#BulkDeleteReports) | **Patch** /deepfence/reports/delete | Bulk Delete Reports
 [**DeleteReport**](ReportsAPI.md#DeleteReport) | **Delete** /deepfence/reports/{report_id} | Delete Report
 [**GenerateReport**](ReportsAPI.md#GenerateReport) | **Post** /deepfence/reports | Generate Report
 [**GetReport**](ReportsAPI.md#GetReport) | **Get** /deepfence/reports/{report_id} | Get Report
 [**ListReports**](ReportsAPI.md#ListReports) | **Get** /deepfence/reports | List Reports
 
+
+
+## BulkDeleteReports
+
+> BulkDeleteReports(ctx).ModelBulkDeleteReportReq(modelBulkDeleteReportReq).Execute()
+
+Bulk Delete Reports
+
+
+
+### Example
+
+```go
+package main
+
+import (
+	"context"
+	"fmt"
+	"os"
+	openapiclient "github.com/deepfence/golang_deepfence_sdk/client"
+)
+
+func main() {
+	modelBulkDeleteReportReq := *openapiclient.NewModelBulkDeleteReportReq([]string{"ReportIds_example"}) // ModelBulkDeleteReportReq |  (optional)
+
+	configuration := openapiclient.NewConfiguration()
+	apiClient := openapiclient.NewAPIClient(configuration)
+	r, err := apiClient.ReportsAPI.BulkDeleteReports(context.Background()).ModelBulkDeleteReportReq(modelBulkDeleteReportReq).Execute()
+	if err != nil {
+		fmt.Fprintf(os.Stderr, "Error when calling `ReportsAPI.BulkDeleteReports``: %v\n", err)
+		fmt.Fprintf(os.Stderr, "Full HTTP response: %v\n", r)
+	}
+}
+```
+
+### Path Parameters
+
+
+
+### Other Parameters
+
+Other parameters are passed through a pointer to a apiBulkDeleteReportsRequest struct via the builder pattern
+
+
+Name | Type | Description  | Notes
+------------- | ------------- | ------------- | -------------
+ **modelBulkDeleteReportReq** | [**ModelBulkDeleteReportReq**](ModelBulkDeleteReportReq.md) |  | 
+
+### Return type
+
+ (empty response body)
+
+### Authorization
+
+[bearer_token](../README.md#bearer_token)
+
+### HTTP request headers
+
+- **Content-Type**: application/json
+- **Accept**: application/json
+
+[[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints)
+[[Back to Model list]](../README.md#documentation-for-models)
+[[Back to README]](../README.md)
 
 
 ## DeleteReport

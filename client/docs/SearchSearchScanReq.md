@@ -5,6 +5,7 @@
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
 **NodeFilters** | [**SearchSearchFilter**](SearchSearchFilter.md) |  | 
+**RelatedNodeFilter** | Pointer to [**SearchChainedSearchFilter**](SearchChainedSearchFilter.md) |  | [optional] 
 **ScanFilters** | [**SearchSearchFilter**](SearchSearchFilter.md) |  | 
 **Window** | [**ModelFetchWindow**](ModelFetchWindow.md) |  | 
 
@@ -46,6 +47,31 @@ and a boolean to check if the value has been set.
 
 SetNodeFilters sets NodeFilters field to given value.
 
+
+### GetRelatedNodeFilter
+
+`func (o *SearchSearchScanReq) GetRelatedNodeFilter() SearchChainedSearchFilter`
+
+GetRelatedNodeFilter returns the RelatedNodeFilter field if non-nil, zero value otherwise.
+
+### GetRelatedNodeFilterOk
+
+`func (o *SearchSearchScanReq) GetRelatedNodeFilterOk() (*SearchChainedSearchFilter, bool)`
+
+GetRelatedNodeFilterOk returns a tuple with the RelatedNodeFilter field if it's non-nil, zero value otherwise
+and a boolean to check if the value has been set.
+
+### SetRelatedNodeFilter
+
+`func (o *SearchSearchScanReq) SetRelatedNodeFilter(v SearchChainedSearchFilter)`
+
+SetRelatedNodeFilter sets RelatedNodeFilter field to given value.
+
+### HasRelatedNodeFilter
+
+`func (o *SearchSearchScanReq) HasRelatedNodeFilter() bool`
+
+HasRelatedNodeFilter returns a boolean if a field has been set.
 
 ### GetScanFilters
 

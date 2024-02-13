@@ -5,7 +5,7 @@
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
 **ContainerImages** | [**[]ModelContainerImage**](ModelContainerImage.md) |  | 
-**HostName** | **string** |  | 
+**Name** | **string** |  | 
 **NodeId** | **string** |  | 
 **RegistryType** | **string** |  | 
 **Syncing** | **bool** |  | 
@@ -14,7 +14,7 @@ Name | Type | Description | Notes
 
 ### NewModelRegistryAccount
 
-`func NewModelRegistryAccount(containerImages []ModelContainerImage, hostName string, nodeId string, registryType string, syncing bool, ) *ModelRegistryAccount`
+`func NewModelRegistryAccount(containerImages []ModelContainerImage, name string, nodeId string, registryType string, syncing bool, ) *ModelRegistryAccount`
 
 NewModelRegistryAccount instantiates a new ModelRegistryAccount object
 This constructor will assign default values to properties that have it defined,
@@ -59,24 +59,24 @@ SetContainerImages sets ContainerImages field to given value.
 `func (o *ModelRegistryAccount) UnsetContainerImages()`
 
 UnsetContainerImages ensures that no value is present for ContainerImages, not even an explicit nil
-### GetHostName
+### GetName
 
-`func (o *ModelRegistryAccount) GetHostName() string`
+`func (o *ModelRegistryAccount) GetName() string`
 
-GetHostName returns the HostName field if non-nil, zero value otherwise.
+GetName returns the Name field if non-nil, zero value otherwise.
 
-### GetHostNameOk
+### GetNameOk
 
-`func (o *ModelRegistryAccount) GetHostNameOk() (*string, bool)`
+`func (o *ModelRegistryAccount) GetNameOk() (*string, bool)`
 
-GetHostNameOk returns a tuple with the HostName field if it's non-nil, zero value otherwise
+GetNameOk returns a tuple with the Name field if it's non-nil, zero value otherwise
 and a boolean to check if the value has been set.
 
-### SetHostName
+### SetName
 
-`func (o *ModelRegistryAccount) SetHostName(v string)`
+`func (o *ModelRegistryAccount) SetName(v string)`
 
-SetHostName sets HostName field to given value.
+SetName sets Name field to given value.
 
 
 ### GetNodeId

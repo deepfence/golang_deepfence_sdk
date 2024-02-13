@@ -96,6 +96,8 @@ Class | Method | HTTP request | Description
 *CloudScannerAPI* | [**StatusCloudComplianceScan**](docs/CloudScannerAPI.md#statuscloudcompliancescan) | **Post** /deepfence/scan/status/cloud-compliance | Get Cloud Compliance Scan Status
 *CommonAPI* | [**Eula**](docs/CommonAPI.md#eula) | **Get** /deepfence/end-user-license-agreement | Get End User License Agreement
 *CommonAPI* | [**GetScanReportFields**](docs/CommonAPI.md#getscanreportfields) | **Get** /deepfence/scan/results/fields | Get Scan Report Fields
+*CompletionAPI* | [**CompleteCloudCompliance**](docs/CompletionAPI.md#completecloudcompliance) | **Post** /deepfence/complete/cloud-compliance | Get Completion for cloud compliance fields
+*CompletionAPI* | [**CompleteComplianceInfo**](docs/CompletionAPI.md#completecomplianceinfo) | **Post** /deepfence/complete/compliance | Get Completion for compliance fields
 *CompletionAPI* | [**CompleteHostInfo**](docs/CompletionAPI.md#completehostinfo) | **Post** /deepfence/complete/host | Get Completion for host fields
 *CompletionAPI* | [**CompleteProcessInfo**](docs/CompletionAPI.md#completeprocessinfo) | **Post** /deepfence/complete/process | Get Completion for process fields
 *CompletionAPI* | [**CompleteVulnerabilityInfo**](docs/CompletionAPI.md#completevulnerabilityinfo) | **Post** /deepfence/complete/vulnerability | Get Completion for vulnerability fields
@@ -141,7 +143,8 @@ Class | Method | HTTP request | Description
 *GenerativeAIAPI* | [**ListGenerativeAiIntegration**](docs/GenerativeAIAPI.md#listgenerativeaiintegration) | **Get** /deepfence/generative-ai-integration | List Generative AI Integrations
 *GenerativeAIAPI* | [**SetDefaultGenerativeAiIntegration**](docs/GenerativeAIAPI.md#setdefaultgenerativeaiintegration) | **Put** /deepfence/generative-ai-integration/{integration_id}/default | Set Default Generative AI Integration
 *IntegrationAPI* | [**AddIntegration**](docs/IntegrationAPI.md#addintegration) | **Post** /deepfence/integration | Add Integration
-*IntegrationAPI* | [**DeleteIntegration**](docs/IntegrationAPI.md#deleteintegration) | **Delete** /deepfence/integration/{integration_id} | Delete Integration
+*IntegrationAPI* | [**DeleteIntegration**](docs/IntegrationAPI.md#deleteintegration) | **Delete** /deepfence/integration/{integration_id} | Delete Single Integration
+*IntegrationAPI* | [**DeleteIntegrations**](docs/IntegrationAPI.md#deleteintegrations) | **Patch** /deepfence/integration/delete | Delete Integrations
 *IntegrationAPI* | [**ListIntegration**](docs/IntegrationAPI.md#listintegration) | **Get** /deepfence/integration | List Integrations
 *IntegrationAPI* | [**UpdateIntegration**](docs/IntegrationAPI.md#updateintegration) | **Put** /deepfence/integration/{integration_id} | Update Integration
 *InternalAPI* | [**GetConsoleApiToken**](docs/InternalAPI.md#getconsoleapitoken) | **Get** /deepfence/internal/console-api-token | Get api-token for console agent
@@ -184,6 +187,7 @@ Class | Method | HTTP request | Description
 *RegistryAPI* | [**ListRegistry**](docs/RegistryAPI.md#listregistry) | **Get** /deepfence/registryaccount | List Registries
 *RegistryAPI* | [**SyncRegistry**](docs/RegistryAPI.md#syncregistry) | **Post** /deepfence/registryaccount/{registry_id}/sync | Sync Registry
 *RegistryAPI* | [**UpdateRegistry**](docs/RegistryAPI.md#updateregistry) | **Put** /deepfence/registryaccount/{registry_id} | Update Registry
+*ReportsAPI* | [**BulkDeleteReports**](docs/ReportsAPI.md#bulkdeletereports) | **Patch** /deepfence/reports/delete | Bulk Delete Reports
 *ReportsAPI* | [**DeleteReport**](docs/ReportsAPI.md#deletereport) | **Delete** /deepfence/reports/{report_id} | Delete Report
 *ReportsAPI* | [**GenerateReport**](docs/ReportsAPI.md#generatereport) | **Post** /deepfence/reports | Generate Report
 *ReportsAPI* | [**GetReport**](docs/ReportsAPI.md#getreport) | **Get** /deepfence/reports/{report_id} | Get Report
@@ -360,6 +364,7 @@ Class | Method | HTTP request | Description
  - [ModelAgentPluginEnable](docs/ModelAgentPluginEnable.md)
  - [ModelAgentUpgrade](docs/ModelAgentUpgrade.md)
  - [ModelBasicNode](docs/ModelBasicNode.md)
+ - [ModelBulkDeleteReportReq](docs/ModelBulkDeleteReportReq.md)
  - [ModelBulkDeleteScansRequest](docs/ModelBulkDeleteScansRequest.md)
  - [ModelCloudAccountRefreshReq](docs/ModelCloudAccountRefreshReq.md)
  - [ModelCloudCompliance](docs/ModelCloudCompliance.md)
@@ -388,6 +393,7 @@ Class | Method | HTTP request | Description
  - [ModelConnection](docs/ModelConnection.md)
  - [ModelContainer](docs/ModelContainer.md)
  - [ModelContainerImage](docs/ModelContainerImage.md)
+ - [ModelDeleteIntegrationReq](docs/ModelDeleteIntegrationReq.md)
  - [ModelDeleteRegistryBulkReq](docs/ModelDeleteRegistryBulkReq.md)
  - [ModelDownloadReportResponse](docs/ModelDownloadReportResponse.md)
  - [ModelDownloadScanResultsResponse](docs/ModelDownloadScanResultsResponse.md)
@@ -507,6 +513,7 @@ Class | Method | HTTP request | Description
  - [SearchSearchScanReq](docs/SearchSearchScanReq.md)
  - [UtilsAdvancedReportFilters](docs/UtilsAdvancedReportFilters.md)
  - [UtilsReportFilters](docs/UtilsReportFilters.md)
+ - [UtilsReportOptions](docs/UtilsReportOptions.md)
  - [UtilsScanSbomRequest](docs/UtilsScanSbomRequest.md)
 
 

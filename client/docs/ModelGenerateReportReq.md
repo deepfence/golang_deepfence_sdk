@@ -6,6 +6,7 @@ Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
 **Duration** | Pointer to **int32** |  | [optional] 
 **Filters** | Pointer to [**UtilsReportFilters**](UtilsReportFilters.md) |  | [optional] 
+**Options** | Pointer to [**UtilsReportOptions**](UtilsReportOptions.md) |  | [optional] 
 **ReportType** | **string** |  | 
 
 ## Methods
@@ -76,6 +77,31 @@ SetFilters sets Filters field to given value.
 `func (o *ModelGenerateReportReq) HasFilters() bool`
 
 HasFilters returns a boolean if a field has been set.
+
+### GetOptions
+
+`func (o *ModelGenerateReportReq) GetOptions() UtilsReportOptions`
+
+GetOptions returns the Options field if non-nil, zero value otherwise.
+
+### GetOptionsOk
+
+`func (o *ModelGenerateReportReq) GetOptionsOk() (*UtilsReportOptions, bool)`
+
+GetOptionsOk returns a tuple with the Options field if it's non-nil, zero value otherwise
+and a boolean to check if the value has been set.
+
+### SetOptions
+
+`func (o *ModelGenerateReportReq) SetOptions(v UtilsReportOptions)`
+
+SetOptions sets Options field to given value.
+
+### HasOptions
+
+`func (o *ModelGenerateReportReq) HasOptions() bool`
+
+HasOptions returns a boolean if a field has been set.
 
 ### GetReportType
 

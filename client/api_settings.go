@@ -1601,6 +1601,12 @@ func (a *SettingsAPIService) UpdateSettingExecute(r ApiUpdateSettingRequest) (*h
 type ApiUploadAgentVersionRequest struct {
 	ctx context.Context
 	ApiService *SettingsAPIService
+	tarball *os.File
+}
+
+func (r ApiUploadAgentVersionRequest) Tarball(tarball *os.File) ApiUploadAgentVersionRequest {
+	r.tarball = tarball
+	return r
 }
 
 func (r ApiUploadAgentVersionRequest) Execute() (*http.Response, error) {
@@ -1640,9 +1646,12 @@ func (a *SettingsAPIService) UploadAgentVersionExecute(r ApiUploadAgentVersionRe
 	localVarHeaderParams := make(map[string]string)
 	localVarQueryParams := url.Values{}
 	localVarFormParams := url.Values{}
+	if r.tarball == nil {
+		return nil, reportError("tarball is required and must be specified")
+	}
 
 	// to determine the Content-Type header
-	localVarHTTPContentTypes := []string{}
+	localVarHTTPContentTypes := []string{"multipart/form-data"}
 
 	// set Content-Type header
 	localVarHTTPContentType := selectHeaderContentType(localVarHTTPContentTypes)
@@ -1657,6 +1666,21 @@ func (a *SettingsAPIService) UploadAgentVersionExecute(r ApiUploadAgentVersionRe
 	localVarHTTPHeaderAccept := selectHeaderAccept(localVarHTTPHeaderAccepts)
 	if localVarHTTPHeaderAccept != "" {
 		localVarHeaderParams["Accept"] = localVarHTTPHeaderAccept
+	}
+	var tarballLocalVarFormFileName string
+	var tarballLocalVarFileName     string
+	var tarballLocalVarFileBytes    []byte
+
+	tarballLocalVarFormFileName = "tarball"
+	tarballLocalVarFile := r.tarball
+
+	if tarballLocalVarFile != nil {
+		fbs, _ := io.ReadAll(tarballLocalVarFile)
+
+		tarballLocalVarFileBytes = fbs
+		tarballLocalVarFileName = tarballLocalVarFile.Name()
+		tarballLocalVarFile.Close()
+		formFiles = append(formFiles, formFile{fileBytes: tarballLocalVarFileBytes, fileName: tarballLocalVarFileName, formFileName: tarballLocalVarFormFileName})
 	}
 	req, err := a.client.prepareRequest(r.ctx, localVarPath, localVarHTTPMethod, localVarPostBody, localVarHeaderParams, localVarQueryParams, localVarFormParams, formFiles)
 	if err != nil {

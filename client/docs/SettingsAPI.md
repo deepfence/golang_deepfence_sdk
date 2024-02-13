@@ -800,7 +800,7 @@ Name | Type | Description  | Notes
 
 ## UploadAgentVersion
 
-> UploadAgentVersion(ctx).Execute()
+> UploadAgentVersion(ctx).Tarball(tarball).Execute()
 
 Upload New agent version
 
@@ -819,10 +819,11 @@ import (
 )
 
 func main() {
+	tarball := os.NewFile(1234, "some_file") // *os.File | 
 
 	configuration := openapiclient.NewConfiguration()
 	apiClient := openapiclient.NewAPIClient(configuration)
-	r, err := apiClient.SettingsAPI.UploadAgentVersion(context.Background()).Execute()
+	r, err := apiClient.SettingsAPI.UploadAgentVersion(context.Background()).Tarball(tarball).Execute()
 	if err != nil {
 		fmt.Fprintf(os.Stderr, "Error when calling `SettingsAPI.UploadAgentVersion``: %v\n", err)
 		fmt.Fprintf(os.Stderr, "Full HTTP response: %v\n", r)
@@ -832,12 +833,16 @@ func main() {
 
 ### Path Parameters
 
-This endpoint does not need any parameter.
+
 
 ### Other Parameters
 
 Other parameters are passed through a pointer to a apiUploadAgentVersionRequest struct via the builder pattern
 
+
+Name | Type | Description  | Notes
+------------- | ------------- | ------------- | -------------
+ **tarball** | ***os.File** |  | 
 
 ### Return type
 
@@ -849,7 +854,7 @@ Other parameters are passed through a pointer to a apiUploadAgentVersionRequest 
 
 ### HTTP request headers
 
-- **Content-Type**: Not defined
+- **Content-Type**: multipart/form-data
 - **Accept**: application/json
 
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints)

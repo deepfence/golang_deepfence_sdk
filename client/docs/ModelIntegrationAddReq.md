@@ -6,14 +6,14 @@ Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
 **Config** | Pointer to **map[string]interface{}** |  | [optional] 
 **Filters** | Pointer to [**ModelIntegrationFilters**](ModelIntegrationFilters.md) |  | [optional] 
-**IntegrationType** | Pointer to **string** |  | [optional] 
-**NotificationType** | Pointer to **string** |  | [optional] 
+**IntegrationType** | **string** |  | 
+**NotificationType** | **string** |  | 
 
 ## Methods
 
 ### NewModelIntegrationAddReq
 
-`func NewModelIntegrationAddReq() *ModelIntegrationAddReq`
+`func NewModelIntegrationAddReq(integrationType string, notificationType string, ) *ModelIntegrationAddReq`
 
 NewModelIntegrationAddReq instantiates a new ModelIntegrationAddReq object
 This constructor will assign default values to properties that have it defined,
@@ -107,11 +107,6 @@ and a boolean to check if the value has been set.
 
 SetIntegrationType sets IntegrationType field to given value.
 
-### HasIntegrationType
-
-`func (o *ModelIntegrationAddReq) HasIntegrationType() bool`
-
-HasIntegrationType returns a boolean if a field has been set.
 
 ### GetNotificationType
 
@@ -132,11 +127,6 @@ and a boolean to check if the value has been set.
 
 SetNotificationType sets NotificationType field to given value.
 
-### HasNotificationType
-
-`func (o *ModelIntegrationAddReq) HasNotificationType() bool`
-
-HasNotificationType returns a boolean if a field has been set.
 
 
 [[Back to Model list]](../README.md#documentation-for-models) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to README]](../README.md)

@@ -23,6 +23,7 @@ type DiagnosisDiagnosticLogsLink struct {
 	CreatedAt *string `json:"created_at,omitempty"`
 	Label *string `json:"label,omitempty"`
 	Message *string `json:"message,omitempty"`
+	Type *string `json:"type,omitempty"`
 	UrlLink *string `json:"url_link,omitempty"`
 }
 
@@ -139,6 +140,38 @@ func (o *DiagnosisDiagnosticLogsLink) SetMessage(v string) {
 	o.Message = &v
 }
 
+// GetType returns the Type field value if set, zero value otherwise.
+func (o *DiagnosisDiagnosticLogsLink) GetType() string {
+	if o == nil || IsNil(o.Type) {
+		var ret string
+		return ret
+	}
+	return *o.Type
+}
+
+// GetTypeOk returns a tuple with the Type field value if set, nil otherwise
+// and a boolean to check if the value has been set.
+func (o *DiagnosisDiagnosticLogsLink) GetTypeOk() (*string, bool) {
+	if o == nil || IsNil(o.Type) {
+		return nil, false
+	}
+	return o.Type, true
+}
+
+// HasType returns a boolean if a field has been set.
+func (o *DiagnosisDiagnosticLogsLink) HasType() bool {
+	if o != nil && !IsNil(o.Type) {
+		return true
+	}
+
+	return false
+}
+
+// SetType gets a reference to the given string and assigns it to the Type field.
+func (o *DiagnosisDiagnosticLogsLink) SetType(v string) {
+	o.Type = &v
+}
+
 // GetUrlLink returns the UrlLink field value if set, zero value otherwise.
 func (o *DiagnosisDiagnosticLogsLink) GetUrlLink() string {
 	if o == nil || IsNil(o.UrlLink) {
@@ -189,6 +222,9 @@ func (o DiagnosisDiagnosticLogsLink) ToMap() (map[string]interface{}, error) {
 	}
 	if !IsNil(o.Message) {
 		toSerialize["message"] = o.Message
+	}
+	if !IsNil(o.Type) {
+		toSerialize["type"] = o.Type
 	}
 	if !IsNil(o.UrlLink) {
 		toSerialize["url_link"] = o.UrlLink

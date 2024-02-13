@@ -5,7 +5,8 @@ All URIs are relative to *http://localhost*
 Method | HTTP request | Description
 ------------- | ------------- | -------------
 [**AddIntegration**](IntegrationAPI.md#AddIntegration) | **Post** /deepfence/integration | Add Integration
-[**DeleteIntegration**](IntegrationAPI.md#DeleteIntegration) | **Delete** /deepfence/integration/{integration_id} | Delete Integration
+[**DeleteIntegration**](IntegrationAPI.md#DeleteIntegration) | **Delete** /deepfence/integration/{integration_id} | Delete Single Integration
+[**DeleteIntegrations**](IntegrationAPI.md#DeleteIntegrations) | **Patch** /deepfence/integration/delete | Delete Integrations
 [**ListIntegration**](IntegrationAPI.md#ListIntegration) | **Get** /deepfence/integration | List Integrations
 [**UpdateIntegration**](IntegrationAPI.md#UpdateIntegration) | **Put** /deepfence/integration/{integration_id} | Update Integration
 
@@ -32,7 +33,7 @@ import (
 )
 
 func main() {
-	modelIntegrationAddReq := *openapiclient.NewModelIntegrationAddReq() // ModelIntegrationAddReq |  (optional)
+	modelIntegrationAddReq := *openapiclient.NewModelIntegrationAddReq("IntegrationType_example", "NotificationType_example") // ModelIntegrationAddReq |  (optional)
 
 	configuration := openapiclient.NewConfiguration()
 	apiClient := openapiclient.NewAPIClient(configuration)
@@ -81,7 +82,7 @@ Name | Type | Description  | Notes
 
 > DeleteIntegration(ctx, integrationId).Execute()
 
-Delete Integration
+Delete Single Integration
 
 
 
@@ -138,6 +139,70 @@ Name | Type | Description  | Notes
 ### HTTP request headers
 
 - **Content-Type**: Not defined
+- **Accept**: application/json
+
+[[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints)
+[[Back to Model list]](../README.md#documentation-for-models)
+[[Back to README]](../README.md)
+
+
+## DeleteIntegrations
+
+> DeleteIntegrations(ctx).ModelDeleteIntegrationReq(modelDeleteIntegrationReq).Execute()
+
+Delete Integrations
+
+
+
+### Example
+
+```go
+package main
+
+import (
+	"context"
+	"fmt"
+	"os"
+	openapiclient "github.com/deepfence/golang_deepfence_sdk/client"
+)
+
+func main() {
+	modelDeleteIntegrationReq := *openapiclient.NewModelDeleteIntegrationReq([]int32{int32(123)}) // ModelDeleteIntegrationReq |  (optional)
+
+	configuration := openapiclient.NewConfiguration()
+	apiClient := openapiclient.NewAPIClient(configuration)
+	r, err := apiClient.IntegrationAPI.DeleteIntegrations(context.Background()).ModelDeleteIntegrationReq(modelDeleteIntegrationReq).Execute()
+	if err != nil {
+		fmt.Fprintf(os.Stderr, "Error when calling `IntegrationAPI.DeleteIntegrations``: %v\n", err)
+		fmt.Fprintf(os.Stderr, "Full HTTP response: %v\n", r)
+	}
+}
+```
+
+### Path Parameters
+
+
+
+### Other Parameters
+
+Other parameters are passed through a pointer to a apiDeleteIntegrationsRequest struct via the builder pattern
+
+
+Name | Type | Description  | Notes
+------------- | ------------- | ------------- | -------------
+ **modelDeleteIntegrationReq** | [**ModelDeleteIntegrationReq**](ModelDeleteIntegrationReq.md) |  | 
+
+### Return type
+
+ (empty response body)
+
+### Authorization
+
+[bearer_token](../README.md#bearer_token)
+
+### HTTP request headers
+
+- **Content-Type**: application/json
 - **Accept**: application/json
 
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints)

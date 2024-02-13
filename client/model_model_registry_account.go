@@ -23,7 +23,7 @@ var _ MappedNullable = &ModelRegistryAccount{}
 // ModelRegistryAccount struct for ModelRegistryAccount
 type ModelRegistryAccount struct {
 	ContainerImages []ModelContainerImage `json:"container_images"`
-	HostName string `json:"host_name"`
+	Name string `json:"name"`
 	NodeId string `json:"node_id"`
 	RegistryType string `json:"registry_type"`
 	Syncing bool `json:"syncing"`
@@ -35,10 +35,10 @@ type _ModelRegistryAccount ModelRegistryAccount
 // This constructor will assign default values to properties that have it defined,
 // and makes sure properties required by API are set, but the set of arguments
 // will change when the set of required properties is changed
-func NewModelRegistryAccount(containerImages []ModelContainerImage, hostName string, nodeId string, registryType string, syncing bool) *ModelRegistryAccount {
+func NewModelRegistryAccount(containerImages []ModelContainerImage, name string, nodeId string, registryType string, syncing bool) *ModelRegistryAccount {
 	this := ModelRegistryAccount{}
 	this.ContainerImages = containerImages
-	this.HostName = hostName
+	this.Name = name
 	this.NodeId = nodeId
 	this.RegistryType = registryType
 	this.Syncing = syncing
@@ -79,28 +79,28 @@ func (o *ModelRegistryAccount) SetContainerImages(v []ModelContainerImage) {
 	o.ContainerImages = v
 }
 
-// GetHostName returns the HostName field value
-func (o *ModelRegistryAccount) GetHostName() string {
+// GetName returns the Name field value
+func (o *ModelRegistryAccount) GetName() string {
 	if o == nil {
 		var ret string
 		return ret
 	}
 
-	return o.HostName
+	return o.Name
 }
 
-// GetHostNameOk returns a tuple with the HostName field value
+// GetNameOk returns a tuple with the Name field value
 // and a boolean to check if the value has been set.
-func (o *ModelRegistryAccount) GetHostNameOk() (*string, bool) {
+func (o *ModelRegistryAccount) GetNameOk() (*string, bool) {
 	if o == nil {
 		return nil, false
 	}
-	return &o.HostName, true
+	return &o.Name, true
 }
 
-// SetHostName sets field value
-func (o *ModelRegistryAccount) SetHostName(v string) {
-	o.HostName = v
+// SetName sets field value
+func (o *ModelRegistryAccount) SetName(v string) {
+	o.Name = v
 }
 
 // GetNodeId returns the NodeId field value
@@ -188,7 +188,7 @@ func (o ModelRegistryAccount) ToMap() (map[string]interface{}, error) {
 	if o.ContainerImages != nil {
 		toSerialize["container_images"] = o.ContainerImages
 	}
-	toSerialize["host_name"] = o.HostName
+	toSerialize["name"] = o.Name
 	toSerialize["node_id"] = o.NodeId
 	toSerialize["registry_type"] = o.RegistryType
 	toSerialize["syncing"] = o.Syncing
@@ -201,7 +201,7 @@ func (o *ModelRegistryAccount) UnmarshalJSON(data []byte) (err error) {
 	// that every required field exists as a key in the generic map.
 	requiredProperties := []string{
 		"container_images",
-		"host_name",
+		"name",
 		"node_id",
 		"registry_type",
 		"syncing",

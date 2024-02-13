@@ -13,6 +13,8 @@ package client
 
 import (
 	"encoding/json"
+	"bytes"
+	"fmt"
 )
 
 // checks if the ModelIntegrationAddReq type satisfies the MappedNullable interface at compile time
@@ -22,16 +24,20 @@ var _ MappedNullable = &ModelIntegrationAddReq{}
 type ModelIntegrationAddReq struct {
 	Config map[string]interface{} `json:"config,omitempty"`
 	Filters *ModelIntegrationFilters `json:"filters,omitempty"`
-	IntegrationType *string `json:"integration_type,omitempty"`
-	NotificationType *string `json:"notification_type,omitempty"`
+	IntegrationType string `json:"integration_type"`
+	NotificationType string `json:"notification_type"`
 }
+
+type _ModelIntegrationAddReq ModelIntegrationAddReq
 
 // NewModelIntegrationAddReq instantiates a new ModelIntegrationAddReq object
 // This constructor will assign default values to properties that have it defined,
 // and makes sure properties required by API are set, but the set of arguments
 // will change when the set of required properties is changed
-func NewModelIntegrationAddReq() *ModelIntegrationAddReq {
+func NewModelIntegrationAddReq(integrationType string, notificationType string) *ModelIntegrationAddReq {
 	this := ModelIntegrationAddReq{}
+	this.IntegrationType = integrationType
+	this.NotificationType = notificationType
 	return &this
 }
 
@@ -108,68 +114,52 @@ func (o *ModelIntegrationAddReq) SetFilters(v ModelIntegrationFilters) {
 	o.Filters = &v
 }
 
-// GetIntegrationType returns the IntegrationType field value if set, zero value otherwise.
+// GetIntegrationType returns the IntegrationType field value
 func (o *ModelIntegrationAddReq) GetIntegrationType() string {
-	if o == nil || IsNil(o.IntegrationType) {
+	if o == nil {
 		var ret string
 		return ret
 	}
-	return *o.IntegrationType
+
+	return o.IntegrationType
 }
 
-// GetIntegrationTypeOk returns a tuple with the IntegrationType field value if set, nil otherwise
+// GetIntegrationTypeOk returns a tuple with the IntegrationType field value
 // and a boolean to check if the value has been set.
 func (o *ModelIntegrationAddReq) GetIntegrationTypeOk() (*string, bool) {
-	if o == nil || IsNil(o.IntegrationType) {
+	if o == nil {
 		return nil, false
 	}
-	return o.IntegrationType, true
+	return &o.IntegrationType, true
 }
 
-// HasIntegrationType returns a boolean if a field has been set.
-func (o *ModelIntegrationAddReq) HasIntegrationType() bool {
-	if o != nil && !IsNil(o.IntegrationType) {
-		return true
-	}
-
-	return false
-}
-
-// SetIntegrationType gets a reference to the given string and assigns it to the IntegrationType field.
+// SetIntegrationType sets field value
 func (o *ModelIntegrationAddReq) SetIntegrationType(v string) {
-	o.IntegrationType = &v
+	o.IntegrationType = v
 }
 
-// GetNotificationType returns the NotificationType field value if set, zero value otherwise.
+// GetNotificationType returns the NotificationType field value
 func (o *ModelIntegrationAddReq) GetNotificationType() string {
-	if o == nil || IsNil(o.NotificationType) {
+	if o == nil {
 		var ret string
 		return ret
 	}
-	return *o.NotificationType
+
+	return o.NotificationType
 }
 
-// GetNotificationTypeOk returns a tuple with the NotificationType field value if set, nil otherwise
+// GetNotificationTypeOk returns a tuple with the NotificationType field value
 // and a boolean to check if the value has been set.
 func (o *ModelIntegrationAddReq) GetNotificationTypeOk() (*string, bool) {
-	if o == nil || IsNil(o.NotificationType) {
+	if o == nil {
 		return nil, false
 	}
-	return o.NotificationType, true
+	return &o.NotificationType, true
 }
 
-// HasNotificationType returns a boolean if a field has been set.
-func (o *ModelIntegrationAddReq) HasNotificationType() bool {
-	if o != nil && !IsNil(o.NotificationType) {
-		return true
-	}
-
-	return false
-}
-
-// SetNotificationType gets a reference to the given string and assigns it to the NotificationType field.
+// SetNotificationType sets field value
 func (o *ModelIntegrationAddReq) SetNotificationType(v string) {
-	o.NotificationType = &v
+	o.NotificationType = v
 }
 
 func (o ModelIntegrationAddReq) MarshalJSON() ([]byte, error) {
@@ -188,13 +178,47 @@ func (o ModelIntegrationAddReq) ToMap() (map[string]interface{}, error) {
 	if !IsNil(o.Filters) {
 		toSerialize["filters"] = o.Filters
 	}
-	if !IsNil(o.IntegrationType) {
-		toSerialize["integration_type"] = o.IntegrationType
-	}
-	if !IsNil(o.NotificationType) {
-		toSerialize["notification_type"] = o.NotificationType
-	}
+	toSerialize["integration_type"] = o.IntegrationType
+	toSerialize["notification_type"] = o.NotificationType
 	return toSerialize, nil
+}
+
+func (o *ModelIntegrationAddReq) UnmarshalJSON(data []byte) (err error) {
+	// This validates that all required properties are included in the JSON object
+	// by unmarshalling the object into a generic map with string keys and checking
+	// that every required field exists as a key in the generic map.
+	requiredProperties := []string{
+		"integration_type",
+		"notification_type",
+	}
+
+	allProperties := make(map[string]interface{})
+
+	err = json.Unmarshal(data, &allProperties)
+
+	if err != nil {
+		return err;
+	}
+
+	for _, requiredProperty := range(requiredProperties) {
+		if _, exists := allProperties[requiredProperty]; !exists {
+			return fmt.Errorf("no value given for required property %v", requiredProperty)
+		}
+	}
+
+	varModelIntegrationAddReq := _ModelIntegrationAddReq{}
+
+	decoder := json.NewDecoder(bytes.NewReader(data))
+	decoder.DisallowUnknownFields()
+	err = decoder.Decode(&varModelIntegrationAddReq)
+
+	if err != nil {
+		return err
+	}
+
+	*o = ModelIntegrationAddReq(varModelIntegrationAddReq)
+
+	return err
 }
 
 type NullableModelIntegrationAddReq struct {
