@@ -100,6 +100,7 @@ func buildHttpsRefresherClient(tokens *ThreadSafeTokens) *http.Client {
 	// Set up our own certificate pool
 	tlsConfig := &tls.Config{RootCAs: x509.NewCertPool(), InsecureSkipVerify: true}
 	transport := &http.Transport{
+		Proxy:               http.ProxyFromEnvironment,
 		MaxIdleConnsPerHost: maxIdleConnsPerHost,
 		DialContext: (&net.Dialer{
 			Timeout:   10 * time.Second,
@@ -123,6 +124,7 @@ func NewHttpsConsoleClient(url, port string) *OpenapiHttpClient {
 
 	tlsConfig := &tls.Config{RootCAs: x509.NewCertPool(), InsecureSkipVerify: true}
 	transport := &http.Transport{
+		Proxy:               http.ProxyFromEnvironment,
 		MaxIdleConnsPerHost: maxIdleConnsPerHost,
 		DialContext: (&net.Dialer{
 			Timeout:   10 * time.Second,

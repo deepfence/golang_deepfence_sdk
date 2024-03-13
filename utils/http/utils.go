@@ -24,13 +24,14 @@ func GetConsoleApiToken(console, port string) (string, error) {
 	rhc.RetryMax = 3
 	rhc.RetryWaitMin = 1 * time.Second
 	rhc.RetryWaitMax = 10 * time.Second
-	tr := &http.Transport{
-		TLSClientConfig: &tls.Config{
-			RootCAs:            x509.NewCertPool(),
-			InsecureSkipVerify: true,
-		},
-		DisableKeepAlives: false,
+
+	tr := http.DefaultTransport.(*http.Transport).Clone()
+	tr.TLSClientConfig = &tls.Config{
+		RootCAs:            x509.NewCertPool(),
+		InsecureSkipVerify: true,
 	}
+	tr.DisableKeepAlives = false
+
 	rhc.HTTPClient = &http.Client{Transport: tr}
 
 	servers := openapi.ServerConfigurations{
