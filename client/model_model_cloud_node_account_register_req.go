@@ -121,7 +121,7 @@ func (o *ModelCloudNodeAccountRegisterReq) GetMonitoredAccountIdsOk() (*map[stri
 
 // HasMonitoredAccountIds returns a boolean if a field has been set.
 func (o *ModelCloudNodeAccountRegisterReq) HasMonitoredAccountIds() bool {
-	if o != nil && IsNil(o.MonitoredAccountIds) {
+	if o != nil && !IsNil(o.MonitoredAccountIds) {
 		return true
 	}
 

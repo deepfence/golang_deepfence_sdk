@@ -64,7 +64,7 @@ func (o *ModelCloudNodeAccountRegisterRespData) GetCloudtrailTrailsOk() ([]Model
 
 // HasCloudtrailTrails returns a boolean if a field has been set.
 func (o *ModelCloudNodeAccountRegisterRespData) HasCloudtrailTrails() bool {
-	if o != nil && IsNil(o.CloudtrailTrails) {
+	if o != nil && !IsNil(o.CloudtrailTrails) {
 		return true
 	}
 
@@ -161,7 +161,7 @@ func (o *ModelCloudNodeAccountRegisterRespData) GetScansOk() (*map[string]ModelC
 
 // HasScans returns a boolean if a field has been set.
 func (o *ModelCloudNodeAccountRegisterRespData) HasScans() bool {
-	if o != nil && IsNil(o.Scans) {
+	if o != nil && !IsNil(o.Scans) {
 		return true
 	}
 

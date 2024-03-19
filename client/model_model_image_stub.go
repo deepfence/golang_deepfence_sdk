@@ -21,6 +21,7 @@ var _ MappedNullable = &ModelImageStub{}
 // ModelImageStub struct for ModelImageStub
 type ModelImageStub struct {
 	Id *string `json:"id,omitempty"`
+	Images *int32 `json:"images,omitempty"`
 	Name *string `json:"name,omitempty"`
 	Tags []string `json:"tags,omitempty"`
 }
@@ -72,6 +73,38 @@ func (o *ModelImageStub) HasId() bool {
 // SetId gets a reference to the given string and assigns it to the Id field.
 func (o *ModelImageStub) SetId(v string) {
 	o.Id = &v
+}
+
+// GetImages returns the Images field value if set, zero value otherwise.
+func (o *ModelImageStub) GetImages() int32 {
+	if o == nil || IsNil(o.Images) {
+		var ret int32
+		return ret
+	}
+	return *o.Images
+}
+
+// GetImagesOk returns a tuple with the Images field value if set, nil otherwise
+// and a boolean to check if the value has been set.
+func (o *ModelImageStub) GetImagesOk() (*int32, bool) {
+	if o == nil || IsNil(o.Images) {
+		return nil, false
+	}
+	return o.Images, true
+}
+
+// HasImages returns a boolean if a field has been set.
+func (o *ModelImageStub) HasImages() bool {
+	if o != nil && !IsNil(o.Images) {
+		return true
+	}
+
+	return false
+}
+
+// SetImages gets a reference to the given int32 and assigns it to the Images field.
+func (o *ModelImageStub) SetImages(v int32) {
+	o.Images = &v
 }
 
 // GetName returns the Name field value if set, zero value otherwise.
@@ -127,7 +160,7 @@ func (o *ModelImageStub) GetTagsOk() ([]string, bool) {
 
 // HasTags returns a boolean if a field has been set.
 func (o *ModelImageStub) HasTags() bool {
-	if o != nil && IsNil(o.Tags) {
+	if o != nil && !IsNil(o.Tags) {
 		return true
 	}
 
@@ -151,6 +184,9 @@ func (o ModelImageStub) ToMap() (map[string]interface{}, error) {
 	toSerialize := map[string]interface{}{}
 	if !IsNil(o.Id) {
 		toSerialize["id"] = o.Id
+	}
+	if !IsNil(o.Images) {
+		toSerialize["images"] = o.Images
 	}
 	if !IsNil(o.Name) {
 		toSerialize["name"] = o.Name

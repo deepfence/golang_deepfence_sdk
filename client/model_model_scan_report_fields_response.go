@@ -64,7 +64,7 @@ func (o *ModelScanReportFieldsResponse) GetComplianceOk() ([]string, bool) {
 
 // HasCompliance returns a boolean if a field has been set.
 func (o *ModelScanReportFieldsResponse) HasCompliance() bool {
-	if o != nil && IsNil(o.Compliance) {
+	if o != nil && !IsNil(o.Compliance) {
 		return true
 	}
 
@@ -97,7 +97,7 @@ func (o *ModelScanReportFieldsResponse) GetMalwareOk() ([]string, bool) {
 
 // HasMalware returns a boolean if a field has been set.
 func (o *ModelScanReportFieldsResponse) HasMalware() bool {
-	if o != nil && IsNil(o.Malware) {
+	if o != nil && !IsNil(o.Malware) {
 		return true
 	}
 
@@ -130,7 +130,7 @@ func (o *ModelScanReportFieldsResponse) GetSecretOk() ([]string, bool) {
 
 // HasSecret returns a boolean if a field has been set.
 func (o *ModelScanReportFieldsResponse) HasSecret() bool {
-	if o != nil && IsNil(o.Secret) {
+	if o != nil && !IsNil(o.Secret) {
 		return true
 	}
 
@@ -163,7 +163,7 @@ func (o *ModelScanReportFieldsResponse) GetVulnerabilityOk() ([]string, bool) {
 
 // HasVulnerability returns a boolean if a field has been set.
 func (o *ModelScanReportFieldsResponse) HasVulnerability() bool {
-	if o != nil && IsNil(o.Vulnerability) {
+	if o != nil && !IsNil(o.Vulnerability) {
 		return true
 	}
 

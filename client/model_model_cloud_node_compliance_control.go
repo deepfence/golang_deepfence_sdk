@@ -66,7 +66,7 @@ func (o *ModelCloudNodeComplianceControl) GetCategoryHierarchyOk() ([]string, bo
 
 // HasCategoryHierarchy returns a boolean if a field has been set.
 func (o *ModelCloudNodeComplianceControl) HasCategoryHierarchy() bool {
-	if o != nil && IsNil(o.CategoryHierarchy) {
+	if o != nil && !IsNil(o.CategoryHierarchy) {
 		return true
 	}
 

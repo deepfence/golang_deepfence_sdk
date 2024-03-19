@@ -117,7 +117,7 @@ func (o *GraphIndividualThreatGraphRequest) GetNodeIdsOk() ([]string, bool) {
 
 // HasNodeIds returns a boolean if a field has been set.
 func (o *GraphIndividualThreatGraphRequest) HasNodeIds() bool {
-	if o != nil && IsNil(o.NodeIds) {
+	if o != nil && !IsNil(o.NodeIds) {
 		return true
 	}
 

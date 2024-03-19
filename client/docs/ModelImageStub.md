@@ -5,6 +5,7 @@
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
 **Id** | Pointer to **string** |  | [optional] 
+**Images** | Pointer to **int32** |  | [optional] 
 **Name** | Pointer to **string** |  | [optional] 
 **Tags** | Pointer to **[]string** |  | [optional] 
 
@@ -51,6 +52,31 @@ SetId sets Id field to given value.
 `func (o *ModelImageStub) HasId() bool`
 
 HasId returns a boolean if a field has been set.
+
+### GetImages
+
+`func (o *ModelImageStub) GetImages() int32`
+
+GetImages returns the Images field if non-nil, zero value otherwise.
+
+### GetImagesOk
+
+`func (o *ModelImageStub) GetImagesOk() (*int32, bool)`
+
+GetImagesOk returns a tuple with the Images field if it's non-nil, zero value otherwise
+and a boolean to check if the value has been set.
+
+### SetImages
+
+`func (o *ModelImageStub) SetImages(v int32)`
+
+SetImages sets Images field to given value.
+
+### HasImages
+
+`func (o *ModelImageStub) HasImages() bool`
+
+HasImages returns a boolean if a field has been set.
 
 ### GetName
 

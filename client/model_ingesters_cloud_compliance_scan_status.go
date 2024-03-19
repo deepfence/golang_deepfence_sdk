@@ -101,7 +101,7 @@ func (o *IngestersCloudComplianceScanStatus) GetComplianceCheckTypesOk() ([]stri
 
 // HasComplianceCheckTypes returns a boolean if a field has been set.
 func (o *IngestersCloudComplianceScanStatus) HasComplianceCheckTypes() bool {
-	if o != nil && IsNil(o.ComplianceCheckTypes) {
+	if o != nil && !IsNil(o.ComplianceCheckTypes) {
 		return true
 	}
 

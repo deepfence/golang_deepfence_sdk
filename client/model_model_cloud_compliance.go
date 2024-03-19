@@ -415,7 +415,7 @@ func (o *ModelCloudCompliance) GetResourcesOk() ([]ModelBasicNode, bool) {
 
 // HasResources returns a boolean if a field has been set.
 func (o *ModelCloudCompliance) HasResources() bool {
-	if o != nil && IsNil(o.Resources) {
+	if o != nil && !IsNil(o.Resources) {
 		return true
 	}
 

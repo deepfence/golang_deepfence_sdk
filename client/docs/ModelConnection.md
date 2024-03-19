@@ -5,6 +5,7 @@
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
 **Count** | Pointer to **int32** |  | [optional] 
+**Ips** | Pointer to **[]interface{}** |  | [optional] 
 **NodeId** | Pointer to **string** |  | [optional] 
 **NodeName** | Pointer to **string** |  | [optional] 
 
@@ -52,6 +53,41 @@ SetCount sets Count field to given value.
 
 HasCount returns a boolean if a field has been set.
 
+### GetIps
+
+`func (o *ModelConnection) GetIps() []interface{}`
+
+GetIps returns the Ips field if non-nil, zero value otherwise.
+
+### GetIpsOk
+
+`func (o *ModelConnection) GetIpsOk() (*[]interface{}, bool)`
+
+GetIpsOk returns a tuple with the Ips field if it's non-nil, zero value otherwise
+and a boolean to check if the value has been set.
+
+### SetIps
+
+`func (o *ModelConnection) SetIps(v []interface{})`
+
+SetIps sets Ips field to given value.
+
+### HasIps
+
+`func (o *ModelConnection) HasIps() bool`
+
+HasIps returns a boolean if a field has been set.
+
+### SetIpsNil
+
+`func (o *ModelConnection) SetIpsNil(b bool)`
+
+ SetIpsNil sets the value for Ips to be an explicit nil
+
+### UnsetIps
+`func (o *ModelConnection) UnsetIps()`
+
+UnsetIps ensures that no value is present for Ips, not even an explicit nil
 ### GetNodeId
 
 `func (o *ModelConnection) GetNodeId() string`

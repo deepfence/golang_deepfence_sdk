@@ -228,7 +228,7 @@ func (o *ModelRegistryListResp) GetNonSecretOk() (*interface{}, bool) {
 
 // HasNonSecret returns a boolean if a field has been set.
 func (o *ModelRegistryListResp) HasNonSecret() bool {
-	if o != nil && IsNil(o.NonSecret) {
+	if o != nil && !IsNil(o.NonSecret) {
 		return true
 	}
 

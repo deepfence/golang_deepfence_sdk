@@ -937,6 +937,135 @@ paths:
       summary: Fetch Kubernetes Cluster Actions
       tags:
       - Controls
+  /deepfence/database/malware:
+    put:
+      description: Upload malware rules for use in malware scans
+      operationId: uploadMalwareRules
+      requestBody:
+        content:
+          multipart/form-data:
+            schema:
+              $ref: '#/components/schemas/FormDataThreatintelDBUploadRequest'
+      responses:
+        "200":
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ModelMessageResponse'
+          description: OK
+        "400":
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ApiDocsBadRequestResponse'
+          description: Bad Request
+        "401":
+          description: Unauthorized
+        "403":
+          description: Forbidden
+        "404":
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ApiDocsFailureResponse'
+          description: Not Found
+        "500":
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ApiDocsFailureResponse'
+          description: Internal Server Error
+      security:
+      - bearer_token: []
+      summary: Upload Malware Rules
+      tags:
+      - Settings
+  /deepfence/database/posture:
+    put:
+      description: Upload posture controls for use in posture scans
+      operationId: uploadPostureControls
+      requestBody:
+        content:
+          multipart/form-data:
+            schema:
+              $ref: '#/components/schemas/FormDataThreatintelDBUploadRequest'
+      responses:
+        "200":
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ModelMessageResponse'
+          description: OK
+        "400":
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ApiDocsBadRequestResponse'
+          description: Bad Request
+        "401":
+          description: Unauthorized
+        "403":
+          description: Forbidden
+        "404":
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ApiDocsFailureResponse'
+          description: Not Found
+        "500":
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ApiDocsFailureResponse'
+          description: Internal Server Error
+      security:
+      - bearer_token: []
+      summary: Upload Posture Controls
+      tags:
+      - Settings
+  /deepfence/database/secret:
+    put:
+      description: Upload secrets rules for use in secrets scans
+      operationId: uploadSecretsRules
+      requestBody:
+        content:
+          multipart/form-data:
+            schema:
+              $ref: '#/components/schemas/FormDataThreatintelDBUploadRequest'
+      responses:
+        "200":
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ModelMessageResponse'
+          description: OK
+        "400":
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ApiDocsBadRequestResponse'
+          description: Bad Request
+        "401":
+          description: Unauthorized
+        "403":
+          description: Forbidden
+        "404":
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ApiDocsFailureResponse'
+          description: Not Found
+        "500":
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ApiDocsFailureResponse'
+          description: Internal Server Error
+      security:
+      - bearer_token: []
+      summary: Upload Secrets Rules
+      tags:
+      - Settings
   /deepfence/database/vulnerability:
     put:
       description: Upload Vulnerability Database for use in vulnerability scans
@@ -945,7 +1074,7 @@ paths:
         content:
           multipart/form-data:
             schema:
-              $ref: '#/components/schemas/FormDataVulnerabilityDbDBUploadRequest'
+              $ref: '#/components/schemas/FormDataThreatintelDBUploadRequest'
       responses:
         "200":
           content:
@@ -3301,6 +3430,162 @@ paths:
       summary: Get api-token for console agent
       tags:
       - Internal
+  /deepfence/license:
+    delete:
+      description: Delete license from the console database
+      operationId: deleteLicense
+      responses:
+        "204":
+          description: No Content
+        "400":
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ApiDocsBadRequestResponse'
+          description: Bad Request
+        "401":
+          description: Unauthorized
+        "403":
+          description: Forbidden
+        "404":
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ApiDocsFailureResponse'
+          description: Not Found
+        "500":
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ApiDocsFailureResponse'
+          description: Internal Server Error
+      security:
+      - bearer_token: []
+      summary: Delete License
+      tags:
+      - Settings
+    get:
+      description: Get license status and expiry
+      operationId: getLicense
+      responses:
+        "200":
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ModelLicense'
+          description: OK
+        "400":
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ApiDocsBadRequestResponse'
+          description: Bad Request
+        "401":
+          description: Unauthorized
+        "403":
+          description: Forbidden
+        "404":
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ApiDocsFailureResponse'
+          description: Not Found
+        "500":
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ApiDocsFailureResponse'
+          description: Internal Server Error
+      security:
+      - bearer_token: []
+      summary: Get License Details
+      tags:
+      - Settings
+    post:
+      description: Register new license key to the console and activate
+      operationId: registerLicense
+      requestBody:
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/ModelRegisterLicenseRequest'
+      responses:
+        "200":
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ModelRegisterLicenseResponse'
+          description: OK
+        "400":
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ApiDocsBadRequestResponse'
+          description: Bad Request
+        "401":
+          description: Unauthorized
+        "403":
+          description: Forbidden
+        "404":
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ApiDocsFailureResponse'
+          description: Not Found
+        "500":
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ApiDocsFailureResponse'
+          description: Internal Server Error
+      security:
+      - bearer_token: []
+      summary: Register License
+      tags:
+      - Settings
+  /deepfence/license/generate:
+    post:
+      description: Generate a new ThreatMapper license key
+      operationId: generateLicense
+      requestBody:
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/ModelGenerateLicenseRequest'
+      responses:
+        "200":
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ModelGenerateLicenseResponse'
+          description: OK
+        "400":
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ApiDocsBadRequestResponse'
+          description: Bad Request
+        "401":
+          description: Unauthorized
+        "403":
+          description: Forbidden
+        "404":
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ApiDocsFailureResponse'
+          description: Not Found
+        "500":
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ApiDocsFailureResponse'
+          description: Internal Server Error
+      security:
+      - bearer_token: []
+      summary: Generate License Key
+      tags:
+      - Settings
   /deepfence/lookup/cloud-compliances:
     post:
       description: Retrieve all the data associated with cloud-compliances
@@ -10188,7 +10473,7 @@ components:
       - registry_url
       - service_account_json
       type: object
-    FormDataVulnerabilityDbDBUploadRequest:
+    FormDataThreatintelDBUploadRequest:
       properties:
         database:
           $ref: '#/components/schemas/MultipartFile'
@@ -12019,6 +12304,7 @@ components:
         cloud_provider: cloud_provider
         scan_status_map:
           key: 6
+        host_node_id: host_node_id
         version: version
         node_id: node_id
       properties:
@@ -12028,6 +12314,8 @@ components:
           type: string
         compliance_percentage:
           type: number
+        host_node_id:
+          type: string
         last_scan_id:
           type: string
         last_scan_status:
@@ -12185,6 +12473,7 @@ components:
           cloud_provider: cloud_provider
           scan_status_map:
             key: 6
+          host_node_id: host_node_id
           version: version
           node_id: node_id
         - last_scan_status: last_scan_status
@@ -12195,6 +12484,7 @@ components:
           cloud_provider: cloud_provider
           scan_status_map:
             key: 6
+          host_node_id: host_node_id
           version: version
           node_id: node_id
       properties:
@@ -12790,10 +13080,17 @@ components:
       example:
         count: 9
         node_name: node_name
+        ips:
+        - ""
+        - ""
         node_id: node_id
       properties:
         count:
           type: integer
+        ips:
+          items: {}
+          nullable: true
+          type: array
         node_id:
           type: string
         node_name:
@@ -13361,6 +13658,47 @@ components:
           type: object
       required:
       - filters
+      type: object
+    ModelGenerateLicenseRequest:
+      example:
+        last_name: last_name
+        company: company
+        resend_email: true
+        first_name: first_name
+        email: email
+      properties:
+        company:
+          type: string
+        email:
+          type: string
+        first_name:
+          type: string
+        last_name:
+          type: string
+        resend_email:
+          type: boolean
+      required:
+      - company
+      - email
+      - first_name
+      - last_name
+      - resend_email
+      type: object
+    ModelGenerateLicenseResponse:
+      example:
+        success: true
+        generate_license_link: generate_license_link
+        message: message
+      properties:
+        generate_license_link:
+          type: string
+        message:
+          type: string
+        success:
+          type: boolean
+      required:
+      - message
+      - success
       type: object
     ModelGenerateReportReq:
       example:
@@ -14071,9 +14409,15 @@ components:
         inbound_connections:
         - count: 9
           node_name: node_name
+          ips:
+          - ""
+          - ""
           node_id: node_id
         - count: 9
           node_name: node_name
+          ips:
+          - ""
+          - ""
           node_id: node_id
         availability_zone: availability_zone
         is_console_vm: true
@@ -14107,9 +14451,15 @@ components:
         outbound_connections:
         - count: 9
           node_name: node_name
+          ips:
+          - ""
+          - ""
           node_id: node_id
         - count: 9
           node_name: node_name
+          ips:
+          - ""
+          - ""
           node_id: node_id
         os: os
         local_cidr:
@@ -14736,6 +15086,7 @@ components:
       type: object
     ModelImageStub:
       example:
+        images: 0
         name: name
         id: id
         tags:
@@ -14744,6 +15095,8 @@ components:
       properties:
         id:
           type: string
+        images:
+          type: integer
         name:
           type: string
         tags:
@@ -15386,9 +15739,15 @@ components:
           inbound_connections:
           - count: 9
             node_name: node_name
+            ips:
+            - ""
+            - ""
             node_id: node_id
           - count: 9
             node_name: node_name
+            ips:
+            - ""
+            - ""
             node_id: node_id
           availability_zone: availability_zone
           is_console_vm: true
@@ -15422,9 +15781,15 @@ components:
           outbound_connections:
           - count: 9
             node_name: node_name
+            ips:
+            - ""
+            - ""
             node_id: node_id
           - count: 9
             node_name: node_name
+            ips:
+            - ""
+            - ""
             node_id: node_id
           os: os
           local_cidr:
@@ -16170,9 +16535,15 @@ components:
           inbound_connections:
           - count: 9
             node_name: node_name
+            ips:
+            - ""
+            - ""
             node_id: node_id
           - count: 9
             node_name: node_name
+            ips:
+            - ""
+            - ""
             node_id: node_id
           availability_zone: availability_zone
           is_console_vm: true
@@ -16206,9 +16577,15 @@ components:
           outbound_connections:
           - count: 9
             node_name: node_name
+            ips:
+            - ""
+            - ""
             node_id: node_id
           - count: 9
             node_name: node_name
+            ips:
+            - ""
+            - ""
             node_id: node_id
           os: os
           local_cidr:
@@ -16681,6 +17058,67 @@ components:
       - node_id
       - node_name
       type: object
+    ModelLicense:
+      example:
+        end_date: end_date
+        no_of_registries: 5
+        notification_threshold_percentage: 2
+        current_hosts: 0
+        is_active: true
+        license_type: license_type
+        notification_threshold_updated_at: 7
+        registry_credentials:
+          registry_url: registry_url
+          password: password
+          username: username
+        description: description
+        no_of_hosts: 1
+        no_of_images_in_registry: 5
+        message: message
+        deepfence_support_email: deepfence_support_email
+        license_email: license_email
+        no_of_cloud_accounts: 6
+        license_email_domain: license_email_domain
+        key: key
+        start_date: start_date
+      properties:
+        current_hosts:
+          type: integer
+        deepfence_support_email:
+          type: string
+        description:
+          type: string
+        end_date:
+          type: string
+        is_active:
+          type: boolean
+        key:
+          type: string
+        license_email:
+          type: string
+        license_email_domain:
+          type: string
+        license_type:
+          type: string
+        message:
+          type: string
+        no_of_cloud_accounts:
+          type: integer
+        no_of_hosts:
+          type: integer
+        no_of_images_in_registry:
+          type: integer
+        no_of_registries:
+          type: integer
+        notification_threshold_percentage:
+          type: integer
+        notification_threshold_updated_at:
+          type: integer
+        registry_credentials:
+          $ref: '#/components/schemas/ModelRegistryCredentials'
+        start_date:
+          type: string
+      type: object
     ModelListAgentVersionResp:
       example:
         versions:
@@ -16712,11 +17150,20 @@ components:
       example:
         access_token: access_token
         refresh_token: refresh_token
+        email_domain: email_domain
+        license_registered: true
         onboarding_required: true
         password_invalidated: true
+        license_key: license_key
       properties:
         access_token:
           type: string
+        email_domain:
+          type: string
+        license_key:
+          type: string
+        license_registered:
+          type: boolean
         onboarding_required:
           type: boolean
         password_invalidated:
@@ -16725,6 +17172,9 @@ components:
           type: string
       required:
       - access_token
+      - email_domain
+      - license_key
+      - license_registered
       - onboarding_required
       - password_invalidated
       - refresh_token
@@ -17462,6 +17912,32 @@ components:
       - namespace
       - password
       type: object
+    ModelRegisterLicenseRequest:
+      example:
+        email: email
+        license_key: license_key
+      properties:
+        email:
+          type: string
+        license_key:
+          type: string
+      required:
+      - email
+      - license_key
+      type: object
+    ModelRegisterLicenseResponse:
+      example:
+        email_domain: email_domain
+        license_key: license_key
+      properties:
+        email_domain:
+          type: string
+        license_key:
+          type: string
+      required:
+      - email_domain
+      - license_key
+      type: object
     ModelRegistryAccount:
       example:
         syncing: true
@@ -17800,6 +18276,19 @@ components:
         count:
           type: integer
       type: object
+    ModelRegistryCredentials:
+      example:
+        registry_url: registry_url
+        password: password
+        username: username
+      properties:
+        password:
+          type: string
+        registry_url:
+          type: string
+        username:
+          type: string
+      type: object
     ModelRegistryImageStubsReq:
       example:
         image_filter:
@@ -17905,9 +18394,52 @@ components:
         window:
           offset: 0
           size: 6
+        image_stub_filter:
+          compare_filter:
+          - greater_than: true
+            field_value: ""
+            field_name: field_name
+          - greater_than: true
+            field_value: ""
+            field_name: field_name
+          not_contains_filter:
+            filter_in:
+              key:
+              - ""
+              - ""
+          order_filter:
+            order_fields:
+            - size: 0
+              descending: true
+              field_name: field_name
+            - size: 0
+              descending: true
+              field_name: field_name
+          contains_filter:
+            filter_in:
+              key:
+              - ""
+              - ""
+          contains_in_array_filter:
+            filter_in:
+              key:
+              - ""
+              - ""
+          match_filter:
+            filter_in:
+              key:
+              - ""
+              - ""
+          match_in_array_filter:
+            filter_in:
+              key:
+              - ""
+              - ""
         registry_id: registry_id
       properties:
         image_filter:
+          $ref: '#/components/schemas/ReportersFieldsFilters'
+        image_stub_filter:
           $ref: '#/components/schemas/ReportersFieldsFilters'
         registry_id:
           type: string
@@ -17915,6 +18447,7 @@ components:
           $ref: '#/components/schemas/ModelFetchWindow'
       required:
       - image_filter
+      - image_stub_filter
       - registry_id
       - window
       type: object
@@ -18691,7 +19224,15 @@ components:
         - result_ids
         scan_type: SecretScan
         scan_id: scan_id
+        integration_ids:
+        - 0
+        - 0
       properties:
+        integration_ids:
+          items:
+            type: integer
+          nullable: true
+          type: array
         notify_individual:
           type: boolean
         result_ids:
@@ -19265,23 +19806,23 @@ components:
     ModelSummary:
       example:
         images: 0
-        scans_total: 5
+        repositories: 1
+        scans_total: 2
         registries: 6
-        scans_complete: 1
+        scans_complete: 5
         scans_in_progress: 5
-        tags: 2
       properties:
         images:
           type: integer
         registries:
+          type: integer
+        repositories:
           type: integer
         scans_complete:
           type: integer
         scans_in_progress:
           type: integer
         scans_total:
-          type: integer
-        tags:
           type: integer
       type: object
     ModelTopologyDeltaReq:

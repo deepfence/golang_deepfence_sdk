@@ -297,7 +297,7 @@ func (o *IngestersCloudResource) GetAttachedPolicyArnsOk() (*interface{}, bool) 
 
 // HasAttachedPolicyArns returns a boolean if a field has been set.
 func (o *IngestersCloudResource) HasAttachedPolicyArns() bool {
-	if o != nil && IsNil(o.AttachedPolicyArns) {
+	if o != nil && !IsNil(o.AttachedPolicyArns) {
 		return true
 	}
 
@@ -586,7 +586,7 @@ func (o *IngestersCloudResource) GetContainerDefinitionsOk() (*interface{}, bool
 
 // HasContainerDefinitions returns a boolean if a field has been set.
 func (o *IngestersCloudResource) HasContainerDefinitions() bool {
-	if o != nil && IsNil(o.ContainerDefinitions) {
+	if o != nil && !IsNil(o.ContainerDefinitions) {
 		return true
 	}
 
@@ -619,7 +619,7 @@ func (o *IngestersCloudResource) GetContainersOk() (*interface{}, bool) {
 
 // HasContainers returns a boolean if a field has been set.
 func (o *IngestersCloudResource) HasContainers() bool {
-	if o != nil && IsNil(o.Containers) {
+	if o != nil && !IsNil(o.Containers) {
 		return true
 	}
 
@@ -748,7 +748,7 @@ func (o *IngestersCloudResource) GetEventNotificationConfigurationOk() (*interfa
 
 // HasEventNotificationConfiguration returns a boolean if a field has been set.
 func (o *IngestersCloudResource) HasEventNotificationConfiguration() bool {
-	if o != nil && IsNil(o.EventNotificationConfiguration) {
+	if o != nil && !IsNil(o.EventNotificationConfiguration) {
 		return true
 	}
 
@@ -845,7 +845,7 @@ func (o *IngestersCloudResource) GetGroupsOk() (*interface{}, bool) {
 
 // HasGroups returns a boolean if a field has been set.
 func (o *IngestersCloudResource) HasGroups() bool {
-	if o != nil && IsNil(o.Groups) {
+	if o != nil && !IsNil(o.Groups) {
 		return true
 	}
 
@@ -974,7 +974,7 @@ func (o *IngestersCloudResource) GetIamPolicyOk() (*interface{}, bool) {
 
 // HasIamPolicy returns a boolean if a field has been set.
 func (o *IngestersCloudResource) HasIamPolicy() bool {
-	if o != nil && IsNil(o.IamPolicy) {
+	if o != nil && !IsNil(o.IamPolicy) {
 		return true
 	}
 
@@ -1103,7 +1103,7 @@ func (o *IngestersCloudResource) GetInlinePoliciesOk() (*interface{}, bool) {
 
 // HasInlinePolicies returns a boolean if a field has been set.
 func (o *IngestersCloudResource) HasInlinePolicies() bool {
-	if o != nil && IsNil(o.InlinePolicies) {
+	if o != nil && !IsNil(o.InlinePolicies) {
 		return true
 	}
 
@@ -1168,7 +1168,7 @@ func (o *IngestersCloudResource) GetInstanceProfileArnsOk() (*interface{}, bool)
 
 // HasInstanceProfileArns returns a boolean if a field has been set.
 func (o *IngestersCloudResource) HasInstanceProfileArns() bool {
-	if o != nil && IsNil(o.InstanceProfileArns) {
+	if o != nil && !IsNil(o.InstanceProfileArns) {
 		return true
 	}
 
@@ -1233,7 +1233,7 @@ func (o *IngestersCloudResource) GetInstancesOk() (*interface{}, bool) {
 
 // HasInstances returns a boolean if a field has been set.
 func (o *IngestersCloudResource) HasInstances() bool {
-	if o != nil && IsNil(o.Instances) {
+	if o != nil && !IsNil(o.Instances) {
 		return true
 	}
 
@@ -1266,7 +1266,7 @@ func (o *IngestersCloudResource) GetIpConfigurationOk() (*interface{}, bool) {
 
 // HasIpConfiguration returns a boolean if a field has been set.
 func (o *IngestersCloudResource) HasIpConfiguration() bool {
-	if o != nil && IsNil(o.IpConfiguration) {
+	if o != nil && !IsNil(o.IpConfiguration) {
 		return true
 	}
 
@@ -1395,7 +1395,7 @@ func (o *IngestersCloudResource) GetNetworkConfigurationOk() (*interface{}, bool
 
 // HasNetworkConfiguration returns a boolean if a field has been set.
 func (o *IngestersCloudResource) HasNetworkConfiguration() bool {
-	if o != nil && IsNil(o.NetworkConfiguration) {
+	if o != nil && !IsNil(o.NetworkConfiguration) {
 		return true
 	}
 
@@ -1428,7 +1428,7 @@ func (o *IngestersCloudResource) GetNetworkInterfacesOk() (*interface{}, bool) {
 
 // HasNetworkInterfaces returns a boolean if a field has been set.
 func (o *IngestersCloudResource) HasNetworkInterfaces() bool {
-	if o != nil && IsNil(o.NetworkInterfaces) {
+	if o != nil && !IsNil(o.NetworkInterfaces) {
 		return true
 	}
 
@@ -1621,7 +1621,7 @@ func (o *IngestersCloudResource) GetPolicyOk() (*interface{}, bool) {
 
 // HasPolicy returns a boolean if a field has been set.
 func (o *IngestersCloudResource) HasPolicy() bool {
-	if o != nil && IsNil(o.Policy) {
+	if o != nil && !IsNil(o.Policy) {
 		return true
 	}
 
@@ -1654,7 +1654,7 @@ func (o *IngestersCloudResource) GetPolicyStdOk() (*interface{}, bool) {
 
 // HasPolicyStd returns a boolean if a field has been set.
 func (o *IngestersCloudResource) HasPolicyStd() bool {
-	if o != nil && IsNil(o.PolicyStd) {
+	if o != nil && !IsNil(o.PolicyStd) {
 		return true
 	}
 
@@ -1847,7 +1847,7 @@ func (o *IngestersCloudResource) GetPublicIpsOk() (*interface{}, bool) {
 
 // HasPublicIps returns a boolean if a field has been set.
 func (o *IngestersCloudResource) HasPublicIps() bool {
-	if o != nil && IsNil(o.PublicIps) {
+	if o != nil && !IsNil(o.PublicIps) {
 		return true
 	}
 
@@ -1976,7 +1976,7 @@ func (o *IngestersCloudResource) GetResourceVpcConfigOk() (*interface{}, bool) {
 
 // HasResourceVpcConfig returns a boolean if a field has been set.
 func (o *IngestersCloudResource) HasResourceVpcConfig() bool {
-	if o != nil && IsNil(o.ResourceVpcConfig) {
+	if o != nil && !IsNil(o.ResourceVpcConfig) {
 		return true
 	}
 
@@ -2009,7 +2009,7 @@ func (o *IngestersCloudResource) GetResourcesVpcConfigOk() (*interface{}, bool) 
 
 // HasResourcesVpcConfig returns a boolean if a field has been set.
 func (o *IngestersCloudResource) HasResourcesVpcConfig() bool {
-	if o != nil && IsNil(o.ResourcesVpcConfig) {
+	if o != nil && !IsNil(o.ResourcesVpcConfig) {
 		return true
 	}
 
@@ -2106,7 +2106,7 @@ func (o *IngestersCloudResource) GetSecurityGroupsOk() (*interface{}, bool) {
 
 // HasSecurityGroups returns a boolean if a field has been set.
 func (o *IngestersCloudResource) HasSecurityGroups() bool {
-	if o != nil && IsNil(o.SecurityGroups) {
+	if o != nil && !IsNil(o.SecurityGroups) {
 		return true
 	}
 
@@ -2203,7 +2203,7 @@ func (o *IngestersCloudResource) GetTagsOk() (*interface{}, bool) {
 
 // HasTags returns a boolean if a field has been set.
 func (o *IngestersCloudResource) HasTags() bool {
-	if o != nil && IsNil(o.Tags) {
+	if o != nil && !IsNil(o.Tags) {
 		return true
 	}
 
@@ -2268,7 +2268,7 @@ func (o *IngestersCloudResource) GetTargetHealthDescriptionsOk() (*interface{}, 
 
 // HasTargetHealthDescriptions returns a boolean if a field has been set.
 func (o *IngestersCloudResource) HasTargetHealthDescriptions() bool {
-	if o != nil && IsNil(o.TargetHealthDescriptions) {
+	if o != nil && !IsNil(o.TargetHealthDescriptions) {
 		return true
 	}
 
@@ -2333,7 +2333,7 @@ func (o *IngestersCloudResource) GetTaskDefinitionOk() (*interface{}, bool) {
 
 // HasTaskDefinition returns a boolean if a field has been set.
 func (o *IngestersCloudResource) HasTaskDefinition() bool {
-	if o != nil && IsNil(o.TaskDefinition) {
+	if o != nil && !IsNil(o.TaskDefinition) {
 		return true
 	}
 
@@ -2398,7 +2398,7 @@ func (o *IngestersCloudResource) GetUserGroupsOk() (*interface{}, bool) {
 
 // HasUserGroups returns a boolean if a field has been set.
 func (o *IngestersCloudResource) HasUserGroups() bool {
-	if o != nil && IsNil(o.UserGroups) {
+	if o != nil && !IsNil(o.UserGroups) {
 		return true
 	}
 
@@ -2463,7 +2463,7 @@ func (o *IngestersCloudResource) GetUsersOk() (*interface{}, bool) {
 
 // HasUsers returns a boolean if a field has been set.
 func (o *IngestersCloudResource) HasUsers() bool {
-	if o != nil && IsNil(o.Users) {
+	if o != nil && !IsNil(o.Users) {
 		return true
 	}
 
@@ -2528,7 +2528,7 @@ func (o *IngestersCloudResource) GetVpcOptionsOk() (*interface{}, bool) {
 
 // HasVpcOptions returns a boolean if a field has been set.
 func (o *IngestersCloudResource) HasVpcOptions() bool {
-	if o != nil && IsNil(o.VpcOptions) {
+	if o != nil && !IsNil(o.VpcOptions) {
 		return true
 	}
 
@@ -2561,7 +2561,7 @@ func (o *IngestersCloudResource) GetVpcSecurityGroupIdsOk() (*interface{}, bool)
 
 // HasVpcSecurityGroupIds returns a boolean if a field has been set.
 func (o *IngestersCloudResource) HasVpcSecurityGroupIds() bool {
-	if o != nil && IsNil(o.VpcSecurityGroupIds) {
+	if o != nil && !IsNil(o.VpcSecurityGroupIds) {
 		return true
 	}
 
@@ -2594,7 +2594,7 @@ func (o *IngestersCloudResource) GetVpcSecurityGroupsOk() (*interface{}, bool) {
 
 // HasVpcSecurityGroups returns a boolean if a field has been set.
 func (o *IngestersCloudResource) HasVpcSecurityGroups() bool {
-	if o != nil && IsNil(o.VpcSecurityGroups) {
+	if o != nil && !IsNil(o.VpcSecurityGroups) {
 		return true
 	}
 

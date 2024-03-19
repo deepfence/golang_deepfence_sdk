@@ -95,7 +95,7 @@ func (o *ModelCloudComplianceBenchmark) GetControlsOk() ([]string, bool) {
 
 // HasControls returns a boolean if a field has been set.
 func (o *ModelCloudComplianceBenchmark) HasControls() bool {
-	if o != nil && IsNil(o.Controls) {
+	if o != nil && !IsNil(o.Controls) {
 		return true
 	}
 

@@ -22,6 +22,7 @@ var _ MappedNullable = &ModelScanResultsActionRequest{}
 
 // ModelScanResultsActionRequest struct for ModelScanResultsActionRequest
 type ModelScanResultsActionRequest struct {
+	IntegrationIds []int32 `json:"integration_ids,omitempty"`
 	NotifyIndividual *bool `json:"notify_individual,omitempty"`
 	ResultIds []string `json:"result_ids"`
 	ScanId string `json:"scan_id"`
@@ -48,6 +49,39 @@ func NewModelScanResultsActionRequest(resultIds []string, scanId string, scanTyp
 func NewModelScanResultsActionRequestWithDefaults() *ModelScanResultsActionRequest {
 	this := ModelScanResultsActionRequest{}
 	return &this
+}
+
+// GetIntegrationIds returns the IntegrationIds field value if set, zero value otherwise (both if not set or set to explicit null).
+func (o *ModelScanResultsActionRequest) GetIntegrationIds() []int32 {
+	if o == nil {
+		var ret []int32
+		return ret
+	}
+	return o.IntegrationIds
+}
+
+// GetIntegrationIdsOk returns a tuple with the IntegrationIds field value if set, nil otherwise
+// and a boolean to check if the value has been set.
+// NOTE: If the value is an explicit nil, `nil, true` will be returned
+func (o *ModelScanResultsActionRequest) GetIntegrationIdsOk() ([]int32, bool) {
+	if o == nil || IsNil(o.IntegrationIds) {
+		return nil, false
+	}
+	return o.IntegrationIds, true
+}
+
+// HasIntegrationIds returns a boolean if a field has been set.
+func (o *ModelScanResultsActionRequest) HasIntegrationIds() bool {
+	if o != nil && !IsNil(o.IntegrationIds) {
+		return true
+	}
+
+	return false
+}
+
+// SetIntegrationIds gets a reference to the given []int32 and assigns it to the IntegrationIds field.
+func (o *ModelScanResultsActionRequest) SetIntegrationIds(v []int32) {
+	o.IntegrationIds = v
 }
 
 // GetNotifyIndividual returns the NotifyIndividual field value if set, zero value otherwise.
@@ -166,6 +200,9 @@ func (o ModelScanResultsActionRequest) MarshalJSON() ([]byte, error) {
 
 func (o ModelScanResultsActionRequest) ToMap() (map[string]interface{}, error) {
 	toSerialize := map[string]interface{}{}
+	if o.IntegrationIds != nil {
+		toSerialize["integration_ids"] = o.IntegrationIds
+	}
 	if !IsNil(o.NotifyIndividual) {
 		toSerialize["notify_individual"] = o.NotifyIndividual
 	}

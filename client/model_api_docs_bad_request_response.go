@@ -64,7 +64,7 @@ func (o *ApiDocsBadRequestResponse) GetErrorFieldsOk() (*map[string]string, bool
 
 // HasErrorFields returns a boolean if a field has been set.
 func (o *ApiDocsBadRequestResponse) HasErrorFields() bool {
-	if o != nil && IsNil(o.ErrorFields) {
+	if o != nil && !IsNil(o.ErrorFields) {
 		return true
 	}
 
@@ -97,7 +97,7 @@ func (o *ApiDocsBadRequestResponse) GetErrorIndexOk() (*map[string][]int32, bool
 
 // HasErrorIndex returns a boolean if a field has been set.
 func (o *ApiDocsBadRequestResponse) HasErrorIndex() bool {
-	if o != nil && IsNil(o.ErrorIndex) {
+	if o != nil && !IsNil(o.ErrorIndex) {
 		return true
 	}
 

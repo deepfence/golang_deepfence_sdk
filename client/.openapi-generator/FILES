@@ -136,6 +136,8 @@ docs/ModelExportReport.md
 docs/ModelFetchWindow.md
 docs/ModelFiltersReq.md
 docs/ModelFiltersResult.md
+docs/ModelGenerateLicenseRequest.md
+docs/ModelGenerateLicenseResponse.md
 docs/ModelGenerateReportReq.md
 docs/ModelGenerateReportResp.md
 docs/ModelGenerativeAiIntegrationCloudPostureRequest.md
@@ -157,6 +159,7 @@ docs/ModelIntegrationUpdateReq.md
 docs/ModelInviteUserRequest.md
 docs/ModelInviteUserResponse.md
 docs/ModelKubernetesCluster.md
+docs/ModelLicense.md
 docs/ModelListAgentVersionResp.md
 docs/ModelLoginRequest.md
 docs/ModelLoginResponse.md
@@ -175,9 +178,12 @@ docs/ModelPod.md
 docs/ModelPostureProvider.md
 docs/ModelProcess.md
 docs/ModelRegisterInvitedUserRequest.md
+docs/ModelRegisterLicenseRequest.md
+docs/ModelRegisterLicenseResponse.md
 docs/ModelRegistryAccount.md
 docs/ModelRegistryAddReq.md
 docs/ModelRegistryCountResp.md
+docs/ModelRegistryCredentials.md
 docs/ModelRegistryImageStubsReq.md
 docs/ModelRegistryImagesReq.md
 docs/ModelRegistryListResp.md
@@ -353,6 +359,8 @@ model_model_export_report.go
 model_model_fetch_window.go
 model_model_filters_req.go
 model_model_filters_result.go
+model_model_generate_license_request.go
+model_model_generate_license_response.go
 model_model_generate_report_req.go
 model_model_generate_report_resp.go
 model_model_generative_ai_integration_cloud_posture_request.go
@@ -374,6 +382,7 @@ model_model_integration_update_req.go
 model_model_invite_user_request.go
 model_model_invite_user_response.go
 model_model_kubernetes_cluster.go
+model_model_license.go
 model_model_list_agent_version_resp.go
 model_model_login_request.go
 model_model_login_response.go
@@ -392,9 +401,12 @@ model_model_pod.go
 model_model_posture_provider.go
 model_model_process.go
 model_model_register_invited_user_request.go
+model_model_register_license_request.go
+model_model_register_license_response.go
 model_model_registry_account.go
 model_model_registry_add_req.go
 model_model_registry_count_resp.go
+model_model_registry_credentials.go
 model_model_registry_image_stubs_req.go
 model_model_registry_images_req.go
 model_model_registry_list_resp.go

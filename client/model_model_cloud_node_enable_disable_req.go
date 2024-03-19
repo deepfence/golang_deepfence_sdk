@@ -62,7 +62,7 @@ func (o *ModelCloudNodeEnableDisableReq) GetControlIdsOk() ([]string, bool) {
 
 // HasControlIds returns a boolean if a field has been set.
 func (o *ModelCloudNodeEnableDisableReq) HasControlIds() bool {
-	if o != nil && IsNil(o.ControlIds) {
+	if o != nil && !IsNil(o.ControlIds) {
 		return true
 	}
 

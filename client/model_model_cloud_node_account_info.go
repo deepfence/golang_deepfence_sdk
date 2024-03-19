@@ -23,6 +23,7 @@ type ModelCloudNodeAccountInfo struct {
 	Active *bool `json:"active,omitempty"`
 	CloudProvider *string `json:"cloud_provider,omitempty"`
 	CompliancePercentage *float32 `json:"compliance_percentage,omitempty"`
+	HostNodeId *string `json:"host_node_id,omitempty"`
 	LastScanId *string `json:"last_scan_id,omitempty"`
 	LastScanStatus *string `json:"last_scan_status,omitempty"`
 	NodeId *string `json:"node_id,omitempty"`
@@ -142,6 +143,38 @@ func (o *ModelCloudNodeAccountInfo) HasCompliancePercentage() bool {
 // SetCompliancePercentage gets a reference to the given float32 and assigns it to the CompliancePercentage field.
 func (o *ModelCloudNodeAccountInfo) SetCompliancePercentage(v float32) {
 	o.CompliancePercentage = &v
+}
+
+// GetHostNodeId returns the HostNodeId field value if set, zero value otherwise.
+func (o *ModelCloudNodeAccountInfo) GetHostNodeId() string {
+	if o == nil || IsNil(o.HostNodeId) {
+		var ret string
+		return ret
+	}
+	return *o.HostNodeId
+}
+
+// GetHostNodeIdOk returns a tuple with the HostNodeId field value if set, nil otherwise
+// and a boolean to check if the value has been set.
+func (o *ModelCloudNodeAccountInfo) GetHostNodeIdOk() (*string, bool) {
+	if o == nil || IsNil(o.HostNodeId) {
+		return nil, false
+	}
+	return o.HostNodeId, true
+}
+
+// HasHostNodeId returns a boolean if a field has been set.
+func (o *ModelCloudNodeAccountInfo) HasHostNodeId() bool {
+	if o != nil && !IsNil(o.HostNodeId) {
+		return true
+	}
+
+	return false
+}
+
+// SetHostNodeId gets a reference to the given string and assigns it to the HostNodeId field.
+func (o *ModelCloudNodeAccountInfo) SetHostNodeId(v string) {
+	o.HostNodeId = &v
 }
 
 // GetLastScanId returns the LastScanId field value if set, zero value otherwise.
@@ -293,7 +326,7 @@ func (o *ModelCloudNodeAccountInfo) GetScanStatusMapOk() (*map[string]int32, boo
 
 // HasScanStatusMap returns a boolean if a field has been set.
 func (o *ModelCloudNodeAccountInfo) HasScanStatusMap() bool {
-	if o != nil && IsNil(o.ScanStatusMap) {
+	if o != nil && !IsNil(o.ScanStatusMap) {
 		return true
 	}
 
@@ -355,6 +388,9 @@ func (o ModelCloudNodeAccountInfo) ToMap() (map[string]interface{}, error) {
 	}
 	if !IsNil(o.CompliancePercentage) {
 		toSerialize["compliance_percentage"] = o.CompliancePercentage
+	}
+	if !IsNil(o.HostNodeId) {
+		toSerialize["host_node_id"] = o.HostNodeId
 	}
 	if !IsNil(o.LastScanId) {
 		toSerialize["last_scan_id"] = o.LastScanId

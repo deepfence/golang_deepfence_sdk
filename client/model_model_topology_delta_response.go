@@ -96,7 +96,7 @@ func (o *ModelTopologyDeltaResponse) GetAdditonsOk() ([]ModelNodeIdentifier, boo
 
 // HasAdditons returns a boolean if a field has been set.
 func (o *ModelTopologyDeltaResponse) HasAdditons() bool {
-	if o != nil && IsNil(o.Additons) {
+	if o != nil && !IsNil(o.Additons) {
 		return true
 	}
 
@@ -161,7 +161,7 @@ func (o *ModelTopologyDeltaResponse) GetDeletionsOk() ([]ModelNodeIdentifier, bo
 
 // HasDeletions returns a boolean if a field has been set.
 func (o *ModelTopologyDeltaResponse) HasDeletions() bool {
-	if o != nil && IsNil(o.Deletions) {
+	if o != nil && !IsNil(o.Deletions) {
 		return true
 	}
 

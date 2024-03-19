@@ -226,7 +226,7 @@ func (o *ModelUser) GetGroupsOk() (*map[string]string, bool) {
 
 // HasGroups returns a boolean if a field has been set.
 func (o *ModelUser) HasGroups() bool {
-	if o != nil && IsNil(o.Groups) {
+	if o != nil && !IsNil(o.Groups) {
 		return true
 	}
 

@@ -97,7 +97,7 @@ func (o *ModelCloudComplianceScanDetails) GetBenchmarksOk() ([]ModelCloudComplia
 
 // HasBenchmarks returns a boolean if a field has been set.
 func (o *ModelCloudComplianceScanDetails) HasBenchmarks() bool {
-	if o != nil && IsNil(o.Benchmarks) {
+	if o != nil && !IsNil(o.Benchmarks) {
 		return true
 	}
 
@@ -162,7 +162,7 @@ func (o *ModelCloudComplianceScanDetails) GetScanTypesOk() ([]string, bool) {
 
 // HasScanTypes returns a boolean if a field has been set.
 func (o *ModelCloudComplianceScanDetails) HasScanTypes() bool {
-	if o != nil && IsNil(o.ScanTypes) {
+	if o != nil && !IsNil(o.ScanTypes) {
 		return true
 	}
 

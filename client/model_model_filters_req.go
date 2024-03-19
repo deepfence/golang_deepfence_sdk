@@ -93,7 +93,7 @@ func (o *ModelFiltersReq) GetHavingOk() (map[string]interface{}, bool) {
 
 // HasHaving returns a boolean if a field has been set.
 func (o *ModelFiltersReq) HasHaving() bool {
-	if o != nil && IsNil(o.Having) {
+	if o != nil && !IsNil(o.Having) {
 		return true
 	}
 

@@ -4,6 +4,7 @@
 
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
+**IntegrationIds** | Pointer to **[]int32** |  | [optional] 
 **NotifyIndividual** | Pointer to **bool** |  | [optional] 
 **ResultIds** | **[]string** |  | 
 **ScanId** | **string** |  | 
@@ -28,6 +29,41 @@ NewModelScanResultsActionRequestWithDefaults instantiates a new ModelScanResults
 This constructor will only assign default values to properties that have it defined,
 but it doesn't guarantee that properties required by API are set
 
+### GetIntegrationIds
+
+`func (o *ModelScanResultsActionRequest) GetIntegrationIds() []int32`
+
+GetIntegrationIds returns the IntegrationIds field if non-nil, zero value otherwise.
+
+### GetIntegrationIdsOk
+
+`func (o *ModelScanResultsActionRequest) GetIntegrationIdsOk() (*[]int32, bool)`
+
+GetIntegrationIdsOk returns a tuple with the IntegrationIds field if it's non-nil, zero value otherwise
+and a boolean to check if the value has been set.
+
+### SetIntegrationIds
+
+`func (o *ModelScanResultsActionRequest) SetIntegrationIds(v []int32)`
+
+SetIntegrationIds sets IntegrationIds field to given value.
+
+### HasIntegrationIds
+
+`func (o *ModelScanResultsActionRequest) HasIntegrationIds() bool`
+
+HasIntegrationIds returns a boolean if a field has been set.
+
+### SetIntegrationIdsNil
+
+`func (o *ModelScanResultsActionRequest) SetIntegrationIdsNil(b bool)`
+
+ SetIntegrationIdsNil sets the value for IntegrationIds to be an explicit nil
+
+### UnsetIntegrationIds
+`func (o *ModelScanResultsActionRequest) UnsetIntegrationIds()`
+
+UnsetIntegrationIds ensures that no value is present for IntegrationIds, not even an explicit nil
 ### GetNotifyIndividual
 
 `func (o *ModelScanResultsActionRequest) GetNotifyIndividual() bool`

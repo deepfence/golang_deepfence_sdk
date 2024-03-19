@@ -64,7 +64,7 @@ func (o *GraphIndividualThreatGraph) GetAttackPathOk() ([][]string, bool) {
 
 // HasAttackPath returns a boolean if a field has been set.
 func (o *GraphIndividualThreatGraph) HasAttackPath() bool {
-	if o != nil && IsNil(o.AttackPath) {
+	if o != nil && !IsNil(o.AttackPath) {
 		return true
 	}
 
@@ -129,7 +129,7 @@ func (o *GraphIndividualThreatGraph) GetCveIdOk() ([]string, bool) {
 
 // HasCveId returns a boolean if a field has been set.
 func (o *GraphIndividualThreatGraph) HasCveId() bool {
-	if o != nil && IsNil(o.CveId) {
+	if o != nil && !IsNil(o.CveId) {
 		return true
 	}
 
@@ -162,7 +162,7 @@ func (o *GraphIndividualThreatGraph) GetPortsOk() ([]interface{}, bool) {
 
 // HasPorts returns a boolean if a field has been set.
 func (o *GraphIndividualThreatGraph) HasPorts() bool {
-	if o != nil && IsNil(o.Ports) {
+	if o != nil && !IsNil(o.Ports) {
 		return true
 	}
 

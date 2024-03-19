@@ -63,7 +63,7 @@ func (o *DiagnosisGetDiagnosticLogsResponse) GetAgentLogsOk() ([]DiagnosisDiagno
 
 // HasAgentLogs returns a boolean if a field has been set.
 func (o *DiagnosisGetDiagnosticLogsResponse) HasAgentLogs() bool {
-	if o != nil && IsNil(o.AgentLogs) {
+	if o != nil && !IsNil(o.AgentLogs) {
 		return true
 	}
 
@@ -96,7 +96,7 @@ func (o *DiagnosisGetDiagnosticLogsResponse) GetCloudScannerLogsOk() ([]Diagnosi
 
 // HasCloudScannerLogs returns a boolean if a field has been set.
 func (o *DiagnosisGetDiagnosticLogsResponse) HasCloudScannerLogs() bool {
-	if o != nil && IsNil(o.CloudScannerLogs) {
+	if o != nil && !IsNil(o.CloudScannerLogs) {
 		return true
 	}
 
@@ -129,7 +129,7 @@ func (o *DiagnosisGetDiagnosticLogsResponse) GetConsoleLogsOk() ([]DiagnosisDiag
 
 // HasConsoleLogs returns a boolean if a field has been set.
 func (o *DiagnosisGetDiagnosticLogsResponse) HasConsoleLogs() bool {
-	if o != nil && IsNil(o.ConsoleLogs) {
+	if o != nil && !IsNil(o.ConsoleLogs) {
 		return true
 	}
 

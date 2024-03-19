@@ -66,7 +66,7 @@ func (o *ModelIntegrationListResp) GetConfigOk() (map[string]interface{}, bool) 
 
 // HasConfig returns a boolean if a field has been set.
 func (o *ModelIntegrationListResp) HasConfig() bool {
-	if o != nil && IsNil(o.Config) {
+	if o != nil && !IsNil(o.Config) {
 		return true
 	}
 

@@ -328,7 +328,7 @@ func (o *PostgresqlDbScheduler) GetPayloadOk() (*interface{}, bool) {
 
 // HasPayload returns a boolean if a field has been set.
 func (o *PostgresqlDbScheduler) HasPayload() bool {
-	if o != nil && IsNil(o.Payload) {
+	if o != nil && !IsNil(o.Payload) {
 		return true
 	}
 

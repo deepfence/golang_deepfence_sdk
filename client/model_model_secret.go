@@ -309,7 +309,7 @@ func (o *ModelSecret) GetResourcesOk() ([]ModelBasicNode, bool) {
 
 // HasResources returns a boolean if a field has been set.
 func (o *ModelSecret) HasResources() bool {
-	if o != nil && IsNil(o.Resources) {
+	if o != nil && !IsNil(o.Resources) {
 		return true
 	}
 

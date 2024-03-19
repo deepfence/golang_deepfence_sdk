@@ -71,7 +71,7 @@ func (o *ModelRegistryUpdateReq) GetExtrasOk() (map[string]interface{}, bool) {
 
 // HasExtras returns a boolean if a field has been set.
 func (o *ModelRegistryUpdateReq) HasExtras() bool {
-	if o != nil && IsNil(o.Extras) {
+	if o != nil && !IsNil(o.Extras) {
 		return true
 	}
 
@@ -128,7 +128,7 @@ func (o *ModelRegistryUpdateReq) GetNonSecretOk() (map[string]interface{}, bool)
 
 // HasNonSecret returns a boolean if a field has been set.
 func (o *ModelRegistryUpdateReq) HasNonSecret() bool {
-	if o != nil && IsNil(o.NonSecret) {
+	if o != nil && !IsNil(o.NonSecret) {
 		return true
 	}
 
@@ -185,7 +185,7 @@ func (o *ModelRegistryUpdateReq) GetSecretOk() (map[string]interface{}, bool) {
 
 // HasSecret returns a boolean if a field has been set.
 func (o *ModelRegistryUpdateReq) HasSecret() bool {
-	if o != nil && IsNil(o.Secret) {
+	if o != nil && !IsNil(o.Secret) {
 		return true
 	}
 

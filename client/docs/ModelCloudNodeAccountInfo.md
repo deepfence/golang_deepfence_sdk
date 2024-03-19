@@ -7,6 +7,7 @@ Name | Type | Description | Notes
 **Active** | Pointer to **bool** |  | [optional] 
 **CloudProvider** | Pointer to **string** |  | [optional] 
 **CompliancePercentage** | Pointer to **float32** |  | [optional] 
+**HostNodeId** | Pointer to **string** |  | [optional] 
 **LastScanId** | Pointer to **string** |  | [optional] 
 **LastScanStatus** | Pointer to **string** |  | [optional] 
 **NodeId** | Pointer to **string** |  | [optional] 
@@ -107,6 +108,31 @@ SetCompliancePercentage sets CompliancePercentage field to given value.
 `func (o *ModelCloudNodeAccountInfo) HasCompliancePercentage() bool`
 
 HasCompliancePercentage returns a boolean if a field has been set.
+
+### GetHostNodeId
+
+`func (o *ModelCloudNodeAccountInfo) GetHostNodeId() string`
+
+GetHostNodeId returns the HostNodeId field if non-nil, zero value otherwise.
+
+### GetHostNodeIdOk
+
+`func (o *ModelCloudNodeAccountInfo) GetHostNodeIdOk() (*string, bool)`
+
+GetHostNodeIdOk returns a tuple with the HostNodeId field if it's non-nil, zero value otherwise
+and a boolean to check if the value has been set.
+
+### SetHostNodeId
+
+`func (o *ModelCloudNodeAccountInfo) SetHostNodeId(v string)`
+
+SetHostNodeId sets HostNodeId field to given value.
+
+### HasHostNodeId
+
+`func (o *ModelCloudNodeAccountInfo) HasHostNodeId() bool`
+
+HasHostNodeId returns a boolean if a field has been set.
 
 ### GetLastScanId
 

@@ -68,7 +68,7 @@ func (o *ModelIntegrationFilters) GetContainerNamesOk() ([]string, bool) {
 
 // HasContainerNames returns a boolean if a field has been set.
 func (o *ModelIntegrationFilters) HasContainerNames() bool {
-	if o != nil && IsNil(o.ContainerNames) {
+	if o != nil && !IsNil(o.ContainerNames) {
 		return true
 	}
 

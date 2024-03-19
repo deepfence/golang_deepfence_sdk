@@ -249,7 +249,7 @@ func (o *UtilsReportFilters) GetSeverityOrCheckTypeOk() ([]string, bool) {
 
 // HasSeverityOrCheckType returns a boolean if a field has been set.
 func (o *UtilsReportFilters) HasSeverityOrCheckType() bool {
-	if o != nil && IsNil(o.SeverityOrCheckType) {
+	if o != nil && !IsNil(o.SeverityOrCheckType) {
 		return true
 	}
 

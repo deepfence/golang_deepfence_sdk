@@ -61,7 +61,7 @@ func (o *ModelCloudNodeControlResp) GetControlsOk() ([]ModelCloudNodeComplianceC
 
 // HasControls returns a boolean if a field has been set.
 func (o *ModelCloudNodeControlResp) HasControls() bool {
-	if o != nil && IsNil(o.Controls) {
+	if o != nil && !IsNil(o.Controls) {
 		return true
 	}
 

@@ -61,7 +61,7 @@ func (o *SearchResultGroupResp) GetGroupsOk() ([]SearchResultGroup, bool) {
 
 // HasGroups returns a boolean if a field has been set.
 func (o *SearchResultGroupResp) HasGroups() bool {
-	if o != nil && IsNil(o.Groups) {
+	if o != nil && !IsNil(o.Groups) {
 		return true
 	}
 

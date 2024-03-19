@@ -97,7 +97,7 @@ func (o *DiagnosisDiagnosticNotification) GetExpiryInSecsOk() (*interface{}, boo
 
 // HasExpiryInSecs returns a boolean if a field has been set.
 func (o *DiagnosisDiagnosticNotification) HasExpiryInSecs() bool {
-	if o != nil && IsNil(o.ExpiryInSecs) {
+	if o != nil && !IsNil(o.ExpiryInSecs) {
 		return true
 	}
 
@@ -130,7 +130,7 @@ func (o *DiagnosisDiagnosticNotification) GetFollowUrlOk() (*interface{}, bool) 
 
 // HasFollowUrl returns a boolean if a field has been set.
 func (o *DiagnosisDiagnosticNotification) HasFollowUrl() bool {
-	if o != nil && IsNil(o.FollowUrl) {
+	if o != nil && !IsNil(o.FollowUrl) {
 		return true
 	}
 

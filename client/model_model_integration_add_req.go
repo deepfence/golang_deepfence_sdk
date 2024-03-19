@@ -70,7 +70,7 @@ func (o *ModelIntegrationAddReq) GetConfigOk() (map[string]interface{}, bool) {
 
 // HasConfig returns a boolean if a field has been set.
 func (o *ModelIntegrationAddReq) HasConfig() bool {
-	if o != nil && IsNil(o.Config) {
+	if o != nil && !IsNil(o.Config) {
 		return true
 	}
 

@@ -94,7 +94,7 @@ func (o *ModelDownloadScanResultsResponse) GetScanResultsOk() ([]interface{}, bo
 
 // HasScanResults returns a boolean if a field has been set.
 func (o *ModelDownloadScanResultsResponse) HasScanResults() bool {
-	if o != nil && IsNil(o.ScanResults) {
+	if o != nil && !IsNil(o.ScanResults) {
 		return true
 	}
 

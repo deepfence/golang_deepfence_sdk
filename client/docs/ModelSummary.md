@@ -6,10 +6,10 @@ Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
 **Images** | Pointer to **int32** |  | [optional] 
 **Registries** | Pointer to **int32** |  | [optional] 
+**Repositories** | Pointer to **int32** |  | [optional] 
 **ScansComplete** | Pointer to **int32** |  | [optional] 
 **ScansInProgress** | Pointer to **int32** |  | [optional] 
 **ScansTotal** | Pointer to **int32** |  | [optional] 
-**Tags** | Pointer to **int32** |  | [optional] 
 
 ## Methods
 
@@ -79,6 +79,31 @@ SetRegistries sets Registries field to given value.
 `func (o *ModelSummary) HasRegistries() bool`
 
 HasRegistries returns a boolean if a field has been set.
+
+### GetRepositories
+
+`func (o *ModelSummary) GetRepositories() int32`
+
+GetRepositories returns the Repositories field if non-nil, zero value otherwise.
+
+### GetRepositoriesOk
+
+`func (o *ModelSummary) GetRepositoriesOk() (*int32, bool)`
+
+GetRepositoriesOk returns a tuple with the Repositories field if it's non-nil, zero value otherwise
+and a boolean to check if the value has been set.
+
+### SetRepositories
+
+`func (o *ModelSummary) SetRepositories(v int32)`
+
+SetRepositories sets Repositories field to given value.
+
+### HasRepositories
+
+`func (o *ModelSummary) HasRepositories() bool`
+
+HasRepositories returns a boolean if a field has been set.
 
 ### GetScansComplete
 
@@ -154,31 +179,6 @@ SetScansTotal sets ScansTotal field to given value.
 `func (o *ModelSummary) HasScansTotal() bool`
 
 HasScansTotal returns a boolean if a field has been set.
-
-### GetTags
-
-`func (o *ModelSummary) GetTags() int32`
-
-GetTags returns the Tags field if non-nil, zero value otherwise.
-
-### GetTagsOk
-
-`func (o *ModelSummary) GetTagsOk() (*int32, bool)`
-
-GetTagsOk returns a tuple with the Tags field if it's non-nil, zero value otherwise
-and a boolean to check if the value has been set.
-
-### SetTags
-
-`func (o *ModelSummary) SetTags(v int32)`
-
-SetTags sets Tags field to given value.
-
-### HasTags
-
-`func (o *ModelSummary) HasTags() bool`
-
-HasTags returns a boolean if a field has been set.
 
 
 [[Back to Model list]](../README.md#documentation-for-models) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to README]](../README.md)

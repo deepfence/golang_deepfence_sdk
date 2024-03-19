@@ -23,6 +23,7 @@ var _ MappedNullable = &ModelRegistryImagesReq{}
 // ModelRegistryImagesReq struct for ModelRegistryImagesReq
 type ModelRegistryImagesReq struct {
 	ImageFilter ReportersFieldsFilters `json:"image_filter"`
+	ImageStubFilter ReportersFieldsFilters `json:"image_stub_filter"`
 	RegistryId string `json:"registry_id"`
 	Window ModelFetchWindow `json:"window"`
 }
@@ -33,9 +34,10 @@ type _ModelRegistryImagesReq ModelRegistryImagesReq
 // This constructor will assign default values to properties that have it defined,
 // and makes sure properties required by API are set, but the set of arguments
 // will change when the set of required properties is changed
-func NewModelRegistryImagesReq(imageFilter ReportersFieldsFilters, registryId string, window ModelFetchWindow) *ModelRegistryImagesReq {
+func NewModelRegistryImagesReq(imageFilter ReportersFieldsFilters, imageStubFilter ReportersFieldsFilters, registryId string, window ModelFetchWindow) *ModelRegistryImagesReq {
 	this := ModelRegistryImagesReq{}
 	this.ImageFilter = imageFilter
+	this.ImageStubFilter = imageStubFilter
 	this.RegistryId = registryId
 	this.Window = window
 	return &this
@@ -71,6 +73,30 @@ func (o *ModelRegistryImagesReq) GetImageFilterOk() (*ReportersFieldsFilters, bo
 // SetImageFilter sets field value
 func (o *ModelRegistryImagesReq) SetImageFilter(v ReportersFieldsFilters) {
 	o.ImageFilter = v
+}
+
+// GetImageStubFilter returns the ImageStubFilter field value
+func (o *ModelRegistryImagesReq) GetImageStubFilter() ReportersFieldsFilters {
+	if o == nil {
+		var ret ReportersFieldsFilters
+		return ret
+	}
+
+	return o.ImageStubFilter
+}
+
+// GetImageStubFilterOk returns a tuple with the ImageStubFilter field value
+// and a boolean to check if the value has been set.
+func (o *ModelRegistryImagesReq) GetImageStubFilterOk() (*ReportersFieldsFilters, bool) {
+	if o == nil {
+		return nil, false
+	}
+	return &o.ImageStubFilter, true
+}
+
+// SetImageStubFilter sets field value
+func (o *ModelRegistryImagesReq) SetImageStubFilter(v ReportersFieldsFilters) {
+	o.ImageStubFilter = v
 }
 
 // GetRegistryId returns the RegistryId field value
@@ -132,6 +158,7 @@ func (o ModelRegistryImagesReq) MarshalJSON() ([]byte, error) {
 func (o ModelRegistryImagesReq) ToMap() (map[string]interface{}, error) {
 	toSerialize := map[string]interface{}{}
 	toSerialize["image_filter"] = o.ImageFilter
+	toSerialize["image_stub_filter"] = o.ImageStubFilter
 	toSerialize["registry_id"] = o.RegistryId
 	toSerialize["window"] = o.Window
 	return toSerialize, nil
@@ -143,6 +170,7 @@ func (o *ModelRegistryImagesReq) UnmarshalJSON(data []byte) (err error) {
 	// that every required field exists as a key in the generic map.
 	requiredProperties := []string{
 		"image_filter",
+		"image_stub_filter",
 		"registry_id",
 		"window",
 	}
