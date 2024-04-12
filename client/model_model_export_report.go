@@ -3,7 +3,7 @@ Deepfence ThreatMapper
 
 Deepfence Runtime API provides programmatic control over Deepfence microservice securing your container, kubernetes and cloud deployments. The API abstracts away underlying infrastructure details like cloud provider,  container distros, container orchestrator and type of deployment. This is one uniform API to manage and control security alerts, policies and response to alerts for microservices running anywhere i.e. managed pure greenfield container deployments or a mix of containers, VMs and serverless paradigms like AWS Fargate.
 
-API version: 2.0.0
+API version: 2.2.0
 Contact: community@deepfence.io
 */
 
@@ -21,11 +21,12 @@ var _ MappedNullable = &ModelExportReport{}
 // ModelExportReport struct for ModelExportReport
 type ModelExportReport struct {
 	CreatedAt *int32 `json:"created_at,omitempty"`
-	Duration *int32 `json:"duration,omitempty"`
 	Filters *string `json:"filters,omitempty"`
+	FromTimestamp *int32 `json:"from_timestamp,omitempty"`
 	ReportId *string `json:"report_id,omitempty"`
 	Status *string `json:"status,omitempty"`
 	StoragePath *string `json:"storage_path,omitempty"`
+	ToTimestamp *int32 `json:"to_timestamp,omitempty"`
 	Type *string `json:"type,omitempty"`
 	UpdatedAt *int32 `json:"updated_at,omitempty"`
 	Url *string `json:"url,omitempty"`
@@ -80,38 +81,6 @@ func (o *ModelExportReport) SetCreatedAt(v int32) {
 	o.CreatedAt = &v
 }
 
-// GetDuration returns the Duration field value if set, zero value otherwise.
-func (o *ModelExportReport) GetDuration() int32 {
-	if o == nil || IsNil(o.Duration) {
-		var ret int32
-		return ret
-	}
-	return *o.Duration
-}
-
-// GetDurationOk returns a tuple with the Duration field value if set, nil otherwise
-// and a boolean to check if the value has been set.
-func (o *ModelExportReport) GetDurationOk() (*int32, bool) {
-	if o == nil || IsNil(o.Duration) {
-		return nil, false
-	}
-	return o.Duration, true
-}
-
-// HasDuration returns a boolean if a field has been set.
-func (o *ModelExportReport) HasDuration() bool {
-	if o != nil && !IsNil(o.Duration) {
-		return true
-	}
-
-	return false
-}
-
-// SetDuration gets a reference to the given int32 and assigns it to the Duration field.
-func (o *ModelExportReport) SetDuration(v int32) {
-	o.Duration = &v
-}
-
 // GetFilters returns the Filters field value if set, zero value otherwise.
 func (o *ModelExportReport) GetFilters() string {
 	if o == nil || IsNil(o.Filters) {
@@ -142,6 +111,38 @@ func (o *ModelExportReport) HasFilters() bool {
 // SetFilters gets a reference to the given string and assigns it to the Filters field.
 func (o *ModelExportReport) SetFilters(v string) {
 	o.Filters = &v
+}
+
+// GetFromTimestamp returns the FromTimestamp field value if set, zero value otherwise.
+func (o *ModelExportReport) GetFromTimestamp() int32 {
+	if o == nil || IsNil(o.FromTimestamp) {
+		var ret int32
+		return ret
+	}
+	return *o.FromTimestamp
+}
+
+// GetFromTimestampOk returns a tuple with the FromTimestamp field value if set, nil otherwise
+// and a boolean to check if the value has been set.
+func (o *ModelExportReport) GetFromTimestampOk() (*int32, bool) {
+	if o == nil || IsNil(o.FromTimestamp) {
+		return nil, false
+	}
+	return o.FromTimestamp, true
+}
+
+// HasFromTimestamp returns a boolean if a field has been set.
+func (o *ModelExportReport) HasFromTimestamp() bool {
+	if o != nil && !IsNil(o.FromTimestamp) {
+		return true
+	}
+
+	return false
+}
+
+// SetFromTimestamp gets a reference to the given int32 and assigns it to the FromTimestamp field.
+func (o *ModelExportReport) SetFromTimestamp(v int32) {
+	o.FromTimestamp = &v
 }
 
 // GetReportId returns the ReportId field value if set, zero value otherwise.
@@ -238,6 +239,38 @@ func (o *ModelExportReport) HasStoragePath() bool {
 // SetStoragePath gets a reference to the given string and assigns it to the StoragePath field.
 func (o *ModelExportReport) SetStoragePath(v string) {
 	o.StoragePath = &v
+}
+
+// GetToTimestamp returns the ToTimestamp field value if set, zero value otherwise.
+func (o *ModelExportReport) GetToTimestamp() int32 {
+	if o == nil || IsNil(o.ToTimestamp) {
+		var ret int32
+		return ret
+	}
+	return *o.ToTimestamp
+}
+
+// GetToTimestampOk returns a tuple with the ToTimestamp field value if set, nil otherwise
+// and a boolean to check if the value has been set.
+func (o *ModelExportReport) GetToTimestampOk() (*int32, bool) {
+	if o == nil || IsNil(o.ToTimestamp) {
+		return nil, false
+	}
+	return o.ToTimestamp, true
+}
+
+// HasToTimestamp returns a boolean if a field has been set.
+func (o *ModelExportReport) HasToTimestamp() bool {
+	if o != nil && !IsNil(o.ToTimestamp) {
+		return true
+	}
+
+	return false
+}
+
+// SetToTimestamp gets a reference to the given int32 and assigns it to the ToTimestamp field.
+func (o *ModelExportReport) SetToTimestamp(v int32) {
+	o.ToTimestamp = &v
 }
 
 // GetType returns the Type field value if set, zero value otherwise.
@@ -349,11 +382,11 @@ func (o ModelExportReport) ToMap() (map[string]interface{}, error) {
 	if !IsNil(o.CreatedAt) {
 		toSerialize["created_at"] = o.CreatedAt
 	}
-	if !IsNil(o.Duration) {
-		toSerialize["duration"] = o.Duration
-	}
 	if !IsNil(o.Filters) {
 		toSerialize["filters"] = o.Filters
+	}
+	if !IsNil(o.FromTimestamp) {
+		toSerialize["from_timestamp"] = o.FromTimestamp
 	}
 	if !IsNil(o.ReportId) {
 		toSerialize["report_id"] = o.ReportId
@@ -363,6 +396,9 @@ func (o ModelExportReport) ToMap() (map[string]interface{}, error) {
 	}
 	if !IsNil(o.StoragePath) {
 		toSerialize["storage_path"] = o.StoragePath
+	}
+	if !IsNil(o.ToTimestamp) {
+		toSerialize["to_timestamp"] = o.ToTimestamp
 	}
 	if !IsNil(o.Type) {
 		toSerialize["type"] = o.Type

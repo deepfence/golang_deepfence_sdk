@@ -16,7 +16,7 @@ info:
     url: https://www.apache.org/licenses/LICENSE-2.0
   termsOfService: /tos
   title: Deepfence ThreatMapper
-  version: 2.0.0
+  version: 2.2.0
 externalDocs:
   description: Deepfence Community
   url: https://community.deepfence.io
@@ -31,6 +31,44 @@ tags:
 - name: Malware Scan
 - name: Vulnerability
 paths:
+  /deepfence/agent-deployment/binary/download-url:
+    get:
+      description: Get agent binary download url
+      operationId: getAgentBinaryDownloadURL
+      responses:
+        "200":
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ModelGetAgentBinaryDownloadURLResponse'
+          description: OK
+        "400":
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ApiDocsBadRequestResponse'
+          description: Bad Request
+        "401":
+          description: Unauthorized
+        "403":
+          description: Forbidden
+        "404":
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ApiDocsFailureResponse'
+          description: Not Found
+        "500":
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ApiDocsFailureResponse'
+          description: Internal Server Error
+      security:
+      - bearer_token: []
+      summary: Get agent binary download url
+      tags:
+      - Settings
   /deepfence/api-token:
     get:
       description: Get logged in user's API Tokens
@@ -233,6 +271,45 @@ paths:
       security:
       - bearer_token: []
       summary: Register Cloud Node Account
+      tags:
+      - Cloud Nodes
+  /deepfence/cloud-node/account/delete:
+    patch:
+      description: Delete Cloud Node Account and related resources
+      operationId: deleteCloudNodeAccount
+      requestBody:
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/ModelCloudAccountDeleteReq'
+      responses:
+        "202":
+          description: Accepted
+        "400":
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ApiDocsBadRequestResponse'
+          description: Bad Request
+        "401":
+          description: Unauthorized
+        "403":
+          description: Forbidden
+        "404":
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ApiDocsFailureResponse'
+          description: Not Found
+        "500":
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ApiDocsFailureResponse'
+          description: Internal Server Error
+      security:
+      - bearer_token: []
+      summary: Delete Cloud Node Account
       tags:
       - Cloud Nodes
   /deepfence/cloud-node/account/refresh:
@@ -9241,6 +9318,87 @@ paths:
       summary: Delete Email Configurations
       tags:
       - Settings
+  /deepfence/settings/email/test:
+    post:
+      description: Test Configured Email
+      operationId: testConfiguredEmail
+      responses:
+        "200":
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ModelMessageResponse'
+          description: OK
+        "400":
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ApiDocsBadRequestResponse'
+          description: Bad Request
+        "401":
+          description: Unauthorized
+        "403":
+          description: Forbidden
+        "404":
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ApiDocsFailureResponse'
+          description: Not Found
+        "500":
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ApiDocsFailureResponse'
+          description: Internal Server Error
+      security:
+      - bearer_token: []
+      summary: Test Configured Email
+      tags:
+      - Settings
+  /deepfence/settings/email/test-unconfigured:
+    post:
+      description: Test Unconfigured Email
+      operationId: testUnconfiguredEmail
+      requestBody:
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/ModelEmailConfigurationAdd'
+      responses:
+        "200":
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ModelMessageResponse'
+          description: OK
+        "400":
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ApiDocsBadRequestResponse'
+          description: Bad Request
+        "401":
+          description: Unauthorized
+        "403":
+          description: Forbidden
+        "404":
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ApiDocsFailureResponse'
+          description: Not Found
+        "500":
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ApiDocsFailureResponse'
+          description: Internal Server Error
+      security:
+      - bearer_token: []
+      summary: Test Unconfigured Email
+      tags:
+      - Settings
   /deepfence/settings/global-settings:
     get:
       description: Get all settings
@@ -10024,8 +10182,8 @@ components:
       example:
         error_index:
           key:
-          - 5
-          - 5
+          - 0
+          - 0
         success: false
         error_fields:
           key: error_fields
@@ -11995,6 +12153,20 @@ components:
       - filters
       - scan_type
       type: object
+    ModelCloudAccountDeleteReq:
+      example:
+        node_ids:
+        - node_ids
+        - node_ids
+      properties:
+        node_ids:
+          items:
+            type: string
+          nullable: true
+          type: array
+      required:
+      - node_ids
+      type: object
     ModelCloudAccountRefreshReq:
       example:
         node_ids:
@@ -13527,6 +13699,7 @@ components:
         email_id: email_id
         password: password
         smtp: smtp
+        apikey: apikey
         port: port
         email_provider: email_provider
         amazon_secret_key: amazon_secret_key
@@ -13537,6 +13710,8 @@ components:
         amazon_access_key:
           type: string
         amazon_secret_key:
+          type: string
+        apikey:
           type: string
         created_by_user_id:
           type: integer
@@ -13580,11 +13755,12 @@ components:
       type: object
     ModelExportReport:
       example:
-        duration: 6
-        updated_at: 1
+        to_timestamp: 1
+        updated_at: 5
         storage_path: storage_path
         report_id: report_id
         created_at: 0
+        from_timestamp: 6
         filters: filters
         type: type
         url: url
@@ -13592,16 +13768,18 @@ components:
       properties:
         created_at:
           type: integer
-        duration:
-          type: integer
         filters:
           type: string
+        from_timestamp:
+          type: integer
         report_id:
           type: string
         status:
           type: string
         storage_path:
           type: string
+        to_timestamp:
+          type: integer
         type:
           type: string
         updated_at:
@@ -13702,9 +13880,10 @@ components:
       type: object
     ModelGenerateReportReq:
       example:
-        duration: 0
+        to_timestamp: 6
         options:
           sbom_format: syft-json@11.0.1
+        from_timestamp: 0
         filters:
           include_dead_nodes: true
           node_type: host
@@ -13741,18 +13920,10 @@ components:
           - severity_or_check_type
         report_type: pdf
       properties:
-        duration:
-          enum:
-          - 0
-          - 1
-          - 7
-          - 30
-          - 60
-          - 90
-          - 180
-          type: integer
         filters:
           $ref: '#/components/schemas/UtilsReportFilters'
+        from_timestamp:
+          type: integer
         options:
           $ref: '#/components/schemas/UtilsReportOptions'
         report_type:
@@ -13761,6 +13932,8 @@ components:
           - xlsx
           - sbom
           type: string
+        to_timestamp:
+          type: integer
       required:
       - report_type
       type: object
@@ -13971,6 +14144,22 @@ components:
       - cve_type
       - query_type
       - remediation_format
+      type: object
+    ModelGetAgentBinaryDownloadURLResponse:
+      example:
+        agent_binary_arm64_download_url: agent_binary_arm64_download_url
+        agent_binary_amd64_download_url: agent_binary_amd64_download_url
+        start_agent_script_download_url: start_agent_script_download_url
+        uninstall_agent_script_download_url: uninstall_agent_script_download_url
+      properties:
+        agent_binary_amd64_download_url:
+          type: string
+        agent_binary_arm64_download_url:
+          type: string
+        start_agent_script_download_url:
+          type: string
+        uninstall_agent_script_download_url:
+          type: string
       type: object
     ModelGetAuditLogsRequest:
       example:
@@ -17922,7 +18111,6 @@ components:
         license_key:
           type: string
       required:
-      - email
       - license_key
       type: object
     ModelRegisterLicenseResponse:
@@ -19747,6 +19935,7 @@ components:
         key:
           enum:
           - console_url
+          - file_server_url
           - inactive_delete_scan_results
           type: string
         value:

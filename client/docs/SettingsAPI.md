@@ -10,6 +10,7 @@ Method | HTTP request | Description
 [**DeleteEmailConfiguration**](SettingsAPI.md#DeleteEmailConfiguration) | **Delete** /deepfence/settings/email/{config_id} | Delete Email Configurations
 [**DeleteLicense**](SettingsAPI.md#DeleteLicense) | **Delete** /deepfence/license | Delete License
 [**GenerateLicense**](SettingsAPI.md#GenerateLicense) | **Post** /deepfence/license/generate | Generate License Key
+[**GetAgentBinaryDownloadURL**](SettingsAPI.md#GetAgentBinaryDownloadURL) | **Get** /deepfence/agent-deployment/binary/download-url | Get agent binary download url
 [**GetAgentVersions**](SettingsAPI.md#GetAgentVersions) | **Get** /deepfence/settings/agent/versions | Get available agent versions
 [**GetEmailConfiguration**](SettingsAPI.md#GetEmailConfiguration) | **Get** /deepfence/settings/email | Get Email Configurations
 [**GetLicense**](SettingsAPI.md#GetLicense) | **Get** /deepfence/license | Get License Details
@@ -18,6 +19,8 @@ Method | HTTP request | Description
 [**GetUserAuditLogs**](SettingsAPI.md#GetUserAuditLogs) | **Post** /deepfence/settings/user-audit-log | Get user audit logs
 [**GetUserAuditLogsCount**](SettingsAPI.md#GetUserAuditLogsCount) | **Get** /deepfence/settings/user-audit-log/count | Get user audit logs count
 [**RegisterLicense**](SettingsAPI.md#RegisterLicense) | **Post** /deepfence/license | Register License
+[**TestConfiguredEmail**](SettingsAPI.md#TestConfiguredEmail) | **Post** /deepfence/settings/email/test | Test Configured Email
+[**TestUnconfiguredEmail**](SettingsAPI.md#TestUnconfiguredEmail) | **Post** /deepfence/settings/email/test-unconfigured | Test Unconfigured Email
 [**UpdateScheduledTask**](SettingsAPI.md#UpdateScheduledTask) | **Patch** /deepfence/scheduled-task/{id} | Update scheduled task
 [**UpdateSetting**](SettingsAPI.md#UpdateSetting) | **Patch** /deepfence/settings/global-settings/{id} | Update setting
 [**UploadAgentVersion**](SettingsAPI.md#UploadAgentVersion) | **Put** /deepfence/settings/agent/version | Upload New agent version
@@ -412,6 +415,67 @@ Name | Type | Description  | Notes
 ### HTTP request headers
 
 - **Content-Type**: application/json
+- **Accept**: application/json
+
+[[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints)
+[[Back to Model list]](../README.md#documentation-for-models)
+[[Back to README]](../README.md)
+
+
+## GetAgentBinaryDownloadURL
+
+> ModelGetAgentBinaryDownloadURLResponse GetAgentBinaryDownloadURL(ctx).Execute()
+
+Get agent binary download url
+
+
+
+### Example
+
+```go
+package main
+
+import (
+	"context"
+	"fmt"
+	"os"
+	openapiclient "github.com/deepfence/golang_deepfence_sdk/client"
+)
+
+func main() {
+
+	configuration := openapiclient.NewConfiguration()
+	apiClient := openapiclient.NewAPIClient(configuration)
+	resp, r, err := apiClient.SettingsAPI.GetAgentBinaryDownloadURL(context.Background()).Execute()
+	if err != nil {
+		fmt.Fprintf(os.Stderr, "Error when calling `SettingsAPI.GetAgentBinaryDownloadURL``: %v\n", err)
+		fmt.Fprintf(os.Stderr, "Full HTTP response: %v\n", r)
+	}
+	// response from `GetAgentBinaryDownloadURL`: ModelGetAgentBinaryDownloadURLResponse
+	fmt.Fprintf(os.Stdout, "Response from `SettingsAPI.GetAgentBinaryDownloadURL`: %v\n", resp)
+}
+```
+
+### Path Parameters
+
+This endpoint does not need any parameter.
+
+### Other Parameters
+
+Other parameters are passed through a pointer to a apiGetAgentBinaryDownloadURLRequest struct via the builder pattern
+
+
+### Return type
+
+[**ModelGetAgentBinaryDownloadURLResponse**](ModelGetAgentBinaryDownloadURLResponse.md)
+
+### Authorization
+
+[bearer_token](../README.md#bearer_token)
+
+### HTTP request headers
+
+- **Content-Type**: Not defined
 - **Accept**: application/json
 
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints)
@@ -872,7 +936,7 @@ import (
 )
 
 func main() {
-	modelRegisterLicenseRequest := *openapiclient.NewModelRegisterLicenseRequest("Email_example", "LicenseKey_example") // ModelRegisterLicenseRequest |  (optional)
+	modelRegisterLicenseRequest := *openapiclient.NewModelRegisterLicenseRequest("LicenseKey_example") // ModelRegisterLicenseRequest |  (optional)
 
 	configuration := openapiclient.NewConfiguration()
 	apiClient := openapiclient.NewAPIClient(configuration)
@@ -902,6 +966,133 @@ Name | Type | Description  | Notes
 ### Return type
 
 [**ModelRegisterLicenseResponse**](ModelRegisterLicenseResponse.md)
+
+### Authorization
+
+[bearer_token](../README.md#bearer_token)
+
+### HTTP request headers
+
+- **Content-Type**: application/json
+- **Accept**: application/json
+
+[[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints)
+[[Back to Model list]](../README.md#documentation-for-models)
+[[Back to README]](../README.md)
+
+
+## TestConfiguredEmail
+
+> ModelMessageResponse TestConfiguredEmail(ctx).Execute()
+
+Test Configured Email
+
+
+
+### Example
+
+```go
+package main
+
+import (
+	"context"
+	"fmt"
+	"os"
+	openapiclient "github.com/deepfence/golang_deepfence_sdk/client"
+)
+
+func main() {
+
+	configuration := openapiclient.NewConfiguration()
+	apiClient := openapiclient.NewAPIClient(configuration)
+	resp, r, err := apiClient.SettingsAPI.TestConfiguredEmail(context.Background()).Execute()
+	if err != nil {
+		fmt.Fprintf(os.Stderr, "Error when calling `SettingsAPI.TestConfiguredEmail``: %v\n", err)
+		fmt.Fprintf(os.Stderr, "Full HTTP response: %v\n", r)
+	}
+	// response from `TestConfiguredEmail`: ModelMessageResponse
+	fmt.Fprintf(os.Stdout, "Response from `SettingsAPI.TestConfiguredEmail`: %v\n", resp)
+}
+```
+
+### Path Parameters
+
+This endpoint does not need any parameter.
+
+### Other Parameters
+
+Other parameters are passed through a pointer to a apiTestConfiguredEmailRequest struct via the builder pattern
+
+
+### Return type
+
+[**ModelMessageResponse**](ModelMessageResponse.md)
+
+### Authorization
+
+[bearer_token](../README.md#bearer_token)
+
+### HTTP request headers
+
+- **Content-Type**: Not defined
+- **Accept**: application/json
+
+[[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints)
+[[Back to Model list]](../README.md#documentation-for-models)
+[[Back to README]](../README.md)
+
+
+## TestUnconfiguredEmail
+
+> ModelMessageResponse TestUnconfiguredEmail(ctx).ModelEmailConfigurationAdd(modelEmailConfigurationAdd).Execute()
+
+Test Unconfigured Email
+
+
+
+### Example
+
+```go
+package main
+
+import (
+	"context"
+	"fmt"
+	"os"
+	openapiclient "github.com/deepfence/golang_deepfence_sdk/client"
+)
+
+func main() {
+	modelEmailConfigurationAdd := *openapiclient.NewModelEmailConfigurationAdd() // ModelEmailConfigurationAdd |  (optional)
+
+	configuration := openapiclient.NewConfiguration()
+	apiClient := openapiclient.NewAPIClient(configuration)
+	resp, r, err := apiClient.SettingsAPI.TestUnconfiguredEmail(context.Background()).ModelEmailConfigurationAdd(modelEmailConfigurationAdd).Execute()
+	if err != nil {
+		fmt.Fprintf(os.Stderr, "Error when calling `SettingsAPI.TestUnconfiguredEmail``: %v\n", err)
+		fmt.Fprintf(os.Stderr, "Full HTTP response: %v\n", r)
+	}
+	// response from `TestUnconfiguredEmail`: ModelMessageResponse
+	fmt.Fprintf(os.Stdout, "Response from `SettingsAPI.TestUnconfiguredEmail`: %v\n", resp)
+}
+```
+
+### Path Parameters
+
+
+
+### Other Parameters
+
+Other parameters are passed through a pointer to a apiTestUnconfiguredEmailRequest struct via the builder pattern
+
+
+Name | Type | Description  | Notes
+------------- | ------------- | ------------- | -------------
+ **modelEmailConfigurationAdd** | [**ModelEmailConfigurationAdd**](ModelEmailConfigurationAdd.md) |  | 
+
+### Return type
+
+[**ModelMessageResponse**](ModelMessageResponse.md)
 
 ### Authorization
 

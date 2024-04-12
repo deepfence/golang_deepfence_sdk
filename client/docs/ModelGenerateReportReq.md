@@ -4,10 +4,11 @@
 
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
-**Duration** | Pointer to **int32** |  | [optional] 
 **Filters** | Pointer to [**UtilsReportFilters**](UtilsReportFilters.md) |  | [optional] 
+**FromTimestamp** | Pointer to **int32** |  | [optional] 
 **Options** | Pointer to [**UtilsReportOptions**](UtilsReportOptions.md) |  | [optional] 
 **ReportType** | **string** |  | 
+**ToTimestamp** | Pointer to **int32** |  | [optional] 
 
 ## Methods
 
@@ -27,31 +28,6 @@ will change when the set of required properties is changed
 NewModelGenerateReportReqWithDefaults instantiates a new ModelGenerateReportReq object
 This constructor will only assign default values to properties that have it defined,
 but it doesn't guarantee that properties required by API are set
-
-### GetDuration
-
-`func (o *ModelGenerateReportReq) GetDuration() int32`
-
-GetDuration returns the Duration field if non-nil, zero value otherwise.
-
-### GetDurationOk
-
-`func (o *ModelGenerateReportReq) GetDurationOk() (*int32, bool)`
-
-GetDurationOk returns a tuple with the Duration field if it's non-nil, zero value otherwise
-and a boolean to check if the value has been set.
-
-### SetDuration
-
-`func (o *ModelGenerateReportReq) SetDuration(v int32)`
-
-SetDuration sets Duration field to given value.
-
-### HasDuration
-
-`func (o *ModelGenerateReportReq) HasDuration() bool`
-
-HasDuration returns a boolean if a field has been set.
 
 ### GetFilters
 
@@ -77,6 +53,31 @@ SetFilters sets Filters field to given value.
 `func (o *ModelGenerateReportReq) HasFilters() bool`
 
 HasFilters returns a boolean if a field has been set.
+
+### GetFromTimestamp
+
+`func (o *ModelGenerateReportReq) GetFromTimestamp() int32`
+
+GetFromTimestamp returns the FromTimestamp field if non-nil, zero value otherwise.
+
+### GetFromTimestampOk
+
+`func (o *ModelGenerateReportReq) GetFromTimestampOk() (*int32, bool)`
+
+GetFromTimestampOk returns a tuple with the FromTimestamp field if it's non-nil, zero value otherwise
+and a boolean to check if the value has been set.
+
+### SetFromTimestamp
+
+`func (o *ModelGenerateReportReq) SetFromTimestamp(v int32)`
+
+SetFromTimestamp sets FromTimestamp field to given value.
+
+### HasFromTimestamp
+
+`func (o *ModelGenerateReportReq) HasFromTimestamp() bool`
+
+HasFromTimestamp returns a boolean if a field has been set.
 
 ### GetOptions
 
@@ -122,6 +123,31 @@ and a boolean to check if the value has been set.
 
 SetReportType sets ReportType field to given value.
 
+
+### GetToTimestamp
+
+`func (o *ModelGenerateReportReq) GetToTimestamp() int32`
+
+GetToTimestamp returns the ToTimestamp field if non-nil, zero value otherwise.
+
+### GetToTimestampOk
+
+`func (o *ModelGenerateReportReq) GetToTimestampOk() (*int32, bool)`
+
+GetToTimestampOk returns a tuple with the ToTimestamp field if it's non-nil, zero value otherwise
+and a boolean to check if the value has been set.
+
+### SetToTimestamp
+
+`func (o *ModelGenerateReportReq) SetToTimestamp(v int32)`
+
+SetToTimestamp sets ToTimestamp field to given value.
+
+### HasToTimestamp
+
+`func (o *ModelGenerateReportReq) HasToTimestamp() bool`
+
+HasToTimestamp returns a boolean if a field has been set.
 
 
 [[Back to Model list]](../README.md#documentation-for-models) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to README]](../README.md)

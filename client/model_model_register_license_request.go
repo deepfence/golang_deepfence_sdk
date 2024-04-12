@@ -3,7 +3,7 @@ Deepfence ThreatMapper
 
 Deepfence Runtime API provides programmatic control over Deepfence microservice securing your container, kubernetes and cloud deployments. The API abstracts away underlying infrastructure details like cloud provider,  container distros, container orchestrator and type of deployment. This is one uniform API to manage and control security alerts, policies and response to alerts for microservices running anywhere i.e. managed pure greenfield container deployments or a mix of containers, VMs and serverless paradigms like AWS Fargate.
 
-API version: 2.0.0
+API version: 2.2.0
 Contact: community@deepfence.io
 */
 
@@ -22,7 +22,7 @@ var _ MappedNullable = &ModelRegisterLicenseRequest{}
 
 // ModelRegisterLicenseRequest struct for ModelRegisterLicenseRequest
 type ModelRegisterLicenseRequest struct {
-	Email string `json:"email"`
+	Email *string `json:"email,omitempty"`
 	LicenseKey string `json:"license_key"`
 }
 
@@ -32,9 +32,8 @@ type _ModelRegisterLicenseRequest ModelRegisterLicenseRequest
 // This constructor will assign default values to properties that have it defined,
 // and makes sure properties required by API are set, but the set of arguments
 // will change when the set of required properties is changed
-func NewModelRegisterLicenseRequest(email string, licenseKey string) *ModelRegisterLicenseRequest {
+func NewModelRegisterLicenseRequest(licenseKey string) *ModelRegisterLicenseRequest {
 	this := ModelRegisterLicenseRequest{}
-	this.Email = email
 	this.LicenseKey = licenseKey
 	return &this
 }
@@ -47,28 +46,36 @@ func NewModelRegisterLicenseRequestWithDefaults() *ModelRegisterLicenseRequest {
 	return &this
 }
 
-// GetEmail returns the Email field value
+// GetEmail returns the Email field value if set, zero value otherwise.
 func (o *ModelRegisterLicenseRequest) GetEmail() string {
-	if o == nil {
+	if o == nil || IsNil(o.Email) {
 		var ret string
 		return ret
 	}
-
-	return o.Email
+	return *o.Email
 }
 
-// GetEmailOk returns a tuple with the Email field value
+// GetEmailOk returns a tuple with the Email field value if set, nil otherwise
 // and a boolean to check if the value has been set.
 func (o *ModelRegisterLicenseRequest) GetEmailOk() (*string, bool) {
-	if o == nil {
+	if o == nil || IsNil(o.Email) {
 		return nil, false
 	}
-	return &o.Email, true
+	return o.Email, true
 }
 
-// SetEmail sets field value
+// HasEmail returns a boolean if a field has been set.
+func (o *ModelRegisterLicenseRequest) HasEmail() bool {
+	if o != nil && !IsNil(o.Email) {
+		return true
+	}
+
+	return false
+}
+
+// SetEmail gets a reference to the given string and assigns it to the Email field.
 func (o *ModelRegisterLicenseRequest) SetEmail(v string) {
-	o.Email = v
+	o.Email = &v
 }
 
 // GetLicenseKey returns the LicenseKey field value
@@ -105,7 +112,9 @@ func (o ModelRegisterLicenseRequest) MarshalJSON() ([]byte, error) {
 
 func (o ModelRegisterLicenseRequest) ToMap() (map[string]interface{}, error) {
 	toSerialize := map[string]interface{}{}
-	toSerialize["email"] = o.Email
+	if !IsNil(o.Email) {
+		toSerialize["email"] = o.Email
+	}
 	toSerialize["license_key"] = o.LicenseKey
 	return toSerialize, nil
 }
@@ -115,7 +124,6 @@ func (o *ModelRegisterLicenseRequest) UnmarshalJSON(data []byte) (err error) {
 	// by unmarshalling the object into a generic map with string keys and checking
 	// that every required field exists as a key in the generic map.
 	requiredProperties := []string{
-		"email",
 		"license_key",
 	}
 

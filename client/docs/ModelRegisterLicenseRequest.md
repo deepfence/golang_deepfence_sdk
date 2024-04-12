@@ -4,14 +4,14 @@
 
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
-**Email** | **string** |  | 
+**Email** | Pointer to **string** |  | [optional] 
 **LicenseKey** | **string** |  | 
 
 ## Methods
 
 ### NewModelRegisterLicenseRequest
 
-`func NewModelRegisterLicenseRequest(email string, licenseKey string, ) *ModelRegisterLicenseRequest`
+`func NewModelRegisterLicenseRequest(licenseKey string, ) *ModelRegisterLicenseRequest`
 
 NewModelRegisterLicenseRequest instantiates a new ModelRegisterLicenseRequest object
 This constructor will assign default values to properties that have it defined,
@@ -45,6 +45,11 @@ and a boolean to check if the value has been set.
 
 SetEmail sets Email field to given value.
 
+### HasEmail
+
+`func (o *ModelRegisterLicenseRequest) HasEmail() bool`
+
+HasEmail returns a boolean if a field has been set.
 
 ### GetLicenseKey
 

@@ -4,11 +4,76 @@ All URIs are relative to *http://localhost*
 
 Method | HTTP request | Description
 ------------- | ------------- | -------------
+[**DeleteCloudNodeAccount**](CloudNodesAPI.md#DeleteCloudNodeAccount) | **Patch** /deepfence/cloud-node/account/delete | Delete Cloud Node Account
 [**ListCloudNodeAccount**](CloudNodesAPI.md#ListCloudNodeAccount) | **Post** /deepfence/cloud-node/list/accounts | List Cloud Node Accounts
 [**ListCloudProviders**](CloudNodesAPI.md#ListCloudProviders) | **Get** /deepfence/cloud-node/list/providers | List Cloud Node Providers
 [**RefreshCloudNodeAccount**](CloudNodesAPI.md#RefreshCloudNodeAccount) | **Post** /deepfence/cloud-node/account/refresh | Refresh Cloud Account
 [**RegisterCloudNodeAccount**](CloudNodesAPI.md#RegisterCloudNodeAccount) | **Post** /deepfence/cloud-node/account | Register Cloud Node Account
 
+
+
+## DeleteCloudNodeAccount
+
+> DeleteCloudNodeAccount(ctx).ModelCloudAccountDeleteReq(modelCloudAccountDeleteReq).Execute()
+
+Delete Cloud Node Account
+
+
+
+### Example
+
+```go
+package main
+
+import (
+	"context"
+	"fmt"
+	"os"
+	openapiclient "github.com/deepfence/golang_deepfence_sdk/client"
+)
+
+func main() {
+	modelCloudAccountDeleteReq := *openapiclient.NewModelCloudAccountDeleteReq([]string{"NodeIds_example"}) // ModelCloudAccountDeleteReq |  (optional)
+
+	configuration := openapiclient.NewConfiguration()
+	apiClient := openapiclient.NewAPIClient(configuration)
+	r, err := apiClient.CloudNodesAPI.DeleteCloudNodeAccount(context.Background()).ModelCloudAccountDeleteReq(modelCloudAccountDeleteReq).Execute()
+	if err != nil {
+		fmt.Fprintf(os.Stderr, "Error when calling `CloudNodesAPI.DeleteCloudNodeAccount``: %v\n", err)
+		fmt.Fprintf(os.Stderr, "Full HTTP response: %v\n", r)
+	}
+}
+```
+
+### Path Parameters
+
+
+
+### Other Parameters
+
+Other parameters are passed through a pointer to a apiDeleteCloudNodeAccountRequest struct via the builder pattern
+
+
+Name | Type | Description  | Notes
+------------- | ------------- | ------------- | -------------
+ **modelCloudAccountDeleteReq** | [**ModelCloudAccountDeleteReq**](ModelCloudAccountDeleteReq.md) |  | 
+
+### Return type
+
+ (empty response body)
+
+### Authorization
+
+[bearer_token](../README.md#bearer_token)
+
+### HTTP request headers
+
+- **Content-Type**: application/json
+- **Accept**: application/json
+
+[[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints)
+[[Back to Model list]](../README.md#documentation-for-models)
+[[Back to README]](../README.md)
 
 
 ## ListCloudNodeAccount

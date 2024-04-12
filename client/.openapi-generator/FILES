@@ -99,6 +99,7 @@ docs/ModelAgentUpgrade.md
 docs/ModelBasicNode.md
 docs/ModelBulkDeleteReportReq.md
 docs/ModelBulkDeleteScansRequest.md
+docs/ModelCloudAccountDeleteReq.md
 docs/ModelCloudAccountRefreshReq.md
 docs/ModelCloudCompliance.md
 docs/ModelCloudComplianceBenchmark.md
@@ -147,6 +148,7 @@ docs/ModelGenerativeAiIntegrationListResponse.md
 docs/ModelGenerativeAiIntegrationMalwareRequest.md
 docs/ModelGenerativeAiIntegrationSecretRequest.md
 docs/ModelGenerativeAiIntegrationVulnerabilityRequest.md
+docs/ModelGetAgentBinaryDownloadURLResponse.md
 docs/ModelGetAuditLogsRequest.md
 docs/ModelGraphResult.md
 docs/ModelHost.md
@@ -322,6 +324,7 @@ model_model_api_token_response.go
 model_model_basic_node.go
 model_model_bulk_delete_report_req.go
 model_model_bulk_delete_scans_request.go
+model_model_cloud_account_delete_req.go
 model_model_cloud_account_refresh_req.go
 model_model_cloud_compliance.go
 model_model_cloud_compliance_benchmark.go
@@ -370,6 +373,7 @@ model_model_generative_ai_integration_list_response.go
 model_model_generative_ai_integration_malware_request.go
 model_model_generative_ai_integration_secret_request.go
 model_model_generative_ai_integration_vulnerability_request.go
+model_model_get_agent_binary_download_url_response.go
 model_model_get_audit_logs_request.go
 model_model_graph_result.go
 model_model_host.go

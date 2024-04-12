@@ -6,6 +6,7 @@ Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
 **AmazonAccessKey** | Pointer to **string** |  | [optional] 
 **AmazonSecretKey** | Pointer to **string** |  | [optional] 
+**Apikey** | Pointer to **string** |  | [optional] 
 **CreatedByUserId** | Pointer to **int32** |  | [optional] 
 **EmailId** | Pointer to **string** |  | [optional] 
 **EmailProvider** | Pointer to **string** |  | [optional] 
@@ -82,6 +83,31 @@ SetAmazonSecretKey sets AmazonSecretKey field to given value.
 `func (o *ModelEmailConfigurationAdd) HasAmazonSecretKey() bool`
 
 HasAmazonSecretKey returns a boolean if a field has been set.
+
+### GetApikey
+
+`func (o *ModelEmailConfigurationAdd) GetApikey() string`
+
+GetApikey returns the Apikey field if non-nil, zero value otherwise.
+
+### GetApikeyOk
+
+`func (o *ModelEmailConfigurationAdd) GetApikeyOk() (*string, bool)`
+
+GetApikeyOk returns a tuple with the Apikey field if it's non-nil, zero value otherwise
+and a boolean to check if the value has been set.
+
+### SetApikey
+
+`func (o *ModelEmailConfigurationAdd) SetApikey(v string)`
+
+SetApikey sets Apikey field to given value.
+
+### HasApikey
+
+`func (o *ModelEmailConfigurationAdd) HasApikey() bool`
+
+HasApikey returns a boolean if a field has been set.
 
 ### GetCreatedByUserId
 

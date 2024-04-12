@@ -3,7 +3,7 @@ Deepfence ThreatMapper
 
 Deepfence Runtime API provides programmatic control over Deepfence microservice securing your container, kubernetes and cloud deployments. The API abstracts away underlying infrastructure details like cloud provider,  container distros, container orchestrator and type of deployment. This is one uniform API to manage and control security alerts, policies and response to alerts for microservices running anywhere i.e. managed pure greenfield container deployments or a mix of containers, VMs and serverless paradigms like AWS Fargate.
 
-API version: 2.0.0
+API version: 2.2.0
 Contact: community@deepfence.io
 */
 
@@ -22,6 +22,7 @@ var _ MappedNullable = &ModelEmailConfigurationAdd{}
 type ModelEmailConfigurationAdd struct {
 	AmazonAccessKey *string `json:"amazon_access_key,omitempty"`
 	AmazonSecretKey *string `json:"amazon_secret_key,omitempty"`
+	Apikey *string `json:"apikey,omitempty"`
 	CreatedByUserId *int32 `json:"created_by_user_id,omitempty"`
 	EmailId *string `json:"email_id,omitempty"`
 	EmailProvider *string `json:"email_provider,omitempty"`
@@ -110,6 +111,38 @@ func (o *ModelEmailConfigurationAdd) HasAmazonSecretKey() bool {
 // SetAmazonSecretKey gets a reference to the given string and assigns it to the AmazonSecretKey field.
 func (o *ModelEmailConfigurationAdd) SetAmazonSecretKey(v string) {
 	o.AmazonSecretKey = &v
+}
+
+// GetApikey returns the Apikey field value if set, zero value otherwise.
+func (o *ModelEmailConfigurationAdd) GetApikey() string {
+	if o == nil || IsNil(o.Apikey) {
+		var ret string
+		return ret
+	}
+	return *o.Apikey
+}
+
+// GetApikeyOk returns a tuple with the Apikey field value if set, nil otherwise
+// and a boolean to check if the value has been set.
+func (o *ModelEmailConfigurationAdd) GetApikeyOk() (*string, bool) {
+	if o == nil || IsNil(o.Apikey) {
+		return nil, false
+	}
+	return o.Apikey, true
+}
+
+// HasApikey returns a boolean if a field has been set.
+func (o *ModelEmailConfigurationAdd) HasApikey() bool {
+	if o != nil && !IsNil(o.Apikey) {
+		return true
+	}
+
+	return false
+}
+
+// SetApikey gets a reference to the given string and assigns it to the Apikey field.
+func (o *ModelEmailConfigurationAdd) SetApikey(v string) {
+	o.Apikey = &v
 }
 
 // GetCreatedByUserId returns the CreatedByUserId field value if set, zero value otherwise.
@@ -351,6 +384,9 @@ func (o ModelEmailConfigurationAdd) ToMap() (map[string]interface{}, error) {
 	}
 	if !IsNil(o.AmazonSecretKey) {
 		toSerialize["amazon_secret_key"] = o.AmazonSecretKey
+	}
+	if !IsNil(o.Apikey) {
+		toSerialize["apikey"] = o.Apikey
 	}
 	if !IsNil(o.CreatedByUserId) {
 		toSerialize["created_by_user_id"] = o.CreatedByUserId

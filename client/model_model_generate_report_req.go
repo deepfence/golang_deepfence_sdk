@@ -3,7 +3,7 @@ Deepfence ThreatMapper
 
 Deepfence Runtime API provides programmatic control over Deepfence microservice securing your container, kubernetes and cloud deployments. The API abstracts away underlying infrastructure details like cloud provider,  container distros, container orchestrator and type of deployment. This is one uniform API to manage and control security alerts, policies and response to alerts for microservices running anywhere i.e. managed pure greenfield container deployments or a mix of containers, VMs and serverless paradigms like AWS Fargate.
 
-API version: 2.0.0
+API version: 2.2.0
 Contact: community@deepfence.io
 */
 
@@ -22,10 +22,11 @@ var _ MappedNullable = &ModelGenerateReportReq{}
 
 // ModelGenerateReportReq struct for ModelGenerateReportReq
 type ModelGenerateReportReq struct {
-	Duration *int32 `json:"duration,omitempty"`
 	Filters *UtilsReportFilters `json:"filters,omitempty"`
+	FromTimestamp *int32 `json:"from_timestamp,omitempty"`
 	Options *UtilsReportOptions `json:"options,omitempty"`
 	ReportType string `json:"report_type"`
+	ToTimestamp *int32 `json:"to_timestamp,omitempty"`
 }
 
 type _ModelGenerateReportReq ModelGenerateReportReq
@@ -46,38 +47,6 @@ func NewModelGenerateReportReq(reportType string) *ModelGenerateReportReq {
 func NewModelGenerateReportReqWithDefaults() *ModelGenerateReportReq {
 	this := ModelGenerateReportReq{}
 	return &this
-}
-
-// GetDuration returns the Duration field value if set, zero value otherwise.
-func (o *ModelGenerateReportReq) GetDuration() int32 {
-	if o == nil || IsNil(o.Duration) {
-		var ret int32
-		return ret
-	}
-	return *o.Duration
-}
-
-// GetDurationOk returns a tuple with the Duration field value if set, nil otherwise
-// and a boolean to check if the value has been set.
-func (o *ModelGenerateReportReq) GetDurationOk() (*int32, bool) {
-	if o == nil || IsNil(o.Duration) {
-		return nil, false
-	}
-	return o.Duration, true
-}
-
-// HasDuration returns a boolean if a field has been set.
-func (o *ModelGenerateReportReq) HasDuration() bool {
-	if o != nil && !IsNil(o.Duration) {
-		return true
-	}
-
-	return false
-}
-
-// SetDuration gets a reference to the given int32 and assigns it to the Duration field.
-func (o *ModelGenerateReportReq) SetDuration(v int32) {
-	o.Duration = &v
 }
 
 // GetFilters returns the Filters field value if set, zero value otherwise.
@@ -110,6 +79,38 @@ func (o *ModelGenerateReportReq) HasFilters() bool {
 // SetFilters gets a reference to the given UtilsReportFilters and assigns it to the Filters field.
 func (o *ModelGenerateReportReq) SetFilters(v UtilsReportFilters) {
 	o.Filters = &v
+}
+
+// GetFromTimestamp returns the FromTimestamp field value if set, zero value otherwise.
+func (o *ModelGenerateReportReq) GetFromTimestamp() int32 {
+	if o == nil || IsNil(o.FromTimestamp) {
+		var ret int32
+		return ret
+	}
+	return *o.FromTimestamp
+}
+
+// GetFromTimestampOk returns a tuple with the FromTimestamp field value if set, nil otherwise
+// and a boolean to check if the value has been set.
+func (o *ModelGenerateReportReq) GetFromTimestampOk() (*int32, bool) {
+	if o == nil || IsNil(o.FromTimestamp) {
+		return nil, false
+	}
+	return o.FromTimestamp, true
+}
+
+// HasFromTimestamp returns a boolean if a field has been set.
+func (o *ModelGenerateReportReq) HasFromTimestamp() bool {
+	if o != nil && !IsNil(o.FromTimestamp) {
+		return true
+	}
+
+	return false
+}
+
+// SetFromTimestamp gets a reference to the given int32 and assigns it to the FromTimestamp field.
+func (o *ModelGenerateReportReq) SetFromTimestamp(v int32) {
+	o.FromTimestamp = &v
 }
 
 // GetOptions returns the Options field value if set, zero value otherwise.
@@ -168,6 +169,38 @@ func (o *ModelGenerateReportReq) SetReportType(v string) {
 	o.ReportType = v
 }
 
+// GetToTimestamp returns the ToTimestamp field value if set, zero value otherwise.
+func (o *ModelGenerateReportReq) GetToTimestamp() int32 {
+	if o == nil || IsNil(o.ToTimestamp) {
+		var ret int32
+		return ret
+	}
+	return *o.ToTimestamp
+}
+
+// GetToTimestampOk returns a tuple with the ToTimestamp field value if set, nil otherwise
+// and a boolean to check if the value has been set.
+func (o *ModelGenerateReportReq) GetToTimestampOk() (*int32, bool) {
+	if o == nil || IsNil(o.ToTimestamp) {
+		return nil, false
+	}
+	return o.ToTimestamp, true
+}
+
+// HasToTimestamp returns a boolean if a field has been set.
+func (o *ModelGenerateReportReq) HasToTimestamp() bool {
+	if o != nil && !IsNil(o.ToTimestamp) {
+		return true
+	}
+
+	return false
+}
+
+// SetToTimestamp gets a reference to the given int32 and assigns it to the ToTimestamp field.
+func (o *ModelGenerateReportReq) SetToTimestamp(v int32) {
+	o.ToTimestamp = &v
+}
+
 func (o ModelGenerateReportReq) MarshalJSON() ([]byte, error) {
 	toSerialize,err := o.ToMap()
 	if err != nil {
@@ -178,16 +211,19 @@ func (o ModelGenerateReportReq) MarshalJSON() ([]byte, error) {
 
 func (o ModelGenerateReportReq) ToMap() (map[string]interface{}, error) {
 	toSerialize := map[string]interface{}{}
-	if !IsNil(o.Duration) {
-		toSerialize["duration"] = o.Duration
-	}
 	if !IsNil(o.Filters) {
 		toSerialize["filters"] = o.Filters
+	}
+	if !IsNil(o.FromTimestamp) {
+		toSerialize["from_timestamp"] = o.FromTimestamp
 	}
 	if !IsNil(o.Options) {
 		toSerialize["options"] = o.Options
 	}
 	toSerialize["report_type"] = o.ReportType
+	if !IsNil(o.ToTimestamp) {
+		toSerialize["to_timestamp"] = o.ToTimestamp
+	}
 	return toSerialize, nil
 }
 

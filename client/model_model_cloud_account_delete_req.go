@@ -17,61 +17,61 @@ import (
 	"fmt"
 )
 
-// checks if the ModelMalwareScanResultRules type satisfies the MappedNullable interface at compile time
-var _ MappedNullable = &ModelMalwareScanResultRules{}
+// checks if the ModelCloudAccountDeleteReq type satisfies the MappedNullable interface at compile time
+var _ MappedNullable = &ModelCloudAccountDeleteReq{}
 
-// ModelMalwareScanResultRules struct for ModelMalwareScanResultRules
-type ModelMalwareScanResultRules struct {
-	Rules []string `json:"rules"`
+// ModelCloudAccountDeleteReq struct for ModelCloudAccountDeleteReq
+type ModelCloudAccountDeleteReq struct {
+	NodeIds []string `json:"node_ids"`
 }
 
-type _ModelMalwareScanResultRules ModelMalwareScanResultRules
+type _ModelCloudAccountDeleteReq ModelCloudAccountDeleteReq
 
-// NewModelMalwareScanResultRules instantiates a new ModelMalwareScanResultRules object
+// NewModelCloudAccountDeleteReq instantiates a new ModelCloudAccountDeleteReq object
 // This constructor will assign default values to properties that have it defined,
 // and makes sure properties required by API are set, but the set of arguments
 // will change when the set of required properties is changed
-func NewModelMalwareScanResultRules(rules []string) *ModelMalwareScanResultRules {
-	this := ModelMalwareScanResultRules{}
-	this.Rules = rules
+func NewModelCloudAccountDeleteReq(nodeIds []string) *ModelCloudAccountDeleteReq {
+	this := ModelCloudAccountDeleteReq{}
+	this.NodeIds = nodeIds
 	return &this
 }
 
-// NewModelMalwareScanResultRulesWithDefaults instantiates a new ModelMalwareScanResultRules object
+// NewModelCloudAccountDeleteReqWithDefaults instantiates a new ModelCloudAccountDeleteReq object
 // This constructor will only assign default values to properties that have it defined,
 // but it doesn't guarantee that properties required by API are set
-func NewModelMalwareScanResultRulesWithDefaults() *ModelMalwareScanResultRules {
-	this := ModelMalwareScanResultRules{}
+func NewModelCloudAccountDeleteReqWithDefaults() *ModelCloudAccountDeleteReq {
+	this := ModelCloudAccountDeleteReq{}
 	return &this
 }
 
-// GetRules returns the Rules field value
+// GetNodeIds returns the NodeIds field value
 // If the value is explicit nil, the zero value for []string will be returned
-func (o *ModelMalwareScanResultRules) GetRules() []string {
+func (o *ModelCloudAccountDeleteReq) GetNodeIds() []string {
 	if o == nil {
 		var ret []string
 		return ret
 	}
 
-	return o.Rules
+	return o.NodeIds
 }
 
-// GetRulesOk returns a tuple with the Rules field value
+// GetNodeIdsOk returns a tuple with the NodeIds field value
 // and a boolean to check if the value has been set.
 // NOTE: If the value is an explicit nil, `nil, true` will be returned
-func (o *ModelMalwareScanResultRules) GetRulesOk() ([]string, bool) {
-	if o == nil || IsNil(o.Rules) {
+func (o *ModelCloudAccountDeleteReq) GetNodeIdsOk() ([]string, bool) {
+	if o == nil || IsNil(o.NodeIds) {
 		return nil, false
 	}
-	return o.Rules, true
+	return o.NodeIds, true
 }
 
-// SetRules sets field value
-func (o *ModelMalwareScanResultRules) SetRules(v []string) {
-	o.Rules = v
+// SetNodeIds sets field value
+func (o *ModelCloudAccountDeleteReq) SetNodeIds(v []string) {
+	o.NodeIds = v
 }
 
-func (o ModelMalwareScanResultRules) MarshalJSON() ([]byte, error) {
+func (o ModelCloudAccountDeleteReq) MarshalJSON() ([]byte, error) {
 	toSerialize,err := o.ToMap()
 	if err != nil {
 		return []byte{}, err
@@ -79,20 +79,20 @@ func (o ModelMalwareScanResultRules) MarshalJSON() ([]byte, error) {
 	return json.Marshal(toSerialize)
 }
 
-func (o ModelMalwareScanResultRules) ToMap() (map[string]interface{}, error) {
+func (o ModelCloudAccountDeleteReq) ToMap() (map[string]interface{}, error) {
 	toSerialize := map[string]interface{}{}
-	if o.Rules != nil {
-		toSerialize["rules"] = o.Rules
+	if o.NodeIds != nil {
+		toSerialize["node_ids"] = o.NodeIds
 	}
 	return toSerialize, nil
 }
 
-func (o *ModelMalwareScanResultRules) UnmarshalJSON(data []byte) (err error) {
+func (o *ModelCloudAccountDeleteReq) UnmarshalJSON(data []byte) (err error) {
 	// This validates that all required properties are included in the JSON object
 	// by unmarshalling the object into a generic map with string keys and checking
 	// that every required field exists as a key in the generic map.
 	requiredProperties := []string{
-		"rules",
+		"node_ids",
 	}
 
 	allProperties := make(map[string]interface{})
@@ -109,53 +109,53 @@ func (o *ModelMalwareScanResultRules) UnmarshalJSON(data []byte) (err error) {
 		}
 	}
 
-	varModelMalwareScanResultRules := _ModelMalwareScanResultRules{}
+	varModelCloudAccountDeleteReq := _ModelCloudAccountDeleteReq{}
 
 	decoder := json.NewDecoder(bytes.NewReader(data))
 	decoder.DisallowUnknownFields()
-	err = decoder.Decode(&varModelMalwareScanResultRules)
+	err = decoder.Decode(&varModelCloudAccountDeleteReq)
 
 	if err != nil {
 		return err
 	}
 
-	*o = ModelMalwareScanResultRules(varModelMalwareScanResultRules)
+	*o = ModelCloudAccountDeleteReq(varModelCloudAccountDeleteReq)
 
 	return err
 }
 
-type NullableModelMalwareScanResultRules struct {
-	value *ModelMalwareScanResultRules
+type NullableModelCloudAccountDeleteReq struct {
+	value *ModelCloudAccountDeleteReq
 	isSet bool
 }
 
-func (v NullableModelMalwareScanResultRules) Get() *ModelMalwareScanResultRules {
+func (v NullableModelCloudAccountDeleteReq) Get() *ModelCloudAccountDeleteReq {
 	return v.value
 }
 
-func (v *NullableModelMalwareScanResultRules) Set(val *ModelMalwareScanResultRules) {
+func (v *NullableModelCloudAccountDeleteReq) Set(val *ModelCloudAccountDeleteReq) {
 	v.value = val
 	v.isSet = true
 }
 
-func (v NullableModelMalwareScanResultRules) IsSet() bool {
+func (v NullableModelCloudAccountDeleteReq) IsSet() bool {
 	return v.isSet
 }
 
-func (v *NullableModelMalwareScanResultRules) Unset() {
+func (v *NullableModelCloudAccountDeleteReq) Unset() {
 	v.value = nil
 	v.isSet = false
 }
 
-func NewNullableModelMalwareScanResultRules(val *ModelMalwareScanResultRules) *NullableModelMalwareScanResultRules {
-	return &NullableModelMalwareScanResultRules{value: val, isSet: true}
+func NewNullableModelCloudAccountDeleteReq(val *ModelCloudAccountDeleteReq) *NullableModelCloudAccountDeleteReq {
+	return &NullableModelCloudAccountDeleteReq{value: val, isSet: true}
 }
 
-func (v NullableModelMalwareScanResultRules) MarshalJSON() ([]byte, error) {
+func (v NullableModelCloudAccountDeleteReq) MarshalJSON() ([]byte, error) {
 	return json.Marshal(v.value)
 }
 
-func (v *NullableModelMalwareScanResultRules) UnmarshalJSON(src []byte) error {
+func (v *NullableModelCloudAccountDeleteReq) UnmarshalJSON(src []byte) error {
 	v.isSet = true
 	return json.Unmarshal(src, &v.value)
 }

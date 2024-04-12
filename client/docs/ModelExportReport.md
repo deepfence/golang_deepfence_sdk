@@ -5,11 +5,12 @@
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
 **CreatedAt** | Pointer to **int32** |  | [optional] 
-**Duration** | Pointer to **int32** |  | [optional] 
 **Filters** | Pointer to **string** |  | [optional] 
+**FromTimestamp** | Pointer to **int32** |  | [optional] 
 **ReportId** | Pointer to **string** |  | [optional] 
 **Status** | Pointer to **string** |  | [optional] 
 **StoragePath** | Pointer to **string** |  | [optional] 
+**ToTimestamp** | Pointer to **int32** |  | [optional] 
 **Type** | Pointer to **string** |  | [optional] 
 **UpdatedAt** | Pointer to **int32** |  | [optional] 
 **Url** | Pointer to **string** |  | [optional] 
@@ -58,31 +59,6 @@ SetCreatedAt sets CreatedAt field to given value.
 
 HasCreatedAt returns a boolean if a field has been set.
 
-### GetDuration
-
-`func (o *ModelExportReport) GetDuration() int32`
-
-GetDuration returns the Duration field if non-nil, zero value otherwise.
-
-### GetDurationOk
-
-`func (o *ModelExportReport) GetDurationOk() (*int32, bool)`
-
-GetDurationOk returns a tuple with the Duration field if it's non-nil, zero value otherwise
-and a boolean to check if the value has been set.
-
-### SetDuration
-
-`func (o *ModelExportReport) SetDuration(v int32)`
-
-SetDuration sets Duration field to given value.
-
-### HasDuration
-
-`func (o *ModelExportReport) HasDuration() bool`
-
-HasDuration returns a boolean if a field has been set.
-
 ### GetFilters
 
 `func (o *ModelExportReport) GetFilters() string`
@@ -107,6 +83,31 @@ SetFilters sets Filters field to given value.
 `func (o *ModelExportReport) HasFilters() bool`
 
 HasFilters returns a boolean if a field has been set.
+
+### GetFromTimestamp
+
+`func (o *ModelExportReport) GetFromTimestamp() int32`
+
+GetFromTimestamp returns the FromTimestamp field if non-nil, zero value otherwise.
+
+### GetFromTimestampOk
+
+`func (o *ModelExportReport) GetFromTimestampOk() (*int32, bool)`
+
+GetFromTimestampOk returns a tuple with the FromTimestamp field if it's non-nil, zero value otherwise
+and a boolean to check if the value has been set.
+
+### SetFromTimestamp
+
+`func (o *ModelExportReport) SetFromTimestamp(v int32)`
+
+SetFromTimestamp sets FromTimestamp field to given value.
+
+### HasFromTimestamp
+
+`func (o *ModelExportReport) HasFromTimestamp() bool`
+
+HasFromTimestamp returns a boolean if a field has been set.
 
 ### GetReportId
 
@@ -182,6 +183,31 @@ SetStoragePath sets StoragePath field to given value.
 `func (o *ModelExportReport) HasStoragePath() bool`
 
 HasStoragePath returns a boolean if a field has been set.
+
+### GetToTimestamp
+
+`func (o *ModelExportReport) GetToTimestamp() int32`
+
+GetToTimestamp returns the ToTimestamp field if non-nil, zero value otherwise.
+
+### GetToTimestampOk
+
+`func (o *ModelExportReport) GetToTimestampOk() (*int32, bool)`
+
+GetToTimestampOk returns a tuple with the ToTimestamp field if it's non-nil, zero value otherwise
+and a boolean to check if the value has been set.
+
+### SetToTimestamp
+
+`func (o *ModelExportReport) SetToTimestamp(v int32)`
+
+SetToTimestamp sets ToTimestamp field to given value.
+
+### HasToTimestamp
+
+`func (o *ModelExportReport) HasToTimestamp() bool`
+
+HasToTimestamp returns a boolean if a field has been set.
 
 ### GetType
 
