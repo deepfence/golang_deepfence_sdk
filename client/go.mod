@@ -1,3 +1,3 @@
 module github.com/deepfence/golang_deepfence_sdk/client
 
-go 1.21
+go 1.20
