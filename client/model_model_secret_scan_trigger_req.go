@@ -3,7 +3,7 @@ Deepfence ThreatMapper
 
 Deepfence Runtime API provides programmatic control over Deepfence microservice securing your container, kubernetes and cloud deployments. The API abstracts away underlying infrastructure details like cloud provider,  container distros, container orchestrator and type of deployment. This is one uniform API to manage and control security alerts, policies and response to alerts for microservices running anywhere i.e. managed pure greenfield container deployments or a mix of containers, VMs and serverless paradigms like AWS Fargate.
 
-API version: 2.2.0
+API version: v2.2.0
 Contact: community@deepfence.io
 */
 
@@ -22,6 +22,7 @@ var _ MappedNullable = &ModelSecretScanTriggerReq{}
 
 // ModelSecretScanTriggerReq struct for ModelSecretScanTriggerReq
 type ModelSecretScanTriggerReq struct {
+	DeepfenceSystemScan *bool `json:"deepfence_system_scan,omitempty"`
 	Filters ModelScanFilter `json:"filters"`
 	IsPriority *bool `json:"is_priority,omitempty"`
 	NodeIds []ModelNodeIdentifier `json:"node_ids"`
@@ -46,6 +47,38 @@ func NewModelSecretScanTriggerReq(filters ModelScanFilter, nodeIds []ModelNodeId
 func NewModelSecretScanTriggerReqWithDefaults() *ModelSecretScanTriggerReq {
 	this := ModelSecretScanTriggerReq{}
 	return &this
+}
+
+// GetDeepfenceSystemScan returns the DeepfenceSystemScan field value if set, zero value otherwise.
+func (o *ModelSecretScanTriggerReq) GetDeepfenceSystemScan() bool {
+	if o == nil || IsNil(o.DeepfenceSystemScan) {
+		var ret bool
+		return ret
+	}
+	return *o.DeepfenceSystemScan
+}
+
+// GetDeepfenceSystemScanOk returns a tuple with the DeepfenceSystemScan field value if set, nil otherwise
+// and a boolean to check if the value has been set.
+func (o *ModelSecretScanTriggerReq) GetDeepfenceSystemScanOk() (*bool, bool) {
+	if o == nil || IsNil(o.DeepfenceSystemScan) {
+		return nil, false
+	}
+	return o.DeepfenceSystemScan, true
+}
+
+// HasDeepfenceSystemScan returns a boolean if a field has been set.
+func (o *ModelSecretScanTriggerReq) HasDeepfenceSystemScan() bool {
+	if o != nil && !IsNil(o.DeepfenceSystemScan) {
+		return true
+	}
+
+	return false
+}
+
+// SetDeepfenceSystemScan gets a reference to the given bool and assigns it to the DeepfenceSystemScan field.
+func (o *ModelSecretScanTriggerReq) SetDeepfenceSystemScan(v bool) {
+	o.DeepfenceSystemScan = &v
 }
 
 // GetFilters returns the Filters field value
@@ -140,6 +173,9 @@ func (o ModelSecretScanTriggerReq) MarshalJSON() ([]byte, error) {
 
 func (o ModelSecretScanTriggerReq) ToMap() (map[string]interface{}, error) {
 	toSerialize := map[string]interface{}{}
+	if !IsNil(o.DeepfenceSystemScan) {
+		toSerialize["deepfence_system_scan"] = o.DeepfenceSystemScan
+	}
 	toSerialize["filters"] = o.Filters
 	if !IsNil(o.IsPriority) {
 		toSerialize["is_priority"] = o.IsPriority

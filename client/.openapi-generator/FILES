@@ -102,8 +102,6 @@ docs/ModelBulkDeleteScansRequest.md
 docs/ModelCloudAccountDeleteReq.md
 docs/ModelCloudAccountRefreshReq.md
 docs/ModelCloudCompliance.md
-docs/ModelCloudComplianceBenchmark.md
-docs/ModelCloudComplianceScanDetails.md
 docs/ModelCloudComplianceScanResult.md
 docs/ModelCloudNodeAccountInfo.md
 docs/ModelCloudNodeAccountRegisterReq.md
@@ -327,8 +325,6 @@ model_model_bulk_delete_scans_request.go
 model_model_cloud_account_delete_req.go
 model_model_cloud_account_refresh_req.go
 model_model_cloud_compliance.go
-model_model_cloud_compliance_benchmark.go
-model_model_cloud_compliance_scan_details.go
 model_model_cloud_compliance_scan_result.go
 model_model_cloud_node_account_info.go
 model_model_cloud_node_account_register_req.go

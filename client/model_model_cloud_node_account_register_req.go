@@ -3,7 +3,7 @@ Deepfence ThreatMapper
 
 Deepfence Runtime API provides programmatic control over Deepfence microservice securing your container, kubernetes and cloud deployments. The API abstracts away underlying infrastructure details like cloud provider,  container distros, container orchestrator and type of deployment. This is one uniform API to manage and control security alerts, policies and response to alerts for microservices running anywhere i.e. managed pure greenfield container deployments or a mix of containers, VMs and serverless paradigms like AWS Fargate.
 
-API version: 2.2.0
+API version: v2.2.0
 Contact: community@deepfence.io
 */
 
@@ -24,6 +24,7 @@ var _ MappedNullable = &ModelCloudNodeAccountRegisterReq{}
 type ModelCloudNodeAccountRegisterReq struct {
 	CloudAccount string `json:"cloud_account"`
 	CloudProvider string `json:"cloud_provider"`
+	HostNodeId *string `json:"host_node_id,omitempty"`
 	MonitoredAccountIds map[string]string `json:"monitored_account_ids,omitempty"`
 	NodeId string `json:"node_id"`
 	OrgAccId *string `json:"org_acc_id,omitempty"`
@@ -98,6 +99,38 @@ func (o *ModelCloudNodeAccountRegisterReq) GetCloudProviderOk() (*string, bool) 
 // SetCloudProvider sets field value
 func (o *ModelCloudNodeAccountRegisterReq) SetCloudProvider(v string) {
 	o.CloudProvider = v
+}
+
+// GetHostNodeId returns the HostNodeId field value if set, zero value otherwise.
+func (o *ModelCloudNodeAccountRegisterReq) GetHostNodeId() string {
+	if o == nil || IsNil(o.HostNodeId) {
+		var ret string
+		return ret
+	}
+	return *o.HostNodeId
+}
+
+// GetHostNodeIdOk returns a tuple with the HostNodeId field value if set, nil otherwise
+// and a boolean to check if the value has been set.
+func (o *ModelCloudNodeAccountRegisterReq) GetHostNodeIdOk() (*string, bool) {
+	if o == nil || IsNil(o.HostNodeId) {
+		return nil, false
+	}
+	return o.HostNodeId, true
+}
+
+// HasHostNodeId returns a boolean if a field has been set.
+func (o *ModelCloudNodeAccountRegisterReq) HasHostNodeId() bool {
+	if o != nil && !IsNil(o.HostNodeId) {
+		return true
+	}
+
+	return false
+}
+
+// SetHostNodeId gets a reference to the given string and assigns it to the HostNodeId field.
+func (o *ModelCloudNodeAccountRegisterReq) SetHostNodeId(v string) {
+	o.HostNodeId = &v
 }
 
 // GetMonitoredAccountIds returns the MonitoredAccountIds field value if set, zero value otherwise (both if not set or set to explicit null).
@@ -233,6 +266,9 @@ func (o ModelCloudNodeAccountRegisterReq) ToMap() (map[string]interface{}, error
 	toSerialize := map[string]interface{}{}
 	toSerialize["cloud_account"] = o.CloudAccount
 	toSerialize["cloud_provider"] = o.CloudProvider
+	if !IsNil(o.HostNodeId) {
+		toSerialize["host_node_id"] = o.HostNodeId
+	}
 	if o.MonitoredAccountIds != nil {
 		toSerialize["monitored_account_ids"] = o.MonitoredAccountIds
 	}

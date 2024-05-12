@@ -5,6 +5,7 @@
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
 **BenchmarkTypes** | **[]string** |  | 
+**DeepfenceSystemScan** | Pointer to **bool** |  | [optional] 
 **Filters** | [**ModelScanFilter**](ModelScanFilter.md) |  | 
 **IsPriority** | Pointer to **bool** |  | [optional] 
 **NodeIds** | [**[]ModelNodeIdentifier**](ModelNodeIdentifier.md) |  | 
@@ -58,6 +59,31 @@ SetBenchmarkTypes sets BenchmarkTypes field to given value.
 `func (o *ModelComplianceScanTriggerReq) UnsetBenchmarkTypes()`
 
 UnsetBenchmarkTypes ensures that no value is present for BenchmarkTypes, not even an explicit nil
+### GetDeepfenceSystemScan
+
+`func (o *ModelComplianceScanTriggerReq) GetDeepfenceSystemScan() bool`
+
+GetDeepfenceSystemScan returns the DeepfenceSystemScan field if non-nil, zero value otherwise.
+
+### GetDeepfenceSystemScanOk
+
+`func (o *ModelComplianceScanTriggerReq) GetDeepfenceSystemScanOk() (*bool, bool)`
+
+GetDeepfenceSystemScanOk returns a tuple with the DeepfenceSystemScan field if it's non-nil, zero value otherwise
+and a boolean to check if the value has been set.
+
+### SetDeepfenceSystemScan
+
+`func (o *ModelComplianceScanTriggerReq) SetDeepfenceSystemScan(v bool)`
+
+SetDeepfenceSystemScan sets DeepfenceSystemScan field to given value.
+
+### HasDeepfenceSystemScan
+
+`func (o *ModelComplianceScanTriggerReq) HasDeepfenceSystemScan() bool`
+
+HasDeepfenceSystemScan returns a boolean if a field has been set.
+
 ### GetFilters
 
 `func (o *ModelComplianceScanTriggerReq) GetFilters() ModelScanFilter`

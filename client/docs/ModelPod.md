@@ -6,6 +6,7 @@ Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
 **Containers** | [**[]ModelContainer**](ModelContainer.md) |  | 
 **HostName** | **string** |  | 
+**IsDeepfenceSystem** | **bool** |  | 
 **KubernetesClusterId** | **string** |  | 
 **KubernetesClusterName** | **string** |  | 
 **KubernetesCreated** | **string** |  | 
@@ -26,7 +27,7 @@ Name | Type | Description | Notes
 
 ### NewModelPod
 
-`func NewModelPod(containers []ModelContainer, hostName string, kubernetesClusterId string, kubernetesClusterName string, kubernetesCreated string, kubernetesIp string, kubernetesIsInHostNetwork bool, kubernetesLabels map[string]interface{}, kubernetesNamespace string, kubernetesState string, malwareScanStatus string, nodeId string, nodeName string, podName string, processes []ModelProcess, secretScanStatus string, vulnerabilityScanStatus string, ) *ModelPod`
+`func NewModelPod(containers []ModelContainer, hostName string, isDeepfenceSystem bool, kubernetesClusterId string, kubernetesClusterName string, kubernetesCreated string, kubernetesIp string, kubernetesIsInHostNetwork bool, kubernetesLabels map[string]interface{}, kubernetesNamespace string, kubernetesState string, malwareScanStatus string, nodeId string, nodeName string, podName string, processes []ModelProcess, secretScanStatus string, vulnerabilityScanStatus string, ) *ModelPod`
 
 NewModelPod instantiates a new ModelPod object
 This constructor will assign default values to properties that have it defined,
@@ -89,6 +90,26 @@ and a boolean to check if the value has been set.
 `func (o *ModelPod) SetHostName(v string)`
 
 SetHostName sets HostName field to given value.
+
+
+### GetIsDeepfenceSystem
+
+`func (o *ModelPod) GetIsDeepfenceSystem() bool`
+
+GetIsDeepfenceSystem returns the IsDeepfenceSystem field if non-nil, zero value otherwise.
+
+### GetIsDeepfenceSystemOk
+
+`func (o *ModelPod) GetIsDeepfenceSystemOk() (*bool, bool)`
+
+GetIsDeepfenceSystemOk returns a tuple with the IsDeepfenceSystem field if it's non-nil, zero value otherwise
+and a boolean to check if the value has been set.
+
+### SetIsDeepfenceSystem
+
+`func (o *ModelPod) SetIsDeepfenceSystem(v bool)`
+
+SetIsDeepfenceSystem sets IsDeepfenceSystem field to given value.
 
 
 ### GetKubernetesClusterId

@@ -3,7 +3,7 @@ Deepfence ThreatMapper
 
 Deepfence Runtime API provides programmatic control over Deepfence microservice securing your container, kubernetes and cloud deployments. The API abstracts away underlying infrastructure details like cloud provider,  container distros, container orchestrator and type of deployment. This is one uniform API to manage and control security alerts, policies and response to alerts for microservices running anywhere i.e. managed pure greenfield container deployments or a mix of containers, VMs and serverless paradigms like AWS Fargate.
 
-API version: 2.2.0
+API version: v2.2.0
 Contact: community@deepfence.io
 */
 
@@ -25,6 +25,7 @@ type ModelExportReport struct {
 	FromTimestamp *int32 `json:"from_timestamp,omitempty"`
 	ReportId *string `json:"report_id,omitempty"`
 	Status *string `json:"status,omitempty"`
+	StatusMessage *string `json:"status_message,omitempty"`
 	StoragePath *string `json:"storage_path,omitempty"`
 	ToTimestamp *int32 `json:"to_timestamp,omitempty"`
 	Type *string `json:"type,omitempty"`
@@ -207,6 +208,38 @@ func (o *ModelExportReport) HasStatus() bool {
 // SetStatus gets a reference to the given string and assigns it to the Status field.
 func (o *ModelExportReport) SetStatus(v string) {
 	o.Status = &v
+}
+
+// GetStatusMessage returns the StatusMessage field value if set, zero value otherwise.
+func (o *ModelExportReport) GetStatusMessage() string {
+	if o == nil || IsNil(o.StatusMessage) {
+		var ret string
+		return ret
+	}
+	return *o.StatusMessage
+}
+
+// GetStatusMessageOk returns a tuple with the StatusMessage field value if set, nil otherwise
+// and a boolean to check if the value has been set.
+func (o *ModelExportReport) GetStatusMessageOk() (*string, bool) {
+	if o == nil || IsNil(o.StatusMessage) {
+		return nil, false
+	}
+	return o.StatusMessage, true
+}
+
+// HasStatusMessage returns a boolean if a field has been set.
+func (o *ModelExportReport) HasStatusMessage() bool {
+	if o != nil && !IsNil(o.StatusMessage) {
+		return true
+	}
+
+	return false
+}
+
+// SetStatusMessage gets a reference to the given string and assigns it to the StatusMessage field.
+func (o *ModelExportReport) SetStatusMessage(v string) {
+	o.StatusMessage = &v
 }
 
 // GetStoragePath returns the StoragePath field value if set, zero value otherwise.
@@ -393,6 +426,9 @@ func (o ModelExportReport) ToMap() (map[string]interface{}, error) {
 	}
 	if !IsNil(o.Status) {
 		toSerialize["status"] = o.Status
+	}
+	if !IsNil(o.StatusMessage) {
+		toSerialize["status_message"] = o.StatusMessage
 	}
 	if !IsNil(o.StoragePath) {
 		toSerialize["storage_path"] = o.StoragePath

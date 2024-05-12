@@ -4,6 +4,7 @@
 
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
+**DeepfenceSystemScan** | Pointer to **bool** |  | [optional] 
 **Filters** | [**ModelScanFilter**](ModelScanFilter.md) |  | 
 **IsPriority** | Pointer to **bool** |  | [optional] 
 **NodeIds** | [**[]ModelNodeIdentifier**](ModelNodeIdentifier.md) |  | 
@@ -26,6 +27,31 @@ will change when the set of required properties is changed
 NewModelSecretScanTriggerReqWithDefaults instantiates a new ModelSecretScanTriggerReq object
 This constructor will only assign default values to properties that have it defined,
 but it doesn't guarantee that properties required by API are set
+
+### GetDeepfenceSystemScan
+
+`func (o *ModelSecretScanTriggerReq) GetDeepfenceSystemScan() bool`
+
+GetDeepfenceSystemScan returns the DeepfenceSystemScan field if non-nil, zero value otherwise.
+
+### GetDeepfenceSystemScanOk
+
+`func (o *ModelSecretScanTriggerReq) GetDeepfenceSystemScanOk() (*bool, bool)`
+
+GetDeepfenceSystemScanOk returns a tuple with the DeepfenceSystemScan field if it's non-nil, zero value otherwise
+and a boolean to check if the value has been set.
+
+### SetDeepfenceSystemScan
+
+`func (o *ModelSecretScanTriggerReq) SetDeepfenceSystemScan(v bool)`
+
+SetDeepfenceSystemScan sets DeepfenceSystemScan field to given value.
+
+### HasDeepfenceSystemScan
+
+`func (o *ModelSecretScanTriggerReq) HasDeepfenceSystemScan() bool`
+
+HasDeepfenceSystemScan returns a boolean if a field has been set.
 
 ### GetFilters
 

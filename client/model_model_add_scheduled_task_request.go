@@ -3,7 +3,7 @@ Deepfence ThreatMapper
 
 Deepfence Runtime API provides programmatic control over Deepfence microservice securing your container, kubernetes and cloud deployments. The API abstracts away underlying infrastructure details like cloud provider,  container distros, container orchestrator and type of deployment. This is one uniform API to manage and control security alerts, policies and response to alerts for microservices running anywhere i.e. managed pure greenfield container deployments or a mix of containers, VMs and serverless paradigms like AWS Fargate.
 
-API version: 2.2.0
+API version: v2.2.0
 Contact: community@deepfence.io
 */
 
@@ -25,6 +25,7 @@ type ModelAddScheduledTaskRequest struct {
 	Action string `json:"action"`
 	BenchmarkTypes []string `json:"benchmark_types"`
 	CronExpr *string `json:"cron_expr,omitempty"`
+	DeepfenceSystemScan *bool `json:"deepfence_system_scan,omitempty"`
 	Description *string `json:"description,omitempty"`
 	Filters ModelScanFilter `json:"filters"`
 	IsPriority *bool `json:"is_priority,omitempty"`
@@ -136,6 +137,38 @@ func (o *ModelAddScheduledTaskRequest) HasCronExpr() bool {
 // SetCronExpr gets a reference to the given string and assigns it to the CronExpr field.
 func (o *ModelAddScheduledTaskRequest) SetCronExpr(v string) {
 	o.CronExpr = &v
+}
+
+// GetDeepfenceSystemScan returns the DeepfenceSystemScan field value if set, zero value otherwise.
+func (o *ModelAddScheduledTaskRequest) GetDeepfenceSystemScan() bool {
+	if o == nil || IsNil(o.DeepfenceSystemScan) {
+		var ret bool
+		return ret
+	}
+	return *o.DeepfenceSystemScan
+}
+
+// GetDeepfenceSystemScanOk returns a tuple with the DeepfenceSystemScan field value if set, nil otherwise
+// and a boolean to check if the value has been set.
+func (o *ModelAddScheduledTaskRequest) GetDeepfenceSystemScanOk() (*bool, bool) {
+	if o == nil || IsNil(o.DeepfenceSystemScan) {
+		return nil, false
+	}
+	return o.DeepfenceSystemScan, true
+}
+
+// HasDeepfenceSystemScan returns a boolean if a field has been set.
+func (o *ModelAddScheduledTaskRequest) HasDeepfenceSystemScan() bool {
+	if o != nil && !IsNil(o.DeepfenceSystemScan) {
+		return true
+	}
+
+	return false
+}
+
+// SetDeepfenceSystemScan gets a reference to the given bool and assigns it to the DeepfenceSystemScan field.
+func (o *ModelAddScheduledTaskRequest) SetDeepfenceSystemScan(v bool) {
+	o.DeepfenceSystemScan = &v
 }
 
 // GetDescription returns the Description field value if set, zero value otherwise.
@@ -294,6 +327,9 @@ func (o ModelAddScheduledTaskRequest) ToMap() (map[string]interface{}, error) {
 	}
 	if !IsNil(o.CronExpr) {
 		toSerialize["cron_expr"] = o.CronExpr
+	}
+	if !IsNil(o.DeepfenceSystemScan) {
+		toSerialize["deepfence_system_scan"] = o.DeepfenceSystemScan
 	}
 	if !IsNil(o.Description) {
 		toSerialize["description"] = o.Description

@@ -5,6 +5,7 @@
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
 **BenchmarkTypes** | **[]string** |  | 
+**CloudProvider** | **string** |  | 
 **CreatedAt** | **int64** |  | 
 **NodeId** | **string** |  | 
 **NodeName** | **string** |  | 
@@ -19,7 +20,7 @@ Name | Type | Description | Notes
 
 ### NewModelComplianceScanInfo
 
-`func NewModelComplianceScanInfo(benchmarkTypes []string, createdAt int64, nodeId string, nodeName string, nodeType string, scanId string, severityCounts map[string]int32, status string, statusMessage string, updatedAt int64, ) *ModelComplianceScanInfo`
+`func NewModelComplianceScanInfo(benchmarkTypes []string, cloudProvider string, createdAt int64, nodeId string, nodeName string, nodeType string, scanId string, severityCounts map[string]int32, status string, statusMessage string, updatedAt int64, ) *ModelComplianceScanInfo`
 
 NewModelComplianceScanInfo instantiates a new ModelComplianceScanInfo object
 This constructor will assign default values to properties that have it defined,
@@ -64,6 +65,26 @@ SetBenchmarkTypes sets BenchmarkTypes field to given value.
 `func (o *ModelComplianceScanInfo) UnsetBenchmarkTypes()`
 
 UnsetBenchmarkTypes ensures that no value is present for BenchmarkTypes, not even an explicit nil
+### GetCloudProvider
+
+`func (o *ModelComplianceScanInfo) GetCloudProvider() string`
+
+GetCloudProvider returns the CloudProvider field if non-nil, zero value otherwise.
+
+### GetCloudProviderOk
+
+`func (o *ModelComplianceScanInfo) GetCloudProviderOk() (*string, bool)`
+
+GetCloudProviderOk returns a tuple with the CloudProvider field if it's non-nil, zero value otherwise
+and a boolean to check if the value has been set.
+
+### SetCloudProvider
+
+`func (o *ModelComplianceScanInfo) SetCloudProvider(v string)`
+
+SetCloudProvider sets CloudProvider field to given value.
+
+
 ### GetCreatedAt
 
 `func (o *ModelComplianceScanInfo) GetCreatedAt() int64`

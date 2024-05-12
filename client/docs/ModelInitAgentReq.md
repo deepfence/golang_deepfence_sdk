@@ -6,13 +6,14 @@ Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
 **AvailableWorkload** | **int32** |  | 
 **NodeId** | **string** |  | 
+**NodeType** | **string** |  | 
 **Version** | **string** |  | 
 
 ## Methods
 
 ### NewModelInitAgentReq
 
-`func NewModelInitAgentReq(availableWorkload int32, nodeId string, version string, ) *ModelInitAgentReq`
+`func NewModelInitAgentReq(availableWorkload int32, nodeId string, nodeType string, version string, ) *ModelInitAgentReq`
 
 NewModelInitAgentReq instantiates a new ModelInitAgentReq object
 This constructor will assign default values to properties that have it defined,
@@ -65,6 +66,26 @@ and a boolean to check if the value has been set.
 `func (o *ModelInitAgentReq) SetNodeId(v string)`
 
 SetNodeId sets NodeId field to given value.
+
+
+### GetNodeType
+
+`func (o *ModelInitAgentReq) GetNodeType() string`
+
+GetNodeType returns the NodeType field if non-nil, zero value otherwise.
+
+### GetNodeTypeOk
+
+`func (o *ModelInitAgentReq) GetNodeTypeOk() (*string, bool)`
+
+GetNodeTypeOk returns a tuple with the NodeType field if it's non-nil, zero value otherwise
+and a boolean to check if the value has been set.
+
+### SetNodeType
+
+`func (o *ModelInitAgentReq) SetNodeType(v string)`
+
+SetNodeType sets NodeType field to given value.
 
 
 ### GetVersion

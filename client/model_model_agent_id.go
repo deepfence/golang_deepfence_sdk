@@ -3,7 +3,7 @@ Deepfence ThreatMapper
 
 Deepfence Runtime API provides programmatic control over Deepfence microservice securing your container, kubernetes and cloud deployments. The API abstracts away underlying infrastructure details like cloud provider,  container distros, container orchestrator and type of deployment. This is one uniform API to manage and control security alerts, policies and response to alerts for microservices running anywhere i.e. managed pure greenfield container deployments or a mix of containers, VMs and serverless paradigms like AWS Fargate.
 
-API version: 2.2.0
+API version: v2.2.0
 Contact: community@deepfence.io
 */
 
@@ -24,6 +24,7 @@ var _ MappedNullable = &ModelAgentID{}
 type ModelAgentID struct {
 	AvailableWorkload int32 `json:"available_workload"`
 	NodeId string `json:"node_id"`
+	NodeType *string `json:"node_type,omitempty"`
 }
 
 type _ModelAgentID ModelAgentID
@@ -95,6 +96,38 @@ func (o *ModelAgentID) SetNodeId(v string) {
 	o.NodeId = v
 }
 
+// GetNodeType returns the NodeType field value if set, zero value otherwise.
+func (o *ModelAgentID) GetNodeType() string {
+	if o == nil || IsNil(o.NodeType) {
+		var ret string
+		return ret
+	}
+	return *o.NodeType
+}
+
+// GetNodeTypeOk returns a tuple with the NodeType field value if set, nil otherwise
+// and a boolean to check if the value has been set.
+func (o *ModelAgentID) GetNodeTypeOk() (*string, bool) {
+	if o == nil || IsNil(o.NodeType) {
+		return nil, false
+	}
+	return o.NodeType, true
+}
+
+// HasNodeType returns a boolean if a field has been set.
+func (o *ModelAgentID) HasNodeType() bool {
+	if o != nil && !IsNil(o.NodeType) {
+		return true
+	}
+
+	return false
+}
+
+// SetNodeType gets a reference to the given string and assigns it to the NodeType field.
+func (o *ModelAgentID) SetNodeType(v string) {
+	o.NodeType = &v
+}
+
 func (o ModelAgentID) MarshalJSON() ([]byte, error) {
 	toSerialize,err := o.ToMap()
 	if err != nil {
@@ -107,6 +140,9 @@ func (o ModelAgentID) ToMap() (map[string]interface{}, error) {
 	toSerialize := map[string]interface{}{}
 	toSerialize["available_workload"] = o.AvailableWorkload
 	toSerialize["node_id"] = o.NodeId
+	if !IsNil(o.NodeType) {
+		toSerialize["node_type"] = o.NodeType
+	}
 	return toSerialize, nil
 }
 

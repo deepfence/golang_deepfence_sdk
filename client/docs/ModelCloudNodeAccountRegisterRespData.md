@@ -7,7 +7,6 @@ Name | Type | Description | Notes
 **CloudtrailTrails** | Pointer to [**[]ModelCloudNodeCloudtrailTrail**](ModelCloudNodeCloudtrailTrail.md) |  | [optional] 
 **LogAction** | Pointer to [**ControlsAction**](ControlsAction.md) |  | [optional] 
 **Refresh** | Pointer to **string** |  | [optional] 
-**Scans** | Pointer to [**map[string]ModelCloudComplianceScanDetails**](ModelCloudComplianceScanDetails.md) |  | [optional] 
 
 ## Methods
 
@@ -113,41 +112,6 @@ SetRefresh sets Refresh field to given value.
 
 HasRefresh returns a boolean if a field has been set.
 
-### GetScans
-
-`func (o *ModelCloudNodeAccountRegisterRespData) GetScans() map[string]ModelCloudComplianceScanDetails`
-
-GetScans returns the Scans field if non-nil, zero value otherwise.
-
-### GetScansOk
-
-`func (o *ModelCloudNodeAccountRegisterRespData) GetScansOk() (*map[string]ModelCloudComplianceScanDetails, bool)`
-
-GetScansOk returns a tuple with the Scans field if it's non-nil, zero value otherwise
-and a boolean to check if the value has been set.
-
-### SetScans
-
-`func (o *ModelCloudNodeAccountRegisterRespData) SetScans(v map[string]ModelCloudComplianceScanDetails)`
-
-SetScans sets Scans field to given value.
-
-### HasScans
-
-`func (o *ModelCloudNodeAccountRegisterRespData) HasScans() bool`
-
-HasScans returns a boolean if a field has been set.
-
-### SetScansNil
-
-`func (o *ModelCloudNodeAccountRegisterRespData) SetScansNil(b bool)`
-
- SetScansNil sets the value for Scans to be an explicit nil
-
-### UnsetScans
-`func (o *ModelCloudNodeAccountRegisterRespData) UnsetScans()`
-
-UnsetScans ensures that no value is present for Scans, not even an explicit nil
 
 [[Back to Model list]](../README.md#documentation-for-models) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to README]](../README.md)
 
