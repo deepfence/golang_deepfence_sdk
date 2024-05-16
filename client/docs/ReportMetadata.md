@@ -39,6 +39,7 @@ Name | Type | Description | Notes
 **InterfaceIps** | Pointer to **[]string** |  | [optional] 
 **InterfaceNames** | Pointer to **[]string** |  | [optional] 
 **IsConsoleVm** | Pointer to **bool** |  | [optional] 
+**IsDeepfenceSystem** | Pointer to **bool** |  | [optional] 
 **KernelId** | Pointer to **string** |  | [optional] 
 **KernelVersion** | Pointer to **string** |  | [optional] 
 **KubernetesClusterId** | Pointer to **string** |  | [optional] 
@@ -972,6 +973,31 @@ SetIsConsoleVm sets IsConsoleVm field to given value.
 `func (o *ReportMetadata) HasIsConsoleVm() bool`
 
 HasIsConsoleVm returns a boolean if a field has been set.
+
+### GetIsDeepfenceSystem
+
+`func (o *ReportMetadata) GetIsDeepfenceSystem() bool`
+
+GetIsDeepfenceSystem returns the IsDeepfenceSystem field if non-nil, zero value otherwise.
+
+### GetIsDeepfenceSystemOk
+
+`func (o *ReportMetadata) GetIsDeepfenceSystemOk() (*bool, bool)`
+
+GetIsDeepfenceSystemOk returns a tuple with the IsDeepfenceSystem field if it's non-nil, zero value otherwise
+and a boolean to check if the value has been set.
+
+### SetIsDeepfenceSystem
+
+`func (o *ReportMetadata) SetIsDeepfenceSystem(v bool)`
+
+SetIsDeepfenceSystem sets IsDeepfenceSystem field to given value.
+
+### HasIsDeepfenceSystem
+
+`func (o *ReportMetadata) HasIsDeepfenceSystem() bool`
+
+HasIsDeepfenceSystem returns a boolean if a field has been set.
 
 ### GetKernelId
 

@@ -359,7 +359,7 @@ import (
 )
 
 func main() {
-	modelInitAgentReq := *openapiclient.NewModelInitAgentReq(int32(123), "NodeId_example", "Version_example") // ModelInitAgentReq |  (optional)
+	modelInitAgentReq := *openapiclient.NewModelInitAgentReq(int32(123), "NodeId_example", "NodeType_example", "Version_example") // ModelInitAgentReq |  (optional)
 
 	configuration := openapiclient.NewConfiguration()
 	apiClient := openapiclient.NewAPIClient(configuration)

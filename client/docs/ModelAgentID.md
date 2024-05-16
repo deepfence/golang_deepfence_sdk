@@ -6,6 +6,7 @@ Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
 **AvailableWorkload** | **int32** |  | 
 **NodeId** | **string** |  | 
+**NodeType** | Pointer to **string** |  | [optional] 
 
 ## Methods
 
@@ -65,6 +66,31 @@ and a boolean to check if the value has been set.
 
 SetNodeId sets NodeId field to given value.
 
+
+### GetNodeType
+
+`func (o *ModelAgentID) GetNodeType() string`
+
+GetNodeType returns the NodeType field if non-nil, zero value otherwise.
+
+### GetNodeTypeOk
+
+`func (o *ModelAgentID) GetNodeTypeOk() (*string, bool)`
+
+GetNodeTypeOk returns a tuple with the NodeType field if it's non-nil, zero value otherwise
+and a boolean to check if the value has been set.
+
+### SetNodeType
+
+`func (o *ModelAgentID) SetNodeType(v string)`
+
+SetNodeType sets NodeType field to given value.
+
+### HasNodeType
+
+`func (o *ModelAgentID) HasNodeType() bool`
+
+HasNodeType returns a boolean if a field has been set.
 
 
 [[Back to Model list]](../README.md#documentation-for-models) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to README]](../README.md)

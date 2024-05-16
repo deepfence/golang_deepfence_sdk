@@ -3,7 +3,7 @@ Deepfence ThreatMapper
 
 Deepfence Runtime API provides programmatic control over Deepfence microservice securing your container, kubernetes and cloud deployments. The API abstracts away underlying infrastructure details like cloud provider,  container distros, container orchestrator and type of deployment. This is one uniform API to manage and control security alerts, policies and response to alerts for microservices running anywhere i.e. managed pure greenfield container deployments or a mix of containers, VMs and serverless paradigms like AWS Fargate.
 
-API version: 2.2.0
+API version: v2.2.1
 Contact: community@deepfence.io
 */
 
@@ -55,6 +55,7 @@ type ReportMetadata struct {
 	InterfaceIps []string `json:"interface_ips,omitempty"`
 	InterfaceNames []string `json:"interface_names,omitempty"`
 	IsConsoleVm *bool `json:"is_console_vm,omitempty"`
+	IsDeepfenceSystem *bool `json:"is_deepfence_system,omitempty"`
 	KernelId *string `json:"kernel_id,omitempty"`
 	KernelVersion *string `json:"kernel_version,omitempty"`
 	KubernetesClusterId *string `json:"kubernetes_cluster_id,omitempty"`
@@ -1231,6 +1232,38 @@ func (o *ReportMetadata) HasIsConsoleVm() bool {
 // SetIsConsoleVm gets a reference to the given bool and assigns it to the IsConsoleVm field.
 func (o *ReportMetadata) SetIsConsoleVm(v bool) {
 	o.IsConsoleVm = &v
+}
+
+// GetIsDeepfenceSystem returns the IsDeepfenceSystem field value if set, zero value otherwise.
+func (o *ReportMetadata) GetIsDeepfenceSystem() bool {
+	if o == nil || IsNil(o.IsDeepfenceSystem) {
+		var ret bool
+		return ret
+	}
+	return *o.IsDeepfenceSystem
+}
+
+// GetIsDeepfenceSystemOk returns a tuple with the IsDeepfenceSystem field value if set, nil otherwise
+// and a boolean to check if the value has been set.
+func (o *ReportMetadata) GetIsDeepfenceSystemOk() (*bool, bool) {
+	if o == nil || IsNil(o.IsDeepfenceSystem) {
+		return nil, false
+	}
+	return o.IsDeepfenceSystem, true
+}
+
+// HasIsDeepfenceSystem returns a boolean if a field has been set.
+func (o *ReportMetadata) HasIsDeepfenceSystem() bool {
+	if o != nil && !IsNil(o.IsDeepfenceSystem) {
+		return true
+	}
+
+	return false
+}
+
+// SetIsDeepfenceSystem gets a reference to the given bool and assigns it to the IsDeepfenceSystem field.
+func (o *ReportMetadata) SetIsDeepfenceSystem(v bool) {
+	o.IsDeepfenceSystem = &v
 }
 
 // GetKernelId returns the KernelId field value if set, zero value otherwise.
@@ -2595,6 +2628,9 @@ func (o ReportMetadata) ToMap() (map[string]interface{}, error) {
 	}
 	if !IsNil(o.IsConsoleVm) {
 		toSerialize["is_console_vm"] = o.IsConsoleVm
+	}
+	if !IsNil(o.IsDeepfenceSystem) {
+		toSerialize["is_deepfence_system"] = o.IsDeepfenceSystem
 	}
 	if !IsNil(o.KernelId) {
 		toSerialize["kernel_id"] = o.KernelId

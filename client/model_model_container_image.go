@@ -3,7 +3,7 @@ Deepfence ThreatMapper
 
 Deepfence Runtime API provides programmatic control over Deepfence microservice securing your container, kubernetes and cloud deployments. The API abstracts away underlying infrastructure details like cloud provider,  container distros, container orchestrator and type of deployment. This is one uniform API to manage and control security alerts, policies and response to alerts for microservices running anywhere i.e. managed pure greenfield container deployments or a mix of containers, VMs and serverless paradigms like AWS Fargate.
 
-API version: 2.2.0
+API version: v2.2.1
 Contact: community@deepfence.io
 */
 
@@ -31,6 +31,7 @@ type ModelContainerImage struct {
 	DockerImageTagList []string `json:"docker_image_tag_list"`
 	DockerImageVirtualSize string `json:"docker_image_virtual_size"`
 	ImageNodeId string `json:"image_node_id"`
+	IsDeepfenceSystem bool `json:"is_deepfence_system"`
 	MalwareLatestScanId string `json:"malware_latest_scan_id"`
 	MalwareScanStatus string `json:"malware_scan_status"`
 	MalwaresCount int32 `json:"malwares_count"`
@@ -51,7 +52,7 @@ type _ModelContainerImage ModelContainerImage
 // This constructor will assign default values to properties that have it defined,
 // and makes sure properties required by API are set, but the set of arguments
 // will change when the set of required properties is changed
-func NewModelContainerImage(containers []ModelContainer, dockerImageCreatedAt string, dockerImageId string, dockerImageName string, dockerImageSize string, dockerImageTag string, dockerImageTagList []string, dockerImageVirtualSize string, imageNodeId string, malwareLatestScanId string, malwareScanStatus string, malwaresCount int32, nodeId string, nodeName string, secretLatestScanId string, secretScanStatus string, secretsCount int32, vulnerabilitiesCount int32, vulnerabilityLatestScanId string, vulnerabilityScanStatus string) *ModelContainerImage {
+func NewModelContainerImage(containers []ModelContainer, dockerImageCreatedAt string, dockerImageId string, dockerImageName string, dockerImageSize string, dockerImageTag string, dockerImageTagList []string, dockerImageVirtualSize string, imageNodeId string, isDeepfenceSystem bool, malwareLatestScanId string, malwareScanStatus string, malwaresCount int32, nodeId string, nodeName string, secretLatestScanId string, secretScanStatus string, secretsCount int32, vulnerabilitiesCount int32, vulnerabilityLatestScanId string, vulnerabilityScanStatus string) *ModelContainerImage {
 	this := ModelContainerImage{}
 	this.Containers = containers
 	this.DockerImageCreatedAt = dockerImageCreatedAt
@@ -62,6 +63,7 @@ func NewModelContainerImage(containers []ModelContainer, dockerImageCreatedAt st
 	this.DockerImageTagList = dockerImageTagList
 	this.DockerImageVirtualSize = dockerImageVirtualSize
 	this.ImageNodeId = imageNodeId
+	this.IsDeepfenceSystem = isDeepfenceSystem
 	this.MalwareLatestScanId = malwareLatestScanId
 	this.MalwareScanStatus = malwareScanStatus
 	this.MalwaresCount = malwaresCount
@@ -302,6 +304,30 @@ func (o *ModelContainerImage) GetImageNodeIdOk() (*string, bool) {
 // SetImageNodeId sets field value
 func (o *ModelContainerImage) SetImageNodeId(v string) {
 	o.ImageNodeId = v
+}
+
+// GetIsDeepfenceSystem returns the IsDeepfenceSystem field value
+func (o *ModelContainerImage) GetIsDeepfenceSystem() bool {
+	if o == nil {
+		var ret bool
+		return ret
+	}
+
+	return o.IsDeepfenceSystem
+}
+
+// GetIsDeepfenceSystemOk returns a tuple with the IsDeepfenceSystem field value
+// and a boolean to check if the value has been set.
+func (o *ModelContainerImage) GetIsDeepfenceSystemOk() (*bool, bool) {
+	if o == nil {
+		return nil, false
+	}
+	return &o.IsDeepfenceSystem, true
+}
+
+// SetIsDeepfenceSystem sets field value
+func (o *ModelContainerImage) SetIsDeepfenceSystem(v bool) {
+	o.IsDeepfenceSystem = v
 }
 
 // GetMalwareLatestScanId returns the MalwareLatestScanId field value
@@ -624,6 +650,7 @@ func (o ModelContainerImage) ToMap() (map[string]interface{}, error) {
 	}
 	toSerialize["docker_image_virtual_size"] = o.DockerImageVirtualSize
 	toSerialize["image_node_id"] = o.ImageNodeId
+	toSerialize["is_deepfence_system"] = o.IsDeepfenceSystem
 	toSerialize["malware_latest_scan_id"] = o.MalwareLatestScanId
 	toSerialize["malware_scan_status"] = o.MalwareScanStatus
 	toSerialize["malwares_count"] = o.MalwaresCount
@@ -655,6 +682,7 @@ func (o *ModelContainerImage) UnmarshalJSON(data []byte) (err error) {
 		"docker_image_tag_list",
 		"docker_image_virtual_size",
 		"image_node_id",
+		"is_deepfence_system",
 		"malware_latest_scan_id",
 		"malware_scan_status",
 		"malwares_count",

@@ -13,6 +13,7 @@ Name | Type | Description | Notes
 **DockerImageTagList** | **[]string** |  | 
 **DockerImageVirtualSize** | **string** |  | 
 **ImageNodeId** | **string** |  | 
+**IsDeepfenceSystem** | **bool** |  | 
 **MalwareLatestScanId** | **string** |  | 
 **MalwareScanStatus** | **string** |  | 
 **MalwaresCount** | **int32** |  | 
@@ -30,7 +31,7 @@ Name | Type | Description | Notes
 
 ### NewModelContainerImage
 
-`func NewModelContainerImage(containers []ModelContainer, dockerImageCreatedAt string, dockerImageId string, dockerImageName string, dockerImageSize string, dockerImageTag string, dockerImageTagList []string, dockerImageVirtualSize string, imageNodeId string, malwareLatestScanId string, malwareScanStatus string, malwaresCount int32, nodeId string, nodeName string, secretLatestScanId string, secretScanStatus string, secretsCount int32, vulnerabilitiesCount int32, vulnerabilityLatestScanId string, vulnerabilityScanStatus string, ) *ModelContainerImage`
+`func NewModelContainerImage(containers []ModelContainer, dockerImageCreatedAt string, dockerImageId string, dockerImageName string, dockerImageSize string, dockerImageTag string, dockerImageTagList []string, dockerImageVirtualSize string, imageNodeId string, isDeepfenceSystem bool, malwareLatestScanId string, malwareScanStatus string, malwaresCount int32, nodeId string, nodeName string, secretLatestScanId string, secretScanStatus string, secretsCount int32, vulnerabilitiesCount int32, vulnerabilityLatestScanId string, vulnerabilityScanStatus string, ) *ModelContainerImage`
 
 NewModelContainerImage instantiates a new ModelContainerImage object
 This constructor will assign default values to properties that have it defined,
@@ -243,6 +244,26 @@ and a boolean to check if the value has been set.
 `func (o *ModelContainerImage) SetImageNodeId(v string)`
 
 SetImageNodeId sets ImageNodeId field to given value.
+
+
+### GetIsDeepfenceSystem
+
+`func (o *ModelContainerImage) GetIsDeepfenceSystem() bool`
+
+GetIsDeepfenceSystem returns the IsDeepfenceSystem field if non-nil, zero value otherwise.
+
+### GetIsDeepfenceSystemOk
+
+`func (o *ModelContainerImage) GetIsDeepfenceSystemOk() (*bool, bool)`
+
+GetIsDeepfenceSystemOk returns a tuple with the IsDeepfenceSystem field if it's non-nil, zero value otherwise
+and a boolean to check if the value has been set.
+
+### SetIsDeepfenceSystem
+
+`func (o *ModelContainerImage) SetIsDeepfenceSystem(v bool)`
+
+SetIsDeepfenceSystem sets IsDeepfenceSystem field to given value.
 
 
 ### GetMalwareLatestScanId

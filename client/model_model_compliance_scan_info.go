@@ -3,7 +3,7 @@ Deepfence ThreatMapper
 
 Deepfence Runtime API provides programmatic control over Deepfence microservice securing your container, kubernetes and cloud deployments. The API abstracts away underlying infrastructure details like cloud provider,  container distros, container orchestrator and type of deployment. This is one uniform API to manage and control security alerts, policies and response to alerts for microservices running anywhere i.e. managed pure greenfield container deployments or a mix of containers, VMs and serverless paradigms like AWS Fargate.
 
-API version: 2.2.0
+API version: v2.2.1
 Contact: community@deepfence.io
 */
 
@@ -23,6 +23,7 @@ var _ MappedNullable = &ModelComplianceScanInfo{}
 // ModelComplianceScanInfo struct for ModelComplianceScanInfo
 type ModelComplianceScanInfo struct {
 	BenchmarkTypes []string `json:"benchmark_types"`
+	CloudProvider string `json:"cloud_provider"`
 	CreatedAt int64 `json:"created_at"`
 	NodeId string `json:"node_id"`
 	NodeName string `json:"node_name"`
@@ -40,9 +41,10 @@ type _ModelComplianceScanInfo ModelComplianceScanInfo
 // This constructor will assign default values to properties that have it defined,
 // and makes sure properties required by API are set, but the set of arguments
 // will change when the set of required properties is changed
-func NewModelComplianceScanInfo(benchmarkTypes []string, createdAt int64, nodeId string, nodeName string, nodeType string, scanId string, severityCounts map[string]int32, status string, statusMessage string, updatedAt int64) *ModelComplianceScanInfo {
+func NewModelComplianceScanInfo(benchmarkTypes []string, cloudProvider string, createdAt int64, nodeId string, nodeName string, nodeType string, scanId string, severityCounts map[string]int32, status string, statusMessage string, updatedAt int64) *ModelComplianceScanInfo {
 	this := ModelComplianceScanInfo{}
 	this.BenchmarkTypes = benchmarkTypes
+	this.CloudProvider = cloudProvider
 	this.CreatedAt = createdAt
 	this.NodeId = nodeId
 	this.NodeName = nodeName
@@ -87,6 +89,30 @@ func (o *ModelComplianceScanInfo) GetBenchmarkTypesOk() ([]string, bool) {
 // SetBenchmarkTypes sets field value
 func (o *ModelComplianceScanInfo) SetBenchmarkTypes(v []string) {
 	o.BenchmarkTypes = v
+}
+
+// GetCloudProvider returns the CloudProvider field value
+func (o *ModelComplianceScanInfo) GetCloudProvider() string {
+	if o == nil {
+		var ret string
+		return ret
+	}
+
+	return o.CloudProvider
+}
+
+// GetCloudProviderOk returns a tuple with the CloudProvider field value
+// and a boolean to check if the value has been set.
+func (o *ModelComplianceScanInfo) GetCloudProviderOk() (*string, bool) {
+	if o == nil {
+		return nil, false
+	}
+	return &o.CloudProvider, true
+}
+
+// SetCloudProvider sets field value
+func (o *ModelComplianceScanInfo) SetCloudProvider(v string) {
+	o.CloudProvider = v
 }
 
 // GetCreatedAt returns the CreatedAt field value
@@ -320,6 +346,7 @@ func (o ModelComplianceScanInfo) ToMap() (map[string]interface{}, error) {
 	if o.BenchmarkTypes != nil {
 		toSerialize["benchmark_types"] = o.BenchmarkTypes
 	}
+	toSerialize["cloud_provider"] = o.CloudProvider
 	toSerialize["created_at"] = o.CreatedAt
 	toSerialize["node_id"] = o.NodeId
 	toSerialize["node_name"] = o.NodeName
@@ -340,6 +367,7 @@ func (o *ModelComplianceScanInfo) UnmarshalJSON(data []byte) (err error) {
 	// that every required field exists as a key in the generic map.
 	requiredProperties := []string{
 		"benchmark_types",
+		"cloud_provider",
 		"created_at",
 		"node_id",
 		"node_name",

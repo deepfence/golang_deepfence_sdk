@@ -9,6 +9,7 @@ Name | Type | Description | Notes
 **FromTimestamp** | Pointer to **int32** |  | [optional] 
 **ReportId** | Pointer to **string** |  | [optional] 
 **Status** | Pointer to **string** |  | [optional] 
+**StatusMessage** | Pointer to **string** |  | [optional] 
 **StoragePath** | Pointer to **string** |  | [optional] 
 **ToTimestamp** | Pointer to **int32** |  | [optional] 
 **Type** | Pointer to **string** |  | [optional] 
@@ -158,6 +159,31 @@ SetStatus sets Status field to given value.
 `func (o *ModelExportReport) HasStatus() bool`
 
 HasStatus returns a boolean if a field has been set.
+
+### GetStatusMessage
+
+`func (o *ModelExportReport) GetStatusMessage() string`
+
+GetStatusMessage returns the StatusMessage field if non-nil, zero value otherwise.
+
+### GetStatusMessageOk
+
+`func (o *ModelExportReport) GetStatusMessageOk() (*string, bool)`
+
+GetStatusMessageOk returns a tuple with the StatusMessage field if it's non-nil, zero value otherwise
+and a boolean to check if the value has been set.
+
+### SetStatusMessage
+
+`func (o *ModelExportReport) SetStatusMessage(v string)`
+
+SetStatusMessage sets StatusMessage field to given value.
+
+### HasStatusMessage
+
+`func (o *ModelExportReport) HasStatusMessage() bool`
+
+HasStatusMessage returns a boolean if a field has been set.
 
 ### GetStoragePath
 

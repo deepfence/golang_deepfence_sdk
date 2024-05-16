@@ -3,7 +3,7 @@ Deepfence ThreatMapper
 
 Deepfence Runtime API provides programmatic control over Deepfence microservice securing your container, kubernetes and cloud deployments. The API abstracts away underlying infrastructure details like cloud provider,  container distros, container orchestrator and type of deployment. This is one uniform API to manage and control security alerts, policies and response to alerts for microservices running anywhere i.e. managed pure greenfield container deployments or a mix of containers, VMs and serverless paradigms like AWS Fargate.
 
-API version: 2.2.0
+API version: v2.2.1
 Contact: community@deepfence.io
 */
 
@@ -24,6 +24,7 @@ var _ MappedNullable = &ModelInitAgentReq{}
 type ModelInitAgentReq struct {
 	AvailableWorkload int32 `json:"available_workload"`
 	NodeId string `json:"node_id"`
+	NodeType string `json:"node_type"`
 	Version string `json:"version"`
 }
 
@@ -33,10 +34,11 @@ type _ModelInitAgentReq ModelInitAgentReq
 // This constructor will assign default values to properties that have it defined,
 // and makes sure properties required by API are set, but the set of arguments
 // will change when the set of required properties is changed
-func NewModelInitAgentReq(availableWorkload int32, nodeId string, version string) *ModelInitAgentReq {
+func NewModelInitAgentReq(availableWorkload int32, nodeId string, nodeType string, version string) *ModelInitAgentReq {
 	this := ModelInitAgentReq{}
 	this.AvailableWorkload = availableWorkload
 	this.NodeId = nodeId
+	this.NodeType = nodeType
 	this.Version = version
 	return &this
 }
@@ -97,6 +99,30 @@ func (o *ModelInitAgentReq) SetNodeId(v string) {
 	o.NodeId = v
 }
 
+// GetNodeType returns the NodeType field value
+func (o *ModelInitAgentReq) GetNodeType() string {
+	if o == nil {
+		var ret string
+		return ret
+	}
+
+	return o.NodeType
+}
+
+// GetNodeTypeOk returns a tuple with the NodeType field value
+// and a boolean to check if the value has been set.
+func (o *ModelInitAgentReq) GetNodeTypeOk() (*string, bool) {
+	if o == nil {
+		return nil, false
+	}
+	return &o.NodeType, true
+}
+
+// SetNodeType sets field value
+func (o *ModelInitAgentReq) SetNodeType(v string) {
+	o.NodeType = v
+}
+
 // GetVersion returns the Version field value
 func (o *ModelInitAgentReq) GetVersion() string {
 	if o == nil {
@@ -133,6 +159,7 @@ func (o ModelInitAgentReq) ToMap() (map[string]interface{}, error) {
 	toSerialize := map[string]interface{}{}
 	toSerialize["available_workload"] = o.AvailableWorkload
 	toSerialize["node_id"] = o.NodeId
+	toSerialize["node_type"] = o.NodeType
 	toSerialize["version"] = o.Version
 	return toSerialize, nil
 }
@@ -144,6 +171,7 @@ func (o *ModelInitAgentReq) UnmarshalJSON(data []byte) (err error) {
 	requiredProperties := []string{
 		"available_workload",
 		"node_id",
+		"node_type",
 		"version",
 	}
 

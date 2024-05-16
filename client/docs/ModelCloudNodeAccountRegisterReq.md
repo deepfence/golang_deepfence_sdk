@@ -6,6 +6,7 @@ Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
 **CloudAccount** | **string** |  | 
 **CloudProvider** | **string** |  | 
+**HostNodeId** | Pointer to **string** |  | [optional] 
 **MonitoredAccountIds** | Pointer to **map[string]string** |  | [optional] 
 **NodeId** | **string** |  | 
 **OrgAccId** | Pointer to **string** |  | [optional] 
@@ -69,6 +70,31 @@ and a boolean to check if the value has been set.
 
 SetCloudProvider sets CloudProvider field to given value.
 
+
+### GetHostNodeId
+
+`func (o *ModelCloudNodeAccountRegisterReq) GetHostNodeId() string`
+
+GetHostNodeId returns the HostNodeId field if non-nil, zero value otherwise.
+
+### GetHostNodeIdOk
+
+`func (o *ModelCloudNodeAccountRegisterReq) GetHostNodeIdOk() (*string, bool)`
+
+GetHostNodeIdOk returns a tuple with the HostNodeId field if it's non-nil, zero value otherwise
+and a boolean to check if the value has been set.
+
+### SetHostNodeId
+
+`func (o *ModelCloudNodeAccountRegisterReq) SetHostNodeId(v string)`
+
+SetHostNodeId sets HostNodeId field to given value.
+
+### HasHostNodeId
+
+`func (o *ModelCloudNodeAccountRegisterReq) HasHostNodeId() bool`
+
+HasHostNodeId returns a boolean if a field has been set.
 
 ### GetMonitoredAccountIds
 

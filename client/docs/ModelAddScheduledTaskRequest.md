@@ -7,6 +7,7 @@ Name | Type | Description | Notes
 **Action** | **string** |  | 
 **BenchmarkTypes** | **[]string** |  | 
 **CronExpr** | Pointer to **string** |  | [optional] 
+**DeepfenceSystemScan** | Pointer to **bool** |  | [optional] 
 **Description** | Pointer to **string** |  | [optional] 
 **Filters** | [**ModelScanFilter**](ModelScanFilter.md) |  | 
 **IsPriority** | Pointer to **bool** |  | [optional] 
@@ -106,6 +107,31 @@ SetCronExpr sets CronExpr field to given value.
 `func (o *ModelAddScheduledTaskRequest) HasCronExpr() bool`
 
 HasCronExpr returns a boolean if a field has been set.
+
+### GetDeepfenceSystemScan
+
+`func (o *ModelAddScheduledTaskRequest) GetDeepfenceSystemScan() bool`
+
+GetDeepfenceSystemScan returns the DeepfenceSystemScan field if non-nil, zero value otherwise.
+
+### GetDeepfenceSystemScanOk
+
+`func (o *ModelAddScheduledTaskRequest) GetDeepfenceSystemScanOk() (*bool, bool)`
+
+GetDeepfenceSystemScanOk returns a tuple with the DeepfenceSystemScan field if it's non-nil, zero value otherwise
+and a boolean to check if the value has been set.
+
+### SetDeepfenceSystemScan
+
+`func (o *ModelAddScheduledTaskRequest) SetDeepfenceSystemScan(v bool)`
+
+SetDeepfenceSystemScan sets DeepfenceSystemScan field to given value.
+
+### HasDeepfenceSystemScan
+
+`func (o *ModelAddScheduledTaskRequest) HasDeepfenceSystemScan() bool`
+
+HasDeepfenceSystemScan returns a boolean if a field has been set.
 
 ### GetDescription
 

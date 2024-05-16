@@ -3,7 +3,7 @@ Deepfence ThreatMapper
 
 Deepfence Runtime API provides programmatic control over Deepfence microservice securing your container, kubernetes and cloud deployments. The API abstracts away underlying infrastructure details like cloud provider,  container distros, container orchestrator and type of deployment. This is one uniform API to manage and control security alerts, policies and response to alerts for microservices running anywhere i.e. managed pure greenfield container deployments or a mix of containers, VMs and serverless paradigms like AWS Fargate.
 
-API version: 2.2.0
+API version: v2.2.1
 Contact: community@deepfence.io
 */
 
@@ -36,6 +36,10 @@ type ModelContainer struct {
 	DockerLabels map[string]interface{} `json:"docker_labels"`
 	HostName string `json:"host_name"`
 	Image ModelContainerImage `json:"image"`
+	IsDeepfenceSystem bool `json:"is_deepfence_system"`
+	KubernetesClusterId string `json:"kubernetes_cluster_id"`
+	KubernetesClusterName string `json:"kubernetes_cluster_name"`
+	KubernetesNamespace string `json:"kubernetes_namespace"`
 	MalwareLatestScanId string `json:"malware_latest_scan_id"`
 	MalwareScanStatus string `json:"malware_scan_status"`
 	MalwaresCount int32 `json:"malwares_count"`
@@ -59,7 +63,7 @@ type _ModelContainer ModelContainer
 // This constructor will assign default values to properties that have it defined,
 // and makes sure properties required by API are set, but the set of arguments
 // will change when the set of required properties is changed
-func NewModelContainer(cpuMax float32, cpuUsage float32, dockerContainerCommand string, dockerContainerCreated string, dockerContainerIps []interface{}, dockerContainerName string, dockerContainerNetworkMode string, dockerContainerNetworks string, dockerContainerPorts string, dockerContainerState string, dockerContainerStateHuman string, dockerLabels map[string]interface{}, hostName string, image ModelContainerImage, malwareLatestScanId string, malwareScanStatus string, malwaresCount int32, memoryMax int32, memoryUsage int32, nodeId string, nodeName string, processes []ModelProcess, secretLatestScanId string, secretScanStatus string, secretsCount int32, uptime int32, vulnerabilitiesCount int32, vulnerabilityLatestScanId string, vulnerabilityScanStatus string) *ModelContainer {
+func NewModelContainer(cpuMax float32, cpuUsage float32, dockerContainerCommand string, dockerContainerCreated string, dockerContainerIps []interface{}, dockerContainerName string, dockerContainerNetworkMode string, dockerContainerNetworks string, dockerContainerPorts string, dockerContainerState string, dockerContainerStateHuman string, dockerLabels map[string]interface{}, hostName string, image ModelContainerImage, isDeepfenceSystem bool, kubernetesClusterId string, kubernetesClusterName string, kubernetesNamespace string, malwareLatestScanId string, malwareScanStatus string, malwaresCount int32, memoryMax int32, memoryUsage int32, nodeId string, nodeName string, processes []ModelProcess, secretLatestScanId string, secretScanStatus string, secretsCount int32, uptime int32, vulnerabilitiesCount int32, vulnerabilityLatestScanId string, vulnerabilityScanStatus string) *ModelContainer {
 	this := ModelContainer{}
 	this.CpuMax = cpuMax
 	this.CpuUsage = cpuUsage
@@ -75,6 +79,10 @@ func NewModelContainer(cpuMax float32, cpuUsage float32, dockerContainerCommand 
 	this.DockerLabels = dockerLabels
 	this.HostName = hostName
 	this.Image = image
+	this.IsDeepfenceSystem = isDeepfenceSystem
+	this.KubernetesClusterId = kubernetesClusterId
+	this.KubernetesClusterName = kubernetesClusterName
+	this.KubernetesNamespace = kubernetesNamespace
 	this.MalwareLatestScanId = malwareLatestScanId
 	this.MalwareScanStatus = malwareScanStatus
 	this.MalwaresCount = malwaresCount
@@ -439,6 +447,102 @@ func (o *ModelContainer) GetImageOk() (*ModelContainerImage, bool) {
 // SetImage sets field value
 func (o *ModelContainer) SetImage(v ModelContainerImage) {
 	o.Image = v
+}
+
+// GetIsDeepfenceSystem returns the IsDeepfenceSystem field value
+func (o *ModelContainer) GetIsDeepfenceSystem() bool {
+	if o == nil {
+		var ret bool
+		return ret
+	}
+
+	return o.IsDeepfenceSystem
+}
+
+// GetIsDeepfenceSystemOk returns a tuple with the IsDeepfenceSystem field value
+// and a boolean to check if the value has been set.
+func (o *ModelContainer) GetIsDeepfenceSystemOk() (*bool, bool) {
+	if o == nil {
+		return nil, false
+	}
+	return &o.IsDeepfenceSystem, true
+}
+
+// SetIsDeepfenceSystem sets field value
+func (o *ModelContainer) SetIsDeepfenceSystem(v bool) {
+	o.IsDeepfenceSystem = v
+}
+
+// GetKubernetesClusterId returns the KubernetesClusterId field value
+func (o *ModelContainer) GetKubernetesClusterId() string {
+	if o == nil {
+		var ret string
+		return ret
+	}
+
+	return o.KubernetesClusterId
+}
+
+// GetKubernetesClusterIdOk returns a tuple with the KubernetesClusterId field value
+// and a boolean to check if the value has been set.
+func (o *ModelContainer) GetKubernetesClusterIdOk() (*string, bool) {
+	if o == nil {
+		return nil, false
+	}
+	return &o.KubernetesClusterId, true
+}
+
+// SetKubernetesClusterId sets field value
+func (o *ModelContainer) SetKubernetesClusterId(v string) {
+	o.KubernetesClusterId = v
+}
+
+// GetKubernetesClusterName returns the KubernetesClusterName field value
+func (o *ModelContainer) GetKubernetesClusterName() string {
+	if o == nil {
+		var ret string
+		return ret
+	}
+
+	return o.KubernetesClusterName
+}
+
+// GetKubernetesClusterNameOk returns a tuple with the KubernetesClusterName field value
+// and a boolean to check if the value has been set.
+func (o *ModelContainer) GetKubernetesClusterNameOk() (*string, bool) {
+	if o == nil {
+		return nil, false
+	}
+	return &o.KubernetesClusterName, true
+}
+
+// SetKubernetesClusterName sets field value
+func (o *ModelContainer) SetKubernetesClusterName(v string) {
+	o.KubernetesClusterName = v
+}
+
+// GetKubernetesNamespace returns the KubernetesNamespace field value
+func (o *ModelContainer) GetKubernetesNamespace() string {
+	if o == nil {
+		var ret string
+		return ret
+	}
+
+	return o.KubernetesNamespace
+}
+
+// GetKubernetesNamespaceOk returns a tuple with the KubernetesNamespace field value
+// and a boolean to check if the value has been set.
+func (o *ModelContainer) GetKubernetesNamespaceOk() (*string, bool) {
+	if o == nil {
+		return nil, false
+	}
+	return &o.KubernetesNamespace, true
+}
+
+// SetKubernetesNamespace sets field value
+func (o *ModelContainer) SetKubernetesNamespace(v string) {
+	o.KubernetesNamespace = v
 }
 
 // GetMalwareLatestScanId returns the MalwareLatestScanId field value
@@ -831,6 +935,10 @@ func (o ModelContainer) ToMap() (map[string]interface{}, error) {
 	}
 	toSerialize["host_name"] = o.HostName
 	toSerialize["image"] = o.Image
+	toSerialize["is_deepfence_system"] = o.IsDeepfenceSystem
+	toSerialize["kubernetes_cluster_id"] = o.KubernetesClusterId
+	toSerialize["kubernetes_cluster_name"] = o.KubernetesClusterName
+	toSerialize["kubernetes_namespace"] = o.KubernetesNamespace
 	toSerialize["malware_latest_scan_id"] = o.MalwareLatestScanId
 	toSerialize["malware_scan_status"] = o.MalwareScanStatus
 	toSerialize["malwares_count"] = o.MalwaresCount
@@ -870,6 +978,10 @@ func (o *ModelContainer) UnmarshalJSON(data []byte) (err error) {
 		"docker_labels",
 		"host_name",
 		"image",
+		"is_deepfence_system",
+		"kubernetes_cluster_id",
+		"kubernetes_cluster_name",
+		"kubernetes_namespace",
 		"malware_latest_scan_id",
 		"malware_scan_status",
 		"malwares_count",

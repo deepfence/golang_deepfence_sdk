@@ -3,7 +3,7 @@ Deepfence ThreatMapper
 
 Deepfence Runtime API provides programmatic control over Deepfence microservice securing your container, kubernetes and cloud deployments. The API abstracts away underlying infrastructure details like cloud provider,  container distros, container orchestrator and type of deployment. This is one uniform API to manage and control security alerts, policies and response to alerts for microservices running anywhere i.e. managed pure greenfield container deployments or a mix of containers, VMs and serverless paradigms like AWS Fargate.
 
-API version: 2.2.0
+API version: v2.2.1
 Contact: community@deepfence.io
 */
 
@@ -23,7 +23,6 @@ type ModelCloudNodeAccountRegisterRespData struct {
 	CloudtrailTrails []ModelCloudNodeCloudtrailTrail `json:"cloudtrail_trails,omitempty"`
 	LogAction *ControlsAction `json:"log_action,omitempty"`
 	Refresh *string `json:"refresh,omitempty"`
-	Scans map[string]ModelCloudComplianceScanDetails `json:"scans,omitempty"`
 }
 
 // NewModelCloudNodeAccountRegisterRespData instantiates a new ModelCloudNodeAccountRegisterRespData object
@@ -140,39 +139,6 @@ func (o *ModelCloudNodeAccountRegisterRespData) SetRefresh(v string) {
 	o.Refresh = &v
 }
 
-// GetScans returns the Scans field value if set, zero value otherwise (both if not set or set to explicit null).
-func (o *ModelCloudNodeAccountRegisterRespData) GetScans() map[string]ModelCloudComplianceScanDetails {
-	if o == nil {
-		var ret map[string]ModelCloudComplianceScanDetails
-		return ret
-	}
-	return o.Scans
-}
-
-// GetScansOk returns a tuple with the Scans field value if set, nil otherwise
-// and a boolean to check if the value has been set.
-// NOTE: If the value is an explicit nil, `nil, true` will be returned
-func (o *ModelCloudNodeAccountRegisterRespData) GetScansOk() (*map[string]ModelCloudComplianceScanDetails, bool) {
-	if o == nil || IsNil(o.Scans) {
-		return nil, false
-	}
-	return &o.Scans, true
-}
-
-// HasScans returns a boolean if a field has been set.
-func (o *ModelCloudNodeAccountRegisterRespData) HasScans() bool {
-	if o != nil && !IsNil(o.Scans) {
-		return true
-	}
-
-	return false
-}
-
-// SetScans gets a reference to the given map[string]ModelCloudComplianceScanDetails and assigns it to the Scans field.
-func (o *ModelCloudNodeAccountRegisterRespData) SetScans(v map[string]ModelCloudComplianceScanDetails) {
-	o.Scans = v
-}
-
 func (o ModelCloudNodeAccountRegisterRespData) MarshalJSON() ([]byte, error) {
 	toSerialize,err := o.ToMap()
 	if err != nil {
@@ -191,9 +157,6 @@ func (o ModelCloudNodeAccountRegisterRespData) ToMap() (map[string]interface{}, 
 	}
 	if !IsNil(o.Refresh) {
 		toSerialize["refresh"] = o.Refresh
-	}
-	if o.Scans != nil {
-		toSerialize["scans"] = o.Scans
 	}
 	return toSerialize, nil
 }
