@@ -4,20 +4,20 @@
 
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
-**AccountId** | Pointer to **string** |  | [optional] 
-**CloudProvider** | Pointer to **string** |  | [optional] 
-**HostNodeId** | Pointer to **string** |  | [optional] 
+**AccountId** | **string** |  | 
+**CloudProvider** | **string** |  | 
+**HostNodeId** | **string** |  | 
 **IsOrganizationDeployment** | Pointer to **bool** |  | [optional] 
 **MonitoredAccountIds** | Pointer to **map[string]string** |  | [optional] 
-**NodeId** | Pointer to **string** |  | [optional] 
+**NodeId** | **string** |  | 
 **OrganizationAccountId** | Pointer to **string** |  | [optional] 
-**Version** | Pointer to **string** |  | [optional] 
+**Version** | **string** |  | 
 
 ## Methods
 
 ### NewModelCloudNodeAccountRegisterReq
 
-`func NewModelCloudNodeAccountRegisterReq() *ModelCloudNodeAccountRegisterReq`
+`func NewModelCloudNodeAccountRegisterReq(accountId string, cloudProvider string, hostNodeId string, nodeId string, version string, ) *ModelCloudNodeAccountRegisterReq`
 
 NewModelCloudNodeAccountRegisterReq instantiates a new ModelCloudNodeAccountRegisterReq object
 This constructor will assign default values to properties that have it defined,
@@ -51,11 +51,6 @@ and a boolean to check if the value has been set.
 
 SetAccountId sets AccountId field to given value.
 
-### HasAccountId
-
-`func (o *ModelCloudNodeAccountRegisterReq) HasAccountId() bool`
-
-HasAccountId returns a boolean if a field has been set.
 
 ### GetCloudProvider
 
@@ -76,11 +71,6 @@ and a boolean to check if the value has been set.
 
 SetCloudProvider sets CloudProvider field to given value.
 
-### HasCloudProvider
-
-`func (o *ModelCloudNodeAccountRegisterReq) HasCloudProvider() bool`
-
-HasCloudProvider returns a boolean if a field has been set.
 
 ### GetHostNodeId
 
@@ -101,11 +91,6 @@ and a boolean to check if the value has been set.
 
 SetHostNodeId sets HostNodeId field to given value.
 
-### HasHostNodeId
-
-`func (o *ModelCloudNodeAccountRegisterReq) HasHostNodeId() bool`
-
-HasHostNodeId returns a boolean if a field has been set.
 
 ### GetIsOrganizationDeployment
 
@@ -186,11 +171,6 @@ and a boolean to check if the value has been set.
 
 SetNodeId sets NodeId field to given value.
 
-### HasNodeId
-
-`func (o *ModelCloudNodeAccountRegisterReq) HasNodeId() bool`
-
-HasNodeId returns a boolean if a field has been set.
 
 ### GetOrganizationAccountId
 
@@ -236,11 +216,6 @@ and a boolean to check if the value has been set.
 
 SetVersion sets Version field to given value.
 
-### HasVersion
-
-`func (o *ModelCloudNodeAccountRegisterReq) HasVersion() bool`
-
-HasVersion returns a boolean if a field has been set.
 
 
 [[Back to Model list]](../README.md#documentation-for-models) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to README]](../README.md)

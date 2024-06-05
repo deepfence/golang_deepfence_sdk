@@ -12509,6 +12509,12 @@ components:
           type: string
         version:
           type: string
+      required:
+      - account_id
+      - cloud_provider
+      - host_node_id
+      - node_id
+      - version
       type: object
     ModelCloudNodeAccountsListReq:
       example:
