@@ -231,8 +231,7 @@ paths:
       - Authentication
   /deepfence/cloud-node/account:
     post:
-      description: Register Cloud Node Account and return any pending compliance scans
-        from console
+      description: Register Cloud Account
       operationId: registerCloudNodeAccount
       requestBody:
         content:
@@ -240,12 +239,8 @@ paths:
             schema:
               $ref: '#/components/schemas/ModelCloudNodeAccountRegisterReq'
       responses:
-        "200":
-          content:
-            application/json:
-              schema:
-                $ref: '#/components/schemas/ModelCloudNodeAccountRegisterResp'
-          description: OK
+        "204":
+          description: No Content
         "400":
           content:
             application/json:
@@ -1395,53 +1390,6 @@ paths:
       security:
       - bearer_token: []
       summary: Generate Cloud Scanner Diagnostic Logs
-      tags:
-      - Diagnosis
-  /deepfence/diagnosis/cloud-scanner-logs/status/{node_id}:
-    put:
-      description: Update cloud scanner diagnostic logs status
-      operationId: updateCloudScannerDiagnosticLogsStatus
-      parameters:
-      - explode: false
-        in: path
-        name: node_id
-        required: true
-        schema:
-          type: string
-        style: simple
-      requestBody:
-        content:
-          application/json:
-            schema:
-              $ref: '#/components/schemas/DiagnosisDiagnosticLogsStatus'
-      responses:
-        "204":
-          description: No Content
-        "400":
-          content:
-            application/json:
-              schema:
-                $ref: '#/components/schemas/ApiDocsBadRequestResponse'
-          description: Bad Request
-        "401":
-          description: Unauthorized
-        "403":
-          description: Forbidden
-        "404":
-          content:
-            application/json:
-              schema:
-                $ref: '#/components/schemas/ApiDocsFailureResponse'
-          description: Not Found
-        "500":
-          content:
-            application/json:
-              schema:
-                $ref: '#/components/schemas/ApiDocsFailureResponse'
-          description: Internal Server Error
-      security:
-      - bearer_token: []
-      summary: Update Cloud Scanner Diagnostic Logs Status
       tags:
       - Diagnosis
   /deepfence/diagnosis/console-logs:
@@ -10342,7 +10290,7 @@ components:
       type: object
     ControlsAction:
       example:
-        id: 0
+        id: 6
         request_payload: request_payload
       properties:
         id:
@@ -10366,9 +10314,9 @@ components:
       example:
         beatrate: 0
         commands:
-        - id: 0
+        - id: 6
           request_payload: request_payload
-        - id: 0
+        - id: 6
           request_payload: request_payload
       properties:
         beatrate:
@@ -10653,24 +10601,8 @@ components:
           label: label
           message: message
           type: type
-        cloud_scanner_logs:
-        - url_link: url_link
-          created_at: created_at
-          label: label
-          message: message
-          type: type
-        - url_link: url_link
-          created_at: created_at
-          label: label
-          message: message
-          type: type
       properties:
         agent_logs:
-          items:
-            $ref: '#/components/schemas/DiagnosisDiagnosticLogsLink'
-          nullable: true
-          type: array
-        cloud_scanner_logs:
           items:
             $ref: '#/components/schemas/DiagnosisDiagnosticLogsLink'
           nullable: true
@@ -12544,16 +12476,17 @@ components:
       type: object
     ModelCloudNodeAccountRegisterReq:
       example:
-        cloud_account: cloud_account
+        account_id: account_id
         monitored_account_ids:
           key: monitored_account_ids
-        org_acc_id: org_acc_id
+        is_organization_deployment: true
         cloud_provider: aws
+        organization_account_id: organization_account_id
         host_node_id: host_node_id
         version: version
         node_id: node_id
       properties:
-        cloud_account:
+        account_id:
           type: string
         cloud_provider:
           enum:
@@ -12563,6 +12496,8 @@ components:
           type: string
         host_node_id:
           type: string
+        is_organization_deployment:
+          type: boolean
         monitored_account_ids:
           additionalProperties:
             type: string
@@ -12570,51 +12505,9 @@ components:
           type: object
         node_id:
           type: string
-        org_acc_id:
+        organization_account_id:
           type: string
         version:
-          type: string
-      required:
-      - cloud_account
-      - cloud_provider
-      - node_id
-      type: object
-    ModelCloudNodeAccountRegisterResp:
-      example:
-        data:
-          cloudtrail_trails:
-          - account_id: account_id
-            trail_name: trail_name
-          - account_id: account_id
-            trail_name: trail_name
-          log_action:
-            id: 0
-            request_payload: request_payload
-          refresh: refresh
-      properties:
-        data:
-          $ref: '#/components/schemas/ModelCloudNodeAccountRegisterRespData'
-      type: object
-    ModelCloudNodeAccountRegisterRespData:
-      example:
-        cloudtrail_trails:
-        - account_id: account_id
-          trail_name: trail_name
-        - account_id: account_id
-          trail_name: trail_name
-        log_action:
-          id: 0
-          request_payload: request_payload
-        refresh: refresh
-      properties:
-        cloudtrail_trails:
-          items:
-            $ref: '#/components/schemas/ModelCloudNodeCloudtrailTrail'
-          nullable: true
-          type: array
-        log_action:
-          $ref: '#/components/schemas/ControlsAction'
-        refresh:
           type: string
       type: object
     ModelCloudNodeAccountsListReq:
@@ -12668,16 +12561,6 @@ components:
       required:
       - cloud_node_accounts_info
       - total
-      type: object
-    ModelCloudNodeCloudtrailTrail:
-      example:
-        account_id: account_id
-        trail_name: trail_name
-      properties:
-        account_id:
-          type: string
-        trail_name:
-          type: string
       type: object
     ModelCloudNodeComplianceControl:
       example:

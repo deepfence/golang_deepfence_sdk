@@ -4,19 +4,20 @@
 
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
-**CloudAccount** | **string** |  | 
-**CloudProvider** | **string** |  | 
+**AccountId** | Pointer to **string** |  | [optional] 
+**CloudProvider** | Pointer to **string** |  | [optional] 
 **HostNodeId** | Pointer to **string** |  | [optional] 
+**IsOrganizationDeployment** | Pointer to **bool** |  | [optional] 
 **MonitoredAccountIds** | Pointer to **map[string]string** |  | [optional] 
-**NodeId** | **string** |  | 
-**OrgAccId** | Pointer to **string** |  | [optional] 
+**NodeId** | Pointer to **string** |  | [optional] 
+**OrganizationAccountId** | Pointer to **string** |  | [optional] 
 **Version** | Pointer to **string** |  | [optional] 
 
 ## Methods
 
 ### NewModelCloudNodeAccountRegisterReq
 
-`func NewModelCloudNodeAccountRegisterReq(cloudAccount string, cloudProvider string, nodeId string, ) *ModelCloudNodeAccountRegisterReq`
+`func NewModelCloudNodeAccountRegisterReq() *ModelCloudNodeAccountRegisterReq`
 
 NewModelCloudNodeAccountRegisterReq instantiates a new ModelCloudNodeAccountRegisterReq object
 This constructor will assign default values to properties that have it defined,
@@ -31,25 +32,30 @@ NewModelCloudNodeAccountRegisterReqWithDefaults instantiates a new ModelCloudNod
 This constructor will only assign default values to properties that have it defined,
 but it doesn't guarantee that properties required by API are set
 
-### GetCloudAccount
+### GetAccountId
 
-`func (o *ModelCloudNodeAccountRegisterReq) GetCloudAccount() string`
+`func (o *ModelCloudNodeAccountRegisterReq) GetAccountId() string`
 
-GetCloudAccount returns the CloudAccount field if non-nil, zero value otherwise.
+GetAccountId returns the AccountId field if non-nil, zero value otherwise.
 
-### GetCloudAccountOk
+### GetAccountIdOk
 
-`func (o *ModelCloudNodeAccountRegisterReq) GetCloudAccountOk() (*string, bool)`
+`func (o *ModelCloudNodeAccountRegisterReq) GetAccountIdOk() (*string, bool)`
 
-GetCloudAccountOk returns a tuple with the CloudAccount field if it's non-nil, zero value otherwise
+GetAccountIdOk returns a tuple with the AccountId field if it's non-nil, zero value otherwise
 and a boolean to check if the value has been set.
 
-### SetCloudAccount
+### SetAccountId
 
-`func (o *ModelCloudNodeAccountRegisterReq) SetCloudAccount(v string)`
+`func (o *ModelCloudNodeAccountRegisterReq) SetAccountId(v string)`
 
-SetCloudAccount sets CloudAccount field to given value.
+SetAccountId sets AccountId field to given value.
 
+### HasAccountId
+
+`func (o *ModelCloudNodeAccountRegisterReq) HasAccountId() bool`
+
+HasAccountId returns a boolean if a field has been set.
 
 ### GetCloudProvider
 
@@ -70,6 +76,11 @@ and a boolean to check if the value has been set.
 
 SetCloudProvider sets CloudProvider field to given value.
 
+### HasCloudProvider
+
+`func (o *ModelCloudNodeAccountRegisterReq) HasCloudProvider() bool`
+
+HasCloudProvider returns a boolean if a field has been set.
 
 ### GetHostNodeId
 
@@ -95,6 +106,31 @@ SetHostNodeId sets HostNodeId field to given value.
 `func (o *ModelCloudNodeAccountRegisterReq) HasHostNodeId() bool`
 
 HasHostNodeId returns a boolean if a field has been set.
+
+### GetIsOrganizationDeployment
+
+`func (o *ModelCloudNodeAccountRegisterReq) GetIsOrganizationDeployment() bool`
+
+GetIsOrganizationDeployment returns the IsOrganizationDeployment field if non-nil, zero value otherwise.
+
+### GetIsOrganizationDeploymentOk
+
+`func (o *ModelCloudNodeAccountRegisterReq) GetIsOrganizationDeploymentOk() (*bool, bool)`
+
+GetIsOrganizationDeploymentOk returns a tuple with the IsOrganizationDeployment field if it's non-nil, zero value otherwise
+and a boolean to check if the value has been set.
+
+### SetIsOrganizationDeployment
+
+`func (o *ModelCloudNodeAccountRegisterReq) SetIsOrganizationDeployment(v bool)`
+
+SetIsOrganizationDeployment sets IsOrganizationDeployment field to given value.
+
+### HasIsOrganizationDeployment
+
+`func (o *ModelCloudNodeAccountRegisterReq) HasIsOrganizationDeployment() bool`
+
+HasIsOrganizationDeployment returns a boolean if a field has been set.
 
 ### GetMonitoredAccountIds
 
@@ -150,31 +186,36 @@ and a boolean to check if the value has been set.
 
 SetNodeId sets NodeId field to given value.
 
+### HasNodeId
 
-### GetOrgAccId
+`func (o *ModelCloudNodeAccountRegisterReq) HasNodeId() bool`
 
-`func (o *ModelCloudNodeAccountRegisterReq) GetOrgAccId() string`
+HasNodeId returns a boolean if a field has been set.
 
-GetOrgAccId returns the OrgAccId field if non-nil, zero value otherwise.
+### GetOrganizationAccountId
 
-### GetOrgAccIdOk
+`func (o *ModelCloudNodeAccountRegisterReq) GetOrganizationAccountId() string`
 
-`func (o *ModelCloudNodeAccountRegisterReq) GetOrgAccIdOk() (*string, bool)`
+GetOrganizationAccountId returns the OrganizationAccountId field if non-nil, zero value otherwise.
 
-GetOrgAccIdOk returns a tuple with the OrgAccId field if it's non-nil, zero value otherwise
+### GetOrganizationAccountIdOk
+
+`func (o *ModelCloudNodeAccountRegisterReq) GetOrganizationAccountIdOk() (*string, bool)`
+
+GetOrganizationAccountIdOk returns a tuple with the OrganizationAccountId field if it's non-nil, zero value otherwise
 and a boolean to check if the value has been set.
 
-### SetOrgAccId
+### SetOrganizationAccountId
 
-`func (o *ModelCloudNodeAccountRegisterReq) SetOrgAccId(v string)`
+`func (o *ModelCloudNodeAccountRegisterReq) SetOrganizationAccountId(v string)`
 
-SetOrgAccId sets OrgAccId field to given value.
+SetOrganizationAccountId sets OrganizationAccountId field to given value.
 
-### HasOrgAccId
+### HasOrganizationAccountId
 
-`func (o *ModelCloudNodeAccountRegisterReq) HasOrgAccId() bool`
+`func (o *ModelCloudNodeAccountRegisterReq) HasOrganizationAccountId() bool`
 
-HasOrgAccId returns a boolean if a field has been set.
+HasOrganizationAccountId returns a boolean if a field has been set.
 
 ### GetVersion
 

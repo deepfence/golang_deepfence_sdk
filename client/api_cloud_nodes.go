@@ -560,14 +560,14 @@ func (r ApiRegisterCloudNodeAccountRequest) ModelCloudNodeAccountRegisterReq(mod
 	return r
 }
 
-func (r ApiRegisterCloudNodeAccountRequest) Execute() (*ModelCloudNodeAccountRegisterResp, *http.Response, error) {
+func (r ApiRegisterCloudNodeAccountRequest) Execute() (*http.Response, error) {
 	return r.ApiService.RegisterCloudNodeAccountExecute(r)
 }
 
 /*
 RegisterCloudNodeAccount Register Cloud Node Account
 
-Register Cloud Node Account and return any pending compliance scans from console
+Register Cloud Account
 
  @param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
  @return ApiRegisterCloudNodeAccountRequest
@@ -580,18 +580,16 @@ func (a *CloudNodesAPIService) RegisterCloudNodeAccount(ctx context.Context) Api
 }
 
 // Execute executes the request
-//  @return ModelCloudNodeAccountRegisterResp
-func (a *CloudNodesAPIService) RegisterCloudNodeAccountExecute(r ApiRegisterCloudNodeAccountRequest) (*ModelCloudNodeAccountRegisterResp, *http.Response, error) {
+func (a *CloudNodesAPIService) RegisterCloudNodeAccountExecute(r ApiRegisterCloudNodeAccountRequest) (*http.Response, error) {
 	var (
 		localVarHTTPMethod   = http.MethodPost
 		localVarPostBody     interface{}
 		formFiles            []formFile
-		localVarReturnValue  *ModelCloudNodeAccountRegisterResp
 	)
 
 	localBasePath, err := a.client.cfg.ServerURLWithContext(r.ctx, "CloudNodesAPIService.RegisterCloudNodeAccount")
 	if err != nil {
-		return localVarReturnValue, nil, &GenericOpenAPIError{error: err.Error()}
+		return nil, &GenericOpenAPIError{error: err.Error()}
 	}
 
 	localVarPath := localBasePath + "/deepfence/cloud-node/account"
@@ -621,19 +619,19 @@ func (a *CloudNodesAPIService) RegisterCloudNodeAccountExecute(r ApiRegisterClou
 	localVarPostBody = r.modelCloudNodeAccountRegisterReq
 	req, err := a.client.prepareRequest(r.ctx, localVarPath, localVarHTTPMethod, localVarPostBody, localVarHeaderParams, localVarQueryParams, localVarFormParams, formFiles)
 	if err != nil {
-		return localVarReturnValue, nil, err
+		return nil, err
 	}
 
 	localVarHTTPResponse, err := a.client.callAPI(req)
 	if err != nil || localVarHTTPResponse == nil {
-		return localVarReturnValue, localVarHTTPResponse, err
+		return localVarHTTPResponse, err
 	}
 
 	localVarBody, err := io.ReadAll(localVarHTTPResponse.Body)
 	localVarHTTPResponse.Body.Close()
 	localVarHTTPResponse.Body = io.NopCloser(bytes.NewBuffer(localVarBody))
 	if err != nil {
-		return localVarReturnValue, localVarHTTPResponse, err
+		return localVarHTTPResponse, err
 	}
 
 	if localVarHTTPResponse.StatusCode >= 300 {
@@ -646,44 +644,35 @@ func (a *CloudNodesAPIService) RegisterCloudNodeAccountExecute(r ApiRegisterClou
 			err = a.client.decode(&v, localVarBody, localVarHTTPResponse.Header.Get("Content-Type"))
 			if err != nil {
 				newErr.error = err.Error()
-				return localVarReturnValue, localVarHTTPResponse, newErr
+				return localVarHTTPResponse, newErr
 			}
 					newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
 					newErr.model = v
-			return localVarReturnValue, localVarHTTPResponse, newErr
+			return localVarHTTPResponse, newErr
 		}
 		if localVarHTTPResponse.StatusCode == 404 {
 			var v ApiDocsFailureResponse
 			err = a.client.decode(&v, localVarBody, localVarHTTPResponse.Header.Get("Content-Type"))
 			if err != nil {
 				newErr.error = err.Error()
-				return localVarReturnValue, localVarHTTPResponse, newErr
+				return localVarHTTPResponse, newErr
 			}
 					newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
 					newErr.model = v
-			return localVarReturnValue, localVarHTTPResponse, newErr
+			return localVarHTTPResponse, newErr
 		}
 		if localVarHTTPResponse.StatusCode == 500 {
 			var v ApiDocsFailureResponse
 			err = a.client.decode(&v, localVarBody, localVarHTTPResponse.Header.Get("Content-Type"))
 			if err != nil {
 				newErr.error = err.Error()
-				return localVarReturnValue, localVarHTTPResponse, newErr
+				return localVarHTTPResponse, newErr
 			}
 					newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
 					newErr.model = v
 		}
-		return localVarReturnValue, localVarHTTPResponse, newErr
+		return localVarHTTPResponse, newErr
 	}
 
-	err = a.client.decode(&localVarReturnValue, localVarBody, localVarHTTPResponse.Header.Get("Content-Type"))
-	if err != nil {
-		newErr := &GenericOpenAPIError{
-			body:  localVarBody,
-			error: err.Error(),
-		}
-		return localVarReturnValue, localVarHTTPResponse, newErr
-	}
-
-	return localVarReturnValue, localVarHTTPResponse, nil
+	return localVarHTTPResponse, nil
 }
