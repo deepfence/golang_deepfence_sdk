@@ -22,14 +22,13 @@ var _ MappedNullable = &ModelCloudNodeAccountRegisterReq{}
 
 // ModelCloudNodeAccountRegisterReq struct for ModelCloudNodeAccountRegisterReq
 type ModelCloudNodeAccountRegisterReq struct {
-	AccountId string `json:"account_id"`
+	CloudAccount string `json:"cloud_account"`
 	CloudProvider string `json:"cloud_provider"`
-	HostNodeId string `json:"host_node_id"`
-	IsOrganizationDeployment *bool `json:"is_organization_deployment,omitempty"`
+	HostNodeId *string `json:"host_node_id,omitempty"`
 	MonitoredAccountIds map[string]string `json:"monitored_account_ids,omitempty"`
 	NodeId string `json:"node_id"`
-	OrganizationAccountId *string `json:"organization_account_id,omitempty"`
-	Version string `json:"version"`
+	OrgAccId *string `json:"org_acc_id,omitempty"`
+	Version *string `json:"version,omitempty"`
 }
 
 type _ModelCloudNodeAccountRegisterReq ModelCloudNodeAccountRegisterReq
@@ -38,13 +37,11 @@ type _ModelCloudNodeAccountRegisterReq ModelCloudNodeAccountRegisterReq
 // This constructor will assign default values to properties that have it defined,
 // and makes sure properties required by API are set, but the set of arguments
 // will change when the set of required properties is changed
-func NewModelCloudNodeAccountRegisterReq(accountId string, cloudProvider string, hostNodeId string, nodeId string, version string) *ModelCloudNodeAccountRegisterReq {
+func NewModelCloudNodeAccountRegisterReq(cloudAccount string, cloudProvider string, nodeId string) *ModelCloudNodeAccountRegisterReq {
 	this := ModelCloudNodeAccountRegisterReq{}
-	this.AccountId = accountId
+	this.CloudAccount = cloudAccount
 	this.CloudProvider = cloudProvider
-	this.HostNodeId = hostNodeId
 	this.NodeId = nodeId
-	this.Version = version
 	return &this
 }
 
@@ -56,28 +53,28 @@ func NewModelCloudNodeAccountRegisterReqWithDefaults() *ModelCloudNodeAccountReg
 	return &this
 }
 
-// GetAccountId returns the AccountId field value
-func (o *ModelCloudNodeAccountRegisterReq) GetAccountId() string {
+// GetCloudAccount returns the CloudAccount field value
+func (o *ModelCloudNodeAccountRegisterReq) GetCloudAccount() string {
 	if o == nil {
 		var ret string
 		return ret
 	}
 
-	return o.AccountId
+	return o.CloudAccount
 }
 
-// GetAccountIdOk returns a tuple with the AccountId field value
+// GetCloudAccountOk returns a tuple with the CloudAccount field value
 // and a boolean to check if the value has been set.
-func (o *ModelCloudNodeAccountRegisterReq) GetAccountIdOk() (*string, bool) {
+func (o *ModelCloudNodeAccountRegisterReq) GetCloudAccountOk() (*string, bool) {
 	if o == nil {
 		return nil, false
 	}
-	return &o.AccountId, true
+	return &o.CloudAccount, true
 }
 
-// SetAccountId sets field value
-func (o *ModelCloudNodeAccountRegisterReq) SetAccountId(v string) {
-	o.AccountId = v
+// SetCloudAccount sets field value
+func (o *ModelCloudNodeAccountRegisterReq) SetCloudAccount(v string) {
+	o.CloudAccount = v
 }
 
 // GetCloudProvider returns the CloudProvider field value
@@ -104,60 +101,36 @@ func (o *ModelCloudNodeAccountRegisterReq) SetCloudProvider(v string) {
 	o.CloudProvider = v
 }
 
-// GetHostNodeId returns the HostNodeId field value
+// GetHostNodeId returns the HostNodeId field value if set, zero value otherwise.
 func (o *ModelCloudNodeAccountRegisterReq) GetHostNodeId() string {
-	if o == nil {
+	if o == nil || IsNil(o.HostNodeId) {
 		var ret string
 		return ret
 	}
-
-	return o.HostNodeId
+	return *o.HostNodeId
 }
 
-// GetHostNodeIdOk returns a tuple with the HostNodeId field value
+// GetHostNodeIdOk returns a tuple with the HostNodeId field value if set, nil otherwise
 // and a boolean to check if the value has been set.
 func (o *ModelCloudNodeAccountRegisterReq) GetHostNodeIdOk() (*string, bool) {
-	if o == nil {
+	if o == nil || IsNil(o.HostNodeId) {
 		return nil, false
 	}
-	return &o.HostNodeId, true
+	return o.HostNodeId, true
 }
 
-// SetHostNodeId sets field value
-func (o *ModelCloudNodeAccountRegisterReq) SetHostNodeId(v string) {
-	o.HostNodeId = v
-}
-
-// GetIsOrganizationDeployment returns the IsOrganizationDeployment field value if set, zero value otherwise.
-func (o *ModelCloudNodeAccountRegisterReq) GetIsOrganizationDeployment() bool {
-	if o == nil || IsNil(o.IsOrganizationDeployment) {
-		var ret bool
-		return ret
-	}
-	return *o.IsOrganizationDeployment
-}
-
-// GetIsOrganizationDeploymentOk returns a tuple with the IsOrganizationDeployment field value if set, nil otherwise
-// and a boolean to check if the value has been set.
-func (o *ModelCloudNodeAccountRegisterReq) GetIsOrganizationDeploymentOk() (*bool, bool) {
-	if o == nil || IsNil(o.IsOrganizationDeployment) {
-		return nil, false
-	}
-	return o.IsOrganizationDeployment, true
-}
-
-// HasIsOrganizationDeployment returns a boolean if a field has been set.
-func (o *ModelCloudNodeAccountRegisterReq) HasIsOrganizationDeployment() bool {
-	if o != nil && !IsNil(o.IsOrganizationDeployment) {
+// HasHostNodeId returns a boolean if a field has been set.
+func (o *ModelCloudNodeAccountRegisterReq) HasHostNodeId() bool {
+	if o != nil && !IsNil(o.HostNodeId) {
 		return true
 	}
 
 	return false
 }
 
-// SetIsOrganizationDeployment gets a reference to the given bool and assigns it to the IsOrganizationDeployment field.
-func (o *ModelCloudNodeAccountRegisterReq) SetIsOrganizationDeployment(v bool) {
-	o.IsOrganizationDeployment = &v
+// SetHostNodeId gets a reference to the given string and assigns it to the HostNodeId field.
+func (o *ModelCloudNodeAccountRegisterReq) SetHostNodeId(v string) {
+	o.HostNodeId = &v
 }
 
 // GetMonitoredAccountIds returns the MonitoredAccountIds field value if set, zero value otherwise (both if not set or set to explicit null).
@@ -217,60 +190,68 @@ func (o *ModelCloudNodeAccountRegisterReq) SetNodeId(v string) {
 	o.NodeId = v
 }
 
-// GetOrganizationAccountId returns the OrganizationAccountId field value if set, zero value otherwise.
-func (o *ModelCloudNodeAccountRegisterReq) GetOrganizationAccountId() string {
-	if o == nil || IsNil(o.OrganizationAccountId) {
+// GetOrgAccId returns the OrgAccId field value if set, zero value otherwise.
+func (o *ModelCloudNodeAccountRegisterReq) GetOrgAccId() string {
+	if o == nil || IsNil(o.OrgAccId) {
 		var ret string
 		return ret
 	}
-	return *o.OrganizationAccountId
+	return *o.OrgAccId
 }
 
-// GetOrganizationAccountIdOk returns a tuple with the OrganizationAccountId field value if set, nil otherwise
+// GetOrgAccIdOk returns a tuple with the OrgAccId field value if set, nil otherwise
 // and a boolean to check if the value has been set.
-func (o *ModelCloudNodeAccountRegisterReq) GetOrganizationAccountIdOk() (*string, bool) {
-	if o == nil || IsNil(o.OrganizationAccountId) {
+func (o *ModelCloudNodeAccountRegisterReq) GetOrgAccIdOk() (*string, bool) {
+	if o == nil || IsNil(o.OrgAccId) {
 		return nil, false
 	}
-	return o.OrganizationAccountId, true
+	return o.OrgAccId, true
 }
 
-// HasOrganizationAccountId returns a boolean if a field has been set.
-func (o *ModelCloudNodeAccountRegisterReq) HasOrganizationAccountId() bool {
-	if o != nil && !IsNil(o.OrganizationAccountId) {
+// HasOrgAccId returns a boolean if a field has been set.
+func (o *ModelCloudNodeAccountRegisterReq) HasOrgAccId() bool {
+	if o != nil && !IsNil(o.OrgAccId) {
 		return true
 	}
 
 	return false
 }
 
-// SetOrganizationAccountId gets a reference to the given string and assigns it to the OrganizationAccountId field.
-func (o *ModelCloudNodeAccountRegisterReq) SetOrganizationAccountId(v string) {
-	o.OrganizationAccountId = &v
+// SetOrgAccId gets a reference to the given string and assigns it to the OrgAccId field.
+func (o *ModelCloudNodeAccountRegisterReq) SetOrgAccId(v string) {
+	o.OrgAccId = &v
 }
 
-// GetVersion returns the Version field value
+// GetVersion returns the Version field value if set, zero value otherwise.
 func (o *ModelCloudNodeAccountRegisterReq) GetVersion() string {
-	if o == nil {
+	if o == nil || IsNil(o.Version) {
 		var ret string
 		return ret
 	}
-
-	return o.Version
+	return *o.Version
 }
 
-// GetVersionOk returns a tuple with the Version field value
+// GetVersionOk returns a tuple with the Version field value if set, nil otherwise
 // and a boolean to check if the value has been set.
 func (o *ModelCloudNodeAccountRegisterReq) GetVersionOk() (*string, bool) {
-	if o == nil {
+	if o == nil || IsNil(o.Version) {
 		return nil, false
 	}
-	return &o.Version, true
+	return o.Version, true
 }
 
-// SetVersion sets field value
+// HasVersion returns a boolean if a field has been set.
+func (o *ModelCloudNodeAccountRegisterReq) HasVersion() bool {
+	if o != nil && !IsNil(o.Version) {
+		return true
+	}
+
+	return false
+}
+
+// SetVersion gets a reference to the given string and assigns it to the Version field.
 func (o *ModelCloudNodeAccountRegisterReq) SetVersion(v string) {
-	o.Version = v
+	o.Version = &v
 }
 
 func (o ModelCloudNodeAccountRegisterReq) MarshalJSON() ([]byte, error) {
@@ -283,20 +264,21 @@ func (o ModelCloudNodeAccountRegisterReq) MarshalJSON() ([]byte, error) {
 
 func (o ModelCloudNodeAccountRegisterReq) ToMap() (map[string]interface{}, error) {
 	toSerialize := map[string]interface{}{}
-	toSerialize["account_id"] = o.AccountId
+	toSerialize["cloud_account"] = o.CloudAccount
 	toSerialize["cloud_provider"] = o.CloudProvider
-	toSerialize["host_node_id"] = o.HostNodeId
-	if !IsNil(o.IsOrganizationDeployment) {
-		toSerialize["is_organization_deployment"] = o.IsOrganizationDeployment
+	if !IsNil(o.HostNodeId) {
+		toSerialize["host_node_id"] = o.HostNodeId
 	}
 	if o.MonitoredAccountIds != nil {
 		toSerialize["monitored_account_ids"] = o.MonitoredAccountIds
 	}
 	toSerialize["node_id"] = o.NodeId
-	if !IsNil(o.OrganizationAccountId) {
-		toSerialize["organization_account_id"] = o.OrganizationAccountId
+	if !IsNil(o.OrgAccId) {
+		toSerialize["org_acc_id"] = o.OrgAccId
 	}
-	toSerialize["version"] = o.Version
+	if !IsNil(o.Version) {
+		toSerialize["version"] = o.Version
+	}
 	return toSerialize, nil
 }
 
@@ -305,11 +287,9 @@ func (o *ModelCloudNodeAccountRegisterReq) UnmarshalJSON(data []byte) (err error
 	// by unmarshalling the object into a generic map with string keys and checking
 	// that every required field exists as a key in the generic map.
 	requiredProperties := []string{
-		"account_id",
+		"cloud_account",
 		"cloud_provider",
-		"host_node_id",
 		"node_id",
-		"version",
 	}
 
 	allProperties := make(map[string]interface{})

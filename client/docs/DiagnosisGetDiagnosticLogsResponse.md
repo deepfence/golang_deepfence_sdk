@@ -5,6 +5,7 @@
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
 **AgentLogs** | Pointer to [**[]DiagnosisDiagnosticLogsLink**](DiagnosisDiagnosticLogsLink.md) |  | [optional] 
+**CloudScannerLogs** | Pointer to [**[]DiagnosisDiagnosticLogsLink**](DiagnosisDiagnosticLogsLink.md) |  | [optional] 
 **ConsoleLogs** | Pointer to [**[]DiagnosisDiagnosticLogsLink**](DiagnosisDiagnosticLogsLink.md) |  | [optional] 
 
 ## Methods
@@ -61,6 +62,41 @@ HasAgentLogs returns a boolean if a field has been set.
 `func (o *DiagnosisGetDiagnosticLogsResponse) UnsetAgentLogs()`
 
 UnsetAgentLogs ensures that no value is present for AgentLogs, not even an explicit nil
+### GetCloudScannerLogs
+
+`func (o *DiagnosisGetDiagnosticLogsResponse) GetCloudScannerLogs() []DiagnosisDiagnosticLogsLink`
+
+GetCloudScannerLogs returns the CloudScannerLogs field if non-nil, zero value otherwise.
+
+### GetCloudScannerLogsOk
+
+`func (o *DiagnosisGetDiagnosticLogsResponse) GetCloudScannerLogsOk() (*[]DiagnosisDiagnosticLogsLink, bool)`
+
+GetCloudScannerLogsOk returns a tuple with the CloudScannerLogs field if it's non-nil, zero value otherwise
+and a boolean to check if the value has been set.
+
+### SetCloudScannerLogs
+
+`func (o *DiagnosisGetDiagnosticLogsResponse) SetCloudScannerLogs(v []DiagnosisDiagnosticLogsLink)`
+
+SetCloudScannerLogs sets CloudScannerLogs field to given value.
+
+### HasCloudScannerLogs
+
+`func (o *DiagnosisGetDiagnosticLogsResponse) HasCloudScannerLogs() bool`
+
+HasCloudScannerLogs returns a boolean if a field has been set.
+
+### SetCloudScannerLogsNil
+
+`func (o *DiagnosisGetDiagnosticLogsResponse) SetCloudScannerLogsNil(b bool)`
+
+ SetCloudScannerLogsNil sets the value for CloudScannerLogs to be an explicit nil
+
+### UnsetCloudScannerLogs
+`func (o *DiagnosisGetDiagnosticLogsResponse) UnsetCloudScannerLogs()`
+
+UnsetCloudScannerLogs ensures that no value is present for CloudScannerLogs, not even an explicit nil
 ### GetConsoleLogs
 
 `func (o *DiagnosisGetDiagnosticLogsResponse) GetConsoleLogs() []DiagnosisDiagnosticLogsLink`

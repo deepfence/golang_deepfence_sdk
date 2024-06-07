@@ -269,7 +269,7 @@ Name | Type | Description  | Notes
 
 ## RegisterCloudNodeAccount
 
-> RegisterCloudNodeAccount(ctx).ModelCloudNodeAccountRegisterReq(modelCloudNodeAccountRegisterReq).Execute()
+> ModelCloudNodeAccountRegisterResp RegisterCloudNodeAccount(ctx).ModelCloudNodeAccountRegisterReq(modelCloudNodeAccountRegisterReq).Execute()
 
 Register Cloud Node Account
 
@@ -288,15 +288,17 @@ import (
 )
 
 func main() {
-	modelCloudNodeAccountRegisterReq := *openapiclient.NewModelCloudNodeAccountRegisterReq("AccountId_example", "CloudProvider_example", "HostNodeId_example", "NodeId_example", "Version_example") // ModelCloudNodeAccountRegisterReq |  (optional)
+	modelCloudNodeAccountRegisterReq := *openapiclient.NewModelCloudNodeAccountRegisterReq("CloudAccount_example", "CloudProvider_example", "NodeId_example") // ModelCloudNodeAccountRegisterReq |  (optional)
 
 	configuration := openapiclient.NewConfiguration()
 	apiClient := openapiclient.NewAPIClient(configuration)
-	r, err := apiClient.CloudNodesAPI.RegisterCloudNodeAccount(context.Background()).ModelCloudNodeAccountRegisterReq(modelCloudNodeAccountRegisterReq).Execute()
+	resp, r, err := apiClient.CloudNodesAPI.RegisterCloudNodeAccount(context.Background()).ModelCloudNodeAccountRegisterReq(modelCloudNodeAccountRegisterReq).Execute()
 	if err != nil {
 		fmt.Fprintf(os.Stderr, "Error when calling `CloudNodesAPI.RegisterCloudNodeAccount``: %v\n", err)
 		fmt.Fprintf(os.Stderr, "Full HTTP response: %v\n", r)
 	}
+	// response from `RegisterCloudNodeAccount`: ModelCloudNodeAccountRegisterResp
+	fmt.Fprintf(os.Stdout, "Response from `CloudNodesAPI.RegisterCloudNodeAccount`: %v\n", resp)
 }
 ```
 
@@ -315,7 +317,7 @@ Name | Type | Description  | Notes
 
 ### Return type
 
- (empty response body)
+[**ModelCloudNodeAccountRegisterResp**](ModelCloudNodeAccountRegisterResp.md)
 
 ### Authorization
 

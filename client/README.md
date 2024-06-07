@@ -128,6 +128,7 @@ Class | Method | HTTP request | Description
 *DiagnosisAPI* | [**GenerateConsoleDiagnosticLogs**](docs/DiagnosisAPI.md#generateconsolediagnosticlogs) | **Post** /deepfence/diagnosis/console-logs | Generate Console Diagnostic Logs
 *DiagnosisAPI* | [**GetDiagnosticLogs**](docs/DiagnosisAPI.md#getdiagnosticlogs) | **Get** /deepfence/diagnosis/diagnostic-logs | Get Diagnostic Logs
 *DiagnosisAPI* | [**UpdateAgentDiagnosticLogsStatus**](docs/DiagnosisAPI.md#updateagentdiagnosticlogsstatus) | **Put** /deepfence/diagnosis/agent-logs/status/{node_id} | Update Agent Diagnostic Logs Status
+*DiagnosisAPI* | [**UpdateCloudScannerDiagnosticLogsStatus**](docs/DiagnosisAPI.md#updatecloudscannerdiagnosticlogsstatus) | **Put** /deepfence/diagnosis/cloud-scanner-logs/status/{node_id} | Update Cloud Scanner Diagnostic Logs Status
 *DiffAddAPI* | [**DiffAddCloudCompliance**](docs/DiffAddAPI.md#diffaddcloudcompliance) | **Post** /deepfence/diff-add/cloud-compliance | Get Cloud Compliance Diff
 *DiffAddAPI* | [**DiffAddCompliance**](docs/DiffAddAPI.md#diffaddcompliance) | **Post** /deepfence/diff-add/compliance | Get Compliance Diff
 *DiffAddAPI* | [**DiffAddMalware**](docs/DiffAddAPI.md#diffaddmalware) | **Post** /deepfence/diff-add/malware | Get Malware Diff
@@ -385,8 +386,11 @@ Class | Method | HTTP request | Description
  - [ModelCloudComplianceScanResult](docs/ModelCloudComplianceScanResult.md)
  - [ModelCloudNodeAccountInfo](docs/ModelCloudNodeAccountInfo.md)
  - [ModelCloudNodeAccountRegisterReq](docs/ModelCloudNodeAccountRegisterReq.md)
+ - [ModelCloudNodeAccountRegisterResp](docs/ModelCloudNodeAccountRegisterResp.md)
+ - [ModelCloudNodeAccountRegisterRespData](docs/ModelCloudNodeAccountRegisterRespData.md)
  - [ModelCloudNodeAccountsListReq](docs/ModelCloudNodeAccountsListReq.md)
  - [ModelCloudNodeAccountsListResp](docs/ModelCloudNodeAccountsListResp.md)
+ - [ModelCloudNodeCloudtrailTrail](docs/ModelCloudNodeCloudtrailTrail.md)
  - [ModelCloudNodeComplianceControl](docs/ModelCloudNodeComplianceControl.md)
  - [ModelCloudNodeControlReq](docs/ModelCloudNodeControlReq.md)
  - [ModelCloudNodeControlResp](docs/ModelCloudNodeControlResp.md)
