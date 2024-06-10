@@ -22,7 +22,7 @@ var _ MappedNullable = &ModelCloudNodeAccountsListReq{}
 
 // ModelCloudNodeAccountsListReq struct for ModelCloudNodeAccountsListReq
 type ModelCloudNodeAccountsListReq struct {
-	CloudProvider *string `json:"cloud_provider,omitempty"`
+	CloudProvider string `json:"cloud_provider"`
 	Window ModelFetchWindow `json:"window"`
 }
 
@@ -32,8 +32,9 @@ type _ModelCloudNodeAccountsListReq ModelCloudNodeAccountsListReq
 // This constructor will assign default values to properties that have it defined,
 // and makes sure properties required by API are set, but the set of arguments
 // will change when the set of required properties is changed
-func NewModelCloudNodeAccountsListReq(window ModelFetchWindow) *ModelCloudNodeAccountsListReq {
+func NewModelCloudNodeAccountsListReq(cloudProvider string, window ModelFetchWindow) *ModelCloudNodeAccountsListReq {
 	this := ModelCloudNodeAccountsListReq{}
+	this.CloudProvider = cloudProvider
 	this.Window = window
 	return &this
 }
@@ -46,36 +47,28 @@ func NewModelCloudNodeAccountsListReqWithDefaults() *ModelCloudNodeAccountsListR
 	return &this
 }
 
-// GetCloudProvider returns the CloudProvider field value if set, zero value otherwise.
+// GetCloudProvider returns the CloudProvider field value
 func (o *ModelCloudNodeAccountsListReq) GetCloudProvider() string {
-	if o == nil || IsNil(o.CloudProvider) {
+	if o == nil {
 		var ret string
 		return ret
 	}
-	return *o.CloudProvider
+
+	return o.CloudProvider
 }
 
-// GetCloudProviderOk returns a tuple with the CloudProvider field value if set, nil otherwise
+// GetCloudProviderOk returns a tuple with the CloudProvider field value
 // and a boolean to check if the value has been set.
 func (o *ModelCloudNodeAccountsListReq) GetCloudProviderOk() (*string, bool) {
-	if o == nil || IsNil(o.CloudProvider) {
+	if o == nil {
 		return nil, false
 	}
-	return o.CloudProvider, true
+	return &o.CloudProvider, true
 }
 
-// HasCloudProvider returns a boolean if a field has been set.
-func (o *ModelCloudNodeAccountsListReq) HasCloudProvider() bool {
-	if o != nil && !IsNil(o.CloudProvider) {
-		return true
-	}
-
-	return false
-}
-
-// SetCloudProvider gets a reference to the given string and assigns it to the CloudProvider field.
+// SetCloudProvider sets field value
 func (o *ModelCloudNodeAccountsListReq) SetCloudProvider(v string) {
-	o.CloudProvider = &v
+	o.CloudProvider = v
 }
 
 // GetWindow returns the Window field value
@@ -112,9 +105,7 @@ func (o ModelCloudNodeAccountsListReq) MarshalJSON() ([]byte, error) {
 
 func (o ModelCloudNodeAccountsListReq) ToMap() (map[string]interface{}, error) {
 	toSerialize := map[string]interface{}{}
-	if !IsNil(o.CloudProvider) {
-		toSerialize["cloud_provider"] = o.CloudProvider
-	}
+	toSerialize["cloud_provider"] = o.CloudProvider
 	toSerialize["window"] = o.Window
 	return toSerialize, nil
 }
@@ -124,6 +115,7 @@ func (o *ModelCloudNodeAccountsListReq) UnmarshalJSON(data []byte) (err error) {
 	// by unmarshalling the object into a generic map with string keys and checking
 	// that every required field exists as a key in the generic map.
 	requiredProperties := []string{
+		"cloud_provider",
 		"window",
 	}
 

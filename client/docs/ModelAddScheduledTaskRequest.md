@@ -5,7 +5,7 @@
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
 **Action** | **string** |  | 
-**BenchmarkTypes** | **[]string** |  | 
+**BenchmarkTypes** | [**[]ModelBenchmarkType**](ModelBenchmarkType.md) |  | 
 **CronExpr** | Pointer to **string** |  | [optional] 
 **DeepfenceSystemScan** | Pointer to **bool** |  | [optional] 
 **Description** | Pointer to **string** |  | [optional] 
@@ -18,7 +18,7 @@ Name | Type | Description | Notes
 
 ### NewModelAddScheduledTaskRequest
 
-`func NewModelAddScheduledTaskRequest(action string, benchmarkTypes []string, filters ModelScanFilter, nodeIds []ModelNodeIdentifier, scanConfig []ModelVulnerabilityScanConfigLanguage, ) *ModelAddScheduledTaskRequest`
+`func NewModelAddScheduledTaskRequest(action string, benchmarkTypes []ModelBenchmarkType, filters ModelScanFilter, nodeIds []ModelNodeIdentifier, scanConfig []ModelVulnerabilityScanConfigLanguage, ) *ModelAddScheduledTaskRequest`
 
 NewModelAddScheduledTaskRequest instantiates a new ModelAddScheduledTaskRequest object
 This constructor will assign default values to properties that have it defined,
@@ -55,20 +55,20 @@ SetAction sets Action field to given value.
 
 ### GetBenchmarkTypes
 
-`func (o *ModelAddScheduledTaskRequest) GetBenchmarkTypes() []string`
+`func (o *ModelAddScheduledTaskRequest) GetBenchmarkTypes() []ModelBenchmarkType`
 
 GetBenchmarkTypes returns the BenchmarkTypes field if non-nil, zero value otherwise.
 
 ### GetBenchmarkTypesOk
 
-`func (o *ModelAddScheduledTaskRequest) GetBenchmarkTypesOk() (*[]string, bool)`
+`func (o *ModelAddScheduledTaskRequest) GetBenchmarkTypesOk() (*[]ModelBenchmarkType, bool)`
 
 GetBenchmarkTypesOk returns a tuple with the BenchmarkTypes field if it's non-nil, zero value otherwise
 and a boolean to check if the value has been set.
 
 ### SetBenchmarkTypes
 
-`func (o *ModelAddScheduledTaskRequest) SetBenchmarkTypes(v []string)`
+`func (o *ModelAddScheduledTaskRequest) SetBenchmarkTypes(v []ModelBenchmarkType)`
 
 SetBenchmarkTypes sets BenchmarkTypes field to given value.
 

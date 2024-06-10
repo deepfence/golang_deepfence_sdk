@@ -4,7 +4,7 @@
 
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
-**BenchmarkTypes** | **[]string** |  | 
+**BenchmarkTypes** | [**[]ModelBenchmarkType**](ModelBenchmarkType.md) |  | 
 **DeepfenceSystemScan** | Pointer to **bool** |  | [optional] 
 **Filters** | [**ModelScanFilter**](ModelScanFilter.md) |  | 
 **IsPriority** | Pointer to **bool** |  | [optional] 
@@ -14,7 +14,7 @@ Name | Type | Description | Notes
 
 ### NewModelComplianceScanTriggerReq
 
-`func NewModelComplianceScanTriggerReq(benchmarkTypes []string, filters ModelScanFilter, nodeIds []ModelNodeIdentifier, ) *ModelComplianceScanTriggerReq`
+`func NewModelComplianceScanTriggerReq(benchmarkTypes []ModelBenchmarkType, filters ModelScanFilter, nodeIds []ModelNodeIdentifier, ) *ModelComplianceScanTriggerReq`
 
 NewModelComplianceScanTriggerReq instantiates a new ModelComplianceScanTriggerReq object
 This constructor will assign default values to properties that have it defined,
@@ -31,20 +31,20 @@ but it doesn't guarantee that properties required by API are set
 
 ### GetBenchmarkTypes
 
-`func (o *ModelComplianceScanTriggerReq) GetBenchmarkTypes() []string`
+`func (o *ModelComplianceScanTriggerReq) GetBenchmarkTypes() []ModelBenchmarkType`
 
 GetBenchmarkTypes returns the BenchmarkTypes field if non-nil, zero value otherwise.
 
 ### GetBenchmarkTypesOk
 
-`func (o *ModelComplianceScanTriggerReq) GetBenchmarkTypesOk() (*[]string, bool)`
+`func (o *ModelComplianceScanTriggerReq) GetBenchmarkTypesOk() (*[]ModelBenchmarkType, bool)`
 
 GetBenchmarkTypesOk returns a tuple with the BenchmarkTypes field if it's non-nil, zero value otherwise
 and a boolean to check if the value has been set.
 
 ### SetBenchmarkTypes
 
-`func (o *ModelComplianceScanTriggerReq) SetBenchmarkTypes(v []string)`
+`func (o *ModelComplianceScanTriggerReq) SetBenchmarkTypes(v []ModelBenchmarkType)`
 
 SetBenchmarkTypes sets BenchmarkTypes field to given value.
 

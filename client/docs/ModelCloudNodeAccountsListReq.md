@@ -4,14 +4,14 @@
 
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
-**CloudProvider** | Pointer to **string** |  | [optional] 
+**CloudProvider** | **string** |  | 
 **Window** | [**ModelFetchWindow**](ModelFetchWindow.md) |  | 
 
 ## Methods
 
 ### NewModelCloudNodeAccountsListReq
 
-`func NewModelCloudNodeAccountsListReq(window ModelFetchWindow, ) *ModelCloudNodeAccountsListReq`
+`func NewModelCloudNodeAccountsListReq(cloudProvider string, window ModelFetchWindow, ) *ModelCloudNodeAccountsListReq`
 
 NewModelCloudNodeAccountsListReq instantiates a new ModelCloudNodeAccountsListReq object
 This constructor will assign default values to properties that have it defined,
@@ -45,11 +45,6 @@ and a boolean to check if the value has been set.
 
 SetCloudProvider sets CloudProvider field to given value.
 
-### HasCloudProvider
-
-`func (o *ModelCloudNodeAccountsListReq) HasCloudProvider() bool`
-
-HasCloudProvider returns a boolean if a field has been set.
 
 ### GetWindow
 

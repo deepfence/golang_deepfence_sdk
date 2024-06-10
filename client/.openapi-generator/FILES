@@ -97,6 +97,7 @@ docs/ModelAgentPluginDisable.md
 docs/ModelAgentPluginEnable.md
 docs/ModelAgentUpgrade.md
 docs/ModelBasicNode.md
+docs/ModelBenchmarkType.md
 docs/ModelBulkDeleteReportReq.md
 docs/ModelBulkDeleteScansRequest.md
 docs/ModelCloudAccountDeleteReq.md
@@ -105,11 +106,8 @@ docs/ModelCloudCompliance.md
 docs/ModelCloudComplianceScanResult.md
 docs/ModelCloudNodeAccountInfo.md
 docs/ModelCloudNodeAccountRegisterReq.md
-docs/ModelCloudNodeAccountRegisterResp.md
-docs/ModelCloudNodeAccountRegisterRespData.md
 docs/ModelCloudNodeAccountsListReq.md
 docs/ModelCloudNodeAccountsListResp.md
-docs/ModelCloudNodeCloudtrailTrail.md
 docs/ModelCloudNodeComplianceControl.md
 docs/ModelCloudNodeControlReq.md
 docs/ModelCloudNodeControlResp.md
@@ -320,6 +318,7 @@ model_model_agent_upgrade.go
 model_model_api_auth_request.go
 model_model_api_token_response.go
 model_model_basic_node.go
+model_model_benchmark_type.go
 model_model_bulk_delete_report_req.go
 model_model_bulk_delete_scans_request.go
 model_model_cloud_account_delete_req.go
@@ -328,11 +327,8 @@ model_model_cloud_compliance.go
 model_model_cloud_compliance_scan_result.go
 model_model_cloud_node_account_info.go
 model_model_cloud_node_account_register_req.go
-model_model_cloud_node_account_register_resp.go
-model_model_cloud_node_account_register_resp_data.go
 model_model_cloud_node_accounts_list_req.go
 model_model_cloud_node_accounts_list_resp.go
-model_model_cloud_node_cloudtrail_trail.go
 model_model_cloud_node_compliance_control.go
 model_model_cloud_node_control_req.go
 model_model_cloud_node_control_resp.go

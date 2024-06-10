@@ -23,7 +23,7 @@ var _ MappedNullable = &ModelAddScheduledTaskRequest{}
 // ModelAddScheduledTaskRequest struct for ModelAddScheduledTaskRequest
 type ModelAddScheduledTaskRequest struct {
 	Action string `json:"action"`
-	BenchmarkTypes []string `json:"benchmark_types"`
+	BenchmarkTypes []ModelBenchmarkType `json:"benchmark_types"`
 	CronExpr *string `json:"cron_expr,omitempty"`
 	DeepfenceSystemScan *bool `json:"deepfence_system_scan,omitempty"`
 	Description *string `json:"description,omitempty"`
@@ -39,7 +39,7 @@ type _ModelAddScheduledTaskRequest ModelAddScheduledTaskRequest
 // This constructor will assign default values to properties that have it defined,
 // and makes sure properties required by API are set, but the set of arguments
 // will change when the set of required properties is changed
-func NewModelAddScheduledTaskRequest(action string, benchmarkTypes []string, filters ModelScanFilter, nodeIds []ModelNodeIdentifier, scanConfig []ModelVulnerabilityScanConfigLanguage) *ModelAddScheduledTaskRequest {
+func NewModelAddScheduledTaskRequest(action string, benchmarkTypes []ModelBenchmarkType, filters ModelScanFilter, nodeIds []ModelNodeIdentifier, scanConfig []ModelVulnerabilityScanConfigLanguage) *ModelAddScheduledTaskRequest {
 	this := ModelAddScheduledTaskRequest{}
 	this.Action = action
 	this.BenchmarkTypes = benchmarkTypes
@@ -82,10 +82,10 @@ func (o *ModelAddScheduledTaskRequest) SetAction(v string) {
 }
 
 // GetBenchmarkTypes returns the BenchmarkTypes field value
-// If the value is explicit nil, the zero value for []string will be returned
-func (o *ModelAddScheduledTaskRequest) GetBenchmarkTypes() []string {
+// If the value is explicit nil, the zero value for []ModelBenchmarkType will be returned
+func (o *ModelAddScheduledTaskRequest) GetBenchmarkTypes() []ModelBenchmarkType {
 	if o == nil {
-		var ret []string
+		var ret []ModelBenchmarkType
 		return ret
 	}
 
@@ -95,7 +95,7 @@ func (o *ModelAddScheduledTaskRequest) GetBenchmarkTypes() []string {
 // GetBenchmarkTypesOk returns a tuple with the BenchmarkTypes field value
 // and a boolean to check if the value has been set.
 // NOTE: If the value is an explicit nil, `nil, true` will be returned
-func (o *ModelAddScheduledTaskRequest) GetBenchmarkTypesOk() ([]string, bool) {
+func (o *ModelAddScheduledTaskRequest) GetBenchmarkTypesOk() ([]ModelBenchmarkType, bool) {
 	if o == nil || IsNil(o.BenchmarkTypes) {
 		return nil, false
 	}
@@ -103,7 +103,7 @@ func (o *ModelAddScheduledTaskRequest) GetBenchmarkTypesOk() ([]string, bool) {
 }
 
 // SetBenchmarkTypes sets field value
-func (o *ModelAddScheduledTaskRequest) SetBenchmarkTypes(v []string) {
+func (o *ModelAddScheduledTaskRequest) SetBenchmarkTypes(v []ModelBenchmarkType) {
 	o.BenchmarkTypes = v
 }
 

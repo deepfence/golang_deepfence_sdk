@@ -5,6 +5,7 @@ All URIs are relative to *http://localhost*
 Method | HTTP request | Description
 ------------- | ------------- | -------------
 [**CompleteCloudCompliance**](CompletionAPI.md#CompleteCloudCompliance) | **Post** /deepfence/complete/cloud-compliance | Get Completion for cloud compliance fields
+[**CompleteCloudResources**](CompletionAPI.md#CompleteCloudResources) | **Post** /deepfence/complete/cloud-resources | Get Completion for cloud resources fields
 [**CompleteComplianceInfo**](CompletionAPI.md#CompleteComplianceInfo) | **Post** /deepfence/complete/compliance | Get Completion for compliance fields
 [**CompleteContainerInfo**](CompletionAPI.md#CompleteContainerInfo) | **Post** /deepfence/complete/container | Get Completion for Container fields
 [**CompleteHostInfo**](CompletionAPI.md#CompleteHostInfo) | **Post** /deepfence/complete/host | Get Completion for host fields
@@ -56,6 +57,72 @@ func main() {
 ### Other Parameters
 
 Other parameters are passed through a pointer to a apiCompleteCloudComplianceRequest struct via the builder pattern
+
+
+Name | Type | Description  | Notes
+------------- | ------------- | ------------- | -------------
+ **completionCompletionNodeFieldReq** | [**CompletionCompletionNodeFieldReq**](CompletionCompletionNodeFieldReq.md) |  | 
+
+### Return type
+
+[**CompletionCompletionNodeFieldRes**](CompletionCompletionNodeFieldRes.md)
+
+### Authorization
+
+[bearer_token](../README.md#bearer_token)
+
+### HTTP request headers
+
+- **Content-Type**: application/json
+- **Accept**: application/json
+
+[[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints)
+[[Back to Model list]](../README.md#documentation-for-models)
+[[Back to README]](../README.md)
+
+
+## CompleteCloudResources
+
+> CompletionCompletionNodeFieldRes CompleteCloudResources(ctx).CompletionCompletionNodeFieldReq(completionCompletionNodeFieldReq).Execute()
+
+Get Completion for cloud resources fields
+
+
+
+### Example
+
+```go
+package main
+
+import (
+	"context"
+	"fmt"
+	"os"
+	openapiclient "github.com/deepfence/golang_deepfence_sdk/client"
+)
+
+func main() {
+	completionCompletionNodeFieldReq := *openapiclient.NewCompletionCompletionNodeFieldReq("Completion_example", "FieldName_example", *openapiclient.NewModelFetchWindow(int32(123), int32(123))) // CompletionCompletionNodeFieldReq |  (optional)
+
+	configuration := openapiclient.NewConfiguration()
+	apiClient := openapiclient.NewAPIClient(configuration)
+	resp, r, err := apiClient.CompletionAPI.CompleteCloudResources(context.Background()).CompletionCompletionNodeFieldReq(completionCompletionNodeFieldReq).Execute()
+	if err != nil {
+		fmt.Fprintf(os.Stderr, "Error when calling `CompletionAPI.CompleteCloudResources``: %v\n", err)
+		fmt.Fprintf(os.Stderr, "Full HTTP response: %v\n", r)
+	}
+	// response from `CompleteCloudResources`: CompletionCompletionNodeFieldRes
+	fmt.Fprintf(os.Stdout, "Response from `CompletionAPI.CompleteCloudResources`: %v\n", resp)
+}
+```
+
+### Path Parameters
+
+
+
+### Other Parameters
+
+Other parameters are passed through a pointer to a apiCompleteCloudResourcesRequest struct via the builder pattern
 
 
 Name | Type | Description  | Notes

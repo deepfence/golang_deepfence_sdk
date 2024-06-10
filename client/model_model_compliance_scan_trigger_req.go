@@ -22,7 +22,7 @@ var _ MappedNullable = &ModelComplianceScanTriggerReq{}
 
 // ModelComplianceScanTriggerReq struct for ModelComplianceScanTriggerReq
 type ModelComplianceScanTriggerReq struct {
-	BenchmarkTypes []string `json:"benchmark_types"`
+	BenchmarkTypes []ModelBenchmarkType `json:"benchmark_types"`
 	DeepfenceSystemScan *bool `json:"deepfence_system_scan,omitempty"`
 	Filters ModelScanFilter `json:"filters"`
 	IsPriority *bool `json:"is_priority,omitempty"`
@@ -35,7 +35,7 @@ type _ModelComplianceScanTriggerReq ModelComplianceScanTriggerReq
 // This constructor will assign default values to properties that have it defined,
 // and makes sure properties required by API are set, but the set of arguments
 // will change when the set of required properties is changed
-func NewModelComplianceScanTriggerReq(benchmarkTypes []string, filters ModelScanFilter, nodeIds []ModelNodeIdentifier) *ModelComplianceScanTriggerReq {
+func NewModelComplianceScanTriggerReq(benchmarkTypes []ModelBenchmarkType, filters ModelScanFilter, nodeIds []ModelNodeIdentifier) *ModelComplianceScanTriggerReq {
 	this := ModelComplianceScanTriggerReq{}
 	this.BenchmarkTypes = benchmarkTypes
 	this.Filters = filters
@@ -52,10 +52,10 @@ func NewModelComplianceScanTriggerReqWithDefaults() *ModelComplianceScanTriggerR
 }
 
 // GetBenchmarkTypes returns the BenchmarkTypes field value
-// If the value is explicit nil, the zero value for []string will be returned
-func (o *ModelComplianceScanTriggerReq) GetBenchmarkTypes() []string {
+// If the value is explicit nil, the zero value for []ModelBenchmarkType will be returned
+func (o *ModelComplianceScanTriggerReq) GetBenchmarkTypes() []ModelBenchmarkType {
 	if o == nil {
-		var ret []string
+		var ret []ModelBenchmarkType
 		return ret
 	}
 
@@ -65,7 +65,7 @@ func (o *ModelComplianceScanTriggerReq) GetBenchmarkTypes() []string {
 // GetBenchmarkTypesOk returns a tuple with the BenchmarkTypes field value
 // and a boolean to check if the value has been set.
 // NOTE: If the value is an explicit nil, `nil, true` will be returned
-func (o *ModelComplianceScanTriggerReq) GetBenchmarkTypesOk() ([]string, bool) {
+func (o *ModelComplianceScanTriggerReq) GetBenchmarkTypesOk() ([]ModelBenchmarkType, bool) {
 	if o == nil || IsNil(o.BenchmarkTypes) {
 		return nil, false
 	}
@@ -73,7 +73,7 @@ func (o *ModelComplianceScanTriggerReq) GetBenchmarkTypesOk() ([]string, bool) {
 }
 
 // SetBenchmarkTypes sets field value
-func (o *ModelComplianceScanTriggerReq) SetBenchmarkTypes(v []string) {
+func (o *ModelComplianceScanTriggerReq) SetBenchmarkTypes(v []ModelBenchmarkType) {
 	o.BenchmarkTypes = v
 }
 
