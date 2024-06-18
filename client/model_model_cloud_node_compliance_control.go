@@ -21,9 +21,12 @@ var _ MappedNullable = &ModelCloudNodeComplianceControl{}
 // ModelCloudNodeComplianceControl struct for ModelCloudNodeComplianceControl
 type ModelCloudNodeComplianceControl struct {
 	CategoryHierarchy []string `json:"category_hierarchy,omitempty"`
+	CategoryHierarchyShort *string `json:"category_hierarchy_short,omitempty"`
+	ComplianceType *string `json:"compliance_type,omitempty"`
 	ControlId *string `json:"control_id,omitempty"`
 	Description *string `json:"description,omitempty"`
 	Enabled *bool `json:"enabled,omitempty"`
+	NodeId *string `json:"node_id,omitempty"`
 	Service *string `json:"service,omitempty"`
 	Title *string `json:"title,omitempty"`
 }
@@ -76,6 +79,70 @@ func (o *ModelCloudNodeComplianceControl) HasCategoryHierarchy() bool {
 // SetCategoryHierarchy gets a reference to the given []string and assigns it to the CategoryHierarchy field.
 func (o *ModelCloudNodeComplianceControl) SetCategoryHierarchy(v []string) {
 	o.CategoryHierarchy = v
+}
+
+// GetCategoryHierarchyShort returns the CategoryHierarchyShort field value if set, zero value otherwise.
+func (o *ModelCloudNodeComplianceControl) GetCategoryHierarchyShort() string {
+	if o == nil || IsNil(o.CategoryHierarchyShort) {
+		var ret string
+		return ret
+	}
+	return *o.CategoryHierarchyShort
+}
+
+// GetCategoryHierarchyShortOk returns a tuple with the CategoryHierarchyShort field value if set, nil otherwise
+// and a boolean to check if the value has been set.
+func (o *ModelCloudNodeComplianceControl) GetCategoryHierarchyShortOk() (*string, bool) {
+	if o == nil || IsNil(o.CategoryHierarchyShort) {
+		return nil, false
+	}
+	return o.CategoryHierarchyShort, true
+}
+
+// HasCategoryHierarchyShort returns a boolean if a field has been set.
+func (o *ModelCloudNodeComplianceControl) HasCategoryHierarchyShort() bool {
+	if o != nil && !IsNil(o.CategoryHierarchyShort) {
+		return true
+	}
+
+	return false
+}
+
+// SetCategoryHierarchyShort gets a reference to the given string and assigns it to the CategoryHierarchyShort field.
+func (o *ModelCloudNodeComplianceControl) SetCategoryHierarchyShort(v string) {
+	o.CategoryHierarchyShort = &v
+}
+
+// GetComplianceType returns the ComplianceType field value if set, zero value otherwise.
+func (o *ModelCloudNodeComplianceControl) GetComplianceType() string {
+	if o == nil || IsNil(o.ComplianceType) {
+		var ret string
+		return ret
+	}
+	return *o.ComplianceType
+}
+
+// GetComplianceTypeOk returns a tuple with the ComplianceType field value if set, nil otherwise
+// and a boolean to check if the value has been set.
+func (o *ModelCloudNodeComplianceControl) GetComplianceTypeOk() (*string, bool) {
+	if o == nil || IsNil(o.ComplianceType) {
+		return nil, false
+	}
+	return o.ComplianceType, true
+}
+
+// HasComplianceType returns a boolean if a field has been set.
+func (o *ModelCloudNodeComplianceControl) HasComplianceType() bool {
+	if o != nil && !IsNil(o.ComplianceType) {
+		return true
+	}
+
+	return false
+}
+
+// SetComplianceType gets a reference to the given string and assigns it to the ComplianceType field.
+func (o *ModelCloudNodeComplianceControl) SetComplianceType(v string) {
+	o.ComplianceType = &v
 }
 
 // GetControlId returns the ControlId field value if set, zero value otherwise.
@@ -174,6 +241,38 @@ func (o *ModelCloudNodeComplianceControl) SetEnabled(v bool) {
 	o.Enabled = &v
 }
 
+// GetNodeId returns the NodeId field value if set, zero value otherwise.
+func (o *ModelCloudNodeComplianceControl) GetNodeId() string {
+	if o == nil || IsNil(o.NodeId) {
+		var ret string
+		return ret
+	}
+	return *o.NodeId
+}
+
+// GetNodeIdOk returns a tuple with the NodeId field value if set, nil otherwise
+// and a boolean to check if the value has been set.
+func (o *ModelCloudNodeComplianceControl) GetNodeIdOk() (*string, bool) {
+	if o == nil || IsNil(o.NodeId) {
+		return nil, false
+	}
+	return o.NodeId, true
+}
+
+// HasNodeId returns a boolean if a field has been set.
+func (o *ModelCloudNodeComplianceControl) HasNodeId() bool {
+	if o != nil && !IsNil(o.NodeId) {
+		return true
+	}
+
+	return false
+}
+
+// SetNodeId gets a reference to the given string and assigns it to the NodeId field.
+func (o *ModelCloudNodeComplianceControl) SetNodeId(v string) {
+	o.NodeId = &v
+}
+
 // GetService returns the Service field value if set, zero value otherwise.
 func (o *ModelCloudNodeComplianceControl) GetService() string {
 	if o == nil || IsNil(o.Service) {
@@ -251,6 +350,12 @@ func (o ModelCloudNodeComplianceControl) ToMap() (map[string]interface{}, error)
 	if o.CategoryHierarchy != nil {
 		toSerialize["category_hierarchy"] = o.CategoryHierarchy
 	}
+	if !IsNil(o.CategoryHierarchyShort) {
+		toSerialize["category_hierarchy_short"] = o.CategoryHierarchyShort
+	}
+	if !IsNil(o.ComplianceType) {
+		toSerialize["compliance_type"] = o.ComplianceType
+	}
 	if !IsNil(o.ControlId) {
 		toSerialize["control_id"] = o.ControlId
 	}
@@ -259,6 +364,9 @@ func (o ModelCloudNodeComplianceControl) ToMap() (map[string]interface{}, error)
 	}
 	if !IsNil(o.Enabled) {
 		toSerialize["enabled"] = o.Enabled
+	}
+	if !IsNil(o.NodeId) {
+		toSerialize["node_id"] = o.NodeId
 	}
 	if !IsNil(o.Service) {
 		toSerialize["service"] = o.Service

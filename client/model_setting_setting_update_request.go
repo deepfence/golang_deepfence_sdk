@@ -17,38 +17,38 @@ import (
 	"fmt"
 )
 
-// checks if the ModelSettingUpdateRequest type satisfies the MappedNullable interface at compile time
-var _ MappedNullable = &ModelSettingUpdateRequest{}
+// checks if the SettingSettingUpdateRequest type satisfies the MappedNullable interface at compile time
+var _ MappedNullable = &SettingSettingUpdateRequest{}
 
-// ModelSettingUpdateRequest struct for ModelSettingUpdateRequest
-type ModelSettingUpdateRequest struct {
+// SettingSettingUpdateRequest struct for SettingSettingUpdateRequest
+type SettingSettingUpdateRequest struct {
 	Key string `json:"key"`
 	Value string `json:"value"`
 }
 
-type _ModelSettingUpdateRequest ModelSettingUpdateRequest
+type _SettingSettingUpdateRequest SettingSettingUpdateRequest
 
-// NewModelSettingUpdateRequest instantiates a new ModelSettingUpdateRequest object
+// NewSettingSettingUpdateRequest instantiates a new SettingSettingUpdateRequest object
 // This constructor will assign default values to properties that have it defined,
 // and makes sure properties required by API are set, but the set of arguments
 // will change when the set of required properties is changed
-func NewModelSettingUpdateRequest(key string, value string) *ModelSettingUpdateRequest {
-	this := ModelSettingUpdateRequest{}
+func NewSettingSettingUpdateRequest(key string, value string) *SettingSettingUpdateRequest {
+	this := SettingSettingUpdateRequest{}
 	this.Key = key
 	this.Value = value
 	return &this
 }
 
-// NewModelSettingUpdateRequestWithDefaults instantiates a new ModelSettingUpdateRequest object
+// NewSettingSettingUpdateRequestWithDefaults instantiates a new SettingSettingUpdateRequest object
 // This constructor will only assign default values to properties that have it defined,
 // but it doesn't guarantee that properties required by API are set
-func NewModelSettingUpdateRequestWithDefaults() *ModelSettingUpdateRequest {
-	this := ModelSettingUpdateRequest{}
+func NewSettingSettingUpdateRequestWithDefaults() *SettingSettingUpdateRequest {
+	this := SettingSettingUpdateRequest{}
 	return &this
 }
 
 // GetKey returns the Key field value
-func (o *ModelSettingUpdateRequest) GetKey() string {
+func (o *SettingSettingUpdateRequest) GetKey() string {
 	if o == nil {
 		var ret string
 		return ret
@@ -59,7 +59,7 @@ func (o *ModelSettingUpdateRequest) GetKey() string {
 
 // GetKeyOk returns a tuple with the Key field value
 // and a boolean to check if the value has been set.
-func (o *ModelSettingUpdateRequest) GetKeyOk() (*string, bool) {
+func (o *SettingSettingUpdateRequest) GetKeyOk() (*string, bool) {
 	if o == nil {
 		return nil, false
 	}
@@ -67,12 +67,12 @@ func (o *ModelSettingUpdateRequest) GetKeyOk() (*string, bool) {
 }
 
 // SetKey sets field value
-func (o *ModelSettingUpdateRequest) SetKey(v string) {
+func (o *SettingSettingUpdateRequest) SetKey(v string) {
 	o.Key = v
 }
 
 // GetValue returns the Value field value
-func (o *ModelSettingUpdateRequest) GetValue() string {
+func (o *SettingSettingUpdateRequest) GetValue() string {
 	if o == nil {
 		var ret string
 		return ret
@@ -83,7 +83,7 @@ func (o *ModelSettingUpdateRequest) GetValue() string {
 
 // GetValueOk returns a tuple with the Value field value
 // and a boolean to check if the value has been set.
-func (o *ModelSettingUpdateRequest) GetValueOk() (*string, bool) {
+func (o *SettingSettingUpdateRequest) GetValueOk() (*string, bool) {
 	if o == nil {
 		return nil, false
 	}
@@ -91,11 +91,11 @@ func (o *ModelSettingUpdateRequest) GetValueOk() (*string, bool) {
 }
 
 // SetValue sets field value
-func (o *ModelSettingUpdateRequest) SetValue(v string) {
+func (o *SettingSettingUpdateRequest) SetValue(v string) {
 	o.Value = v
 }
 
-func (o ModelSettingUpdateRequest) MarshalJSON() ([]byte, error) {
+func (o SettingSettingUpdateRequest) MarshalJSON() ([]byte, error) {
 	toSerialize,err := o.ToMap()
 	if err != nil {
 		return []byte{}, err
@@ -103,14 +103,14 @@ func (o ModelSettingUpdateRequest) MarshalJSON() ([]byte, error) {
 	return json.Marshal(toSerialize)
 }
 
-func (o ModelSettingUpdateRequest) ToMap() (map[string]interface{}, error) {
+func (o SettingSettingUpdateRequest) ToMap() (map[string]interface{}, error) {
 	toSerialize := map[string]interface{}{}
 	toSerialize["key"] = o.Key
 	toSerialize["value"] = o.Value
 	return toSerialize, nil
 }
 
-func (o *ModelSettingUpdateRequest) UnmarshalJSON(data []byte) (err error) {
+func (o *SettingSettingUpdateRequest) UnmarshalJSON(data []byte) (err error) {
 	// This validates that all required properties are included in the JSON object
 	// by unmarshalling the object into a generic map with string keys and checking
 	// that every required field exists as a key in the generic map.
@@ -133,53 +133,53 @@ func (o *ModelSettingUpdateRequest) UnmarshalJSON(data []byte) (err error) {
 		}
 	}
 
-	varModelSettingUpdateRequest := _ModelSettingUpdateRequest{}
+	varSettingSettingUpdateRequest := _SettingSettingUpdateRequest{}
 
 	decoder := json.NewDecoder(bytes.NewReader(data))
 	decoder.DisallowUnknownFields()
-	err = decoder.Decode(&varModelSettingUpdateRequest)
+	err = decoder.Decode(&varSettingSettingUpdateRequest)
 
 	if err != nil {
 		return err
 	}
 
-	*o = ModelSettingUpdateRequest(varModelSettingUpdateRequest)
+	*o = SettingSettingUpdateRequest(varSettingSettingUpdateRequest)
 
 	return err
 }
 
-type NullableModelSettingUpdateRequest struct {
-	value *ModelSettingUpdateRequest
+type NullableSettingSettingUpdateRequest struct {
+	value *SettingSettingUpdateRequest
 	isSet bool
 }
 
-func (v NullableModelSettingUpdateRequest) Get() *ModelSettingUpdateRequest {
+func (v NullableSettingSettingUpdateRequest) Get() *SettingSettingUpdateRequest {
 	return v.value
 }
 
-func (v *NullableModelSettingUpdateRequest) Set(val *ModelSettingUpdateRequest) {
+func (v *NullableSettingSettingUpdateRequest) Set(val *SettingSettingUpdateRequest) {
 	v.value = val
 	v.isSet = true
 }
 
-func (v NullableModelSettingUpdateRequest) IsSet() bool {
+func (v NullableSettingSettingUpdateRequest) IsSet() bool {
 	return v.isSet
 }
 
-func (v *NullableModelSettingUpdateRequest) Unset() {
+func (v *NullableSettingSettingUpdateRequest) Unset() {
 	v.value = nil
 	v.isSet = false
 }
 
-func NewNullableModelSettingUpdateRequest(val *ModelSettingUpdateRequest) *NullableModelSettingUpdateRequest {
-	return &NullableModelSettingUpdateRequest{value: val, isSet: true}
+func NewNullableSettingSettingUpdateRequest(val *SettingSettingUpdateRequest) *NullableSettingSettingUpdateRequest {
+	return &NullableSettingSettingUpdateRequest{value: val, isSet: true}
 }
 
-func (v NullableModelSettingUpdateRequest) MarshalJSON() ([]byte, error) {
+func (v NullableSettingSettingUpdateRequest) MarshalJSON() ([]byte, error) {
 	return json.Marshal(v.value)
 }
 
-func (v *NullableModelSettingUpdateRequest) UnmarshalJSON(src []byte) error {
+func (v *NullableSettingSettingUpdateRequest) UnmarshalJSON(src []byte) error {
 	v.isSet = true
 	return json.Unmarshal(src, &v.value)
 }

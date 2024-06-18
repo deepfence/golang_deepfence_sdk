@@ -112,6 +112,7 @@ docs/ModelCloudNodeComplianceControl.md
 docs/ModelCloudNodeControlReq.md
 docs/ModelCloudNodeControlResp.md
 docs/ModelCloudNodeEnableDisableReq.md
+docs/ModelCloudNodeMonitoredAccount.md
 docs/ModelCloudNodeProvidersListResp.md
 docs/ModelCloudResource.md
 docs/ModelCompliance.md
@@ -120,6 +121,8 @@ docs/ModelComplianceScanInfo.md
 docs/ModelComplianceScanResult.md
 docs/ModelComplianceScanStatusResp.md
 docs/ModelComplianceScanTriggerReq.md
+docs/ModelComplinaceScanResultsGroupReq.md
+docs/ModelComplinaceScanResultsGroupResp.md
 docs/ModelConnection.md
 docs/ModelContainer.md
 docs/ModelContainerImage.md
@@ -213,8 +216,6 @@ docs/ModelSecretRule.md
 docs/ModelSecretScanResult.md
 docs/ModelSecretScanResultRules.md
 docs/ModelSecretScanTriggerReq.md
-docs/ModelSettingUpdateRequest.md
-docs/ModelSettingsResponse.md
 docs/ModelStopScanRequest.md
 docs/ModelSummary.md
 docs/ModelTopologyDeltaReq.md
@@ -253,6 +254,8 @@ docs/SearchSearchFilter.md
 docs/SearchSearchNodeReq.md
 docs/SearchSearchScanReq.md
 docs/SecretScanAPI.md
+docs/SettingSettingUpdateRequest.md
+docs/SettingSettingsResponse.md
 docs/SettingsAPI.md
 docs/ThreatAPI.md
 docs/TopologyAPI.md
@@ -333,6 +336,7 @@ model_model_cloud_node_compliance_control.go
 model_model_cloud_node_control_req.go
 model_model_cloud_node_control_resp.go
 model_model_cloud_node_enable_disable_req.go
+model_model_cloud_node_monitored_account.go
 model_model_cloud_node_providers_list_resp.go
 model_model_cloud_resource.go
 model_model_compliance.go
@@ -341,6 +345,8 @@ model_model_compliance_scan_info.go
 model_model_compliance_scan_result.go
 model_model_compliance_scan_status_resp.go
 model_model_compliance_scan_trigger_req.go
+model_model_complinace_scan_results_group_req.go
+model_model_complinace_scan_results_group_resp.go
 model_model_connection.go
 model_model_container.go
 model_model_container_image.go
@@ -434,8 +440,6 @@ model_model_secret_rule.go
 model_model_secret_scan_result.go
 model_model_secret_scan_result_rules.go
 model_model_secret_scan_trigger_req.go
-model_model_setting_update_request.go
-model_model_settings_response.go
 model_model_stop_scan_request.go
 model_model_summary.go
 model_model_topology_delta_req.go
@@ -469,6 +473,8 @@ model_search_search_count_resp.go
 model_search_search_filter.go
 model_search_search_node_req.go
 model_search_search_scan_req.go
+model_setting_setting_update_request.go
+model_setting_settings_response.go
 model_utils_advanced_report_filters.go
 model_utils_report_filters.go
 model_utils_report_options.go

@@ -4,6 +4,7 @@
 
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
+**AccountName** | Pointer to **string** |  | [optional] 
 **Active** | Pointer to **bool** |  | [optional] 
 **CloudProvider** | Pointer to **string** |  | [optional] 
 **CompliancePercentage** | Pointer to **float32** |  | [optional] 
@@ -33,6 +34,31 @@ will change when the set of required properties is changed
 NewModelCloudNodeAccountInfoWithDefaults instantiates a new ModelCloudNodeAccountInfo object
 This constructor will only assign default values to properties that have it defined,
 but it doesn't guarantee that properties required by API are set
+
+### GetAccountName
+
+`func (o *ModelCloudNodeAccountInfo) GetAccountName() string`
+
+GetAccountName returns the AccountName field if non-nil, zero value otherwise.
+
+### GetAccountNameOk
+
+`func (o *ModelCloudNodeAccountInfo) GetAccountNameOk() (*string, bool)`
+
+GetAccountNameOk returns a tuple with the AccountName field if it's non-nil, zero value otherwise
+and a boolean to check if the value has been set.
+
+### SetAccountName
+
+`func (o *ModelCloudNodeAccountInfo) SetAccountName(v string)`
+
+SetAccountName sets AccountName field to given value.
+
+### HasAccountName
+
+`func (o *ModelCloudNodeAccountInfo) HasAccountName() bool`
+
+HasAccountName returns a boolean if a field has been set.
 
 ### GetActive
 

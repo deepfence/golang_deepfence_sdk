@@ -20,6 +20,7 @@ var _ MappedNullable = &ModelCloudNodeAccountInfo{}
 
 // ModelCloudNodeAccountInfo struct for ModelCloudNodeAccountInfo
 type ModelCloudNodeAccountInfo struct {
+	AccountName *string `json:"account_name,omitempty"`
 	Active *bool `json:"active,omitempty"`
 	CloudProvider *string `json:"cloud_provider,omitempty"`
 	CompliancePercentage *float32 `json:"compliance_percentage,omitempty"`
@@ -47,6 +48,38 @@ func NewModelCloudNodeAccountInfo() *ModelCloudNodeAccountInfo {
 func NewModelCloudNodeAccountInfoWithDefaults() *ModelCloudNodeAccountInfo {
 	this := ModelCloudNodeAccountInfo{}
 	return &this
+}
+
+// GetAccountName returns the AccountName field value if set, zero value otherwise.
+func (o *ModelCloudNodeAccountInfo) GetAccountName() string {
+	if o == nil || IsNil(o.AccountName) {
+		var ret string
+		return ret
+	}
+	return *o.AccountName
+}
+
+// GetAccountNameOk returns a tuple with the AccountName field value if set, nil otherwise
+// and a boolean to check if the value has been set.
+func (o *ModelCloudNodeAccountInfo) GetAccountNameOk() (*string, bool) {
+	if o == nil || IsNil(o.AccountName) {
+		return nil, false
+	}
+	return o.AccountName, true
+}
+
+// HasAccountName returns a boolean if a field has been set.
+func (o *ModelCloudNodeAccountInfo) HasAccountName() bool {
+	if o != nil && !IsNil(o.AccountName) {
+		return true
+	}
+
+	return false
+}
+
+// SetAccountName gets a reference to the given string and assigns it to the AccountName field.
+func (o *ModelCloudNodeAccountInfo) SetAccountName(v string) {
+	o.AccountName = &v
 }
 
 // GetActive returns the Active field value if set, zero value otherwise.
@@ -380,6 +413,9 @@ func (o ModelCloudNodeAccountInfo) MarshalJSON() ([]byte, error) {
 
 func (o ModelCloudNodeAccountInfo) ToMap() (map[string]interface{}, error) {
 	toSerialize := map[string]interface{}{}
+	if !IsNil(o.AccountName) {
+		toSerialize["account_name"] = o.AccountName
+	}
 	if !IsNil(o.Active) {
 		toSerialize["active"] = o.Active
 	}

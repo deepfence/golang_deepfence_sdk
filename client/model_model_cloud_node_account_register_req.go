@@ -23,10 +23,11 @@ var _ MappedNullable = &ModelCloudNodeAccountRegisterReq{}
 // ModelCloudNodeAccountRegisterReq struct for ModelCloudNodeAccountRegisterReq
 type ModelCloudNodeAccountRegisterReq struct {
 	AccountId string `json:"account_id"`
+	AccountName string `json:"account_name"`
 	CloudProvider string `json:"cloud_provider"`
 	HostNodeId string `json:"host_node_id"`
 	IsOrganizationDeployment *bool `json:"is_organization_deployment,omitempty"`
-	MonitoredAccountIds map[string]string `json:"monitored_account_ids,omitempty"`
+	MonitoredAccounts []ModelCloudNodeMonitoredAccount `json:"monitored_accounts,omitempty"`
 	NodeId string `json:"node_id"`
 	OrganizationAccountId *string `json:"organization_account_id,omitempty"`
 	Version string `json:"version"`
@@ -38,9 +39,10 @@ type _ModelCloudNodeAccountRegisterReq ModelCloudNodeAccountRegisterReq
 // This constructor will assign default values to properties that have it defined,
 // and makes sure properties required by API are set, but the set of arguments
 // will change when the set of required properties is changed
-func NewModelCloudNodeAccountRegisterReq(accountId string, cloudProvider string, hostNodeId string, nodeId string, version string) *ModelCloudNodeAccountRegisterReq {
+func NewModelCloudNodeAccountRegisterReq(accountId string, accountName string, cloudProvider string, hostNodeId string, nodeId string, version string) *ModelCloudNodeAccountRegisterReq {
 	this := ModelCloudNodeAccountRegisterReq{}
 	this.AccountId = accountId
+	this.AccountName = accountName
 	this.CloudProvider = cloudProvider
 	this.HostNodeId = hostNodeId
 	this.NodeId = nodeId
@@ -78,6 +80,30 @@ func (o *ModelCloudNodeAccountRegisterReq) GetAccountIdOk() (*string, bool) {
 // SetAccountId sets field value
 func (o *ModelCloudNodeAccountRegisterReq) SetAccountId(v string) {
 	o.AccountId = v
+}
+
+// GetAccountName returns the AccountName field value
+func (o *ModelCloudNodeAccountRegisterReq) GetAccountName() string {
+	if o == nil {
+		var ret string
+		return ret
+	}
+
+	return o.AccountName
+}
+
+// GetAccountNameOk returns a tuple with the AccountName field value
+// and a boolean to check if the value has been set.
+func (o *ModelCloudNodeAccountRegisterReq) GetAccountNameOk() (*string, bool) {
+	if o == nil {
+		return nil, false
+	}
+	return &o.AccountName, true
+}
+
+// SetAccountName sets field value
+func (o *ModelCloudNodeAccountRegisterReq) SetAccountName(v string) {
+	o.AccountName = v
 }
 
 // GetCloudProvider returns the CloudProvider field value
@@ -160,37 +186,37 @@ func (o *ModelCloudNodeAccountRegisterReq) SetIsOrganizationDeployment(v bool) {
 	o.IsOrganizationDeployment = &v
 }
 
-// GetMonitoredAccountIds returns the MonitoredAccountIds field value if set, zero value otherwise (both if not set or set to explicit null).
-func (o *ModelCloudNodeAccountRegisterReq) GetMonitoredAccountIds() map[string]string {
+// GetMonitoredAccounts returns the MonitoredAccounts field value if set, zero value otherwise (both if not set or set to explicit null).
+func (o *ModelCloudNodeAccountRegisterReq) GetMonitoredAccounts() []ModelCloudNodeMonitoredAccount {
 	if o == nil {
-		var ret map[string]string
+		var ret []ModelCloudNodeMonitoredAccount
 		return ret
 	}
-	return o.MonitoredAccountIds
+	return o.MonitoredAccounts
 }
 
-// GetMonitoredAccountIdsOk returns a tuple with the MonitoredAccountIds field value if set, nil otherwise
+// GetMonitoredAccountsOk returns a tuple with the MonitoredAccounts field value if set, nil otherwise
 // and a boolean to check if the value has been set.
 // NOTE: If the value is an explicit nil, `nil, true` will be returned
-func (o *ModelCloudNodeAccountRegisterReq) GetMonitoredAccountIdsOk() (*map[string]string, bool) {
-	if o == nil || IsNil(o.MonitoredAccountIds) {
+func (o *ModelCloudNodeAccountRegisterReq) GetMonitoredAccountsOk() ([]ModelCloudNodeMonitoredAccount, bool) {
+	if o == nil || IsNil(o.MonitoredAccounts) {
 		return nil, false
 	}
-	return &o.MonitoredAccountIds, true
+	return o.MonitoredAccounts, true
 }
 
-// HasMonitoredAccountIds returns a boolean if a field has been set.
-func (o *ModelCloudNodeAccountRegisterReq) HasMonitoredAccountIds() bool {
-	if o != nil && !IsNil(o.MonitoredAccountIds) {
+// HasMonitoredAccounts returns a boolean if a field has been set.
+func (o *ModelCloudNodeAccountRegisterReq) HasMonitoredAccounts() bool {
+	if o != nil && !IsNil(o.MonitoredAccounts) {
 		return true
 	}
 
 	return false
 }
 
-// SetMonitoredAccountIds gets a reference to the given map[string]string and assigns it to the MonitoredAccountIds field.
-func (o *ModelCloudNodeAccountRegisterReq) SetMonitoredAccountIds(v map[string]string) {
-	o.MonitoredAccountIds = v
+// SetMonitoredAccounts gets a reference to the given []ModelCloudNodeMonitoredAccount and assigns it to the MonitoredAccounts field.
+func (o *ModelCloudNodeAccountRegisterReq) SetMonitoredAccounts(v []ModelCloudNodeMonitoredAccount) {
+	o.MonitoredAccounts = v
 }
 
 // GetNodeId returns the NodeId field value
@@ -284,13 +310,14 @@ func (o ModelCloudNodeAccountRegisterReq) MarshalJSON() ([]byte, error) {
 func (o ModelCloudNodeAccountRegisterReq) ToMap() (map[string]interface{}, error) {
 	toSerialize := map[string]interface{}{}
 	toSerialize["account_id"] = o.AccountId
+	toSerialize["account_name"] = o.AccountName
 	toSerialize["cloud_provider"] = o.CloudProvider
 	toSerialize["host_node_id"] = o.HostNodeId
 	if !IsNil(o.IsOrganizationDeployment) {
 		toSerialize["is_organization_deployment"] = o.IsOrganizationDeployment
 	}
-	if o.MonitoredAccountIds != nil {
-		toSerialize["monitored_account_ids"] = o.MonitoredAccountIds
+	if o.MonitoredAccounts != nil {
+		toSerialize["monitored_accounts"] = o.MonitoredAccounts
 	}
 	toSerialize["node_id"] = o.NodeId
 	if !IsNil(o.OrganizationAccountId) {
@@ -306,6 +333,7 @@ func (o *ModelCloudNodeAccountRegisterReq) UnmarshalJSON(data []byte) (err error
 	// that every required field exists as a key in the generic map.
 	requiredProperties := []string{
 		"account_id",
+		"account_name",
 		"cloud_provider",
 		"host_node_id",
 		"node_id",

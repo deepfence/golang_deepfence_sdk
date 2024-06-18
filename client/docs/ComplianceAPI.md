@@ -5,6 +5,8 @@ All URIs are relative to *http://localhost*
 Method | HTTP request | Description
 ------------- | ------------- | -------------
 [**CountResultsComplianceScan**](ComplianceAPI.md#CountResultsComplianceScan) | **Post** /deepfence/scan/results/count/compliance | Get Compliance Scans Results
+[**GroupResultsCloudCompliance**](ComplianceAPI.md#GroupResultsCloudCompliance) | **Post** /deepfence/scan/results/count/group/cloud-compliance | Count Cloud Compliance Results by Control ID
+[**GroupResultsCompliance**](ComplianceAPI.md#GroupResultsCompliance) | **Post** /deepfence/scan/results/count/group/compliance | Count Compliance Results by Control ID
 [**IngestComplianceScanStatus**](ComplianceAPI.md#IngestComplianceScanStatus) | **Post** /deepfence/ingest/compliance-scan-logs | Ingest Compliance Scan Status
 [**IngestCompliances**](ComplianceAPI.md#IngestCompliances) | **Post** /deepfence/ingest/compliance | Ingest Compliances
 [**ListComplianceScan**](ComplianceAPI.md#ListComplianceScan) | **Post** /deepfence/scan/list/compliance | Get Compliance Scans List
@@ -66,6 +68,138 @@ Name | Type | Description  | Notes
 ### Return type
 
 [**SearchSearchCountResp**](SearchSearchCountResp.md)
+
+### Authorization
+
+[bearer_token](../README.md#bearer_token)
+
+### HTTP request headers
+
+- **Content-Type**: application/json
+- **Accept**: application/json
+
+[[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints)
+[[Back to Model list]](../README.md#documentation-for-models)
+[[Back to README]](../README.md)
+
+
+## GroupResultsCloudCompliance
+
+> ModelComplinaceScanResultsGroupResp GroupResultsCloudCompliance(ctx).ModelComplinaceScanResultsGroupReq(modelComplinaceScanResultsGroupReq).Execute()
+
+Count Cloud Compliance Results by Control ID
+
+
+
+### Example
+
+```go
+package main
+
+import (
+	"context"
+	"fmt"
+	"os"
+	openapiclient "github.com/deepfence/golang_deepfence_sdk/client"
+)
+
+func main() {
+	modelComplinaceScanResultsGroupReq := *openapiclient.NewModelComplinaceScanResultsGroupReq(*openapiclient.NewReportersFieldsFilters([]openapiclient.ReportersCompareFilter{*openapiclient.NewReportersCompareFilter("FieldName_example", interface{}(123), false)}, *openapiclient.NewReportersContainsFilter(map[string][]interface{}{"key": []interface{}{nil}}), *openapiclient.NewReportersMatchFilter(map[string][]interface{}{"key": []interface{}{nil}}), *openapiclient.NewReportersOrderFilter([]openapiclient.ReportersOrderSpec{*openapiclient.NewReportersOrderSpec(false, "FieldName_example")})), "ScanId_example") // ModelComplinaceScanResultsGroupReq |  (optional)
+
+	configuration := openapiclient.NewConfiguration()
+	apiClient := openapiclient.NewAPIClient(configuration)
+	resp, r, err := apiClient.ComplianceAPI.GroupResultsCloudCompliance(context.Background()).ModelComplinaceScanResultsGroupReq(modelComplinaceScanResultsGroupReq).Execute()
+	if err != nil {
+		fmt.Fprintf(os.Stderr, "Error when calling `ComplianceAPI.GroupResultsCloudCompliance``: %v\n", err)
+		fmt.Fprintf(os.Stderr, "Full HTTP response: %v\n", r)
+	}
+	// response from `GroupResultsCloudCompliance`: ModelComplinaceScanResultsGroupResp
+	fmt.Fprintf(os.Stdout, "Response from `ComplianceAPI.GroupResultsCloudCompliance`: %v\n", resp)
+}
+```
+
+### Path Parameters
+
+
+
+### Other Parameters
+
+Other parameters are passed through a pointer to a apiGroupResultsCloudComplianceRequest struct via the builder pattern
+
+
+Name | Type | Description  | Notes
+------------- | ------------- | ------------- | -------------
+ **modelComplinaceScanResultsGroupReq** | [**ModelComplinaceScanResultsGroupReq**](ModelComplinaceScanResultsGroupReq.md) |  | 
+
+### Return type
+
+[**ModelComplinaceScanResultsGroupResp**](ModelComplinaceScanResultsGroupResp.md)
+
+### Authorization
+
+[bearer_token](../README.md#bearer_token)
+
+### HTTP request headers
+
+- **Content-Type**: application/json
+- **Accept**: application/json
+
+[[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints)
+[[Back to Model list]](../README.md#documentation-for-models)
+[[Back to README]](../README.md)
+
+
+## GroupResultsCompliance
+
+> ModelComplinaceScanResultsGroupResp GroupResultsCompliance(ctx).ModelComplinaceScanResultsGroupReq(modelComplinaceScanResultsGroupReq).Execute()
+
+Count Compliance Results by Control ID
+
+
+
+### Example
+
+```go
+package main
+
+import (
+	"context"
+	"fmt"
+	"os"
+	openapiclient "github.com/deepfence/golang_deepfence_sdk/client"
+)
+
+func main() {
+	modelComplinaceScanResultsGroupReq := *openapiclient.NewModelComplinaceScanResultsGroupReq(*openapiclient.NewReportersFieldsFilters([]openapiclient.ReportersCompareFilter{*openapiclient.NewReportersCompareFilter("FieldName_example", interface{}(123), false)}, *openapiclient.NewReportersContainsFilter(map[string][]interface{}{"key": []interface{}{nil}}), *openapiclient.NewReportersMatchFilter(map[string][]interface{}{"key": []interface{}{nil}}), *openapiclient.NewReportersOrderFilter([]openapiclient.ReportersOrderSpec{*openapiclient.NewReportersOrderSpec(false, "FieldName_example")})), "ScanId_example") // ModelComplinaceScanResultsGroupReq |  (optional)
+
+	configuration := openapiclient.NewConfiguration()
+	apiClient := openapiclient.NewAPIClient(configuration)
+	resp, r, err := apiClient.ComplianceAPI.GroupResultsCompliance(context.Background()).ModelComplinaceScanResultsGroupReq(modelComplinaceScanResultsGroupReq).Execute()
+	if err != nil {
+		fmt.Fprintf(os.Stderr, "Error when calling `ComplianceAPI.GroupResultsCompliance``: %v\n", err)
+		fmt.Fprintf(os.Stderr, "Full HTTP response: %v\n", r)
+	}
+	// response from `GroupResultsCompliance`: ModelComplinaceScanResultsGroupResp
+	fmt.Fprintf(os.Stdout, "Response from `ComplianceAPI.GroupResultsCompliance`: %v\n", resp)
+}
+```
+
+### Path Parameters
+
+
+
+### Other Parameters
+
+Other parameters are passed through a pointer to a apiGroupResultsComplianceRequest struct via the builder pattern
+
+
+Name | Type | Description  | Notes
+------------- | ------------- | ------------- | -------------
+ **modelComplinaceScanResultsGroupReq** | [**ModelComplinaceScanResultsGroupReq**](ModelComplinaceScanResultsGroupReq.md) |  | 
+
+### Return type
+
+[**ModelComplinaceScanResultsGroupResp**](ModelComplinaceScanResultsGroupResp.md)
 
 ### Authorization
 

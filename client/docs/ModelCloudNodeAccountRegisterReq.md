@@ -5,10 +5,11 @@
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
 **AccountId** | **string** |  | 
+**AccountName** | **string** |  | 
 **CloudProvider** | **string** |  | 
 **HostNodeId** | **string** |  | 
 **IsOrganizationDeployment** | Pointer to **bool** |  | [optional] 
-**MonitoredAccountIds** | Pointer to **map[string]string** |  | [optional] 
+**MonitoredAccounts** | Pointer to [**[]ModelCloudNodeMonitoredAccount**](ModelCloudNodeMonitoredAccount.md) |  | [optional] 
 **NodeId** | **string** |  | 
 **OrganizationAccountId** | Pointer to **string** |  | [optional] 
 **Version** | **string** |  | 
@@ -17,7 +18,7 @@ Name | Type | Description | Notes
 
 ### NewModelCloudNodeAccountRegisterReq
 
-`func NewModelCloudNodeAccountRegisterReq(accountId string, cloudProvider string, hostNodeId string, nodeId string, version string, ) *ModelCloudNodeAccountRegisterReq`
+`func NewModelCloudNodeAccountRegisterReq(accountId string, accountName string, cloudProvider string, hostNodeId string, nodeId string, version string, ) *ModelCloudNodeAccountRegisterReq`
 
 NewModelCloudNodeAccountRegisterReq instantiates a new ModelCloudNodeAccountRegisterReq object
 This constructor will assign default values to properties that have it defined,
@@ -50,6 +51,26 @@ and a boolean to check if the value has been set.
 `func (o *ModelCloudNodeAccountRegisterReq) SetAccountId(v string)`
 
 SetAccountId sets AccountId field to given value.
+
+
+### GetAccountName
+
+`func (o *ModelCloudNodeAccountRegisterReq) GetAccountName() string`
+
+GetAccountName returns the AccountName field if non-nil, zero value otherwise.
+
+### GetAccountNameOk
+
+`func (o *ModelCloudNodeAccountRegisterReq) GetAccountNameOk() (*string, bool)`
+
+GetAccountNameOk returns a tuple with the AccountName field if it's non-nil, zero value otherwise
+and a boolean to check if the value has been set.
+
+### SetAccountName
+
+`func (o *ModelCloudNodeAccountRegisterReq) SetAccountName(v string)`
+
+SetAccountName sets AccountName field to given value.
 
 
 ### GetCloudProvider
@@ -117,41 +138,41 @@ SetIsOrganizationDeployment sets IsOrganizationDeployment field to given value.
 
 HasIsOrganizationDeployment returns a boolean if a field has been set.
 
-### GetMonitoredAccountIds
+### GetMonitoredAccounts
 
-`func (o *ModelCloudNodeAccountRegisterReq) GetMonitoredAccountIds() map[string]string`
+`func (o *ModelCloudNodeAccountRegisterReq) GetMonitoredAccounts() []ModelCloudNodeMonitoredAccount`
 
-GetMonitoredAccountIds returns the MonitoredAccountIds field if non-nil, zero value otherwise.
+GetMonitoredAccounts returns the MonitoredAccounts field if non-nil, zero value otherwise.
 
-### GetMonitoredAccountIdsOk
+### GetMonitoredAccountsOk
 
-`func (o *ModelCloudNodeAccountRegisterReq) GetMonitoredAccountIdsOk() (*map[string]string, bool)`
+`func (o *ModelCloudNodeAccountRegisterReq) GetMonitoredAccountsOk() (*[]ModelCloudNodeMonitoredAccount, bool)`
 
-GetMonitoredAccountIdsOk returns a tuple with the MonitoredAccountIds field if it's non-nil, zero value otherwise
+GetMonitoredAccountsOk returns a tuple with the MonitoredAccounts field if it's non-nil, zero value otherwise
 and a boolean to check if the value has been set.
 
-### SetMonitoredAccountIds
+### SetMonitoredAccounts
 
-`func (o *ModelCloudNodeAccountRegisterReq) SetMonitoredAccountIds(v map[string]string)`
+`func (o *ModelCloudNodeAccountRegisterReq) SetMonitoredAccounts(v []ModelCloudNodeMonitoredAccount)`
 
-SetMonitoredAccountIds sets MonitoredAccountIds field to given value.
+SetMonitoredAccounts sets MonitoredAccounts field to given value.
 
-### HasMonitoredAccountIds
+### HasMonitoredAccounts
 
-`func (o *ModelCloudNodeAccountRegisterReq) HasMonitoredAccountIds() bool`
+`func (o *ModelCloudNodeAccountRegisterReq) HasMonitoredAccounts() bool`
 
-HasMonitoredAccountIds returns a boolean if a field has been set.
+HasMonitoredAccounts returns a boolean if a field has been set.
 
-### SetMonitoredAccountIdsNil
+### SetMonitoredAccountsNil
 
-`func (o *ModelCloudNodeAccountRegisterReq) SetMonitoredAccountIdsNil(b bool)`
+`func (o *ModelCloudNodeAccountRegisterReq) SetMonitoredAccountsNil(b bool)`
 
- SetMonitoredAccountIdsNil sets the value for MonitoredAccountIds to be an explicit nil
+ SetMonitoredAccountsNil sets the value for MonitoredAccounts to be an explicit nil
 
-### UnsetMonitoredAccountIds
-`func (o *ModelCloudNodeAccountRegisterReq) UnsetMonitoredAccountIds()`
+### UnsetMonitoredAccounts
+`func (o *ModelCloudNodeAccountRegisterReq) UnsetMonitoredAccounts()`
 
-UnsetMonitoredAccountIds ensures that no value is present for MonitoredAccountIds, not even an explicit nil
+UnsetMonitoredAccounts ensures that no value is present for MonitoredAccounts, not even an explicit nil
 ### GetNodeId
 
 `func (o *ModelCloudNodeAccountRegisterReq) GetNodeId() string`

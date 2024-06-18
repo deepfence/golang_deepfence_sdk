@@ -5,9 +5,12 @@
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
 **CategoryHierarchy** | Pointer to **[]string** |  | [optional] 
+**CategoryHierarchyShort** | Pointer to **string** |  | [optional] 
+**ComplianceType** | Pointer to **string** |  | [optional] 
 **ControlId** | Pointer to **string** |  | [optional] 
 **Description** | Pointer to **string** |  | [optional] 
 **Enabled** | Pointer to **bool** |  | [optional] 
+**NodeId** | Pointer to **string** |  | [optional] 
 **Service** | Pointer to **string** |  | [optional] 
 **Title** | Pointer to **string** |  | [optional] 
 
@@ -65,6 +68,56 @@ HasCategoryHierarchy returns a boolean if a field has been set.
 `func (o *ModelCloudNodeComplianceControl) UnsetCategoryHierarchy()`
 
 UnsetCategoryHierarchy ensures that no value is present for CategoryHierarchy, not even an explicit nil
+### GetCategoryHierarchyShort
+
+`func (o *ModelCloudNodeComplianceControl) GetCategoryHierarchyShort() string`
+
+GetCategoryHierarchyShort returns the CategoryHierarchyShort field if non-nil, zero value otherwise.
+
+### GetCategoryHierarchyShortOk
+
+`func (o *ModelCloudNodeComplianceControl) GetCategoryHierarchyShortOk() (*string, bool)`
+
+GetCategoryHierarchyShortOk returns a tuple with the CategoryHierarchyShort field if it's non-nil, zero value otherwise
+and a boolean to check if the value has been set.
+
+### SetCategoryHierarchyShort
+
+`func (o *ModelCloudNodeComplianceControl) SetCategoryHierarchyShort(v string)`
+
+SetCategoryHierarchyShort sets CategoryHierarchyShort field to given value.
+
+### HasCategoryHierarchyShort
+
+`func (o *ModelCloudNodeComplianceControl) HasCategoryHierarchyShort() bool`
+
+HasCategoryHierarchyShort returns a boolean if a field has been set.
+
+### GetComplianceType
+
+`func (o *ModelCloudNodeComplianceControl) GetComplianceType() string`
+
+GetComplianceType returns the ComplianceType field if non-nil, zero value otherwise.
+
+### GetComplianceTypeOk
+
+`func (o *ModelCloudNodeComplianceControl) GetComplianceTypeOk() (*string, bool)`
+
+GetComplianceTypeOk returns a tuple with the ComplianceType field if it's non-nil, zero value otherwise
+and a boolean to check if the value has been set.
+
+### SetComplianceType
+
+`func (o *ModelCloudNodeComplianceControl) SetComplianceType(v string)`
+
+SetComplianceType sets ComplianceType field to given value.
+
+### HasComplianceType
+
+`func (o *ModelCloudNodeComplianceControl) HasComplianceType() bool`
+
+HasComplianceType returns a boolean if a field has been set.
+
 ### GetControlId
 
 `func (o *ModelCloudNodeComplianceControl) GetControlId() string`
@@ -139,6 +192,31 @@ SetEnabled sets Enabled field to given value.
 `func (o *ModelCloudNodeComplianceControl) HasEnabled() bool`
 
 HasEnabled returns a boolean if a field has been set.
+
+### GetNodeId
+
+`func (o *ModelCloudNodeComplianceControl) GetNodeId() string`
+
+GetNodeId returns the NodeId field if non-nil, zero value otherwise.
+
+### GetNodeIdOk
+
+`func (o *ModelCloudNodeComplianceControl) GetNodeIdOk() (*string, bool)`
+
+GetNodeIdOk returns a tuple with the NodeId field if it's non-nil, zero value otherwise
+and a boolean to check if the value has been set.
+
+### SetNodeId
+
+`func (o *ModelCloudNodeComplianceControl) SetNodeId(v string)`
+
+SetNodeId sets NodeId field to given value.
+
+### HasNodeId
+
+`func (o *ModelCloudNodeComplianceControl) HasNodeId() bool`
+
+HasNodeId returns a boolean if a field has been set.
 
 ### GetService
 

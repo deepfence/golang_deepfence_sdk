@@ -107,6 +107,8 @@ Class | Method | HTTP request | Description
 *CompletionAPI* | [**CompleteProcessInfo**](docs/CompletionAPI.md#completeprocessinfo) | **Post** /deepfence/complete/process | Get Completion for process fields
 *CompletionAPI* | [**CompleteVulnerabilityInfo**](docs/CompletionAPI.md#completevulnerabilityinfo) | **Post** /deepfence/complete/vulnerability | Get Completion for vulnerability fields
 *ComplianceAPI* | [**CountResultsComplianceScan**](docs/ComplianceAPI.md#countresultscompliancescan) | **Post** /deepfence/scan/results/count/compliance | Get Compliance Scans Results
+*ComplianceAPI* | [**GroupResultsCloudCompliance**](docs/ComplianceAPI.md#groupresultscloudcompliance) | **Post** /deepfence/scan/results/count/group/cloud-compliance | Count Cloud Compliance Results by Control ID
+*ComplianceAPI* | [**GroupResultsCompliance**](docs/ComplianceAPI.md#groupresultscompliance) | **Post** /deepfence/scan/results/count/group/compliance | Count Compliance Results by Control ID
 *ComplianceAPI* | [**IngestComplianceScanStatus**](docs/ComplianceAPI.md#ingestcompliancescanstatus) | **Post** /deepfence/ingest/compliance-scan-logs | Ingest Compliance Scan Status
 *ComplianceAPI* | [**IngestCompliances**](docs/ComplianceAPI.md#ingestcompliances) | **Post** /deepfence/ingest/compliance | Ingest Compliances
 *ComplianceAPI* | [**ListComplianceScan**](docs/ComplianceAPI.md#listcompliancescan) | **Post** /deepfence/scan/list/compliance | Get Compliance Scans List
@@ -393,6 +395,7 @@ Class | Method | HTTP request | Description
  - [ModelCloudNodeControlReq](docs/ModelCloudNodeControlReq.md)
  - [ModelCloudNodeControlResp](docs/ModelCloudNodeControlResp.md)
  - [ModelCloudNodeEnableDisableReq](docs/ModelCloudNodeEnableDisableReq.md)
+ - [ModelCloudNodeMonitoredAccount](docs/ModelCloudNodeMonitoredAccount.md)
  - [ModelCloudNodeProvidersListResp](docs/ModelCloudNodeProvidersListResp.md)
  - [ModelCloudResource](docs/ModelCloudResource.md)
  - [ModelCompliance](docs/ModelCompliance.md)
@@ -401,6 +404,8 @@ Class | Method | HTTP request | Description
  - [ModelComplianceScanResult](docs/ModelComplianceScanResult.md)
  - [ModelComplianceScanStatusResp](docs/ModelComplianceScanStatusResp.md)
  - [ModelComplianceScanTriggerReq](docs/ModelComplianceScanTriggerReq.md)
+ - [ModelComplinaceScanResultsGroupReq](docs/ModelComplinaceScanResultsGroupReq.md)
+ - [ModelComplinaceScanResultsGroupResp](docs/ModelComplinaceScanResultsGroupResp.md)
  - [ModelConnection](docs/ModelConnection.md)
  - [ModelContainer](docs/ModelContainer.md)
  - [ModelContainerImage](docs/ModelContainerImage.md)
@@ -494,8 +499,6 @@ Class | Method | HTTP request | Description
  - [ModelSecretScanResult](docs/ModelSecretScanResult.md)
  - [ModelSecretScanResultRules](docs/ModelSecretScanResultRules.md)
  - [ModelSecretScanTriggerReq](docs/ModelSecretScanTriggerReq.md)
- - [ModelSettingUpdateRequest](docs/ModelSettingUpdateRequest.md)
- - [ModelSettingsResponse](docs/ModelSettingsResponse.md)
  - [ModelStopScanRequest](docs/ModelStopScanRequest.md)
  - [ModelSummary](docs/ModelSummary.md)
  - [ModelTopologyDeltaReq](docs/ModelTopologyDeltaReq.md)
@@ -529,6 +532,8 @@ Class | Method | HTTP request | Description
  - [SearchSearchFilter](docs/SearchSearchFilter.md)
  - [SearchSearchNodeReq](docs/SearchSearchNodeReq.md)
  - [SearchSearchScanReq](docs/SearchSearchScanReq.md)
+ - [SettingSettingUpdateRequest](docs/SettingSettingUpdateRequest.md)
+ - [SettingSettingsResponse](docs/SettingSettingsResponse.md)
  - [UtilsAdvancedReportFilters](docs/UtilsAdvancedReportFilters.md)
  - [UtilsReportFilters](docs/UtilsReportFilters.md)
  - [UtilsReportOptions](docs/UtilsReportOptions.md)

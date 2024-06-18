@@ -1,4 +1,4 @@
-# ModelSettingsResponse
+# SettingSettingsResponse
 
 ## Properties
 
@@ -12,131 +12,131 @@ Name | Type | Description | Notes
 
 ## Methods
 
-### NewModelSettingsResponse
+### NewSettingSettingsResponse
 
-`func NewModelSettingsResponse(description string, id int32, key string, label string, value interface{}, ) *ModelSettingsResponse`
+`func NewSettingSettingsResponse(description string, id int32, key string, label string, value interface{}, ) *SettingSettingsResponse`
 
-NewModelSettingsResponse instantiates a new ModelSettingsResponse object
+NewSettingSettingsResponse instantiates a new SettingSettingsResponse object
 This constructor will assign default values to properties that have it defined,
 and makes sure properties required by API are set, but the set of arguments
 will change when the set of required properties is changed
 
-### NewModelSettingsResponseWithDefaults
+### NewSettingSettingsResponseWithDefaults
 
-`func NewModelSettingsResponseWithDefaults() *ModelSettingsResponse`
+`func NewSettingSettingsResponseWithDefaults() *SettingSettingsResponse`
 
-NewModelSettingsResponseWithDefaults instantiates a new ModelSettingsResponse object
+NewSettingSettingsResponseWithDefaults instantiates a new SettingSettingsResponse object
 This constructor will only assign default values to properties that have it defined,
 but it doesn't guarantee that properties required by API are set
 
 ### GetDescription
 
-`func (o *ModelSettingsResponse) GetDescription() string`
+`func (o *SettingSettingsResponse) GetDescription() string`
 
 GetDescription returns the Description field if non-nil, zero value otherwise.
 
 ### GetDescriptionOk
 
-`func (o *ModelSettingsResponse) GetDescriptionOk() (*string, bool)`
+`func (o *SettingSettingsResponse) GetDescriptionOk() (*string, bool)`
 
 GetDescriptionOk returns a tuple with the Description field if it's non-nil, zero value otherwise
 and a boolean to check if the value has been set.
 
 ### SetDescription
 
-`func (o *ModelSettingsResponse) SetDescription(v string)`
+`func (o *SettingSettingsResponse) SetDescription(v string)`
 
 SetDescription sets Description field to given value.
 
 
 ### GetId
 
-`func (o *ModelSettingsResponse) GetId() int32`
+`func (o *SettingSettingsResponse) GetId() int32`
 
 GetId returns the Id field if non-nil, zero value otherwise.
 
 ### GetIdOk
 
-`func (o *ModelSettingsResponse) GetIdOk() (*int32, bool)`
+`func (o *SettingSettingsResponse) GetIdOk() (*int32, bool)`
 
 GetIdOk returns a tuple with the Id field if it's non-nil, zero value otherwise
 and a boolean to check if the value has been set.
 
 ### SetId
 
-`func (o *ModelSettingsResponse) SetId(v int32)`
+`func (o *SettingSettingsResponse) SetId(v int32)`
 
 SetId sets Id field to given value.
 
 
 ### GetKey
 
-`func (o *ModelSettingsResponse) GetKey() string`
+`func (o *SettingSettingsResponse) GetKey() string`
 
 GetKey returns the Key field if non-nil, zero value otherwise.
 
 ### GetKeyOk
 
-`func (o *ModelSettingsResponse) GetKeyOk() (*string, bool)`
+`func (o *SettingSettingsResponse) GetKeyOk() (*string, bool)`
 
 GetKeyOk returns a tuple with the Key field if it's non-nil, zero value otherwise
 and a boolean to check if the value has been set.
 
 ### SetKey
 
-`func (o *ModelSettingsResponse) SetKey(v string)`
+`func (o *SettingSettingsResponse) SetKey(v string)`
 
 SetKey sets Key field to given value.
 
 
 ### GetLabel
 
-`func (o *ModelSettingsResponse) GetLabel() string`
+`func (o *SettingSettingsResponse) GetLabel() string`
 
 GetLabel returns the Label field if non-nil, zero value otherwise.
 
 ### GetLabelOk
 
-`func (o *ModelSettingsResponse) GetLabelOk() (*string, bool)`
+`func (o *SettingSettingsResponse) GetLabelOk() (*string, bool)`
 
 GetLabelOk returns a tuple with the Label field if it's non-nil, zero value otherwise
 and a boolean to check if the value has been set.
 
 ### SetLabel
 
-`func (o *ModelSettingsResponse) SetLabel(v string)`
+`func (o *SettingSettingsResponse) SetLabel(v string)`
 
 SetLabel sets Label field to given value.
 
 
 ### GetValue
 
-`func (o *ModelSettingsResponse) GetValue() interface{}`
+`func (o *SettingSettingsResponse) GetValue() interface{}`
 
 GetValue returns the Value field if non-nil, zero value otherwise.
 
 ### GetValueOk
 
-`func (o *ModelSettingsResponse) GetValueOk() (*interface{}, bool)`
+`func (o *SettingSettingsResponse) GetValueOk() (*interface{}, bool)`
 
 GetValueOk returns a tuple with the Value field if it's non-nil, zero value otherwise
 and a boolean to check if the value has been set.
 
 ### SetValue
 
-`func (o *ModelSettingsResponse) SetValue(v interface{})`
+`func (o *SettingSettingsResponse) SetValue(v interface{})`
 
 SetValue sets Value field to given value.
 
 
 ### SetValueNil
 
-`func (o *ModelSettingsResponse) SetValueNil(b bool)`
+`func (o *SettingSettingsResponse) SetValueNil(b bool)`
 
  SetValueNil sets the value for Value to be an explicit nil
 
 ### UnsetValue
-`func (o *ModelSettingsResponse) UnsetValue()`
+`func (o *SettingSettingsResponse) UnsetValue()`
 
 UnsetValue ensures that no value is present for Value, not even an explicit nil
 

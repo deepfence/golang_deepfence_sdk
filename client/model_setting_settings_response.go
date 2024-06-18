@@ -17,11 +17,11 @@ import (
 	"fmt"
 )
 
-// checks if the ModelSettingsResponse type satisfies the MappedNullable interface at compile time
-var _ MappedNullable = &ModelSettingsResponse{}
+// checks if the SettingSettingsResponse type satisfies the MappedNullable interface at compile time
+var _ MappedNullable = &SettingSettingsResponse{}
 
-// ModelSettingsResponse struct for ModelSettingsResponse
-type ModelSettingsResponse struct {
+// SettingSettingsResponse struct for SettingSettingsResponse
+type SettingSettingsResponse struct {
 	Description string `json:"description"`
 	Id int32 `json:"id"`
 	Key string `json:"key"`
@@ -29,14 +29,14 @@ type ModelSettingsResponse struct {
 	Value interface{} `json:"value"`
 }
 
-type _ModelSettingsResponse ModelSettingsResponse
+type _SettingSettingsResponse SettingSettingsResponse
 
-// NewModelSettingsResponse instantiates a new ModelSettingsResponse object
+// NewSettingSettingsResponse instantiates a new SettingSettingsResponse object
 // This constructor will assign default values to properties that have it defined,
 // and makes sure properties required by API are set, but the set of arguments
 // will change when the set of required properties is changed
-func NewModelSettingsResponse(description string, id int32, key string, label string, value interface{}) *ModelSettingsResponse {
-	this := ModelSettingsResponse{}
+func NewSettingSettingsResponse(description string, id int32, key string, label string, value interface{}) *SettingSettingsResponse {
+	this := SettingSettingsResponse{}
 	this.Description = description
 	this.Id = id
 	this.Key = key
@@ -45,16 +45,16 @@ func NewModelSettingsResponse(description string, id int32, key string, label st
 	return &this
 }
 
-// NewModelSettingsResponseWithDefaults instantiates a new ModelSettingsResponse object
+// NewSettingSettingsResponseWithDefaults instantiates a new SettingSettingsResponse object
 // This constructor will only assign default values to properties that have it defined,
 // but it doesn't guarantee that properties required by API are set
-func NewModelSettingsResponseWithDefaults() *ModelSettingsResponse {
-	this := ModelSettingsResponse{}
+func NewSettingSettingsResponseWithDefaults() *SettingSettingsResponse {
+	this := SettingSettingsResponse{}
 	return &this
 }
 
 // GetDescription returns the Description field value
-func (o *ModelSettingsResponse) GetDescription() string {
+func (o *SettingSettingsResponse) GetDescription() string {
 	if o == nil {
 		var ret string
 		return ret
@@ -65,7 +65,7 @@ func (o *ModelSettingsResponse) GetDescription() string {
 
 // GetDescriptionOk returns a tuple with the Description field value
 // and a boolean to check if the value has been set.
-func (o *ModelSettingsResponse) GetDescriptionOk() (*string, bool) {
+func (o *SettingSettingsResponse) GetDescriptionOk() (*string, bool) {
 	if o == nil {
 		return nil, false
 	}
@@ -73,12 +73,12 @@ func (o *ModelSettingsResponse) GetDescriptionOk() (*string, bool) {
 }
 
 // SetDescription sets field value
-func (o *ModelSettingsResponse) SetDescription(v string) {
+func (o *SettingSettingsResponse) SetDescription(v string) {
 	o.Description = v
 }
 
 // GetId returns the Id field value
-func (o *ModelSettingsResponse) GetId() int32 {
+func (o *SettingSettingsResponse) GetId() int32 {
 	if o == nil {
 		var ret int32
 		return ret
@@ -89,7 +89,7 @@ func (o *ModelSettingsResponse) GetId() int32 {
 
 // GetIdOk returns a tuple with the Id field value
 // and a boolean to check if the value has been set.
-func (o *ModelSettingsResponse) GetIdOk() (*int32, bool) {
+func (o *SettingSettingsResponse) GetIdOk() (*int32, bool) {
 	if o == nil {
 		return nil, false
 	}
@@ -97,12 +97,12 @@ func (o *ModelSettingsResponse) GetIdOk() (*int32, bool) {
 }
 
 // SetId sets field value
-func (o *ModelSettingsResponse) SetId(v int32) {
+func (o *SettingSettingsResponse) SetId(v int32) {
 	o.Id = v
 }
 
 // GetKey returns the Key field value
-func (o *ModelSettingsResponse) GetKey() string {
+func (o *SettingSettingsResponse) GetKey() string {
 	if o == nil {
 		var ret string
 		return ret
@@ -113,7 +113,7 @@ func (o *ModelSettingsResponse) GetKey() string {
 
 // GetKeyOk returns a tuple with the Key field value
 // and a boolean to check if the value has been set.
-func (o *ModelSettingsResponse) GetKeyOk() (*string, bool) {
+func (o *SettingSettingsResponse) GetKeyOk() (*string, bool) {
 	if o == nil {
 		return nil, false
 	}
@@ -121,12 +121,12 @@ func (o *ModelSettingsResponse) GetKeyOk() (*string, bool) {
 }
 
 // SetKey sets field value
-func (o *ModelSettingsResponse) SetKey(v string) {
+func (o *SettingSettingsResponse) SetKey(v string) {
 	o.Key = v
 }
 
 // GetLabel returns the Label field value
-func (o *ModelSettingsResponse) GetLabel() string {
+func (o *SettingSettingsResponse) GetLabel() string {
 	if o == nil {
 		var ret string
 		return ret
@@ -137,7 +137,7 @@ func (o *ModelSettingsResponse) GetLabel() string {
 
 // GetLabelOk returns a tuple with the Label field value
 // and a boolean to check if the value has been set.
-func (o *ModelSettingsResponse) GetLabelOk() (*string, bool) {
+func (o *SettingSettingsResponse) GetLabelOk() (*string, bool) {
 	if o == nil {
 		return nil, false
 	}
@@ -145,13 +145,13 @@ func (o *ModelSettingsResponse) GetLabelOk() (*string, bool) {
 }
 
 // SetLabel sets field value
-func (o *ModelSettingsResponse) SetLabel(v string) {
+func (o *SettingSettingsResponse) SetLabel(v string) {
 	o.Label = v
 }
 
 // GetValue returns the Value field value
 // If the value is explicit nil, the zero value for interface{} will be returned
-func (o *ModelSettingsResponse) GetValue() interface{} {
+func (o *SettingSettingsResponse) GetValue() interface{} {
 	if o == nil {
 		var ret interface{}
 		return ret
@@ -163,7 +163,7 @@ func (o *ModelSettingsResponse) GetValue() interface{} {
 // GetValueOk returns a tuple with the Value field value
 // and a boolean to check if the value has been set.
 // NOTE: If the value is an explicit nil, `nil, true` will be returned
-func (o *ModelSettingsResponse) GetValueOk() (*interface{}, bool) {
+func (o *SettingSettingsResponse) GetValueOk() (*interface{}, bool) {
 	if o == nil || IsNil(o.Value) {
 		return nil, false
 	}
@@ -171,11 +171,11 @@ func (o *ModelSettingsResponse) GetValueOk() (*interface{}, bool) {
 }
 
 // SetValue sets field value
-func (o *ModelSettingsResponse) SetValue(v interface{}) {
+func (o *SettingSettingsResponse) SetValue(v interface{}) {
 	o.Value = v
 }
 
-func (o ModelSettingsResponse) MarshalJSON() ([]byte, error) {
+func (o SettingSettingsResponse) MarshalJSON() ([]byte, error) {
 	toSerialize,err := o.ToMap()
 	if err != nil {
 		return []byte{}, err
@@ -183,7 +183,7 @@ func (o ModelSettingsResponse) MarshalJSON() ([]byte, error) {
 	return json.Marshal(toSerialize)
 }
 
-func (o ModelSettingsResponse) ToMap() (map[string]interface{}, error) {
+func (o SettingSettingsResponse) ToMap() (map[string]interface{}, error) {
 	toSerialize := map[string]interface{}{}
 	toSerialize["description"] = o.Description
 	toSerialize["id"] = o.Id
@@ -195,7 +195,7 @@ func (o ModelSettingsResponse) ToMap() (map[string]interface{}, error) {
 	return toSerialize, nil
 }
 
-func (o *ModelSettingsResponse) UnmarshalJSON(data []byte) (err error) {
+func (o *SettingSettingsResponse) UnmarshalJSON(data []byte) (err error) {
 	// This validates that all required properties are included in the JSON object
 	// by unmarshalling the object into a generic map with string keys and checking
 	// that every required field exists as a key in the generic map.
@@ -221,53 +221,53 @@ func (o *ModelSettingsResponse) UnmarshalJSON(data []byte) (err error) {
 		}
 	}
 
-	varModelSettingsResponse := _ModelSettingsResponse{}
+	varSettingSettingsResponse := _SettingSettingsResponse{}
 
 	decoder := json.NewDecoder(bytes.NewReader(data))
 	decoder.DisallowUnknownFields()
-	err = decoder.Decode(&varModelSettingsResponse)
+	err = decoder.Decode(&varSettingSettingsResponse)
 
 	if err != nil {
 		return err
 	}
 
-	*o = ModelSettingsResponse(varModelSettingsResponse)
+	*o = SettingSettingsResponse(varSettingSettingsResponse)
 
 	return err
 }
 
-type NullableModelSettingsResponse struct {
-	value *ModelSettingsResponse
+type NullableSettingSettingsResponse struct {
+	value *SettingSettingsResponse
 	isSet bool
 }
 
-func (v NullableModelSettingsResponse) Get() *ModelSettingsResponse {
+func (v NullableSettingSettingsResponse) Get() *SettingSettingsResponse {
 	return v.value
 }
 
-func (v *NullableModelSettingsResponse) Set(val *ModelSettingsResponse) {
+func (v *NullableSettingSettingsResponse) Set(val *SettingSettingsResponse) {
 	v.value = val
 	v.isSet = true
 }
 
-func (v NullableModelSettingsResponse) IsSet() bool {
+func (v NullableSettingSettingsResponse) IsSet() bool {
 	return v.isSet
 }
 
-func (v *NullableModelSettingsResponse) Unset() {
+func (v *NullableSettingSettingsResponse) Unset() {
 	v.value = nil
 	v.isSet = false
 }
 
-func NewNullableModelSettingsResponse(val *ModelSettingsResponse) *NullableModelSettingsResponse {
-	return &NullableModelSettingsResponse{value: val, isSet: true}
+func NewNullableSettingSettingsResponse(val *SettingSettingsResponse) *NullableSettingSettingsResponse {
+	return &NullableSettingSettingsResponse{value: val, isSet: true}
 }
 
-func (v NullableModelSettingsResponse) MarshalJSON() ([]byte, error) {
+func (v NullableSettingSettingsResponse) MarshalJSON() ([]byte, error) {
 	return json.Marshal(v.value)
 }
 
-func (v *NullableModelSettingsResponse) UnmarshalJSON(src []byte) error {
+func (v *NullableSettingSettingsResponse) UnmarshalJSON(src []byte) error {
 	v.isSet = true
 	return json.Unmarshal(src, &v.value)
 }
