@@ -23,7 +23,7 @@ var _ MappedNullable = &ModelCloudNodeAccountRegisterReq{}
 // ModelCloudNodeAccountRegisterReq struct for ModelCloudNodeAccountRegisterReq
 type ModelCloudNodeAccountRegisterReq struct {
 	AccountId string `json:"account_id"`
-	AccountName string `json:"account_name"`
+	AccountName *string `json:"account_name,omitempty"`
 	CloudProvider string `json:"cloud_provider"`
 	HostNodeId string `json:"host_node_id"`
 	IsOrganizationDeployment *bool `json:"is_organization_deployment,omitempty"`
@@ -39,10 +39,9 @@ type _ModelCloudNodeAccountRegisterReq ModelCloudNodeAccountRegisterReq
 // This constructor will assign default values to properties that have it defined,
 // and makes sure properties required by API are set, but the set of arguments
 // will change when the set of required properties is changed
-func NewModelCloudNodeAccountRegisterReq(accountId string, accountName string, cloudProvider string, hostNodeId string, nodeId string, version string) *ModelCloudNodeAccountRegisterReq {
+func NewModelCloudNodeAccountRegisterReq(accountId string, cloudProvider string, hostNodeId string, nodeId string, version string) *ModelCloudNodeAccountRegisterReq {
 	this := ModelCloudNodeAccountRegisterReq{}
 	this.AccountId = accountId
-	this.AccountName = accountName
 	this.CloudProvider = cloudProvider
 	this.HostNodeId = hostNodeId
 	this.NodeId = nodeId
@@ -82,28 +81,36 @@ func (o *ModelCloudNodeAccountRegisterReq) SetAccountId(v string) {
 	o.AccountId = v
 }
 
-// GetAccountName returns the AccountName field value
+// GetAccountName returns the AccountName field value if set, zero value otherwise.
 func (o *ModelCloudNodeAccountRegisterReq) GetAccountName() string {
-	if o == nil {
+	if o == nil || IsNil(o.AccountName) {
 		var ret string
 		return ret
 	}
-
-	return o.AccountName
+	return *o.AccountName
 }
 
-// GetAccountNameOk returns a tuple with the AccountName field value
+// GetAccountNameOk returns a tuple with the AccountName field value if set, nil otherwise
 // and a boolean to check if the value has been set.
 func (o *ModelCloudNodeAccountRegisterReq) GetAccountNameOk() (*string, bool) {
-	if o == nil {
+	if o == nil || IsNil(o.AccountName) {
 		return nil, false
 	}
-	return &o.AccountName, true
+	return o.AccountName, true
 }
 
-// SetAccountName sets field value
+// HasAccountName returns a boolean if a field has been set.
+func (o *ModelCloudNodeAccountRegisterReq) HasAccountName() bool {
+	if o != nil && !IsNil(o.AccountName) {
+		return true
+	}
+
+	return false
+}
+
+// SetAccountName gets a reference to the given string and assigns it to the AccountName field.
 func (o *ModelCloudNodeAccountRegisterReq) SetAccountName(v string) {
-	o.AccountName = v
+	o.AccountName = &v
 }
 
 // GetCloudProvider returns the CloudProvider field value
@@ -310,7 +317,9 @@ func (o ModelCloudNodeAccountRegisterReq) MarshalJSON() ([]byte, error) {
 func (o ModelCloudNodeAccountRegisterReq) ToMap() (map[string]interface{}, error) {
 	toSerialize := map[string]interface{}{}
 	toSerialize["account_id"] = o.AccountId
-	toSerialize["account_name"] = o.AccountName
+	if !IsNil(o.AccountName) {
+		toSerialize["account_name"] = o.AccountName
+	}
 	toSerialize["cloud_provider"] = o.CloudProvider
 	toSerialize["host_node_id"] = o.HostNodeId
 	if !IsNil(o.IsOrganizationDeployment) {
@@ -333,7 +342,6 @@ func (o *ModelCloudNodeAccountRegisterReq) UnmarshalJSON(data []byte) (err error
 	// that every required field exists as a key in the generic map.
 	requiredProperties := []string{
 		"account_id",
-		"account_name",
 		"cloud_provider",
 		"host_node_id",
 		"node_id",

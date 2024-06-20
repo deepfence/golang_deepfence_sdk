@@ -12243,6 +12243,7 @@ components:
       - cis
       - soc_2
       - nsa-cisa
+      - aws_foundational_security
       type: string
     ModelBulkDeleteReportReq:
       example:
@@ -12676,7 +12677,6 @@ components:
           type: string
       required:
       - account_id
-      - account_name
       - cloud_provider
       - host_node_id
       - node_id
@@ -12874,7 +12874,6 @@ components:
           type: string
       required:
       - account_id
-      - account_name
       - node_id
       type: object
     ModelCloudNodeProvidersListResp:

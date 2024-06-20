@@ -23,7 +23,7 @@ var _ MappedNullable = &ModelCloudNodeMonitoredAccount{}
 // ModelCloudNodeMonitoredAccount struct for ModelCloudNodeMonitoredAccount
 type ModelCloudNodeMonitoredAccount struct {
 	AccountId string `json:"account_id"`
-	AccountName string `json:"account_name"`
+	AccountName *string `json:"account_name,omitempty"`
 	NodeId string `json:"node_id"`
 }
 
@@ -33,10 +33,9 @@ type _ModelCloudNodeMonitoredAccount ModelCloudNodeMonitoredAccount
 // This constructor will assign default values to properties that have it defined,
 // and makes sure properties required by API are set, but the set of arguments
 // will change when the set of required properties is changed
-func NewModelCloudNodeMonitoredAccount(accountId string, accountName string, nodeId string) *ModelCloudNodeMonitoredAccount {
+func NewModelCloudNodeMonitoredAccount(accountId string, nodeId string) *ModelCloudNodeMonitoredAccount {
 	this := ModelCloudNodeMonitoredAccount{}
 	this.AccountId = accountId
-	this.AccountName = accountName
 	this.NodeId = nodeId
 	return &this
 }
@@ -73,28 +72,36 @@ func (o *ModelCloudNodeMonitoredAccount) SetAccountId(v string) {
 	o.AccountId = v
 }
 
-// GetAccountName returns the AccountName field value
+// GetAccountName returns the AccountName field value if set, zero value otherwise.
 func (o *ModelCloudNodeMonitoredAccount) GetAccountName() string {
-	if o == nil {
+	if o == nil || IsNil(o.AccountName) {
 		var ret string
 		return ret
 	}
-
-	return o.AccountName
+	return *o.AccountName
 }
 
-// GetAccountNameOk returns a tuple with the AccountName field value
+// GetAccountNameOk returns a tuple with the AccountName field value if set, nil otherwise
 // and a boolean to check if the value has been set.
 func (o *ModelCloudNodeMonitoredAccount) GetAccountNameOk() (*string, bool) {
-	if o == nil {
+	if o == nil || IsNil(o.AccountName) {
 		return nil, false
 	}
-	return &o.AccountName, true
+	return o.AccountName, true
 }
 
-// SetAccountName sets field value
+// HasAccountName returns a boolean if a field has been set.
+func (o *ModelCloudNodeMonitoredAccount) HasAccountName() bool {
+	if o != nil && !IsNil(o.AccountName) {
+		return true
+	}
+
+	return false
+}
+
+// SetAccountName gets a reference to the given string and assigns it to the AccountName field.
 func (o *ModelCloudNodeMonitoredAccount) SetAccountName(v string) {
-	o.AccountName = v
+	o.AccountName = &v
 }
 
 // GetNodeId returns the NodeId field value
@@ -132,7 +139,9 @@ func (o ModelCloudNodeMonitoredAccount) MarshalJSON() ([]byte, error) {
 func (o ModelCloudNodeMonitoredAccount) ToMap() (map[string]interface{}, error) {
 	toSerialize := map[string]interface{}{}
 	toSerialize["account_id"] = o.AccountId
-	toSerialize["account_name"] = o.AccountName
+	if !IsNil(o.AccountName) {
+		toSerialize["account_name"] = o.AccountName
+	}
 	toSerialize["node_id"] = o.NodeId
 	return toSerialize, nil
 }
@@ -143,7 +152,6 @@ func (o *ModelCloudNodeMonitoredAccount) UnmarshalJSON(data []byte) (err error) 
 	// that every required field exists as a key in the generic map.
 	requiredProperties := []string{
 		"account_id",
-		"account_name",
 		"node_id",
 	}
 

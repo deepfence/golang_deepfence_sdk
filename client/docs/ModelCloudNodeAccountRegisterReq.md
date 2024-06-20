@@ -5,7 +5,7 @@
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
 **AccountId** | **string** |  | 
-**AccountName** | **string** |  | 
+**AccountName** | Pointer to **string** |  | [optional] 
 **CloudProvider** | **string** |  | 
 **HostNodeId** | **string** |  | 
 **IsOrganizationDeployment** | Pointer to **bool** |  | [optional] 
@@ -18,7 +18,7 @@ Name | Type | Description | Notes
 
 ### NewModelCloudNodeAccountRegisterReq
 
-`func NewModelCloudNodeAccountRegisterReq(accountId string, accountName string, cloudProvider string, hostNodeId string, nodeId string, version string, ) *ModelCloudNodeAccountRegisterReq`
+`func NewModelCloudNodeAccountRegisterReq(accountId string, cloudProvider string, hostNodeId string, nodeId string, version string, ) *ModelCloudNodeAccountRegisterReq`
 
 NewModelCloudNodeAccountRegisterReq instantiates a new ModelCloudNodeAccountRegisterReq object
 This constructor will assign default values to properties that have it defined,
@@ -72,6 +72,11 @@ and a boolean to check if the value has been set.
 
 SetAccountName sets AccountName field to given value.
 
+### HasAccountName
+
+`func (o *ModelCloudNodeAccountRegisterReq) HasAccountName() bool`
+
+HasAccountName returns a boolean if a field has been set.
 
 ### GetCloudProvider
 

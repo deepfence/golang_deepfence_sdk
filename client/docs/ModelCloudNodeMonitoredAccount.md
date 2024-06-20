@@ -5,14 +5,14 @@
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
 **AccountId** | **string** |  | 
-**AccountName** | **string** |  | 
+**AccountName** | Pointer to **string** |  | [optional] 
 **NodeId** | **string** |  | 
 
 ## Methods
 
 ### NewModelCloudNodeMonitoredAccount
 
-`func NewModelCloudNodeMonitoredAccount(accountId string, accountName string, nodeId string, ) *ModelCloudNodeMonitoredAccount`
+`func NewModelCloudNodeMonitoredAccount(accountId string, nodeId string, ) *ModelCloudNodeMonitoredAccount`
 
 NewModelCloudNodeMonitoredAccount instantiates a new ModelCloudNodeMonitoredAccount object
 This constructor will assign default values to properties that have it defined,
@@ -66,6 +66,11 @@ and a boolean to check if the value has been set.
 
 SetAccountName sets AccountName field to given value.
 
+### HasAccountName
+
+`func (o *ModelCloudNodeMonitoredAccount) HasAccountName() bool`
+
+HasAccountName returns a boolean if a field has been set.
 
 ### GetNodeId
 

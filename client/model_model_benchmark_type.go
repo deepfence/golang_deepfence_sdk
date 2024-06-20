@@ -28,6 +28,7 @@ const (
 	CIS ModelBenchmarkType = "cis"
 	SOC_2 ModelBenchmarkType = "soc_2"
 	NSA_CISA ModelBenchmarkType = "nsa-cisa"
+	AWS_FOUNDATIONAL_SECURITY ModelBenchmarkType = "aws_foundational_security"
 )
 
 // All allowed values of ModelBenchmarkType enum
@@ -39,6 +40,7 @@ var AllowedModelBenchmarkTypeEnumValues = []ModelBenchmarkType{
 	"cis",
 	"soc_2",
 	"nsa-cisa",
+	"aws_foundational_security",
 }
 
 func (v *ModelBenchmarkType) UnmarshalJSON(src []byte) error {
