@@ -13,6 +13,8 @@ Name | Type | Description | Notes
 **LastScanStatus** | Pointer to **string** |  | [optional] 
 **NodeId** | Pointer to **string** |  | [optional] 
 **NodeName** | Pointer to **string** |  | [optional] 
+**RefreshMessage** | Pointer to **string** |  | [optional] 
+**RefreshStatus** | Pointer to **string** |  | [optional] 
 **ScanStatusMap** | Pointer to **map[string]int32** |  | [optional] 
 **Version** | Pointer to **string** |  | [optional] 
 
@@ -259,6 +261,56 @@ SetNodeName sets NodeName field to given value.
 `func (o *ModelCloudNodeAccountInfo) HasNodeName() bool`
 
 HasNodeName returns a boolean if a field has been set.
+
+### GetRefreshMessage
+
+`func (o *ModelCloudNodeAccountInfo) GetRefreshMessage() string`
+
+GetRefreshMessage returns the RefreshMessage field if non-nil, zero value otherwise.
+
+### GetRefreshMessageOk
+
+`func (o *ModelCloudNodeAccountInfo) GetRefreshMessageOk() (*string, bool)`
+
+GetRefreshMessageOk returns a tuple with the RefreshMessage field if it's non-nil, zero value otherwise
+and a boolean to check if the value has been set.
+
+### SetRefreshMessage
+
+`func (o *ModelCloudNodeAccountInfo) SetRefreshMessage(v string)`
+
+SetRefreshMessage sets RefreshMessage field to given value.
+
+### HasRefreshMessage
+
+`func (o *ModelCloudNodeAccountInfo) HasRefreshMessage() bool`
+
+HasRefreshMessage returns a boolean if a field has been set.
+
+### GetRefreshStatus
+
+`func (o *ModelCloudNodeAccountInfo) GetRefreshStatus() string`
+
+GetRefreshStatus returns the RefreshStatus field if non-nil, zero value otherwise.
+
+### GetRefreshStatusOk
+
+`func (o *ModelCloudNodeAccountInfo) GetRefreshStatusOk() (*string, bool)`
+
+GetRefreshStatusOk returns a tuple with the RefreshStatus field if it's non-nil, zero value otherwise
+and a boolean to check if the value has been set.
+
+### SetRefreshStatus
+
+`func (o *ModelCloudNodeAccountInfo) SetRefreshStatus(v string)`
+
+SetRefreshStatus sets RefreshStatus field to given value.
+
+### HasRefreshStatus
+
+`func (o *ModelCloudNodeAccountInfo) HasRefreshStatus() bool`
+
+HasRefreshStatus returns a boolean if a field has been set.
 
 ### GetScanStatusMap
 
