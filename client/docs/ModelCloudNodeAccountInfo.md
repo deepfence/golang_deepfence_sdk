@@ -15,6 +15,7 @@ Name | Type | Description | Notes
 **NodeName** | Pointer to **string** |  | [optional] 
 **RefreshMessage** | Pointer to **string** |  | [optional] 
 **RefreshStatus** | Pointer to **string** |  | [optional] 
+**RefreshStatusMap** | Pointer to **map[string]int32** |  | [optional] 
 **ScanStatusMap** | Pointer to **map[string]int32** |  | [optional] 
 **Version** | Pointer to **string** |  | [optional] 
 
@@ -312,6 +313,41 @@ SetRefreshStatus sets RefreshStatus field to given value.
 
 HasRefreshStatus returns a boolean if a field has been set.
 
+### GetRefreshStatusMap
+
+`func (o *ModelCloudNodeAccountInfo) GetRefreshStatusMap() map[string]int32`
+
+GetRefreshStatusMap returns the RefreshStatusMap field if non-nil, zero value otherwise.
+
+### GetRefreshStatusMapOk
+
+`func (o *ModelCloudNodeAccountInfo) GetRefreshStatusMapOk() (*map[string]int32, bool)`
+
+GetRefreshStatusMapOk returns a tuple with the RefreshStatusMap field if it's non-nil, zero value otherwise
+and a boolean to check if the value has been set.
+
+### SetRefreshStatusMap
+
+`func (o *ModelCloudNodeAccountInfo) SetRefreshStatusMap(v map[string]int32)`
+
+SetRefreshStatusMap sets RefreshStatusMap field to given value.
+
+### HasRefreshStatusMap
+
+`func (o *ModelCloudNodeAccountInfo) HasRefreshStatusMap() bool`
+
+HasRefreshStatusMap returns a boolean if a field has been set.
+
+### SetRefreshStatusMapNil
+
+`func (o *ModelCloudNodeAccountInfo) SetRefreshStatusMapNil(b bool)`
+
+ SetRefreshStatusMapNil sets the value for RefreshStatusMap to be an explicit nil
+
+### UnsetRefreshStatusMap
+`func (o *ModelCloudNodeAccountInfo) UnsetRefreshStatusMap()`
+
+UnsetRefreshStatusMap ensures that no value is present for RefreshStatusMap, not even an explicit nil
 ### GetScanStatusMap
 
 `func (o *ModelCloudNodeAccountInfo) GetScanStatusMap() map[string]int32`

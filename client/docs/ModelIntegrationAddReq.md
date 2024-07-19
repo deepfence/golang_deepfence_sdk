@@ -8,6 +8,7 @@ Name | Type | Description | Notes
 **Filters** | Pointer to [**ModelIntegrationFilters**](ModelIntegrationFilters.md) |  | [optional] 
 **IntegrationType** | **string** |  | 
 **NotificationType** | **string** |  | 
+**SendSummary** | Pointer to **bool** |  | [optional] 
 
 ## Methods
 
@@ -127,6 +128,31 @@ and a boolean to check if the value has been set.
 
 SetNotificationType sets NotificationType field to given value.
 
+
+### GetSendSummary
+
+`func (o *ModelIntegrationAddReq) GetSendSummary() bool`
+
+GetSendSummary returns the SendSummary field if non-nil, zero value otherwise.
+
+### GetSendSummaryOk
+
+`func (o *ModelIntegrationAddReq) GetSendSummaryOk() (*bool, bool)`
+
+GetSendSummaryOk returns a tuple with the SendSummary field if it's non-nil, zero value otherwise
+and a boolean to check if the value has been set.
+
+### SetSendSummary
+
+`func (o *ModelIntegrationAddReq) SetSendSummary(v bool)`
+
+SetSendSummary sets SendSummary field to given value.
+
+### HasSendSummary
+
+`func (o *ModelIntegrationAddReq) HasSendSummary() bool`
+
+HasSendSummary returns a boolean if a field has been set.
 
 
 [[Back to Model list]](../README.md#documentation-for-models) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to README]](../README.md)

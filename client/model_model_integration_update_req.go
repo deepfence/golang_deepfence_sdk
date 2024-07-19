@@ -25,6 +25,7 @@ type ModelIntegrationUpdateReq struct {
 	Id *int32 `json:"id,omitempty"`
 	IntegrationType *string `json:"integration_type,omitempty"`
 	NotificationType *string `json:"notification_type,omitempty"`
+	SendSummary *bool `json:"send_summary,omitempty"`
 }
 
 // NewModelIntegrationUpdateReq instantiates a new ModelIntegrationUpdateReq object
@@ -205,6 +206,38 @@ func (o *ModelIntegrationUpdateReq) SetNotificationType(v string) {
 	o.NotificationType = &v
 }
 
+// GetSendSummary returns the SendSummary field value if set, zero value otherwise.
+func (o *ModelIntegrationUpdateReq) GetSendSummary() bool {
+	if o == nil || IsNil(o.SendSummary) {
+		var ret bool
+		return ret
+	}
+	return *o.SendSummary
+}
+
+// GetSendSummaryOk returns a tuple with the SendSummary field value if set, nil otherwise
+// and a boolean to check if the value has been set.
+func (o *ModelIntegrationUpdateReq) GetSendSummaryOk() (*bool, bool) {
+	if o == nil || IsNil(o.SendSummary) {
+		return nil, false
+	}
+	return o.SendSummary, true
+}
+
+// HasSendSummary returns a boolean if a field has been set.
+func (o *ModelIntegrationUpdateReq) HasSendSummary() bool {
+	if o != nil && !IsNil(o.SendSummary) {
+		return true
+	}
+
+	return false
+}
+
+// SetSendSummary gets a reference to the given bool and assigns it to the SendSummary field.
+func (o *ModelIntegrationUpdateReq) SetSendSummary(v bool) {
+	o.SendSummary = &v
+}
+
 func (o ModelIntegrationUpdateReq) MarshalJSON() ([]byte, error) {
 	toSerialize,err := o.ToMap()
 	if err != nil {
@@ -229,6 +262,9 @@ func (o ModelIntegrationUpdateReq) ToMap() (map[string]interface{}, error) {
 	}
 	if !IsNil(o.NotificationType) {
 		toSerialize["notification_type"] = o.NotificationType
+	}
+	if !IsNil(o.SendSummary) {
+		toSerialize["send_summary"] = o.SendSummary
 	}
 	return toSerialize, nil
 }

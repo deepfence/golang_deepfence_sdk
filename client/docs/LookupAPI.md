@@ -6,6 +6,7 @@ Method | HTTP request | Description
 ------------- | ------------- | -------------
 [**GetCloudCompliances**](LookupAPI.md#GetCloudCompliances) | **Post** /deepfence/lookup/cloud-compliances | Retrieve Cloud Compliances data
 [**GetCloudResources**](LookupAPI.md#GetCloudResources) | **Post** /deepfence/lookup/cloud-resources | Get Cloud Resources
+[**GetComplianceControls**](LookupAPI.md#GetComplianceControls) | **Post** /deepfence/lookup/compliance-controls | Retrieve Cloud Compliances Control data
 [**GetCompliances**](LookupAPI.md#GetCompliances) | **Post** /deepfence/lookup/compliances | Retrieve Compliances data
 [**GetContainerImages**](LookupAPI.md#GetContainerImages) | **Post** /deepfence/lookup/containerimages | Retrieve Container Images data
 [**GetContainers**](LookupAPI.md#GetContainers) | **Post** /deepfence/lookup/containers | Retrieve Containers data
@@ -137,6 +138,72 @@ Name | Type | Description  | Notes
 ### Return type
 
 [**[]ModelCloudResource**](ModelCloudResource.md)
+
+### Authorization
+
+[bearer_token](../README.md#bearer_token)
+
+### HTTP request headers
+
+- **Content-Type**: application/json
+- **Accept**: application/json
+
+[[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints)
+[[Back to Model list]](../README.md#documentation-for-models)
+[[Back to README]](../README.md)
+
+
+## GetComplianceControls
+
+> []ModelCloudComplianceControl GetComplianceControls(ctx).LookupLookupFilter(lookupLookupFilter).Execute()
+
+Retrieve Cloud Compliances Control data
+
+
+
+### Example
+
+```go
+package main
+
+import (
+	"context"
+	"fmt"
+	"os"
+	openapiclient "github.com/deepfence/golang_deepfence_sdk/client"
+)
+
+func main() {
+	lookupLookupFilter := *openapiclient.NewLookupLookupFilter([]string{"InFieldFilter_example"}, []string{"NodeIds_example"}, *openapiclient.NewModelFetchWindow(int32(123), int32(123))) // LookupLookupFilter |  (optional)
+
+	configuration := openapiclient.NewConfiguration()
+	apiClient := openapiclient.NewAPIClient(configuration)
+	resp, r, err := apiClient.LookupAPI.GetComplianceControls(context.Background()).LookupLookupFilter(lookupLookupFilter).Execute()
+	if err != nil {
+		fmt.Fprintf(os.Stderr, "Error when calling `LookupAPI.GetComplianceControls``: %v\n", err)
+		fmt.Fprintf(os.Stderr, "Full HTTP response: %v\n", r)
+	}
+	// response from `GetComplianceControls`: []ModelCloudComplianceControl
+	fmt.Fprintf(os.Stdout, "Response from `LookupAPI.GetComplianceControls`: %v\n", resp)
+}
+```
+
+### Path Parameters
+
+
+
+### Other Parameters
+
+Other parameters are passed through a pointer to a apiGetComplianceControlsRequest struct via the builder pattern
+
+
+Name | Type | Description  | Notes
+------------- | ------------- | ------------- | -------------
+ **lookupLookupFilter** | [**LookupLookupFilter**](LookupLookupFilter.md) |  | 
+
+### Return type
+
+[**[]ModelCloudComplianceControl**](ModelCloudComplianceControl.md)
 
 ### Authorization
 

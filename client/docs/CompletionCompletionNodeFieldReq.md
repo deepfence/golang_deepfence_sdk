@@ -6,6 +6,7 @@ Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
 **Completion** | **string** |  | 
 **FieldName** | **string** |  | 
+**Filters** | Pointer to [**ReportersFieldsFilters**](ReportersFieldsFilters.md) |  | [optional] 
 **ScanId** | Pointer to **string** |  | [optional] 
 **Window** | [**ModelFetchWindow**](ModelFetchWindow.md) |  | 
 
@@ -67,6 +68,31 @@ and a boolean to check if the value has been set.
 
 SetFieldName sets FieldName field to given value.
 
+
+### GetFilters
+
+`func (o *CompletionCompletionNodeFieldReq) GetFilters() ReportersFieldsFilters`
+
+GetFilters returns the Filters field if non-nil, zero value otherwise.
+
+### GetFiltersOk
+
+`func (o *CompletionCompletionNodeFieldReq) GetFiltersOk() (*ReportersFieldsFilters, bool)`
+
+GetFiltersOk returns a tuple with the Filters field if it's non-nil, zero value otherwise
+and a boolean to check if the value has been set.
+
+### SetFilters
+
+`func (o *CompletionCompletionNodeFieldReq) SetFilters(v ReportersFieldsFilters)`
+
+SetFilters sets Filters field to given value.
+
+### HasFilters
+
+`func (o *CompletionCompletionNodeFieldReq) HasFilters() bool`
+
+HasFilters returns a boolean if a field has been set.
 
 ### GetScanId
 

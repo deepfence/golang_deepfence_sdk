@@ -28,13 +28,8 @@ type ModelSecret struct {
 	MatchedContent string `json:"matched_content"`
 	Name string `json:"name"`
 	NodeId string `json:"node_id"`
-	Part string `json:"part"`
-	RelativeEndingIndex int32 `json:"relative_ending_index"`
-	RelativeStartingIndex int32 `json:"relative_starting_index"`
 	Resources []ModelBasicNode `json:"resources,omitempty"`
-	RuleId int32 `json:"rule_id"`
 	Score float32 `json:"score"`
-	SignatureToMatch string `json:"signature_to_match"`
 	StartingIndex int32 `json:"starting_index"`
 	UpdatedAt int32 `json:"updated_at"`
 }
@@ -45,7 +40,7 @@ type _ModelSecret ModelSecret
 // This constructor will assign default values to properties that have it defined,
 // and makes sure properties required by API are set, but the set of arguments
 // will change when the set of required properties is changed
-func NewModelSecret(fullFilename string, level string, masked bool, matchedContent string, name string, nodeId string, part string, relativeEndingIndex int32, relativeStartingIndex int32, ruleId int32, score float32, signatureToMatch string, startingIndex int32, updatedAt int32) *ModelSecret {
+func NewModelSecret(fullFilename string, level string, masked bool, matchedContent string, name string, nodeId string, score float32, startingIndex int32, updatedAt int32) *ModelSecret {
 	this := ModelSecret{}
 	this.FullFilename = fullFilename
 	this.Level = level
@@ -53,12 +48,7 @@ func NewModelSecret(fullFilename string, level string, masked bool, matchedConte
 	this.MatchedContent = matchedContent
 	this.Name = name
 	this.NodeId = nodeId
-	this.Part = part
-	this.RelativeEndingIndex = relativeEndingIndex
-	this.RelativeStartingIndex = relativeStartingIndex
-	this.RuleId = ruleId
 	this.Score = score
-	this.SignatureToMatch = signatureToMatch
 	this.StartingIndex = startingIndex
 	this.UpdatedAt = updatedAt
 	return &this
@@ -216,78 +206,6 @@ func (o *ModelSecret) SetNodeId(v string) {
 	o.NodeId = v
 }
 
-// GetPart returns the Part field value
-func (o *ModelSecret) GetPart() string {
-	if o == nil {
-		var ret string
-		return ret
-	}
-
-	return o.Part
-}
-
-// GetPartOk returns a tuple with the Part field value
-// and a boolean to check if the value has been set.
-func (o *ModelSecret) GetPartOk() (*string, bool) {
-	if o == nil {
-		return nil, false
-	}
-	return &o.Part, true
-}
-
-// SetPart sets field value
-func (o *ModelSecret) SetPart(v string) {
-	o.Part = v
-}
-
-// GetRelativeEndingIndex returns the RelativeEndingIndex field value
-func (o *ModelSecret) GetRelativeEndingIndex() int32 {
-	if o == nil {
-		var ret int32
-		return ret
-	}
-
-	return o.RelativeEndingIndex
-}
-
-// GetRelativeEndingIndexOk returns a tuple with the RelativeEndingIndex field value
-// and a boolean to check if the value has been set.
-func (o *ModelSecret) GetRelativeEndingIndexOk() (*int32, bool) {
-	if o == nil {
-		return nil, false
-	}
-	return &o.RelativeEndingIndex, true
-}
-
-// SetRelativeEndingIndex sets field value
-func (o *ModelSecret) SetRelativeEndingIndex(v int32) {
-	o.RelativeEndingIndex = v
-}
-
-// GetRelativeStartingIndex returns the RelativeStartingIndex field value
-func (o *ModelSecret) GetRelativeStartingIndex() int32 {
-	if o == nil {
-		var ret int32
-		return ret
-	}
-
-	return o.RelativeStartingIndex
-}
-
-// GetRelativeStartingIndexOk returns a tuple with the RelativeStartingIndex field value
-// and a boolean to check if the value has been set.
-func (o *ModelSecret) GetRelativeStartingIndexOk() (*int32, bool) {
-	if o == nil {
-		return nil, false
-	}
-	return &o.RelativeStartingIndex, true
-}
-
-// SetRelativeStartingIndex sets field value
-func (o *ModelSecret) SetRelativeStartingIndex(v int32) {
-	o.RelativeStartingIndex = v
-}
-
 // GetResources returns the Resources field value if set, zero value otherwise (both if not set or set to explicit null).
 func (o *ModelSecret) GetResources() []ModelBasicNode {
 	if o == nil {
@@ -321,30 +239,6 @@ func (o *ModelSecret) SetResources(v []ModelBasicNode) {
 	o.Resources = v
 }
 
-// GetRuleId returns the RuleId field value
-func (o *ModelSecret) GetRuleId() int32 {
-	if o == nil {
-		var ret int32
-		return ret
-	}
-
-	return o.RuleId
-}
-
-// GetRuleIdOk returns a tuple with the RuleId field value
-// and a boolean to check if the value has been set.
-func (o *ModelSecret) GetRuleIdOk() (*int32, bool) {
-	if o == nil {
-		return nil, false
-	}
-	return &o.RuleId, true
-}
-
-// SetRuleId sets field value
-func (o *ModelSecret) SetRuleId(v int32) {
-	o.RuleId = v
-}
-
 // GetScore returns the Score field value
 func (o *ModelSecret) GetScore() float32 {
 	if o == nil {
@@ -367,30 +261,6 @@ func (o *ModelSecret) GetScoreOk() (*float32, bool) {
 // SetScore sets field value
 func (o *ModelSecret) SetScore(v float32) {
 	o.Score = v
-}
-
-// GetSignatureToMatch returns the SignatureToMatch field value
-func (o *ModelSecret) GetSignatureToMatch() string {
-	if o == nil {
-		var ret string
-		return ret
-	}
-
-	return o.SignatureToMatch
-}
-
-// GetSignatureToMatchOk returns a tuple with the SignatureToMatch field value
-// and a boolean to check if the value has been set.
-func (o *ModelSecret) GetSignatureToMatchOk() (*string, bool) {
-	if o == nil {
-		return nil, false
-	}
-	return &o.SignatureToMatch, true
-}
-
-// SetSignatureToMatch sets field value
-func (o *ModelSecret) SetSignatureToMatch(v string) {
-	o.SignatureToMatch = v
 }
 
 // GetStartingIndex returns the StartingIndex field value
@@ -457,15 +327,10 @@ func (o ModelSecret) ToMap() (map[string]interface{}, error) {
 	toSerialize["matched_content"] = o.MatchedContent
 	toSerialize["name"] = o.Name
 	toSerialize["node_id"] = o.NodeId
-	toSerialize["part"] = o.Part
-	toSerialize["relative_ending_index"] = o.RelativeEndingIndex
-	toSerialize["relative_starting_index"] = o.RelativeStartingIndex
 	if o.Resources != nil {
 		toSerialize["resources"] = o.Resources
 	}
-	toSerialize["rule_id"] = o.RuleId
 	toSerialize["score"] = o.Score
-	toSerialize["signature_to_match"] = o.SignatureToMatch
 	toSerialize["starting_index"] = o.StartingIndex
 	toSerialize["updated_at"] = o.UpdatedAt
 	return toSerialize, nil
@@ -482,12 +347,7 @@ func (o *ModelSecret) UnmarshalJSON(data []byte) (err error) {
 		"matched_content",
 		"name",
 		"node_id",
-		"part",
-		"relative_ending_index",
-		"relative_starting_index",
-		"rule_id",
 		"score",
-		"signature_to_match",
 		"starting_index",
 		"updated_at",
 	}

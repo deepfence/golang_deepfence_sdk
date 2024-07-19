@@ -10,13 +10,8 @@ Name | Type | Description | Notes
 **MatchedContent** | **string** |  | 
 **Name** | **string** |  | 
 **NodeId** | **string** |  | 
-**Part** | **string** |  | 
-**RelativeEndingIndex** | **int32** |  | 
-**RelativeStartingIndex** | **int32** |  | 
 **Resources** | Pointer to [**[]ModelBasicNode**](ModelBasicNode.md) |  | [optional] 
-**RuleId** | **int32** |  | 
 **Score** | **float32** |  | 
-**SignatureToMatch** | **string** |  | 
 **StartingIndex** | **int32** |  | 
 **UpdatedAt** | **int32** |  | 
 
@@ -24,7 +19,7 @@ Name | Type | Description | Notes
 
 ### NewModelSecret
 
-`func NewModelSecret(fullFilename string, level string, masked bool, matchedContent string, name string, nodeId string, part string, relativeEndingIndex int32, relativeStartingIndex int32, ruleId int32, score float32, signatureToMatch string, startingIndex int32, updatedAt int32, ) *ModelSecret`
+`func NewModelSecret(fullFilename string, level string, masked bool, matchedContent string, name string, nodeId string, score float32, startingIndex int32, updatedAt int32, ) *ModelSecret`
 
 NewModelSecret instantiates a new ModelSecret object
 This constructor will assign default values to properties that have it defined,
@@ -159,66 +154,6 @@ and a boolean to check if the value has been set.
 SetNodeId sets NodeId field to given value.
 
 
-### GetPart
-
-`func (o *ModelSecret) GetPart() string`
-
-GetPart returns the Part field if non-nil, zero value otherwise.
-
-### GetPartOk
-
-`func (o *ModelSecret) GetPartOk() (*string, bool)`
-
-GetPartOk returns a tuple with the Part field if it's non-nil, zero value otherwise
-and a boolean to check if the value has been set.
-
-### SetPart
-
-`func (o *ModelSecret) SetPart(v string)`
-
-SetPart sets Part field to given value.
-
-
-### GetRelativeEndingIndex
-
-`func (o *ModelSecret) GetRelativeEndingIndex() int32`
-
-GetRelativeEndingIndex returns the RelativeEndingIndex field if non-nil, zero value otherwise.
-
-### GetRelativeEndingIndexOk
-
-`func (o *ModelSecret) GetRelativeEndingIndexOk() (*int32, bool)`
-
-GetRelativeEndingIndexOk returns a tuple with the RelativeEndingIndex field if it's non-nil, zero value otherwise
-and a boolean to check if the value has been set.
-
-### SetRelativeEndingIndex
-
-`func (o *ModelSecret) SetRelativeEndingIndex(v int32)`
-
-SetRelativeEndingIndex sets RelativeEndingIndex field to given value.
-
-
-### GetRelativeStartingIndex
-
-`func (o *ModelSecret) GetRelativeStartingIndex() int32`
-
-GetRelativeStartingIndex returns the RelativeStartingIndex field if non-nil, zero value otherwise.
-
-### GetRelativeStartingIndexOk
-
-`func (o *ModelSecret) GetRelativeStartingIndexOk() (*int32, bool)`
-
-GetRelativeStartingIndexOk returns a tuple with the RelativeStartingIndex field if it's non-nil, zero value otherwise
-and a boolean to check if the value has been set.
-
-### SetRelativeStartingIndex
-
-`func (o *ModelSecret) SetRelativeStartingIndex(v int32)`
-
-SetRelativeStartingIndex sets RelativeStartingIndex field to given value.
-
-
 ### GetResources
 
 `func (o *ModelSecret) GetResources() []ModelBasicNode`
@@ -254,26 +189,6 @@ HasResources returns a boolean if a field has been set.
 `func (o *ModelSecret) UnsetResources()`
 
 UnsetResources ensures that no value is present for Resources, not even an explicit nil
-### GetRuleId
-
-`func (o *ModelSecret) GetRuleId() int32`
-
-GetRuleId returns the RuleId field if non-nil, zero value otherwise.
-
-### GetRuleIdOk
-
-`func (o *ModelSecret) GetRuleIdOk() (*int32, bool)`
-
-GetRuleIdOk returns a tuple with the RuleId field if it's non-nil, zero value otherwise
-and a boolean to check if the value has been set.
-
-### SetRuleId
-
-`func (o *ModelSecret) SetRuleId(v int32)`
-
-SetRuleId sets RuleId field to given value.
-
-
 ### GetScore
 
 `func (o *ModelSecret) GetScore() float32`
@@ -292,26 +207,6 @@ and a boolean to check if the value has been set.
 `func (o *ModelSecret) SetScore(v float32)`
 
 SetScore sets Score field to given value.
-
-
-### GetSignatureToMatch
-
-`func (o *ModelSecret) GetSignatureToMatch() string`
-
-GetSignatureToMatch returns the SignatureToMatch field if non-nil, zero value otherwise.
-
-### GetSignatureToMatchOk
-
-`func (o *ModelSecret) GetSignatureToMatchOk() (*string, bool)`
-
-GetSignatureToMatchOk returns a tuple with the SignatureToMatch field if it's non-nil, zero value otherwise
-and a boolean to check if the value has been set.
-
-### SetSignatureToMatch
-
-`func (o *ModelSecret) SetSignatureToMatch(v string)`
-
-SetSignatureToMatch sets SignatureToMatch field to given value.
 
 
 ### GetStartingIndex

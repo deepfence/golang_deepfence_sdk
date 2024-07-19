@@ -103,6 +103,7 @@ docs/ModelBulkDeleteScansRequest.md
 docs/ModelCloudAccountDeleteReq.md
 docs/ModelCloudAccountRefreshReq.md
 docs/ModelCloudCompliance.md
+docs/ModelCloudComplianceControl.md
 docs/ModelCloudComplianceScanResult.md
 docs/ModelCloudNodeAccountInfo.md
 docs/ModelCloudNodeAccountRegisterReq.md
@@ -119,10 +120,11 @@ docs/ModelCompliance.md
 docs/ModelComplianceRule.md
 docs/ModelComplianceScanInfo.md
 docs/ModelComplianceScanResult.md
+docs/ModelComplianceScanResultControlGroup.md
+docs/ModelComplianceScanResultsGroupResp.md
 docs/ModelComplianceScanStatusResp.md
 docs/ModelComplianceScanTriggerReq.md
 docs/ModelComplinaceScanResultsGroupReq.md
-docs/ModelComplinaceScanResultsGroupResp.md
 docs/ModelConnection.md
 docs/ModelContainer.md
 docs/ModelContainerImage.md
@@ -327,6 +329,7 @@ model_model_bulk_delete_scans_request.go
 model_model_cloud_account_delete_req.go
 model_model_cloud_account_refresh_req.go
 model_model_cloud_compliance.go
+model_model_cloud_compliance_control.go
 model_model_cloud_compliance_scan_result.go
 model_model_cloud_node_account_info.go
 model_model_cloud_node_account_register_req.go
@@ -343,10 +346,11 @@ model_model_compliance.go
 model_model_compliance_rule.go
 model_model_compliance_scan_info.go
 model_model_compliance_scan_result.go
+model_model_compliance_scan_result_control_group.go
+model_model_compliance_scan_results_group_resp.go
 model_model_compliance_scan_status_resp.go
 model_model_compliance_scan_trigger_req.go
 model_model_complinace_scan_results_group_req.go
-model_model_complinace_scan_results_group_resp.go
 model_model_connection.go
 model_model_container.go
 model_model_container_image.go

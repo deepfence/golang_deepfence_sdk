@@ -5732,7 +5732,7 @@ func (r ApiSearchSecretRulesRequest) Execute() ([]ModelSecretRule, *http.Respons
 /*
 SearchSecretRules Search Secret Rules
 
-Search across all the data associated with secret ruless
+Search across all the data associated with secret rules
 
  @param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
  @return ApiSearchSecretRulesRequest

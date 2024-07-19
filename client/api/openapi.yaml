@@ -3873,6 +3873,51 @@ paths:
       summary: Get Cloud Resources
       tags:
       - Lookup
+  /deepfence/lookup/compliance-controls:
+    post:
+      description: Retrieve all the data associated with cloud compliance controls
+      operationId: getComplianceControls
+      requestBody:
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/LookupLookupFilter'
+      responses:
+        "200":
+          content:
+            application/json:
+              schema:
+                items:
+                  $ref: '#/components/schemas/ModelCloudComplianceControl'
+                type: array
+          description: OK
+        "400":
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ApiDocsBadRequestResponse'
+          description: Bad Request
+        "401":
+          description: Unauthorized
+        "403":
+          description: Forbidden
+        "404":
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ApiDocsFailureResponse'
+          description: Not Found
+        "500":
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ApiDocsFailureResponse'
+          description: Internal Server Error
+      security:
+      - bearer_token: []
+      summary: Retrieve Cloud Compliances Control data
+      tags:
+      - Lookup
   /deepfence/lookup/compliances:
     post:
       description: Retrieve all the data associated with compliances
@@ -5901,7 +5946,7 @@ paths:
           content:
             application/json:
               schema:
-                $ref: '#/components/schemas/ModelComplinaceScanResultsGroupResp'
+                $ref: '#/components/schemas/ModelComplianceScanResultsGroupResp'
           description: OK
         "400":
           content:
@@ -5944,7 +5989,7 @@ paths:
           content:
             application/json:
               schema:
-                $ref: '#/components/schemas/ModelComplinaceScanResultsGroupResp'
+                $ref: '#/components/schemas/ModelComplianceScanResultsGroupResp'
           description: OK
         "400":
           content:
@@ -9055,7 +9100,7 @@ paths:
       - Search
   /deepfence/search/secret-rules:
     post:
-      description: Search across all the data associated with secret ruless
+      description: Search across all the data associated with secret rules
       operationId: searchSecretRules
       requestBody:
         content:
@@ -10427,6 +10472,47 @@ components:
     CompletionCompletionNodeFieldReq:
       example:
         completion: completion
+        filters:
+          compare_filter:
+          - greater_than: true
+            field_value: ""
+            field_name: field_name
+          - greater_than: true
+            field_value: ""
+            field_name: field_name
+          not_contains_filter:
+            filter_in:
+              key:
+              - ""
+              - ""
+          order_filter:
+            order_fields:
+            - size: 0
+              descending: true
+              field_name: field_name
+            - size: 0
+              descending: true
+              field_name: field_name
+          contains_filter:
+            filter_in:
+              key:
+              - ""
+              - ""
+          contains_in_array_filter:
+            filter_in:
+              key:
+              - ""
+              - ""
+          match_filter:
+            filter_in:
+              key:
+              - ""
+              - ""
+          match_in_array_filter:
+            filter_in:
+              key:
+              - ""
+              - ""
         scan_id: scan_id
         window:
           offset: 0
@@ -10437,6 +10523,8 @@ components:
           type: string
         field_name:
           type: string
+        filters:
+          $ref: '#/components/schemas/ReportersFieldsFilters'
         scan_id:
           type: string
         window:
@@ -12499,6 +12587,65 @@ components:
       - type
       - updated_at
       type: object
+    ModelCloudComplianceControl:
+      example:
+        control_id: control_id
+        documentation: documentation
+        active: true
+        description: description
+        cloud_provider: cloud_provider
+        title: title
+        category_hierarchy_short: category_hierarchy_short
+        executable: true
+        category_hierarchy:
+        - category_hierarchy
+        - category_hierarchy
+        service: service
+        parent_control_hierarchy:
+        - parent_control_hierarchy
+        - parent_control_hierarchy
+        compliance_type: compliance_type
+        disabled: true
+        category: category
+        node_id: node_id
+      properties:
+        active:
+          type: boolean
+        category:
+          type: string
+        category_hierarchy:
+          items:
+            type: string
+          nullable: true
+          type: array
+        category_hierarchy_short:
+          type: string
+        cloud_provider:
+          type: string
+        compliance_type:
+          type: string
+        control_id:
+          type: string
+        description:
+          type: string
+        disabled:
+          type: boolean
+        documentation:
+          type: string
+        executable:
+          type: boolean
+        node_id:
+          type: string
+        parent_control_hierarchy:
+          items:
+            type: string
+          nullable: true
+          type: array
+        service:
+          type: string
+        title:
+          type: string
+      type: object
     ModelCloudComplianceScanResult:
       example:
         benchmark_type:
@@ -12643,10 +12790,12 @@ components:
         active: true
         cloud_provider: aws
         scan_status_map:
-          key: 6
+          key: 1
         host_node_id: host_node_id
         version: version
-        refresh_status: STARTING
+        refresh_status_map:
+          key: 6
+        refresh_status: refresh_status
         compliance_percentage: 0.8008281904610115
         account_name: account_name
         node_id: node_id
@@ -12679,12 +12828,12 @@ components:
         refresh_message:
           type: string
         refresh_status:
-          enum:
-          - STARTING
-          - IN_PROGRESS
-          - ERROR
-          - COMPLETE
           type: string
+        refresh_status_map:
+          additionalProperties:
+            type: integer
+          nullable: true
+          type: object
         scan_status_map:
           additionalProperties:
             type: integer
@@ -12769,7 +12918,7 @@ components:
       type: object
     ModelCloudNodeAccountsListResp:
       example:
-        total: 1
+        total: 5
         cloud_node_accounts_info:
         - last_scan_status: last_scan_status
           last_scan_id: last_scan_id
@@ -12778,10 +12927,12 @@ components:
           active: true
           cloud_provider: aws
           scan_status_map:
-            key: 6
+            key: 1
           host_node_id: host_node_id
           version: version
-          refresh_status: STARTING
+          refresh_status_map:
+            key: 6
+          refresh_status: refresh_status
           compliance_percentage: 0.8008281904610115
           account_name: account_name
           node_id: node_id
@@ -12792,10 +12943,12 @@ components:
           active: true
           cloud_provider: aws
           scan_status_map:
-            key: 6
+            key: 1
           host_node_id: host_node_id
           version: version
-          refresh_status: STARTING
+          refresh_status_map:
+            key: 6
+          refresh_status: refresh_status
           compliance_percentage: 0.8008281904610115
           account_name: account_name
           node_id: node_id
@@ -12820,6 +12973,7 @@ components:
         service: service
         description: description
         compliance_type: compliance_type
+        problem_title: problem_title
         title: title
         category_hierarchy_short: category_hierarchy_short
         enabled: true
@@ -12841,6 +12995,8 @@ components:
         enabled:
           type: boolean
         node_id:
+          type: string
+        problem_title:
           type: string
         service:
           type: string
@@ -12888,6 +13044,7 @@ components:
           service: service
           description: description
           compliance_type: compliance_type
+          problem_title: problem_title
           title: title
           category_hierarchy_short: category_hierarchy_short
           enabled: true
@@ -12899,6 +13056,7 @@ components:
           service: service
           description: description
           compliance_type: compliance_type
+          problem_title: problem_title
           title: title
           category_hierarchy_short: category_hierarchy_short
           enabled: true
@@ -13350,6 +13508,43 @@ components:
       - status_counts
       - updated_at
       type: object
+    ModelComplianceScanResultControlGroup:
+      example:
+        benchmark_types:
+        - benchmark_types
+        - benchmark_types
+        counts:
+          key: 0
+        problem_title: problem_title
+      properties:
+        benchmark_types:
+          items:
+            type: string
+          type: array
+        counts:
+          additionalProperties:
+            type: integer
+          type: object
+        problem_title:
+          type: string
+      type: object
+    ModelComplianceScanResultsGroupResp:
+      example:
+        groups:
+          key:
+            benchmark_types:
+            - benchmark_types
+            - benchmark_types
+            counts:
+              key: 0
+            problem_title: problem_title
+      properties:
+        groups:
+          additionalProperties:
+            $ref: '#/components/schemas/ModelComplianceScanResultControlGroup'
+          nullable: true
+          type: object
+      type: object
     ModelComplianceScanStatusResp:
       example:
         statuses:
@@ -13502,20 +13697,6 @@ components:
       required:
       - fields_filter
       - scan_id
-      type: object
-    ModelComplinaceScanResultsGroupResp:
-      example:
-        groups:
-          key:
-            key: 0
-      properties:
-        groups:
-          additionalProperties:
-            additionalProperties:
-              type: integer
-            type: object
-          nullable: true
-          type: object
       type: object
     ModelConnection:
       example:
@@ -15663,6 +15844,7 @@ components:
     ModelIntegrationAddReq:
       example:
         notification_type: notification_type
+        send_summary: true
         filters:
           fields_filters:
             compare_filter:
@@ -15727,6 +15909,8 @@ components:
           type: string
         notification_type:
           type: string
+        send_summary:
+          type: boolean
       required:
       - integration_type
       - notification_type
@@ -15875,6 +16059,7 @@ components:
     ModelIntegrationUpdateReq:
       example:
         notification_type: notification_type
+        send_summary: true
         filters:
           fields_filters:
             compare_filter:
@@ -15942,6 +16127,8 @@ components:
           type: string
         notification_type:
           type: string
+        send_summary:
+          type: boolean
       type: object
     ModelInviteUserRequest:
       example:
@@ -19501,12 +19688,14 @@ components:
     ModelScanCompareResGithubComDeepfenceThreatMapperDeepfenceServerModelSecret:
       example:
         new:
-        - full_filename: full_filename
+        - score: 0.8008281904610115
+          full_filename: full_filename
+          matched_content: matched_content
+          updated_at: 1
           level: critical
           masked: true
-          part: part
-          relative_ending_index: 0
-          starting_index: 5
+          name: name
+          starting_index: 6
           resources:
           - node_type: node_type
             name: name
@@ -19516,20 +19705,15 @@ components:
             name: name
             host_name: host_name
             node_id: node_id
-          signature_to_match: signature_to_match
-          rule_id: 1
-          score: 5.962133916683182
-          matched_content: matched_content
-          updated_at: 2
-          name: name
-          relative_starting_index: 6
           node_id: node_id
-        - full_filename: full_filename
+        - score: 0.8008281904610115
+          full_filename: full_filename
+          matched_content: matched_content
+          updated_at: 1
           level: critical
           masked: true
-          part: part
-          relative_ending_index: 0
-          starting_index: 5
+          name: name
+          starting_index: 6
           resources:
           - node_type: node_type
             name: name
@@ -19539,13 +19723,6 @@ components:
             name: name
             host_name: host_name
             node_id: node_id
-          signature_to_match: signature_to_match
-          rule_id: 1
-          score: 5.962133916683182
-          matched_content: matched_content
-          updated_at: 2
-          name: name
-          relative_starting_index: 6
           node_id: node_id
       properties:
         new:
@@ -20136,12 +20313,14 @@ components:
       type: object
     ModelSecret:
       example:
+        score: 0.8008281904610115
         full_filename: full_filename
+        matched_content: matched_content
+        updated_at: 1
         level: critical
         masked: true
-        part: part
-        relative_ending_index: 0
-        starting_index: 5
+        name: name
+        starting_index: 6
         resources:
         - node_type: node_type
           name: name
@@ -20151,13 +20330,6 @@ components:
           name: name
           host_name: host_name
           node_id: node_id
-        signature_to_match: signature_to_match
-        rule_id: 1
-        score: 5.962133916683182
-        matched_content: matched_content
-        updated_at: 2
-        name: name
-        relative_starting_index: 6
         node_id: node_id
       properties:
         full_filename:
@@ -20178,23 +20350,13 @@ components:
           type: string
         node_id:
           type: string
-        part:
-          type: string
-        relative_ending_index:
-          type: integer
-        relative_starting_index:
-          type: integer
         resources:
           items:
             $ref: '#/components/schemas/ModelBasicNode'
           nullable: true
           type: array
-        rule_id:
-          type: integer
         score:
           type: number
-        signature_to_match:
-          type: string
         starting_index:
           type: integer
         updated_at:
@@ -20206,12 +20368,7 @@ components:
       - matched_content
       - name
       - node_id
-      - part
-      - relative_ending_index
-      - relative_starting_index
-      - rule_id
       - score
-      - signature_to_match
       - starting_index
       - updated_at
       type: object
@@ -20253,12 +20410,14 @@ components:
         node_name: node_name
         created_at: 0
         secrets:
-        - full_filename: full_filename
+        - score: 0.8008281904610115
+          full_filename: full_filename
+          matched_content: matched_content
+          updated_at: 1
           level: critical
           masked: true
-          part: part
-          relative_ending_index: 0
-          starting_index: 5
+          name: name
+          starting_index: 6
           resources:
           - node_type: node_type
             name: name
@@ -20268,20 +20427,15 @@ components:
             name: name
             host_name: host_name
             node_id: node_id
-          signature_to_match: signature_to_match
-          rule_id: 1
-          score: 5.962133916683182
-          matched_content: matched_content
-          updated_at: 2
-          name: name
-          relative_starting_index: 6
           node_id: node_id
-        - full_filename: full_filename
+        - score: 0.8008281904610115
+          full_filename: full_filename
+          matched_content: matched_content
+          updated_at: 1
           level: critical
           masked: true
-          part: part
-          relative_ending_index: 0
-          starting_index: 5
+          name: name
+          starting_index: 6
           resources:
           - node_type: node_type
             name: name
@@ -20291,13 +20445,6 @@ components:
             name: name
             host_name: host_name
             node_id: node_id
-          signature_to_match: signature_to_match
-          rule_id: 1
-          score: 5.962133916683182
-          matched_content: matched_content
-          updated_at: 2
-          name: name
-          relative_starting_index: 6
           node_id: node_id
         cloud_account_id: cloud_account_id
         node_type: node_type

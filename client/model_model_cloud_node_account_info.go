@@ -31,6 +31,7 @@ type ModelCloudNodeAccountInfo struct {
 	NodeName *string `json:"node_name,omitempty"`
 	RefreshMessage *string `json:"refresh_message,omitempty"`
 	RefreshStatus *string `json:"refresh_status,omitempty"`
+	RefreshStatusMap map[string]int32 `json:"refresh_status_map,omitempty"`
 	ScanStatusMap map[string]int32 `json:"scan_status_map,omitempty"`
 	Version *string `json:"version,omitempty"`
 }
@@ -404,6 +405,39 @@ func (o *ModelCloudNodeAccountInfo) SetRefreshStatus(v string) {
 	o.RefreshStatus = &v
 }
 
+// GetRefreshStatusMap returns the RefreshStatusMap field value if set, zero value otherwise (both if not set or set to explicit null).
+func (o *ModelCloudNodeAccountInfo) GetRefreshStatusMap() map[string]int32 {
+	if o == nil {
+		var ret map[string]int32
+		return ret
+	}
+	return o.RefreshStatusMap
+}
+
+// GetRefreshStatusMapOk returns a tuple with the RefreshStatusMap field value if set, nil otherwise
+// and a boolean to check if the value has been set.
+// NOTE: If the value is an explicit nil, `nil, true` will be returned
+func (o *ModelCloudNodeAccountInfo) GetRefreshStatusMapOk() (*map[string]int32, bool) {
+	if o == nil || IsNil(o.RefreshStatusMap) {
+		return nil, false
+	}
+	return &o.RefreshStatusMap, true
+}
+
+// HasRefreshStatusMap returns a boolean if a field has been set.
+func (o *ModelCloudNodeAccountInfo) HasRefreshStatusMap() bool {
+	if o != nil && !IsNil(o.RefreshStatusMap) {
+		return true
+	}
+
+	return false
+}
+
+// SetRefreshStatusMap gets a reference to the given map[string]int32 and assigns it to the RefreshStatusMap field.
+func (o *ModelCloudNodeAccountInfo) SetRefreshStatusMap(v map[string]int32) {
+	o.RefreshStatusMap = v
+}
+
 // GetScanStatusMap returns the ScanStatusMap field value if set, zero value otherwise (both if not set or set to explicit null).
 func (o *ModelCloudNodeAccountInfo) GetScanStatusMap() map[string]int32 {
 	if o == nil {
@@ -511,6 +545,9 @@ func (o ModelCloudNodeAccountInfo) ToMap() (map[string]interface{}, error) {
 	}
 	if !IsNil(o.RefreshStatus) {
 		toSerialize["refresh_status"] = o.RefreshStatus
+	}
+	if o.RefreshStatusMap != nil {
+		toSerialize["refresh_status_map"] = o.RefreshStatusMap
 	}
 	if o.ScanStatusMap != nil {
 		toSerialize["scan_status_map"] = o.ScanStatusMap

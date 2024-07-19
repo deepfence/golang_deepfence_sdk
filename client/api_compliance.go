@@ -173,7 +173,7 @@ func (r ApiGroupResultsCloudComplianceRequest) ModelComplinaceScanResultsGroupRe
 	return r
 }
 
-func (r ApiGroupResultsCloudComplianceRequest) Execute() (*ModelComplinaceScanResultsGroupResp, *http.Response, error) {
+func (r ApiGroupResultsCloudComplianceRequest) Execute() (*ModelComplianceScanResultsGroupResp, *http.Response, error) {
 	return r.ApiService.GroupResultsCloudComplianceExecute(r)
 }
 
@@ -193,13 +193,13 @@ func (a *ComplianceAPIService) GroupResultsCloudCompliance(ctx context.Context) 
 }
 
 // Execute executes the request
-//  @return ModelComplinaceScanResultsGroupResp
-func (a *ComplianceAPIService) GroupResultsCloudComplianceExecute(r ApiGroupResultsCloudComplianceRequest) (*ModelComplinaceScanResultsGroupResp, *http.Response, error) {
+//  @return ModelComplianceScanResultsGroupResp
+func (a *ComplianceAPIService) GroupResultsCloudComplianceExecute(r ApiGroupResultsCloudComplianceRequest) (*ModelComplianceScanResultsGroupResp, *http.Response, error) {
 	var (
 		localVarHTTPMethod   = http.MethodPost
 		localVarPostBody     interface{}
 		formFiles            []formFile
-		localVarReturnValue  *ModelComplinaceScanResultsGroupResp
+		localVarReturnValue  *ModelComplianceScanResultsGroupResp
 	)
 
 	localBasePath, err := a.client.cfg.ServerURLWithContext(r.ctx, "ComplianceAPIService.GroupResultsCloudCompliance")
@@ -312,7 +312,7 @@ func (r ApiGroupResultsComplianceRequest) ModelComplinaceScanResultsGroupReq(mod
 	return r
 }
 
-func (r ApiGroupResultsComplianceRequest) Execute() (*ModelComplinaceScanResultsGroupResp, *http.Response, error) {
+func (r ApiGroupResultsComplianceRequest) Execute() (*ModelComplianceScanResultsGroupResp, *http.Response, error) {
 	return r.ApiService.GroupResultsComplianceExecute(r)
 }
 
@@ -332,13 +332,13 @@ func (a *ComplianceAPIService) GroupResultsCompliance(ctx context.Context) ApiGr
 }
 
 // Execute executes the request
-//  @return ModelComplinaceScanResultsGroupResp
-func (a *ComplianceAPIService) GroupResultsComplianceExecute(r ApiGroupResultsComplianceRequest) (*ModelComplinaceScanResultsGroupResp, *http.Response, error) {
+//  @return ModelComplianceScanResultsGroupResp
+func (a *ComplianceAPIService) GroupResultsComplianceExecute(r ApiGroupResultsComplianceRequest) (*ModelComplianceScanResultsGroupResp, *http.Response, error) {
 	var (
 		localVarHTTPMethod   = http.MethodPost
 		localVarPostBody     interface{}
 		formFiles            []formFile
-		localVarReturnValue  *ModelComplinaceScanResultsGroupResp
+		localVarReturnValue  *ModelComplianceScanResultsGroupResp
 	)
 
 	localBasePath, err := a.client.cfg.ServerURLWithContext(r.ctx, "ComplianceAPIService.GroupResultsCompliance")

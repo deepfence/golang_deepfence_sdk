@@ -27,6 +27,7 @@ type ModelCloudNodeComplianceControl struct {
 	Description *string `json:"description,omitempty"`
 	Enabled *bool `json:"enabled,omitempty"`
 	NodeId *string `json:"node_id,omitempty"`
+	ProblemTitle *string `json:"problem_title,omitempty"`
 	Service *string `json:"service,omitempty"`
 	Title *string `json:"title,omitempty"`
 }
@@ -273,6 +274,38 @@ func (o *ModelCloudNodeComplianceControl) SetNodeId(v string) {
 	o.NodeId = &v
 }
 
+// GetProblemTitle returns the ProblemTitle field value if set, zero value otherwise.
+func (o *ModelCloudNodeComplianceControl) GetProblemTitle() string {
+	if o == nil || IsNil(o.ProblemTitle) {
+		var ret string
+		return ret
+	}
+	return *o.ProblemTitle
+}
+
+// GetProblemTitleOk returns a tuple with the ProblemTitle field value if set, nil otherwise
+// and a boolean to check if the value has been set.
+func (o *ModelCloudNodeComplianceControl) GetProblemTitleOk() (*string, bool) {
+	if o == nil || IsNil(o.ProblemTitle) {
+		return nil, false
+	}
+	return o.ProblemTitle, true
+}
+
+// HasProblemTitle returns a boolean if a field has been set.
+func (o *ModelCloudNodeComplianceControl) HasProblemTitle() bool {
+	if o != nil && !IsNil(o.ProblemTitle) {
+		return true
+	}
+
+	return false
+}
+
+// SetProblemTitle gets a reference to the given string and assigns it to the ProblemTitle field.
+func (o *ModelCloudNodeComplianceControl) SetProblemTitle(v string) {
+	o.ProblemTitle = &v
+}
+
 // GetService returns the Service field value if set, zero value otherwise.
 func (o *ModelCloudNodeComplianceControl) GetService() string {
 	if o == nil || IsNil(o.Service) {
@@ -367,6 +400,9 @@ func (o ModelCloudNodeComplianceControl) ToMap() (map[string]interface{}, error)
 	}
 	if !IsNil(o.NodeId) {
 		toSerialize["node_id"] = o.NodeId
+	}
+	if !IsNil(o.ProblemTitle) {
+		toSerialize["problem_title"] = o.ProblemTitle
 	}
 	if !IsNil(o.Service) {
 		toSerialize["service"] = o.Service

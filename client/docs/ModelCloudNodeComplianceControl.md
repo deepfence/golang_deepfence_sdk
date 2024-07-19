@@ -11,6 +11,7 @@ Name | Type | Description | Notes
 **Description** | Pointer to **string** |  | [optional] 
 **Enabled** | Pointer to **bool** |  | [optional] 
 **NodeId** | Pointer to **string** |  | [optional] 
+**ProblemTitle** | Pointer to **string** |  | [optional] 
 **Service** | Pointer to **string** |  | [optional] 
 **Title** | Pointer to **string** |  | [optional] 
 
@@ -217,6 +218,31 @@ SetNodeId sets NodeId field to given value.
 `func (o *ModelCloudNodeComplianceControl) HasNodeId() bool`
 
 HasNodeId returns a boolean if a field has been set.
+
+### GetProblemTitle
+
+`func (o *ModelCloudNodeComplianceControl) GetProblemTitle() string`
+
+GetProblemTitle returns the ProblemTitle field if non-nil, zero value otherwise.
+
+### GetProblemTitleOk
+
+`func (o *ModelCloudNodeComplianceControl) GetProblemTitleOk() (*string, bool)`
+
+GetProblemTitleOk returns a tuple with the ProblemTitle field if it's non-nil, zero value otherwise
+and a boolean to check if the value has been set.
+
+### SetProblemTitle
+
+`func (o *ModelCloudNodeComplianceControl) SetProblemTitle(v string)`
+
+SetProblemTitle sets ProblemTitle field to given value.
+
+### HasProblemTitle
+
+`func (o *ModelCloudNodeComplianceControl) HasProblemTitle() bool`
+
+HasProblemTitle returns a boolean if a field has been set.
 
 ### GetService
 

@@ -85,7 +85,7 @@ Name | Type | Description  | Notes
 
 ## GroupResultsCloudCompliance
 
-> ModelComplinaceScanResultsGroupResp GroupResultsCloudCompliance(ctx).ModelComplinaceScanResultsGroupReq(modelComplinaceScanResultsGroupReq).Execute()
+> ModelComplianceScanResultsGroupResp GroupResultsCloudCompliance(ctx).ModelComplinaceScanResultsGroupReq(modelComplinaceScanResultsGroupReq).Execute()
 
 Count Cloud Compliance Results by Control ID
 
@@ -113,7 +113,7 @@ func main() {
 		fmt.Fprintf(os.Stderr, "Error when calling `ComplianceAPI.GroupResultsCloudCompliance``: %v\n", err)
 		fmt.Fprintf(os.Stderr, "Full HTTP response: %v\n", r)
 	}
-	// response from `GroupResultsCloudCompliance`: ModelComplinaceScanResultsGroupResp
+	// response from `GroupResultsCloudCompliance`: ModelComplianceScanResultsGroupResp
 	fmt.Fprintf(os.Stdout, "Response from `ComplianceAPI.GroupResultsCloudCompliance`: %v\n", resp)
 }
 ```
@@ -133,7 +133,7 @@ Name | Type | Description  | Notes
 
 ### Return type
 
-[**ModelComplinaceScanResultsGroupResp**](ModelComplinaceScanResultsGroupResp.md)
+[**ModelComplianceScanResultsGroupResp**](ModelComplianceScanResultsGroupResp.md)
 
 ### Authorization
 
@@ -151,7 +151,7 @@ Name | Type | Description  | Notes
 
 ## GroupResultsCompliance
 
-> ModelComplinaceScanResultsGroupResp GroupResultsCompliance(ctx).ModelComplinaceScanResultsGroupReq(modelComplinaceScanResultsGroupReq).Execute()
+> ModelComplianceScanResultsGroupResp GroupResultsCompliance(ctx).ModelComplinaceScanResultsGroupReq(modelComplinaceScanResultsGroupReq).Execute()
 
 Count Compliance Results by Control ID
 
@@ -179,7 +179,7 @@ func main() {
 		fmt.Fprintf(os.Stderr, "Error when calling `ComplianceAPI.GroupResultsCompliance``: %v\n", err)
 		fmt.Fprintf(os.Stderr, "Full HTTP response: %v\n", r)
 	}
-	// response from `GroupResultsCompliance`: ModelComplinaceScanResultsGroupResp
+	// response from `GroupResultsCompliance`: ModelComplianceScanResultsGroupResp
 	fmt.Fprintf(os.Stdout, "Response from `ComplianceAPI.GroupResultsCompliance`: %v\n", resp)
 }
 ```
@@ -199,7 +199,7 @@ Name | Type | Description  | Notes
 
 ### Return type
 
-[**ModelComplinaceScanResultsGroupResp**](ModelComplinaceScanResultsGroupResp.md)
+[**ModelComplianceScanResultsGroupResp**](ModelComplianceScanResultsGroupResp.md)
 
 ### Authorization
 
