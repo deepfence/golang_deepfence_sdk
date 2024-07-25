@@ -13136,6 +13136,7 @@ components:
         node_name: node_name
         cloud_provider: aws
         type_label: type_label
+        cloud_warn_alarm_count: 6
         node_id: node_id
       properties:
         account_id:
@@ -13154,6 +13155,8 @@ components:
           type: string
         cloud_region:
           type: string
+        cloud_warn_alarm_count:
+          type: integer
         node_id:
           type: string
         node_name:
@@ -13169,6 +13172,7 @@ components:
       - cloud_compliances_count
       - cloud_provider
       - cloud_region
+      - cloud_warn_alarm_count
       - node_id
       - node_name
       - node_type

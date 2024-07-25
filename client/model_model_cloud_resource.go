@@ -28,6 +28,7 @@ type ModelCloudResource struct {
 	CloudCompliancesCount int32 `json:"cloud_compliances_count"`
 	CloudProvider string `json:"cloud_provider"`
 	CloudRegion string `json:"cloud_region"`
+	CloudWarnAlarmCount int32 `json:"cloud_warn_alarm_count"`
 	NodeId string `json:"node_id"`
 	NodeName string `json:"node_name"`
 	NodeType string `json:"node_type"`
@@ -40,7 +41,7 @@ type _ModelCloudResource ModelCloudResource
 // This constructor will assign default values to properties that have it defined,
 // and makes sure properties required by API are set, but the set of arguments
 // will change when the set of required properties is changed
-func NewModelCloudResource(accountId string, cloudComplianceLatestScanId string, cloudComplianceScanStatus string, cloudCompliancesCount int32, cloudProvider string, cloudRegion string, nodeId string, nodeName string, nodeType string, typeLabel string) *ModelCloudResource {
+func NewModelCloudResource(accountId string, cloudComplianceLatestScanId string, cloudComplianceScanStatus string, cloudCompliancesCount int32, cloudProvider string, cloudRegion string, cloudWarnAlarmCount int32, nodeId string, nodeName string, nodeType string, typeLabel string) *ModelCloudResource {
 	this := ModelCloudResource{}
 	this.AccountId = accountId
 	this.CloudComplianceLatestScanId = cloudComplianceLatestScanId
@@ -48,6 +49,7 @@ func NewModelCloudResource(accountId string, cloudComplianceLatestScanId string,
 	this.CloudCompliancesCount = cloudCompliancesCount
 	this.CloudProvider = cloudProvider
 	this.CloudRegion = cloudRegion
+	this.CloudWarnAlarmCount = cloudWarnAlarmCount
 	this.NodeId = nodeId
 	this.NodeName = nodeName
 	this.NodeType = nodeType
@@ -207,6 +209,30 @@ func (o *ModelCloudResource) SetCloudRegion(v string) {
 	o.CloudRegion = v
 }
 
+// GetCloudWarnAlarmCount returns the CloudWarnAlarmCount field value
+func (o *ModelCloudResource) GetCloudWarnAlarmCount() int32 {
+	if o == nil {
+		var ret int32
+		return ret
+	}
+
+	return o.CloudWarnAlarmCount
+}
+
+// GetCloudWarnAlarmCountOk returns a tuple with the CloudWarnAlarmCount field value
+// and a boolean to check if the value has been set.
+func (o *ModelCloudResource) GetCloudWarnAlarmCountOk() (*int32, bool) {
+	if o == nil {
+		return nil, false
+	}
+	return &o.CloudWarnAlarmCount, true
+}
+
+// SetCloudWarnAlarmCount sets field value
+func (o *ModelCloudResource) SetCloudWarnAlarmCount(v int32) {
+	o.CloudWarnAlarmCount = v
+}
+
 // GetNodeId returns the NodeId field value
 func (o *ModelCloudResource) GetNodeId() string {
 	if o == nil {
@@ -319,6 +345,7 @@ func (o ModelCloudResource) ToMap() (map[string]interface{}, error) {
 	toSerialize["cloud_compliances_count"] = o.CloudCompliancesCount
 	toSerialize["cloud_provider"] = o.CloudProvider
 	toSerialize["cloud_region"] = o.CloudRegion
+	toSerialize["cloud_warn_alarm_count"] = o.CloudWarnAlarmCount
 	toSerialize["node_id"] = o.NodeId
 	toSerialize["node_name"] = o.NodeName
 	toSerialize["node_type"] = o.NodeType
@@ -337,6 +364,7 @@ func (o *ModelCloudResource) UnmarshalJSON(data []byte) (err error) {
 		"cloud_compliances_count",
 		"cloud_provider",
 		"cloud_region",
+		"cloud_warn_alarm_count",
 		"node_id",
 		"node_name",
 		"node_type",

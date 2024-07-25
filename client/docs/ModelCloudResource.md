@@ -10,6 +10,7 @@ Name | Type | Description | Notes
 **CloudCompliancesCount** | **int32** |  | 
 **CloudProvider** | **string** |  | 
 **CloudRegion** | **string** |  | 
+**CloudWarnAlarmCount** | **int32** |  | 
 **NodeId** | **string** |  | 
 **NodeName** | **string** |  | 
 **NodeType** | **string** |  | 
@@ -19,7 +20,7 @@ Name | Type | Description | Notes
 
 ### NewModelCloudResource
 
-`func NewModelCloudResource(accountId string, cloudComplianceLatestScanId string, cloudComplianceScanStatus string, cloudCompliancesCount int32, cloudProvider string, cloudRegion string, nodeId string, nodeName string, nodeType string, typeLabel string, ) *ModelCloudResource`
+`func NewModelCloudResource(accountId string, cloudComplianceLatestScanId string, cloudComplianceScanStatus string, cloudCompliancesCount int32, cloudProvider string, cloudRegion string, cloudWarnAlarmCount int32, nodeId string, nodeName string, nodeType string, typeLabel string, ) *ModelCloudResource`
 
 NewModelCloudResource instantiates a new ModelCloudResource object
 This constructor will assign default values to properties that have it defined,
@@ -152,6 +153,26 @@ and a boolean to check if the value has been set.
 `func (o *ModelCloudResource) SetCloudRegion(v string)`
 
 SetCloudRegion sets CloudRegion field to given value.
+
+
+### GetCloudWarnAlarmCount
+
+`func (o *ModelCloudResource) GetCloudWarnAlarmCount() int32`
+
+GetCloudWarnAlarmCount returns the CloudWarnAlarmCount field if non-nil, zero value otherwise.
+
+### GetCloudWarnAlarmCountOk
+
+`func (o *ModelCloudResource) GetCloudWarnAlarmCountOk() (*int32, bool)`
+
+GetCloudWarnAlarmCountOk returns a tuple with the CloudWarnAlarmCount field if it's non-nil, zero value otherwise
+and a boolean to check if the value has been set.
+
+### SetCloudWarnAlarmCount
+
+`func (o *ModelCloudResource) SetCloudWarnAlarmCount(v int32)`
+
+SetCloudWarnAlarmCount sets CloudWarnAlarmCount field to given value.
 
 
 ### GetNodeId
