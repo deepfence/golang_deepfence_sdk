@@ -16,7 +16,7 @@ info:
     url: https://www.apache.org/licenses/LICENSE-2.0
   termsOfService: /tos
   title: Deepfence ThreatMapper
-  version: v2.3.0
+  version: v3.0.0
 externalDocs:
   description: Deepfence Community
   url: https://community.deepfence.io
@@ -11998,6 +11998,7 @@ components:
         cve_caused_by_package_path: cve_caused_by_package_path
         cve_id: cve_id
         exploit_poc: exploit_poc
+        namespace: namespace
         cve_type: cve_type
         has_live_connection: true
         cve_fixed_in: cve_fixed_in
@@ -12038,6 +12039,8 @@ components:
           type: boolean
         init_exploitability_score:
           type: integer
+        namespace:
+          type: string
         parsed_attack_vector:
           type: string
         scan_id:
@@ -20941,6 +20944,7 @@ components:
       type: object
     ModelVulnerabilityRule:
       example:
+        epss_score: 1.4658129805029452
         parsed_attack_vector: parsed_attack_vector
         masked: true
         cve_description: cve_description
@@ -20956,18 +20960,22 @@ components:
           node_id: node_id
         cve_attack_vector: cve_attack_vector
         cve_cvss_score: 0.8008281904610115
+        cisa_kev: true
         urls:
         - ""
         - ""
         cve_severity: cve_severity
-        updated_at: 1
+        updated_at: 5
         cve_id: cve_id
         exploit_poc: exploit_poc
+        namespace: namespace
         cve_type: cve_type
         cve_fixed_in: cve_fixed_in
         cve_link: cve_link
         node_id: node_id
       properties:
+        cisa_kev:
+          type: boolean
         cve_attack_vector:
           type: string
         cve_cvss_score:
@@ -20986,10 +20994,14 @@ components:
           type: string
         cve_type:
           type: string
+        epss_score:
+          type: number
         exploit_poc:
           type: string
         masked:
           type: boolean
+        namespace:
+          type: string
         node_id:
           type: string
         parsed_attack_vector:
