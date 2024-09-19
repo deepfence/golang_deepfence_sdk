@@ -30,6 +30,7 @@ type ModelCloudNodeAccountInfo struct {
 	NodeId *string `json:"node_id,omitempty"`
 	NodeName *string `json:"node_name,omitempty"`
 	RefreshMessage *string `json:"refresh_message,omitempty"`
+	RefreshMetadata *string `json:"refresh_metadata,omitempty"`
 	RefreshStatus *string `json:"refresh_status,omitempty"`
 	RefreshStatusMap map[string]int32 `json:"refresh_status_map,omitempty"`
 	ScanStatusMap map[string]int32 `json:"scan_status_map,omitempty"`
@@ -373,6 +374,38 @@ func (o *ModelCloudNodeAccountInfo) SetRefreshMessage(v string) {
 	o.RefreshMessage = &v
 }
 
+// GetRefreshMetadata returns the RefreshMetadata field value if set, zero value otherwise.
+func (o *ModelCloudNodeAccountInfo) GetRefreshMetadata() string {
+	if o == nil || IsNil(o.RefreshMetadata) {
+		var ret string
+		return ret
+	}
+	return *o.RefreshMetadata
+}
+
+// GetRefreshMetadataOk returns a tuple with the RefreshMetadata field value if set, nil otherwise
+// and a boolean to check if the value has been set.
+func (o *ModelCloudNodeAccountInfo) GetRefreshMetadataOk() (*string, bool) {
+	if o == nil || IsNil(o.RefreshMetadata) {
+		return nil, false
+	}
+	return o.RefreshMetadata, true
+}
+
+// HasRefreshMetadata returns a boolean if a field has been set.
+func (o *ModelCloudNodeAccountInfo) HasRefreshMetadata() bool {
+	if o != nil && !IsNil(o.RefreshMetadata) {
+		return true
+	}
+
+	return false
+}
+
+// SetRefreshMetadata gets a reference to the given string and assigns it to the RefreshMetadata field.
+func (o *ModelCloudNodeAccountInfo) SetRefreshMetadata(v string) {
+	o.RefreshMetadata = &v
+}
+
 // GetRefreshStatus returns the RefreshStatus field value if set, zero value otherwise.
 func (o *ModelCloudNodeAccountInfo) GetRefreshStatus() string {
 	if o == nil || IsNil(o.RefreshStatus) {
@@ -542,6 +575,9 @@ func (o ModelCloudNodeAccountInfo) ToMap() (map[string]interface{}, error) {
 	}
 	if !IsNil(o.RefreshMessage) {
 		toSerialize["refresh_message"] = o.RefreshMessage
+	}
+	if !IsNil(o.RefreshMetadata) {
+		toSerialize["refresh_metadata"] = o.RefreshMetadata
 	}
 	if !IsNil(o.RefreshStatus) {
 		toSerialize["refresh_status"] = o.RefreshStatus

@@ -4,19 +4,22 @@
 
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
-**Id** | Pointer to **int32** |  | [optional] 
 **Level** | **string** |  | 
 **Masked** | **bool** |  | 
 **Name** | Pointer to **string** |  | [optional] 
 **Part** | Pointer to **string** |  | [optional] 
+**Payload** | **string** |  | 
+**RuleId** | Pointer to **string** |  | [optional] 
+**Severity** | **string** |  | 
 **SignatureToMatch** | Pointer to **string** |  | [optional] 
+**Summary** | **string** |  | 
 **UpdatedAt** | **int32** |  | 
 
 ## Methods
 
 ### NewModelSecretRule
 
-`func NewModelSecretRule(level string, masked bool, updatedAt int32, ) *ModelSecretRule`
+`func NewModelSecretRule(level string, masked bool, payload string, severity string, summary string, updatedAt int32, ) *ModelSecretRule`
 
 NewModelSecretRule instantiates a new ModelSecretRule object
 This constructor will assign default values to properties that have it defined,
@@ -30,31 +33,6 @@ will change when the set of required properties is changed
 NewModelSecretRuleWithDefaults instantiates a new ModelSecretRule object
 This constructor will only assign default values to properties that have it defined,
 but it doesn't guarantee that properties required by API are set
-
-### GetId
-
-`func (o *ModelSecretRule) GetId() int32`
-
-GetId returns the Id field if non-nil, zero value otherwise.
-
-### GetIdOk
-
-`func (o *ModelSecretRule) GetIdOk() (*int32, bool)`
-
-GetIdOk returns a tuple with the Id field if it's non-nil, zero value otherwise
-and a boolean to check if the value has been set.
-
-### SetId
-
-`func (o *ModelSecretRule) SetId(v int32)`
-
-SetId sets Id field to given value.
-
-### HasId
-
-`func (o *ModelSecretRule) HasId() bool`
-
-HasId returns a boolean if a field has been set.
 
 ### GetLevel
 
@@ -146,6 +124,71 @@ SetPart sets Part field to given value.
 
 HasPart returns a boolean if a field has been set.
 
+### GetPayload
+
+`func (o *ModelSecretRule) GetPayload() string`
+
+GetPayload returns the Payload field if non-nil, zero value otherwise.
+
+### GetPayloadOk
+
+`func (o *ModelSecretRule) GetPayloadOk() (*string, bool)`
+
+GetPayloadOk returns a tuple with the Payload field if it's non-nil, zero value otherwise
+and a boolean to check if the value has been set.
+
+### SetPayload
+
+`func (o *ModelSecretRule) SetPayload(v string)`
+
+SetPayload sets Payload field to given value.
+
+
+### GetRuleId
+
+`func (o *ModelSecretRule) GetRuleId() string`
+
+GetRuleId returns the RuleId field if non-nil, zero value otherwise.
+
+### GetRuleIdOk
+
+`func (o *ModelSecretRule) GetRuleIdOk() (*string, bool)`
+
+GetRuleIdOk returns a tuple with the RuleId field if it's non-nil, zero value otherwise
+and a boolean to check if the value has been set.
+
+### SetRuleId
+
+`func (o *ModelSecretRule) SetRuleId(v string)`
+
+SetRuleId sets RuleId field to given value.
+
+### HasRuleId
+
+`func (o *ModelSecretRule) HasRuleId() bool`
+
+HasRuleId returns a boolean if a field has been set.
+
+### GetSeverity
+
+`func (o *ModelSecretRule) GetSeverity() string`
+
+GetSeverity returns the Severity field if non-nil, zero value otherwise.
+
+### GetSeverityOk
+
+`func (o *ModelSecretRule) GetSeverityOk() (*string, bool)`
+
+GetSeverityOk returns a tuple with the Severity field if it's non-nil, zero value otherwise
+and a boolean to check if the value has been set.
+
+### SetSeverity
+
+`func (o *ModelSecretRule) SetSeverity(v string)`
+
+SetSeverity sets Severity field to given value.
+
+
 ### GetSignatureToMatch
 
 `func (o *ModelSecretRule) GetSignatureToMatch() string`
@@ -170,6 +213,26 @@ SetSignatureToMatch sets SignatureToMatch field to given value.
 `func (o *ModelSecretRule) HasSignatureToMatch() bool`
 
 HasSignatureToMatch returns a boolean if a field has been set.
+
+### GetSummary
+
+`func (o *ModelSecretRule) GetSummary() string`
+
+GetSummary returns the Summary field if non-nil, zero value otherwise.
+
+### GetSummaryOk
+
+`func (o *ModelSecretRule) GetSummaryOk() (*string, bool)`
+
+GetSummaryOk returns a tuple with the Summary field if it's non-nil, zero value otherwise
+and a boolean to check if the value has been set.
+
+### SetSummary
+
+`func (o *ModelSecretRule) SetSummary(v string)`
+
+SetSummary sets Summary field to given value.
+
 
 ### GetUpdatedAt
 

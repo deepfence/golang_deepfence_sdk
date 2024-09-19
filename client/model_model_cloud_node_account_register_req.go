@@ -26,10 +26,13 @@ type ModelCloudNodeAccountRegisterReq struct {
 	AccountName *string `json:"account_name,omitempty"`
 	CloudProvider string `json:"cloud_provider"`
 	HostNodeId string `json:"host_node_id"`
+	InitialRequest *bool `json:"initial_request,omitempty"`
+	InstallationId string `json:"installation_id"`
 	IsOrganizationDeployment *bool `json:"is_organization_deployment,omitempty"`
 	MonitoredAccounts []ModelCloudNodeMonitoredAccount `json:"monitored_accounts,omitempty"`
 	NodeId string `json:"node_id"`
 	OrganizationAccountId *string `json:"organization_account_id,omitempty"`
+	PersistentVolumeSupported *bool `json:"persistent_volume_supported,omitempty"`
 	Version string `json:"version"`
 }
 
@@ -39,11 +42,12 @@ type _ModelCloudNodeAccountRegisterReq ModelCloudNodeAccountRegisterReq
 // This constructor will assign default values to properties that have it defined,
 // and makes sure properties required by API are set, but the set of arguments
 // will change when the set of required properties is changed
-func NewModelCloudNodeAccountRegisterReq(accountId string, cloudProvider string, hostNodeId string, nodeId string, version string) *ModelCloudNodeAccountRegisterReq {
+func NewModelCloudNodeAccountRegisterReq(accountId string, cloudProvider string, hostNodeId string, installationId string, nodeId string, version string) *ModelCloudNodeAccountRegisterReq {
 	this := ModelCloudNodeAccountRegisterReq{}
 	this.AccountId = accountId
 	this.CloudProvider = cloudProvider
 	this.HostNodeId = hostNodeId
+	this.InstallationId = installationId
 	this.NodeId = nodeId
 	this.Version = version
 	return &this
@@ -159,6 +163,62 @@ func (o *ModelCloudNodeAccountRegisterReq) GetHostNodeIdOk() (*string, bool) {
 // SetHostNodeId sets field value
 func (o *ModelCloudNodeAccountRegisterReq) SetHostNodeId(v string) {
 	o.HostNodeId = v
+}
+
+// GetInitialRequest returns the InitialRequest field value if set, zero value otherwise.
+func (o *ModelCloudNodeAccountRegisterReq) GetInitialRequest() bool {
+	if o == nil || IsNil(o.InitialRequest) {
+		var ret bool
+		return ret
+	}
+	return *o.InitialRequest
+}
+
+// GetInitialRequestOk returns a tuple with the InitialRequest field value if set, nil otherwise
+// and a boolean to check if the value has been set.
+func (o *ModelCloudNodeAccountRegisterReq) GetInitialRequestOk() (*bool, bool) {
+	if o == nil || IsNil(o.InitialRequest) {
+		return nil, false
+	}
+	return o.InitialRequest, true
+}
+
+// HasInitialRequest returns a boolean if a field has been set.
+func (o *ModelCloudNodeAccountRegisterReq) HasInitialRequest() bool {
+	if o != nil && !IsNil(o.InitialRequest) {
+		return true
+	}
+
+	return false
+}
+
+// SetInitialRequest gets a reference to the given bool and assigns it to the InitialRequest field.
+func (o *ModelCloudNodeAccountRegisterReq) SetInitialRequest(v bool) {
+	o.InitialRequest = &v
+}
+
+// GetInstallationId returns the InstallationId field value
+func (o *ModelCloudNodeAccountRegisterReq) GetInstallationId() string {
+	if o == nil {
+		var ret string
+		return ret
+	}
+
+	return o.InstallationId
+}
+
+// GetInstallationIdOk returns a tuple with the InstallationId field value
+// and a boolean to check if the value has been set.
+func (o *ModelCloudNodeAccountRegisterReq) GetInstallationIdOk() (*string, bool) {
+	if o == nil {
+		return nil, false
+	}
+	return &o.InstallationId, true
+}
+
+// SetInstallationId sets field value
+func (o *ModelCloudNodeAccountRegisterReq) SetInstallationId(v string) {
+	o.InstallationId = v
 }
 
 // GetIsOrganizationDeployment returns the IsOrganizationDeployment field value if set, zero value otherwise.
@@ -282,6 +342,38 @@ func (o *ModelCloudNodeAccountRegisterReq) SetOrganizationAccountId(v string) {
 	o.OrganizationAccountId = &v
 }
 
+// GetPersistentVolumeSupported returns the PersistentVolumeSupported field value if set, zero value otherwise.
+func (o *ModelCloudNodeAccountRegisterReq) GetPersistentVolumeSupported() bool {
+	if o == nil || IsNil(o.PersistentVolumeSupported) {
+		var ret bool
+		return ret
+	}
+	return *o.PersistentVolumeSupported
+}
+
+// GetPersistentVolumeSupportedOk returns a tuple with the PersistentVolumeSupported field value if set, nil otherwise
+// and a boolean to check if the value has been set.
+func (o *ModelCloudNodeAccountRegisterReq) GetPersistentVolumeSupportedOk() (*bool, bool) {
+	if o == nil || IsNil(o.PersistentVolumeSupported) {
+		return nil, false
+	}
+	return o.PersistentVolumeSupported, true
+}
+
+// HasPersistentVolumeSupported returns a boolean if a field has been set.
+func (o *ModelCloudNodeAccountRegisterReq) HasPersistentVolumeSupported() bool {
+	if o != nil && !IsNil(o.PersistentVolumeSupported) {
+		return true
+	}
+
+	return false
+}
+
+// SetPersistentVolumeSupported gets a reference to the given bool and assigns it to the PersistentVolumeSupported field.
+func (o *ModelCloudNodeAccountRegisterReq) SetPersistentVolumeSupported(v bool) {
+	o.PersistentVolumeSupported = &v
+}
+
 // GetVersion returns the Version field value
 func (o *ModelCloudNodeAccountRegisterReq) GetVersion() string {
 	if o == nil {
@@ -322,6 +414,10 @@ func (o ModelCloudNodeAccountRegisterReq) ToMap() (map[string]interface{}, error
 	}
 	toSerialize["cloud_provider"] = o.CloudProvider
 	toSerialize["host_node_id"] = o.HostNodeId
+	if !IsNil(o.InitialRequest) {
+		toSerialize["initial_request"] = o.InitialRequest
+	}
+	toSerialize["installation_id"] = o.InstallationId
 	if !IsNil(o.IsOrganizationDeployment) {
 		toSerialize["is_organization_deployment"] = o.IsOrganizationDeployment
 	}
@@ -331,6 +427,9 @@ func (o ModelCloudNodeAccountRegisterReq) ToMap() (map[string]interface{}, error
 	toSerialize["node_id"] = o.NodeId
 	if !IsNil(o.OrganizationAccountId) {
 		toSerialize["organization_account_id"] = o.OrganizationAccountId
+	}
+	if !IsNil(o.PersistentVolumeSupported) {
+		toSerialize["persistent_volume_supported"] = o.PersistentVolumeSupported
 	}
 	toSerialize["version"] = o.Version
 	return toSerialize, nil
@@ -344,6 +443,7 @@ func (o *ModelCloudNodeAccountRegisterReq) UnmarshalJSON(data []byte) (err error
 		"account_id",
 		"cloud_provider",
 		"host_node_id",
+		"installation_id",
 		"node_id",
 		"version",
 	}
