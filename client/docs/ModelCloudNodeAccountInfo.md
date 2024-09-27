@@ -14,6 +14,7 @@ Name | Type | Description | Notes
 **NodeId** | Pointer to **string** |  | [optional] 
 **NodeName** | Pointer to **string** |  | [optional] 
 **RefreshMessage** | Pointer to **string** |  | [optional] 
+**RefreshMetadata** | Pointer to **string** |  | [optional] 
 **RefreshStatus** | Pointer to **string** |  | [optional] 
 **RefreshStatusMap** | Pointer to **map[string]int32** |  | [optional] 
 **ScanStatusMap** | Pointer to **map[string]int32** |  | [optional] 
@@ -287,6 +288,31 @@ SetRefreshMessage sets RefreshMessage field to given value.
 `func (o *ModelCloudNodeAccountInfo) HasRefreshMessage() bool`
 
 HasRefreshMessage returns a boolean if a field has been set.
+
+### GetRefreshMetadata
+
+`func (o *ModelCloudNodeAccountInfo) GetRefreshMetadata() string`
+
+GetRefreshMetadata returns the RefreshMetadata field if non-nil, zero value otherwise.
+
+### GetRefreshMetadataOk
+
+`func (o *ModelCloudNodeAccountInfo) GetRefreshMetadataOk() (*string, bool)`
+
+GetRefreshMetadataOk returns a tuple with the RefreshMetadata field if it's non-nil, zero value otherwise
+and a boolean to check if the value has been set.
+
+### SetRefreshMetadata
+
+`func (o *ModelCloudNodeAccountInfo) SetRefreshMetadata(v string)`
+
+SetRefreshMetadata sets RefreshMetadata field to given value.
+
+### HasRefreshMetadata
+
+`func (o *ModelCloudNodeAccountInfo) HasRefreshMetadata() bool`
+
+HasRefreshMetadata returns a boolean if a field has been set.
 
 ### GetRefreshStatus
 

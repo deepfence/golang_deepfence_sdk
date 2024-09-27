@@ -1432,7 +1432,7 @@ func (a *GenerativeAIAPIService) ListGenerativeAiIntegrationExecute(r ApiListGen
 	localVarFormParams := url.Values{}
 
 	if r.integrationType != nil {
-		parameterAddToHeaderOrQuery(localVarQueryParams, "integration_type", r.integrationType, "")
+		parameterAddToHeaderOrQuery(localVarQueryParams, "integration_type", r.integrationType, "form", "")
 	}
 	// to determine the Content-Type header
 	localVarHTTPContentTypes := []string{}

@@ -6131,52 +6131,52 @@ func (a *SearchAPIService) SearchSecretsScansExecute(r ApiSearchSecretsScansRequ
 	return localVarReturnValue, localVarHTTPResponse, nil
 }
 
-type ApiSearchVulerabilityRulesRequest struct {
+type ApiSearchVulnerabilitiesRequest struct {
 	ctx context.Context
 	ApiService *SearchAPIService
 	searchSearchNodeReq *SearchSearchNodeReq
 }
 
-func (r ApiSearchVulerabilityRulesRequest) SearchSearchNodeReq(searchSearchNodeReq SearchSearchNodeReq) ApiSearchVulerabilityRulesRequest {
+func (r ApiSearchVulnerabilitiesRequest) SearchSearchNodeReq(searchSearchNodeReq SearchSearchNodeReq) ApiSearchVulnerabilitiesRequest {
 	r.searchSearchNodeReq = &searchSearchNodeReq
 	return r
 }
 
-func (r ApiSearchVulerabilityRulesRequest) Execute() ([]ModelVulnerabilityRule, *http.Response, error) {
-	return r.ApiService.SearchVulerabilityRulesExecute(r)
+func (r ApiSearchVulnerabilitiesRequest) Execute() ([]ModelVulnerability, *http.Response, error) {
+	return r.ApiService.SearchVulnerabilitiesExecute(r)
 }
 
 /*
-SearchVulerabilityRules Search Vulnerability Rules
+SearchVulnerabilities Search Vulnerabilities
 
-Search across all the data associated with vulnerability rules
+Search across all the data associated with vulnerabilities
 
  @param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
- @return ApiSearchVulerabilityRulesRequest
+ @return ApiSearchVulnerabilitiesRequest
 */
-func (a *SearchAPIService) SearchVulerabilityRules(ctx context.Context) ApiSearchVulerabilityRulesRequest {
-	return ApiSearchVulerabilityRulesRequest{
+func (a *SearchAPIService) SearchVulnerabilities(ctx context.Context) ApiSearchVulnerabilitiesRequest {
+	return ApiSearchVulnerabilitiesRequest{
 		ApiService: a,
 		ctx: ctx,
 	}
 }
 
 // Execute executes the request
-//  @return []ModelVulnerabilityRule
-func (a *SearchAPIService) SearchVulerabilityRulesExecute(r ApiSearchVulerabilityRulesRequest) ([]ModelVulnerabilityRule, *http.Response, error) {
+//  @return []ModelVulnerability
+func (a *SearchAPIService) SearchVulnerabilitiesExecute(r ApiSearchVulnerabilitiesRequest) ([]ModelVulnerability, *http.Response, error) {
 	var (
 		localVarHTTPMethod   = http.MethodPost
 		localVarPostBody     interface{}
 		formFiles            []formFile
-		localVarReturnValue  []ModelVulnerabilityRule
+		localVarReturnValue  []ModelVulnerability
 	)
 
-	localBasePath, err := a.client.cfg.ServerURLWithContext(r.ctx, "SearchAPIService.SearchVulerabilityRules")
+	localBasePath, err := a.client.cfg.ServerURLWithContext(r.ctx, "SearchAPIService.SearchVulnerabilities")
 	if err != nil {
 		return localVarReturnValue, nil, &GenericOpenAPIError{error: err.Error()}
 	}
 
-	localVarPath := localBasePath + "/deepfence/search/vulnerability-rules"
+	localVarPath := localBasePath + "/deepfence/search/vulnerabilities"
 
 	localVarHeaderParams := make(map[string]string)
 	localVarQueryParams := url.Values{}
@@ -6270,52 +6270,52 @@ func (a *SearchAPIService) SearchVulerabilityRulesExecute(r ApiSearchVulerabilit
 	return localVarReturnValue, localVarHTTPResponse, nil
 }
 
-type ApiSearchVulnerabilitiesRequest struct {
+type ApiSearchVulnerabilityRulesRequest struct {
 	ctx context.Context
 	ApiService *SearchAPIService
 	searchSearchNodeReq *SearchSearchNodeReq
 }
 
-func (r ApiSearchVulnerabilitiesRequest) SearchSearchNodeReq(searchSearchNodeReq SearchSearchNodeReq) ApiSearchVulnerabilitiesRequest {
+func (r ApiSearchVulnerabilityRulesRequest) SearchSearchNodeReq(searchSearchNodeReq SearchSearchNodeReq) ApiSearchVulnerabilityRulesRequest {
 	r.searchSearchNodeReq = &searchSearchNodeReq
 	return r
 }
 
-func (r ApiSearchVulnerabilitiesRequest) Execute() ([]ModelVulnerability, *http.Response, error) {
-	return r.ApiService.SearchVulnerabilitiesExecute(r)
+func (r ApiSearchVulnerabilityRulesRequest) Execute() ([]ModelVulnerabilityRule, *http.Response, error) {
+	return r.ApiService.SearchVulnerabilityRulesExecute(r)
 }
 
 /*
-SearchVulnerabilities Search Vulnerabilities
+SearchVulnerabilityRules Search Vulnerability Rules
 
-Search across all the data associated with vulnerabilities
+Search across all the data associated with vulnerability rules
 
  @param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
- @return ApiSearchVulnerabilitiesRequest
+ @return ApiSearchVulnerabilityRulesRequest
 */
-func (a *SearchAPIService) SearchVulnerabilities(ctx context.Context) ApiSearchVulnerabilitiesRequest {
-	return ApiSearchVulnerabilitiesRequest{
+func (a *SearchAPIService) SearchVulnerabilityRules(ctx context.Context) ApiSearchVulnerabilityRulesRequest {
+	return ApiSearchVulnerabilityRulesRequest{
 		ApiService: a,
 		ctx: ctx,
 	}
 }
 
 // Execute executes the request
-//  @return []ModelVulnerability
-func (a *SearchAPIService) SearchVulnerabilitiesExecute(r ApiSearchVulnerabilitiesRequest) ([]ModelVulnerability, *http.Response, error) {
+//  @return []ModelVulnerabilityRule
+func (a *SearchAPIService) SearchVulnerabilityRulesExecute(r ApiSearchVulnerabilityRulesRequest) ([]ModelVulnerabilityRule, *http.Response, error) {
 	var (
 		localVarHTTPMethod   = http.MethodPost
 		localVarPostBody     interface{}
 		formFiles            []formFile
-		localVarReturnValue  []ModelVulnerability
+		localVarReturnValue  []ModelVulnerabilityRule
 	)
 
-	localBasePath, err := a.client.cfg.ServerURLWithContext(r.ctx, "SearchAPIService.SearchVulnerabilities")
+	localBasePath, err := a.client.cfg.ServerURLWithContext(r.ctx, "SearchAPIService.SearchVulnerabilityRules")
 	if err != nil {
 		return localVarReturnValue, nil, &GenericOpenAPIError{error: err.Error()}
 	}
 
-	localVarPath := localBasePath + "/deepfence/search/vulnerabilities"
+	localVarPath := localBasePath + "/deepfence/search/vulnerability-rules"
 
 	localVarHeaderParams := make(map[string]string)
 	localVarQueryParams := url.Values{}

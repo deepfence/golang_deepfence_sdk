@@ -22,12 +22,15 @@ var _ MappedNullable = &ModelSecretRule{}
 
 // ModelSecretRule struct for ModelSecretRule
 type ModelSecretRule struct {
-	Id *int32 `json:"id,omitempty"`
 	Level string `json:"level"`
 	Masked bool `json:"masked"`
 	Name *string `json:"name,omitempty"`
 	Part *string `json:"part,omitempty"`
+	Payload string `json:"payload"`
+	RuleId *string `json:"rule_id,omitempty"`
+	Severity string `json:"severity"`
 	SignatureToMatch *string `json:"signature_to_match,omitempty"`
+	Summary string `json:"summary"`
 	UpdatedAt int32 `json:"updated_at"`
 }
 
@@ -37,10 +40,13 @@ type _ModelSecretRule ModelSecretRule
 // This constructor will assign default values to properties that have it defined,
 // and makes sure properties required by API are set, but the set of arguments
 // will change when the set of required properties is changed
-func NewModelSecretRule(level string, masked bool, updatedAt int32) *ModelSecretRule {
+func NewModelSecretRule(level string, masked bool, payload string, severity string, summary string, updatedAt int32) *ModelSecretRule {
 	this := ModelSecretRule{}
 	this.Level = level
 	this.Masked = masked
+	this.Payload = payload
+	this.Severity = severity
+	this.Summary = summary
 	this.UpdatedAt = updatedAt
 	return &this
 }
@@ -51,38 +57,6 @@ func NewModelSecretRule(level string, masked bool, updatedAt int32) *ModelSecret
 func NewModelSecretRuleWithDefaults() *ModelSecretRule {
 	this := ModelSecretRule{}
 	return &this
-}
-
-// GetId returns the Id field value if set, zero value otherwise.
-func (o *ModelSecretRule) GetId() int32 {
-	if o == nil || IsNil(o.Id) {
-		var ret int32
-		return ret
-	}
-	return *o.Id
-}
-
-// GetIdOk returns a tuple with the Id field value if set, nil otherwise
-// and a boolean to check if the value has been set.
-func (o *ModelSecretRule) GetIdOk() (*int32, bool) {
-	if o == nil || IsNil(o.Id) {
-		return nil, false
-	}
-	return o.Id, true
-}
-
-// HasId returns a boolean if a field has been set.
-func (o *ModelSecretRule) HasId() bool {
-	if o != nil && !IsNil(o.Id) {
-		return true
-	}
-
-	return false
-}
-
-// SetId gets a reference to the given int32 and assigns it to the Id field.
-func (o *ModelSecretRule) SetId(v int32) {
-	o.Id = &v
 }
 
 // GetLevel returns the Level field value
@@ -197,6 +171,86 @@ func (o *ModelSecretRule) SetPart(v string) {
 	o.Part = &v
 }
 
+// GetPayload returns the Payload field value
+func (o *ModelSecretRule) GetPayload() string {
+	if o == nil {
+		var ret string
+		return ret
+	}
+
+	return o.Payload
+}
+
+// GetPayloadOk returns a tuple with the Payload field value
+// and a boolean to check if the value has been set.
+func (o *ModelSecretRule) GetPayloadOk() (*string, bool) {
+	if o == nil {
+		return nil, false
+	}
+	return &o.Payload, true
+}
+
+// SetPayload sets field value
+func (o *ModelSecretRule) SetPayload(v string) {
+	o.Payload = v
+}
+
+// GetRuleId returns the RuleId field value if set, zero value otherwise.
+func (o *ModelSecretRule) GetRuleId() string {
+	if o == nil || IsNil(o.RuleId) {
+		var ret string
+		return ret
+	}
+	return *o.RuleId
+}
+
+// GetRuleIdOk returns a tuple with the RuleId field value if set, nil otherwise
+// and a boolean to check if the value has been set.
+func (o *ModelSecretRule) GetRuleIdOk() (*string, bool) {
+	if o == nil || IsNil(o.RuleId) {
+		return nil, false
+	}
+	return o.RuleId, true
+}
+
+// HasRuleId returns a boolean if a field has been set.
+func (o *ModelSecretRule) HasRuleId() bool {
+	if o != nil && !IsNil(o.RuleId) {
+		return true
+	}
+
+	return false
+}
+
+// SetRuleId gets a reference to the given string and assigns it to the RuleId field.
+func (o *ModelSecretRule) SetRuleId(v string) {
+	o.RuleId = &v
+}
+
+// GetSeverity returns the Severity field value
+func (o *ModelSecretRule) GetSeverity() string {
+	if o == nil {
+		var ret string
+		return ret
+	}
+
+	return o.Severity
+}
+
+// GetSeverityOk returns a tuple with the Severity field value
+// and a boolean to check if the value has been set.
+func (o *ModelSecretRule) GetSeverityOk() (*string, bool) {
+	if o == nil {
+		return nil, false
+	}
+	return &o.Severity, true
+}
+
+// SetSeverity sets field value
+func (o *ModelSecretRule) SetSeverity(v string) {
+	o.Severity = v
+}
+
 // GetSignatureToMatch returns the SignatureToMatch field value if set, zero value otherwise.
 func (o *ModelSecretRule) GetSignatureToMatch() string {
 	if o == nil || IsNil(o.SignatureToMatch) {
@@ -227,6 +281,30 @@ func (o *ModelSecretRule) HasSignatureToMatch() bool {
 // SetSignatureToMatch gets a reference to the given string and assigns it to the SignatureToMatch field.
 func (o *ModelSecretRule) SetSignatureToMatch(v string) {
 	o.SignatureToMatch = &v
+}
+
+// GetSummary returns the Summary field value
+func (o *ModelSecretRule) GetSummary() string {
+	if o == nil {
+		var ret string
+		return ret
+	}
+
+	return o.Summary
+}
+
+// GetSummaryOk returns a tuple with the Summary field value
+// and a boolean to check if the value has been set.
+func (o *ModelSecretRule) GetSummaryOk() (*string, bool) {
+	if o == nil {
+		return nil, false
+	}
+	return &o.Summary, true
+}
+
+// SetSummary sets field value
+func (o *ModelSecretRule) SetSummary(v string) {
+	o.Summary = v
 }
 
 // GetUpdatedAt returns the UpdatedAt field value
@@ -263,9 +341,6 @@ func (o ModelSecretRule) MarshalJSON() ([]byte, error) {
 
 func (o ModelSecretRule) ToMap() (map[string]interface{}, error) {
 	toSerialize := map[string]interface{}{}
-	if !IsNil(o.Id) {
-		toSerialize["id"] = o.Id
-	}
 	toSerialize["level"] = o.Level
 	toSerialize["masked"] = o.Masked
 	if !IsNil(o.Name) {
@@ -274,9 +349,15 @@ func (o ModelSecretRule) ToMap() (map[string]interface{}, error) {
 	if !IsNil(o.Part) {
 		toSerialize["part"] = o.Part
 	}
+	toSerialize["payload"] = o.Payload
+	if !IsNil(o.RuleId) {
+		toSerialize["rule_id"] = o.RuleId
+	}
+	toSerialize["severity"] = o.Severity
 	if !IsNil(o.SignatureToMatch) {
 		toSerialize["signature_to_match"] = o.SignatureToMatch
 	}
+	toSerialize["summary"] = o.Summary
 	toSerialize["updated_at"] = o.UpdatedAt
 	return toSerialize, nil
 }
@@ -288,6 +369,9 @@ func (o *ModelSecretRule) UnmarshalJSON(data []byte) (err error) {
 	requiredProperties := []string{
 		"level",
 		"masked",
+		"payload",
+		"severity",
+		"summary",
 		"updated_at",
 	}
 

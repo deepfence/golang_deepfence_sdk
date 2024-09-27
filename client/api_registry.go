@@ -253,8 +253,8 @@ func (a *RegistryAPIService) AddRegistryGCRExecute(r ApiAddRegistryGCRRequest) (
 	if localVarHTTPHeaderAccept != "" {
 		localVarHeaderParams["Accept"] = localVarHTTPHeaderAccept
 	}
-	parameterAddToHeaderOrQuery(localVarFormParams, "name", r.name, "")
-	parameterAddToHeaderOrQuery(localVarFormParams, "registry_url", r.registryUrl, "")
+	parameterAddToHeaderOrQuery(localVarFormParams, "name", r.name, "", "")
+	parameterAddToHeaderOrQuery(localVarFormParams, "registry_url", r.registryUrl, "", "")
 	var serviceAccountJsonLocalVarFormFileName string
 	var serviceAccountJsonLocalVarFileName     string
 	var serviceAccountJsonLocalVarFileBytes    []byte

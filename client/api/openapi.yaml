@@ -4143,6 +4143,51 @@ paths:
       summary: Retrieve K8s data
       tags:
       - Lookup
+  /deepfence/lookup/malware-rules:
+    post:
+      description: Retrieve malware rule resources
+      operationId: getMalwareRules
+      requestBody:
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/LookupLookupFilter'
+      responses:
+        "200":
+          content:
+            application/json:
+              schema:
+                items:
+                  $ref: '#/components/schemas/ModelMalwareRule'
+                type: array
+          description: OK
+        "400":
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ApiDocsBadRequestResponse'
+          description: Bad Request
+        "401":
+          description: Unauthorized
+        "403":
+          description: Forbidden
+        "404":
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ApiDocsFailureResponse'
+          description: Not Found
+        "500":
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ApiDocsFailureResponse'
+          description: Internal Server Error
+      security:
+      - bearer_token: []
+      summary: Get Malware Rules
+      tags:
+      - Lookup
   /deepfence/lookup/malwares:
     post:
       description: Retrieve all the data associated with malwares
@@ -4323,6 +4368,51 @@ paths:
       summary: Get Images in Registry
       tags:
       - Lookup
+  /deepfence/lookup/secret-rules:
+    post:
+      description: Retrieve secret rule resources
+      operationId: getSecretRules
+      requestBody:
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/LookupLookupFilter'
+      responses:
+        "200":
+          content:
+            application/json:
+              schema:
+                items:
+                  $ref: '#/components/schemas/ModelSecretRule'
+                type: array
+          description: OK
+        "400":
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ApiDocsBadRequestResponse'
+          description: Bad Request
+        "401":
+          description: Unauthorized
+        "403":
+          description: Forbidden
+        "404":
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ApiDocsFailureResponse'
+          description: Not Found
+        "500":
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ApiDocsFailureResponse'
+          description: Internal Server Error
+      security:
+      - bearer_token: []
+      summary: Get Secret Rules
+      tags:
+      - Lookup
   /deepfence/lookup/secrets:
     post:
       description: Retrieve all the data associated with secrets
@@ -4411,6 +4501,51 @@ paths:
       security:
       - bearer_token: []
       summary: Retrieve Vulnerabilities data
+      tags:
+      - Lookup
+  /deepfence/lookup/vulnerability-rules:
+    post:
+      description: Retrieve vulnerability rule resources
+      operationId: getVulnerabilityRules
+      requestBody:
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/LookupLookupFilter'
+      responses:
+        "200":
+          content:
+            application/json:
+              schema:
+                items:
+                  $ref: '#/components/schemas/ModelVulnerabilityRule'
+                type: array
+          description: OK
+        "400":
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ApiDocsBadRequestResponse'
+          description: Bad Request
+        "401":
+          description: Unauthorized
+        "403":
+          description: Forbidden
+        "404":
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ApiDocsFailureResponse'
+          description: Not Found
+        "500":
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ApiDocsFailureResponse'
+          description: Internal Server Error
+      security:
+      - bearer_token: []
+      summary: Get Vulnerability Rules
       tags:
       - Lookup
   /deepfence/registryaccount:
@@ -5230,6 +5365,84 @@ paths:
       summary: Bulk Delete Reports
       tags:
       - Reports
+  /deepfence/rules/action/mask:
+    post:
+      description: mask rules
+      operationId: maskRules
+      requestBody:
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/ModelRulesActionRequest'
+      responses:
+        "204":
+          description: No Content
+        "400":
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ApiDocsBadRequestResponse'
+          description: Bad Request
+        "401":
+          description: Unauthorized
+        "403":
+          description: Forbidden
+        "404":
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ApiDocsFailureResponse'
+          description: Not Found
+        "500":
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ApiDocsFailureResponse'
+          description: Internal Server Error
+      security:
+      - bearer_token: []
+      summary: mask Rules
+      tags:
+      - Rules
+  /deepfence/rules/action/unmask:
+    post:
+      description: Unmask rules
+      operationId: unmaskRules
+      requestBody:
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/ModelRulesActionRequest'
+      responses:
+        "204":
+          description: No Content
+        "400":
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ApiDocsBadRequestResponse'
+          description: Bad Request
+        "401":
+          description: Unauthorized
+        "403":
+          description: Forbidden
+        "404":
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ApiDocsFailureResponse'
+          description: Not Found
+        "500":
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ApiDocsFailureResponse'
+          description: Internal Server Error
+      security:
+      - bearer_token: []
+      summary: Unmask Rules
+      tags:
+      - Rules
   /deepfence/scan/{scan_type}/{scan_id}:
     delete:
       description: Delete all scan results for a scan id
@@ -9281,7 +9494,7 @@ paths:
   /deepfence/search/vulnerability-rules:
     post:
       description: Search across all the data associated with vulnerability rules
-      operationId: searchVulerabilityRules
+      operationId: searchVulnerabilityRules
       requestBody:
         content:
           application/json:
@@ -12794,6 +13007,7 @@ components:
         cloud_provider: aws
         scan_status_map:
           key: 1
+        refresh_metadata: refresh_metadata
         host_node_id: host_node_id
         version: version
         refresh_status_map:
@@ -12830,6 +13044,8 @@ components:
           type: string
         refresh_message:
           type: string
+        refresh_metadata:
+          type: string
         refresh_status:
           type: string
         refresh_status_map:
@@ -12847,6 +13063,7 @@ components:
       type: object
     ModelCloudNodeAccountRegisterReq:
       example:
+        initial_request: true
         account_id: account_id
         monitored_accounts:
         - account_id: account_id
@@ -12857,7 +13074,9 @@ components:
           node_id: node_id
         account_name: account_name
         is_organization_deployment: true
+        installation_id: installation_id
         cloud_provider: aws
+        persistent_volume_supported: true
         organization_account_id: organization_account_id
         host_node_id: host_node_id
         version: version
@@ -12875,6 +13094,10 @@ components:
           type: string
         host_node_id:
           type: string
+        initial_request:
+          type: boolean
+        installation_id:
+          type: string
         is_organization_deployment:
           type: boolean
         monitored_accounts:
@@ -12886,12 +13109,15 @@ components:
           type: string
         organization_account_id:
           type: string
+        persistent_volume_supported:
+          type: boolean
         version:
           type: string
       required:
       - account_id
       - cloud_provider
       - host_node_id
+      - installation_id
       - node_id
       - version
       type: object
@@ -12931,6 +13157,7 @@ components:
           cloud_provider: aws
           scan_status_map:
             key: 1
+          refresh_metadata: refresh_metadata
           host_node_id: host_node_id
           version: version
           refresh_status_map:
@@ -12947,6 +13174,7 @@ components:
           cloud_provider: aws
           scan_status_map:
             key: 1
+          refresh_metadata: refresh_metadata
           host_node_id: host_node_id
           version: version
           refresh_status_map:
@@ -18094,16 +18322,19 @@ components:
     ModelMalwareRule:
       example:
         date: date
-        reference: reference
-        rule_id: rule_id
+        severity: severity
+        summary: summary
         filetype: filetype
-        updated_at: 0
         rule_name: rule_name
         author: author
         masked: true
         file_severity: file_severity
         description: description
         version: version
+        reference: reference
+        rule_id: rule_id
+        updated_at: 0
+        payload: payload
         info: info
       properties:
         author:
@@ -18120,11 +18351,17 @@ components:
           type: string
         masked:
           type: boolean
+        payload:
+          type: string
         reference:
           type: string
         rule_id:
           type: string
         rule_name:
+          type: string
+        severity:
+          type: string
+        summary:
           type: string
         updated_at:
           type: integer
@@ -18132,6 +18369,9 @@ components:
           type: string
       required:
       - masked
+      - payload
+      - severity
+      - summary
       - updated_at
       type: object
     ModelMalwareScanResult:
@@ -19385,6 +19625,20 @@ components:
       - access_token
       - refresh_token
       type: object
+    ModelRulesActionRequest:
+      example:
+        rule_ids:
+        - rule_ids
+        - rule_ids
+      properties:
+        rule_ids:
+          items:
+            type: string
+          nullable: true
+          type: array
+      required:
+      - rule_ids
+      type: object
     ModelSbomRequest:
       example:
         scan_id: scan_id
@@ -19743,7 +19997,8 @@ components:
     ModelScanCompareResGithubComDeepfenceThreatMapperDeepfenceServerModelVulnerability:
       example:
         new:
-        - parsed_attack_vector: parsed_attack_vector
+        - epss_score: 1.4658129805029452
+          parsed_attack_vector: parsed_attack_vector
           cve_container_layer: cve_container_layer
           masked: true
           cve_description: cve_description
@@ -19761,20 +20016,23 @@ components:
           cve_attack_vector: cve_attack_vector
           cve_cvss_score: 0.8008281904610115
           rule_id: rule_id
+          cisa_kev: true
           urls:
           - ""
           - ""
           cve_severity: critical
           cve_caused_by_package_path: cve_caused_by_package_path
-          updated_at: 1
+          updated_at: 5
           cve_id: cve_id
           exploit_poc: exploit_poc
+          namespace: namespace
           cve_type: cve_type
           has_live_connection: true
           cve_fixed_in: cve_fixed_in
           cve_link: cve_link
           node_id: node_id
-        - parsed_attack_vector: parsed_attack_vector
+        - epss_score: 1.4658129805029452
+          parsed_attack_vector: parsed_attack_vector
           cve_container_layer: cve_container_layer
           masked: true
           cve_description: cve_description
@@ -19792,14 +20050,16 @@ components:
           cve_attack_vector: cve_attack_vector
           cve_cvss_score: 0.8008281904610115
           rule_id: rule_id
+          cisa_kev: true
           urls:
           - ""
           - ""
           cve_severity: critical
           cve_caused_by_package_path: cve_caused_by_package_path
-          updated_at: 1
+          updated_at: 5
           cve_id: cve_id
           exploit_poc: exploit_poc
+          namespace: namespace
           cve_type: cve_type
           has_live_connection: true
           cve_fixed_in: cve_fixed_in
@@ -20381,16 +20641,17 @@ components:
       type: object
     ModelSecretRule:
       example:
-        updated_at: 6
+        rule_id: rule_id
+        severity: severity
+        summary: summary
+        updated_at: 0
         level: level
+        payload: payload
         masked: true
         part: part
         name: name
         signature_to_match: signature_to_match
-        id: 0
       properties:
-        id:
-          type: integer
         level:
           type: string
         masked:
@@ -20399,13 +20660,24 @@ components:
           type: string
         part:
           type: string
+        payload:
+          type: string
+        rule_id:
+          type: string
+        severity:
+          type: string
         signature_to_match:
+          type: string
+        summary:
           type: string
         updated_at:
           type: integer
       required:
       - level
       - masked
+      - payload
+      - severity
+      - summary
       - updated_at
       type: object
     ModelSecretScanResult:
@@ -20835,6 +21107,7 @@ components:
       type: object
     ModelVulnerability:
       example:
+        epss_score: 1.4658129805029452
         parsed_attack_vector: parsed_attack_vector
         cve_container_layer: cve_container_layer
         masked: true
@@ -20853,20 +21126,24 @@ components:
         cve_attack_vector: cve_attack_vector
         cve_cvss_score: 0.8008281904610115
         rule_id: rule_id
+        cisa_kev: true
         urls:
         - ""
         - ""
         cve_severity: critical
         cve_caused_by_package_path: cve_caused_by_package_path
-        updated_at: 1
+        updated_at: 5
         cve_id: cve_id
         exploit_poc: exploit_poc
+        namespace: namespace
         cve_type: cve_type
         has_live_connection: true
         cve_fixed_in: cve_fixed_in
         cve_link: cve_link
         node_id: node_id
       properties:
+        cisa_kev:
+          type: boolean
         cve_attack_vector:
           type: string
         cve_caused_by_package:
@@ -20897,12 +21174,16 @@ components:
           type: string
         cve_type:
           type: string
+        epss_score:
+          type: number
         exploit_poc:
           type: string
         has_live_connection:
           type: boolean
         masked:
           type: boolean
+        namespace:
+          type: string
         node_id:
           type: string
         parsed_attack_vector:
@@ -20921,6 +21202,7 @@ components:
           nullable: true
           type: array
       required:
+      - cisa_kev
       - cve_attack_vector
       - cve_caused_by_package
       - cve_caused_by_package_path
@@ -20933,9 +21215,11 @@ components:
       - cve_overall_score
       - cve_severity
       - cve_type
+      - epss_score
       - exploit_poc
       - has_live_connection
       - masked
+      - namespace
       - node_id
       - parsed_attack_vector
       - rule_id
@@ -20944,11 +21228,14 @@ components:
       type: object
     ModelVulnerabilityRule:
       example:
-        epss_score: 1.4658129805029452
-        parsed_attack_vector: parsed_attack_vector
+        cve_descriptions:
+        - cve_descriptions
+        - cve_descriptions
+        cve_types:
+        - cve_types
+        - cve_types
+        epss_score: 0.8008281904610115
         masked: true
-        cve_description: cve_description
-        cve_overall_score: 6.027456183070403
         resources:
         - node_type: node_type
           name: name
@@ -20958,54 +21245,112 @@ components:
           name: name
           host_name: host_name
           node_id: node_id
-        cve_attack_vector: cve_attack_vector
-        cve_cvss_score: 0.8008281904610115
+        cve_fixed_ins:
+        - cve_fixed_ins
+        - cve_fixed_ins
+        cve_severities:
+        - cve_severities
+        - cve_severities
         cisa_kev: true
         urls:
+        - urls
+        - urls
+        cve_overall_scores:
         - ""
         - ""
-        cve_severity: cve_severity
-        updated_at: 5
+        parsed_attack_vectors:
+        - parsed_attack_vectors
+        - parsed_attack_vectors
+        updated_at: 6
         cve_id: cve_id
-        exploit_poc: exploit_poc
-        namespace: namespace
-        cve_type: cve_type
-        cve_fixed_in: cve_fixed_in
-        cve_link: cve_link
+        package_names:
+        - package_names
+        - package_names
+        cve_attack_vectors:
+        - cve_attack_vectors
+        - cve_attack_vectors
+        cve_cvss_scores:
+        - ""
+        - ""
+        cve_links:
+        - cve_links
+        - cve_links
+        exploit_pocs:
+        - exploit_pocs
+        - exploit_pocs
+        namespaces:
+        - namespaces
+        - namespaces
         node_id: node_id
       properties:
         cisa_kev:
           type: boolean
-        cve_attack_vector:
-          type: string
-        cve_cvss_score:
-          type: number
-        cve_description:
-          type: string
-        cve_fixed_in:
-          type: string
+        cve_attack_vectors:
+          items:
+            type: string
+          nullable: true
+          type: array
+        cve_cvss_scores:
+          items: {}
+          nullable: true
+          type: array
+        cve_descriptions:
+          items:
+            type: string
+          nullable: true
+          type: array
+        cve_fixed_ins:
+          items:
+            type: string
+          nullable: true
+          type: array
         cve_id:
           type: string
-        cve_link:
-          type: string
-        cve_overall_score:
-          type: number
-        cve_severity:
-          type: string
-        cve_type:
-          type: string
+        cve_links:
+          items:
+            type: string
+          nullable: true
+          type: array
+        cve_overall_scores:
+          items: {}
+          nullable: true
+          type: array
+        cve_severities:
+          items:
+            type: string
+          nullable: true
+          type: array
+        cve_types:
+          items:
+            type: string
+          nullable: true
+          type: array
         epss_score:
           type: number
-        exploit_poc:
-          type: string
+        exploit_pocs:
+          items:
+            type: string
+          nullable: true
+          type: array
         masked:
           type: boolean
-        namespace:
-          type: string
+        namespaces:
+          items:
+            type: string
+          nullable: true
+          type: array
         node_id:
           type: string
-        parsed_attack_vector:
-          type: string
+        package_names:
+          items:
+            type: string
+          nullable: true
+          type: array
+        parsed_attack_vectors:
+          items:
+            type: string
+          nullable: true
+          type: array
         resources:
           items:
             $ref: '#/components/schemas/ModelBasicNode'
@@ -21014,23 +21359,28 @@ components:
         updated_at:
           type: integer
         urls:
-          items: {}
+          items:
+            type: string
           nullable: true
           type: array
       required:
-      - cve_attack_vector
-      - cve_cvss_score
-      - cve_description
-      - cve_fixed_in
+      - cisa_kev
+      - cve_attack_vectors
+      - cve_cvss_scores
+      - cve_descriptions
+      - cve_fixed_ins
       - cve_id
-      - cve_link
-      - cve_overall_score
-      - cve_severity
-      - cve_type
-      - exploit_poc
+      - cve_links
+      - cve_overall_scores
+      - cve_severities
+      - cve_types
+      - epss_score
+      - exploit_pocs
       - masked
+      - namespaces
       - node_id
-      - parsed_attack_vector
+      - package_names
+      - parsed_attack_vectors
       - updated_at
       - urls
       type: object
@@ -21067,7 +21417,8 @@ components:
         node_type: node_type
         updated_at: 1
         vulnerabilities:
-        - parsed_attack_vector: parsed_attack_vector
+        - epss_score: 1.4658129805029452
+          parsed_attack_vector: parsed_attack_vector
           cve_container_layer: cve_container_layer
           masked: true
           cve_description: cve_description
@@ -21085,20 +21436,23 @@ components:
           cve_attack_vector: cve_attack_vector
           cve_cvss_score: 0.8008281904610115
           rule_id: rule_id
+          cisa_kev: true
           urls:
           - ""
           - ""
           cve_severity: critical
           cve_caused_by_package_path: cve_caused_by_package_path
-          updated_at: 1
+          updated_at: 5
           cve_id: cve_id
           exploit_poc: exploit_poc
+          namespace: namespace
           cve_type: cve_type
           has_live_connection: true
           cve_fixed_in: cve_fixed_in
           cve_link: cve_link
           node_id: node_id
-        - parsed_attack_vector: parsed_attack_vector
+        - epss_score: 1.4658129805029452
+          parsed_attack_vector: parsed_attack_vector
           cve_container_layer: cve_container_layer
           masked: true
           cve_description: cve_description
@@ -21116,14 +21470,16 @@ components:
           cve_attack_vector: cve_attack_vector
           cve_cvss_score: 0.8008281904610115
           rule_id: rule_id
+          cisa_kev: true
           urls:
           - ""
           - ""
           cve_severity: critical
           cve_caused_by_package_path: cve_caused_by_package_path
-          updated_at: 1
+          updated_at: 5
           cve_id: cve_id
           exploit_poc: exploit_poc
+          namespace: namespace
           cve_type: cve_type
           has_live_connection: true
           cve_fixed_in: cve_fixed_in
