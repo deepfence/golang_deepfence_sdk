@@ -3,7 +3,7 @@ Deepfence ThreatMapper
 
 Deepfence Runtime API provides programmatic control over Deepfence microservice securing your container, kubernetes and cloud deployments. The API abstracts away underlying infrastructure details like cloud provider,  container distros, container orchestrator and type of deployment. This is one uniform API to manage and control security alerts, policies and response to alerts for microservices running anywhere i.e. managed pure greenfield container deployments or a mix of containers, VMs and serverless paradigms like AWS Fargate.
 
-API version: v2.3.0
+API version: v2.4.0
 Contact: community@deepfence.io
 */
 
@@ -1432,7 +1432,7 @@ func (a *GenerativeAIAPIService) ListGenerativeAiIntegrationExecute(r ApiListGen
 	localVarFormParams := url.Values{}
 
 	if r.integrationType != nil {
-		parameterAddToHeaderOrQuery(localVarQueryParams, "integration_type", r.integrationType, "")
+		parameterAddToHeaderOrQuery(localVarQueryParams, "integration_type", r.integrationType, "form", "")
 	}
 	// to determine the Content-Type header
 	localVarHTTPContentTypes := []string{}

@@ -288,7 +288,7 @@ import (
 )
 
 func main() {
-	modelCloudNodeAccountRegisterReq := *openapiclient.NewModelCloudNodeAccountRegisterReq("AccountId_example", "CloudProvider_example", "HostNodeId_example", "NodeId_example", "Version_example") // ModelCloudNodeAccountRegisterReq |  (optional)
+	modelCloudNodeAccountRegisterReq := *openapiclient.NewModelCloudNodeAccountRegisterReq("AccountId_example", "CloudProvider_example", "HostNodeId_example", "InstallationId_example", "NodeId_example", "Version_example") // ModelCloudNodeAccountRegisterReq |  (optional)
 
 	configuration := openapiclient.NewConfiguration()
 	apiClient := openapiclient.NewAPIClient(configuration)

@@ -16,7 +16,7 @@ info:
     url: https://www.apache.org/licenses/LICENSE-2.0
   termsOfService: /tos
   title: Deepfence ThreatMapper
-  version: v2.3.0
+  version: v2.4.0
 externalDocs:
   description: Deepfence Community
   url: https://community.deepfence.io
@@ -12791,6 +12791,7 @@ components:
         cloud_provider: aws
         scan_status_map:
           key: 1
+        refresh_metadata: refresh_metadata
         host_node_id: host_node_id
         version: version
         refresh_status_map:
@@ -12827,6 +12828,8 @@ components:
           type: string
         refresh_message:
           type: string
+        refresh_metadata:
+          type: string
         refresh_status:
           type: string
         refresh_status_map:
@@ -12844,6 +12847,7 @@ components:
       type: object
     ModelCloudNodeAccountRegisterReq:
       example:
+        initial_request: true
         account_id: account_id
         monitored_accounts:
         - account_id: account_id
@@ -12854,7 +12858,9 @@ components:
           node_id: node_id
         account_name: account_name
         is_organization_deployment: true
+        installation_id: installation_id
         cloud_provider: aws
+        persistent_volume_supported: true
         organization_account_id: organization_account_id
         host_node_id: host_node_id
         version: version
@@ -12872,6 +12878,10 @@ components:
           type: string
         host_node_id:
           type: string
+        initial_request:
+          type: boolean
+        installation_id:
+          type: string
         is_organization_deployment:
           type: boolean
         monitored_accounts:
@@ -12883,12 +12893,15 @@ components:
           type: string
         organization_account_id:
           type: string
+        persistent_volume_supported:
+          type: boolean
         version:
           type: string
       required:
       - account_id
       - cloud_provider
       - host_node_id
+      - installation_id
       - node_id
       - version
       type: object
@@ -12928,6 +12941,7 @@ components:
           cloud_provider: aws
           scan_status_map:
             key: 1
+          refresh_metadata: refresh_metadata
           host_node_id: host_node_id
           version: version
           refresh_status_map:
@@ -12944,6 +12958,7 @@ components:
           cloud_provider: aws
           scan_status_map:
             key: 1
+          refresh_metadata: refresh_metadata
           host_node_id: host_node_id
           version: version
           refresh_status_map:

@@ -8,17 +8,20 @@ Name | Type | Description | Notes
 **AccountName** | Pointer to **string** |  | [optional] 
 **CloudProvider** | **string** |  | 
 **HostNodeId** | **string** |  | 
+**InitialRequest** | Pointer to **bool** |  | [optional] 
+**InstallationId** | **string** |  | 
 **IsOrganizationDeployment** | Pointer to **bool** |  | [optional] 
 **MonitoredAccounts** | Pointer to [**[]ModelCloudNodeMonitoredAccount**](ModelCloudNodeMonitoredAccount.md) |  | [optional] 
 **NodeId** | **string** |  | 
 **OrganizationAccountId** | Pointer to **string** |  | [optional] 
+**PersistentVolumeSupported** | Pointer to **bool** |  | [optional] 
 **Version** | **string** |  | 
 
 ## Methods
 
 ### NewModelCloudNodeAccountRegisterReq
 
-`func NewModelCloudNodeAccountRegisterReq(accountId string, cloudProvider string, hostNodeId string, nodeId string, version string, ) *ModelCloudNodeAccountRegisterReq`
+`func NewModelCloudNodeAccountRegisterReq(accountId string, cloudProvider string, hostNodeId string, installationId string, nodeId string, version string, ) *ModelCloudNodeAccountRegisterReq`
 
 NewModelCloudNodeAccountRegisterReq instantiates a new ModelCloudNodeAccountRegisterReq object
 This constructor will assign default values to properties that have it defined,
@@ -116,6 +119,51 @@ and a boolean to check if the value has been set.
 `func (o *ModelCloudNodeAccountRegisterReq) SetHostNodeId(v string)`
 
 SetHostNodeId sets HostNodeId field to given value.
+
+
+### GetInitialRequest
+
+`func (o *ModelCloudNodeAccountRegisterReq) GetInitialRequest() bool`
+
+GetInitialRequest returns the InitialRequest field if non-nil, zero value otherwise.
+
+### GetInitialRequestOk
+
+`func (o *ModelCloudNodeAccountRegisterReq) GetInitialRequestOk() (*bool, bool)`
+
+GetInitialRequestOk returns a tuple with the InitialRequest field if it's non-nil, zero value otherwise
+and a boolean to check if the value has been set.
+
+### SetInitialRequest
+
+`func (o *ModelCloudNodeAccountRegisterReq) SetInitialRequest(v bool)`
+
+SetInitialRequest sets InitialRequest field to given value.
+
+### HasInitialRequest
+
+`func (o *ModelCloudNodeAccountRegisterReq) HasInitialRequest() bool`
+
+HasInitialRequest returns a boolean if a field has been set.
+
+### GetInstallationId
+
+`func (o *ModelCloudNodeAccountRegisterReq) GetInstallationId() string`
+
+GetInstallationId returns the InstallationId field if non-nil, zero value otherwise.
+
+### GetInstallationIdOk
+
+`func (o *ModelCloudNodeAccountRegisterReq) GetInstallationIdOk() (*string, bool)`
+
+GetInstallationIdOk returns a tuple with the InstallationId field if it's non-nil, zero value otherwise
+and a boolean to check if the value has been set.
+
+### SetInstallationId
+
+`func (o *ModelCloudNodeAccountRegisterReq) SetInstallationId(v string)`
+
+SetInstallationId sets InstallationId field to given value.
 
 
 ### GetIsOrganizationDeployment
@@ -222,6 +270,31 @@ SetOrganizationAccountId sets OrganizationAccountId field to given value.
 `func (o *ModelCloudNodeAccountRegisterReq) HasOrganizationAccountId() bool`
 
 HasOrganizationAccountId returns a boolean if a field has been set.
+
+### GetPersistentVolumeSupported
+
+`func (o *ModelCloudNodeAccountRegisterReq) GetPersistentVolumeSupported() bool`
+
+GetPersistentVolumeSupported returns the PersistentVolumeSupported field if non-nil, zero value otherwise.
+
+### GetPersistentVolumeSupportedOk
+
+`func (o *ModelCloudNodeAccountRegisterReq) GetPersistentVolumeSupportedOk() (*bool, bool)`
+
+GetPersistentVolumeSupportedOk returns a tuple with the PersistentVolumeSupported field if it's non-nil, zero value otherwise
+and a boolean to check if the value has been set.
+
+### SetPersistentVolumeSupported
+
+`func (o *ModelCloudNodeAccountRegisterReq) SetPersistentVolumeSupported(v bool)`
+
+SetPersistentVolumeSupported sets PersistentVolumeSupported field to given value.
+
+### HasPersistentVolumeSupported
+
+`func (o *ModelCloudNodeAccountRegisterReq) HasPersistentVolumeSupported() bool`
+
+HasPersistentVolumeSupported returns a boolean if a field has been set.
 
 ### GetVersion
 
