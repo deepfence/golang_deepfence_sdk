@@ -4,6 +4,7 @@
 
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
+**CloudProvider** | Pointer to **string** |  | [optional] 
 **ContainerNames** | Pointer to **[]string** |  | [optional] 
 **FieldsFilters** | Pointer to [**ReportersFieldsFilters**](ReportersFieldsFilters.md) |  | [optional] 
 **NodeIds** | [**[]ModelNodeIdentifier**](ModelNodeIdentifier.md) |  | 
@@ -26,6 +27,31 @@ will change when the set of required properties is changed
 NewModelIntegrationFiltersWithDefaults instantiates a new ModelIntegrationFilters object
 This constructor will only assign default values to properties that have it defined,
 but it doesn't guarantee that properties required by API are set
+
+### GetCloudProvider
+
+`func (o *ModelIntegrationFilters) GetCloudProvider() string`
+
+GetCloudProvider returns the CloudProvider field if non-nil, zero value otherwise.
+
+### GetCloudProviderOk
+
+`func (o *ModelIntegrationFilters) GetCloudProviderOk() (*string, bool)`
+
+GetCloudProviderOk returns a tuple with the CloudProvider field if it's non-nil, zero value otherwise
+and a boolean to check if the value has been set.
+
+### SetCloudProvider
+
+`func (o *ModelIntegrationFilters) SetCloudProvider(v string)`
+
+SetCloudProvider sets CloudProvider field to given value.
+
+### HasCloudProvider
+
+`func (o *ModelIntegrationFilters) HasCloudProvider() bool`
+
+HasCloudProvider returns a boolean if a field has been set.
 
 ### GetContainerNames
 

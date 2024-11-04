@@ -12197,6 +12197,7 @@ components:
       type: object
     IngestersVulnerability:
       example:
+        epss_score: 1.4658129805029452
         parsed_attack_vector: parsed_attack_vector
         cve_container_layer: cve_container_layer
         cve_description: cve_description
@@ -12204,6 +12205,7 @@ components:
         cve_caused_by_package: cve_caused_by_package
         cve_attack_vector: cve_attack_vector
         cve_cvss_score: 0.8008281904610115
+        cisa_kev: true
         urls:
         - urls
         - urls
@@ -12218,8 +12220,10 @@ components:
         init_exploitability_score: 5
         scan_id: scan_id
         cve_link: cve_link
-        exploitability_score: 1
+        exploitability_score: 5
       properties:
+        cisa_kev:
+          type: boolean
         cve_attack_vector:
           type: string
         cve_caused_by_package:
@@ -12244,6 +12248,8 @@ components:
           type: string
         cve_type:
           type: string
+        epss_score:
+          type: number
         exploit_poc:
           type: string
         exploitability_score:
@@ -16122,6 +16128,7 @@ components:
                 key:
                 - ""
                 - ""
+          cloud_provider: cloud_provider
           container_names:
           - container_names
           - container_names
@@ -16193,6 +16200,7 @@ components:
               key:
               - ""
               - ""
+        cloud_provider: cloud_provider
         container_names:
         - container_names
         - container_names
@@ -16202,6 +16210,8 @@ components:
         - node_type: image
           node_id: node_id
       properties:
+        cloud_provider:
+          type: string
         container_names:
           items:
             type: string
@@ -16262,6 +16272,7 @@ components:
                 key:
                 - ""
                 - ""
+          cloud_provider: cloud_provider
           container_names:
           - container_names
           - container_names
@@ -16337,6 +16348,7 @@ components:
                 key:
                 - ""
                 - ""
+          cloud_provider: cloud_provider
           container_names:
           - container_names
           - container_names

@@ -22,6 +22,7 @@ var _ MappedNullable = &ModelIntegrationFilters{}
 
 // ModelIntegrationFilters struct for ModelIntegrationFilters
 type ModelIntegrationFilters struct {
+	CloudProvider *string `json:"cloud_provider,omitempty"`
 	ContainerNames []string `json:"container_names,omitempty"`
 	FieldsFilters *ReportersFieldsFilters `json:"fields_filters,omitempty"`
 	NodeIds []ModelNodeIdentifier `json:"node_ids"`
@@ -45,6 +46,38 @@ func NewModelIntegrationFilters(nodeIds []ModelNodeIdentifier) *ModelIntegration
 func NewModelIntegrationFiltersWithDefaults() *ModelIntegrationFilters {
 	this := ModelIntegrationFilters{}
 	return &this
+}
+
+// GetCloudProvider returns the CloudProvider field value if set, zero value otherwise.
+func (o *ModelIntegrationFilters) GetCloudProvider() string {
+	if o == nil || IsNil(o.CloudProvider) {
+		var ret string
+		return ret
+	}
+	return *o.CloudProvider
+}
+
+// GetCloudProviderOk returns a tuple with the CloudProvider field value if set, nil otherwise
+// and a boolean to check if the value has been set.
+func (o *ModelIntegrationFilters) GetCloudProviderOk() (*string, bool) {
+	if o == nil || IsNil(o.CloudProvider) {
+		return nil, false
+	}
+	return o.CloudProvider, true
+}
+
+// HasCloudProvider returns a boolean if a field has been set.
+func (o *ModelIntegrationFilters) HasCloudProvider() bool {
+	if o != nil && !IsNil(o.CloudProvider) {
+		return true
+	}
+
+	return false
+}
+
+// SetCloudProvider gets a reference to the given string and assigns it to the CloudProvider field.
+func (o *ModelIntegrationFilters) SetCloudProvider(v string) {
+	o.CloudProvider = &v
 }
 
 // GetContainerNames returns the ContainerNames field value if set, zero value otherwise (both if not set or set to explicit null).
@@ -148,6 +181,9 @@ func (o ModelIntegrationFilters) MarshalJSON() ([]byte, error) {
 
 func (o ModelIntegrationFilters) ToMap() (map[string]interface{}, error) {
 	toSerialize := map[string]interface{}{}
+	if !IsNil(o.CloudProvider) {
+		toSerialize["cloud_provider"] = o.CloudProvider
+	}
 	if o.ContainerNames != nil {
 		toSerialize["container_names"] = o.ContainerNames
 	}
