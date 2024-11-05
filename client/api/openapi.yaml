@@ -16,7 +16,7 @@ info:
     url: https://www.apache.org/licenses/LICENSE-2.0
   termsOfService: /tos
   title: Deepfence ThreatMapper
-  version: v3.0.0
+  version: v2.5.0
 externalDocs:
   description: Deepfence Community
   url: https://community.deepfence.io
