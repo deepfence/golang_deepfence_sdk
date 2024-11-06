@@ -8,9 +8,9 @@ Name | Type | Description | Notes
 **Level** | **string** |  | 
 **Masked** | **bool** |  | 
 **MatchedContent** | **string** |  | 
-**Name** | **string** |  | 
 **NodeId** | **string** |  | 
 **Resources** | Pointer to [**[]ModelBasicNode**](ModelBasicNode.md) |  | [optional] 
+**RuleId** | **string** |  | 
 **Score** | **float32** |  | 
 **StartingIndex** | **int32** |  | 
 **UpdatedAt** | **int32** |  | 
@@ -19,7 +19,7 @@ Name | Type | Description | Notes
 
 ### NewModelSecret
 
-`func NewModelSecret(fullFilename string, level string, masked bool, matchedContent string, name string, nodeId string, score float32, startingIndex int32, updatedAt int32, ) *ModelSecret`
+`func NewModelSecret(fullFilename string, level string, masked bool, matchedContent string, nodeId string, ruleId string, score float32, startingIndex int32, updatedAt int32, ) *ModelSecret`
 
 NewModelSecret instantiates a new ModelSecret object
 This constructor will assign default values to properties that have it defined,
@@ -114,26 +114,6 @@ and a boolean to check if the value has been set.
 SetMatchedContent sets MatchedContent field to given value.
 
 
-### GetName
-
-`func (o *ModelSecret) GetName() string`
-
-GetName returns the Name field if non-nil, zero value otherwise.
-
-### GetNameOk
-
-`func (o *ModelSecret) GetNameOk() (*string, bool)`
-
-GetNameOk returns a tuple with the Name field if it's non-nil, zero value otherwise
-and a boolean to check if the value has been set.
-
-### SetName
-
-`func (o *ModelSecret) SetName(v string)`
-
-SetName sets Name field to given value.
-
-
 ### GetNodeId
 
 `func (o *ModelSecret) GetNodeId() string`
@@ -189,6 +169,26 @@ HasResources returns a boolean if a field has been set.
 `func (o *ModelSecret) UnsetResources()`
 
 UnsetResources ensures that no value is present for Resources, not even an explicit nil
+### GetRuleId
+
+`func (o *ModelSecret) GetRuleId() string`
+
+GetRuleId returns the RuleId field if non-nil, zero value otherwise.
+
+### GetRuleIdOk
+
+`func (o *ModelSecret) GetRuleIdOk() (*string, bool)`
+
+GetRuleIdOk returns a tuple with the RuleId field if it's non-nil, zero value otherwise
+and a boolean to check if the value has been set.
+
+### SetRuleId
+
+`func (o *ModelSecret) SetRuleId(v string)`
+
+SetRuleId sets RuleId field to given value.
+
+
 ### GetScore
 
 `func (o *ModelSecret) GetScore() float32`

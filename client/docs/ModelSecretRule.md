@@ -6,7 +6,6 @@ Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
 **Level** | **string** |  | 
 **Masked** | **bool** |  | 
-**Name** | Pointer to **string** |  | [optional] 
 **Part** | Pointer to **string** |  | [optional] 
 **Payload** | **string** |  | 
 **RuleId** | Pointer to **string** |  | [optional] 
@@ -73,31 +72,6 @@ and a boolean to check if the value has been set.
 
 SetMasked sets Masked field to given value.
 
-
-### GetName
-
-`func (o *ModelSecretRule) GetName() string`
-
-GetName returns the Name field if non-nil, zero value otherwise.
-
-### GetNameOk
-
-`func (o *ModelSecretRule) GetNameOk() (*string, bool)`
-
-GetNameOk returns a tuple with the Name field if it's non-nil, zero value otherwise
-and a boolean to check if the value has been set.
-
-### SetName
-
-`func (o *ModelSecretRule) SetName(v string)`
-
-SetName sets Name field to given value.
-
-### HasName
-
-`func (o *ModelSecretRule) HasName() bool`
-
-HasName returns a boolean if a field has been set.
 
 ### GetPart
 

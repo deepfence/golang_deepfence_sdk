@@ -24,7 +24,6 @@ var _ MappedNullable = &ModelSecretRule{}
 type ModelSecretRule struct {
 	Level string `json:"level"`
 	Masked bool `json:"masked"`
-	Name *string `json:"name,omitempty"`
 	Part *string `json:"part,omitempty"`
 	Payload string `json:"payload"`
 	RuleId *string `json:"rule_id,omitempty"`
@@ -105,38 +104,6 @@ func (o *ModelSecretRule) GetMaskedOk() (*bool, bool) {
 // SetMasked sets field value
 func (o *ModelSecretRule) SetMasked(v bool) {
 	o.Masked = v
-}
-
-// GetName returns the Name field value if set, zero value otherwise.
-func (o *ModelSecretRule) GetName() string {
-	if o == nil || IsNil(o.Name) {
-		var ret string
-		return ret
-	}
-	return *o.Name
-}
-
-// GetNameOk returns a tuple with the Name field value if set, nil otherwise
-// and a boolean to check if the value has been set.
-func (o *ModelSecretRule) GetNameOk() (*string, bool) {
-	if o == nil || IsNil(o.Name) {
-		return nil, false
-	}
-	return o.Name, true
-}
-
-// HasName returns a boolean if a field has been set.
-func (o *ModelSecretRule) HasName() bool {
-	if o != nil && !IsNil(o.Name) {
-		return true
-	}
-
-	return false
-}
-
-// SetName gets a reference to the given string and assigns it to the Name field.
-func (o *ModelSecretRule) SetName(v string) {
-	o.Name = &v
 }
 
 // GetPart returns the Part field value if set, zero value otherwise.
@@ -343,9 +310,6 @@ func (o ModelSecretRule) ToMap() (map[string]interface{}, error) {
 	toSerialize := map[string]interface{}{}
 	toSerialize["level"] = o.Level
 	toSerialize["masked"] = o.Masked
-	if !IsNil(o.Name) {
-		toSerialize["name"] = o.Name
-	}
 	if !IsNil(o.Part) {
 		toSerialize["part"] = o.Part
 	}

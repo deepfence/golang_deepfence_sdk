@@ -19961,13 +19961,13 @@ components:
     ModelScanCompareResGithubComDeepfenceThreatMapperDeepfenceServerModelSecret:
       example:
         new:
-        - score: 0.8008281904610115
+        - rule_id: rule_id
+          score: 0.8008281904610115
           full_filename: full_filename
           matched_content: matched_content
           updated_at: 1
           level: critical
           masked: true
-          name: name
           starting_index: 6
           resources:
           - node_type: node_type
@@ -19979,13 +19979,13 @@ components:
             host_name: host_name
             node_id: node_id
           node_id: node_id
-        - score: 0.8008281904610115
+        - rule_id: rule_id
+          score: 0.8008281904610115
           full_filename: full_filename
           matched_content: matched_content
           updated_at: 1
           level: critical
           masked: true
-          name: name
           starting_index: 6
           resources:
           - node_type: node_type
@@ -20592,13 +20592,13 @@ components:
       type: object
     ModelSecret:
       example:
+        rule_id: rule_id
         score: 0.8008281904610115
         full_filename: full_filename
         matched_content: matched_content
         updated_at: 1
         level: critical
         masked: true
-        name: name
         starting_index: 6
         resources:
         - node_type: node_type
@@ -20625,8 +20625,6 @@ components:
           type: boolean
         matched_content:
           type: string
-        name:
-          type: string
         node_id:
           type: string
         resources:
@@ -20634,6 +20632,8 @@ components:
             $ref: '#/components/schemas/ModelBasicNode'
           nullable: true
           type: array
+        rule_id:
+          type: string
         score:
           type: number
         starting_index:
@@ -20645,8 +20645,8 @@ components:
       - level
       - masked
       - matched_content
-      - name
       - node_id
+      - rule_id
       - score
       - starting_index
       - updated_at
@@ -20661,15 +20661,12 @@ components:
         payload: payload
         masked: true
         part: part
-        name: name
         signature_to_match: signature_to_match
       properties:
         level:
           type: string
         masked:
           type: boolean
-        name:
-          type: string
         part:
           type: string
         payload:
@@ -20701,13 +20698,13 @@ components:
         node_name: node_name
         created_at: 0
         secrets:
-        - score: 0.8008281904610115
+        - rule_id: rule_id
+          score: 0.8008281904610115
           full_filename: full_filename
           matched_content: matched_content
           updated_at: 1
           level: critical
           masked: true
-          name: name
           starting_index: 6
           resources:
           - node_type: node_type
@@ -20719,13 +20716,13 @@ components:
             host_name: host_name
             node_id: node_id
           node_id: node_id
-        - score: 0.8008281904610115
+        - rule_id: rule_id
+          score: 0.8008281904610115
           full_filename: full_filename
           matched_content: matched_content
           updated_at: 1
           level: critical
           masked: true
-          name: name
           starting_index: 6
           resources:
           - node_type: node_type

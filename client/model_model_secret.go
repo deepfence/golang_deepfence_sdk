@@ -26,9 +26,9 @@ type ModelSecret struct {
 	Level string `json:"level"`
 	Masked bool `json:"masked"`
 	MatchedContent string `json:"matched_content"`
-	Name string `json:"name"`
 	NodeId string `json:"node_id"`
 	Resources []ModelBasicNode `json:"resources,omitempty"`
+	RuleId string `json:"rule_id"`
 	Score float32 `json:"score"`
 	StartingIndex int32 `json:"starting_index"`
 	UpdatedAt int32 `json:"updated_at"`
@@ -40,14 +40,14 @@ type _ModelSecret ModelSecret
 // This constructor will assign default values to properties that have it defined,
 // and makes sure properties required by API are set, but the set of arguments
 // will change when the set of required properties is changed
-func NewModelSecret(fullFilename string, level string, masked bool, matchedContent string, name string, nodeId string, score float32, startingIndex int32, updatedAt int32) *ModelSecret {
+func NewModelSecret(fullFilename string, level string, masked bool, matchedContent string, nodeId string, ruleId string, score float32, startingIndex int32, updatedAt int32) *ModelSecret {
 	this := ModelSecret{}
 	this.FullFilename = fullFilename
 	this.Level = level
 	this.Masked = masked
 	this.MatchedContent = matchedContent
-	this.Name = name
 	this.NodeId = nodeId
+	this.RuleId = ruleId
 	this.Score = score
 	this.StartingIndex = startingIndex
 	this.UpdatedAt = updatedAt
@@ -158,30 +158,6 @@ func (o *ModelSecret) SetMatchedContent(v string) {
 	o.MatchedContent = v
 }
 
-// GetName returns the Name field value
-func (o *ModelSecret) GetName() string {
-	if o == nil {
-		var ret string
-		return ret
-	}
-
-	return o.Name
-}
-
-// GetNameOk returns a tuple with the Name field value
-// and a boolean to check if the value has been set.
-func (o *ModelSecret) GetNameOk() (*string, bool) {
-	if o == nil {
-		return nil, false
-	}
-	return &o.Name, true
-}
-
-// SetName sets field value
-func (o *ModelSecret) SetName(v string) {
-	o.Name = v
-}
-
 // GetNodeId returns the NodeId field value
 func (o *ModelSecret) GetNodeId() string {
 	if o == nil {
@@ -237,6 +213,30 @@ func (o *ModelSecret) HasResources() bool {
 // SetResources gets a reference to the given []ModelBasicNode and assigns it to the Resources field.
 func (o *ModelSecret) SetResources(v []ModelBasicNode) {
 	o.Resources = v
+}
+
+// GetRuleId returns the RuleId field value
+func (o *ModelSecret) GetRuleId() string {
+	if o == nil {
+		var ret string
+		return ret
+	}
+
+	return o.RuleId
+}
+
+// GetRuleIdOk returns a tuple with the RuleId field value
+// and a boolean to check if the value has been set.
+func (o *ModelSecret) GetRuleIdOk() (*string, bool) {
+	if o == nil {
+		return nil, false
+	}
+	return &o.RuleId, true
+}
+
+// SetRuleId sets field value
+func (o *ModelSecret) SetRuleId(v string) {
+	o.RuleId = v
 }
 
 // GetScore returns the Score field value
@@ -325,11 +325,11 @@ func (o ModelSecret) ToMap() (map[string]interface{}, error) {
 	toSerialize["level"] = o.Level
 	toSerialize["masked"] = o.Masked
 	toSerialize["matched_content"] = o.MatchedContent
-	toSerialize["name"] = o.Name
 	toSerialize["node_id"] = o.NodeId
 	if o.Resources != nil {
 		toSerialize["resources"] = o.Resources
 	}
+	toSerialize["rule_id"] = o.RuleId
 	toSerialize["score"] = o.Score
 	toSerialize["starting_index"] = o.StartingIndex
 	toSerialize["updated_at"] = o.UpdatedAt
@@ -345,8 +345,8 @@ func (o *ModelSecret) UnmarshalJSON(data []byte) (err error) {
 		"level",
 		"masked",
 		"matched_content",
-		"name",
 		"node_id",
+		"rule_id",
 		"score",
 		"starting_index",
 		"updated_at",
