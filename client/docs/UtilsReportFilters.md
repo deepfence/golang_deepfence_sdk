@@ -7,7 +7,7 @@ Name | Type | Description | Notes
 **AdvancedReportFilters** | Pointer to [**UtilsAdvancedReportFilters**](UtilsAdvancedReportFilters.md) |  | [optional] 
 **IncludeDeadNodes** | Pointer to **bool** |  | [optional] 
 **MostExploitableReport** | Pointer to **bool** |  | [optional] 
-**NodeType** | **string** |  | 
+**NodeType** | **[]string** |  | 
 **ScanId** | Pointer to **string** |  | [optional] 
 **ScanType** | **string** |  | 
 **SeverityOrCheckType** | Pointer to **[]string** |  | [optional] 
@@ -16,7 +16,7 @@ Name | Type | Description | Notes
 
 ### NewUtilsReportFilters
 
-`func NewUtilsReportFilters(nodeType string, scanType string, ) *UtilsReportFilters`
+`func NewUtilsReportFilters(nodeType []string, scanType string, ) *UtilsReportFilters`
 
 NewUtilsReportFilters instantiates a new UtilsReportFilters object
 This constructor will assign default values to properties that have it defined,
@@ -108,24 +108,34 @@ HasMostExploitableReport returns a boolean if a field has been set.
 
 ### GetNodeType
 
-`func (o *UtilsReportFilters) GetNodeType() string`
+`func (o *UtilsReportFilters) GetNodeType() []string`
 
 GetNodeType returns the NodeType field if non-nil, zero value otherwise.
 
 ### GetNodeTypeOk
 
-`func (o *UtilsReportFilters) GetNodeTypeOk() (*string, bool)`
+`func (o *UtilsReportFilters) GetNodeTypeOk() (*[]string, bool)`
 
 GetNodeTypeOk returns a tuple with the NodeType field if it's non-nil, zero value otherwise
 and a boolean to check if the value has been set.
 
 ### SetNodeType
 
-`func (o *UtilsReportFilters) SetNodeType(v string)`
+`func (o *UtilsReportFilters) SetNodeType(v []string)`
 
 SetNodeType sets NodeType field to given value.
 
 
+### SetNodeTypeNil
+
+`func (o *UtilsReportFilters) SetNodeTypeNil(b bool)`
+
+ SetNodeTypeNil sets the value for NodeType to be an explicit nil
+
+### UnsetNodeType
+`func (o *UtilsReportFilters) UnsetNodeType()`
+
+UnsetNodeType ensures that no value is present for NodeType, not even an explicit nil
 ### GetScanId
 
 `func (o *UtilsReportFilters) GetScanId() string`

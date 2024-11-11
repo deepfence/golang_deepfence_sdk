@@ -25,7 +25,7 @@ type UtilsReportFilters struct {
 	AdvancedReportFilters *UtilsAdvancedReportFilters `json:"advanced_report_filters,omitempty"`
 	IncludeDeadNodes *bool `json:"include_dead_nodes,omitempty"`
 	MostExploitableReport *bool `json:"most_exploitable_report,omitempty"`
-	NodeType string `json:"node_type"`
+	NodeType []string `json:"node_type"`
 	ScanId *string `json:"scan_id,omitempty"`
 	ScanType string `json:"scan_type"`
 	SeverityOrCheckType []string `json:"severity_or_check_type,omitempty"`
@@ -37,7 +37,7 @@ type _UtilsReportFilters UtilsReportFilters
 // This constructor will assign default values to properties that have it defined,
 // and makes sure properties required by API are set, but the set of arguments
 // will change when the set of required properties is changed
-func NewUtilsReportFilters(nodeType string, scanType string) *UtilsReportFilters {
+func NewUtilsReportFilters(nodeType []string, scanType string) *UtilsReportFilters {
 	this := UtilsReportFilters{}
 	this.NodeType = nodeType
 	this.ScanType = scanType
@@ -149,9 +149,10 @@ func (o *UtilsReportFilters) SetMostExploitableReport(v bool) {
 }
 
 // GetNodeType returns the NodeType field value
-func (o *UtilsReportFilters) GetNodeType() string {
+// If the value is explicit nil, the zero value for []string will be returned
+func (o *UtilsReportFilters) GetNodeType() []string {
 	if o == nil {
-		var ret string
+		var ret []string
 		return ret
 	}
 
@@ -160,15 +161,16 @@ func (o *UtilsReportFilters) GetNodeType() string {
 
 // GetNodeTypeOk returns a tuple with the NodeType field value
 // and a boolean to check if the value has been set.
-func (o *UtilsReportFilters) GetNodeTypeOk() (*string, bool) {
-	if o == nil {
+// NOTE: If the value is an explicit nil, `nil, true` will be returned
+func (o *UtilsReportFilters) GetNodeTypeOk() ([]string, bool) {
+	if o == nil || IsNil(o.NodeType) {
 		return nil, false
 	}
-	return &o.NodeType, true
+	return o.NodeType, true
 }
 
 // SetNodeType sets field value
-func (o *UtilsReportFilters) SetNodeType(v string) {
+func (o *UtilsReportFilters) SetNodeType(v []string) {
 	o.NodeType = v
 }
 
@@ -280,7 +282,9 @@ func (o UtilsReportFilters) ToMap() (map[string]interface{}, error) {
 	if !IsNil(o.MostExploitableReport) {
 		toSerialize["most_exploitable_report"] = o.MostExploitableReport
 	}
-	toSerialize["node_type"] = o.NodeType
+	if o.NodeType != nil {
+		toSerialize["node_type"] = o.NodeType
+	}
 	if !IsNil(o.ScanId) {
 		toSerialize["scan_id"] = o.ScanId
 	}

@@ -27,6 +27,7 @@ type ModelGenerateReportReq struct {
 	Options *UtilsReportOptions `json:"options,omitempty"`
 	ReportType string `json:"report_type"`
 	ToTimestamp *int32 `json:"to_timestamp,omitempty"`
+	ZippedReport *bool `json:"zipped_report,omitempty"`
 }
 
 type _ModelGenerateReportReq ModelGenerateReportReq
@@ -201,6 +202,38 @@ func (o *ModelGenerateReportReq) SetToTimestamp(v int32) {
 	o.ToTimestamp = &v
 }
 
+// GetZippedReport returns the ZippedReport field value if set, zero value otherwise.
+func (o *ModelGenerateReportReq) GetZippedReport() bool {
+	if o == nil || IsNil(o.ZippedReport) {
+		var ret bool
+		return ret
+	}
+	return *o.ZippedReport
+}
+
+// GetZippedReportOk returns a tuple with the ZippedReport field value if set, nil otherwise
+// and a boolean to check if the value has been set.
+func (o *ModelGenerateReportReq) GetZippedReportOk() (*bool, bool) {
+	if o == nil || IsNil(o.ZippedReport) {
+		return nil, false
+	}
+	return o.ZippedReport, true
+}
+
+// HasZippedReport returns a boolean if a field has been set.
+func (o *ModelGenerateReportReq) HasZippedReport() bool {
+	if o != nil && !IsNil(o.ZippedReport) {
+		return true
+	}
+
+	return false
+}
+
+// SetZippedReport gets a reference to the given bool and assigns it to the ZippedReport field.
+func (o *ModelGenerateReportReq) SetZippedReport(v bool) {
+	o.ZippedReport = &v
+}
+
 func (o ModelGenerateReportReq) MarshalJSON() ([]byte, error) {
 	toSerialize,err := o.ToMap()
 	if err != nil {
@@ -223,6 +256,9 @@ func (o ModelGenerateReportReq) ToMap() (map[string]interface{}, error) {
 	toSerialize["report_type"] = o.ReportType
 	if !IsNil(o.ToTimestamp) {
 		toSerialize["to_timestamp"] = o.ToTimestamp
+	}
+	if !IsNil(o.ZippedReport) {
+		toSerialize["zipped_report"] = o.ZippedReport
 	}
 	return toSerialize, nil
 }

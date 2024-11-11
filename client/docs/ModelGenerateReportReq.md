@@ -9,6 +9,7 @@ Name | Type | Description | Notes
 **Options** | Pointer to [**UtilsReportOptions**](UtilsReportOptions.md) |  | [optional] 
 **ReportType** | **string** |  | 
 **ToTimestamp** | Pointer to **int32** |  | [optional] 
+**ZippedReport** | Pointer to **bool** |  | [optional] 
 
 ## Methods
 
@@ -148,6 +149,31 @@ SetToTimestamp sets ToTimestamp field to given value.
 `func (o *ModelGenerateReportReq) HasToTimestamp() bool`
 
 HasToTimestamp returns a boolean if a field has been set.
+
+### GetZippedReport
+
+`func (o *ModelGenerateReportReq) GetZippedReport() bool`
+
+GetZippedReport returns the ZippedReport field if non-nil, zero value otherwise.
+
+### GetZippedReportOk
+
+`func (o *ModelGenerateReportReq) GetZippedReportOk() (*bool, bool)`
+
+GetZippedReportOk returns a tuple with the ZippedReport field if it's non-nil, zero value otherwise
+and a boolean to check if the value has been set.
+
+### SetZippedReport
+
+`func (o *ModelGenerateReportReq) SetZippedReport(v bool)`
+
+SetZippedReport sets ZippedReport field to given value.
+
+### HasZippedReport
+
+`func (o *ModelGenerateReportReq) HasZippedReport() bool`
+
+HasZippedReport returns a boolean if a field has been set.
 
 
 [[Back to Model list]](../README.md#documentation-for-models) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to README]](../README.md)

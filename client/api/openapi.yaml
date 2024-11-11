@@ -14606,9 +14606,12 @@ components:
         options:
           sbom_format: syft-json
         from_timestamp: 0
+        zipped_report: true
         filters:
           include_dead_nodes: true
-          node_type: host
+          node_type:
+          - node_type
+          - node_type
           most_exploitable_report: true
           advanced_report_filters:
             image_name:
@@ -14656,6 +14659,8 @@ components:
           type: string
         to_timestamp:
           type: integer
+        zipped_report:
+          type: boolean
       required:
       - report_type
       type: object
@@ -22756,7 +22761,9 @@ components:
     UtilsReportFilters:
       example:
         include_dead_nodes: true
-        node_type: host
+        node_type:
+        - node_type
+        - node_type
         most_exploitable_report: true
         advanced_report_filters:
           image_name:
@@ -22805,7 +22812,10 @@ components:
           - aws
           - gcp
           - azure
-          type: string
+          items:
+            type: string
+          nullable: true
+          type: array
         scan_id:
           type: string
         scan_type:
