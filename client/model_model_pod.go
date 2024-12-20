@@ -3,7 +3,7 @@ Deepfence ThreatMapper
 
 Deepfence Runtime API provides programmatic control over Deepfence microservice securing your container, kubernetes and cloud deployments. The API abstracts away underlying infrastructure details like cloud provider,  container distros, container orchestrator and type of deployment. This is one uniform API to manage and control security alerts, policies and response to alerts for microservices running anywhere i.e. managed pure greenfield container deployments or a mix of containers, VMs and serverless paradigms like AWS Fargate.
 
-API version: v2.5.0
+API version: v2.5.2
 Contact: community@deepfence.io
 */
 
@@ -39,6 +39,7 @@ type ModelPod struct {
 	PodName string `json:"pod_name"`
 	Processes []ModelProcess `json:"processes"`
 	SecretScanStatus string `json:"secret_scan_status"`
+	Tags []string `json:"tags"`
 	VulnerabilityScanStatus string `json:"vulnerability_scan_status"`
 }
 
@@ -48,7 +49,7 @@ type _ModelPod ModelPod
 // This constructor will assign default values to properties that have it defined,
 // and makes sure properties required by API are set, but the set of arguments
 // will change when the set of required properties is changed
-func NewModelPod(containers []ModelContainer, hostName string, isDeepfenceSystem bool, kubernetesClusterId string, kubernetesClusterName string, kubernetesCreated string, kubernetesIp string, kubernetesIsInHostNetwork bool, kubernetesLabels map[string]interface{}, kubernetesNamespace string, kubernetesState string, malwareScanStatus string, nodeId string, nodeName string, podName string, processes []ModelProcess, secretScanStatus string, vulnerabilityScanStatus string) *ModelPod {
+func NewModelPod(containers []ModelContainer, hostName string, isDeepfenceSystem bool, kubernetesClusterId string, kubernetesClusterName string, kubernetesCreated string, kubernetesIp string, kubernetesIsInHostNetwork bool, kubernetesLabels map[string]interface{}, kubernetesNamespace string, kubernetesState string, malwareScanStatus string, nodeId string, nodeName string, podName string, processes []ModelProcess, secretScanStatus string, tags []string, vulnerabilityScanStatus string) *ModelPod {
 	this := ModelPod{}
 	this.Containers = containers
 	this.HostName = hostName
@@ -67,6 +68,7 @@ func NewModelPod(containers []ModelContainer, hostName string, isDeepfenceSystem
 	this.PodName = podName
 	this.Processes = processes
 	this.SecretScanStatus = secretScanStatus
+	this.Tags = tags
 	this.VulnerabilityScanStatus = vulnerabilityScanStatus
 	return &this
 }
@@ -493,6 +495,32 @@ func (o *ModelPod) SetSecretScanStatus(v string) {
 	o.SecretScanStatus = v
 }
 
+// GetTags returns the Tags field value
+// If the value is explicit nil, the zero value for []string will be returned
+func (o *ModelPod) GetTags() []string {
+	if o == nil {
+		var ret []string
+		return ret
+	}
+
+	return o.Tags
+}
+
+// GetTagsOk returns a tuple with the Tags field value
+// and a boolean to check if the value has been set.
+// NOTE: If the value is an explicit nil, `nil, true` will be returned
+func (o *ModelPod) GetTagsOk() ([]string, bool) {
+	if o == nil || IsNil(o.Tags) {
+		return nil, false
+	}
+	return o.Tags, true
+}
+
+// SetTags sets field value
+func (o *ModelPod) SetTags(v []string) {
+	o.Tags = v
+}
+
 // GetVulnerabilityScanStatus returns the VulnerabilityScanStatus field value
 func (o *ModelPod) GetVulnerabilityScanStatus() string {
 	if o == nil {
@@ -550,6 +578,9 @@ func (o ModelPod) ToMap() (map[string]interface{}, error) {
 		toSerialize["processes"] = o.Processes
 	}
 	toSerialize["secret_scan_status"] = o.SecretScanStatus
+	if o.Tags != nil {
+		toSerialize["tags"] = o.Tags
+	}
 	toSerialize["vulnerability_scan_status"] = o.VulnerabilityScanStatus
 	return toSerialize, nil
 }
@@ -576,6 +607,7 @@ func (o *ModelPod) UnmarshalJSON(data []byte) (err error) {
 		"pod_name",
 		"processes",
 		"secret_scan_status",
+		"tags",
 		"vulnerability_scan_status",
 	}
 

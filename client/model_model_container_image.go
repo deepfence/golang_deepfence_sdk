@@ -3,7 +3,7 @@ Deepfence ThreatMapper
 
 Deepfence Runtime API provides programmatic control over Deepfence microservice securing your container, kubernetes and cloud deployments. The API abstracts away underlying infrastructure details like cloud provider,  container distros, container orchestrator and type of deployment. This is one uniform API to manage and control security alerts, policies and response to alerts for microservices running anywhere i.e. managed pure greenfield container deployments or a mix of containers, VMs and serverless paradigms like AWS Fargate.
 
-API version: v2.5.0
+API version: v2.5.2
 Contact: community@deepfence.io
 */
 
@@ -41,6 +41,7 @@ type ModelContainerImage struct {
 	SecretLatestScanId string `json:"secret_latest_scan_id"`
 	SecretScanStatus string `json:"secret_scan_status"`
 	SecretsCount int32 `json:"secrets_count"`
+	Tags []string `json:"tags"`
 	VulnerabilitiesCount int32 `json:"vulnerabilities_count"`
 	VulnerabilityLatestScanId string `json:"vulnerability_latest_scan_id"`
 	VulnerabilityScanStatus string `json:"vulnerability_scan_status"`
@@ -52,7 +53,7 @@ type _ModelContainerImage ModelContainerImage
 // This constructor will assign default values to properties that have it defined,
 // and makes sure properties required by API are set, but the set of arguments
 // will change when the set of required properties is changed
-func NewModelContainerImage(containers []ModelContainer, dockerImageCreatedAt string, dockerImageId string, dockerImageName string, dockerImageSize string, dockerImageTag string, dockerImageTagList []string, dockerImageVirtualSize string, imageNodeId string, isDeepfenceSystem bool, malwareLatestScanId string, malwareScanStatus string, malwaresCount int32, nodeId string, nodeName string, secretLatestScanId string, secretScanStatus string, secretsCount int32, vulnerabilitiesCount int32, vulnerabilityLatestScanId string, vulnerabilityScanStatus string) *ModelContainerImage {
+func NewModelContainerImage(containers []ModelContainer, dockerImageCreatedAt string, dockerImageId string, dockerImageName string, dockerImageSize string, dockerImageTag string, dockerImageTagList []string, dockerImageVirtualSize string, imageNodeId string, isDeepfenceSystem bool, malwareLatestScanId string, malwareScanStatus string, malwaresCount int32, nodeId string, nodeName string, secretLatestScanId string, secretScanStatus string, secretsCount int32, tags []string, vulnerabilitiesCount int32, vulnerabilityLatestScanId string, vulnerabilityScanStatus string) *ModelContainerImage {
 	this := ModelContainerImage{}
 	this.Containers = containers
 	this.DockerImageCreatedAt = dockerImageCreatedAt
@@ -72,6 +73,7 @@ func NewModelContainerImage(containers []ModelContainer, dockerImageCreatedAt st
 	this.SecretLatestScanId = secretLatestScanId
 	this.SecretScanStatus = secretScanStatus
 	this.SecretsCount = secretsCount
+	this.Tags = tags
 	this.VulnerabilitiesCount = vulnerabilitiesCount
 	this.VulnerabilityLatestScanId = vulnerabilityLatestScanId
 	this.VulnerabilityScanStatus = vulnerabilityScanStatus
@@ -555,6 +557,32 @@ func (o *ModelContainerImage) SetSecretsCount(v int32) {
 	o.SecretsCount = v
 }
 
+// GetTags returns the Tags field value
+// If the value is explicit nil, the zero value for []string will be returned
+func (o *ModelContainerImage) GetTags() []string {
+	if o == nil {
+		var ret []string
+		return ret
+	}
+
+	return o.Tags
+}
+
+// GetTagsOk returns a tuple with the Tags field value
+// and a boolean to check if the value has been set.
+// NOTE: If the value is an explicit nil, `nil, true` will be returned
+func (o *ModelContainerImage) GetTagsOk() ([]string, bool) {
+	if o == nil || IsNil(o.Tags) {
+		return nil, false
+	}
+	return o.Tags, true
+}
+
+// SetTags sets field value
+func (o *ModelContainerImage) SetTags(v []string) {
+	o.Tags = v
+}
+
 // GetVulnerabilitiesCount returns the VulnerabilitiesCount field value
 func (o *ModelContainerImage) GetVulnerabilitiesCount() int32 {
 	if o == nil {
@@ -662,6 +690,9 @@ func (o ModelContainerImage) ToMap() (map[string]interface{}, error) {
 	toSerialize["secret_latest_scan_id"] = o.SecretLatestScanId
 	toSerialize["secret_scan_status"] = o.SecretScanStatus
 	toSerialize["secrets_count"] = o.SecretsCount
+	if o.Tags != nil {
+		toSerialize["tags"] = o.Tags
+	}
 	toSerialize["vulnerabilities_count"] = o.VulnerabilitiesCount
 	toSerialize["vulnerability_latest_scan_id"] = o.VulnerabilityLatestScanId
 	toSerialize["vulnerability_scan_status"] = o.VulnerabilityScanStatus
@@ -691,6 +722,7 @@ func (o *ModelContainerImage) UnmarshalJSON(data []byte) (err error) {
 		"secret_latest_scan_id",
 		"secret_scan_status",
 		"secrets_count",
+		"tags",
 		"vulnerabilities_count",
 		"vulnerability_latest_scan_id",
 		"vulnerability_scan_status",

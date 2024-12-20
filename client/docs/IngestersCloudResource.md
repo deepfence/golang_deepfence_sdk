@@ -60,6 +60,7 @@ Name | Type | Description | Notes
 **PublicIps** | Pointer to **interface{}** |  | [optional] 
 **PublicNetworkAccess** | Pointer to **string** |  | [optional] 
 **Region** | Pointer to **string** |  | [optional] 
+**ResourceGroup** | Pointer to **string** |  | [optional] 
 **ResourceId** | Pointer to **string** |  | [optional] 
 **ResourceVpcConfig** | Pointer to **interface{}** |  | [optional] 
 **ResourcesVpcConfig** | Pointer to **interface{}** |  | [optional] 
@@ -1650,6 +1651,31 @@ SetRegion sets Region field to given value.
 `func (o *IngestersCloudResource) HasRegion() bool`
 
 HasRegion returns a boolean if a field has been set.
+
+### GetResourceGroup
+
+`func (o *IngestersCloudResource) GetResourceGroup() string`
+
+GetResourceGroup returns the ResourceGroup field if non-nil, zero value otherwise.
+
+### GetResourceGroupOk
+
+`func (o *IngestersCloudResource) GetResourceGroupOk() (*string, bool)`
+
+GetResourceGroupOk returns a tuple with the ResourceGroup field if it's non-nil, zero value otherwise
+and a boolean to check if the value has been set.
+
+### SetResourceGroup
+
+`func (o *IngestersCloudResource) SetResourceGroup(v string)`
+
+SetResourceGroup sets ResourceGroup field to given value.
+
+### HasResourceGroup
+
+`func (o *IngestersCloudResource) HasResourceGroup() bool`
+
+HasResourceGroup returns a boolean if a field has been set.
 
 ### GetResourceId
 

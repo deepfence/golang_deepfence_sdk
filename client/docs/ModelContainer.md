@@ -15,6 +15,7 @@ Name | Type | Description | Notes
 **DockerContainerPorts** | **string** |  | 
 **DockerContainerState** | **string** |  | 
 **DockerContainerStateHuman** | **string** |  | 
+**DockerImageNameWithTag** | **string** |  | 
 **DockerLabels** | **map[string]interface{}** |  | 
 **HostName** | **string** |  | 
 **Image** | [**ModelContainerImage**](ModelContainerImage.md) |  | 
@@ -33,6 +34,7 @@ Name | Type | Description | Notes
 **SecretLatestScanId** | **string** |  | 
 **SecretScanStatus** | **string** |  | 
 **SecretsCount** | **int32** |  | 
+**Tags** | **[]string** |  | 
 **Uptime** | **int32** |  | 
 **VulnerabilitiesCount** | **int32** |  | 
 **VulnerabilityLatestScanId** | **string** |  | 
@@ -42,7 +44,7 @@ Name | Type | Description | Notes
 
 ### NewModelContainer
 
-`func NewModelContainer(cpuMax float32, cpuUsage float32, dockerContainerCommand string, dockerContainerCreated string, dockerContainerIps []interface{}, dockerContainerName string, dockerContainerNetworkMode string, dockerContainerNetworks string, dockerContainerPorts string, dockerContainerState string, dockerContainerStateHuman string, dockerLabels map[string]interface{}, hostName string, image ModelContainerImage, isDeepfenceSystem bool, kubernetesClusterId string, kubernetesClusterName string, kubernetesNamespace string, malwareLatestScanId string, malwareScanStatus string, malwaresCount int32, memoryMax int32, memoryUsage int32, nodeId string, nodeName string, processes []ModelProcess, secretLatestScanId string, secretScanStatus string, secretsCount int32, uptime int32, vulnerabilitiesCount int32, vulnerabilityLatestScanId string, vulnerabilityScanStatus string, ) *ModelContainer`
+`func NewModelContainer(cpuMax float32, cpuUsage float32, dockerContainerCommand string, dockerContainerCreated string, dockerContainerIps []interface{}, dockerContainerName string, dockerContainerNetworkMode string, dockerContainerNetworks string, dockerContainerPorts string, dockerContainerState string, dockerContainerStateHuman string, dockerImageNameWithTag string, dockerLabels map[string]interface{}, hostName string, image ModelContainerImage, isDeepfenceSystem bool, kubernetesClusterId string, kubernetesClusterName string, kubernetesNamespace string, malwareLatestScanId string, malwareScanStatus string, malwaresCount int32, memoryMax int32, memoryUsage int32, nodeId string, nodeName string, processes []ModelProcess, secretLatestScanId string, secretScanStatus string, secretsCount int32, tags []string, uptime int32, vulnerabilitiesCount int32, vulnerabilityLatestScanId string, vulnerabilityScanStatus string, ) *ModelContainer`
 
 NewModelContainer instantiates a new ModelContainer object
 This constructor will assign default values to properties that have it defined,
@@ -285,6 +287,26 @@ and a boolean to check if the value has been set.
 `func (o *ModelContainer) SetDockerContainerStateHuman(v string)`
 
 SetDockerContainerStateHuman sets DockerContainerStateHuman field to given value.
+
+
+### GetDockerImageNameWithTag
+
+`func (o *ModelContainer) GetDockerImageNameWithTag() string`
+
+GetDockerImageNameWithTag returns the DockerImageNameWithTag field if non-nil, zero value otherwise.
+
+### GetDockerImageNameWithTagOk
+
+`func (o *ModelContainer) GetDockerImageNameWithTagOk() (*string, bool)`
+
+GetDockerImageNameWithTagOk returns a tuple with the DockerImageNameWithTag field if it's non-nil, zero value otherwise
+and a boolean to check if the value has been set.
+
+### SetDockerImageNameWithTag
+
+`func (o *ModelContainer) SetDockerImageNameWithTag(v string)`
+
+SetDockerImageNameWithTag sets DockerImageNameWithTag field to given value.
 
 
 ### GetDockerLabels
@@ -667,6 +689,36 @@ and a boolean to check if the value has been set.
 SetSecretsCount sets SecretsCount field to given value.
 
 
+### GetTags
+
+`func (o *ModelContainer) GetTags() []string`
+
+GetTags returns the Tags field if non-nil, zero value otherwise.
+
+### GetTagsOk
+
+`func (o *ModelContainer) GetTagsOk() (*[]string, bool)`
+
+GetTagsOk returns a tuple with the Tags field if it's non-nil, zero value otherwise
+and a boolean to check if the value has been set.
+
+### SetTags
+
+`func (o *ModelContainer) SetTags(v []string)`
+
+SetTags sets Tags field to given value.
+
+
+### SetTagsNil
+
+`func (o *ModelContainer) SetTagsNil(b bool)`
+
+ SetTagsNil sets the value for Tags to be an explicit nil
+
+### UnsetTags
+`func (o *ModelContainer) UnsetTags()`
+
+UnsetTags ensures that no value is present for Tags, not even an explicit nil
 ### GetUptime
 
 `func (o *ModelContainer) GetUptime() int32`

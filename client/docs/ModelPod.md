@@ -21,13 +21,14 @@ Name | Type | Description | Notes
 **PodName** | **string** |  | 
 **Processes** | [**[]ModelProcess**](ModelProcess.md) |  | 
 **SecretScanStatus** | **string** |  | 
+**Tags** | **[]string** |  | 
 **VulnerabilityScanStatus** | **string** |  | 
 
 ## Methods
 
 ### NewModelPod
 
-`func NewModelPod(containers []ModelContainer, hostName string, isDeepfenceSystem bool, kubernetesClusterId string, kubernetesClusterName string, kubernetesCreated string, kubernetesIp string, kubernetesIsInHostNetwork bool, kubernetesLabels map[string]interface{}, kubernetesNamespace string, kubernetesState string, malwareScanStatus string, nodeId string, nodeName string, podName string, processes []ModelProcess, secretScanStatus string, vulnerabilityScanStatus string, ) *ModelPod`
+`func NewModelPod(containers []ModelContainer, hostName string, isDeepfenceSystem bool, kubernetesClusterId string, kubernetesClusterName string, kubernetesCreated string, kubernetesIp string, kubernetesIsInHostNetwork bool, kubernetesLabels map[string]interface{}, kubernetesNamespace string, kubernetesState string, malwareScanStatus string, nodeId string, nodeName string, podName string, processes []ModelProcess, secretScanStatus string, tags []string, vulnerabilityScanStatus string, ) *ModelPod`
 
 NewModelPod instantiates a new ModelPod object
 This constructor will assign default values to properties that have it defined,
@@ -412,6 +413,36 @@ and a boolean to check if the value has been set.
 SetSecretScanStatus sets SecretScanStatus field to given value.
 
 
+### GetTags
+
+`func (o *ModelPod) GetTags() []string`
+
+GetTags returns the Tags field if non-nil, zero value otherwise.
+
+### GetTagsOk
+
+`func (o *ModelPod) GetTagsOk() (*[]string, bool)`
+
+GetTagsOk returns a tuple with the Tags field if it's non-nil, zero value otherwise
+and a boolean to check if the value has been set.
+
+### SetTags
+
+`func (o *ModelPod) SetTags(v []string)`
+
+SetTags sets Tags field to given value.
+
+
+### SetTagsNil
+
+`func (o *ModelPod) SetTagsNil(b bool)`
+
+ SetTagsNil sets the value for Tags to be an explicit nil
+
+### UnsetTags
+`func (o *ModelPod) UnsetTags()`
+
+UnsetTags ensures that no value is present for Tags, not even an explicit nil
 ### GetVulnerabilityScanStatus
 
 `func (o *ModelPod) GetVulnerabilityScanStatus() string`

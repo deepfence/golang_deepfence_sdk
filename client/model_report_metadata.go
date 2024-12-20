@@ -3,7 +3,7 @@ Deepfence ThreatMapper
 
 Deepfence Runtime API provides programmatic control over Deepfence microservice securing your container, kubernetes and cloud deployments. The API abstracts away underlying infrastructure details like cloud provider,  container distros, container orchestrator and type of deployment. This is one uniform API to manage and control security alerts, policies and response to alerts for microservices running anywhere i.e. managed pure greenfield container deployments or a mix of containers, VMs and serverless paradigms like AWS Fargate.
 
-API version: v2.5.0
+API version: v2.5.2
 Contact: community@deepfence.io
 */
 
@@ -93,7 +93,6 @@ type ReportMetadata struct {
 	Threads *int32 `json:"threads,omitempty"`
 	Timestamp *string `json:"timestamp,omitempty"`
 	Uptime *int32 `json:"uptime,omitempty"`
-	UserDefinedTags []string `json:"user_defined_tags,omitempty"`
 	Version *string `json:"version,omitempty"`
 }
 
@@ -2450,38 +2449,6 @@ func (o *ReportMetadata) SetUptime(v int32) {
 	o.Uptime = &v
 }
 
-// GetUserDefinedTags returns the UserDefinedTags field value if set, zero value otherwise.
-func (o *ReportMetadata) GetUserDefinedTags() []string {
-	if o == nil || IsNil(o.UserDefinedTags) {
-		var ret []string
-		return ret
-	}
-	return o.UserDefinedTags
-}
-
-// GetUserDefinedTagsOk returns a tuple with the UserDefinedTags field value if set, nil otherwise
-// and a boolean to check if the value has been set.
-func (o *ReportMetadata) GetUserDefinedTagsOk() ([]string, bool) {
-	if o == nil || IsNil(o.UserDefinedTags) {
-		return nil, false
-	}
-	return o.UserDefinedTags, true
-}
-
-// HasUserDefinedTags returns a boolean if a field has been set.
-func (o *ReportMetadata) HasUserDefinedTags() bool {
-	if o != nil && !IsNil(o.UserDefinedTags) {
-		return true
-	}
-
-	return false
-}
-
-// SetUserDefinedTags gets a reference to the given []string and assigns it to the UserDefinedTags field.
-func (o *ReportMetadata) SetUserDefinedTags(v []string) {
-	o.UserDefinedTags = v
-}
-
 // GetVersion returns the Version field value if set, zero value otherwise.
 func (o *ReportMetadata) GetVersion() string {
 	if o == nil || IsNil(o.Version) {
@@ -2742,9 +2709,6 @@ func (o ReportMetadata) ToMap() (map[string]interface{}, error) {
 	}
 	if !IsNil(o.Uptime) {
 		toSerialize["uptime"] = o.Uptime
-	}
-	if !IsNil(o.UserDefinedTags) {
-		toSerialize["user_defined_tags"] = o.UserDefinedTags
 	}
 	if !IsNil(o.Version) {
 		toSerialize["version"] = o.Version

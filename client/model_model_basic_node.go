@@ -3,7 +3,7 @@ Deepfence ThreatMapper
 
 Deepfence Runtime API provides programmatic control over Deepfence microservice securing your container, kubernetes and cloud deployments. The API abstracts away underlying infrastructure details like cloud provider,  container distros, container orchestrator and type of deployment. This is one uniform API to manage and control security alerts, policies and response to alerts for microservices running anywhere i.e. managed pure greenfield container deployments or a mix of containers, VMs and serverless paradigms like AWS Fargate.
 
-API version: v2.5.0
+API version: v2.5.2
 Contact: community@deepfence.io
 */
 
@@ -22,6 +22,7 @@ var _ MappedNullable = &ModelBasicNode{}
 
 // ModelBasicNode struct for ModelBasicNode
 type ModelBasicNode struct {
+	Active bool `json:"active"`
 	HostName string `json:"host_name"`
 	Name string `json:"name"`
 	NodeId string `json:"node_id"`
@@ -34,8 +35,9 @@ type _ModelBasicNode ModelBasicNode
 // This constructor will assign default values to properties that have it defined,
 // and makes sure properties required by API are set, but the set of arguments
 // will change when the set of required properties is changed
-func NewModelBasicNode(hostName string, name string, nodeId string, nodeType string) *ModelBasicNode {
+func NewModelBasicNode(active bool, hostName string, name string, nodeId string, nodeType string) *ModelBasicNode {
 	this := ModelBasicNode{}
+	this.Active = active
 	this.HostName = hostName
 	this.Name = name
 	this.NodeId = nodeId
@@ -49,6 +51,30 @@ func NewModelBasicNode(hostName string, name string, nodeId string, nodeType str
 func NewModelBasicNodeWithDefaults() *ModelBasicNode {
 	this := ModelBasicNode{}
 	return &this
+}
+
+// GetActive returns the Active field value
+func (o *ModelBasicNode) GetActive() bool {
+	if o == nil {
+		var ret bool
+		return ret
+	}
+
+	return o.Active
+}
+
+// GetActiveOk returns a tuple with the Active field value
+// and a boolean to check if the value has been set.
+func (o *ModelBasicNode) GetActiveOk() (*bool, bool) {
+	if o == nil {
+		return nil, false
+	}
+	return &o.Active, true
+}
+
+// SetActive sets field value
+func (o *ModelBasicNode) SetActive(v bool) {
+	o.Active = v
 }
 
 // GetHostName returns the HostName field value
@@ -157,6 +183,7 @@ func (o ModelBasicNode) MarshalJSON() ([]byte, error) {
 
 func (o ModelBasicNode) ToMap() (map[string]interface{}, error) {
 	toSerialize := map[string]interface{}{}
+	toSerialize["active"] = o.Active
 	toSerialize["host_name"] = o.HostName
 	toSerialize["name"] = o.Name
 	toSerialize["node_id"] = o.NodeId
@@ -169,6 +196,7 @@ func (o *ModelBasicNode) UnmarshalJSON(data []byte) (err error) {
 	// by unmarshalling the object into a generic map with string keys and checking
 	// that every required field exists as a key in the generic map.
 	requiredProperties := []string{
+		"active",
 		"host_name",
 		"name",
 		"node_id",

@@ -3,7 +3,7 @@ Deepfence ThreatMapper
 
 Deepfence Runtime API provides programmatic control over Deepfence microservice securing your container, kubernetes and cloud deployments. The API abstracts away underlying infrastructure details like cloud provider,  container distros, container orchestrator and type of deployment. This is one uniform API to manage and control security alerts, policies and response to alerts for microservices running anywhere i.e. managed pure greenfield container deployments or a mix of containers, VMs and serverless paradigms like AWS Fargate.
 
-API version: v2.5.0
+API version: v2.5.2
 Contact: community@deepfence.io
 */
 
@@ -33,6 +33,7 @@ type ModelContainer struct {
 	DockerContainerPorts string `json:"docker_container_ports"`
 	DockerContainerState string `json:"docker_container_state"`
 	DockerContainerStateHuman string `json:"docker_container_state_human"`
+	DockerImageNameWithTag string `json:"docker_image_name_with_tag"`
 	DockerLabels map[string]interface{} `json:"docker_labels"`
 	HostName string `json:"host_name"`
 	Image ModelContainerImage `json:"image"`
@@ -51,6 +52,7 @@ type ModelContainer struct {
 	SecretLatestScanId string `json:"secret_latest_scan_id"`
 	SecretScanStatus string `json:"secret_scan_status"`
 	SecretsCount int32 `json:"secrets_count"`
+	Tags []string `json:"tags"`
 	Uptime int32 `json:"uptime"`
 	VulnerabilitiesCount int32 `json:"vulnerabilities_count"`
 	VulnerabilityLatestScanId string `json:"vulnerability_latest_scan_id"`
@@ -63,7 +65,7 @@ type _ModelContainer ModelContainer
 // This constructor will assign default values to properties that have it defined,
 // and makes sure properties required by API are set, but the set of arguments
 // will change when the set of required properties is changed
-func NewModelContainer(cpuMax float32, cpuUsage float32, dockerContainerCommand string, dockerContainerCreated string, dockerContainerIps []interface{}, dockerContainerName string, dockerContainerNetworkMode string, dockerContainerNetworks string, dockerContainerPorts string, dockerContainerState string, dockerContainerStateHuman string, dockerLabels map[string]interface{}, hostName string, image ModelContainerImage, isDeepfenceSystem bool, kubernetesClusterId string, kubernetesClusterName string, kubernetesNamespace string, malwareLatestScanId string, malwareScanStatus string, malwaresCount int32, memoryMax int32, memoryUsage int32, nodeId string, nodeName string, processes []ModelProcess, secretLatestScanId string, secretScanStatus string, secretsCount int32, uptime int32, vulnerabilitiesCount int32, vulnerabilityLatestScanId string, vulnerabilityScanStatus string) *ModelContainer {
+func NewModelContainer(cpuMax float32, cpuUsage float32, dockerContainerCommand string, dockerContainerCreated string, dockerContainerIps []interface{}, dockerContainerName string, dockerContainerNetworkMode string, dockerContainerNetworks string, dockerContainerPorts string, dockerContainerState string, dockerContainerStateHuman string, dockerImageNameWithTag string, dockerLabels map[string]interface{}, hostName string, image ModelContainerImage, isDeepfenceSystem bool, kubernetesClusterId string, kubernetesClusterName string, kubernetesNamespace string, malwareLatestScanId string, malwareScanStatus string, malwaresCount int32, memoryMax int32, memoryUsage int32, nodeId string, nodeName string, processes []ModelProcess, secretLatestScanId string, secretScanStatus string, secretsCount int32, tags []string, uptime int32, vulnerabilitiesCount int32, vulnerabilityLatestScanId string, vulnerabilityScanStatus string) *ModelContainer {
 	this := ModelContainer{}
 	this.CpuMax = cpuMax
 	this.CpuUsage = cpuUsage
@@ -76,6 +78,7 @@ func NewModelContainer(cpuMax float32, cpuUsage float32, dockerContainerCommand 
 	this.DockerContainerPorts = dockerContainerPorts
 	this.DockerContainerState = dockerContainerState
 	this.DockerContainerStateHuman = dockerContainerStateHuman
+	this.DockerImageNameWithTag = dockerImageNameWithTag
 	this.DockerLabels = dockerLabels
 	this.HostName = hostName
 	this.Image = image
@@ -94,6 +97,7 @@ func NewModelContainer(cpuMax float32, cpuUsage float32, dockerContainerCommand 
 	this.SecretLatestScanId = secretLatestScanId
 	this.SecretScanStatus = secretScanStatus
 	this.SecretsCount = secretsCount
+	this.Tags = tags
 	this.Uptime = uptime
 	this.VulnerabilitiesCount = vulnerabilitiesCount
 	this.VulnerabilityLatestScanId = vulnerabilityLatestScanId
@@ -373,6 +377,30 @@ func (o *ModelContainer) GetDockerContainerStateHumanOk() (*string, bool) {
 // SetDockerContainerStateHuman sets field value
 func (o *ModelContainer) SetDockerContainerStateHuman(v string) {
 	o.DockerContainerStateHuman = v
+}
+
+// GetDockerImageNameWithTag returns the DockerImageNameWithTag field value
+func (o *ModelContainer) GetDockerImageNameWithTag() string {
+	if o == nil {
+		var ret string
+		return ret
+	}
+
+	return o.DockerImageNameWithTag
+}
+
+// GetDockerImageNameWithTagOk returns a tuple with the DockerImageNameWithTag field value
+// and a boolean to check if the value has been set.
+func (o *ModelContainer) GetDockerImageNameWithTagOk() (*string, bool) {
+	if o == nil {
+		return nil, false
+	}
+	return &o.DockerImageNameWithTag, true
+}
+
+// SetDockerImageNameWithTag sets field value
+func (o *ModelContainer) SetDockerImageNameWithTag(v string) {
+	o.DockerImageNameWithTag = v
 }
 
 // GetDockerLabels returns the DockerLabels field value
@@ -811,6 +839,32 @@ func (o *ModelContainer) SetSecretsCount(v int32) {
 	o.SecretsCount = v
 }
 
+// GetTags returns the Tags field value
+// If the value is explicit nil, the zero value for []string will be returned
+func (o *ModelContainer) GetTags() []string {
+	if o == nil {
+		var ret []string
+		return ret
+	}
+
+	return o.Tags
+}
+
+// GetTagsOk returns a tuple with the Tags field value
+// and a boolean to check if the value has been set.
+// NOTE: If the value is an explicit nil, `nil, true` will be returned
+func (o *ModelContainer) GetTagsOk() ([]string, bool) {
+	if o == nil || IsNil(o.Tags) {
+		return nil, false
+	}
+	return o.Tags, true
+}
+
+// SetTags sets field value
+func (o *ModelContainer) SetTags(v []string) {
+	o.Tags = v
+}
+
 // GetUptime returns the Uptime field value
 func (o *ModelContainer) GetUptime() int32 {
 	if o == nil {
@@ -930,6 +984,7 @@ func (o ModelContainer) ToMap() (map[string]interface{}, error) {
 	toSerialize["docker_container_ports"] = o.DockerContainerPorts
 	toSerialize["docker_container_state"] = o.DockerContainerState
 	toSerialize["docker_container_state_human"] = o.DockerContainerStateHuman
+	toSerialize["docker_image_name_with_tag"] = o.DockerImageNameWithTag
 	if o.DockerLabels != nil {
 		toSerialize["docker_labels"] = o.DockerLabels
 	}
@@ -952,6 +1007,9 @@ func (o ModelContainer) ToMap() (map[string]interface{}, error) {
 	toSerialize["secret_latest_scan_id"] = o.SecretLatestScanId
 	toSerialize["secret_scan_status"] = o.SecretScanStatus
 	toSerialize["secrets_count"] = o.SecretsCount
+	if o.Tags != nil {
+		toSerialize["tags"] = o.Tags
+	}
 	toSerialize["uptime"] = o.Uptime
 	toSerialize["vulnerabilities_count"] = o.VulnerabilitiesCount
 	toSerialize["vulnerability_latest_scan_id"] = o.VulnerabilityLatestScanId
@@ -975,6 +1033,7 @@ func (o *ModelContainer) UnmarshalJSON(data []byte) (err error) {
 		"docker_container_ports",
 		"docker_container_state",
 		"docker_container_state_human",
+		"docker_image_name_with_tag",
 		"docker_labels",
 		"host_name",
 		"image",
@@ -993,6 +1052,7 @@ func (o *ModelContainer) UnmarshalJSON(data []byte) (err error) {
 		"secret_latest_scan_id",
 		"secret_scan_status",
 		"secrets_count",
+		"tags",
 		"uptime",
 		"vulnerabilities_count",
 		"vulnerability_latest_scan_id",

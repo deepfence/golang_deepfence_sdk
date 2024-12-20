@@ -4,6 +4,7 @@
 
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
+**Active** | **bool** |  | 
 **HostName** | **string** |  | 
 **Name** | **string** |  | 
 **NodeId** | **string** |  | 
@@ -13,7 +14,7 @@ Name | Type | Description | Notes
 
 ### NewModelBasicNode
 
-`func NewModelBasicNode(hostName string, name string, nodeId string, nodeType string, ) *ModelBasicNode`
+`func NewModelBasicNode(active bool, hostName string, name string, nodeId string, nodeType string, ) *ModelBasicNode`
 
 NewModelBasicNode instantiates a new ModelBasicNode object
 This constructor will assign default values to properties that have it defined,
@@ -27,6 +28,26 @@ will change when the set of required properties is changed
 NewModelBasicNodeWithDefaults instantiates a new ModelBasicNode object
 This constructor will only assign default values to properties that have it defined,
 but it doesn't guarantee that properties required by API are set
+
+### GetActive
+
+`func (o *ModelBasicNode) GetActive() bool`
+
+GetActive returns the Active field if non-nil, zero value otherwise.
+
+### GetActiveOk
+
+`func (o *ModelBasicNode) GetActiveOk() (*bool, bool)`
+
+GetActiveOk returns a tuple with the Active field if it's non-nil, zero value otherwise
+and a boolean to check if the value has been set.
+
+### SetActive
+
+`func (o *ModelBasicNode) SetActive(v bool)`
+
+SetActive sets Active field to given value.
+
 
 ### GetHostName
 

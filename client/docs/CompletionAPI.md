@@ -8,8 +8,10 @@ Method | HTTP request | Description
 [**CompleteCloudCompliance**](CompletionAPI.md#CompleteCloudCompliance) | **Post** /deepfence/complete/cloud-compliance | Get Completion for cloud compliance fields
 [**CompleteCloudResources**](CompletionAPI.md#CompleteCloudResources) | **Post** /deepfence/complete/cloud-resources | Get Completion for cloud resources fields
 [**CompleteComplianceInfo**](CompletionAPI.md#CompleteComplianceInfo) | **Post** /deepfence/complete/compliance | Get Completion for compliance fields
+[**CompleteContainerImageInfo**](CompletionAPI.md#CompleteContainerImageInfo) | **Post** /deepfence/complete/containerimage | Get Completion for Container Image fields
 [**CompleteContainerInfo**](CompletionAPI.md#CompleteContainerInfo) | **Post** /deepfence/complete/container | Get Completion for Container fields
 [**CompleteHostInfo**](CompletionAPI.md#CompleteHostInfo) | **Post** /deepfence/complete/host | Get Completion for host fields
+[**CompleteKubernetesClusterInfo**](CompletionAPI.md#CompleteKubernetesClusterInfo) | **Post** /deepfence/complete/kubernetes-cluster | Get Completion for kubernetes cluster fields
 [**CompletePodInfo**](CompletionAPI.md#CompletePodInfo) | **Post** /deepfence/complete/pod | Get Completion for Pod fields
 [**CompleteProcessInfo**](CompletionAPI.md#CompleteProcessInfo) | **Post** /deepfence/complete/process | Get Completion for process fields
 [**CompleteVulnerabilityInfo**](CompletionAPI.md#CompleteVulnerabilityInfo) | **Post** /deepfence/complete/vulnerability | Get Completion for vulnerability fields
@@ -280,6 +282,72 @@ Name | Type | Description  | Notes
 [[Back to README]](../README.md)
 
 
+## CompleteContainerImageInfo
+
+> CompletionCompletionNodeFieldRes CompleteContainerImageInfo(ctx).CompletionCompletionNodeFieldReq(completionCompletionNodeFieldReq).Execute()
+
+Get Completion for Container Image fields
+
+
+
+### Example
+
+```go
+package main
+
+import (
+	"context"
+	"fmt"
+	"os"
+	openapiclient "github.com/deepfence/golang_deepfence_sdk/client"
+)
+
+func main() {
+	completionCompletionNodeFieldReq := *openapiclient.NewCompletionCompletionNodeFieldReq("Completion_example", "FieldName_example", *openapiclient.NewModelFetchWindow(int32(123), int32(123))) // CompletionCompletionNodeFieldReq |  (optional)
+
+	configuration := openapiclient.NewConfiguration()
+	apiClient := openapiclient.NewAPIClient(configuration)
+	resp, r, err := apiClient.CompletionAPI.CompleteContainerImageInfo(context.Background()).CompletionCompletionNodeFieldReq(completionCompletionNodeFieldReq).Execute()
+	if err != nil {
+		fmt.Fprintf(os.Stderr, "Error when calling `CompletionAPI.CompleteContainerImageInfo``: %v\n", err)
+		fmt.Fprintf(os.Stderr, "Full HTTP response: %v\n", r)
+	}
+	// response from `CompleteContainerImageInfo`: CompletionCompletionNodeFieldRes
+	fmt.Fprintf(os.Stdout, "Response from `CompletionAPI.CompleteContainerImageInfo`: %v\n", resp)
+}
+```
+
+### Path Parameters
+
+
+
+### Other Parameters
+
+Other parameters are passed through a pointer to a apiCompleteContainerImageInfoRequest struct via the builder pattern
+
+
+Name | Type | Description  | Notes
+------------- | ------------- | ------------- | -------------
+ **completionCompletionNodeFieldReq** | [**CompletionCompletionNodeFieldReq**](CompletionCompletionNodeFieldReq.md) |  | 
+
+### Return type
+
+[**CompletionCompletionNodeFieldRes**](CompletionCompletionNodeFieldRes.md)
+
+### Authorization
+
+[bearer_token](../README.md#bearer_token)
+
+### HTTP request headers
+
+- **Content-Type**: application/json
+- **Accept**: application/json
+
+[[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints)
+[[Back to Model list]](../README.md#documentation-for-models)
+[[Back to README]](../README.md)
+
+
 ## CompleteContainerInfo
 
 > CompletionCompletionNodeFieldRes CompleteContainerInfo(ctx).CompletionCompletionNodeFieldReq(completionCompletionNodeFieldReq).Execute()
@@ -388,6 +456,72 @@ func main() {
 ### Other Parameters
 
 Other parameters are passed through a pointer to a apiCompleteHostInfoRequest struct via the builder pattern
+
+
+Name | Type | Description  | Notes
+------------- | ------------- | ------------- | -------------
+ **completionCompletionNodeFieldReq** | [**CompletionCompletionNodeFieldReq**](CompletionCompletionNodeFieldReq.md) |  | 
+
+### Return type
+
+[**CompletionCompletionNodeFieldRes**](CompletionCompletionNodeFieldRes.md)
+
+### Authorization
+
+[bearer_token](../README.md#bearer_token)
+
+### HTTP request headers
+
+- **Content-Type**: application/json
+- **Accept**: application/json
+
+[[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints)
+[[Back to Model list]](../README.md#documentation-for-models)
+[[Back to README]](../README.md)
+
+
+## CompleteKubernetesClusterInfo
+
+> CompletionCompletionNodeFieldRes CompleteKubernetesClusterInfo(ctx).CompletionCompletionNodeFieldReq(completionCompletionNodeFieldReq).Execute()
+
+Get Completion for kubernetes cluster fields
+
+
+
+### Example
+
+```go
+package main
+
+import (
+	"context"
+	"fmt"
+	"os"
+	openapiclient "github.com/deepfence/golang_deepfence_sdk/client"
+)
+
+func main() {
+	completionCompletionNodeFieldReq := *openapiclient.NewCompletionCompletionNodeFieldReq("Completion_example", "FieldName_example", *openapiclient.NewModelFetchWindow(int32(123), int32(123))) // CompletionCompletionNodeFieldReq |  (optional)
+
+	configuration := openapiclient.NewConfiguration()
+	apiClient := openapiclient.NewAPIClient(configuration)
+	resp, r, err := apiClient.CompletionAPI.CompleteKubernetesClusterInfo(context.Background()).CompletionCompletionNodeFieldReq(completionCompletionNodeFieldReq).Execute()
+	if err != nil {
+		fmt.Fprintf(os.Stderr, "Error when calling `CompletionAPI.CompleteKubernetesClusterInfo``: %v\n", err)
+		fmt.Fprintf(os.Stderr, "Full HTTP response: %v\n", r)
+	}
+	// response from `CompleteKubernetesClusterInfo`: CompletionCompletionNodeFieldRes
+	fmt.Fprintf(os.Stdout, "Response from `CompletionAPI.CompleteKubernetesClusterInfo`: %v\n", resp)
+}
+```
+
+### Path Parameters
+
+
+
+### Other Parameters
+
+Other parameters are passed through a pointer to a apiCompleteKubernetesClusterInfoRequest struct via the builder pattern
 
 
 Name | Type | Description  | Notes

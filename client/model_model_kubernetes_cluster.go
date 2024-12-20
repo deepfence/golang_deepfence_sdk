@@ -3,7 +3,7 @@ Deepfence ThreatMapper
 
 Deepfence Runtime API provides programmatic control over Deepfence microservice securing your container, kubernetes and cloud deployments. The API abstracts away underlying infrastructure details like cloud provider,  container distros, container orchestrator and type of deployment. This is one uniform API to manage and control security alerts, policies and response to alerts for microservices running anywhere i.e. managed pure greenfield container deployments or a mix of containers, VMs and serverless paradigms like AWS Fargate.
 
-API version: v2.5.0
+API version: v2.5.2
 Contact: community@deepfence.io
 */
 
@@ -26,6 +26,7 @@ type ModelKubernetesCluster struct {
 	Hosts []ModelHost `json:"hosts"`
 	NodeId string `json:"node_id"`
 	NodeName string `json:"node_name"`
+	Tags []string `json:"tags"`
 }
 
 type _ModelKubernetesCluster ModelKubernetesCluster
@@ -34,12 +35,13 @@ type _ModelKubernetesCluster ModelKubernetesCluster
 // This constructor will assign default values to properties that have it defined,
 // and makes sure properties required by API are set, but the set of arguments
 // will change when the set of required properties is changed
-func NewModelKubernetesCluster(agentRunning bool, hosts []ModelHost, nodeId string, nodeName string) *ModelKubernetesCluster {
+func NewModelKubernetesCluster(agentRunning bool, hosts []ModelHost, nodeId string, nodeName string, tags []string) *ModelKubernetesCluster {
 	this := ModelKubernetesCluster{}
 	this.AgentRunning = agentRunning
 	this.Hosts = hosts
 	this.NodeId = nodeId
 	this.NodeName = nodeName
+	this.Tags = tags
 	return &this
 }
 
@@ -149,6 +151,32 @@ func (o *ModelKubernetesCluster) SetNodeName(v string) {
 	o.NodeName = v
 }
 
+// GetTags returns the Tags field value
+// If the value is explicit nil, the zero value for []string will be returned
+func (o *ModelKubernetesCluster) GetTags() []string {
+	if o == nil {
+		var ret []string
+		return ret
+	}
+
+	return o.Tags
+}
+
+// GetTagsOk returns a tuple with the Tags field value
+// and a boolean to check if the value has been set.
+// NOTE: If the value is an explicit nil, `nil, true` will be returned
+func (o *ModelKubernetesCluster) GetTagsOk() ([]string, bool) {
+	if o == nil || IsNil(o.Tags) {
+		return nil, false
+	}
+	return o.Tags, true
+}
+
+// SetTags sets field value
+func (o *ModelKubernetesCluster) SetTags(v []string) {
+	o.Tags = v
+}
+
 func (o ModelKubernetesCluster) MarshalJSON() ([]byte, error) {
 	toSerialize,err := o.ToMap()
 	if err != nil {
@@ -165,6 +193,9 @@ func (o ModelKubernetesCluster) ToMap() (map[string]interface{}, error) {
 	}
 	toSerialize["node_id"] = o.NodeId
 	toSerialize["node_name"] = o.NodeName
+	if o.Tags != nil {
+		toSerialize["tags"] = o.Tags
+	}
 	return toSerialize, nil
 }
 
@@ -177,6 +208,7 @@ func (o *ModelKubernetesCluster) UnmarshalJSON(data []byte) (err error) {
 		"hosts",
 		"node_id",
 		"node_name",
+		"tags",
 	}
 
 	allProperties := make(map[string]interface{})

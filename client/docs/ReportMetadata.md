@@ -77,7 +77,6 @@ Name | Type | Description | Notes
 **Threads** | Pointer to **int32** |  | [optional] 
 **Timestamp** | Pointer to **string** |  | [optional] 
 **Uptime** | Pointer to **int32** |  | [optional] 
-**UserDefinedTags** | Pointer to **[]string** |  | [optional] 
 **Version** | Pointer to **string** |  | [optional] 
 
 ## Methods
@@ -1923,31 +1922,6 @@ SetUptime sets Uptime field to given value.
 `func (o *ReportMetadata) HasUptime() bool`
 
 HasUptime returns a boolean if a field has been set.
-
-### GetUserDefinedTags
-
-`func (o *ReportMetadata) GetUserDefinedTags() []string`
-
-GetUserDefinedTags returns the UserDefinedTags field if non-nil, zero value otherwise.
-
-### GetUserDefinedTagsOk
-
-`func (o *ReportMetadata) GetUserDefinedTagsOk() (*[]string, bool)`
-
-GetUserDefinedTagsOk returns a tuple with the UserDefinedTags field if it's non-nil, zero value otherwise
-and a boolean to check if the value has been set.
-
-### SetUserDefinedTags
-
-`func (o *ReportMetadata) SetUserDefinedTags(v []string)`
-
-SetUserDefinedTags sets UserDefinedTags field to given value.
-
-### HasUserDefinedTags
-
-`func (o *ReportMetadata) HasUserDefinedTags() bool`
-
-HasUserDefinedTags returns a boolean if a field has been set.
 
 ### GetVersion
 

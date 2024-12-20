@@ -3,7 +3,7 @@ Deepfence ThreatMapper
 
 Deepfence Runtime API provides programmatic control over Deepfence microservice securing your container, kubernetes and cloud deployments. The API abstracts away underlying infrastructure details like cloud provider,  container distros, container orchestrator and type of deployment. This is one uniform API to manage and control security alerts, policies and response to alerts for microservices running anywhere i.e. managed pure greenfield container deployments or a mix of containers, VMs and serverless paradigms like AWS Fargate.
 
-API version: v2.5.0
+API version: v2.5.2
 Contact: community@deepfence.io
 */
 
@@ -64,6 +64,7 @@ type ModelHost struct {
 	SecretLatestScanId string `json:"secret_latest_scan_id"`
 	SecretScanStatus string `json:"secret_scan_status"`
 	SecretsCount int32 `json:"secrets_count"`
+	Tags []string `json:"tags"`
 	Uptime int32 `json:"uptime"`
 	Version string `json:"version"`
 	VulnerabilitiesCount int32 `json:"vulnerabilities_count"`
@@ -78,7 +79,7 @@ type _ModelHost ModelHost
 // This constructor will assign default values to properties that have it defined,
 // and makes sure properties required by API are set, but the set of arguments
 // will change when the set of required properties is changed
-func NewModelHost(agentRunning bool, availabilityZone string, cloudAccountId string, cloudProvider string, cloudRegion string, cloudWarnAlarmCount int32, complianceLatestScanId string, complianceScanStatus string, compliancesCount int32, containerImages []ModelContainerImage, containers []ModelContainer, cpuMax float32, cpuUsage float32, exploitableMalwaresCount int32, exploitableSecretsCount int32, exploitableVulnerabilitiesCount int32, hostName string, inboundConnections []ModelConnection, instanceId string, instanceType string, isConsoleVm bool, kernelId string, kernelVersion string, localCidr []interface{}, localNetworks []interface{}, malwareLatestScanId string, malwareScanStatus string, malwaresCount int32, memoryMax int32, memoryUsage int32, nodeId string, nodeName string, os string, outboundConnections []ModelConnection, pods []ModelPod, privateIp []interface{}, processes []ModelProcess, publicIp []interface{}, resourceGroup string, secretLatestScanId string, secretScanStatus string, secretsCount int32, uptime int32, version string, vulnerabilitiesCount int32, vulnerabilityLatestScanId string, vulnerabilityScanStatus string, warnAlarmCount int32) *ModelHost {
+func NewModelHost(agentRunning bool, availabilityZone string, cloudAccountId string, cloudProvider string, cloudRegion string, cloudWarnAlarmCount int32, complianceLatestScanId string, complianceScanStatus string, compliancesCount int32, containerImages []ModelContainerImage, containers []ModelContainer, cpuMax float32, cpuUsage float32, exploitableMalwaresCount int32, exploitableSecretsCount int32, exploitableVulnerabilitiesCount int32, hostName string, inboundConnections []ModelConnection, instanceId string, instanceType string, isConsoleVm bool, kernelId string, kernelVersion string, localCidr []interface{}, localNetworks []interface{}, malwareLatestScanId string, malwareScanStatus string, malwaresCount int32, memoryMax int32, memoryUsage int32, nodeId string, nodeName string, os string, outboundConnections []ModelConnection, pods []ModelPod, privateIp []interface{}, processes []ModelProcess, publicIp []interface{}, resourceGroup string, secretLatestScanId string, secretScanStatus string, secretsCount int32, tags []string, uptime int32, version string, vulnerabilitiesCount int32, vulnerabilityLatestScanId string, vulnerabilityScanStatus string, warnAlarmCount int32) *ModelHost {
 	this := ModelHost{}
 	this.AgentRunning = agentRunning
 	this.AvailabilityZone = availabilityZone
@@ -122,6 +123,7 @@ func NewModelHost(agentRunning bool, availabilityZone string, cloudAccountId str
 	this.SecretLatestScanId = secretLatestScanId
 	this.SecretScanStatus = secretScanStatus
 	this.SecretsCount = secretsCount
+	this.Tags = tags
 	this.Uptime = uptime
 	this.Version = version
 	this.VulnerabilitiesCount = vulnerabilitiesCount
@@ -1167,6 +1169,32 @@ func (o *ModelHost) SetSecretsCount(v int32) {
 	o.SecretsCount = v
 }
 
+// GetTags returns the Tags field value
+// If the value is explicit nil, the zero value for []string will be returned
+func (o *ModelHost) GetTags() []string {
+	if o == nil {
+		var ret []string
+		return ret
+	}
+
+	return o.Tags
+}
+
+// GetTagsOk returns a tuple with the Tags field value
+// and a boolean to check if the value has been set.
+// NOTE: If the value is an explicit nil, `nil, true` will be returned
+func (o *ModelHost) GetTagsOk() ([]string, bool) {
+	if o == nil || IsNil(o.Tags) {
+		return nil, false
+	}
+	return o.Tags, true
+}
+
+// SetTags sets field value
+func (o *ModelHost) SetTags(v []string) {
+	o.Tags = v
+}
+
 // GetUptime returns the Uptime field value
 func (o *ModelHost) GetUptime() int32 {
 	if o == nil {
@@ -1383,6 +1411,9 @@ func (o ModelHost) ToMap() (map[string]interface{}, error) {
 	toSerialize["secret_latest_scan_id"] = o.SecretLatestScanId
 	toSerialize["secret_scan_status"] = o.SecretScanStatus
 	toSerialize["secrets_count"] = o.SecretsCount
+	if o.Tags != nil {
+		toSerialize["tags"] = o.Tags
+	}
 	toSerialize["uptime"] = o.Uptime
 	toSerialize["version"] = o.Version
 	toSerialize["vulnerabilities_count"] = o.VulnerabilitiesCount
@@ -1439,6 +1470,7 @@ func (o *ModelHost) UnmarshalJSON(data []byte) (err error) {
 		"secret_latest_scan_id",
 		"secret_scan_status",
 		"secrets_count",
+		"tags",
 		"uptime",
 		"version",
 		"vulnerabilities_count",

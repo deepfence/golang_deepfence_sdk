@@ -3,7 +3,7 @@ Deepfence ThreatMapper
 
 Deepfence Runtime API provides programmatic control over Deepfence microservice securing your container, kubernetes and cloud deployments. The API abstracts away underlying infrastructure details like cloud provider,  container distros, container orchestrator and type of deployment. This is one uniform API to manage and control security alerts, policies and response to alerts for microservices running anywhere i.e. managed pure greenfield container deployments or a mix of containers, VMs and serverless paradigms like AWS Fargate.
 
-API version: v2.5.0
+API version: v2.5.2
 Contact: community@deepfence.io
 */
 
@@ -76,6 +76,7 @@ type IngestersCloudResource struct {
 	PublicIps interface{} `json:"public_ips,omitempty"`
 	PublicNetworkAccess *string `json:"public_network_access,omitempty"`
 	Region *string `json:"region,omitempty"`
+	ResourceGroup *string `json:"resource_group,omitempty"`
 	ResourceId *string `json:"resource_id,omitempty"`
 	ResourceVpcConfig interface{} `json:"resource_vpc_config,omitempty"`
 	ResourcesVpcConfig interface{} `json:"resources_vpc_config,omitempty"`
@@ -1923,6 +1924,38 @@ func (o *IngestersCloudResource) SetRegion(v string) {
 	o.Region = &v
 }
 
+// GetResourceGroup returns the ResourceGroup field value if set, zero value otherwise.
+func (o *IngestersCloudResource) GetResourceGroup() string {
+	if o == nil || IsNil(o.ResourceGroup) {
+		var ret string
+		return ret
+	}
+	return *o.ResourceGroup
+}
+
+// GetResourceGroupOk returns a tuple with the ResourceGroup field value if set, nil otherwise
+// and a boolean to check if the value has been set.
+func (o *IngestersCloudResource) GetResourceGroupOk() (*string, bool) {
+	if o == nil || IsNil(o.ResourceGroup) {
+		return nil, false
+	}
+	return o.ResourceGroup, true
+}
+
+// HasResourceGroup returns a boolean if a field has been set.
+func (o *IngestersCloudResource) HasResourceGroup() bool {
+	if o != nil && !IsNil(o.ResourceGroup) {
+		return true
+	}
+
+	return false
+}
+
+// SetResourceGroup gets a reference to the given string and assigns it to the ResourceGroup field.
+func (o *IngestersCloudResource) SetResourceGroup(v string) {
+	o.ResourceGroup = &v
+}
+
 // GetResourceId returns the ResourceId field value if set, zero value otherwise.
 func (o *IngestersCloudResource) GetResourceId() string {
 	if o == nil || IsNil(o.ResourceId) {
@@ -2783,6 +2816,9 @@ func (o IngestersCloudResource) ToMap() (map[string]interface{}, error) {
 	}
 	if !IsNil(o.Region) {
 		toSerialize["region"] = o.Region
+	}
+	if !IsNil(o.ResourceGroup) {
+		toSerialize["resource_group"] = o.ResourceGroup
 	}
 	if !IsNil(o.ResourceId) {
 		toSerialize["resource_id"] = o.ResourceId

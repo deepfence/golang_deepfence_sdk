@@ -7,6 +7,7 @@ Name | Type | Description | Notes
 **Completion** | **string** |  | 
 **FieldName** | **string** |  | 
 **Filters** | Pointer to [**ReportersFieldsFilters**](ReportersFieldsFilters.md) |  | [optional] 
+**IsArrayField** | Pointer to **bool** |  | [optional] 
 **ScanId** | Pointer to **string** |  | [optional] 
 **Window** | [**ModelFetchWindow**](ModelFetchWindow.md) |  | 
 
@@ -93,6 +94,31 @@ SetFilters sets Filters field to given value.
 `func (o *CompletionCompletionNodeFieldReq) HasFilters() bool`
 
 HasFilters returns a boolean if a field has been set.
+
+### GetIsArrayField
+
+`func (o *CompletionCompletionNodeFieldReq) GetIsArrayField() bool`
+
+GetIsArrayField returns the IsArrayField field if non-nil, zero value otherwise.
+
+### GetIsArrayFieldOk
+
+`func (o *CompletionCompletionNodeFieldReq) GetIsArrayFieldOk() (*bool, bool)`
+
+GetIsArrayFieldOk returns a tuple with the IsArrayField field if it's non-nil, zero value otherwise
+and a boolean to check if the value has been set.
+
+### SetIsArrayField
+
+`func (o *CompletionCompletionNodeFieldReq) SetIsArrayField(v bool)`
+
+SetIsArrayField sets IsArrayField field to given value.
+
+### HasIsArrayField
+
+`func (o *CompletionCompletionNodeFieldReq) HasIsArrayField() bool`
+
+HasIsArrayField returns a boolean if a field has been set.
 
 ### GetScanId
 

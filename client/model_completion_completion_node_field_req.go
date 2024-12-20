@@ -3,7 +3,7 @@ Deepfence ThreatMapper
 
 Deepfence Runtime API provides programmatic control over Deepfence microservice securing your container, kubernetes and cloud deployments. The API abstracts away underlying infrastructure details like cloud provider,  container distros, container orchestrator and type of deployment. This is one uniform API to manage and control security alerts, policies and response to alerts for microservices running anywhere i.e. managed pure greenfield container deployments or a mix of containers, VMs and serverless paradigms like AWS Fargate.
 
-API version: v2.5.0
+API version: v2.5.2
 Contact: community@deepfence.io
 */
 
@@ -25,6 +25,7 @@ type CompletionCompletionNodeFieldReq struct {
 	Completion string `json:"completion"`
 	FieldName string `json:"field_name"`
 	Filters *ReportersFieldsFilters `json:"filters,omitempty"`
+	IsArrayField *bool `json:"is_array_field,omitempty"`
 	ScanId *string `json:"scan_id,omitempty"`
 	Window ModelFetchWindow `json:"window"`
 }
@@ -131,6 +132,38 @@ func (o *CompletionCompletionNodeFieldReq) SetFilters(v ReportersFieldsFilters) 
 	o.Filters = &v
 }
 
+// GetIsArrayField returns the IsArrayField field value if set, zero value otherwise.
+func (o *CompletionCompletionNodeFieldReq) GetIsArrayField() bool {
+	if o == nil || IsNil(o.IsArrayField) {
+		var ret bool
+		return ret
+	}
+	return *o.IsArrayField
+}
+
+// GetIsArrayFieldOk returns a tuple with the IsArrayField field value if set, nil otherwise
+// and a boolean to check if the value has been set.
+func (o *CompletionCompletionNodeFieldReq) GetIsArrayFieldOk() (*bool, bool) {
+	if o == nil || IsNil(o.IsArrayField) {
+		return nil, false
+	}
+	return o.IsArrayField, true
+}
+
+// HasIsArrayField returns a boolean if a field has been set.
+func (o *CompletionCompletionNodeFieldReq) HasIsArrayField() bool {
+	if o != nil && !IsNil(o.IsArrayField) {
+		return true
+	}
+
+	return false
+}
+
+// SetIsArrayField gets a reference to the given bool and assigns it to the IsArrayField field.
+func (o *CompletionCompletionNodeFieldReq) SetIsArrayField(v bool) {
+	o.IsArrayField = &v
+}
+
 // GetScanId returns the ScanId field value if set, zero value otherwise.
 func (o *CompletionCompletionNodeFieldReq) GetScanId() string {
 	if o == nil || IsNil(o.ScanId) {
@@ -201,6 +234,9 @@ func (o CompletionCompletionNodeFieldReq) ToMap() (map[string]interface{}, error
 	toSerialize["field_name"] = o.FieldName
 	if !IsNil(o.Filters) {
 		toSerialize["filters"] = o.Filters
+	}
+	if !IsNil(o.IsArrayField) {
+		toSerialize["is_array_field"] = o.IsArrayField
 	}
 	if !IsNil(o.ScanId) {
 		toSerialize["scan_id"] = o.ScanId
