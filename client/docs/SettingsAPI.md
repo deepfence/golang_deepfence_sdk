@@ -6,18 +6,21 @@ Method | HTTP request | Description
 ------------- | ------------- | -------------
 [**AddEmailConfiguration**](SettingsAPI.md#AddEmailConfiguration) | **Post** /deepfence/settings/email | Add Email Configuration
 [**AddScheduledTask**](SettingsAPI.md#AddScheduledTask) | **Post** /deepfence/scheduled-task | Add scheduled task
+[**DatabaseInfo**](SettingsAPI.md#DatabaseInfo) | **Get** /deepfence/database/info | Get Database Info
 [**DeleteCustomScheduledTask**](SettingsAPI.md#DeleteCustomScheduledTask) | **Delete** /deepfence/scheduled-task/{id} | Delete Custom Schedule task
 [**DeleteEmailConfiguration**](SettingsAPI.md#DeleteEmailConfiguration) | **Delete** /deepfence/settings/email/{config_id} | Delete Email Configurations
 [**DeleteLicense**](SettingsAPI.md#DeleteLicense) | **Delete** /deepfence/license | Delete License
 [**GenerateLicense**](SettingsAPI.md#GenerateLicense) | **Post** /deepfence/license/generate | Generate License Key
 [**GetAgentBinaryDownloadURL**](SettingsAPI.md#GetAgentBinaryDownloadURL) | **Get** /deepfence/agent-deployment/binary/download-url | Get agent binary download url
 [**GetAgentVersions**](SettingsAPI.md#GetAgentVersions) | **Get** /deepfence/settings/agent/versions | Get available agent versions
+[**GetDeepfenceCommunicationMessages**](SettingsAPI.md#GetDeepfenceCommunicationMessages) | **Get** /deepfence/deepfence-communication/message | Get Deepfence communication messages
 [**GetEmailConfiguration**](SettingsAPI.md#GetEmailConfiguration) | **Get** /deepfence/settings/email | Get Email Configurations
 [**GetLicense**](SettingsAPI.md#GetLicense) | **Get** /deepfence/license | Get License Details
 [**GetScheduledTasks**](SettingsAPI.md#GetScheduledTasks) | **Get** /deepfence/scheduled-task | Get scheduled tasks
 [**GetSettings**](SettingsAPI.md#GetSettings) | **Get** /deepfence/settings/global-settings | Get settings
 [**GetUserAuditLogs**](SettingsAPI.md#GetUserAuditLogs) | **Post** /deepfence/settings/user-audit-log | Get user audit logs
 [**GetUserAuditLogsCount**](SettingsAPI.md#GetUserAuditLogsCount) | **Get** /deepfence/settings/user-audit-log/count | Get user audit logs count
+[**MarkDeepfenceCommunicationRead**](SettingsAPI.md#MarkDeepfenceCommunicationRead) | **Put** /deepfence/deepfence-communication/message/{id}/read | Mark Deepfence communication message read
 [**RegisterLicense**](SettingsAPI.md#RegisterLicense) | **Post** /deepfence/license | Register License
 [**TestConfiguredEmail**](SettingsAPI.md#TestConfiguredEmail) | **Post** /deepfence/settings/email/test | Test Configured Email
 [**TestUnconfiguredEmail**](SettingsAPI.md#TestUnconfiguredEmail) | **Post** /deepfence/settings/email/test-unconfigured | Test Unconfigured Email
@@ -154,6 +157,67 @@ Name | Type | Description  | Notes
 ### HTTP request headers
 
 - **Content-Type**: application/json
+- **Accept**: application/json
+
+[[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints)
+[[Back to Model list]](../README.md#documentation-for-models)
+[[Back to README]](../README.md)
+
+
+## DatabaseInfo
+
+> ModelDatabaseInfoResponse DatabaseInfo(ctx).Execute()
+
+Get Database Info
+
+
+
+### Example
+
+```go
+package main
+
+import (
+	"context"
+	"fmt"
+	"os"
+	openapiclient "github.com/deepfence/golang_deepfence_sdk/client"
+)
+
+func main() {
+
+	configuration := openapiclient.NewConfiguration()
+	apiClient := openapiclient.NewAPIClient(configuration)
+	resp, r, err := apiClient.SettingsAPI.DatabaseInfo(context.Background()).Execute()
+	if err != nil {
+		fmt.Fprintf(os.Stderr, "Error when calling `SettingsAPI.DatabaseInfo``: %v\n", err)
+		fmt.Fprintf(os.Stderr, "Full HTTP response: %v\n", r)
+	}
+	// response from `DatabaseInfo`: ModelDatabaseInfoResponse
+	fmt.Fprintf(os.Stdout, "Response from `SettingsAPI.DatabaseInfo`: %v\n", resp)
+}
+```
+
+### Path Parameters
+
+This endpoint does not need any parameter.
+
+### Other Parameters
+
+Other parameters are passed through a pointer to a apiDatabaseInfoRequest struct via the builder pattern
+
+
+### Return type
+
+[**ModelDatabaseInfoResponse**](ModelDatabaseInfoResponse.md)
+
+### Authorization
+
+[bearer_token](../README.md#bearer_token)
+
+### HTTP request headers
+
+- **Content-Type**: Not defined
 - **Accept**: application/json
 
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints)
@@ -544,6 +608,67 @@ Other parameters are passed through a pointer to a apiGetAgentVersionsRequest st
 [[Back to README]](../README.md)
 
 
+## GetDeepfenceCommunicationMessages
+
+> []ModelDeepfenceCommunication GetDeepfenceCommunicationMessages(ctx).Execute()
+
+Get Deepfence communication messages
+
+
+
+### Example
+
+```go
+package main
+
+import (
+	"context"
+	"fmt"
+	"os"
+	openapiclient "github.com/deepfence/golang_deepfence_sdk/client"
+)
+
+func main() {
+
+	configuration := openapiclient.NewConfiguration()
+	apiClient := openapiclient.NewAPIClient(configuration)
+	resp, r, err := apiClient.SettingsAPI.GetDeepfenceCommunicationMessages(context.Background()).Execute()
+	if err != nil {
+		fmt.Fprintf(os.Stderr, "Error when calling `SettingsAPI.GetDeepfenceCommunicationMessages``: %v\n", err)
+		fmt.Fprintf(os.Stderr, "Full HTTP response: %v\n", r)
+	}
+	// response from `GetDeepfenceCommunicationMessages`: []ModelDeepfenceCommunication
+	fmt.Fprintf(os.Stdout, "Response from `SettingsAPI.GetDeepfenceCommunicationMessages`: %v\n", resp)
+}
+```
+
+### Path Parameters
+
+This endpoint does not need any parameter.
+
+### Other Parameters
+
+Other parameters are passed through a pointer to a apiGetDeepfenceCommunicationMessagesRequest struct via the builder pattern
+
+
+### Return type
+
+[**[]ModelDeepfenceCommunication**](ModelDeepfenceCommunication.md)
+
+### Authorization
+
+[bearer_token](../README.md#bearer_token)
+
+### HTTP request headers
+
+- **Content-Type**: Not defined
+- **Accept**: application/json
+
+[[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints)
+[[Back to Model list]](../README.md#documentation-for-models)
+[[Back to README]](../README.md)
+
+
 ## GetEmailConfiguration
 
 > []ModelEmailConfigurationResp GetEmailConfiguration(ctx).Execute()
@@ -900,6 +1025,74 @@ Other parameters are passed through a pointer to a apiGetUserAuditLogsCountReque
 ### Return type
 
 [**SearchSearchCountResp**](SearchSearchCountResp.md)
+
+### Authorization
+
+[bearer_token](../README.md#bearer_token)
+
+### HTTP request headers
+
+- **Content-Type**: Not defined
+- **Accept**: application/json
+
+[[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints)
+[[Back to Model list]](../README.md#documentation-for-models)
+[[Back to README]](../README.md)
+
+
+## MarkDeepfenceCommunicationRead
+
+> MarkDeepfenceCommunicationRead(ctx, id).Execute()
+
+Mark Deepfence communication message read
+
+
+
+### Example
+
+```go
+package main
+
+import (
+	"context"
+	"fmt"
+	"os"
+	openapiclient "github.com/deepfence/golang_deepfence_sdk/client"
+)
+
+func main() {
+	id := int32(56) // int32 | 
+
+	configuration := openapiclient.NewConfiguration()
+	apiClient := openapiclient.NewAPIClient(configuration)
+	r, err := apiClient.SettingsAPI.MarkDeepfenceCommunicationRead(context.Background(), id).Execute()
+	if err != nil {
+		fmt.Fprintf(os.Stderr, "Error when calling `SettingsAPI.MarkDeepfenceCommunicationRead``: %v\n", err)
+		fmt.Fprintf(os.Stderr, "Full HTTP response: %v\n", r)
+	}
+}
+```
+
+### Path Parameters
+
+
+Name | Type | Description  | Notes
+------------- | ------------- | ------------- | -------------
+**ctx** | **context.Context** | context for authentication, logging, cancellation, deadlines, tracing, etc.
+**id** | **int32** |  | 
+
+### Other Parameters
+
+Other parameters are passed through a pointer to a apiMarkDeepfenceCommunicationReadRequest struct via the builder pattern
+
+
+Name | Type | Description  | Notes
+------------- | ------------- | ------------- | -------------
+
+
+### Return type
+
+ (empty response body)
 
 ### Authorization
 

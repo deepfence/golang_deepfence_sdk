@@ -129,6 +129,8 @@ docs/ModelComplinaceScanResultsGroupReq.md
 docs/ModelConnection.md
 docs/ModelContainer.md
 docs/ModelContainerImage.md
+docs/ModelDatabaseInfoResponse.md
+docs/ModelDeepfenceCommunication.md
 docs/ModelDeleteIntegrationReq.md
 docs/ModelDeleteRegistryBulkReq.md
 docs/ModelDownloadReportResponse.md
@@ -358,6 +360,8 @@ model_model_complinace_scan_results_group_req.go
 model_model_connection.go
 model_model_container.go
 model_model_container_image.go
+model_model_database_info_response.go
+model_model_deepfence_communication.go
 model_model_delete_integration_req.go
 model_model_delete_registry_bulk_req.go
 model_model_download_report_response.go

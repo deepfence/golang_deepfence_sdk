@@ -16,7 +16,7 @@ info:
     url: https://www.apache.org/licenses/LICENSE-2.0
   termsOfService: /tos
   title: Deepfence ThreatMapper
-  version: v2.5.2
+  version: v2.5.3
 externalDocs:
   description: Deepfence Community
   url: https://community.deepfence.io
@@ -1267,6 +1267,44 @@ paths:
       summary: Fetch Kubernetes Cluster Actions
       tags:
       - Controls
+  /deepfence/database/info:
+    get:
+      description: get database updated at info
+      operationId: databaseInfo
+      responses:
+        "200":
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ModelDatabaseInfoResponse'
+          description: OK
+        "400":
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ApiDocsBadRequestResponse'
+          description: Bad Request
+        "401":
+          description: Unauthorized
+        "403":
+          description: Forbidden
+        "404":
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ApiDocsFailureResponse'
+          description: Not Found
+        "500":
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ApiDocsFailureResponse'
+          description: Internal Server Error
+      security:
+      - bearer_token: []
+      summary: Get Database Info
+      tags:
+      - Settings
   /deepfence/database/malware:
     put:
       description: Upload malware rules for use in malware scans
@@ -1437,6 +1475,88 @@ paths:
       security:
       - bearer_token: []
       summary: Upload Vulnerability Database
+      tags:
+      - Settings
+  /deepfence/deepfence-communication/message:
+    get:
+      description: Get Deepfence communication messages
+      operationId: getDeepfenceCommunicationMessages
+      responses:
+        "200":
+          content:
+            application/json:
+              schema:
+                items:
+                  $ref: '#/components/schemas/ModelDeepfenceCommunication'
+                type: array
+          description: OK
+        "400":
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ApiDocsBadRequestResponse'
+          description: Bad Request
+        "401":
+          description: Unauthorized
+        "403":
+          description: Forbidden
+        "404":
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ApiDocsFailureResponse'
+          description: Not Found
+        "500":
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ApiDocsFailureResponse'
+          description: Internal Server Error
+      security:
+      - bearer_token: []
+      summary: Get Deepfence communication messages
+      tags:
+      - Settings
+  /deepfence/deepfence-communication/message/{id}/read:
+    put:
+      description: Mark Deepfence communication message read
+      operationId: markDeepfenceCommunicationRead
+      parameters:
+      - explode: false
+        in: path
+        name: id
+        required: true
+        schema:
+          type: integer
+        style: simple
+      responses:
+        "204":
+          description: No Content
+        "400":
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ApiDocsBadRequestResponse'
+          description: Bad Request
+        "401":
+          description: Unauthorized
+        "403":
+          description: Forbidden
+        "404":
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ApiDocsFailureResponse'
+          description: Not Found
+        "500":
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ApiDocsFailureResponse'
+          description: Internal Server Error
+      security:
+      - bearer_token: []
+      summary: Mark Deepfence communication message read
       tags:
       - Settings
   /deepfence/diagnosis/agent-logs:
@@ -14530,6 +14650,59 @@ components:
       - vulnerabilities_count
       - vulnerability_latest_scan_id
       - vulnerability_scan_status
+      type: object
+    ModelDatabaseInfoResponse:
+      example:
+        posture_controls_updated_at: 2000-01-23T04:56:07.000+00:00
+        malware_rules_updated_at: 2000-01-23T04:56:07.000+00:00
+        secrets_rules_updated_at: 2000-01-23T04:56:07.000+00:00
+        vulnerability_db_updated_at: 2000-01-23T04:56:07.000+00:00
+      properties:
+        malware_rules_updated_at:
+          format: date-time
+          type: string
+        posture_controls_updated_at:
+          format: date-time
+          type: string
+        secrets_rules_updated_at:
+          format: date-time
+          type: string
+        vulnerability_db_updated_at:
+          format: date-time
+          type: string
+      type: object
+    ModelDeepfenceCommunication:
+      example:
+        button_content: button_content
+        read: true
+        updated_at: 2000-01-23T04:56:07.000+00:00
+        link: link
+        created_at: 2000-01-23T04:56:07.000+00:00
+        link_title: link_title
+        id: 0
+        title: title
+        content: content
+      properties:
+        button_content:
+          type: string
+        content:
+          type: string
+        created_at:
+          format: date-time
+          type: string
+        id:
+          type: integer
+        link:
+          type: string
+        link_title:
+          type: string
+        read:
+          type: boolean
+        title:
+          type: string
+        updated_at:
+          format: date-time
+          type: string
       type: object
     ModelDeleteIntegrationReq:
       example:
