@@ -69,7 +69,7 @@ func StreamConsumerFunc(isAdd bool, deltas []openapi.ModelNodeIdentifier) {
 // This is a callback function called by streamer when we encounter any error
 // during streaming.
 func OnErrorCallback(err error) {
-	log.Error().Msgf("Error occured during the streaming:%v", err)
+	log.Error().Msgf("Error occurred during the streaming:%v", err)
 	//Implementations can either choose to cancel the context and stop streaming
 	//or we can just log the error and continue.
 	ctxCancelFunc()
